@@ -1,0 +1,725 @@
+{
+ "tk1": {
+  "title": "Calentamiento y respiración",
+  "sub": "Movilidad articular, entrar en calor, respiración con los pasos, respiración en ráfaga, tensión y relajación",
+  "intro": "Primera lección. Todavía no hay golpes ni técnicas. Un buen guerrero empieza con las articulaciones calientes y la respiración tranquila. Hazlo conmigo, paso a paso.",
+  "safety": "Calienta antes de cada entrenamiento. Si notas un dolor agudo en una articulación, para de inmediato.",
+  "outro": "Muy bien. Las articulaciones ya están calientes y la respiración ha entrado en ritmo. En la próxima clase aprenderemos la guardia y el juego de pies.",
+  "home": "Tarea para casa: cada mañana, calienta y practica la respiración con los pasos durante diez minutos, siete días seguidos.",
+  "steps": {
+   "tk1-1": {
+    "title": "Rotaciones articulares de arriba abajo",
+    "say": "Ponte de pie, con los pies a la anchura de los hombros. Gira el cuello muy despacio, cinco vueltas en cada sentido. Después, gira los hombros, los codos y las muñecas. Luego, la cadera, las rodillas y los tobillos. Ve en orden, de arriba abajo, con movimientos redondos y suaves, sin tirones. Solo con las articulaciones calientes el cuerpo está seguro al caer y al golpear.",
+    "cues": [
+     "De arriba abajo: cuello → hombros → codos → muñecas → cadera → rodillas → tobillos",
+     "5 vueltas por articulación en cada sentido",
+     "Despacio, en círculo, sin tirones"
+    ],
+    "mistakes": [
+     "Girar el cuello muy deprisa o echarlo hacia atrás con fuerza",
+     "Aguantar la respiración al girar"
+    ],
+    "drill": {
+     "label": "Rotaciones articulares",
+     "say": "Te toca. Rotaciones articulares durante noventa segundos. Comienza la cuenta regresiva."
+    }
+   },
+   "tk1-2": {
+    "title": "Entrar en calor",
+    "say": "Corre en el sitio, subiendo bien las rodillas, durante treinta segundos. Luego, diez sentadillas: baja la cadera como si te sentaras en una silla, con la espalda recta y las rodillas en la dirección de las puntas de los pies. Después, diez flexiones; si aún no tienes costumbre, apoya las rodillas. El objetivo es que el cuerpo se caliente y la respiración se acelere un poco, no llegar al agotamiento.",
+    "cues": [
+     "30 segundos de carrera con rodillas altas",
+     "10 sentadillas: espalda recta, rodillas hacia las puntas de los pies",
+     "10 flexiones (puedes apoyar las rodillas)"
+    ],
+    "mistakes": [
+     "Rodillas que se van hacia dentro en la sentadilla",
+     "Espalda hundida en las flexiones"
+    ],
+    "drill": {
+     "label": "Sentadillas",
+     "say": "Te toca. Sentadillas: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk1-3": {
+    "title": "Respiración con los pasos",
+    "say": "Este es un ejercicio de respiración clásico de los sistemas de combate rusos. Camina a ritmo constante. Inhala por la nariz durante cuatro pasos y exhala por la boca durante cuatro pasos. Después de un minuto, baja a tres pasos, luego a dos, luego a uno. Después, vuelve a subir hasta cuatro pasos. Recuerda bien: la respiración guía el movimiento. Nunca aguantes la respiración.",
+    "cues": [
+     "Inhala por la nariz 4 pasos – exhala por la boca 4 pasos",
+     "Baja poco a poco 4 → 3 → 2 → 1, y vuelve a subir",
+     "Hombros sueltos, sin aguantar la respiración"
+    ],
+    "mistakes": [
+     "Aguantar la respiración al cambiar de ritmo",
+     "Subir los hombros al inhalar"
+    ],
+    "drill": {
+     "label": "Caminar respirando con los pasos",
+     "say": "Te toca. Caminar respirando con los pasos durante ciento veinte segundos. Comienza la cuenta regresiva."
+    }
+   },
+   "tk1-4": {
+    "title": "Respiración en ráfaga bajo esfuerzo",
+    "say": "Cuando estés cansado o tenso, respira corto y rápido: inhala por la nariz y exhala con fuerza por la boca, varias veces seguidas, como si apagaras una vela. Pruébalo ahora: mantén la posición alta de flexión durante veinte segundos y respira en ráfaga sin parar. Vas a notar los músculos menos rígidos y la cabeza despejada.",
+    "cues": [
+     "Inhalación corta por la nariz – soplo fuerte por la boca",
+     "Seguido, como al apagar una vela",
+     "Plancha alta 20 segundos respirando"
+    ],
+    "mistakes": [
+     "Respirar tan deprisa que te mareas: baja el ritmo",
+     "Cadera hundida en la plancha"
+    ],
+    "drill": {
+     "label": "Plancha alta + respiración en ráfaga",
+     "say": "Te toca. Plancha alta con respiración en ráfaga durante veinte segundos. Comienza la cuenta regresiva."
+    }
+   },
+   "tk1-5": {
+    "title": "Tensión y relajación de todo el cuerpo",
+    "say": "Acuéstate boca arriba sobre el tatami. Inhala y aprieta con fuerza los pies durante tres segundos; luego exhala y relaja del todo. Sube poco a poco: pantorrillas, muslos, abdomen, puños, hombros y toda la cara. Al final, tensa todo el cuerpo una vez y suelta. Quien sabe relajarse aguanta mejor los impactos, se mueve con más velocidad y se lesiona menos.",
+    "cues": [
+     "Inhala – aprieta 3 segundos",
+     "Exhala – relaja por completo",
+     "De los pies a la cara"
+    ],
+    "mistakes": [
+     "Apretar tanto que da un calambre",
+     "Olvidar exhalar al soltar"
+    ],
+    "drill": {
+     "label": "Tensión y relajación",
+     "say": "Te toca. Tensión y relajación durante sesenta segundos. Comienza la cuenta regresiva."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "En las rotaciones articulares, ¿en qué orden conviene ir?",
+    "a": [
+     "De arriba abajo: cuello, hombros… hasta los tobillos",
+     "Al azar, cualquier articulación",
+     "Basta con girar los tobillos"
+    ],
+    "why": "Ir de arriba abajo te ayuda a no saltarte ninguna articulación."
+   },
+   {
+    "q": "En la respiración con los pasos, ¿por dónde inhalas?",
+    "a": [
+     "Por la boca",
+     "Por la nariz",
+     "Aguantas y luego inhalas"
+    ],
+    "why": "Inhalas por la nariz y exhalas por la boca, al ritmo de los pasos."
+   },
+   {
+    "q": "¿Cuándo se usa la respiración en ráfaga?",
+    "a": [
+     "Cuando estás cansado o tenso",
+     "Solo al dormir",
+     "Nunca"
+    ],
+    "why": "Respirar corto y fuerte reduce la tensión muscular y te mantiene lúcido durante el esfuerzo."
+   },
+   {
+    "q": "¿Por qué hay que saber relajarse?",
+    "a": [
+     "Para verse mejor",
+     "Para aguantar mejor los impactos, moverse con más velocidad y lesionarse menos",
+     "Para no tener que calentar"
+    ],
+    "why": "Un músculo rígido reacciona tarde y se lesiona con más facilidad."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Guardia y juego de pies",
+  "sub": "Barrera de manos, guardia de combate, paso deslizado, pivote",
+  "intro": "Los pies lo deciden todo. Solo si estás firme puedes defenderte, golpear y escapar. Hoy construimos los cimientos.",
+  "safety": "Entrena en un suelo plano que no resbale. Pasos cortos y firmes.",
+  "outro": "Ya tienes los cimientos. Unos pies firmes son media pelea. Próxima lección: aprender a caer con seguridad.",
+  "home": "Tarea para casa: cada día, diez minutos de guardia y desplazamientos, en tres rondas, durante siete días.",
+  "steps": {
+   "tk2-1": {
+    "title": "Guardia de alerta – barrera de manos",
+    "say": "Si alguien se te acerca con actitud agresiva, no cierres los puños todavía. Colócate un poco de lado, con el pie dominante retrasado medio paso. Abre las manos y llévalas delante del pecho, con las palmas hacia delante, como si dijeras: tranquilo. Tus manos son una barrera que mantiene la distancia. No pareces agresivo, pero en realidad estás preparado.",
+    "cues": [
+     "De lado, pie dominante medio paso atrás",
+     "Manos abiertas delante del pecho",
+     "Mantén la distancia, voz tranquila"
+    ],
+    "mistakes": [
+     "Cerrar los puños enseguida: el conflicto escala con facilidad",
+     "De frente, con los pies paralelos"
+    ],
+    "drill": {
+     "label": "Ponerse en barrera de manos",
+     "say": "Te toca. Ponerse en barrera de manos: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk2-2": {
+    "title": "Guardia de combate",
+    "say": "Si eres diestro: pie izquierdo delante y pie derecho retrasado. Los pies, un poco más separados que los hombros; la punta del pie delantero, algo girada hacia dentro; y el talón trasero, un poco levantado. Rodillas flexionadas y el peso repartido entre las dos piernas. Las manos, delante de la cara; los codos, cerrados para cubrir las costillas; la barbilla, hacia abajo; y la mirada, por encima de los puños. Si eres zurdo, hazlo al revés.",
+    "cues": [
+     "Pie izquierdo delante (diestros)",
+     "Rodillas flexionadas, talón trasero algo levantado",
+     "Manos cubren la cara, codos las costillas, barbilla abajo"
+    ],
+    "mistakes": [
+     "Los dos pies en la misma línea: pierdes el equilibrio con facilidad",
+     "Levantar la barbilla y bajar las manos"
+    ],
+    "drill": {
+     "label": "Ponerse en guardia",
+     "say": "Te toca. Ponerse en guardia: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk2-3": {
+    "title": "Paso deslizado adelante y atrás",
+    "say": "Para avanzar: el pie delantero da primero un paso corto, y el trasero se desliza esa misma distancia. Para retroceder: el pie trasero sale primero, y el delantero lo sigue. Los pies rozan el suelo, sin saltar. Nunca cruces los pies ni los juntes. Después de cada paso, sigues en tu guardia inicial.",
+    "cues": [
+     "Avanzar: primero el pie delantero",
+     "Retroceder: primero el pie trasero",
+     "La distancia entre los pies no cambia"
+    ],
+    "mistakes": [
+     "Cruzar los pies",
+     "Saltar en lugar de deslizarte"
+    ],
+    "drill": {
+     "label": "Paso adelante y atrás",
+     "say": "Te toca. Paso adelante y atrás: veinte veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk2-4": {
+    "title": "Paso lateral",
+    "say": "Hacia la izquierda, sale primero el pie izquierdo; hacia la derecha, sale primero el derecho; el otro pie lo sigue deslizándose. Mantén la misma distancia entre los pies y las manos cubriendo la cara. En un suelo de barro resbaladizo, cuanto más corto es el paso, mayor es la firmeza.",
+    "cues": [
+     "Izquierda: primero el pie izquierdo",
+     "Derecha: primero el pie derecho",
+     "Pasos cortos en suelo resbaladizo"
+    ],
+    "mistakes": [
+     "El pie trasero pasa por delante del delantero",
+     "Bajar las manos al moverte"
+    ],
+    "drill": {
+     "label": "Paso lateral",
+     "say": "Te toca. Paso lateral: veinte veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk2-5": {
+    "title": "Pivote para cambiar de ángulo",
+    "say": "Ponte en guardia. Usa la punta del pie delantero como eje y gira el pie trasero en un arco de un cuarto de círculo. Todo tu cuerpo cambia noventa grados de orientación y sale de la línea de ataque del rival. Gira diez veces hacia un lado y luego cambia de sentido.",
+    "cues": [
+     "Pivota sobre la punta del pie delantero",
+     "El pie trasero barre un arco",
+     "Cambio de 90°, manos en guardia"
+    ],
+    "mistakes": [
+     "Pivotar sobre el talón",
+     "Erguirte al girar"
+    ],
+    "drill": {
+     "label": "Pivote en cada sentido",
+     "say": "Te toca. Pivote en cada sentido: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk2-6": {
+    "title": "Desplazamientos a la voz de mando",
+    "say": "Ahora muévete según mis órdenes durante treinta segundos: adelante, atrás, izquierda, derecha, gira. Mantén las manos arriba, la barbilla abajo y la respiración regular. Los pies, veloces; el tronco, siempre en calma.",
+    "cues": [
+     "Adelante – atrás – izquierda – derecha – gira",
+     "Manos y barbilla siempre en su sitio",
+     "Respiración regular"
+    ],
+    "mistakes": [
+     "Mirarte los pies",
+     "Pasos demasiado largos"
+    ],
+    "drill": {
+     "label": "Juego de pies a la voz de mando",
+     "say": "Te toca. Muévete según mis órdenes durante treinta segundos. Escucha bien.",
+     "calls": [
+      "¡Adelante!",
+      "¡Atrás!",
+      "¡Izquierda!",
+      "¡Derecha!",
+      "¡Gira!"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "¿Para qué sirve la barrera de manos?",
+    "a": [
+     "Para mantener la distancia sin parecer agresivo",
+     "Para golpear al rival de inmediato",
+     "Para cruzarte de brazos y esperar"
+    ],
+    "why": "Las manos abiertas mantienen la distancia y calman la situación."
+   },
+   {
+    "q": "Para retroceder, ¿qué pie sale primero?",
+    "a": [
+     "El delantero",
+     "El trasero",
+     "Los dos a la vez, saltando"
+    ],
+    "why": "Sale primero el pie más cercano a la dirección del movimiento."
+   },
+   {
+    "q": "¿Cuál es el error más peligroso al desplazarte?",
+    "a": [
+     "Cruzar los pies",
+     "Dar pasos cortos",
+     "Mantener las manos cubriendo la cara"
+    ],
+    "why": "Con los pies cruzados pierdes el equilibrio con mucha facilidad."
+   },
+   {
+    "q": "Al pivotar, ¿sobre qué parte del pie delantero giras?",
+    "a": [
+     "El talón",
+     "La punta del pie",
+     "El borde exterior del pie"
+    ],
+    "why": "Pivotar sobre la punta hace que el giro sea ligero y rápido."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Caídas seguras",
+  "sub": "Principios de la caída, caída hacia atrás, caída lateral, voltereta hacia delante",
+  "intro": "En este campamento, todos aprenden a caer antes que a derribar. Caer bien es una habilidad que salva vidas, incluso si resbalas en una calle mojada.",
+  "safety": "Practica solo sobre colchoneta gruesa. La barbilla, siempre recogida. Las volteretas, con un instructor presente.",
+  "outro": "Ya sabes caer. Desde hoy, el suelo ya no da miedo. Próxima lección: cubrirte y bloquear golpes.",
+  "home": "Tarea para casa: cada día, diez caídas hacia atrás y diez caídas laterales por lado sobre colchoneta gruesa, durante una semana.",
+  "steps": {
+   "tk3-1": {
+    "title": "Tres reglas de oro",
+    "say": "Tres reglas de oro para caer. Primera: la barbilla siempre pegada al pecho, para que la cabeza nunca golpee el suelo. Segunda: la espalda redonda como una rueda, para rodar y no caer de plano. Tercera: el brazo golpea el tatami a la vez que el cuerpo, para repartir la fuerza del impacto. Practica siempre sobre colchoneta gruesa. Nunca, bajo ningún concepto, sobre suelo duro.",
+    "cues": [
+     "Barbilla pegada al pecho",
+     "Espalda redonda como una rueda",
+     "El brazo golpea el tatami a la vez que el cuerpo"
+    ],
+    "mistakes": [
+     "Apoyar el brazo recto en el suelo al caer: te puedes romper la muñeca",
+     "Echar la cabeza hacia atrás"
+    ],
+    "drill": {
+     "label": "Espalda redonda, barbilla recogida",
+     "say": "Te toca. Espalda redonda, barbilla recogida: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk3-2": {
+    "title": "Caída hacia atrás desde sentado",
+    "say": "Siéntate en el tatami con las piernas estiradas hacia delante y los brazos al frente. Barbilla recogida, espalda redonda, y rueda hacia atrás. Cuando la parte alta de la espalda toque el tatami, extiende los brazos y golpea fuerte el tatami, a unos cuarenta y cinco grados del cuerpo, con las palmas hacia abajo. Exhala al tocar el tatami. Rueda de vuelta hasta quedar sentado. Hazlo diez veces.",
+    "cues": [
+     "Sentado, brazos al frente",
+     "Rueda hacia atrás, barbilla recogida",
+     "Golpea con los dos brazos a 45°, palmas abajo, exhala"
+    ],
+    "mistakes": [
+     "Golpear con los brazos demasiado lejos o demasiado pegados al cuerpo",
+     "Golpear con el codo en lugar de con todo el brazo"
+    ],
+    "drill": {
+     "label": "Caída atrás desde sentado",
+     "say": "Te toca. Caída atrás desde sentado: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk3-3": {
+    "title": "Caída hacia atrás desde cuclillas",
+    "say": "Ponte en cuclillas, con los brazos al frente. Baja los glúteos al tatami, cerca de los talones, y rueda hacia atrás como en el ejercicio anterior, golpeando con los dos brazos. No te dejes caer sentado de golpe. No dejes que la espalda recta golpee de plano. Cuando lo domines, levántate y vuelve a ponerte en cuclillas sin parar, subiendo la velocidad poco a poco.",
+    "cues": [
+     "Glúteos cerca de los talones",
+     "Rueda en redondo, sin caer de plano",
+     "Golpea con los brazos, exhala"
+    ],
+    "mistakes": [
+     "Dejarte caer sentado lejos de los talones",
+     "La cabeza rebota y toca el tatami"
+    ],
+    "drill": {
+     "label": "Caída atrás desde cuclillas",
+     "say": "Te toca. Caída atrás desde cuclillas: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk3-4": {
+    "title": "Caída lateral",
+    "say": "Desde cuclillas, estira la pierna derecha cruzándola por delante de la izquierda y deja caer el cuerpo de lado, hacia la derecha. Tocan el tatami, en este orden, la cadera derecha y luego el lado derecho de la espalda; el brazo derecho golpea el tatami. Barbilla recogida; la cabeza no toca el tatami. Luego cambia de lado. Es la caída más frecuente cuando te derriban.",
+    "cues": [
+     "Estira la pierna cruzándola por delante",
+     "Cadera → espalda tocan el tatami en orden",
+     "El brazo del mismo lado golpea el tatami"
+    ],
+    "mistakes": [
+     "Apoyar el codo",
+     "La cabeza golpea de lado contra el tatami"
+    ],
+    "drill": {
+     "label": "Caída lateral por lado",
+     "say": "Te toca. Caída lateral por cada lado: ocho veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk3-5": {
+    "title": "Voltereta hacia delante sobre el hombro",
+    "say": "Apoya una rodilla en el tatami, con el pie derecho delante. Curva el brazo derecho en un arco, como el aro de una rueda, y apoya el borde exterior del brazo en el tatami. Mira por encima del hombro izquierdo. Rueda en diagonal, del hombro derecho a la cadera izquierda. No ruedes por encima de la cabeza ni recto a lo largo de la columna. Termina sentado y estable, o de pie, con las manos arriba cubriendo la cara.",
+    "cues": [
+     "Brazo en arco, como una rueda",
+     "Rueda en diagonal: hombro derecho → cadera izquierda",
+     "Nunca sobre la cabeza; levántate cubriendo la cara"
+    ],
+    "mistakes": [
+     "Rodar recto sobre la cabeza: muy peligroso para el cuello",
+     "Doblar el brazo y que la cabeza toque el tatami"
+    ],
+    "drill": {
+     "label": "Voltereta por lado",
+     "say": "Te toca. Voltereta por cada lado: seis veces. Yo te llevo la cuenta."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Al caer, ¿dónde va la barbilla?",
+    "a": [
+     "Hacia arriba",
+     "Pegada al pecho",
+     "Girada hacia un lado"
+    ],
+    "why": "Recoges la barbilla para que la cabeza no golpee el suelo."
+   },
+   {
+    "q": "¿Con qué ángulo respecto al cuerpo golpea el brazo el tatami?",
+    "a": [
+     "Unos 45°",
+     "Pegado al cuerpo, 0°",
+     "Hacia el cielo"
+    ],
+    "why": "Unos cuarenta y cinco grados: reparte bien la fuerza sin que golpee el codo."
+   },
+   {
+    "q": "En la voltereta, ¿qué trayectoria sigue el cuerpo?",
+    "a": [
+     "Recta por encima de la cabeza",
+     "En diagonal, del hombro a la cadera contraria",
+     "Rodando de lado"
+    ],
+    "why": "Ruedas en diagonal sobre el hombro para proteger el cuello y la columna."
+   },
+   {
+    "q": "¿Dónde se practican las caídas?",
+    "a": [
+     "Sobre cemento, para acostumbrarse",
+     "Sobre colchoneta gruesa",
+     "En una escalera"
+    ],
+    "why": "Siempre sobre colchoneta gruesa: la seguridad es lo primero."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Cubrirse y bloquear",
+  "sub": "Guardia alta, cubrir la cabeza, parada, bloqueo con el antebrazo, salida en ángulo",
+  "intro": "Antes de aprender a golpear, hay que aprender a que no te golpeen. La mejor defensa es simple, compacta y siempre va acompañada de movimiento.",
+  "safety": "Por parejas y con guantes; el compañero ataca despacio, solo al veinte por ciento de su fuerza.",
+  "outro": "Ya tienes tu escudo. En la próxima lección aprenderemos los golpes básicos sobre almohadillas.",
+  "home": "Tarea para casa: cada día, cinco minutos de defensa frente al espejo, y dos veces por semana, trabajo lento por parejas.",
+  "steps": {
+   "tk4-1": {
+    "title": "Guardia alta",
+    "say": "Desde la guardia de combate, sube los puños a la altura de la frente, con los antebrazos verticales delante de la cara, como dos escudos. Codos cerrados, barbilla recogida y hombros arriba para proteger la mandíbula. Es la forma de cubrirte más segura cuando el golpe llega demasiado rápido y no te da tiempo a verlo.",
+    "cues": [
+     "Puños a la altura de la frente",
+     "Antebrazos verticales como escudos",
+     "Barbilla recogida, hombros cubren la mandíbula"
+    ],
+    "mistakes": [
+     "Cerrar los ojos al cubrirte",
+     "Abrir los codos y dejar las costillas al descubierto"
+    ],
+    "drill": {
+     "label": "Guardia alta",
+     "say": "Te toca. Guardia alta: quince veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk4-2": {
+    "title": "Cubrir la cabeza por completo",
+    "say": "Cuando te presionan con muchos golpes seguidos: las manos sujetan la parte de atrás de la cabeza, los codos se cierran delante de la cara, te inclinas y flexionas las rodillas. La cabeza queda protegida dentro de los brazos. Pero no te quedes quieto mucho tiempo en esta posición. Cúbrete y sal enseguida de la línea de ataque.",
+    "cues": [
+     "Manos detrás de la cabeza",
+     "Codos cerrados delante de la cara",
+     "Cúbrete y muévete enseguida"
+    ],
+    "mistakes": [
+     "Quedarte quieto recibiendo golpes",
+     "Dar la espalda"
+    ],
+    "drill": {
+     "label": "Cubrir la cabeza y salir de lado",
+     "say": "Te toca. Cubrir la cabeza y salir de lado: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk4-3": {
+    "title": "Parada",
+    "say": "Cuando un golpe recto viene hacia tu cara, no lo bloquees en seco. Con la palma de la mano, desvía suavemente la muñeca o el puño del rival hacia un lado, solo lo justo para que pase de largo junto a tu cara. Movimiento pequeño y corto; la mano vuelve a la guardia al instante.",
+    "cues": [
+     "Desvía con la palma",
+     "Solo lo justo para desviar el golpe",
+     "Vuelve enseguida a la guardia"
+    ],
+    "mistakes": [
+     "Barrer con la mano de forma demasiado amplia",
+     "Estirar el brazo para ir a buscar el golpe"
+    ],
+    "drill": {
+     "label": "Parada con cada mano",
+     "say": "Te toca. Parada con cada mano: veinte veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk4-4": {
+    "title": "Bloqueo alto con el antebrazo",
+    "say": "Cuando un golpe baja desde arriba, sube el antebrazo en diagonal delante de la frente, inclinado como un tejado, para que la fuerza resbale en lugar de caer de lleno sobre el hueso. Al mismo tiempo, da un paso en diagonal hacia delante o hacia fuera.",
+    "cues": [
+     "Antebrazo en diagonal delante de la frente",
+     "Inclinado como un tejado",
+     "Con paso en diagonal"
+    ],
+    "mistakes": [
+     "Antebrazo horizontal: recibe toda la fuerza",
+     "Quedarte en el sitio"
+    ],
+    "drill": {
+     "label": "Bloqueo alto con cada brazo",
+     "say": "Te toca. Bloqueo alto con cada brazo: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk4-5": {
+    "title": "Salida en ángulo – paso en diagonal",
+    "say": "La mejor defensa es no estar donde llega el golpe. Al hacer la parada, da a la vez un paso en diagonal de cuarenta y cinco grados hacia el exterior del brazo que golpea. Sales de la línea de ataque y quedas en una posición más segura para escapar.",
+    "cues": [
+     "Parada + paso en diagonal a 45°",
+     "Hacia fuera del brazo que golpea",
+     "Desde el ángulo seguro, escapa"
+    ],
+    "mistakes": [
+     "Retroceder en línea recta: el rival te persigue con facilidad",
+     "Meterte por dentro del otro brazo del rival"
+    ],
+    "drill": {
+     "label": "Parada + salida en ángulo por lado",
+     "say": "Te toca. Parada y salida en ángulo por cada lado: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk4-6": {
+    "title": "Trabajo lento por parejas",
+    "say": "Entrena con tu compañero, los dos con guantes. El que ataca lanza los golpes muy despacio, solo al veinte por ciento de su fuerza, apuntando a los guantes y no a la cara. El que defiende dice en voz alta la técnica que usa: guardia alta, parada, salida en ángulo. Solo cuando lo haces bien y con calma, subes poco a poco la velocidad.",
+    "cues": [
+     "Guantes, 20% de fuerza",
+     "Di el nombre de la técnica al hacerla",
+     "Primero bien, luego rápido"
+    ],
+    "mistakes": [
+     "Subir la velocidad demasiado pronto",
+     "Golpear de verdad la cara del compañero"
+    ],
+    "drill": {
+     "label": "Trabajo lento por parejas",
+     "say": "Te toca. Trabajo lento por parejas durante sesenta segundos. Comienza la cuenta regresiva."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Una parada correcta es:",
+    "a": [
+     "Un desvío pequeño, lo justo para apartar el golpe, y de vuelta a la guardia",
+     "Barrer con la mano muy amplio",
+     "Recibir el golpe con la cara"
+    ],
+    "why": "Movimiento pequeño y rápido, sin abrir la guardia."
+   },
+   {
+    "q": "Para bloquear un golpe que baja desde arriba, ¿cómo colocas el antebrazo?",
+    "a": [
+     "Horizontal",
+     "En diagonal, inclinado como un tejado",
+     "Bajado hasta el abdomen"
+    ],
+    "why": "Inclinado como un tejado, para que la fuerza resbale."
+   },
+   {
+    "q": "En la salida en ángulo, ¿hacia dónde das el paso?",
+    "a": [
+     "En diagonal a 45°, hacia fuera del brazo que golpea",
+     "Hacia atrás, en línea recta",
+     "Quedarte quieto"
+    ],
+    "why": "Sales de la línea de ataque hacia un ángulo seguro."
+   },
+   {
+    "q": "En el trabajo por parejas, ¿con cuánta fuerza golpea el atacante?",
+    "a": [
+     "Con toda su fuerza",
+     "Un 20% aproximadamente",
+     "Un 50%"
+    ],
+    "why": "Se practica despacio para aprender bien y con seguridad."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Golpes básicos en almohadillas",
+  "sub": "El puño, directos, golpe de palma, patada de empuje, combinación",
+  "intro": "Un buen golpe no tiene que ser bonito: solo tiene que ser correcto, compacto y seguro para ti. Hoy trabajamos sobre almohadillas, nunca contra una persona real.",
+  "safety": "Ponte vendas y guantes. Golpea solo almohadillas o el saco de boxeo.",
+  "outro": "Tus golpes ya tienen potencia y disciplina. Próxima lección: liberarte de un agarre de muñeca.",
+  "home": "Tarea para casa: tres sesiones por semana, cada una con cinco rondas de treinta segundos golpeando almohadillas o el saco de boxeo.",
+  "steps": {
+   "tk5-1": {
+    "title": "Cerrar bien el puño",
+    "say": "Enrolla los cuatro dedos hacia la palma. El pulgar se dobla firme por fuera, sobre el índice y el medio, nunca encerrado dentro. Al impactar, la muñeca queda alineada con el antebrazo, y la fuerza entra por los nudillos del índice y del medio. Si estás empezando, usa siempre vendas y guantes.",
+    "cues": [
+     "Enrolla los 4 dedos hacia la palma",
+     "Pulgar doblado por fuera",
+     "Muñeca alineada con el antebrazo"
+    ],
+    "mistakes": [
+     "Meter el pulgar dentro del puño",
+     "Doblar la muñeca al impactar"
+    ],
+    "drill": {
+     "label": "Cerrar y abrir bien el puño",
+     "say": "Te toca. Cerrar y abrir bien el puño: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk5-2": {
+    "title": "Directo de mano delantera",
+    "say": "Desde la guardia, lanza el puño delantero en línea recta, por el camino más corto. Gira el puño hacia abajo justo antes de impactar y sube el hombro para cubrir la barbilla. La otra mano se queda junto a la cara. Después del golpe, recoge el brazo por el mismo camino, tan veloz como salió.",
+    "cues": [
+     "La línea recta más corta",
+     "Gira el puño al impactar",
+     "Recoge rápido; la otra mano en guardia"
+    ],
+    "mistakes": [
+     "Echar el brazo atrás para tomar impulso",
+     "Bajar la mano trasera"
+    ],
+    "drill": {
+     "label": "Directo de mano delantera",
+     "say": "Te toca. Directo de mano delantera: veinte veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk5-3": {
+    "title": "Directo de mano trasera",
+    "say": "Empuja desde el talón trasero, gira la cadera y el hombro, y lanza el puño trasero recto hacia el objetivo. La punta del pie trasero también gira, como si apagaras una brasa con el pie. La fuerza viene de las piernas y de la cadera, no solo del brazo. Luego vuelve enseguida a la guardia.",
+    "cues": [
+     "Empuja desde la pierna trasera",
+     "Gira cadera – hombro – punta del pie trasero",
+     "Vuelve enseguida a la guardia"
+    ],
+    "mistakes": [
+     "Usar solo el brazo, sin girar la cadera",
+     "Inclinarte demasiado hacia delante y perder el equilibrio"
+    ],
+    "drill": {
+     "label": "Directo de mano trasera",
+     "say": "Te toca. Directo de mano trasera: veinte veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk5-4": {
+    "title": "Golpe con la base de la palma",
+    "say": "Flexiona la muñeca hacia atrás, abre la mano y dobla un poco los dedos. Golpea con la base de la palma, en línea recta, como un puñetazo. En una situación real de defensa personal, este golpe protege mejor tu mano que el puño desnudo, porque ningún nudillo choca contra un hueso duro.",
+    "cues": [
+     "Muñeca flexionada hacia atrás, mano abierta",
+     "Golpea con la base de la palma",
+     "En línea recta, como un puñetazo"
+    ],
+    "mistakes": [
+     "Golpear con la parte de los dedos",
+     "Dedos rígidos y estirados"
+    ],
+    "drill": {
+     "label": "Golpe de palma por lado",
+     "say": "Te toca. Golpe de palma por cada lado: quince veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk5-5": {
+    "title": "Patada frontal de empuje",
+    "say": "Sube la rodilla de la pierna trasera hasta la altura de la cadera. Luego empuja el talón recto hacia delante, como si abrieras una puerta de una patada, empujando con la cadera. El objetivo es el abdomen; aquí, el escudo de golpeo. Recoge la pierna y apóyala de nuevo en guardia. El propósito de esta patada es alejar al agresor y crear distancia para que puedas escapar.",
+    "cues": [
+     "Rodilla alta, a la altura de la cadera",
+     "Empuja con el talón y la cadera",
+     "Recoge la pierna a la guardia"
+    ],
+    "mistakes": [
+     "Patear con la punta del pie",
+     "Echarte demasiado hacia atrás"
+    ],
+    "drill": {
+     "label": "Patada de empuje por pierna",
+     "say": "Te toca. Patada de empuje con cada pierna: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk5-6": {
+    "title": "Combinación y salida",
+    "say": "Ahora lo unimos en una combinación: directo delantero, directo trasero, patada de empuje, y luego retrocede dos pasos hasta la barrera de manos. Haz tres rondas de treinta segundos sobre las almohadillas, con veinte segundos de descanso. Cada golpe, limpio y claro. Primero bien, luego rápido.",
+    "cues": [
+     "Delantero – trasero – patada de empuje",
+     "Retrocede 2 pasos, barrera de manos",
+     "3 rondas × 30 segundos, 20 segundos de descanso"
+    ],
+    "mistakes": [
+     "Olvidar retroceder después de la combinación",
+     "Golpear con prisa y perder la guardia"
+    ],
+    "drill": {
+     "label": "Ronda de combinación",
+     "say": "Te toca. Ronda de combinación: tres rondas de treinta segundos, con veinte segundos de descanso entre rondas."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "¿Dónde va el pulgar al cerrar el puño?",
+    "a": [
+     "Encerrado dentro",
+     "Doblado por fuera, sobre el índice y el medio",
+     "Estirado"
+    ],
+    "why": "Si lo encierras dentro, el pulgar se rompe con facilidad."
+   },
+   {
+    "q": "¿De dónde sale la fuerza del directo de mano trasera?",
+    "a": [
+     "Solo del brazo",
+     "De las piernas y la cadera",
+     "Del cuello"
+    ],
+    "why": "Empujas con la pierna, giras la cadera, y el hombro y el brazo la siguen."
+   },
+   {
+    "q": "¿Cuál es el objetivo principal de la patada de empuje en defensa personal?",
+    "a": [
+     "Crear distancia para escapar",
+     "Patear a la cabeza",
+     "Lucirse con la técnica"
+    ],
+    "why": "Alejas al agresor para poder irte con seguridad."
+   },
+   {
+    "q": "¿Por qué el golpe de palma es más seguro para la mano?",
+    "a": [
+     "Ningún nudillo choca contra un hueso duro",
+     "Porque es lento",
+     "Porque es suave"
+    ],
+    "why": "La base de la palma es firme y hay menos riesgo de lesionarte la mano."
+   }
+  ]
+ }
+}

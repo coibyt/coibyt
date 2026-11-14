@@ -1,0 +1,126 @@
+{
+"badge": {
+"d": 1462,
+"f": "badge-9ed5fe54.mp3"
+},
+"drill_10s": {
+"d": 1724,
+"f": "drill_10s-ed279d31.mp3"
+},
+"drill_start": {
+"d": 1880,
+"f": "drill_start-e80d1498.mp3"
+},
+"gate": {
+"d": 12826,
+"f": "gate-7bfa1e10.mp3"
+},
+"home_1": {
+"d": 3761,
+"f": "home_1-77fe7e46.mp3"
+},
+"home_2": {
+"d": 6321,
+"f": "home_2-2e2a5e6c.mp3"
+},
+"home_3": {
+"d": 4022,
+"f": "home_3-fd556f01.mp3"
+},
+"home_4": {
+"d": 3840,
+"f": "home_4-14cf445a.mp3"
+},
+"home_done": {
+"d": 8646,
+"f": "home_done-3b87216c.mp3"
+},
+"home_streak": {
+"d": 4205,
+"f": "home_streak-1eada6c0.mp3"
+},
+"lesson_locked": {
+"d": 3840,
+"f": "lesson_locked-b94d80be.mp3"
+},
+"plan": {
+"d": 4284,
+"f": "plan-87476f8d.mp3"
+},
+"plan_done": {
+"d": 4884,
+"f": "plan_done-71cc73a9.mp3"
+},
+"practice_intro": {
+"d": 2638,
+"f": "practice_intro-29376eeb.mp3"
+},
+"profile": {
+"d": 4414,
+"f": "profile-119eb4f7.mp3"
+},
+"quiz_intro": {
+"d": 6112,
+"f": "quiz_intro-7252bd11.mp3"
+},
+"quiz_pass": {
+"d": 2115,
+"f": "quiz_pass-967e4f8a.mp3"
+},
+"quiz_perfect": {
+"d": 2560,
+"f": "quiz_perfect-4adbd920.mp3"
+},
+"quiz_retry": {
+"d": 5825,
+"f": "quiz_retry-50d065b9.mp3"
+},
+"rank_up": {
+"d": 4545,
+"f": "rank_up-047230ab.mp3"
+},
+"right_1": {
+"d": 626,
+"f": "right_1-4ae9ce95.mp3"
+},
+"right_2": {
+"d": 1802,
+"f": "right_2-46dc493e.mp3"
+},
+"right_3": {
+"d": 2429,
+"f": "right_3-8d4e4f7e.mp3"
+},
+"right_4": {
+"d": 1854,
+"f": "right_4-68a619b3.mp3"
+},
+"track_ban-sung": {
+"d": 6817,
+"f": "track_ban-sung-bfe2c784.mp3"
+},
+"track_tay-khong": {
+"d": 10997,
+"f": "track_tay-khong-fd8f42f7.mp3"
+},
+"track_the-luc": {
+"d": 9560,
+"f": "track_the-luc-14c1fab1.mp3"
+},
+"welcome": {
+"d": 16718,
+"f": "welcome-6ec76b89.mp3"
+},
+"wrong_1": {
+"d": 2951,
+"f": "wrong_1-dc4a7ff4.mp3"
+},
+"wrong_2": {
+"d": 3918,
+"f": "wrong_2-74a105c3.mp3"
+},
+"wrong_3": {
+"d": 2194,
+"f": "wrong_3-3fe33fc2.mp3"
+}
+}

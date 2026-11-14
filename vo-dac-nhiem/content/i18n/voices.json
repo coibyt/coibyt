@@ -85,7 +85,11 @@
   "clones": 56
  },
  "so": {
-  "id": null
+  "id": "3CrYxaJgCSwZkjCpp3Ut",
+  "name": "Ezz eldeen - Versatile",
+  "borrowed_from": "ar",
+  "note": "mượn giọng Ả Rập chuẩn (chưa có giọng Somali)",
+  "locked": true
  },
  "uk": {
   "id": "Ntd0iVwICtUtA6Fvx27M",
@@ -96,7 +100,11 @@
   "clones": 141052
  },
  "mg": {
-  "id": null
+  "id": "AfkBqzsATOuueGnLAvJi",
+  "name": "Samsul - Warm & Clear Narrator",
+  "borrowed_from": "id",
+  "note": "mượn giọng Indonesia (chưa có giọng Malagasy)",
+  "locked": true
  },
  "th": {
   "id": "3SQTl9c6zS9vh1r8maCI",
@@ -115,7 +123,11 @@
   "clones": 199
  },
  "tk": {
-  "id": null
+  "id": "OpoW3DsteOy3H7PNuCr4",
+  "name": "Serdar Tekyildiz - Deep, Confident",
+  "borrowed_from": "tr",
+  "note": "mượn giọng tiếng Thổ Nhĩ Kỳ (thư viện chưa có giọng Turkmen)",
+  "locked": true
  },
  "sv": {
   "id": "x0u3EW21dbrORJzOq1m9",

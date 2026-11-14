@@ -1,5 +1,5 @@
 // Sinh tự động bởi tools/build_sw.py — đừng sửa tay.
-const VERSION = "d58c7be507";
+const VERSION = "b55c317ee2";
 const SHELL = [
 "./",
 "index.html",
@@ -16,6 +16,8 @@ const SHELL = [
 "content/lines-vi.json",
 "content/track-tay-khong.json",
 "content/tracks-vi.json",
+"assets/voice/en/manifest.json",
+"assets/voice/ru/manifest.json",
 "assets/voice/vi/manifest.json",
 "assets/img/bg-tall.webp",
 "assets/img/bg-wide.webp",
@@ -137,6 +139,14 @@ self.addEventListener("fetch", (e) => {
   if (media && req.headers.has("range")) {
     // video: dùng bản đã lưu nếu có, trả nguyên tệp (trình duyệt tự xử lý)
     e.respondWith(caches.match(url.pathname.endsWith(".mp4") ? req.url : req, { ignoreSearch: true }).then((hit) => hit || fetch(req)));
+    return;
+  }
+  // nội dung (bản dịch, lời thoại): ưu tiên mạng để luôn mới, mất mạng thì dùng bản đã lưu
+  if (url.origin === location.origin && url.pathname.includes("/content/")) {
+    e.respondWith(fetch(req).then((res) => {
+      if (res.ok) { const copy = res.clone(); caches.open("content-v1").then((c) => c.put(req, copy)); }
+      return res;
+    }).catch(() => caches.match(req, { ignoreSearch: true })));
     return;
   }
   e.respondWith(

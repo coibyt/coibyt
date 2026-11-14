@@ -22,6 +22,7 @@ async function boot() {
   const q = new URLSearchParams(location.search).get("lang");
   if (q && LANGS.some((x) => x.code === q) && q !== St.S().lang) { St.S().lang = q; St.save(); }
   const lang = await setLang(St.S().lang);
+  if (lang !== "vi") document.title = `${t("brand")} – ${t("tagline")}`; // tiếng Việt giữ tiêu đề SEO trong index.html
   const get = (u) => fetch(u).then((r) => { if (!r.ok) throw new Error(u); return r.json(); });
   const tr8 = (f) => (lang === "vi" ? Promise.resolve(null) : get(`content/i18n/${lang}/${f}`).catch(() => null));
   const [manifest, linesVi, cat, oLines, oTracks, oLessons, oForce] = await Promise.all([

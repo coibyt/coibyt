@@ -31,6 +31,14 @@ self.addEventListener("fetch", (e) => {{
     e.respondWith(caches.match(url.pathname.endsWith(".mp4") ? req.url : req, {{ ignoreSearch: true }}).then((hit) => hit || fetch(req)));
     return;
   }}
+  // nội dung (bản dịch, lời thoại): ưu tiên mạng để luôn mới, mất mạng thì dùng bản đã lưu
+  if (url.origin === location.origin && url.pathname.includes("/content/")) {{
+    e.respondWith(fetch(req).then((res) => {{
+      if (res.ok) {{ const copy = res.clone(); caches.open("content-v1").then((c) => c.put(req, copy)); }}
+      return res;
+    }}).catch(() => caches.match(req, {{ ignoreSearch: true }})));
+    return;
+  }}
   e.respondWith(
     caches.match(req, {{ ignoreSearch: true }}).then((hit) => {{
       if (hit) return hit;
