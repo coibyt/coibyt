@@ -17,6 +17,8 @@ rm -rf "$PUB" "$BIN"; mkdir -p "$PUB" "$BIN/canvaskit/chromium"
   -exec install -D -m 644 {} "$PUB/{}" \;)
 install -m 644 "$SRC/canvaskit/canvaskit.wasm" "$BIN/canvaskit/canvaskit.wasm"
 install -m 644 "$SRC/canvaskit/chromium/canvaskit.wasm" "$BIN/canvaskit/chromium/canvaskit.wasm"
-# Bản thử riêng: không cho máy tìm kiếm lập chỉ mục.
-sed -i 's#<meta charset="UTF-8">#<meta charset="UTF-8">\n  <meta name="robots" content="noindex, nofollow">#' "$PUB/index.html"
+# Mặc định cho Google tìm thấy (app nằm trên Bảng khoá học). Bản thử riêng: NOINDEX=1 bash tool/deploy_lab.sh ...
+if [ "${NOINDEX:-0}" = 1 ]; then
+  sed -i 's#<meta charset="UTF-8">#<meta charset="UTF-8">\n  <meta name="robots" content="noindex, nofollow">#' "$PUB/index.html"
+fi
 du -sh "$PUB" "$BIN"
