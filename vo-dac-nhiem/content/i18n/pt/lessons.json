@@ -1,0 +1,2033 @@
+{
+ "tk1": {
+  "title": "Aquecimento e respiração",
+  "sub": "Rotação das articulações, aquecer, respiração com os passos, respiração de descarga, contrair e relaxar",
+  "intro": "Primeira lição. Ainda não há golpes. Um bom guerreiro começa com articulações quentes e uma respiração calma. Faz comigo, passo a passo.",
+  "safety": "Aquece antes de cada treino. Se sentires uma dor aguda numa articulação, para logo.",
+  "outro": "Muito bem. As articulações estão quentes e a respiração já tem ritmo. Na próxima lição, aprendemos a guarda e o trabalho de pés.",
+  "home": "Trabalho de casa: todas as manhãs, aquece e faz a respiração com os passos durante dez minutos, sete dias seguidos.",
+  "steps": {
+   "tk1-1": {
+    "title": "Rodar as articulações de cima para baixo",
+    "say": "Põe-te direito, com os pés à largura dos ombros. Roda o pescoço muito devagar, cinco voltas para cada lado. A seguir, roda os ombros, os cotovelos e os pulsos. Depois, as ancas, os joelhos e os tornozelos. Vai de cima para baixo, com movimentos redondos e suaves, sem esticões. Com as articulações quentes, o corpo fica seguro para cair e para golpear.",
+    "cues": [
+     "De cima para baixo: pescoço → ombros → cotovelos → pulsos → ancas → joelhos → tornozelos",
+     "5 voltas para cada lado em cada articulação",
+     "Devagar, redondo, sem esticões"
+    ],
+    "mistakes": [
+     "Rodar o pescoço depressa demais e atirar a cabeça para trás com força",
+     "Prender a respiração enquanto rodas"
+    ],
+    "drill": {
+     "label": "Rotação das articulações",
+     "say": "Agora é a tua vez. Roda as articulações durante noventa segundos. O cronómetro faz a contagem decrescente."
+    }
+   },
+   "tk1-2": {
+    "title": "Aquecer o corpo",
+    "say": "Corre no lugar, com os joelhos bem altos, durante trinta segundos. A seguir, dez agachamentos: baixa a anca como se te sentasses numa cadeira, costas direitas, joelhos na direção das pontas dos pés. Depois, dez flexões. Se ainda não estás habituado, apoia os joelhos. O objetivo é aquecer o corpo e acelerar um pouco a respiração, não ficar exausto.",
+    "cues": [
+     "30 segundos de corrida com joelhos altos",
+     "10 agachamentos: costas direitas, joelhos alinhados com os pés",
+     "10 flexões (podes apoiar os joelhos)"
+    ],
+    "mistakes": [
+     "Joelhos a fugir para dentro no agachamento",
+     "Costas arqueadas nas flexões"
+    ],
+    "drill": {
+     "label": "Agachamentos",
+     "say": "Agora é a tua vez. Agachamentos: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk1-3": {
+    "title": "Respiração com os passos",
+    "say": "Este é um exercício de respiração clássico das artes marciais russas de combate real. Caminha a um ritmo regular. Inspira pelo nariz durante quatro passos e expira pela boca durante quatro passos. Ao fim de um minuto, desce para três passos, depois dois, depois um. A seguir, sobe outra vez até aos quatro. Lembra-te bem: a respiração conduz o movimento. Nunca prendas a respiração.",
+    "cues": [
+     "Inspirar pelo nariz 4 passos – expirar pela boca 4 passos",
+     "Descer 4 → 3 → 2 → 1 e voltar a subir",
+     "Ombros soltos, nunca prender a respiração"
+    ],
+    "mistakes": [
+     "Prender a respiração ao mudar de ritmo",
+     "Subir os ombros ao inspirar"
+    ],
+    "drill": {
+     "label": "Caminhar a respirar com os passos",
+     "say": "Agora é a tua vez. Caminha a respirar com os passos durante cento e vinte segundos. O cronómetro faz a contagem decrescente."
+    }
+   },
+   "tk1-4": {
+    "title": "Respiração de descarga no esforço",
+    "say": "Quando estiveres cansado ou tenso, respira curto e rápido: inspira pelo nariz e expira com força pela boca, várias vezes seguidas, como quem apaga uma vela. Experimenta já: mantém a posição alta de flexão durante vinte segundos, sempre com a respiração de descarga. Vais sentir os músculos menos rígidos e a cabeça mais desperta.",
+    "cues": [
+     "Inspirar curto pelo nariz – soprar forte pela boca",
+     "Sem parar, como quem apaga uma vela",
+     "Prancha alta durante 20 segundos a respirar"
+    ],
+    "mistakes": [
+     "Respirar tão depressa que ficas tonto: abranda",
+     "Deixar a anca descair na prancha"
+    ],
+    "drill": {
+     "label": "Prancha alta + respiração de descarga",
+     "say": "Agora é a tua vez. Prancha alta com respiração de descarga durante vinte segundos. O cronómetro faz a contagem decrescente."
+    }
+   },
+   "tk1-5": {
+    "title": "Contrair e relaxar o corpo todo",
+    "say": "Deita-te de costas no tapete. Inspira e contrai bem os pés durante três segundos. Depois expira e relaxa por completo. Sobe assim, parte a parte: barrigas das pernas, coxas, abdómen, punhos, ombros e até a cara. No fim, contrai o corpo todo de uma vez e solta. Quem sabe relaxar aguenta melhor os impactos, mexe-se mais depressa e lesiona-se menos.",
+    "cues": [
+     "Inspirar – contrair 3 segundos",
+     "Expirar – relaxar por completo",
+     "Dos pés até à cara"
+    ],
+    "mistakes": [
+     "Contrair com tanta força que dá cãibra",
+     "Esquecer de expirar ao soltar"
+    ],
+    "drill": {
+     "label": "Contrair e relaxar",
+     "say": "Agora é a tua vez. Contrai e relaxa durante sessenta segundos. O cronómetro faz a contagem decrescente."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Ao rodar as articulações, que ordem deves seguir?",
+    "a": [
+     "De cima para baixo: pescoço, ombros… até aos tornozelos",
+     "Ao acaso, qualquer articulação serve",
+     "Basta rodar os tornozelos"
+    ],
+    "why": "Ir de cima para baixo garante que não te esqueces de nenhuma articulação."
+   },
+   {
+    "q": "Na respiração com os passos, inspiras por onde?",
+    "a": [
+     "Pela boca",
+     "Pelo nariz",
+     "Prendes a respiração e depois inspiras"
+    ],
+    "why": "Inspiras pelo nariz e expiras pela boca, ao ritmo dos passos."
+   },
+   {
+    "q": "Quando se usa a respiração de descarga?",
+    "a": [
+     "Quando estás cansado ou tenso",
+     "Só a dormir",
+     "Nunca"
+    ],
+    "why": "Respirar curto e forte reduz a tensão muscular e mantém-te desperto no esforço."
+   },
+   {
+    "q": "Porque é importante saber relaxar?",
+    "a": [
+     "Para ficar mais bonito",
+     "Aguentas melhor os impactos, mexes-te mais depressa e lesionas-te menos",
+     "Para não ter de aquecer"
+    ],
+    "why": "Um músculo rígido reage mais devagar e lesiona-se com mais facilidade."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Guarda e trabalho de pés",
+  "sub": "Barreira de mãos, guarda de combate, passos deslizados, pivô",
+  "intro": "Os pés decidem tudo. Só com uma base firme consegues defender, atacar e fugir. Hoje construímos os alicerces.",
+  "safety": "Treina num chão plano e que não escorregue. Passos curtos e firmes.",
+  "outro": "Os alicerces estão feitos. Pés firmes são meia luta ganha. Na próxima lição, aprendes a cair em segurança.",
+  "home": "Trabalho de casa: todos os dias, dez minutos de guarda e deslocações, em três rondas, durante sete dias.",
+  "steps": {
+   "tk2-1": {
+    "title": "Posição de alerta – barreira de mãos",
+    "say": "Quando alguém se aproxima com uma atitude agressiva, não feches logo os punhos. Põe o corpo ligeiramente de lado e recua meio passo com o pé do lado mais forte. As mãos ficam abertas, à frente do peito, com as palmas viradas para a frente, como quem diz: calma. As mãos são uma barreira que mantém a distância. Não pareces agressivo, mas na verdade já estás pronto.",
+    "cues": [
+     "Corpo de lado, pé forte meio passo atrás",
+     "Mãos abertas à frente do peito",
+     "Manter a distância, voz calma"
+    ],
+    "mistakes": [
+     "Fechar logo os punhos: o conflito escala facilmente",
+     "Ficar de frente, com os pés paralelos"
+    ],
+    "drill": {
+     "label": "Entrar na barreira de mãos",
+     "say": "Agora é a tua vez. Entra na barreira de mãos: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk2-2": {
+    "title": "Guarda de combate",
+    "say": "Se és destro: pé esquerdo à frente, pé direito atrás. Os pés ficam um pouco mais afastados do que os ombros. A ponta do pé da frente vira ligeiramente para dentro e o calcanhar de trás fica um pouco levantado. Joelhos fletidos, peso repartido pelas duas pernas. As mãos sobem à frente da cara, os cotovelos fechados protegem as costelas, o queixo fica baixo e os olhos olham por cima dos punhos. Se és canhoto, faz ao contrário.",
+    "cues": [
+     "Pé esquerdo à frente (se és destro)",
+     "Joelhos fletidos, calcanhar de trás levantado",
+     "Mãos a proteger a cara, cotovelos nas costelas, queixo baixo"
+    ],
+    "mistakes": [
+     "Pés na mesma linha: perdes o equilíbrio com facilidade",
+     "Levantar o queixo e baixar as mãos"
+    ],
+    "drill": {
+     "label": "Entrar na guarda de combate",
+     "say": "Agora é a tua vez. Entra na guarda de combate: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk2-3": {
+    "title": "Passo deslizado à frente e atrás",
+    "say": "Para avançar: o pé da frente dá primeiro um passo curto e o pé de trás desliza exatamente a mesma distância. Para recuar: o pé de trás recua primeiro e o pé da frente acompanha. Os pés deslizam rente ao chão, sem saltar. Nunca cruzes nem juntes os pés. Depois de cada passo, continuas na mesma guarda do início.",
+    "cues": [
+     "Avançar: o pé da frente sai primeiro",
+     "Recuar: o pé de trás sai primeiro",
+     "A distância entre os pés não muda"
+    ],
+    "mistakes": [
+     "Cruzar os pés",
+     "Saltar em vez de deslizar"
+    ],
+    "drill": {
+     "label": "Passos à frente e atrás",
+     "say": "Agora é a tua vez. Passos à frente e atrás: vinte vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk2-4": {
+    "title": "Passo lateral",
+    "say": "Para a esquerda, o pé esquerdo sai primeiro. Para a direita, o pé direito sai primeiro. O outro pé desliza atrás. Mantém sempre a mesma distância entre os pés e as mãos a proteger a cara. Em chão de lama escorregadia, quanto mais curto o passo, mais firme.",
+    "cues": [
+     "Para a esquerda: pé esquerdo primeiro",
+     "Para a direita: pé direito primeiro",
+     "Passos curtos em chão escorregadio"
+    ],
+    "mistakes": [
+     "O pé de trás passar por cima do pé da frente",
+     "Baixar as mãos ao deslocar"
+    ],
+    "drill": {
+     "label": "Passo lateral",
+     "say": "Agora é a tua vez. Passo lateral: vinte vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk2-5": {
+    "title": "Pivô para mudar de ângulo",
+    "say": "Põe-te em guarda de combate. Usa a ponta do pé da frente como eixo e roda o pé de trás num arco de um quarto de círculo. O corpo todo muda noventa graus de ângulo e sai da linha de ataque do adversário. Roda dez vezes para um lado e depois muda de sentido.",
+    "cues": [
+     "Eixo na ponta do pé da frente",
+     "O pé de trás descreve um arco",
+     "Mudar 90° de ângulo, mãos em guarda"
+    ],
+    "mistakes": [
+     "Rodar sobre o calcanhar",
+     "Endireitar o corpo ao rodar"
+    ],
+    "drill": {
+     "label": "Pivô para cada lado",
+     "say": "Agora é a tua vez. Pivô para cada lado: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk2-6": {
+    "title": "Deslocação às minhas ordens",
+    "say": "Agora vais deslocar-te às minhas ordens durante trinta segundos: avança, recua, esquerda, direita, roda. Mantém as mãos, o queixo e a respiração no sítio. Os pés são rápidos, mas o tronco está sempre calmo.",
+    "cues": [
+     "Avançar – recuar – esquerda – direita – rodar",
+     "Mãos e queixo sempre no sítio",
+     "Respiração regular"
+    ],
+    "mistakes": [
+     "Olhar para os pés",
+     "Passos demasiado longos"
+    ],
+    "drill": {
+     "label": "Trabalho de pés às ordens",
+     "say": "Agora é a tua vez. Desloca-te às minhas ordens durante trinta segundos. Ouve com atenção.",
+     "calls": [
+      "Avança!",
+      "Recua!",
+      "Para a esquerda!",
+      "Para a direita!",
+      "Roda!"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Para que serve a barreira de mãos?",
+    "a": [
+     "Manter a distância sem parecer agressivo",
+     "Socar logo o adversário",
+     "Cruzar os braços e esperar"
+    ],
+    "why": "As mãos abertas mantêm a distância e acalmam a situação."
+   },
+   {
+    "q": "Para recuar, que pé sai primeiro?",
+    "a": [
+     "O pé da frente",
+     "O pé de trás",
+     "Os dois saltam ao mesmo tempo"
+    ],
+    "why": "Sai primeiro o pé que está mais perto da direção para onde vais."
+   },
+   {
+    "q": "Qual é o erro mais perigoso ao deslocar-te?",
+    "a": [
+     "Cruzar os pés",
+     "Dar passos curtos",
+     "Manter as mãos a proteger a cara"
+    ],
+    "why": "Com os pés cruzados, perdes o equilíbrio com muita facilidade."
+   },
+   {
+    "q": "No pivô, em que parte do pé da frente te apoias?",
+    "a": [
+     "No calcanhar",
+     "Na ponta do pé",
+     "No bordo exterior do pé"
+    ],
+    "why": "Rodar sobre a ponta do pé torna o movimento leve e rápido."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Quedas seguras",
+  "sub": "Princípios da queda, queda para trás, queda lateral, rolamento para a frente",
+  "intro": "Neste campo, todos aprendem a cair antes de aprender a projetar. Cair bem é uma competência que salva vidas, até quando escorregas numa rua molhada.",
+  "safety": "Treina só em colchões grossos. Queixo sempre recolhido. Rolamentos só com um instrutor presente.",
+  "outro": "Já sabes cair. A partir de hoje, o chão deixa de meter medo. Na próxima lição: proteção e defesa de golpes.",
+  "home": "Trabalho de casa: todos os dias, dez quedas para trás e dez quedas laterais para cada lado, em colchões grossos, durante uma semana.",
+  "steps": {
+   "tk3-1": {
+    "title": "Três regras de ouro",
+    "say": "Há três regras de ouro para cair. Primeira: o queixo fica sempre colado ao peito, para a cabeça nunca bater no chão. Segunda: as costas ficam arredondadas como uma roda, para rolares em vez de bateres de chapa. Terceira: o braço bate no tapete ao mesmo tempo que o corpo, para repartir a força do impacto. Treina sempre em colchões grossos. Nunca, mesmo nunca, num chão duro.",
+    "cues": [
+     "Queixo colado ao peito",
+     "Costas redondas como uma roda",
+     "O braço bate no tapete ao mesmo tempo que o corpo"
+    ],
+    "mistakes": [
+     "Apoiar a mão com o braço esticado ao cair: o pulso parte-se facilmente",
+     "Atirar a cabeça para trás"
+    ],
+    "drill": {
+     "label": "Arredondar as costas, recolher o queixo",
+     "say": "Agora é a tua vez. Arredonda as costas e recolhe o queixo: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk3-2": {
+    "title": "Queda para trás a partir de sentado",
+    "say": "Senta-te no tapete, com as pernas esticadas e os braços à frente. Recolhe o queixo, arredonda as costas e rola para trás. Quando a parte de cima das costas tocar no tapete, estica os dois braços e bate com força no tapete, a uns quarenta e cinco graus do corpo, com as palmas para baixo. Expira ao tocar no tapete. Rola de volta à posição sentada. Faz dez vezes.",
+    "cues": [
+     "Sentado, braços à frente",
+     "Rolar para trás, queixo recolhido",
+     "Bater com os braços a 45°, palmas para baixo, expirar"
+    ],
+    "mistakes": [
+     "Bater com os braços muito longe ou muito colados ao corpo",
+     "Bater com o cotovelo em vez do braço inteiro"
+    ],
+    "drill": {
+     "label": "Queda para trás a partir de sentado",
+     "say": "Agora é a tua vez. Queda para trás a partir de sentado: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk3-3": {
+    "title": "Queda para trás a partir de cócoras",
+    "say": "Põe-te de cócoras, com os braços à frente. Baixa o rabo até ao tapete, junto aos calcanhares, e rola para trás como no exercício anterior, batendo com os dois braços. Não te deixes cair de repente. Não deixes as costas direitas bater de chapa. Quando já estiveres seguro, levanta-te e volta a pôr-te de cócoras, sem parar, para ganhares velocidade aos poucos.",
+    "cues": [
+     "Rabo baixo, junto aos calcanhares",
+     "Rolar, nunca bater de chapa",
+     "Bater com os braços, expirar"
+    ],
+    "mistakes": [
+     "Deixar-se cair de repente, longe dos calcanhares",
+     "A cabeça bater para trás no tapete"
+    ],
+    "drill": {
+     "label": "Queda para trás a partir de cócoras",
+     "say": "Agora é a tua vez. Queda para trás a partir de cócoras: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk3-4": {
+    "title": "Queda lateral",
+    "say": "A partir de cócoras, estica a perna direita, cruzando-a à frente da perna esquerda, e deixa o corpo cair para o lado direito. Primeiro a anca direita, depois o lado direito das costas tocam no tapete, por esta ordem, e o braço direito bate no tapete. Queixo recolhido, a cabeça não toca no tapete. Depois troca de lado. É a queda mais comum quando te projetam.",
+    "cues": [
+     "Esticar a perna cruzada à frente",
+     "Anca → costas tocam no tapete por ordem",
+     "O braço do mesmo lado bate no tapete"
+    ],
+    "mistakes": [
+     "Apoiar o cotovelo no chão",
+     "A cabeça bater de lado no tapete"
+    ],
+    "drill": {
+     "label": "Queda lateral para cada lado",
+     "say": "Agora é a tua vez. Queda lateral para cada lado: oito vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk3-5": {
+    "title": "Rolamento à frente pelo ombro",
+    "say": "Ajoelha-te sobre um joelho no tapete, com o pé direito à frente. Curva o braço direito em arco, como o aro de uma roda, e apoia o bordo exterior do braço no tapete. Olha por cima do ombro esquerdo. Rola na diagonal, do ombro direito até à anca esquerda. Não rolas por cima da cabeça nem ao longo da coluna. Terminas bem sentado ou de pé, com as mãos a proteger a cara.",
+    "cues": [
+     "O braço faz um arco como uma roda",
+     "Rolar na diagonal: ombro direito → anca esquerda",
+     "Nunca por cima da cabeça, levantar a proteger a cara"
+    ],
+    "mistakes": [
+     "Rolar a direito por cima da cabeça: muito perigoso para o pescoço",
+     "Dobrar o braço e a cabeça tocar no tapete"
+    ],
+    "drill": {
+     "label": "Rolamento à frente para cada lado",
+     "say": "Agora é a tua vez. Rolamento à frente para cada lado: seis vezes. Eu conto o ritmo por ti."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Ao cair, como deve estar o queixo?",
+    "a": [
+     "Levantado",
+     "Colado ao peito",
+     "Virado para o lado"
+    ],
+    "why": "Recolhes o queixo para a cabeça não bater no chão."
+   },
+   {
+    "q": "A que ângulo do corpo bate o braço no tapete?",
+    "a": [
+     "Cerca de 45°",
+     "Colado ao corpo, 0°",
+     "Esticado para o céu"
+    ],
+    "why": "Cerca de quarenta e cinco graus: reparte bem a força sem bateres com o cotovelo."
+   },
+   {
+    "q": "No rolamento à frente, qual é o caminho do rolamento?",
+    "a": [
+     "A direito, por cima da cabeça",
+     "Na diagonal, do ombro até à anca do outro lado",
+     "De lado"
+    ],
+    "why": "Rolas na diagonal pelo ombro para proteger o pescoço e a coluna."
+   },
+   {
+    "q": "Onde se treinam as quedas?",
+    "a": [
+     "Em betão, para ganhar hábito",
+     "Em colchões grossos",
+     "Nas escadas"
+    ],
+    "why": "Treina sempre em colchões grossos. A segurança está acima de tudo."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Proteção e defesa de golpes",
+  "sub": "Guarda alta, proteção da cabeça, desvio com a palma, bloqueio com o antebraço, esquiva em ângulo",
+  "intro": "Antes de aprender a bater, tens de aprender a não ser atingido. A melhor defesa é simples, compacta e anda sempre junto com o movimento.",
+  "safety": "Treino a pares com luvas. O parceiro ataca devagar, só com vinte por cento da força.",
+  "outro": "Já tens o teu escudo. Na próxima lição, aprendemos os golpes básicos nos aparadores.",
+  "home": "Trabalho de casa: todos os dias, cinco minutos de proteção em frente ao espelho, e duas vezes por semana treino lento a pares.",
+  "steps": {
+   "tk4-1": {
+    "title": "Guarda alta",
+    "say": "A partir da guarda de combate, sobe os dois punhos até à altura da testa, com os antebraços na vertical à frente da cara, como dois escudos. Cotovelos fechados, queixo recolhido, ombros levantados a proteger o maxilar. É a proteção mais sólida quando o golpe vem demasiado depressa e não tens tempo de o ver.",
+    "cues": [
+     "Punhos à altura da testa",
+     "Antebraços na vertical, como escudos",
+     "Queixo recolhido, ombros a proteger o maxilar"
+    ],
+    "mistakes": [
+     "Fechar os olhos ao proteger",
+     "Abrir os cotovelos e deixar as costelas expostas"
+    ],
+    "drill": {
+     "label": "Entrar na guarda alta",
+     "say": "Agora é a tua vez. Entra na guarda alta: quinze vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk4-2": {
+    "title": "Cobrir a cabeça",
+    "say": "Quando estás encurralado por muitos golpes seguidos: as duas mãos agarram a parte de trás da cabeça, os cotovelos fecham-se à frente da cara, inclinas o corpo e dobras os joelhos. A cabeça fica bem protegida dentro dos braços. Mas não podes ficar muito tempo parado nesta posição. Proteges e sais logo do ângulo de ataque.",
+    "cues": [
+     "Mãos atrás da cabeça",
+     "Cotovelos fechados à frente da cara",
+     "Proteger e sair logo"
+    ],
+    "mistakes": [
+     "Ficar parado a levar golpes",
+     "Virar as costas"
+    ],
+    "drill": {
+     "label": "Cobrir a cabeça e sair de lado",
+     "say": "Agora é a tua vez. Cobre a cabeça e sai de lado: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk4-3": {
+    "title": "Desvio com a palma",
+    "say": "Quando um soco direto vem à tua cara, não bloqueies com rigidez. Com a palma da mão, desvia ligeiramente o pulso ou o punho do adversário para o lado, só o suficiente para passar ao lado da tua cara. O movimento é pequeno e curto, e a mão volta logo à guarda.",
+    "cues": [
+     "Desviar com a palma da mão",
+     "Só o suficiente para desviar o golpe",
+     "Voltar logo à guarda"
+    ],
+    "mistakes": [
+     "Fazer um desvio largo demais",
+     "Esticar o braço para ir buscar o golpe"
+    ],
+    "drill": {
+     "label": "Desvio com cada mão",
+     "say": "Agora é a tua vez. Desvio com cada mão: vinte vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk4-4": {
+    "title": "Bloqueio alto com o antebraço",
+    "say": "Quando o golpe desce de cima, sobe o antebraço em diagonal à frente da testa, inclinado como um telhado, para a força escorregar e não bater a direito no osso. Ao mesmo tempo, dá um passo em diagonal, para a frente ou para fora.",
+    "cues": [
+     "Antebraço em diagonal à frente da testa",
+     "Inclinado como um telhado",
+     "Com um passo em diagonal"
+    ],
+    "mistakes": [
+     "Antebraço na horizontal: leva com a força toda",
+     "Ficar parado no mesmo sítio"
+    ],
+    "drill": {
+     "label": "Bloqueio alto com cada braço",
+     "say": "Agora é a tua vez. Bloqueio alto com cada braço: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk4-5": {
+    "title": "Esquiva em ângulo – passo diagonal",
+    "say": "A melhor defesa é não estar onde o golpe chega. Ao desviar o golpe, dá ao mesmo tempo um passo em diagonal, a quarenta e cinco graus, para o lado de fora do braço que ataca. Sais da linha de ataque e ficas numa posição mais segura para fugir.",
+    "cues": [
+     "Desviar + passo diagonal a 45°",
+     "Para o lado de fora do braço que ataca",
+     "Do ângulo seguro, fugir"
+    ],
+    "mistakes": [
+     "Recuar a direito: o adversário persegue-te com facilidade",
+     "Entrar por dentro, para o lado do outro braço do adversário"
+    ],
+    "drill": {
+     "label": "Desvio + esquiva para cada lado",
+     "say": "Agora é a tua vez. Desvio e esquiva em ângulo para cada lado: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk4-6": {
+    "title": "Treino lento a pares",
+    "say": "Treina com o teu parceiro, os dois de luvas. Quem ataca faz golpes muito lentos, só com vinte por cento da força, apontados às luvas e não à cara. Quem defende diz o nome da técnica que usa: guarda alta, desvio, esquiva. Só quando já estiver certo e calmo é que aumentam a velocidade, aos poucos.",
+    "cues": [
+     "Luvas, 20% da força",
+     "Dizer o nome da técnica ao fazê-la",
+     "Primeiro certo, depois rápido"
+    ],
+    "mistakes": [
+     "Acelerar cedo demais",
+     "Bater a sério na cara do parceiro"
+    ],
+    "drill": {
+     "label": "Treino lento a pares",
+     "say": "Agora é a tua vez. Treino lento a pares durante sessenta segundos. O cronómetro faz a contagem decrescente."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Um desvio correto é:",
+    "a": [
+     "Um desvio pequeno, só o suficiente, e voltar à guarda",
+     "Abrir muito o braço",
+     "Receber o golpe com a cara"
+    ],
+    "why": "Movimento pequeno e rápido, sem abrir a guarda."
+   },
+   {
+    "q": "Para bloquear um golpe que desce de cima, como pões o antebraço?",
+    "a": [
+     "Na horizontal",
+     "Em diagonal, inclinado como um telhado",
+     "Baixado à frente da barriga"
+    ],
+    "why": "Inclinado como um telhado, para a força escorregar."
+   },
+   {
+    "q": "A esquiva em ângulo é um passo em que direção?",
+    "a": [
+     "Em diagonal a 45°, para fora do braço que ataca",
+     "Recuar a direito",
+     "Ficar parado"
+    ],
+    "why": "Sais da linha de ataque e chegas a um ângulo seguro."
+   },
+   {
+    "q": "No treino a pares, quanta força usa quem ataca?",
+    "a": [
+     "Toda a força",
+     "Cerca de 20%",
+     "50%"
+    ],
+    "why": "Treina-se devagar para aprender bem e em segurança."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Golpes básicos nos aparadores",
+  "sub": "Punho fechado, soco direto, golpe com a base da palma, pontapé de empurrão, combinações",
+  "intro": "Um bom golpe não precisa de ser bonito. Precisa de ser certo, compacto e seguro para ti. Hoje treinamos nos aparadores, nunca numa pessoa a sério.",
+  "safety": "Põe ligaduras nas mãos e luvas. Bate só nos aparadores ou no saco de boxe.",
+  "outro": "Os golpes já têm força e disciplina. Na próxima lição: soltar-te quando te agarram o pulso.",
+  "home": "Trabalho de casa: três sessões por semana, cada uma com cinco rondas de trinta segundos nos aparadores ou no saco de boxe.",
+  "steps": {
+   "tk5-1": {
+    "title": "Fechar bem o punho",
+    "say": "Enrola os quatro dedos para dentro da palma. O polegar dobra-se firme por fora do indicador e do médio, nunca preso lá dentro. Ao tocar no alvo, o pulso fica alinhado com o antebraço e a força entra pelos nós do indicador e do médio. Quem está a começar põe sempre ligaduras e luvas.",
+    "cues": [
+     "Enrolar os 4 dedos na palma",
+     "Polegar dobrado por fora",
+     "Pulso alinhado com o antebraço"
+    ],
+    "mistakes": [
+     "Prender o polegar dentro do punho",
+     "Dobrar o pulso ao tocar no alvo"
+    ],
+    "drill": {
+     "label": "Fechar e abrir bem a mão",
+     "say": "Agora é a tua vez. Fecha e abre bem a mão: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk5-2": {
+    "title": "Soco direto com a mão da frente",
+    "say": "A partir da guarda de combate, lança o punho da frente a direito, pelo caminho mais curto. Vira o punho para baixo perto do alvo e sobe o ombro para proteger o queixo. A outra mão fica junto à cara. Depois do soco, recolhe pelo mesmo caminho, tão depressa como saiu.",
+    "cues": [
+     "Linha reta, caminho mais curto",
+     "Virar o punho para baixo ao tocar",
+     "Recolher depressa, a outra mão em guarda"
+    ],
+    "mistakes": [
+     "Puxar o braço atrás para ganhar balanço",
+     "Baixar a mão de trás"
+    ],
+    "drill": {
+     "label": "Soco com a mão da frente",
+     "say": "Agora é a tua vez. Soco com a mão da frente: vinte vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk5-3": {
+    "title": "Soco direto com a mão de trás",
+    "say": "Empurra a partir do calcanhar de trás, roda a anca e o ombro, e lança o punho de trás a direito até ao alvo. A ponta do pé de trás roda junto, como quem apaga uma brasa no chão. A força vem das pernas e da anca, não só do braço. Depois, volta logo à guarda.",
+    "cues": [
+     "Empurrar a partir do pé de trás",
+     "Rodar anca – ombro – ponta do pé de trás",
+     "Voltar logo à guarda"
+    ],
+    "mistakes": [
+     "Usar só o braço, sem rodar a anca",
+     "Inclinar-se demasiado para a frente e perder o equilíbrio"
+    ],
+    "drill": {
+     "label": "Soco com a mão de trás",
+     "say": "Agora é a tua vez. Soco com a mão de trás: vinte vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk5-4": {
+    "title": "Golpe com a base da palma",
+    "say": "Dobra o pulso para trás, abre a mão e deixa os dedos ligeiramente fletidos. Bate com a base da palma, numa linha reta como a de um soco. Numa situação real de autodefesa, este golpe é mais seguro para a mão do que o punho sem luva, porque nenhum nó dos dedos bate em osso duro.",
+    "cues": [
+     "Pulso dobrado para trás, mão aberta",
+     "Bater com a base da palma",
+     "Linha reta, como um soco"
+    ],
+    "mistakes": [
+     "Bater com a parte de dentro dos dedos",
+     "Esticar os dedos rígidos"
+    ],
+    "drill": {
+     "label": "Base da palma com cada mão",
+     "say": "Agora é a tua vez. Golpe com a base da palma, com cada mão: quinze vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk5-5": {
+    "title": "Pontapé de empurrão frontal",
+    "say": "Sobe o joelho da perna de trás até à altura da anca. Depois empurra o calcanhar a direito para a frente, como quem arromba uma porta com o pé, e leva a anca atrás. O alvo é a zona da barriga, aqui o escudo. Recolhe a perna e pousa-a de novo em guarda. O objetivo deste golpe é afastar o agressor e criar distância para fugires.",
+    "cues": [
+     "Joelho alto, à altura da anca",
+     "Empurrar com o calcanhar, levar a anca",
+     "Recolher a perna para a guarda"
+    ],
+    "mistakes": [
+     "Pontapear com a ponta do pé",
+     "Inclinar-se demasiado para trás"
+    ],
+    "drill": {
+     "label": "Pontapé de empurrão com cada perna",
+     "say": "Agora é a tua vez. Pontapé de empurrão com cada perna: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk5-6": {
+    "title": "Combinação e saída",
+    "say": "Agora junta tudo numa combinação: soco com a mão da frente, soco com a mão de trás, pontapé de empurrão, e depois dois passos atrás para a barreira de mãos. Faz três rondas de trinta segundos nos aparadores, com vinte segundos de descanso. Cada golpe bem marcado. Primeiro certo, depois rápido.",
+    "cues": [
+     "Mão da frente – mão de trás – pontapé de empurrão",
+     "2 passos atrás, barreira de mãos",
+     "3 rondas × 30 segundos, 20 segundos de descanso"
+    ],
+    "mistakes": [
+     "Esquecer de recuar depois da combinação",
+     "Bater à pressa e perder a guarda"
+    ],
+    "drill": {
+     "label": "Ronda de combinações",
+     "say": "Agora é a tua vez. Ronda de combinações: três rondas de trinta segundos, com vinte segundos de descanso entre rondas."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Onde fica o polegar quando fechas o punho?",
+    "a": [
+     "Preso lá dentro",
+     "Dobrado por fora do indicador e do médio",
+     "Esticado"
+    ],
+    "why": "Preso lá dentro, o polegar parte-se com facilidade."
+   },
+   {
+    "q": "De onde vem a força do soco com a mão de trás?",
+    "a": [
+     "Só do braço",
+     "Das pernas e da anca",
+     "Do pescoço"
+    ],
+    "why": "As pernas empurram, a anca roda, e o ombro e o braço acompanham."
+   },
+   {
+    "q": "Qual é o objetivo principal do pontapé de empurrão em autodefesa?",
+    "a": [
+     "Criar distância para fugir",
+     "Pontapear a cabeça",
+     "Exibir técnica"
+    ],
+    "why": "Afastas o agressor para poderes sair em segurança."
+   },
+   {
+    "q": "Porque é que o golpe com a base da palma é mais seguro para a mão?",
+    "a": [
+     "Nenhum nó dos dedos bate em osso duro",
+     "Porque é lento",
+     "Porque se bate com pouca força"
+    ],
+    "why": "A base da palma é sólida e há menos risco de lesionar a mão."
+   }
+  ]
+ },
+ "tk6": {
+  "title": "Soltar-se de pegas no pulso",
+  "sub": "Princípio do polegar, pega do mesmo lado, pega cruzada, pega com as duas mãos",
+  "intro": "Agarrarem-te pelo pulso é uma situação muito comum. Não precisas de força, só de perceber bem o ponto fraco da mão do adversário.",
+  "safety": "O parceiro agarra com força moderada. Solta-te devagar, sem esticões que magoem as articulações.",
+  "outro": "A tua mão já sabe libertar-se sozinha. Na próxima lição: soltar-te quando te agarram num abraço ou pela frente.",
+  "home": "Trabalho de casa: todos os dias, dez saídas de cada tipo de pega, com alguém da família, durante uma semana.",
+  "steps": {
+   "tk6-1": {
+    "title": "O princípio do polegar",
+    "say": "Quando te agarram o pulso, o ponto mais fraco da mão do adversário é a abertura entre o polegar e os outros dedos. Não lutes força contra força. Roda o antebraço para que o lado fino do pulso fique virado para essa abertura, e depois puxa com força na direção do polegar.",
+    "cues": [
+     "Encontrar o polegar do adversário",
+     "Rodar o pulso para a abertura do polegar",
+     "Puxar com força na direção do polegar"
+    ],
+    "mistakes": [
+     "Puxar a direito para trás, em braço de ferro",
+     "Puxar para o lado dos quatro dedos"
+    ],
+    "drill": {
+     "label": "Encontrar a direção do polegar",
+     "say": "Agora é a tua vez. Encontra a direção do polegar: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk6-2": {
+    "title": "Pega do mesmo lado",
+    "say": "O Ivan agarra o meu pulso direito com a mão esquerda. Eu baixo o centro de gravidade, dobro o cotovelo e puxo o braço para junto do meu corpo. Rodo o antebraço para o pulso ficar virado para o polegar do Ivan, e dou um esticão forte para cima, na direção do meu ombro. A mão sai. Logo a seguir, levanto as duas mãos em barreira e recuo.",
+    "cues": [
+     "Baixar o centro de gravidade, dobrar o cotovelo",
+     "Rodar o pulso para o polegar",
+     "Esticão para o próprio ombro, depois barreira de mãos"
+    ],
+    "mistakes": [
+     "Esticar o braço ao soltar-te",
+     "Voltar a aproximar-te depois de te soltares"
+    ],
+    "drill": {
+     "label": "Saída de pega do mesmo lado, cada mão",
+     "say": "Agora é a tua vez. Saída de pega do mesmo lado, com cada mão: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk6-3": {
+    "title": "Pega cruzada",
+    "say": "Na pega cruzada, por exemplo quando a mão direita do adversário agarra o teu pulso direito, o polegar dele fica por cima. Roda o pulso para cima, cortando pela abertura do polegar, e puxa na direção do ombro oposto. Junta a isto um passo atrás em diagonal.",
+    "cues": [
+     "O polegar do adversário está por cima",
+     "Rodar para cima, cortar pela abertura do polegar",
+     "Puxar para o ombro oposto + passo atrás em diagonal"
+    ],
+    "mistakes": [
+     "Puxar para baixo, ao contrário da abertura",
+     "Esquecer o passo"
+    ],
+    "drill": {
+     "label": "Saída de pega cruzada, cada mão",
+     "say": "Agora é a tua vez. Saída de pega cruzada, com cada mão: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk6-4": {
+    "title": "Pega com as duas mãos",
+    "say": "Quando te agarram com as duas mãos, um só braço não chega. Passa a mão livre por entre os braços do adversário e agarra o teu próprio punho. Depois, com a força dos dois braços e a rotação do ombro, dá um esticão forte para cima, pela abertura entre os dois polegares.",
+    "cues": [
+     "A mão livre passa pelo meio",
+     "Agarrar o próprio punho",
+     "Dois braços + rotação do ombro, esticão para cima"
+    ],
+    "mistakes": [
+     "Tentar puxar só com um braço",
+     "Puxar para o lado em vez de para cima"
+    ],
+    "drill": {
+     "label": "Saída de pega com as duas mãos",
+     "say": "Agora é a tua vez. Saída de pega com as duas mãos: oito vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk6-5": {
+    "title": "Depois de te soltares",
+    "say": "Soltar-te não é o fim. Afasta-te logo, levanta as mãos em barreira e grita bem alto: Para! O grito chama a atenção de quem está à volta e mostra que não queres lutar. O objetivo da autodefesa é sempre sair em segurança e ir embora.",
+    "cues": [
+     "Afastar-te logo",
+     "Barreira de mãos",
+     "Gritar alto: Para!"
+    ],
+    "mistakes": [
+     "Ficar a discutir",
+     "Virar as costas e fugir ainda muito perto"
+    ],
+    "drill": {
+     "label": "Soltar – recuar – gritar",
+     "say": "Agora é a tua vez. Solta-te, recua e grita: cinco vezes. Eu conto o ritmo por ti."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "O ponto fraco de uma mão que agarra é:",
+    "a": [
+     "A palma da mão",
+     "A abertura entre o polegar e os outros dedos",
+     "O dedo mindinho"
+    ],
+    "why": "A abertura do polegar é o ponto por onde é mais fácil sair."
+   },
+   {
+    "q": "Se te agarram com as duas mãos, o que deves fazer?",
+    "a": [
+     "Puxar um braço com muita força",
+     "Agarrar o próprio punho e dar um esticão para cima com os dois braços",
+     "Ficar parado"
+    ],
+    "why": "Os teus dois braços, mais a rotação do ombro, vencem as duas mãos do adversário."
+   },
+   {
+    "q": "Depois de te soltares, a primeira coisa a fazer é:",
+    "a": [
+     "Afastar-te, barreira de mãos, gritar alto",
+     "Contra-atacar logo",
+     "Discutir"
+    ],
+    "why": "O objetivo da autodefesa é ficar em segurança e ir embora."
+   },
+   {
+    "q": "Deves lutar força contra força?",
+    "a": [
+     "Sim",
+     "Não, usa a direção certa do polegar"
+    ],
+    "why": "A técnica certa vence a força."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Soltar-se de abraços e pegas pela frente",
+  "sub": "Abraço por trás com braços presos, abraço por trás com braços livres, pega na gola pela frente, sinal de paragem",
+  "intro": "Ser agarrado num abraço apertado é a sensação mais assustadora. O segredo está num centro de gravidade baixo e em pés ágeis. Treinamos devagar, em segurança, e respeitamos sempre o sinal de paragem.",
+  "safety": "O parceiro abraça com força moderada. Nunca se aperta o pescoço a sério. Duas palmadas e para-se.",
+  "outro": "Já sabes soltar-te das pegas mais desagradáveis. Última lição desta parte: desequilibrar e projetar em segurança.",
+  "home": "Trabalho de casa: duas sessões por semana, cada situação oito vezes para cada lado, sempre com sinal de paragem.",
+  "steps": {
+   "tk7-1": {
+    "title": "O sinal de paragem",
+    "say": "Antes de qualquer treino a pares, combinem o sinal de paragem. Duas palmadas no parceiro ou no tapete, ou dizer bem alto: Para. Quando ouves ou sentes este sinal, largas imediatamente. Todos têm de respeitar este sinal sem exceção. Só treinando em segurança se consegue treinar durante muitos anos.",
+    "cues": [
+     "Duas palmadas ou dizer: Para",
+     "Largar imediatamente",
+     "Respeitar sem exceção"
+    ],
+    "mistakes": [
+     "Forçar só mais um bocadinho depois do sinal",
+     "Não combinar o sinal antes de treinar"
+    ],
+    "drill": {
+     "label": "Combinar o sinal",
+     "say": "Agora é a tua vez. Combina o sinal: três vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk7-2": {
+    "title": "Abraço por trás – baixar o centro",
+    "say": "Quando te agarram por trás e os teus braços ficam presos dentro do abraço: baixa logo o centro de gravidade, dobra os joelhos e empurra a anca para trás. Ao mesmo tempo, abre os cotovelos para os lados para alargar o abraço. Com o centro de gravidade baixo, é muito difícil o adversário levantar-te do chão.",
+    "cues": [
+     "Baixar logo o centro de gravidade",
+     "Empurrar a anca para trás",
+     "Abrir os cotovelos para alargar o abraço"
+    ],
+    "mistakes": [
+     "Ficar direito: és levantado com facilidade",
+     "Entrar em pânico e debater-te"
+    ],
+    "drill": {
+     "label": "Baixar o centro, alargar o abraço",
+     "say": "Agora é a tua vez. Baixa o centro e alarga o abraço: oito vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk7-3": {
+    "title": "Abraço por trás – rodar e sair",
+    "say": "Quando o abraço já está mais solto, dá um passo para o lado com um pé, baixa-te ainda mais, roda a anca e os ombros, e escorrega para fora dos braços. Vira-te de frente para o adversário, mãos em barreira, e afasta-te. Treina devagar com o parceiro, que só abraça com força moderada.",
+    "cues": [
+     "Um pé dá um passo para o lado",
+     "Baixar, rodar a anca e escorregar para fora",
+     "De frente, barreira, afastar-te"
+    ],
+    "mistakes": [
+     "Rodar com o centro de gravidade ainda alto",
+     "Ficar perto depois de te soltares"
+    ],
+    "drill": {
+     "label": "Saída de abraço por trás, cada lado",
+     "say": "Agora é a tua vez. Saída de abraço por trás, para cada lado: oito vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk7-4": {
+    "title": "Abraço por trás – braços livres",
+    "say": "Se os teus braços ficam por fora do abraço: primeiro, baixa na mesma o centro de gravidade. Depois agarra a mão do adversário à frente da tua barriga e solta-a para abrir o abraço, enquanto rodas o corpo para sair. Afasta-te e mantém a barreira de mãos.",
+    "cues": [
+     "Primeiro baixar o centro de gravidade",
+     "Soltar a mão do adversário à frente da barriga",
+     "Rodar para sair, afastar-te"
+    ],
+    "mistakes": [
+     "Arranhar as mãos do adversário sem te baixares",
+     "Virar as costas e ir embora ainda colado a ele"
+    ],
+    "drill": {
+     "label": "Saída de abraço por trás, braços livres",
+     "say": "Agora é a tua vez. Saída de abraço por trás, com os braços livres: oito vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk7-5": {
+    "title": "Pega na gola pela frente",
+    "say": "Quando o adversário te agarra a gola com as duas mãos, pela frente: recolhe o queixo e sobe os ombros para proteger o pescoço. Levanta um braço bem esticado por cima da cabeça. Depois roda o corpo com força para um lado, para que o ombro e o braço passem por cima dos dois braços do adversário e quebrem a pega. Recua logo e levanta a barreira de mãos. No treino, o parceiro só agarra a gola. Nunca, mesmo nunca, aperta o pescoço.",
+    "cues": [
+     "Queixo recolhido, ombros levantados",
+     "Um braço bem esticado para cima",
+     "Rodar com força, passar por cima dos braços, recuar"
+    ],
+    "mistakes": [
+     "Tentar afastar os braços do adversário à força",
+     "Rodar sem levantar bem o braço"
+    ],
+    "drill": {
+     "label": "Saída de pega na gola, cada lado",
+     "say": "Agora é a tua vez. Saída de pega na gola, para cada lado: oito vezes. Eu conto o ritmo por ti."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Quando te agarram por trás, qual é a primeira coisa a fazer?",
+    "a": [
+     "Baixar o centro de gravidade",
+     "Saltar",
+     "Atirar a cabeça para trás"
+    ],
+    "why": "Com o centro de gravidade baixo, é difícil o adversário levantar-te."
+   },
+   {
+    "q": "O sinal de paragem no treino a pares é:",
+    "a": [
+     "Duas palmadas ou dizer: Para",
+     "Um grito qualquer",
+     "Não é preciso sinal"
+    ],
+    "why": "Combina-se antes e respeita-se sem exceção."
+   },
+   {
+    "q": "Para te soltares de uma pega na gola pela frente, usas o quê?",
+    "a": [
+     "A força dos dois braços a puxar",
+     "Levantar o braço e rodar o corpo com força por cima",
+     "Ficar parado à espera"
+    ],
+    "why": "A rotação do corpo todo é mais forte do que os dois braços do adversário."
+   },
+   {
+    "q": "No treino de saída de pega na gola, o parceiro pode:",
+    "a": [
+     "Apertar o pescoço a sério",
+     "Só agarrar a gola, sem apertar o pescoço"
+    ],
+    "why": "Segurança total na zona do pescoço."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Desequilíbrio e projeções",
+  "sub": "Base de apoio, pega no casaco, varrimento por trás, rasteira à frente, controlo",
+  "intro": "Esta é a essência da luta Sambo: usar o equilíbrio do adversário para o levar ao chão. Só se treina quando já sabes cair bem, em colchões grossos e com um instrutor.",
+  "safety": "Obrigatório: dominar a lição Quedas seguras, colchões grossos, treinador presente, velocidade lenta.",
+  "outro": "Parabéns! Concluíste a parte Básica do percurso Combate próximo e autodefesa. A parte Avançada espera por ti, com situações mais reais.",
+  "home": "Trabalho de casa: duas sessões por semana em colchões grossos, com um instrutor, cada técnica seis vezes, devagar.",
+  "steps": {
+   "tk8-1": {
+    "title": "Base de apoio e desequilíbrio",
+    "say": "O adversário mantém-se de pé graças às duas pernas. A linha que une os dois pés é a base de apoio. Se empurras ou puxas na perpendicular a essa linha, o adversário perde o equilíbrio com muita facilidade. Treina com o teu parceiro: agarra a manga e a gola, empurra, puxa e roda suavemente em oito direções. Sente o momento em que o peso dele vai todo para os calcanhares ou para as pontas dos pés.",
+    "cues": [
+     "Base de apoio = linha que une os dois pés",
+     "Empurrar ou puxar na perpendicular à base",
+     "Sentir o peso a ir para os calcanhares ou para as pontas"
+    ],
+    "mistakes": [
+     "Empurrar ao longo da base",
+     "Usar os braços rígidos"
+    ],
+    "drill": {
+     "label": "Empurrar e puxar em 8 direções",
+     "say": "Agora é a tua vez. Empurra e puxa em oito direções durante sessenta segundos. O cronómetro faz a contagem decrescente."
+    }
+   },
+   "tk8-2": {
+    "title": "Pega básica no casaco",
+    "say": "A pega básica da luta Sambo: a mão esquerda agarra a manga direita do parceiro, logo abaixo do cotovelo. A mão direita agarra a lapela esquerda, à altura do peito. Cotovelos soltos, nada rígidos. Costas direitas, pés à largura dos ombros, pronto para te mexeres.",
+    "cues": [
+     "Mão esquerda: manga, abaixo do cotovelo",
+     "Mão direita: lapela, à altura do peito",
+     "Cotovelos soltos, costas direitas"
+    ],
+    "mistakes": [
+     "Curvar as costas e baixar a cabeça",
+     "Bloquear os cotovelos rígidos"
+    ],
+    "drill": {
+     "label": "Entrar na pega",
+     "say": "Agora é a tua vez. Entra na pega: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk8-3": {
+    "title": "Varrimento por trás",
+    "say": "Puxa o parceiro para trás e para a direita dele, para o peso dele ir para o calcanhar direito. Dá um passo com o teu pé esquerdo até junto do lado de fora do pé direito dele. A tua perna direita passa e varre a barriga da perna direita dele por trás, enquanto o teu tronco o empurra para trás. O parceiro cai para trás com a técnica que já aprendeu. Tu seguras a manga dele durante toda a queda e puxas um pouco para cima, para as costas dele tocarem no tapete com suavidade.",
+    "cues": [
+     "Levar o peso do parceiro para o calcanhar direito",
+     "Passo junto, varrer a barriga da perna por trás",
+     "Segurar a manga, deixá-lo cair suavemente"
+    ],
+    "mistakes": [
+     "Varrer antes de o peso estar nessa perna",
+     "Largar a manga quando o parceiro está a cair"
+    ],
+    "drill": {
+     "label": "Varrimento por trás (devagar), cada lado",
+     "say": "Agora é a tua vez. Varrimento por trás, devagar, para cada lado: seis vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk8-4": {
+    "title": "Rasteira à frente",
+    "say": "Puxa o parceiro para a frente, na diagonal para a direita dele. Roda o corpo e põe o teu pé direito a bloquear à frente do tornozelo direito dele. Continua a puxar a manga num arco para baixo. Ele tropeça na tua perna e cai para a frente, rolando pelo ombro, tal como no rolamento à frente.",
+    "cues": [
+     "Puxar para a frente – na diagonal direita",
+     "Pé a bloquear à frente do tornozelo",
+     "Puxar em arco para baixo"
+    ],
+    "mistakes": [
+     "Pontapear o tornozelo em vez de bloquear",
+     "Puxar a direito para o chão com força demais"
+    ],
+    "drill": {
+     "label": "Rasteira à frente (devagar), cada lado",
+     "say": "Agora é a tua vez. Rasteira à frente, devagar, para cada lado: seis vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk8-5": {
+    "title": "Controlo depois da projeção",
+    "say": "Depois de o parceiro cair, não largues logo. Segura a manga, mantém-te firme, olha para ele e ajuda-o a levantar-se. Quem projeta é responsável por quem cai. Só se treinam projeções em colchões grossos, com um treinador a acompanhar, a velocidade lenta, e respeitando sempre o sinal de paragem.",
+    "cues": [
+     "Segurar a manga, manter-te firme",
+     "Olhar para o parceiro",
+     "Ajudar o parceiro a levantar-se"
+    ],
+    "mistakes": [
+     "Largar logo ao projetar",
+     "Cair por cima do parceiro"
+    ],
+    "drill": {
+     "label": "Projeção lenta + ajudar a levantar",
+     "say": "Agora é a tua vez. Projeção lenta e ajudar a levantar: cinco vezes. Eu conto o ritmo por ti."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Para desequilibrar, em que direção deves empurrar ou puxar?",
+    "a": [
+     "Ao longo da linha que une os pés",
+     "Na perpendicular à linha que une os pés",
+     "A direito para o chão"
+    ],
+    "why": "A direção perpendicular à base de apoio é a mais fraca."
+   },
+   {
+    "q": "No varrimento por trás, para onde tem de ir o peso do parceiro?",
+    "a": [
+     "Para as pontas dos pés",
+     "Para o calcanhar da perna varrida",
+     "Para a outra perna"
+    ],
+    "why": "Só a perna que carrega o peso pode ser varrida."
+   },
+   {
+    "q": "Qual é a responsabilidade de quem projeta?",
+    "a": [
+     "Segurar a manga e controlar a queda do parceiro",
+     "Largar logo",
+     "Cair por cima"
+    ],
+    "why": "O controlo ajuda o parceiro a cair em segurança."
+   },
+   {
+    "q": "Condições para treinar projeções:",
+    "a": [
+     "Já saber cair bem, colchões grossos, treinador presente",
+     "Treinar em qualquer sítio",
+     "Treinar depressa para ganhar hábito"
+    ],
+    "why": "A segurança é uma condição obrigatória."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Golpes em pontos fracos para fugir",
+  "sub": "Varrimento aos olhos, joelhada baixa, pisão ao joelho – só para abrir caminho para fugir",
+  "intro": "Quando és atacado a sério e não podes fugir, precisas de um golpe simples que faça o agressor parar por um segundo. Esse segundo é a tua saída. Hoje treinamos nos aparadores, nunca, mesmo nunca, no corpo do parceiro.",
+  "safety": "Bate só nos aparadores ou nos escudos. Nunca toques nos olhos, nas virilhas nem nos joelhos do parceiro.",
+  "outro": "Já tens golpes para abrir caminho. Lembra-te bem: bates para fugir, não para ganhar. Na próxima lição: cotovelos e joelhos a curta distância.",
+  "home": "Trabalho de casa: três sessões por semana, três rondas de sequência nos aparadores, a acabar sempre a correr.",
+  "steps": {
+   "tk9-1": {
+    "title": "O princípio: bater para fugir",
+    "say": "Primeiro princípio: os golpes em pontos fracos só se usam quando és atacado a sério e não há outra saída. O objetivo não é ganhar, é fazer o agressor parar por um instante. Dás um golpe, crias logo distância e foges para um sítio com muita gente. Não ficas para continuar a lutar.",
+    "cues": [
+     "Só quando és atacado a sério",
+     "Um golpe para abrir caminho",
+     "Bateste, foges"
+    ],
+    "mistakes": [
+     "Ficar a lutar depois de já teres saída",
+     "Atacar quando ainda podias ir embora"
+    ],
+    "drill": {
+     "label": "Barreira de mãos – recuar – correr",
+     "say": "Agora é a tua vez. Barreira de mãos, recuar e correr: cinco vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk9-2": {
+    "title": "Varrimento aos olhos com os dedos",
+    "say": "A partir da barreira de mãos, a mão da frente já está perto da cara do adversário. Os dedos ligeiramente curvos e soltos varrem depressa a zona dos olhos, de lado, como quem sacode água da mão, e voltam logo. Este golpe não precisa de força, só de velocidade. Quem leva este golpe fecha os olhos e recua por reflexo. No treino, varres só a manopla que o parceiro segura à altura da cara.",
+    "cues": [
+     "Sair da barreira de mãos",
+     "Dedos curvos e soltos, varrer de lado",
+     "Rápido, recolher e recuar"
+    ],
+    "mistakes": [
+     "Dedos esticados e rígidos: deslocas um dedo com facilidade",
+     "Balançar a mão de longe e mostrar a intenção"
+    ],
+    "drill": {
+     "label": "Varrer a manopla, cada mão",
+     "say": "Agora é a tua vez. Varre a manopla com cada mão: quinze vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk9-3": {
+    "title": "Joelhada às virilhas (no escudo)",
+    "say": "Quando o agressor se cola a ti e te agarra muito de perto, as tuas mãos seguram-lhe os ombros ou a gola. Puxa para baixo e, ao mesmo tempo, sobe o joelho da perna de trás a direito. A anca empurra para a frente. No treino, o parceiro segura um escudo grosso à frente da parte baixa da barriga e tu dás a joelhada no escudo. Depois, empurra-o e afasta-te.",
+    "cues": [
+     "Mãos nos ombros, puxar para baixo",
+     "Subir o joelho de trás, empurrar a anca",
+     "Empurrar, afastar-te"
+    ],
+    "mistakes": [
+     "Inclinar-te para trás ao dar a joelhada",
+     "Dar a joelhada sem estar em equilíbrio"
+    ],
+    "drill": {
+     "label": "Joelhada no escudo, cada perna",
+     "say": "Agora é a tua vez. Joelhada no escudo com cada perna: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk9-4": {
+    "title": "Pisão ao joelho e à canela",
+    "say": "Quando o agressor vem a correr na tua direção, um pisão baixo com o calcanhar ao joelho ou à canela da perna da frente trava-lhe o avanço. Sobe um pouco o joelho da frente, pisa a direito com o calcanhar, para baixo e na diagonal para a frente, e recolhe a perna. Um golpe baixo é difícil de defender e mantém-te bem equilibrado. No treino, pisas só num escudo colocado em baixo.",
+    "cues": [
+     "Subir pouco o joelho",
+     "Pisar com o calcanhar, para baixo e à frente",
+     "Recolher a perna, recuar"
+    ],
+    "mistakes": [
+     "Pontapear alto à barriga: é lento e podes cair",
+     "Pisar com a ponta do pé"
+    ],
+    "drill": {
+     "label": "Pisão baixo no escudo, cada perna",
+     "say": "Agora é a tua vez. Pisão baixo no escudo com cada perna: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk9-5": {
+    "title": "Sequência: olhos – pisão – correr",
+    "say": "Junta tudo numa sequência: a partir da barreira de mãos, varre a manopla, dá um pisão baixo no escudo, e depois vira-te e corre três passos. Treina devagar para sair certo, e depois cada vez mais depressa. No fim de cada vez, grita bem alto: Para! Esta cadeia de reflexos tem de se tornar um hábito do corpo.",
+    "cues": [
+     "Barreira → olhos → pisão",
+     "Virar e correr 3 passos",
+     "Gritar alto: Para!"
+    ],
+    "mistakes": [
+     "Esquecer de correr no fim da sequência",
+     "Voltar a aproximar-te depois do pisão"
+    ],
+    "drill": {
+     "label": "Ronda de sequência",
+     "say": "Agora é a tua vez. Ronda de sequência: três rondas de trinta segundos, com vinte segundos de descanso entre rondas."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Qual é o objetivo dos golpes em pontos fracos?",
+    "a": [
+     "Ganhar a luta",
+     "Fazer o agressor parar para conseguires fugir",
+     "Castigar o adversário"
+    ],
+    "why": "Bates para abrir caminho e depois foges para um sítio seguro."
+   },
+   {
+    "q": "Como devem estar os dedos no varrimento aos olhos?",
+    "a": [
+     "Esticados e rígidos",
+     "Ligeiramente curvos, soltos, a varrer depressa",
+     "Bem fechados"
+    ],
+    "why": "Dedos soltos são rápidos e não se deslocam."
+   },
+   {
+    "q": "Onde se dá o pisão baixo?",
+    "a": [
+     "No joelho ou na canela da perna da frente",
+     "Na cabeça",
+     "Nas costas"
+    ],
+    "why": "Um golpe baixo é rápido, difícil de defender e trava o avanço."
+   },
+   {
+    "q": "No treino com o parceiro, onde bates?",
+    "a": [
+     "No corpo do parceiro, devagarinho",
+     "Só nos aparadores ou nos escudos"
+    ],
+    "why": "Nunca, mesmo nunca, se bate nos pontos fracos verdadeiros do parceiro."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Cotovelos e joelhos a curta distância",
+  "sub": "Cotovelada lateral, cotovelada ascendente, joelhada direta, controlo do pescoço e ombros",
+  "intro": "Quando o adversário se cola a ti, o punho já não tem espaço para balançar. Nesse momento, os cotovelos e os joelhos são as armas naturais mais fortes do corpo. Treinamos nos aparadores: primeiro a técnica certa, depois a força.",
+  "safety": "Bate só em aparadores grossos. Quem segura o aparador tem de o segurar bem e estar firme.",
+  "outro": "A curta distância já não mete medo. Na próxima lição: defender-te de ser levado ao chão e levantar-te em segurança.",
+  "home": "Trabalho de casa: três sessões por semana, três rondas de curta distância nos aparadores.",
+  "steps": {
+   "tk10-1": {
+    "title": "Cotovelada lateral",
+    "say": "A partir da guarda de combate, dobra o cotovelo da frente, com o antebraço paralelo ao chão e a mão junto à orelha. Roda a anca e o ombro e varre com o cotovelo de lado, como uma porta a fechar-se com força. O ponto de contacto é o osso logo abaixo do cotovelo. A outra mão continua a proteger a cara. Depois do golpe, volta logo à guarda.",
+    "cues": [
+     "Mão junto à orelha, antebraço na horizontal",
+     "Rodar a anca, varrer de lado",
+     "Tocar com o osso abaixo do cotovelo"
+    ],
+    "mistakes": [
+     "Balançar o braço todo esticado",
+     "Esquecer de proteger a cara com a outra mão"
+    ],
+    "drill": {
+     "label": "Cotovelada lateral, cada braço",
+     "say": "Agora é a tua vez. Cotovelada lateral com cada braço: quinze vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk10-2": {
+    "title": "Cotovelada ascendente",
+    "say": "Quando o adversário baixa a cabeça e avança contra ti, uma cotovelada de baixo para cima é muito eficaz. Dobra bem o cotovelo, com o punho a tocar no ombro. Depois empurra com as pernas e sobe o cotovelo a direito, numa linha vertical à frente da cara. No treino, o parceiro segura uma manopla virada para baixo, à altura do peito.",
+    "cues": [
+     "Bem dobrado, punho a tocar no ombro",
+     "Empurrar com as pernas, subir a direito",
+     "A outra mão protege a cara"
+    ],
+    "mistakes": [
+     "Subir na diagonal para fora",
+     "Usar só o braço, sem empurrar com as pernas"
+    ],
+    "drill": {
+     "label": "Cotovelada ascendente, cada braço",
+     "say": "Agora é a tua vez. Cotovelada ascendente com cada braço: doze vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk10-3": {
+    "title": "Controlo do pescoço e ombros",
+    "say": "Em distância de corpo a corpo, põe as mãos uma sobre a outra atrás da nuca do adversário, com os cotovelos fechados à frente do peito dele. Puxa a cabeça dele para baixo e aperta os cotovelos para dentro. Este controlo permite-te comandar o equilíbrio do adversário. No treino, puxa com suavidade e devagar, e o parceiro pode sempre dar palmadas para parar.",
+    "cues": [
+     "Mãos uma sobre a outra atrás da nuca",
+     "Cotovelos fechados à frente do peito do adversário",
+     "Puxar para baixo, suave e devagar"
+    ],
+    "mistakes": [
+     "Entrelaçar os dedos: ficam presos com facilidade",
+     "Dar esticões no pescoço do parceiro"
+    ],
+    "drill": {
+     "label": "Manter o controlo do pescoço e ombros",
+     "say": "Agora é a tua vez. Mantém o controlo do pescoço e ombros durante trinta segundos. O cronómetro faz a contagem decrescente."
+    }
+   },
+   "tk10-4": {
+    "title": "Joelhada direta no controlo",
+    "say": "A partir do controlo do pescoço e ombros, puxa o adversário para baixo e sobe o joelho a direito contra o escudo que o parceiro segura à frente da barriga. Empurra a anca para a frente e mantém-te direito sobre a perna de apoio. Depois de duas joelhadas, empurra-o com força e afasta-te.",
+    "cues": [
+     "Controlo do pescoço e ombros",
+     "Puxar para baixo, joelho a direito para cima",
+     "Duas joelhadas, empurrar, afastar-te"
+    ],
+    "mistakes": [
+     "Dobrar o corpo para a frente junto com ele",
+     "Ficar na ponta do pé de apoio e perder o equilíbrio"
+    ],
+    "drill": {
+     "label": "Joelhada no escudo, cada perna",
+     "say": "Agora é a tua vez. Joelhada no escudo com cada perna: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk10-5": {
+    "title": "Sequência a curta distância",
+    "say": "Junta tudo: cotovelada lateral, cotovelada ascendente, entrar no controlo, duas joelhadas, empurrar e recuar para a barreira de mãos. Faz três rondas de trinta segundos com os aparadores. Mantém a respiração de descarga, curta, durante os golpes.",
+    "cues": [
+     "Cotovelada lateral → cotovelada ascendente",
+     "Controlo → 2 joelhadas",
+     "Empurrar, barreira de mãos, respiração de descarga"
+    ],
+    "mistakes": [
+     "Prender a respiração ao bater",
+     "Esquecer de empurrar para criar distância"
+    ],
+    "drill": {
+     "label": "Ronda de curta distância",
+     "say": "Agora é a tua vez. Ronda de curta distância: três rondas de trinta segundos, com vinte segundos de descanso entre rondas."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Com que parte toca a cotovelada lateral?",
+    "a": [
+     "Com o osso logo abaixo do cotovelo",
+     "Com a mão",
+     "Com o ombro"
+    ],
+    "why": "O osso duro logo abaixo do cotovelo é o ponto de contacto mais sólido."
+   },
+   {
+    "q": "No controlo do pescoço e ombros, como pões as mãos?",
+    "a": [
+     "Com os dedos entrelaçados",
+     "Uma sobre a outra, atrás da nuca"
+    ],
+    "why": "Os dedos entrelaçados ficam presos com facilidade. Mãos sobrepostas são mais seguras."
+   },
+   {
+    "q": "Depois de duas joelhadas, o que deves fazer?",
+    "a": [
+     "Empurrar e afastar-te",
+     "Continuar agarrado",
+     "Sentar-te"
+    ],
+    "why": "Cria sempre distância para fugir."
+   },
+   {
+    "q": "Ao bater em série, como é a respiração?",
+    "a": [
+     "Prender a respiração",
+     "Respiração de descarga curta a cada golpe"
+    ],
+    "why": "A respiração de descarga evita que percas o fôlego e mantém-te calmo."
+   }
+  ]
+ },
+ "tk11": {
+  "title": "Defesa de quedas e levantar-se",
+  "sub": "Sprawl contra pega às pernas, pesar com a anca, levantar técnico, pontapé para manter a distância",
+  "intro": "Numa rixa, o mais perigoso é ser levado ao chão. Hoje aprendes a não seres derrubado e, se caíres, a levantar-te em segurança em poucos segundos.",
+  "safety": "Treina em colchões grossos. O parceiro entra devagar e nunca com a cabeça.",
+  "outro": "Agora é muito difícil levarem-te ao chão, e já sabes levantar-te em segurança. Na próxima lição: fugas quando estás preso no chão.",
+  "home": "Trabalho de casa: todos os dias, dez levantares técnicos para cada lado, e duas sessões por semana de sprawl com o parceiro.",
+  "steps": {
+   "tk11-1": {
+    "title": "Sprawl contra pega às pernas",
+    "say": "Quando o adversário se baixa e entra para te agarrar as pernas: atira as duas pernas para trás muito depressa, baixa a anca e pesa sobre a parte de cima das costas dele, com as mãos a travar-lhe os ombros. O peso do teu corpo fica em cima dele e as tuas pernas ficam longe, fora do alcance. Chama-se sprawl. Treina devagar com o parceiro, nos colchões.",
+    "cues": [
+     "Atirar as duas pernas para trás",
+     "Baixar a anca sobre a parte de cima das costas",
+     "Mãos a travar os ombros do adversário"
+    ],
+    "mistakes": [
+     "Recuar de pé, direito: agarram-te as pernas com facilidade",
+     "Deixar a anca alta: o adversário ainda consegue puxar as pernas"
+    ],
+    "drill": {
+     "label": "Sprawl",
+     "say": "Agora é a tua vez. Sprawl: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk11-2": {
+    "title": "Sair depois do sprawl",
+    "say": "Depois de um sprawl bem feito, não fiques muito tempo em cima dele. Empurra os ombros do adversário com as mãos, levanta-te num impulso, dá dois passos atrás e volta à guarda de combate, com as mãos a proteger a cara. O objetivo continua a ser sair dali.",
+    "cues": [
+     "Empurrar os ombros com as mãos",
+     "Levantar num impulso, 2 passos atrás",
+     "Voltar à guarda, proteger a cara"
+    ],
+    "mistakes": [
+     "Ficar demasiado tempo em cima",
+     "Levantar-te mesmo à frente do adversário"
+    ],
+    "drill": {
+     "label": "Sprawl – levantar – recuar",
+     "say": "Agora é a tua vez. Sprawl, levantar e recuar: oito vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk11-3": {
+    "title": "Pontapé do chão para manter a distância",
+    "say": "Se caíste de costas e o adversário está de pé: deita-te de lado, sobre uma anca, com uma mão apoiada no tapete e a outra a proteger a cara. A perna de cima fica fletida e pronta para dar um pontapé ao joelho ou à barriga se ele avançar. Roda o corpo para o acompanhar, com os pés sempre virados para o adversário, e não o deixes dar a volta para o lado da tua cabeça.",
+    "cues": [
+     "De lado, uma mão no chão, outra a proteger",
+     "Perna de cima fletida, pronta a pontapear",
+     "Rodar com ele, pés sempre virados para o adversário"
+    ],
+    "mistakes": [
+     "Ficar deitado de costas, direito",
+     "Deixar o adversário dar a volta para o lado da cabeça"
+    ],
+    "drill": {
+     "label": "Rodar a acompanhar o parceiro",
+     "say": "Agora é a tua vez. Roda a acompanhar o parceiro durante trinta segundos. O cronómetro faz a contagem decrescente."
+    }
+   },
+   "tk11-4": {
+    "title": "Levantar técnico",
+    "say": "Para te levantares em segurança: a mão de trás apoia-se no tapete atrás da anca e a mão da frente protege a cara. Levanta a anca e passa a perna de apoio por baixo do corpo, para trás. Pousa o pé longe, em guarda, e só depois te endireitas. Proteges sempre a cara e levantas-te a afastar-te do adversário, nunca direito à frente dele.",
+    "cues": [
+     "Mão de trás no chão, mão da frente a proteger a cara",
+     "Levantar a anca, passar a perna para trás",
+     "Levantar a afastar-te, em guarda"
+    ],
+    "mistakes": [
+     "Levantar-te com as duas mãos no chão, com a cara desprotegida",
+     "Levantar-te a avançar para o adversário"
+    ],
+    "drill": {
+     "label": "Levantar técnico, cada lado",
+     "say": "Agora é a tua vez. Levantar técnico para cada lado: oito vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk11-5": {
+    "title": "Sequência: cair – manter a distância – levantar",
+    "say": "Junta tudo: queda para trás com boa técnica, rodar de lado, pontapé para manter a distância, levantar técnico, afastar-te e barreira de mãos. No fim de cada vez, verifica se protegeste sempre a cara. Faz cinco vezes para cada lado.",
+    "cues": [
+     "Queda para trás → de lado",
+     "Pontapé para manter a distância",
+     "Levantar técnico → barreira de mãos"
+    ],
+    "mistakes": [
+     "Levantar à pressa com o adversário ainda colado",
+     "Esquecer de proteger a cara"
+    ],
+    "drill": {
+     "label": "Sequência cair – levantar, cada lado",
+     "say": "Agora é a tua vez. Sequência de cair e levantar, para cada lado: cinco vezes. Eu conto o ritmo por ti."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Se alguém entra para te agarrar as pernas, o que fazes?",
+    "a": [
+     "Atiras as pernas para trás e pesas com a anca",
+     "Ficas direito à espera",
+     "Saltas"
+    ],
+    "why": "No sprawl, as pernas vão para longe e o teu peso fica em cima do adversário."
+   },
+   {
+    "q": "Deitado no chão, para onde devem estar virados os pés?",
+    "a": [
+     "Para o adversário",
+     "Para o céu",
+     "Para trás"
+    ],
+    "why": "Pés virados para o adversário, para o manteres à distância com pontapés."
+   },
+   {
+    "q": "No levantar técnico, o que faz a mão da frente?",
+    "a": [
+     "Apoia-se no chão",
+     "Protege a cara"
+    ],
+    "why": "Protege sempre a cara ao levantar-te."
+   },
+   {
+    "q": "Ao levantar-te, afastas-te ou avanças para o adversário?",
+    "a": [
+     "Afasto-me",
+     "Avanço"
+    ],
+    "why": "Levanta-te a afastar-te, para ficares em segurança."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "Fugas no chão",
+  "sub": "Fuga de anca, ponte e rolamento, sair de baixo, guarda com as pernas",
+  "intro": "Se ficares preso no chão, não entres em pânico. Há movimentos simples da luta Sambo que te ajudam a inverter a situação. Treinamos devagar, o parceiro faz peso com força moderada, e respeitamos sempre o sinal de paragem.",
+  "safety": "Colchões grossos. Quem está por cima não põe o peso todo e nunca pesa sobre o pescoço. Duas palmadas e para-se.",
+  "outro": "Já sabes fugir no chão. Na próxima lição, um tema sério: enfrentar alguém armado com uma faca.",
+  "home": "Trabalho de casa: todos os dias, dois minutos de fuga de anca, e duas sessões por semana de luta suave.",
+  "steps": {
+   "tk12-1": {
+    "title": "Fuga de anca",
+    "say": "Deita-te de costas, com os dois joelhos fletidos. Empurra um pé contra o tapete e leva a anca para trás, enquanto rodas o corpo de lado, com as duas mãos a empurrar para a frente como quem afasta um objeto pesado. O teu corpo curva-se como um camarão. Depois volta a ficar de costas e faz para o outro lado. É o movimento mais importante no chão: cria espaço.",
+    "cues": [
+     "Empurrar com o pé, levar a anca para trás",
+     "Corpo de lado, mãos a empurrar para a frente",
+     "Trocar de lado sem parar"
+    ],
+    "mistakes": [
+     "Ficar de costas, direito, sem rodar a anca",
+     "Empurrar com as mãos sem mexer a anca"
+    ],
+    "drill": {
+     "label": "Fuga de anca ao longo do tapete",
+     "say": "Agora é a tua vez. Fuga de anca ao longo do tapete durante quarenta segundos. O cronómetro faz a contagem decrescente."
+    }
+   },
+   "tk12-2": {
+    "title": "Ponte e rolamento contra a montada",
+    "say": "Quando alguém está sentado em cima da tua barriga: primeiro, protege a cara com as duas mãos. Depois prende um braço do adversário bem junto ao teu corpo e põe o pé do mesmo lado a bloquear por fora da perna dele. Levanta a anca com muita força, faz uma ponte por cima do ombro do lado do braço preso e vira o adversário para o lado. Ficas por cima, e depois levantas-te e afastas-te.",
+    "cues": [
+     "Primeiro proteger a cara",
+     "Prender um braço + bloquear a perna do mesmo lado",
+     "Ponte de anca, virar pelo ombro desse lado"
+    ],
+    "mistakes": [
+     "Empurrar o peito do adversário com as mãos",
+     "Fazer a ponte a direito, sem prender o braço e a perna"
+    ],
+    "drill": {
+     "label": "Ponte e rolamento, cada lado",
+     "say": "Agora é a tua vez. Ponte e rolamento para cada lado: seis vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk12-3": {
+    "title": "Fuga cotovelo-joelho por baixo",
+    "say": "Se não conseguires virar: deita-te de lado, junta o cotovelo ao joelho e encaixa o cotovelo na anca do adversário. Faz a fuga de anca para criar espaço e mete o joelho entre ti e ele. Quando o joelho já estiver encaixado, põe as pernas em guarda e mantém o adversário longe com as duas pernas.",
+    "cues": [
+     "De lado, cotovelo junto ao joelho",
+     "Fuga de anca para criar espaço",
+     "Meter o joelho, pôr as pernas em guarda"
+    ],
+    "mistakes": [
+     "Empurrar com o braço esticado: levas uma chave de braço com facilidade",
+     "Ficar de costas, direito"
+    ],
+    "drill": {
+     "label": "Fuga cotovelo-joelho, cada lado",
+     "say": "Agora é a tua vez. Fuga cotovelo-joelho para cada lado: seis vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk12-4": {
+    "title": "Guarda com as pernas e levantar",
+    "say": "Quando já tens as duas pernas entre ti e o adversário, estás em guarda. Põe os pés na anca dele e empurra-o para longe. Quando houver espaço, passa para o lado e faz o levantar técnico, como na lição anterior. Estar no chão não é perder, desde que mantenhas as pernas entre vocês os dois.",
+    "cues": [
+     "As duas pernas entre ti e o adversário",
+     "Pés a empurrar a anca, criar distância",
+     "Levantar técnico"
+    ],
+    "mistakes": [
+     "Tirar as pernas e deixar o adversário colar-se",
+     "Levantar-te antes de haver distância"
+    ],
+    "drill": {
+     "label": "Guarda – empurrar – levantar",
+     "say": "Agora é a tua vez. Guarda, empurrar e levantar: seis vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk12-5": {
+    "title": "Luta suave com controlo",
+    "say": "Agora, luta suave com controlo durante dois minutos. Um começa por baixo e o outro por cima. Quem está por baixo tem uma única tarefa: sair e levantar-se. Quem está por cima só segura, sem chaves de braço e sem apertar o pescoço. Cinquenta por cento da força. Duas palmadas e para-se logo.",
+    "cues": [
+     "Por baixo: sair e levantar-se",
+     "Por cima: só segurar, sem chaves, sem estrangular",
+     "50% da força, duas palmadas e para-se"
+    ],
+    "mistakes": [
+     "Usar toda a força logo de início",
+     "Não respeitar o sinal de paragem"
+    ],
+    "drill": {
+     "label": "Ronda de luta suave",
+     "say": "Agora é a tua vez. Ronda de luta suave: duas rondas de sessenta segundos, com trinta segundos de descanso entre rondas."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Qual é o movimento mais importante no chão?",
+    "a": [
+     "A fuga de anca",
+     "Ficar quieto",
+     "Socar para cima"
+    ],
+    "why": "A fuga de anca cria espaço para fugir."
+   },
+   {
+    "q": "Na ponte e rolamento, para que lado viras?",
+    "a": [
+     "Para o lado do braço e da perna que prendeste e bloqueaste",
+     "Para qualquer lado"
+    ],
+    "why": "O adversário não consegue apoiar-se com o braço e a perna que estão presos."
+   },
+   {
+    "q": "Quando estás preso por baixo, deves esticar o braço para empurrar o peito do adversário?",
+    "a": [
+     "Sim",
+     "Não, levas uma chave de braço com facilidade"
+    ],
+    "why": "Mantém os cotovelos junto ao corpo."
+   },
+   {
+    "q": "Na luta suave, o que pode fazer quem está por cima?",
+    "a": [
+     "Chaves de braço e estrangulamentos",
+     "Só segurar, sem chaves e sem estrangular"
+    ],
+    "why": "Treina-se com segurança e com controlo."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Enfrentar alguém com uma faca",
+  "sub": "Regras de ouro, objetos como barreira, proteção, controlo do braço, fuga – faca de borracha",
+  "intro": "Ouve bem o mais importante de hoje: uma faca é muito perigosa, mesmo para quem treina artes marciais há muitos anos. Se o assaltante só quer os teus bens, dá-lhos. Os bens compram-se outra vez. A vida, não. As técnicas que se seguem são só para quando não há mais nenhuma alternativa.",
+  "safety": "Treina só com facas de borracha ou facas de plástico sem gume. Nunca treines com uma faca verdadeira.",
+  "outro": "Lembra-te bem: fugir é vencer. Na próxima lição: manter a calma sob ameaça de uma arma de fogo.",
+  "home": "Trabalho de casa: uma sessão por semana de situações com faca de borracha, devagar e em segurança, a acabar sempre a fugir.",
+  "steps": {
+   "tk13-1": {
+    "title": "Regras de ouro",
+    "say": "Três regras de ouro. Primeira: se te pedirem os bens, dá-os logo, atira a carteira para longe e foge na direção oposta. Segunda: mantém a maior distância possível e procura por onde fugir. Terceira: só usas técnicas se fores atacado e não puderes fugir. E lembra-te: na realidade, quase toda a gente que enfrenta uma faca acaba ferida. Fugir é vencer.",
+    "cues": [
+     "Dar os bens, atirar para longe, fugir",
+     "Manter a distância, procurar uma saída",
+     "A técnica é o último recurso"
+    ],
+    "mistakes": [
+     "Tentar ficar com os bens",
+     "Atirar-se confiante contra quem tem a faca"
+    ],
+    "drill": {
+     "label": "Atirar a carteira – fugir (simulação)",
+     "say": "Agora é a tua vez. Simulação: atira a carteira e foge. Três vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk13-2": {
+    "title": "Usar um objeto como escudo",
+    "say": "Qualquer coisa que tenhas na mão pode servir de escudo: uma mochila, um casaco enrolado no braço, uma cadeira, uma mala. Mantém o objeto entre ti e a ponta da faca, seguro com as duas mãos, e recua em direção à saída. O objeto mantém a faca longe do teu corpo e dá-te tempo para fugir.",
+    "cues": [
+     "Mochila, casaco, cadeira como escudo",
+     "Manter o objeto entre ti e a faca",
+     "Recuar em direção à saída"
+    ],
+    "mistakes": [
+     "Largar o objeto para lutar de mãos vazias",
+     "Recuar para um canto"
+    ],
+    "drill": {
+     "label": "Escudo de mochila, recuar para a saída",
+     "say": "Agora é a tua vez. Segura a mochila como escudo e recua para a saída durante trinta segundos. O cronómetro faz a contagem decrescente."
+    }
+   },
+   "tk13-3": {
+    "title": "Proteção e postura",
+    "say": "Se não tiveres nenhum objeto: os dois braços à frente da cara, com a parte de dentro dos antebraços virada para ti, os cotovelos a proteger as costelas, o corpo ligeiramente curvado e o queixo recolhido. Põe o corpo de lado, para seres um alvo mais pequeno. Os olhos olham para a mão que segura a faca, não para a cara do adversário.",
+    "cues": [
+     "Antebraços à frente da cara, parte de dentro virada para ti",
+     "De lado, ligeiramente curvado, queixo recolhido",
+     "Olhos na mão da faca"
+    ],
+    "mistakes": [
+     "Pôr as palmas das mãos à frente para defender",
+     "Olhar para a cara em vez de olhar para a mão"
+    ],
+    "drill": {
+     "label": "Entrar na postura de proteção",
+     "say": "Agora é a tua vez. Entra na postura de proteção: dez vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk13-4": {
+    "title": "Bloquear e controlar o braço",
+    "say": "Quando a facada vem e não consegues evitá-la: bloqueia o braço da faca com os dois antebraços e, ao mesmo tempo, dá um passo em diagonal para fora. Logo a seguir, prende esse braço bem junto ao teu corpo com as duas mãos, controla o pulso e mantém a lâmina virada para longe. Os teus dois braços contra um braço dele. Treina muito devagar, com uma faca de borracha.",
+    "cues": [
+     "Bloquear com os dois antebraços + passo diagonal",
+     "Prender bem o braço da faca",
+     "Duas mãos a controlar o pulso, lâmina virada para longe"
+    ],
+    "mistakes": [
+     "Usar só uma mão",
+     "Largar o braço a meio"
+    ],
+    "drill": {
+     "label": "Bloquear – controlar (devagar), cada lado",
+     "say": "Agora é a tua vez. Bloquear e controlar, devagar, para cada lado: oito vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk13-5": {
+    "title": "Soltar e fugir",
+    "say": "Quando já controlas o braço, não tentes tirar-lhe a faca. Dá um pisão baixo ao joelho, como na lição nove, empurra o adversário com força e foge para um sítio com muita gente, pede ajuda e chama a polícia. Depois, verifica o teu corpo: quem é ferido com uma faca muitas vezes não sente logo.",
+    "cues": [
+     "Não tentar tirar a faca",
+     "Pisão baixo, empurrar, fugir",
+     "Pedir ajuda, chamar a polícia, procurar ferimentos"
+    ],
+    "mistakes": [
+     "Tentar arrancar a faca",
+     "Perseguir o adversário"
+    ],
+    "drill": {
+     "label": "Controlar – empurrar – fugir (devagar)",
+     "say": "Agora é a tua vez. Controlar, empurrar e fugir, devagar: cinco vezes. Eu conto o ritmo por ti."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Alguém com uma faca exige a tua carteira. O que fazes?",
+    "a": [
+     "Luto para ficar com a carteira",
+     "Dou a carteira, atiro-a para longe e fujo"
+    ],
+    "why": "Os bens compram-se outra vez. A vida, não."
+   },
+   {
+    "q": "Que objetos podem servir de escudo?",
+    "a": [
+     "Mochila, casaco, cadeira",
+     "Nenhum"
+    ],
+    "why": "O objeto mantém a faca longe do teu corpo."
+   },
+   {
+    "q": "Frente a uma faca, para onde olhas?",
+    "a": [
+     "Para a cara do adversário",
+     "Para a mão que segura a faca"
+    ],
+    "why": "O perigo está na mão que segura a faca."
+   },
+   {
+    "q": "Depois de controlares o braço da faca, o que deves fazer?",
+    "a": [
+     "Tentar tirar a faca",
+     "Empurrar, fugir e pedir ajuda"
+    ],
+    "why": "O objetivo é fugir em segurança, não ficar com a arma."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Ameaça com arma de fogo",
+  "sub": "Calma, obedecer, observar, abrigo, fuga – pistola de treino em plástico",
+  "intro": "Esta lição fala mais de calma do que de técnica. Frente a uma arma de fogo, a tua vida depende de teres a cabeça fria. Usamos uma pistola de plástico cor de laranja, própria só para treino.",
+  "safety": "Usa só pistolas de treino em plástico cor de laranja. Nunca armas verdadeiras, armas de pressão de ar ou réplicas realistas.",
+  "outro": "A cabeça fria é a tua arma mais forte. Última lição do percurso: síntese e reflexos.",
+  "home": "Trabalho de casa: todos os dias, três minutos de respiração em caixa, e treina o jogo da memória quando andares na rua.",
+  "steps": {
+   "tk14-1": {
+    "title": "Respirar e manter a calma",
+    "say": "Quando te apontam uma arma, o teu coração vai bater muito depressa. Faz a respiração em caixa: inspira durante quatro segundos, sustém quatro segundos, expira durante quatro segundos, sustém quatro segundos. Bastam uma ou duas respirações para clarear a cabeça. Quem está calmo vê a saída. Quem está em pânico, não.",
+    "cues": [
+     "Inspirar 4 – suster 4 – expirar 4 – suster 4",
+     "Uma ou duas respirações bastam",
+     "Só com calma se vê a saída"
+    ],
+    "mistakes": [
+     "Respirar de forma ofegante",
+     "Fazer movimentos bruscos"
+    ],
+    "drill": {
+     "label": "Respiração em caixa de 4 tempos",
+     "say": "Agora é a tua vez. Respiração em caixa de quatro tempos durante sessenta e quatro segundos. O cronómetro faz a contagem decrescente."
+    }
+   },
+   "tk14-2": {
+    "title": "Obedecer e levantar as mãos",
+    "say": "Se te pedirem os bens: obedece. Levanta as duas mãos abertas à altura dos ombros e fala devagar e com clareza: está bem, eu dou-te. Avisa antes de cada movimento: vou tirar a carteira do bolso direito. Pousa os bens no chão ou atira-os para longe. Não fixes o olhar na cara dele e não discutas.",
+    "cues": [
+     "Mãos abertas, à altura dos ombros",
+     "Falar devagar, avisar antes de cada movimento",
+     "Entregar os bens, não discutir"
+    ],
+    "mistakes": [
+     "Levar a mão ao bolso de repente",
+     "Discutir ou ameaçar de volta"
+    ],
+    "drill": {
+     "label": "Simulação de obediência",
+     "say": "Agora é a tua vez. Simulação de obediência: três vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk14-3": {
+    "title": "Esconderijo e abrigo",
+    "say": "Distingue duas coisas. Um esconderijo tapa-te da vista, como um arbusto ou uma cortina. Um abrigo trava as balas, como uma parede de betão, um pilar ou o bloco do motor de um carro. Quando tiveres oportunidade de fugir, corre para um abrigo, em ziguezague e não em linha reta, e mantém o corpo baixo.",
+    "cues": [
+     "Esconderijo ≠ abrigo",
+     "Correr para um abrigo",
+     "Correr em ziguezague, corpo baixo"
+    ],
+    "mistakes": [
+     "Esconder-te atrás de uma porta de madeira ou de um arbusto e achar que estás seguro",
+     "Correr em linha reta"
+    ],
+    "drill": {
+     "label": "Correr em ziguezague até ao abrigo",
+     "say": "Agora é a tua vez. Corre em ziguezague até ao abrigo: cinco vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk14-4": {
+    "title": "Observar e memorizar",
+    "say": "Enquanto obedeces, observa em silêncio: a altura, a roupa, a voz e a direção para onde a pessoa foge. Quando ela se for embora, fica num sítio seguro, chama logo a polícia e conta tudo o que te lembras. Nunca a persigas.",
+    "cues": [
+     "Observar em silêncio: altura, roupa, voz, direção",
+     "Ficar num sítio seguro",
+     "Chamar a polícia, nunca perseguir"
+    ],
+    "mistakes": [
+     "Perseguir o assaltante",
+     "Fixar o olhar na cara dele"
+    ],
+    "drill": {
+     "label": "Jogo da memória: descrever uma pessoa",
+     "say": "Agora é a tua vez. Jogo da memória: descreve uma pessoa durante trinta segundos. O cronómetro faz a contagem decrescente."
+    }
+   },
+   "tk14-5": {
+    "title": "O último recurso",
+    "say": "Só quando tens a certeza de que vai disparar, mesmo depois de teres obedecido, é que pensas no último recurso: desviar o cano da arma de ti e das outras pessoas, agarrá-lo com as duas mãos e procurar uma forma de fugir. É uma técnica de risco altíssimo, que só se aprende pessoalmente com um treinador certificado e com uma arma de treino. Na grande maioria das situações, obedecer e observar é a melhor escolha para sobreviver.",
+    "cues": [
+     "Só se tiveres a certeza de que vai disparar",
+     "Desviar o cano do corpo, agarrar com as duas mãos",
+     "Aprender pessoalmente com um treinador"
+    ],
+    "mistakes": [
+     "Agir quando só te pedem os bens",
+     "Treinar sozinho com vídeos, sem instrutor"
+    ],
+    "drill": {
+     "label": "Repetir as regras",
+     "say": "Agora é a tua vez. Repete as regras: três vezes. Eu conto o ritmo por ti."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "O que é a respiração em caixa?",
+    "a": [
+     "Inspirar 4 – suster 4 – expirar 4 – suster 4 segundos",
+     "Suster a respiração muito tempo"
+    ],
+    "why": "Uma respiração regular baixa o ritmo cardíaco e mantém a cabeça desperta."
+   },
+   {
+    "q": "Apontam-te uma arma e exigem os teus bens. O que deves fazer?",
+    "a": [
+     "Resistir",
+     "Obedecer, avisar antes de te mexeres, entregar os bens"
+    ],
+    "why": "Os bens não valem tanto como a vida."
+   },
+   {
+    "q": "Qual destes é um abrigo, que trava as balas?",
+    "a": [
+     "Um arbusto",
+     "Uma parede de betão, um pilar"
+    ],
+    "why": "Um arbusto só esconde, não trava as balas."
+   },
+   {
+    "q": "Depois de o assaltante se ir embora, deves:",
+    "a": [
+     "Persegui-lo",
+     "Ficar num sítio seguro e chamar a polícia"
+    ],
+    "why": "Nunca persigas uma pessoa armada."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Síntese e reflexos",
+  "sub": "Situações em sequência, treino a pares com controlo, alongamentos de recuperação",
+  "intro": "Última lição. Vamos juntar tudo o que aprendeste e transformá-lo em reflexos. Quando a situação acontecer, não vais ter tempo para pensar. O corpo tem de saber sozinho o que fazer.",
+  "safety": "Usa luvas e protetor bucal, se tiveres. Treino a pares com trinta a cinquenta por cento da força, com um instrutor a observar.",
+  "outro": "Parabéns, guerreiro! Concluíste todo o percurso Combate próximo e autodefesa, a parte básica e a avançada. Faz o exame final do percurso para ganhares a insígnia Lobo de Aço.",
+  "home": "Trabalho de casa: três sessões por semana a rever todo o percurso, trinta minutos cada, sempre com aquecimento e alongamentos.",
+  "steps": {
+   "tk15-1": {
+    "title": "Reflexos com aparadores em movimento",
+    "say": "O parceiro segura duas manoplas, anda à tua volta e levanta-as de repente em posições diferentes. Manopla à altura da cara: soco direto. Manopla baixa: pontapé de empurrão. Manopla a vir contra a tua cabeça: guarda alta. Reage logo, sem pensar.",
+    "cues": [
+     "Manopla à altura da cara → soco direto",
+     "Manopla baixa → pontapé de empurrão",
+     "Manopla a vir contra ti → guarda alta"
+    ],
+    "mistakes": [
+     "Ficar parado à espera, sem te mexeres",
+     "Baixar as mãos depois de cada golpe"
+    ],
+    "drill": {
+     "label": "Ronda de reflexos",
+     "say": "Agora é a tua vez. Ronda de reflexos: três rondas de quarenta e cinco segundos, com vinte segundos de descanso entre rondas."
+    }
+   },
+   "tk15-2": {
+    "title": "Situação: pega no pulso",
+    "say": "Situação um. O parceiro agarra-te o pulso de surpresa e puxa. Reflexo: baixar o centro de gravidade, sair pela direção do polegar, barreira de mãos, afastar-te e gritar bem alto: Para! Depois vira-te e corre três passos. Repete cinco vezes, e de cada vez o parceiro agarra de uma forma diferente.",
+    "cues": [
+     "Baixar o centro, sair pela direção do polegar",
+     "Barreira de mãos, gritar alto",
+     "Correr 3 passos"
+    ],
+    "mistakes": [
+     "Lutar força contra força",
+     "Esquecer de gritar e de correr"
+    ],
+    "drill": {
+     "label": "Situação de pega no pulso",
+     "say": "Agora é a tua vez. Situação de pega no pulso: cinco vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk15-3": {
+    "title": "Situação: abraço por trás",
+    "say": "Situação dois. O parceiro agarra-te por trás. Reflexo: baixar o centro de gravidade, abrir os cotovelos, passo para o lado, rodar e sair, pontapé de empurrão no escudo que uma terceira pessoa segura, e fugir. Troquem de papéis a cada vez. Cinco vezes cada um.",
+    "cues": [
+     "Baixar o centro, abrir os cotovelos",
+     "Passo para o lado, rodar e sair",
+     "Pontapé de empurrão, fugir"
+    ],
+    "mistakes": [
+     "Ficar com o corpo direito",
+     "Rodar com o centro de gravidade ainda alto"
+    ],
+    "drill": {
+     "label": "Situação de abraço por trás",
+     "say": "Agora é a tua vez. Situação de abraço por trás: cinco vezes. Eu conto o ritmo por ti."
+    }
+   },
+   "tk15-4": {
+    "title": "Treino a pares com controlo",
+    "say": "Treino leve a pares, três rondas de um minuto cada. Só socos diretos às luvas e aos ombros, e pontapés de empurrão à barriga muito leves, com trinta por cento da força. Nada à cara, nada aos pontos fracos. O objetivo é treinar os olhos, o trabalho de pés e a calma quando alguém ataca a sério.",
+    "cues": [
+     "30% da força, nada à cara",
+     "Treinar os olhos, os pés e a calma",
+     "Tocar nas luvas para cumprimentar, antes e depois"
+    ],
+    "mistakes": [
+     "Aumentar a força quando és atingido",
+     "Fechar os olhos quando te batem"
+    ],
+    "drill": {
+     "label": "Ronda de treino a pares",
+     "say": "Agora é a tua vez. Ronda de treino a pares: três rondas de sessenta segundos, com trinta segundos de descanso entre rondas."
+    }
+   },
+   "tk15-5": {
+    "title": "Alongamentos e recuperação",
+    "say": "Depois de um treino duro, faz dez minutos de alongamentos. Alonga a frente da coxa, a parte de trás da coxa, as ancas, os ombros e as costas, trinta segundos em cada posição, e expira ao alongares mais fundo. Bebe água, come bem e dorme o suficiente. Os músculos crescem quando descansas, não quando treinas.",
+    "cues": [
+     "30 segundos em cada posição",
+     "Expirar ao alongar mais fundo",
+     "Beber água, comer bem, dormir o suficiente"
+    ],
+    "mistakes": [
+     "Dar ressaltos ao alongar",
+     "Saltar a parte da recuperação"
+    ],
+    "drill": {
+     "label": "Alongamentos de recuperação",
+     "say": "Agora é a tua vez. Alongamentos de recuperação durante cento e vinte segundos. O cronómetro faz a contagem decrescente."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Se a manopla aparece baixa, à altura da barriga, qual é o reflexo?",
+    "a": [
+     "Pontapé de empurrão",
+     "Guarda alta"
+    ],
+    "why": "Um alvo baixo é para o pontapé de empurrão."
+   },
+   {
+    "q": "Quanta força se usa no treino a pares com controlo?",
+    "a": [
+     "Cerca de 30%",
+     "Toda a força"
+    ],
+    "why": "Treina-se a técnica em segurança, não se luta a sério."
+   },
+   {
+    "q": "Cada situação de autodefesa termina sempre com:",
+    "a": [
+     "Ficar para continuar a lutar",
+     "Gritar alto, criar distância e fugir"
+    ],
+    "why": "O objetivo da autodefesa é ficar em segurança."
+   },
+   {
+    "q": "Quando é que os músculos crescem?",
+    "a": [
+     "Quando descansas, comes e dormes o suficiente",
+     "Só quando treinas"
+    ],
+    "why": "A recuperação faz parte do treino."
+   }
+  ]
+ }
+}
