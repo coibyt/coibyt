@@ -416,24 +416,183 @@ export const LESSONS: Lesson[] = [
     slug: "the-qua-tang",
     course: "c-perks",
     title: l3("Mua và dùng thẻ quà tặng", "Buy and use a gift card", "Osta ja käytä lahjakortti"),
-    summary: l3("Mua thẻ trên website của salon, nhận mã qua email và dùng khi đặt lịch.", "Buy one on the salon's website, get the code by email and use it when you book.", "Osta salongin verkkosivuilta, saat koodin sähköpostiin ja käytät sen varatessa."),
-    video: null,
+    summary: l3("Mua thẻ trên website của salon, nhận mã qua email và đưa mã cho nhân viên khi đến salon.", "Buy one on the salon's website, get the code by email and show it to the staff at the salon.", "Osta salongin verkkosivuilta, saat koodin sähköpostiin ja näytät sen salongissa."),
+    video: null, // batch 9
     fresh: true,
+    steps: [
+      l3(
+        "Mở website của salon và kéo xuống phần “Thẻ quà tặng”. Mỗi thẻ ghi rõ dịch vụ, mức giảm giá, thời hạn và giá bán.",
+        "Open the salon's website and scroll to the gift cards. Each card shows the service, the discount, how long it is valid and the price.",
+        "Avaa salongin verkkosivut ja vieritä lahjakortteihin. Jokaisessa kortissa näkyy palvelu, alennus, voimassaolo ja hinta."
+      ),
+      l3(
+        "Bấm “Mua thẻ này”, điền họ tên, email (và số điện thoại nếu muốn), rồi bấm “Đặt mua”.",
+        "Press “Buy this card”, fill in your name and email (and phone if you like), then press “Buy”.",
+        "Paina ostopainiketta, täytä nimi ja sähköposti (ja halutessasi puhelin) ja vahvista osto."
+      ),
+      l3(
+        "Mã thẻ và mã QR được gửi vào email của bạn. Thẻ được kích hoạt sau khi salon xác nhận bạn đã thanh toán.",
+        "The card code and a QR code are emailed to you. The card is activated once the salon confirms your payment.",
+        "Kortin koodi ja QR-koodi lähetetään sähköpostiisi. Kortti aktivoituu, kun salonki vahvistaa maksun."
+      ),
+      l3(
+        "Khi đến salon, đưa mã QR hoặc đọc mã thẻ cho nhân viên. Nhân viên kiểm tra và trừ một lần dùng trên thẻ.",
+        "At the salon, show the QR code or read out the card code. The staff check it and count one use on the card.",
+        "Näytä salongissa QR-koodi tai kerro kortin koodi. Henkilökunta tarkistaa sen ja kirjaa yhden käyttökerran."
+      ),
+    ],
+    tips: [
+      l3(
+        "Muốn tặng người khác, bạn chuyển tiếp email có mã thẻ cho người được tặng.",
+        "To give the card to someone, forward the email with the code to them.",
+        "Jos annat kortin lahjaksi, välitä koodin sisältävä sähköposti saajalle."
+      ),
+      l3(
+        "Xem kỹ thời hạn và số lần dùng ghi trên thẻ trước khi mua.",
+        "Check how long the card is valid and how many times it can be used before you buy.",
+        "Tarkista kortin voimassaolo ja käyttökerrat ennen ostoa."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Mua thẻ quà tặng của salon ở đâu?", "Where do you buy a salon's gift card?", "Mistä salongin lahjakortin voi ostaa?"),
+        options: [l3("Trong phần “Thẻ quà tặng” trên website của salon", "In the gift card section of the salon's website", "Salongin verkkosivujen lahjakorttiosiosta"), l3("Chỉ mua được ở bưu điện", "Only at the post office", "Vain postista"), l3("Không mua online được", "It can't be bought online", "Sitä ei voi ostaa verkosta")],
+        answer: 0,
+        why: l3("Chọn thẻ, bấm “Mua thẻ này” và điền thông tin là xong.", "Pick a card, press “Buy this card” and fill in your details.", "Valitse kortti, paina ostopainiketta ja täytä tietosi."),
+      },
+      {
+        q: l3("Thẻ được kích hoạt khi nào?", "When is the card activated?", "Milloin kortti aktivoituu?"),
+        options: [l3("Ngay khi mở website", "As soon as you open the website", "Heti kun avaat sivuston"), l3("Sau khi salon xác nhận bạn đã thanh toán", "Once the salon confirms your payment", "Kun salonki vahvistaa maksun"), l3("Sau một năm", "After one year", "Vuoden kuluttua")],
+        answer: 1,
+        why: l3("Mã thẻ đến email ngay, nhưng chỉ dùng được sau khi salon xác nhận thanh toán.", "The code arrives by email at once, but it works only after the salon confirms payment.", "Koodi tulee heti sähköpostiin, mutta toimii vasta kun salonki on vahvistanut maksun."),
+      },
+      {
+        q: l3("Đến salon, bạn dùng thẻ thế nào?", "How do you use the card at the salon?", "Miten korttia käytetään salongissa?"),
+        options: [l3("Đưa mã QR hoặc đọc mã thẻ cho nhân viên", "Show the QR code or read out the card code", "Näytä QR-koodi tai kerro kortin koodi"), l3("Không cần làm gì", "Do nothing", "Ei tarvitse tehdä mitään"), l3("Gửi thư tay", "Send a letter", "Lähetä kirje")],
+        answer: 0,
+        why: l3("Nhân viên kiểm tra mã và ghi nhận một lần dùng.", "The staff check the code and record one use.", "Henkilökunta tarkistaa koodin ja kirjaa yhden käyttökerran."),
+      },
+    ],
   },
   {
     slug: "theo-doi-salon",
     course: "c-perks",
     title: l3("Theo dõi salon, bảng tin và mua sản phẩm", "Follow salons, your feed and the shop", "Seuraa salonkeja, syöte ja kauppa"),
     summary: l3("Bấm Theo dõi để nhận bài viết mới của salon và mua sản phẩm trong cửa hàng của salon.", "Follow a salon to see its new posts, and buy products from its shop.", "Seuraa salonkia nähdäksesi uudet julkaisut ja osta tuotteita sen kaupasta."),
-    video: null,
+    video: null, // batch 9
+    href: "/account/feed",
+    hrefLabel: l3("Mở Bảng tin", "Open your feed", "Avaa syöte"),
+    steps: [
+      l3(
+        "Mở trang của salon và bấm “Theo dõi” (dưới nút “Đặt lịch”). Nút đổi thành “Đang theo dõi”.",
+        "Open the salon's page and press “Follow” (under the booking button). The button changes to “Following”.",
+        "Avaa salongin sivu ja paina ”Seuraa” (varauspainikkeen alla). Painike muuttuu seuraamisen merkiksi."
+      ),
+      l3(
+        "Bấm vào tên bạn ở góc trên và chọn “Bảng tin” để xem bài viết mới của các salon bạn theo dõi.",
+        "Tap your name at the top and choose your feed to see new posts from the salons you follow.",
+        "Napauta nimeäsi ylhäällä ja valitse syöte nähdäksesi seuraamiesi salonkien uudet julkaisut."
+      ),
+      l3(
+        "Muốn mua sản phẩm: trên trang salon bấm “Sản phẩm”, bấm biểu tượng giỏ hàng trên món bạn thích, rồi mở giỏ ở góc dưới.",
+        "To buy products: on the salon's page press “Products”, tap the basket icon on what you like, then open the basket at the bottom.",
+        "Tuotteiden osto: paina salongin sivulla ”Tuotteet”, napauta ostoskorin kuvaketta haluamassasi tuotteessa ja avaa kori alhaalta."
+      ),
+      l3(
+        "Bấm “Tiến hành đặt hàng”, chọn cách thanh toán (tại salon, chuyển khoản hoặc trao đổi với salon), rồi bấm “Xác nhận đặt hàng”.",
+        "Continue to the order, choose how to pay (at the salon, by bank transfer or by agreeing with the salon) and confirm the order.",
+        "Siirry tilaukseen, valitse maksutapa (salongissa, tilisiirrolla tai sopimalla salongin kanssa) ja vahvista tilaus."
+      ),
+    ],
+    tips: [
+      l3(
+        "Sản phẩm được nhận tại salon — salon sẽ liên hệ để hẹn thời gian bạn đến lấy.",
+        "Products are collected at the salon — the salon contacts you to agree a pick-up time.",
+        "Tuotteet noudetaan salongista — salonki ottaa yhteyttä ja sopii noutoajan."
+      ),
+      l3(
+        "Muốn ngừng nhận bài viết, vào “Đang theo dõi” và bấm “Bỏ theo dõi”.",
+        "To stop seeing a salon's posts, open “Following” and press “Unfollow”.",
+        "Jos et halua enää nähdä salongin julkaisuja, avaa seuratut ja lopeta seuraaminen."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Bấm “Theo dõi” một salon thì được gì?", "What do you get by following a salon?", "Mitä hyötyä salongin seuraamisesta on?"),
+        options: [l3("Bài viết mới của salon hiện trong Bảng tin của bạn", "The salon's new posts appear in your feed", "Salongin uudet julkaisut näkyvät syötteessäsi"), l3("Tự động đặt lịch mỗi tuần", "A booking is made for you every week", "Sinulle varataan aika joka viikko"), l3("Không được gì", "Nothing", "Ei mitään")],
+        answer: 0,
+        why: l3("Bạn biết ngay khi salon có ưu đãi hay mẫu mới.", "You know straight away when the salon has an offer or new work.", "Tiedät heti, kun salongilla on tarjous tai uusia töitä."),
+      },
+      {
+        q: l3("Sản phẩm mua trong cửa hàng của salon nhận ở đâu?", "Where do you collect products bought from a salon's shop?", "Mistä salongin kaupasta ostetut tuotteet noudetaan?"),
+        options: [l3("Tại salon", "At the salon", "Salongista"), l3("Qua bưu điện quốc tế", "By international post", "Kansainvälisellä postilla"), l3("Tại sân bay", "At the airport", "Lentokentältä")],
+        answer: 0,
+        why: l3("Bạn đặt online, salon liên hệ để hẹn thời gian đến lấy.", "You order online and the salon contacts you to agree a pick-up time.", "Tilaat verkossa, ja salonki sopii kanssasi noutoajan."),
+      },
+      {
+        q: l3("Có những cách thanh toán nào khi đặt sản phẩm?", "How can you pay when you order products?", "Miten tuotetilauksen voi maksaa?"),
+        options: [l3("Chỉ thẻ tín dụng", "Credit card only", "Vain luottokortilla"), l3("Tại salon, chuyển khoản, hoặc trao đổi với salon", "At the salon, by bank transfer, or by agreeing with the salon", "Salongissa, tilisiirrolla tai sopimalla salongin kanssa"), l3("Không cần trả tiền", "You don't pay", "Ei tarvitse maksaa")],
+        answer: 1,
+        why: l3("Bạn chọn cách thuận tiện nhất khi đặt hàng.", "You choose whichever is easiest when you order.", "Valitset tilatessasi itsellesi sopivimman tavan."),
+      },
+    ],
   },
   {
     slug: "hoa-don",
     course: "c-perks",
     title: l3("Xem lại hoá đơn bằng mã QR", "Open your invoice with a QR code", "Avaa lasku QR-koodilla"),
     summary: l3("Quét mã tại quầy hoặc mở email để xem lại hoá đơn của lần làm đẹp.", "Scan the code at the counter or open the email to see the invoice for your visit.", "Skannaa koodi kassalla tai avaa sähköposti nähdäksesi käyntisi laskun."),
-    video: null,
+    video: null, // batch 9
     fresh: true,
+    steps: [
+      l3(
+        "Khi thanh toán ở quầy, nhờ nhân viên bấm “Hiện mã QR” trên màn hình của salon.",
+        "When you pay at the counter, ask the staff to show the QR code on the salon's screen.",
+        "Kun maksat kassalla, pyydä henkilökuntaa näyttämään QR-koodi salongin näytöltä."
+      ),
+      l3(
+        "Mở camera điện thoại và quét mã — hoá đơn mở ra ngay trong trình duyệt.",
+        "Open your phone's camera and scan the code — the invoice opens in your browser at once.",
+        "Avaa puhelimen kamera ja skannaa koodi — lasku aukeaa heti selaimeen."
+      ),
+      l3(
+        "Xem tên salon, số hoá đơn, dịch vụ, thuế, tổng tiền và cách thanh toán; chụp màn hình hoặc lưu đường link để xem lại.",
+        "Check the salon's name, invoice number, services, tax, total and payment method; take a screenshot or keep the link.",
+        "Tarkista salongin nimi, laskun numero, palvelut, vero, summa ja maksutapa; ota kuvakaappaus tai tallenna linkki."
+      ),
+      l3(
+        "Không có mặt ở quầy? Nhờ nhân viên gửi hoá đơn qua email, rồi bấm vào đường link trong email.",
+        "Not at the counter? Ask the staff to email the invoice, then tap the link in the email.",
+        "Etkö ole kassalla? Pyydä lasku sähköpostiin ja napauta viestin linkkiä."
+      ),
+    ],
+    tips: [
+      l3(
+        "Trên hoá đơn có sẵn mã QR “Quét để xem lại hóa đơn” — lần sau chỉ cần quét lại.",
+        "The invoice itself carries a QR code — scan it again whenever you need the invoice.",
+        "Laskussa on oma QR-koodi — skannaa se uudelleen, kun tarvitset laskua."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Cách nhanh nhất để có hoá đơn trên điện thoại khi đang ở quầy?", "What's the quickest way to get the invoice on your phone at the counter?", "Mikä on nopein tapa saada lasku puhelimeen kassalla?"),
+        options: [l3("Quét mã QR trên màn hình của salon", "Scan the QR code on the salon's screen", "Skannata QR-koodi salongin näytöltä"), l3("Chép tay", "Copy it by hand", "Kopioida käsin"), l3("Chờ gửi bưu điện", "Wait for the post", "Odottaa postia")],
+        answer: 0,
+        why: l3("Quét mã là hoá đơn mở ra ngay.", "Scan the code and the invoice opens at once.", "Kun skannaat koodin, lasku aukeaa heti."),
+      },
+      {
+        q: l3("Không ở quầy thì nhận hoá đơn thế nào?", "How do you get the invoice if you're not at the counter?", "Miten saat laskun, jos et ole kassalla?"),
+        options: [l3("Không nhận được", "You can't", "Et mitenkään"), l3("Nhờ nhân viên gửi qua email", "Ask the staff to email it", "Pyydä henkilökuntaa lähettämään se sähköpostilla"), l3("Phải quay lại salon", "You must go back to the salon", "Sinun on palattava salonkiin")],
+        answer: 1,
+        why: l3("Email có đường link mở hoá đơn.", "The email has a link that opens the invoice.", "Sähköpostissa on linkki, joka avaa laskun."),
+      },
+      {
+        q: l3("Hoá đơn hiển thị những gì?", "What does the invoice show?", "Mitä laskussa näkyy?"),
+        options: [l3("Chỉ tổng tiền", "Only the total", "Vain loppusumma"), l3("Tên salon, số hoá đơn, dịch vụ, thuế, tổng tiền và cách thanh toán", "The salon, invoice number, services, tax, total and payment method", "Salonki, laskun numero, palvelut, vero, summa ja maksutapa"), l3("Chỉ tên khách", "Only your name", "Vain nimesi")],
+        answer: 1,
+        why: l3("Đủ thông tin để bạn lưu lại hoặc gửi cho công ty.", "Everything you need to keep it or pass it to your company.", "Kaikki tarvittava säilytystä tai työnantajaa varten."),
+      },
+    ],
   },
 
   /* ================= owners: launch ================= */
@@ -714,7 +873,7 @@ export const LESSONS: Lesson[] = [
     guide: "payments",
     title: l3("Thanh toán, chính sách huỷ và thông tin hoá đơn", "Payments, cancellation policy and invoice details", "Maksut, peruutusehdot ja laskutustiedot"),
     summary: l3("Nhận chuyển khoản, đặt hạn huỷ lịch và điền thông tin xuất hoá đơn.", "Take bank transfers, set a cancellation deadline and fill in invoice details.", "Ota vastaan tilisiirtoja, aseta perumisaika ja täytä laskutustiedot."),
-    video: null, // batch 7
+    video: video("thanh-toan-chinh-sach", 65, "2026-11-16"),
     href: "/business/dashboard/settings",
     hrefLabel: l3("Mở Cài đặt", "Open Settings", "Avaa Asetukset"),
     steps: [
@@ -964,7 +1123,7 @@ export const LESSONS: Lesson[] = [
     guide: "website",
     title: l3("Website riêng cho salon", "Your salon's own website", "Salongin omat verkkosivut"),
     summary: l3("Chọn bộ màu, sắp xếp các phần trên trang chủ và xuất bản.", "Pick a colour set, arrange the home-page sections and publish.", "Valitse värit, järjestä etusivun osiot ja julkaise."),
-    video: null, // batch 8
+    video: video("website-salon", 72, "2026-11-16"),
     href: "/business/dashboard/landing",
     hrefLabel: l3("Mở Trang landing", "Open the website editor", "Avaa verkkosivujen muokkaus"),
     steps: [
@@ -1028,7 +1187,7 @@ export const LESSONS: Lesson[] = [
     guide: "fanpage",
     title: l3("Fanpage: đăng bài cho khách theo dõi", "Fanpage: post for your followers", "Fanisivu: julkaise seuraajillesi"),
     summary: l3("Đăng ảnh, video, hẹn giờ đăng và ghim bài quan trọng.", "Post photos and videos, schedule posts and pin the important ones.", "Julkaise kuvia ja videoita, ajasta julkaisut ja kiinnitä tärkeimmät."),
-    video: null, // batch 8
+    video: video("fanpage", 55, "2026-11-16"),
     href: "/business/dashboard/fanpage",
     hrefLabel: l3("Mở Fanpage", "Open Fanpage", "Avaa fanisivu"),
     steps: [
@@ -1333,7 +1492,7 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Báo cáo thu nhập của nhân viên", "Staff income reports", "Työntekijöiden tuloraportit"),
     summary: l3("Nhân viên báo cáo từng lịch hẹn, chủ salon duyệt và xem tổng thu, tiền tip.", "Staff report each booking; the owner approves and sees totals and tips.", "Työntekijät raportoivat varaukset; omistaja hyväksyy ja näkee summat ja tipit."),
-    video: null, // batch 7
+    video: video("doanh-thu-nhan-vien", 79, "2026-11-16"),
     href: "/business/dashboard/income",
     hrefLabel: l3("Mở Quản trị doanh thu", "Open Income management", "Avaa Tulojen hallinta"),
     steps: [
@@ -1818,7 +1977,68 @@ export const LESSONS: Lesson[] = [
     guide: "marketing",
     title: l3("Email khuyến mãi và điểm Vara", "Promotional emails and Vara points", "Markkinointisähköpostit ja Vara-pisteet"),
     summary: l3("Chọn nhóm khách, soạn chiến dịch từ mẫu có sẵn, gửi ngay hoặc lên lịch.", "Pick an audience, write a campaign from a template and send now or schedule it.", "Valitse kohderyhmä, tee kampanja mallista ja lähetä heti tai ajasta."),
-    video: null,
+    video: null, // batch 10
+    href: "/business/dashboard/marketing",
+    hrefLabel: l3("Mở Marketing", "Open Marketing", "Avaa Markkinointi"),
+    steps: [
+      l3(
+        "Bấm mục “Marketing”. Ở “Chọn nhóm khách nhận”, chọn một nhóm: Tất cả khách, Khách gần đây, Lâu chưa quay lại, Khách thân thiết, Khách mới hoặc Thành viên thẻ.",
+        "Open “Marketing”. First choose who gets the email: all customers, recent ones, those not seen for a while, regulars, new customers or card members.",
+        "Avaa ”Markkinointi”. Valitse ensin vastaanottajat: kaikki asiakkaat, äskettäin käyneet, pitkään poissa olleet, kanta-asiakkaat, uudet asiakkaat tai kortin haltijat."
+      ),
+      l3(
+        "Ở “Nội dung email”, bấm một mẫu có sẵn (ví dụ “Ưu đãi giảm giá”) rồi sửa tiêu đề và lời nhắn; bấm “+ Tên khách” để chèn tên từng khách.",
+        "Under the email content, tap a ready-made template (for example the discount offer) and edit the subject and message; insert each customer's name with one tap.",
+        "Napauta sisällössä valmista mallia (esimerkiksi alennustarjous) ja muokkaa otsikkoa ja viestiä; lisää asiakkaan nimi yhdellä napautuksella."
+      ),
+      l3(
+        "Bật “Thêm phiếu ưu đãi” nếu muốn có phiếu vàng nổi bật giữa email, và chọn nút bấm “Đặt lịch”.",
+        "Turn on the offer coupon if you want a golden coupon in the middle of the email, and choose the booking button.",
+        "Ota tarjouskuponki käyttöön, jos haluat kultaisen kupongin viestin keskelle, ja valitse varauspainike."
+      ),
+      l3(
+        "Bấm “Xem trước email” để xem như trên điện thoại của khách, hoặc “Gửi thử” về email của bạn (miễn phí).",
+        "Preview the email as it looks on a customer's phone, or send a free test to your own address.",
+        "Esikatsele viesti sellaisena kuin asiakas näkee sen puhelimessa tai lähetä ilmainen testi omaan osoitteeseesi."
+      ),
+      l3(
+        "Chọn “Gửi ngay” hoặc “Lên lịch”, rồi bấm nút gửi. Theo dõi lượt mở và lượt nhấp trong thẻ “Chiến dịch”.",
+        "Choose to send now or schedule it, then press send. Follow opens and clicks under your campaigns.",
+        "Valitse lähetys heti tai ajastettuna ja paina lähetä. Seuraa avauksia ja klikkauksia kampanjoissa."
+      ),
+    ],
+    tips: [
+      l3(
+        "Mỗi email gửi đi tốn 1 điểm Vara. Nhận thêm điểm bằng “Điểm danh” hoặc giới thiệu salon khác dùng VaraaAi.",
+        "Each email sent costs 1 Vara point. Earn more by checking in or by referring another salon to VaraaAi.",
+        "Jokainen lähetetty viesti maksaa 1 Vara-pisteen. Saat lisää pisteitä kirjautumalla päivittäin tai suosittelemalla VaraaAita toiselle salongille."
+      ),
+      l3(
+        "Gửi đúng nhóm khách: ưu đãi “mời quay lại” cho nhóm Lâu chưa quay lại sẽ hiệu quả hơn gửi cho tất cả.",
+        "Send to the right group: a “come back” offer works better for customers not seen for a while than for everyone.",
+        "Lähetä oikealle ryhmälle: paluutarjous toimii paremmin pitkään poissa olleille kuin kaikille."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Bước đầu tiên khi soạn chiến dịch email là gì?", "What is the first step of an email campaign?", "Mikä on sähköpostikampanjan ensimmäinen vaihe?"),
+        options: [l3("Chọn nhóm khách nhận", "Choose who receives it", "Valita vastaanottajat"), l3("In poster", "Print a poster", "Tulostaa juliste"), l3("Đổi giờ mở cửa", "Change the opening hours", "Muuttaa aukioloaikoja")],
+        answer: 0,
+        why: l3("Gửi đúng người thì khách mới thấy email thật sự dành cho mình.", "Sending to the right people makes the email feel meant for them.", "Kun viesti menee oikeille ihmisille, se tuntuu heille tarkoitetulta."),
+      },
+      {
+        q: l3("Mỗi email gửi đi tốn gì?", "What does each email sent cost?", "Mitä jokainen lähetetty viesti maksaa?"),
+        options: [l3("1 điểm Vara", "1 Vara point", "1 Vara-pisteen"), l3("10 euro", "10 euros", "10 euroa"), l3("Không tốn gì và không giới hạn", "Nothing, with no limit", "Ei mitään, ilman rajaa")],
+        answer: 0,
+        why: l3("Gửi thử thì miễn phí; điểm chỉ trừ khi gửi cho khách.", "Test emails are free; points are only used when you send to customers.", "Testiviestit ovat ilmaisia; pisteitä kuluu vain asiakkaille lähetettäessä."),
+      },
+      {
+        q: l3("Muốn xem email trông thế nào trước khi gửi, bạn bấm gì?", "What do you press to see the email before sending?", "Mitä painat nähdäksesi viestin ennen lähetystä?"),
+        options: [l3("“Xem trước email”", "The email preview", "Viestin esikatselua"), l3("“Lưu nháp”", "Save draft", "Tallenna luonnos"), l3("“Danh bạ”", "Contacts", "Yhteystiedot")],
+        answer: 0,
+        why: l3("Bản xem trước hiện đúng như trên điện thoại của khách.", "The preview shows it exactly as on a customer's phone.", "Esikatselu näyttää viestin juuri sellaisena kuin asiakkaan puhelimessa."),
+      },
+    ],
   },
   {
     slug: "san-pham-don-hang",
@@ -1826,7 +2046,68 @@ export const LESSONS: Lesson[] = [
     guide: "products",
     title: l3("Bán sản phẩm và quản lý đơn hàng", "Sell products and manage orders", "Myy tuotteita ja hallitse tilauksia"),
     summary: l3("Mở cửa hàng online của salon, xác nhận đơn và báo khách qua email.", "Open your salon's online shop, confirm orders and notify customers by email.", "Avaa salongin verkkokauppa, vahvista tilaukset ja ilmoita asiakkaille sähköpostilla."),
-    video: null,
+    video: null, // batch 10
+    href: "/business/dashboard/products",
+    hrefLabel: l3("Mở Sản phẩm", "Open Products", "Avaa Tuotteet"),
+    steps: [
+      l3(
+        "Bấm mục “Sản phẩm”, rồi “Thêm sản phẩm”. Thêm hình ảnh (tối đa 8 ảnh, ảnh đầu tiên là ảnh bìa).",
+        "Open “Products” and add a product. Add photos first (up to 8; the first one is the cover).",
+        "Avaa ”Tuotteet” ja lisää tuote. Lisää ensin kuvat (enintään 8; ensimmäinen on kansikuva)."
+      ),
+      l3(
+        "Điền “Tên sản phẩm”, “Thương hiệu”, “Mô tả” và “Giá bán”; nếu đang giảm giá, điền thêm “Giá gốc”.",
+        "Fill in the product name, brand, description and price; if it is on offer, add the original price too.",
+        "Täytä tuotteen nimi, merkki, kuvaus ja hinta; jos tuote on tarjouksessa, lisää myös alkuperäinen hinta."
+      ),
+      l3(
+        "Bật “Sản phẩm nổi bật” để ghim lên đầu cửa hàng, hoặc “Hết hàng” khi tạm hết; rồi bấm “Lưu sản phẩm”.",
+        "Mark it as featured to pin it to the top of the shop, or as out of stock when you have none; then save.",
+        "Merkitse tuote suosituksi, niin se näkyy kaupan kärjessä, tai loppuneeksi, kun sitä ei ole; tallenna lopuksi."
+      ),
+      l3(
+        "Bấm “Xem cửa hàng” để xem như khách thấy, hoặc “Sao chép link” để gửi cho khách.",
+        "Open the shop to see it as customers do, or copy the link to send it to them.",
+        "Avaa kauppa nähdäksesi sen asiakkaan silmin tai kopioi linkki asiakkaille."
+      ),
+      l3(
+        "Khi có đơn, mở “Đơn hàng”: xem khách, món hàng, cách thanh toán; khách đến nhận thì bấm “Đã giao — hoàn thành”.",
+        "When an order comes in, open “Orders”: see the customer, the items and how they pay; when they collect it, mark it as delivered and complete.",
+        "Kun tilaus tulee, avaa ”Tilaukset”: näet asiakkaan, tuotteet ja maksutavan; kun asiakas noutaa tilauksen, merkitse se toimitetuksi."
+      ),
+    ],
+    tips: [
+      l3(
+        "Khách đặt online và nhận hàng tại salon — không cần gửi bưu điện.",
+        "Customers order online and collect at the salon — no posting needed.",
+        "Asiakkaat tilaavat verkossa ja noutavat salongista — postitusta ei tarvita."
+      ),
+      l3(
+        "Để ô “Gửi email báo khách” được chọn: khách nhận email ở mỗi bước của đơn hàng.",
+        "Keep the “email the customer” box ticked: customers get an email at each step of their order.",
+        "Pidä asiakkaan sähköposti-ilmoitus valittuna: asiakas saa viestin tilauksen jokaisesta vaiheesta."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khách nhận sản phẩm đã đặt ở đâu?", "Where do customers get the products they ordered?", "Mistä asiakkaat saavat tilaamansa tuotteet?"),
+        options: [l3("Tại salon", "At the salon", "Salongista"), l3("Qua bưu điện", "By post", "Postitse"), l3("Tại ngân hàng", "At the bank", "Pankista")],
+        answer: 0,
+        why: l3("Cửa hàng của salon là “đặt online, nhận tại salon”.", "The salon shop is “order online, collect at the salon”.", "Salongin kaupassa tilataan verkossa ja noudetaan salongista."),
+      },
+      {
+        q: l3("Bật “Sản phẩm nổi bật” thì sao?", "What happens when you mark a product as featured?", "Mitä tapahtuu, kun merkitset tuotteen suosituksi?"),
+        options: [l3("Sản phẩm được ghim lên đầu cửa hàng", "It is pinned to the top of the shop", "Se kiinnitetään kaupan kärkeen"), l3("Sản phẩm bị ẩn", "It is hidden", "Se piilotetaan"), l3("Giá tự giảm", "The price drops by itself", "Hinta laskee itsestään")],
+        answer: 0,
+        why: l3("Khách thấy sản phẩm nổi bật trước tiên.", "Customers see featured products first.", "Asiakkaat näkevät suositut tuotteet ensimmäisenä."),
+      },
+      {
+        q: l3("Khách đã đến lấy hàng, bạn bấm gì trong mục Đơn hàng?", "The customer has collected the order — what do you press in Orders?", "Asiakas on noutanut tilauksen — mitä painat Tilaukset-sivulla?"),
+        options: [l3("“Hủy đơn”", "Cancel order", "Peru tilaus"), l3("“Đã giao — hoàn thành”", "Delivered — complete", "Toimitettu — valmis"), l3("“In phiếu”", "Print slip", "Tulosta lähete")],
+        answer: 1,
+        why: l3("Đơn chuyển sang Hoàn thành và được tính vào doanh thu.", "The order moves to completed and counts towards your income.", "Tilaus siirtyy valmiiksi ja lasketaan mukaan tuloihin."),
+      },
+    ],
   },
   /* ================= owners: grow ================= */
   {
@@ -1835,7 +2116,68 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Kho vật tư: quét nhập, quét lấy hàng", "Inventory: scan in, scan out", "Varasto: skannaa sisään ja ulos"),
     summary: l3("Theo dõi tồn kho, danh sách cần mua và in nhãn cho tủ.", "Track stock, see what to buy and print labels for your cupboards.", "Seuraa varastoa, katso ostettavat ja tulosta tarrat kaappeihin."),
-    video: null,
+    video: null, // batch 11
+    href: "/business/dashboard/inventory",
+    hrefLabel: l3("Mở Kho hàng", "Open Inventory", "Avaa Varasto"),
+    steps: [
+      l3(
+        "Bấm mục “Kho hàng”, rồi “Thêm sản phẩm”: điền tên, màu, hãng, loại, đơn vị đếm và “Mức tối thiểu”, rồi bấm “Lưu”.",
+        "Open “Inventory” and add an item: fill in its name, colour, brand, type, unit and minimum level, then save.",
+        "Avaa ”Varasto” ja lisää tuote: täytä nimi, väri, merkki, tyyppi, yksikkö ja vähimmäismäärä ja tallenna."
+      ),
+      l3(
+        "Hàng về: bấm “Quét nhập kho” và đưa mã vạch vào camera; món chưa có trong kho thì bấm “Chụp hình sản phẩm” để AI tự nhận tên, hãng, màu.",
+        "When stock arrives: press “Scan in” and show the barcode to the camera; for something new, take a photo and AI fills in its name, brand and colour.",
+        "Kun tavaraa saapuu: paina sisäänskannausta ja näytä viivakoodi kameralle; uudesta tuotteesta voit ottaa kuvan, ja tekoäly täyttää nimen, merkin ja värin."
+      ),
+      l3(
+        "Lấy hàng ra dùng: bấm “Quét lấy hàng”, hoặc bấm vào món đó rồi bấm “+1” / “−1”.",
+        "When you take something out to use: press “Scan out”, or tap the item and use “+1” / “−1”.",
+        "Kun otat tavaraa käyttöön: paina ulosskannausta tai napauta tuotetta ja käytä painikkeita ”+1” / ”−1”."
+      ),
+      l3(
+        "Kiểm kê: bấm vào một món, nhập số đếm thực tế rồi bấm “Cập nhật số lượng”.",
+        "Stock-take: tap an item, enter the number you actually counted and update the quantity.",
+        "Inventointi: napauta tuotetta, anna laskemasi määrä ja päivitä saldo."
+      ),
+      l3(
+        "Mở thẻ “Cần mua” để xem những món đã chạm mức tối thiểu; bấm “Sao chép danh sách” hoặc “In danh sách”.",
+        "Open the “to buy” tab to see what has reached its minimum; copy or print the list.",
+        "Avaa ostettavien välilehti nähdäksesi vähimmäismäärään laskeneet tuotteet; kopioi tai tulosta lista."
+      ),
+    ],
+    tips: [
+      l3(
+        "Trong thẻ “Tủ & nhãn”, tạo các tủ/ngăn và in nhãn QR dán lên — khi nhập hàng, quét nhãn tủ trước để hàng tự xếp vào tủ đó.",
+        "Under “Cupboards & labels”, create cupboards and print QR labels for them — scan the cupboard label first and the stock is filed there automatically.",
+        "Luo kaapit ja tulosta niille QR-tarrat — skannaa ensin kaapin tarra, niin tavara kirjautuu siihen automaattisesti."
+      ),
+      l3(
+        "Thẻ “Lịch sử” ghi lại ai nhập, ai lấy và lúc nào.",
+        "The history tab records who added or took stock, and when.",
+        "Historiasta näet, kuka lisäsi tai otti tavaraa ja milloin."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("“Mức tối thiểu” dùng để làm gì?", "What is the minimum level for?", "Mihin vähimmäismäärää käytetään?"),
+        options: [l3("Khi số lượng xuống bằng mức này, món đó tự vào danh sách cần mua", "When stock drops to this level, the item goes on the to-buy list by itself", "Kun saldo laskee tälle tasolle, tuote siirtyy itsestään ostettavien listalle"), l3("Giới hạn số khách mỗi ngày", "It limits customers per day", "Se rajoittaa päivän asiakasmäärää"), l3("Giảm giá sản phẩm", "It discounts the product", "Se alentaa tuotteen hintaa")],
+        answer: 0,
+        why: l3("Nhờ vậy bạn mua thêm trước khi hết hàng.", "That way you restock before you run out.", "Näin ehdit tilata lisää ennen kuin tavara loppuu."),
+      },
+      {
+        q: l3("Món mới chưa có trong kho, nhập nhanh nhất bằng cách nào?", "What's the quickest way to add something that isn't in stock yet?", "Miten lisäät nopeimmin tuotteen, jota ei vielä ole varastossa?"),
+        options: [l3("Chụp hình sản phẩm — AI tự nhận tên, hãng, màu", "Take a photo — AI fills in the name, brand and colour", "Ota kuva — tekoäly täyttää nimen, merkin ja värin"), l3("Gửi email cho VaraaAi", "Email VaraaAi", "Lähetä sähköposti VaraaAille"), l3("Không nhập được", "You can't", "Sitä ei voi lisätä")],
+        answer: 0,
+        why: l3("Bạn chỉ cần nhập thêm số lượng.", "You only need to enter the quantity.", "Sinun tarvitsee vain antaa määrä."),
+      },
+      {
+        q: l3("Xem những món cần mua thêm ở đâu?", "Where do you see what needs buying?", "Mistä näet, mitä pitää ostaa lisää?"),
+        options: [l3("Thẻ “Lịch sử”", "The history tab", "Historia-välilehdeltä"), l3("Thẻ “Cần mua”", "The to-buy tab", "Ostettavien välilehdeltä"), l3("Trang Đánh giá", "The Reviews page", "Arvostelut-sivulta")],
+        answer: 1,
+        why: l3("Danh sách kèm số tiền ước tính, sao chép hoặc in được.", "The list comes with an estimated cost and can be copied or printed.", "Listassa on kustannusarvio, ja sen voi kopioida tai tulostaa."),
+      },
+    ],
   },
   {
     slug: "chi-nhanh",
@@ -1915,7 +2257,7 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Tiện ích nhóm: chat, thông báo, đào tạo nhân viên", "Team hub: chat, notices and staff training", "Tiimin työtila: chat, tiedotteet ja koulutus"),
     summary: l3("Không gian làm việc chung của salon cho chủ và nhân viên.", "A shared workspace for the owner and the staff.", "Yhteinen työtila omistajalle ja henkilökunnalle."),
-    video: null, // batch 7
+    video: video("tien-ich-nhom", 68, "2026-11-16"),
     href: "/business/dashboard/utilities",
     hrefLabel: l3("Mở Tiện ích", "Open the team hub", "Avaa tiimin työtila"),
     steps: [
@@ -1979,6 +2321,62 @@ export const LESSONS: Lesson[] = [
     guide: "affiliates",
     title: l3("Cộng tác viên giới thiệu khách", "Affiliates who bring customers", "Kumppanit, jotka tuovat asiakkaita"),
     summary: l3("Thêm người tiếp thị, đặt hoa hồng và theo dõi kết quả.", "Add affiliates, set their commission and follow the results.", "Lisää kumppaneita, aseta provisio ja seuraa tuloksia."),
-    video: null,
+    video: null, // batch 11
+    href: "/business/dashboard/marketing/affiliates",
+    hrefLabel: l3("Mở Tiếp thị liên kết", "Open Affiliates", "Avaa kumppanit"),
+    steps: [
+      l3(
+        "Bấm mục “Marketing”, rồi “Tiếp thị liên kết” ở góc trên, và bấm “Thêm đối tác”.",
+        "Open “Marketing”, go to the affiliates page at the top and add a partner.",
+        "Avaa ”Markkinointi”, siirry yläreunasta kumppanisivulle ja lisää kumppani."
+      ),
+      l3(
+        "Điền “Tên đối tác”, email, chọn phần trăm “Hoa hồng” (5%, 10%, 15%, 20% hoặc số khác), đặt “Mã link” nếu muốn, rồi bấm “Lưu”.",
+        "Fill in the partner's name and email, choose the commission (5%, 10%, 15%, 20% or your own figure), set a link code if you like, and save.",
+        "Täytä kumppanin nimi ja sähköposti, valitse provisio (5 %, 10 %, 15 %, 20 % tai oma luku), anna halutessasi linkkikoodi ja tallenna."
+      ),
+      l3(
+        "Trong danh sách “Đối tác của bạn”, bấm biểu tượng sao chép để gửi link riêng cho đối tác, hoặc biểu tượng mã QR để tải mã về in.",
+        "In your partner list, tap the copy icon to send the partner their own link, or the QR icon to download a code for printing.",
+        "Napauta kumppanilistassa kopiointikuvaketta lähettääksesi kumppanille oman linkin tai QR-kuvaketta ladataksesi tulostettavan koodin."
+      ),
+      l3(
+        "Theo dõi lượt nhấp, lịch hẹn, doanh thu và hoa hồng cần trả của từng đối tác; trả xong thì ghi nhận đã trả.",
+        "Follow each partner's clicks, bookings, income and commission due; once you have paid them, record the payment.",
+        "Seuraa kunkin kumppanin klikkauksia, varauksia, tuloja ja maksettavaa provisiota; kirjaa maksu, kun olet maksanut."
+      ),
+    ],
+    tips: [
+      l3(
+        "VaraaAi chỉ theo dõi và tính hoa hồng — bạn tự thanh toán cho đối tác theo cách hai bên thoả thuận.",
+        "VaraaAi only tracks and calculates the commission — you pay your partners yourself, however you agree with them.",
+        "VaraaAi vain seuraa ja laskee provision — maksat kumppaneille itse sopimallanne tavalla."
+      ),
+      l3(
+        "In mã QR lên tờ rơi hoặc danh thiếp: khách quét là mở trang đặt lịch, và lịch hẹn được ghi cho đúng đối tác.",
+        "Print the QR code on flyers or business cards: scanning it opens your booking page and credits the right partner.",
+        "Tulosta QR-koodi esitteisiin tai käyntikortteihin: skannaus avaa varaussivun ja hyvittää oikean kumppanin."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Làm sao hệ thống biết khách do đối tác nào giới thiệu?", "How does the system know which partner referred a customer?", "Mistä järjestelmä tietää, kuka kumppani suositteli asiakasta?"),
+        options: [l3("Mỗi đối tác có một đường link (và mã QR) riêng", "Each partner has their own link (and QR code)", "Jokaisella kumppanilla on oma linkki (ja QR-koodi)"), l3("Khách phải gọi điện báo", "The customer must phone to say so", "Asiakkaan on soitettava ja kerrottava"), l3("Không biết được", "It can't know", "Sitä ei voi tietää")],
+        answer: 0,
+        why: l3("Lịch hẹn đặt qua link nào được ghi nhận cho người đó.", "A booking made through a link is credited to that partner.", "Linkin kautta tehty varaus kirjataan kyseiselle kumppanille."),
+      },
+      {
+        q: l3("Ai trả hoa hồng cho đối tác?", "Who pays the partner's commission?", "Kuka maksaa kumppanin provision?"),
+        options: [l3("VaraaAi tự động trả", "VaraaAi pays it automatically", "VaraaAi maksaa sen automaattisesti"), l3("Chủ salon tự thanh toán; VaraaAi chỉ theo dõi", "The salon owner pays; VaraaAi only tracks it", "Salongin omistaja maksaa; VaraaAi vain seuraa"), l3("Khách hàng trả", "The customer pays", "Asiakas maksaa")],
+        answer: 1,
+        why: l3("Sau khi trả, bạn ghi nhận đã trả để sổ sách rõ ràng.", "After paying, record the payment so your books stay clear.", "Kirjaa maksu maksamisen jälkeen, jotta kirjanpito pysyy selkeänä."),
+      },
+      {
+        q: l3("Muốn in link của đối tác lên tờ rơi, bạn dùng gì?", "What do you use to put a partner's link on a flyer?", "Millä saat kumppanin linkin esitteeseen?"),
+        options: [l3("Mã QR của đối tác", "The partner's QR code", "Kumppanin QR-koodilla"), l3("Ảnh bìa salon", "The salon's cover photo", "Salongin kansikuvalla"), l3("Giờ mở cửa", "The opening hours", "Aukioloajoilla")],
+        answer: 0,
+        why: l3("Khách quét mã là mở trang đặt lịch của salon.", "Scanning the code opens your salon's booking page.", "Koodin skannaus avaa salongin varaussivun."),
+      },
+    ],
   },
 ];
