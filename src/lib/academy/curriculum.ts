@@ -410,14 +410,70 @@ export const LESSONS: Lesson[] = [
     course: "c-perks",
     title: l3("Thẻ thành viên: tích vé và mời bạn bè", "Member card: collect stamps, invite friends", "Jäsenkortti: kerää leimoja ja kutsu ystäviä"),
     summary: l3("Mở thẻ QR, xem số vé, và gửi link mời để nhận thêm 2 vé khi bạn bè đến salon.", "Open your QR card, check your stamps and share your invite link for 2 extra stamps.", "Avaa QR-korttisi, katso leimasi ja jaa kutsulinkki saadaksesi 2 lisäleimaa."),
-    video: null,
+    video: video("the-thanh-vien", 59, "2026-11-16"),
+    href: "/account/loyalty",
+    hrefLabel: l3("Mở thẻ của tôi", "Open my cards", "Avaa korttini"),
+    steps: [
+      l3(
+        "Salon kích hoạt thẻ và gửi cho bạn qua email. Để xem thẻ, bấm vào tên bạn ở góc trên và chọn “Thẻ tích điểm”.",
+        "The salon activates your card and emails it to you. To see it, tap your name at the top and choose your loyalty cards.",
+        "Salonki aktivoi korttisi ja lähettää sen sähköpostiisi. Näet sen napauttamalla nimeäsi ylhäällä ja valitsemalla kanta-asiakaskortit."
+      ),
+      l3(
+        "Mỗi lần đến salon, đưa mã QR trên thẻ cho nhân viên quét để được cộng 1 vé.",
+        "At each visit, show the QR code on your card to the staff to get 1 stamp.",
+        "Näytä jokaisella käynnillä kortin QR-koodi henkilökunnalle, niin saat yhden leiman."
+      ),
+      l3(
+        "Bấm “Mở thẻ & mời bạn bè” để xem vòng tròn tiến độ và lịch sử vé.",
+        "Open the card to see your progress ring and your stamp history.",
+        "Avaa kortti nähdäksesi edistymisesi ja leimahistoriasi."
+      ),
+      l3(
+        "Ở phần “Mời bạn bè”, bấm “Sao chép link mời” và gửi cho bạn bè: khi họ đặt lịch qua link và đến salon lần đầu, bạn được cộng thêm 2 vé.",
+        "Under “Invite friends”, copy your invite link and send it: when a friend books through it and visits for the first time, you get 2 extra stamps.",
+        "Kopioi kohdasta ”Kutsu ystäviä” kutsulinkkisi ja lähetä se: kun ystävä varaa sen kautta ja käy ensimmäistä kertaa, saat 2 lisäleimaa."
+      ),
+    ],
+    tips: [
+      l3(
+        "Đủ vé là được giảm giá ở lần làm tiếp theo — nhớ báo với nhân viên.",
+        "Once you have enough stamps you get the discount on your next visit — just tell the staff.",
+        "Kun leimoja on tarpeeksi, saat alennuksen seuraavalla käynnillä — kerro siitä henkilökunnalle."
+      ),
+      l3(
+        "Vé thưởng chỉ được cộng khi bạn bè thật sự đến salon, không phải lúc bạn gửi link.",
+        "Bonus stamps are added only when your friend actually visits, not when you send the link.",
+        "Bonusleimat lisätään vasta, kun ystäväsi todella käy salongissa, ei linkin lähettämisestä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Làm sao để được cộng vé mỗi lần đến salon?", "How do you get a stamp at each visit?", "Miten saat leiman jokaisella käynnillä?"),
+        options: [l3("Đưa mã QR trên thẻ cho nhân viên quét", "Show the QR code on your card to the staff", "Näytä kortin QR-koodi henkilökunnalle"), l3("Gửi email cho salon", "Email the salon", "Lähetä salongille sähköpostia"), l3("Không cần làm gì", "Do nothing", "Ei tarvitse tehdä mitään")],
+        answer: 0,
+        why: l3("Nhân viên quét là bạn được cộng 1 vé ngay.", "One scan by the staff and your stamp is added.", "Kun henkilökunta skannaa koodin, saat leiman heti."),
+      },
+      {
+        q: l3("Mời bạn bè thành công thì bạn được gì?", "What do you get when a friend you invited visits?", "Mitä saat, kun kutsumasi ystävä käy salongissa?"),
+        options: [l3("Thêm 2 vé", "2 extra stamps", "2 lisäleimaa"), l3("Tiền mặt", "Cash", "Käteistä"), l3("Không được gì", "Nothing", "Ei mitään")],
+        answer: 0,
+        why: l3("Vé được cộng tự động khi bạn bè đến salon lần đầu.", "The stamps are added automatically when your friend first visits.", "Leimat lisätään automaattisesti, kun ystäväsi käy ensimmäistä kertaa."),
+      },
+      {
+        q: l3("Xem thẻ thành viên của mình ở đâu?", "Where do you find your member cards?", "Mistä löydät jäsenkorttisi?"),
+        options: [l3("Bấm vào tên mình ở góc trên, chọn “Thẻ tích điểm”", "Tap your name at the top and choose your loyalty cards", "Napauta nimeäsi ylhäällä ja valitse kanta-asiakaskortit"), l3("Trang Trợ giúp", "The Help page", "Ohje-sivulta"), l3("Không xem được", "You can't", "Niitä ei voi nähdä")],
+        answer: 0,
+        why: l3("Mỗi thẻ hiện số vé và mã QR riêng.", "Each card shows your stamps and its own QR code.", "Jokaisessa kortissa näkyvät leimasi ja oma QR-koodi."),
+      },
+    ],
   },
   {
     slug: "the-qua-tang",
     course: "c-perks",
     title: l3("Mua và dùng thẻ quà tặng", "Buy and use a gift card", "Osta ja käytä lahjakortti"),
     summary: l3("Mua thẻ trên website của salon, nhận mã qua email và đưa mã cho nhân viên khi đến salon.", "Buy one on the salon's website, get the code by email and show it to the staff at the salon.", "Osta salongin verkkosivuilta, saat koodin sähköpostiin ja näytät sen salongissa."),
-    video: null, // batch 9
+    video: video("the-qua-tang", 56, "2026-11-16"),
     fresh: true,
     steps: [
       l3(
@@ -479,7 +535,7 @@ export const LESSONS: Lesson[] = [
     course: "c-perks",
     title: l3("Theo dõi salon, bảng tin và mua sản phẩm", "Follow salons, your feed and the shop", "Seuraa salonkeja, syöte ja kauppa"),
     summary: l3("Bấm Theo dõi để nhận bài viết mới của salon và mua sản phẩm trong cửa hàng của salon.", "Follow a salon to see its new posts, and buy products from its shop.", "Seuraa salonkia nähdäksesi uudet julkaisut ja osta tuotteita sen kaupasta."),
-    video: null, // batch 9
+    video: video("theo-doi-salon", 67, "2026-11-16"),
     href: "/account/feed",
     hrefLabel: l3("Mở Bảng tin", "Open your feed", "Avaa syöte"),
     steps: [
@@ -542,7 +598,7 @@ export const LESSONS: Lesson[] = [
     course: "c-perks",
     title: l3("Xem lại hoá đơn bằng mã QR", "Open your invoice with a QR code", "Avaa lasku QR-koodilla"),
     summary: l3("Quét mã tại quầy hoặc mở email để xem lại hoá đơn của lần làm đẹp.", "Scan the code at the counter or open the email to see the invoice for your visit.", "Skannaa koodi kassalla tai avaa sähköposti nähdäksesi käyntisi laskun."),
-    video: null, // batch 9
+    video: video("hoa-don", 45, "2026-11-16"),
     fresh: true,
     steps: [
       l3(
@@ -1561,7 +1617,7 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Xuất Excel: doanh thu, khách hàng, đơn hàng", "Excel exports: income, customers, orders", "Excel-viennit: tulot, asiakkaat, tilaukset"),
     summary: l3("Tải bảng doanh thu, danh sách khách và đơn hàng về máy dưới dạng Excel.", "Download income sheets, customer lists and orders as Excel files.", "Lataa tulotaulukot, asiakasluettelot ja tilaukset Excel-tiedostoina."),
-    video: null, // batch 7
+    video: video("xuat-excel", 61, "2026-11-16"),
     href: "/business/dashboard/income",
     hrefLabel: l3("Mở Quản trị doanh thu", "Open Income management", "Avaa Tulojen hallinta"),
     steps: [
@@ -1863,7 +1919,63 @@ export const LESSONS: Lesson[] = [
     guide: "loyalty",
     title: l3("Thẻ tích điểm QR trong trang quản trị", "QR loyalty cards in the dashboard", "QR-kanta-asiakaskortit hallintapaneelissa"),
     summary: l3("Kích hoạt thẻ cho khách, bấm “Cộng 1 vé” khi khách đến và áp dụng giảm giá.", "Activate cards, press “Add 1 stamp” at each visit and apply the discount.", "Aktivoi kortit, lisää leima joka käynnillä ja käytä alennus."),
-    video: null,
+    video: video("the-tich-diem", 58, "2026-11-16"),
+    href: "/business/dashboard/loyalty",
+    hrefLabel: l3("Mở Thẻ tích điểm", "Open Loyalty cards", "Avaa kanta-asiakaskortit"),
+    steps: [
+      l3(
+        "Bấm mục “Thẻ tích điểm”. Ở “Cài đặt chương trình”, nhập “Số lần để được giảm giá”, “Giảm giá (%)” và “Giá thẻ (0 = miễn phí)”, rồi bấm “Lưu”.",
+        "Open “Loyalty cards”. In the programme settings, enter how many visits earn a discount, the discount % and the card price (0 = free), then save.",
+        "Avaa kanta-asiakaskortit. Anna ohjelman asetuksissa alennukseen oikeuttava käyntimäärä, alennusprosentti ja kortin hinta (0 = ilmainen) ja tallenna."
+      ),
+      l3(
+        "Ở “Kích hoạt thẻ cho khách”, nhập họ tên và email của khách rồi bấm “Kích hoạt và gửi QR qua email”.",
+        "Under “Activate a card”, enter the customer's name and email and press the button — they get their QR card by email.",
+        "Anna kortin aktivoinnissa asiakkaan nimi ja sähköposti ja paina painiketta — asiakas saa QR-korttinsa sähköpostiin."
+      ),
+      l3(
+        "Khi khách đến: quét mã QR trên thẻ bằng camera, hoặc nhập mã in trên thẻ, rồi bấm “Cộng 1 vé”.",
+        "At each visit: scan the QR code on the card with the camera, or type the code printed on it, then press “Add 1 stamp”.",
+        "Jokaisella käynnillä: skannaa kortin QR-koodi kameralla tai kirjoita kortin koodi ja lisää yksi leima."
+      ),
+      l3(
+        "Khi khách đủ vé, áp dụng giảm giá cho khách; xem từng khách có bao nhiêu vé trong danh sách “Khách có thẻ”.",
+        "When a customer has enough stamps, apply their discount; see everyone's stamps in the list of card holders.",
+        "Kun asiakkaalla on tarpeeksi leimoja, anna alennus; näet kaikkien leimat kortinhaltijoiden listasta."
+      ),
+    ],
+    tips: [
+      l3(
+        "Mục “Thẻ tích điểm” mở khi hồ sơ salon hoàn thiện từ 85% — xem “Mức độ hoàn thiện hồ sơ” trong Cài đặt.",
+        "Loyalty cards unlock once your salon profile is at least 85% complete — check the profile completeness in Settings.",
+        "Kanta-asiakaskortit avautuvat, kun salongin profiili on vähintään 85 % valmis — katso profiilin valmiusaste asetuksista."
+      ),
+      l3(
+        "Vé chỉ được cộng khi khách có một lượt hẹn đã diễn ra mà chưa được quét — nên số vé không bao giờ vượt số lần khách thật sự đến.",
+        "A stamp is added only when the customer has a past appointment that hasn't been scanned yet — so stamps can never outrun real visits.",
+        "Leima lisätään vain, kun asiakkaalla on toteutunut käynti, jota ei ole vielä skannattu — leimoja ei siis voi olla enemmän kuin käyntejä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khách nhận thẻ tích điểm bằng cách nào?", "How does a customer receive their loyalty card?", "Miten asiakas saa kanta-asiakaskorttinsa?"),
+        options: [l3("Salon kích hoạt và thẻ có mã QR được gửi qua email", "The salon activates it and the QR card is sent by email", "Salonki aktivoi sen, ja QR-kortti lähetetään sähköpostilla"), l3("Khách phải ra bưu điện", "They must go to the post office", "Asiakkaan on mentävä postiin"), l3("Không có thẻ", "There is no card", "Korttia ei ole")],
+        answer: 0,
+        why: l3("Chỉ cần họ tên và email của khách.", "All you need is the customer's name and email.", "Tarvitset vain asiakkaan nimen ja sähköpostin."),
+      },
+      {
+        q: l3("Khách đến salon, bạn cộng vé thế nào?", "How do you add a stamp when the customer visits?", "Miten lisäät leiman, kun asiakas käy?"),
+        options: [l3("Quét mã QR (hoặc nhập mã thẻ) rồi bấm “Cộng 1 vé”", "Scan the QR code (or type the card code) and press “Add 1 stamp”", "Skannaa QR-koodi (tai kirjoita kortin koodi) ja lisää leima"), l3("Gọi cho VaraaAi", "Call VaraaAi", "Soita VaraaAille"), l3("Vé tự cộng mỗi ngày", "Stamps are added every day by themselves", "Leimat lisätään itsestään joka päivä")],
+        answer: 0,
+        why: l3("Màn hình báo quét thành công và hiện số vé của khách.", "The screen confirms the scan and shows the customer's stamps.", "Näyttö vahvistaa skannauksen ja näyttää asiakkaan leimat."),
+      },
+      {
+        q: l3("“Giá thẻ” để bằng 0 nghĩa là gì?", "What does a card price of 0 mean?", "Mitä kortin hinta 0 tarkoittaa?"),
+        options: [l3("Thẻ miễn phí", "The card is free", "Kortti on ilmainen"), l3("Thẻ bị khoá", "The card is locked", "Kortti on lukittu"), l3("Không giảm giá", "No discount", "Ei alennusta")],
+        answer: 0,
+        why: l3("Bạn cũng có thể đặt giá nếu muốn bán thẻ.", "You can also set a price if you want to sell the card.", "Voit myös asettaa hinnan, jos haluat myydä korttia."),
+      },
+    ],
   },
   {
     slug: "khach-dan-khach",
@@ -1875,9 +1987,7 @@ export const LESSONS: Lesson[] = [
       "Every loyalty card has its own invite link. When a friend books through it and visits, the referrer gets 2 stamps automatically.",
       "Jokaisella kanta-asiakaskortilla on oma kutsulinkki. Kun ystävä varaa sen kautta ja käy salongissa, suosittelija saa automaattisesti 2 leimaa."
     ),
-    // Filmed on 2026-11-01 in the old style (lots of on-screen text); to be remade in the
-    // screen-first style with the Academy voice before it goes live here.
-    video: null,
+    video: video("khach-dan-khach", 57, "2026-11-16"),
     href: "/business/dashboard/loyalty",
     hrefLabel: l3("Mở Thẻ tích điểm", "Open Loyalty cards", "Avaa kanta-asiakaskortit"),
     steps: [
@@ -1977,7 +2087,7 @@ export const LESSONS: Lesson[] = [
     guide: "marketing",
     title: l3("Email khuyến mãi và điểm Vara", "Promotional emails and Vara points", "Markkinointisähköpostit ja Vara-pisteet"),
     summary: l3("Chọn nhóm khách, soạn chiến dịch từ mẫu có sẵn, gửi ngay hoặc lên lịch.", "Pick an audience, write a campaign from a template and send now or schedule it.", "Valitse kohderyhmä, tee kampanja mallista ja lähetä heti tai ajasta."),
-    video: null, // batch 10
+    video: video("email-marketing", 75, "2026-11-16"),
     href: "/business/dashboard/marketing",
     hrefLabel: l3("Mở Marketing", "Open Marketing", "Avaa Markkinointi"),
     steps: [
@@ -2046,7 +2156,7 @@ export const LESSONS: Lesson[] = [
     guide: "products",
     title: l3("Bán sản phẩm và quản lý đơn hàng", "Sell products and manage orders", "Myy tuotteita ja hallitse tilauksia"),
     summary: l3("Mở cửa hàng online của salon, xác nhận đơn và báo khách qua email.", "Open your salon's online shop, confirm orders and notify customers by email.", "Avaa salongin verkkokauppa, vahvista tilaukset ja ilmoita asiakkaille sähköpostilla."),
-    video: null, // batch 10
+    video: video("san-pham-don-hang", 62, "2026-11-16"),
     href: "/business/dashboard/products",
     hrefLabel: l3("Mở Sản phẩm", "Open Products", "Avaa Tuotteet"),
     steps: [
@@ -2116,7 +2226,7 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Kho vật tư: quét nhập, quét lấy hàng", "Inventory: scan in, scan out", "Varasto: skannaa sisään ja ulos"),
     summary: l3("Theo dõi tồn kho, danh sách cần mua và in nhãn cho tủ.", "Track stock, see what to buy and print labels for your cupboards.", "Seuraa varastoa, katso ostettavat ja tulosta tarrat kaappeihin."),
-    video: null, // batch 11
+    video: video("kho-hang", 74, "2026-11-16"),
     href: "/business/dashboard/inventory",
     hrefLabel: l3("Mở Kho hàng", "Open Inventory", "Avaa Varasto"),
     steps: [
@@ -2185,7 +2295,63 @@ export const LESSONS: Lesson[] = [
     guide: "branches",
     title: l3("Nhiều chi nhánh", "Several branches", "Useita toimipisteitä"),
     summary: l3("Thêm chi nhánh, chuyển qua lại và dùng trang đặt lịch chung cho cả chuỗi.", "Add branches, switch between them and use one booking page for the chain.", "Lisää toimipisteitä, vaihda niiden välillä ja käytä ketjun yhteistä varaussivua."),
-    video: null,
+    video: video("chi-nhanh", 55, "2026-11-16"),
+    href: "/business/dashboard/settings",
+    hrefLabel: l3("Mở Cài đặt", "Open Settings", "Avaa Asetukset"),
+    steps: [
+      l3(
+        "Vào “Cài đặt”, kéo xuống phần “Chi nhánh” và bấm “Thêm chi nhánh”.",
+        "Open “Settings”, scroll to the branches section and press “Add branch”.",
+        "Avaa ”Asetukset”, vieritä toimipisteisiin ja paina ”Lisää toimipiste”."
+      ),
+      l3(
+        "Điền tên, giới thiệu ngắn, danh mục dịch vụ, địa chỉ, quốc gia, thành phố và số điện thoại của chi nhánh mới, rồi bấm “Gửi đăng ký”.",
+        "Fill in the new branch's name, short introduction, categories, address, country, city and phone number, then submit.",
+        "Täytä uuden toimipisteen nimi, lyhyt esittely, palveluluokat, osoite, maa, kaupunki ja puhelinnumero ja lähetä."
+      ),
+      l3(
+        "Thêm dịch vụ, nhân viên và giờ mở cửa cho chi nhánh mới, giống như với salon đầu tiên.",
+        "Add services, staff and opening hours for the new branch, just as you did for your first salon.",
+        "Lisää uudelle toimipisteelle palvelut, henkilökunta ja aukioloajat kuten ensimmäiselle salongille."
+      ),
+      l3(
+        "Chuyển qua lại giữa các cơ sở bằng ô “Chi nhánh” ở đầu trang quản trị.",
+        "Switch between your locations with the branch picker at the top of the dashboard.",
+        "Vaihda toimipisteiden välillä hallintapaneelin yläreunan toimipistevalitsimella."
+      ),
+    ],
+    tips: [
+      l3(
+        "Mỗi chi nhánh có trang đặt lịch, lịch hẹn và nhân viên riêng — số liệu không lẫn vào nhau.",
+        "Each branch has its own booking page, calendar and staff — the figures never mix.",
+        "Jokaisella toimipisteellä on oma varaussivu, kalenteri ja henkilökunta — luvut eivät sekoitu."
+      ),
+      l3(
+        "Dùng “Trang đặt lịch chuỗi” trong Cài đặt: một đường link chung, khách chọn chi nhánh rồi đặt.",
+        "Use the chain booking page in Settings: one shared link where customers pick a branch, then book.",
+        "Käytä asetusten ketjuvaraussivua: yksi yhteinen linkki, jossa asiakas valitsee toimipisteen ja varaa."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Thêm chi nhánh mới ở đâu?", "Where do you add a new branch?", "Missä uusi toimipiste lisätään?"),
+        options: [l3("Cài đặt → Chi nhánh → “Thêm chi nhánh”", "Settings → Branches → “Add branch”", "Asetukset → Toimipisteet → ”Lisää toimipiste”"), l3("Phải tạo tài khoản mới", "You must create a new account", "On luotava uusi tili"), l3("Trang Đánh giá", "The Reviews page", "Arvostelut-sivulla")],
+        answer: 0,
+        why: l3("Mọi chi nhánh nằm trong cùng một tài khoản.", "Every branch lives in the same account.", "Kaikki toimipisteet ovat samalla tilillä."),
+      },
+      {
+        q: l3("Mỗi chi nhánh có gì riêng?", "What does each branch have of its own?", "Mitä omaa kullakin toimipisteellä on?"),
+        options: [l3("Trang đặt lịch, lịch hẹn và nhân viên riêng", "Its own booking page, calendar and staff", "Oma varaussivu, kalenteri ja henkilökunta"), l3("Không có gì riêng", "Nothing", "Ei mitään"), l3("Chỉ có logo riêng", "Only its own logo", "Vain oma logo")],
+        answer: 0,
+        why: l3("Nhờ vậy lịch và số liệu của từng cơ sở không lẫn vào nhau.", "That keeps each location's calendar and figures separate.", "Näin kunkin toimipisteen kalenteri ja luvut pysyvät erillään."),
+      },
+      {
+        q: l3("“Trang đặt lịch chuỗi” dùng để làm gì?", "What is the chain booking page for?", "Mihin ketjuvaraussivua käytetään?"),
+        options: [l3("Một link chung: khách chọn chi nhánh rồi đặt lịch", "One shared link: customers pick a branch, then book", "Yksi yhteinen linkki: asiakas valitsee toimipisteen ja varaa"), l3("In hoá đơn", "Printing invoices", "Laskujen tulostamiseen"), l3("Chấm công nhân viên", "Staff time-keeping", "Työajan seurantaan")],
+        answer: 0,
+        why: l3("Bạn chỉ cần chia sẻ một đường link cho cả chuỗi.", "You only need to share one link for the whole chain.", "Sinun tarvitsee jakaa vain yksi linkki koko ketjulle."),
+      },
+    ],
   },
   {
     slug: "tong-quan",
@@ -2321,7 +2487,7 @@ export const LESSONS: Lesson[] = [
     guide: "affiliates",
     title: l3("Cộng tác viên giới thiệu khách", "Affiliates who bring customers", "Kumppanit, jotka tuovat asiakkaita"),
     summary: l3("Thêm người tiếp thị, đặt hoa hồng và theo dõi kết quả.", "Add affiliates, set their commission and follow the results.", "Lisää kumppaneita, aseta provisio ja seuraa tuloksia."),
-    video: null, // batch 11
+    video: video("cong-tac-vien", 58, "2026-11-16"),
     href: "/business/dashboard/marketing/affiliates",
     hrefLabel: l3("Mở Tiếp thị liên kết", "Open Affiliates", "Avaa kumppanit"),
     steps: [
