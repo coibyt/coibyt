@@ -41,7 +41,7 @@ export function parseState(raw: string | null): AcademyState {
       last: typeof s.last === "string" ? s.last : undefined,
       days: Array.isArray(s.days) ? s.days.filter((d) => typeof d === "string").slice(-90) : [],
       name: typeof s.name === "string" ? s.name.slice(0, 60) : undefined,
-      audience: s.audience === "owner" || s.audience === "customer" ? s.audience : undefined,
+      audience: s.audience === "owner" || s.audience === "customer" || s.audience === "pro" ? s.audience : undefined,
     };
   } catch {
     return EMPTY;
@@ -96,7 +96,7 @@ export function touchDay(state: AcademyState): AcademyState {
   return { ...state, days: [...state.days.filter((d) => d !== t), t].slice(-90) };
 }
 
-export type BadgeId = "first" | "ace" | "streak3" | "five" | `course:${string}` | "grad:customer" | "grad:owner";
+export type BadgeId = "first" | "ace" | "streak3" | "five" | `course:${string}` | "grad:customer" | "grad:owner" | "grad:pro";
 
 export interface BadgeStatus {
   id: BadgeId;
@@ -132,7 +132,7 @@ export function badgesOf(courses: CourseCard[], state: AcademyState): BadgeStatu
     const p = courseProgress(c, state);
     out.push({ id: `course:${c.id}`, earned: p.complete, locked: p.total === 0 });
   }
-  for (const a of ["customer", "owner"] as const) {
+  for (const a of ["customer", "owner", "pro"] as const) {
     const p = trackProgress(courses, a, state);
     out.push({ id: `grad:${a}`, earned: p.complete, locked: p.total === 0 });
   }

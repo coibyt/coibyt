@@ -1,9 +1,10 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowRight, Award, BookOpen, Check, ChevronLeft, CircleCheck, CircleX, Copy, Download, ExternalLink, Lightbulb, Lock, Play, RotateCcw, Share2, Trophy } from "lucide-react";
+import { ArrowRight, Award, BookOpen, CalendarDays, Check, ChevronLeft, CircleCheck, CircleX, Copy, Download, ExternalLink, Lightbulb, Lock, Play, RotateCcw, Share2, ShieldCheck, Trophy } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { academyStrings } from "@/lib/academy/strings";
+import { craftStrings } from "@/lib/academy/craft-strings";
 import { WATCHED_RATIO, XP_ANSWER, XP_LESSON, fmtDuration } from "@/lib/academy/progress";
 import type { Audience, LessonCard } from "@/lib/academy/types";
 import { useAcademyProgress, useHydrated } from "@/components/academy/use-progress";
@@ -29,6 +30,11 @@ export interface LessonViewData {
   siblings: LessonCard[];
   /** The next lesson that has a video, if any. */
   next: { slug: string; title: string } | null;
+  /** Craft lessons: a safety note, the official sources behind it, and the
+   * software lessons that put the skill to work in VaraaAi. */
+  notice: string | null;
+  sources: { label: string; url: string }[];
+  related: LessonCard[];
 }
 
 const GOLD = "bg-gradient-to-br from-[#f0d9a0] to-[#b08a3e]";
@@ -36,6 +42,8 @@ const SPEEDS = [0.75, 1, 1.25, 1.5];
 
 export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale: string }) {
   const s = academyStrings(locale);
+  const cs = craftStrings(locale);
+  const home = `/academy${lesson.audience === "customer" ? "" : `#${lesson.audience}`}`;
   const { state, patchLesson } = useAcademyProgress();
   const hydrated = useHydrated();
   const mine = state.lessons[lesson.slug] ?? {};
@@ -66,7 +74,7 @@ export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale:
         <div className="pointer-events-none absolute -left-32 -top-32 -z-10 h-96 w-96 rounded-full bg-primary-500/40 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-40 right-0 -z-10 h-96 w-96 rounded-full bg-[#b08a3e]/20 blur-3xl" />
         <div className="container max-w-5xl">
-          <Link href={`/academy${lesson.audience === "owner" ? "#owner" : ""}`} className="inline-flex items-center gap-1 text-sm font-semibold text-white/70 transition-colors hover:text-white">
+          <Link href={home} className="inline-flex items-center gap-1 text-sm font-semibold text-white/70 transition-colors hover:text-white">
             <ChevronLeft className="h-4 w-4" />
             {s.back}
           </Link>
@@ -95,9 +103,35 @@ export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale:
 
         <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
           <div className="min-w-0 space-y-6">
+            {(lesson.notice || lesson.audience === "pro") && (
+              <section className="rounded-3xl bg-gradient-to-br from-[#fbf4e2] to-white p-5 ring-1 ring-[#e8d3a6] sm:p-6">
+                <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[#8a6a2a]">
+                  <ShieldCheck className="h-4 w-4" />
+                  {cs.noticeTitle}
+                </p>
+                {lesson.notice && <p className="mt-2 text-sm leading-relaxed text-ink-900 sm:text-base">{lesson.notice}</p>}
+                {lesson.audience === "pro" && <p className="mt-2 text-xs leading-relaxed text-ink-400 sm:text-sm">{cs.disclaimer}</p>}
+                {lesson.sources.length > 0 && (
+                  <div className="mt-3">
+                    <p className="text-xs font-bold text-ink-700">{cs.sourcesTitle}</p>
+                    <ul className="mt-1 space-y-1">
+                      {lesson.sources.map((src) => (
+                        <li key={src.url}>
+                          <a href={src.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-start gap-1.5 text-xs font-semibold text-primary-700 underline-offset-2 hover:underline sm:text-sm">
+                            <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                            {src.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </section>
+            )}
+
             {lesson.steps.length > 0 && (
               <section className="rounded-3xl bg-white p-5 shadow-card ring-1 ring-ink-100 sm:p-7">
-                <h2 className="text-lg font-extrabold text-ink-900 sm:text-xl">{s.stepsTitle}</h2>
+                <h2 className="text-lg font-extrabold text-ink-900 sm:text-xl">{lesson.audience === "pro" ? cs.keyPointsTitle : s.stepsTitle}</h2>
                 <ol className="mt-4 space-y-3.5">
                   {lesson.steps.map((step, i) => (
                     <li key={i} className="flex gap-3">
@@ -146,6 +180,38 @@ export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale:
           </div>
 
           <aside className="min-w-0 space-y-6">
+            {lesson.related.length > 0 && (
+              <section className="rounded-3xl bg-gradient-to-br from-[#2a1f3d] via-primary-900 to-[#150f20] p-5 text-white shadow-card ring-1 ring-[#e8d3a6]/30">
+                <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[#e8d3a6]">
+                  <CalendarDays className="h-4 w-4" />
+                  {cs.relatedTitle}
+                </p>
+                <p className="mt-1.5 text-sm leading-relaxed text-white/75">{cs.relatedBody}</p>
+                <ul className="mt-3 space-y-2">
+                  {lesson.related.map((l) => (
+                    <li key={l.slug}>
+                      <Link href={`/academy/${l.slug}`} className="group flex items-center gap-3 rounded-2xl bg-white/[0.07] p-2 ring-1 ring-white/10 transition-colors hover:bg-white/[0.12]">
+                        <span className="relative block aspect-video w-24 shrink-0 overflow-hidden rounded-xl bg-primary-900">
+                          {l.poster && (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={l.poster} alt="" loading="lazy" className="h-full w-full object-cover" />
+                          )}
+                          <span className="absolute inset-0 flex items-center justify-center bg-black/25">
+                            <Play className="h-4 w-4 fill-current text-white" />
+                          </span>
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-sm font-bold leading-snug">{l.title}</span>
+                          <span className="block text-xs tabular-nums text-white/60">{fmtDuration(l.seconds)}</span>
+                        </span>
+                        <ArrowRight className="h-4 w-4 shrink-0 text-[#e8d3a6] transition-transform group-hover:translate-x-0.5" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             {lesson.next && (
               <Link
                 href={`/academy/${lesson.next.slug}`}
@@ -186,7 +252,7 @@ export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale:
                   return <li key={l.slug}>{l.live && !here ? <Link href={`/academy/${l.slug}`}>{row}</Link> : row}</li>;
                 })}
               </ul>
-              <Link href={`/academy${lesson.audience === "owner" ? "#owner" : ""}`} className="mt-3 inline-flex items-center gap-1.5 px-3 text-sm font-bold text-primary-600 hover:underline">
+              <Link href={home} className="mt-3 inline-flex items-center gap-1.5 px-3 text-sm font-bold text-primary-600 hover:underline">
                 {s.backToAcademy}
                 <ArrowRight className="h-4 w-4" />
               </Link>
@@ -524,7 +590,7 @@ function Quiz({ lesson, locale }: { lesson: LessonViewData; locale: string }) {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             ) : (
-              <Link href={`/academy${lesson.audience === "owner" ? "#owner" : ""}`} className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-5 py-2.5 text-sm font-bold text-white transition-transform hover:scale-[1.02]">
+              <Link href={`/academy${lesson.audience === "customer" ? "" : `#${lesson.audience}`}`} className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-5 py-2.5 text-sm font-bold text-white transition-transform hover:scale-[1.02]">
                 {s.backToAcademy}
                 <ArrowRight className="h-4 w-4" />
               </Link>

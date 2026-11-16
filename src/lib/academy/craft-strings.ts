@@ -1,0 +1,67 @@
+/** Interface text of the Academy's craft-skills track ("Tôi học nghề") in
+ * Vietnamese, English and Finnish (other languages get English). The lessons
+ * themselves are in craft.ts. */
+
+const vi = {
+  forPro: "Tôi học nghề",
+  forProShort: "Học nghề",
+  proHint: "Nail, mi, tóc, spa, vệ sinh an toàn",
+  gradPro: ["Thợ lành nghề", "Học xong mọi bài học nghề hiện có"] as [string, string],
+  certTrack: "Khoá học nghề làm đẹp trực tuyến",
+  certNote: "Chứng nhận hoàn thành khoá học trực tuyến của VaraaAi — không phải chứng chỉ hành nghề hay bằng cấp chính thức.",
+  introTitle: "Học nghề cùng người đi trước",
+  introBody: "Mỗi bài là một buổi trò chuyện với người thầy: lý thuyết chuyên sâu, quy tắc làm việc và kinh nghiệm thực tế trong nghề, kèm hình ảnh minh hoạ. Hiểu vì sao, rồi mới làm.",
+  keyPointsTitle: "Những điều cần nhớ",
+  disclaimer:
+    "Video là tài liệu hỗ trợ học tập. Chúng không thay thế việc thực hành có người hướng dẫn và không phải chứng chỉ hành nghề. Luôn làm theo hướng dẫn của hãng sản phẩm và quy định ở nơi bạn làm việc.",
+  bridgeTitle: "Đưa tay nghề vào công việc với VaraaAi",
+  bridgeBody: "Làm đẹp rồi thì cần có khách. Các bài này chỉ bạn mở salon trên VaraaAi, lên dịch vụ và bảng giá, nhận lịch hẹn online và giữ khách quen.",
+  noticeTitle: "An toàn trước tiên",
+  sourcesTitle: "Nguồn chính thức",
+  relatedTitle: "Dùng VaraaAi cho công việc này",
+  relatedBody: "Học xong kỹ thuật, xem tiếp cách đưa dịch vụ này lên VaraaAi để nhận khách.",
+};
+
+type S = typeof vi;
+
+const en: S = {
+  forPro: "I'm learning the trade",
+  forProShort: "Learn the trade",
+  proHint: "Nails, lashes, hair, spa, hygiene",
+  gradPro: ["Skilled professional", "Finish every craft lesson available"],
+  certTrack: "Online beauty craft course",
+  certNote: "Certificate of completion for VaraaAi's online course — not a professional licence or an official qualification.",
+  introTitle: "Learn the trade from someone who has done it",
+  introBody: "Each lesson is a talk with a mentor: the theory in depth, the rules of the job and what experience teaches, with pictures to illustrate. Understand why first, then do.",
+  keyPointsTitle: "Key points to remember",
+  disclaimer:
+    "These videos are study aids. They don't replace supervised hands-on training and they are not a professional licence. Always follow the product manufacturer's instructions and the rules where you work.",
+  bridgeTitle: "Put your skills to work with VaraaAi",
+  bridgeBody: "Skill needs customers. These lessons show how to open your salon on VaraaAi, list services and prices, take bookings online and keep regulars coming back.",
+  noticeTitle: "Safety first",
+  sourcesTitle: "Official sources",
+  relatedTitle: "Use VaraaAi for this work",
+  relatedBody: "Once you know the technique, see how to offer this service on VaraaAi and get booked.",
+};
+
+const fi: S = {
+  forPro: "Opiskelen alaa",
+  forProShort: "Opi ammatti",
+  proHint: "Kynnet, ripset, hiukset, spa, hygienia",
+  gradPro: ["Taitava ammattilainen", "Suorita kaikki saatavilla olevat ammattitunnit"],
+  certTrack: "Kauneusalan verkkokurssi",
+  certNote: "Todistus VaraaAin verkkokurssin suorittamisesta — ei ammattipätevyys eikä virallinen tutkinto.",
+  introTitle: "Opi ammatti kokeneelta tekijältä",
+  introBody: "Jokainen tunti on keskustelu mentorin kanssa: syvällinen teoria, työn säännöt ja kokemuksen opit, kuvat havainnollistavat. Ymmärrä ensin miksi, tee sitten.",
+  keyPointsTitle: "Muista nämä",
+  disclaimer:
+    "Videot ovat opiskelun tukea. Ne eivät korvaa ohjattua käytännön harjoittelua eivätkä ole ammattipätevyys. Noudata aina tuotteen valmistajan ohjeita ja työpaikkasi määräyksiä.",
+  bridgeTitle: "Vie taitosi työhön VaraaAin avulla",
+  bridgeBody: "Taito tarvitsee asiakkaita. Näillä tunneilla opit avaamaan salongin VaraaAissa, lisäämään palvelut ja hinnat, ottamaan varauksia verkossa ja pitämään kanta-asiakkaat.",
+  noticeTitle: "Turvallisuus ensin",
+  sourcesTitle: "Viralliset lähteet",
+  relatedTitle: "Käytä VaraaAita tähän työhön",
+  relatedBody: "Kun osaat tekniikan, katso, miten tarjoat palvelua VaraaAissa ja saat varauksia.",
+};
+
+export const craftStrings = (locale: string): S => (locale === "vi" ? vi : locale === "fi" ? fi : en);

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Download, GraduationCap, Lock } from "lucide-react";
 import { academyStrings } from "@/lib/academy/strings";
+import { craftStrings } from "@/lib/academy/craft-strings";
 import type { Audience } from "@/lib/academy/types";
 import { useAcademyProgress } from "@/components/academy/use-progress";
 
@@ -31,6 +32,9 @@ function fitText(ctx: CanvasRenderingContext2D, text: string, weight: string, si
  * name, drawn in the browser and saved as a picture. */
 export function AcademyCertificate({ locale, audience, done, total }: { locale: string; audience: Audience; done: number; total: number }) {
   const s = academyStrings(locale);
+  const cs = craftStrings(locale);
+  // The craft track says on the certificate itself that it is not a licence.
+  const trackName = audience === "pro" ? cs.certTrack : s.certTrack[audience];
   const { state, update } = useAcademyProgress();
   const [busy, setBusy] = useState(false);
   const complete = total > 0 && done === total;
@@ -101,13 +105,18 @@ export function AcademyCertificate({ locale, audience, done, total }: { locale: 
       ctx.fillText(s.certLine, W / 2, 620);
 
       ctx.fillStyle = "#f0d9a0";
-      fitText(ctx, s.certTrack[audience], "800", 58, family, W - 320);
-      ctx.fillText(s.certTrack[audience], W / 2, 710);
+      fitText(ctx, trackName, "800", 58, family, W - 320);
+      ctx.fillText(trackName, W / 2, 710);
 
       ctx.fillStyle = "rgba(255,255,255,0.7)";
       ctx.font = `500 30px ${family}`;
       const date = new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" }).format(new Date());
       ctx.fillText(`${s.certIssued} ${date}  ·  ${s.lessonsCount(total)}`, W / 2, 820);
+      if (audience === "pro") {
+        ctx.fillStyle = "rgba(255,255,255,0.6)";
+        fitText(ctx, cs.certNote, "500", 24, family, W - 260);
+        ctx.fillText(cs.certNote, W / 2, 872);
+      }
 
       ctx.fillStyle = "#ffffff";
       ctx.font = `800 40px ${family}`;
@@ -140,7 +149,8 @@ export function AcademyCertificate({ locale, audience, done, total }: { locale: 
           </span>
           <div className="min-w-0">
             <h2 className="text-xl font-extrabold sm:text-2xl">{s.certTitle}</h2>
-            <p className="mt-1 text-sm font-semibold text-[#e8d3a6]">{s.certTrack[audience]}</p>
+            <p className="mt-1 text-sm font-semibold text-[#e8d3a6]">{trackName}</p>
+            {audience === "pro" && <p className="mt-1 text-xs leading-relaxed text-white/60">{cs.certNote}</p>}
             <p className="mt-2 text-sm leading-relaxed text-white/75">{complete ? s.certReady : s.certLocked(total - done)}</p>
             {!complete && (
               <div className="mt-4 h-2 max-w-sm overflow-hidden rounded-full bg-white/10">

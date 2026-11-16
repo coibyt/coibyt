@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Captions, GraduationCap, PlayCircle, Sparkles } from "lucide-react";
 import { AcademyHub } from "@/components/academy/academy-hub";
-import { courseCards, liveLessons } from "@/lib/academy";
+import { bridgeCards, courseCards, liveLessons } from "@/lib/academy";
 import { academyStrings } from "@/lib/academy/strings";
 import { ogImage } from "@/lib/og-image";
 import { SITE, alternatesFor, jsonLd, localizedUrl } from "@/lib/seo";
@@ -67,7 +67,7 @@ export default async function AcademyPage({ params }: { params: Params }) {
         </div>
       </section>
 
-      <AcademyHub courses={courses} locale={locale} />
+      <AcademyHub courses={courses} bridge={bridgeCards(locale)} locale={locale} />
     </div>
   );
 }

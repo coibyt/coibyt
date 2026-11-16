@@ -9,7 +9,9 @@ import {
   CalendarDays,
   Check,
   Compass,
+  Eye,
   Flame,
+  Flower2,
   Gift,
   GraduationCap,
   Heart,
@@ -17,6 +19,8 @@ import {
   Megaphone,
   Play,
   Rocket,
+  Scissors,
+  ShieldCheck,
   Sparkles,
   Star,
   Store,
@@ -26,6 +30,7 @@ import {
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { academyStrings } from "@/lib/academy/strings";
+import { craftStrings } from "@/lib/academy/craft-strings";
 import {
   badgesOf,
   courseProgress,
@@ -49,14 +54,27 @@ const COURSE_ICONS: Record<CourseIcon, typeof Compass> = {
   briefcase: Briefcase,
   heart: Heart,
   trending: TrendingUp,
+  shield: ShieldCheck,
+  sparkles: Sparkles,
+  eye: Eye,
+  scissors: Scissors,
+  flower: Flower2,
 };
 
 const GOLD = "bg-gradient-to-br from-[#f0d9a0] to-[#b08a3e]";
 
+const TABS: { id: Audience; icon: typeof Compass }[] = [
+  { id: "customer", icon: User },
+  { id: "owner", icon: Store },
+  { id: "pro", icon: Scissors },
+];
+
 /** The Academy's home: who-are-you switch, level card, "keep learning",
- * every course with its lessons, badges and the certificate. */
-export function AcademyHub({ courses, locale }: { courses: CourseCard[]; locale: string }) {
+ * every course with its lessons, badges and the certificate. `bridge` holds
+ * the software lessons shown at the end of the craft track. */
+export function AcademyHub({ courses, bridge, locale }: { courses: CourseCard[]; bridge: LessonCard[]; locale: string }) {
   const s = academyStrings(locale);
+  const cs = craftStrings(locale);
   const { state, update } = useAcademyProgress();
   const hydrated = useHydrated();
   const [picked, setPicked] = useState<Audience | null>(null);
@@ -65,7 +83,7 @@ export function AcademyHub({ courses, locale }: { courses: CourseCard[]; locale:
   useEffect(() => {
     const fromHash = () => {
       const h = window.location.hash.replace("#", "");
-      if (h === "owner" || h === "customer") setPicked(h);
+      if (h === "owner" || h === "customer" || h === "pro") setPicked(h);
     };
     fromHash();
     window.addEventListener("hashchange", fromHash);
@@ -101,6 +119,7 @@ export function AcademyHub({ courses, locale }: { courses: CourseCard[]; locale:
     }
     if (id === "grad:customer") return s.badge.gradCustomer as [string, string];
     if (id === "grad:owner") return s.badge.gradOwner as [string, string];
+    if (id === "grad:pro") return cs.gradPro;
     return s.badge[id as "first" | "ace" | "streak3" | "five"] as [string, string];
   };
   const badgeIcon = (id: BadgeId) =>
@@ -109,25 +128,26 @@ export function AcademyHub({ courses, locale }: { courses: CourseCard[]; locale:
   return (
     <div className="container relative -mt-10 pb-20 sm:-mt-12">
       {/* who are you */}
-      <div className="mx-auto grid max-w-2xl grid-cols-2 gap-2 rounded-[1.75rem] bg-white p-2 shadow-popover ring-1 ring-ink-100">
-        {(["customer", "owner"] as const).map((a) => {
+      <div className="mx-auto grid max-w-3xl grid-cols-3 gap-1.5 rounded-[1.75rem] bg-white p-1.5 shadow-popover ring-1 ring-ink-100 sm:gap-2 sm:p-2">
+        {TABS.map(({ id: a, icon: Icon }) => {
           const on = audience === a;
-          const Icon = a === "customer" ? User : Store;
+          const label = a === "customer" ? s.forCustomer : a === "owner" ? s.forOwner : cs.forPro;
+          const hint = a === "customer" ? s.customerHint : a === "owner" ? s.ownerHint : cs.proHint;
           return (
             <button
               key={a}
               type="button"
               onClick={() => choose(a)}
               aria-pressed={on}
-              className={`flex min-h-[64px] flex-col items-center justify-center gap-0.5 rounded-[1.35rem] px-3 py-2.5 text-center transition-all ${
+              className={`flex min-h-[68px] flex-col items-center justify-center gap-0.5 rounded-[1.35rem] px-1.5 py-2.5 text-center transition-all sm:px-3 ${
                 on ? "bg-primary-900 text-white shadow-lg" : "text-ink-700 hover:bg-primary-50"
               }`}
             >
-              <span className="flex items-center gap-1.5 text-sm font-extrabold sm:text-base">
-                <Icon className={`h-4 w-4 ${on ? "text-[#e8d3a6]" : "text-primary-500"}`} />
-                {a === "customer" ? s.forCustomer : s.forOwner}
+              <span className="flex flex-col items-center gap-1 text-[13px] font-extrabold leading-tight sm:flex-row sm:gap-1.5 sm:text-base">
+                <Icon className={`h-4 w-4 shrink-0 ${on ? "text-[#e8d3a6]" : "text-primary-500"}`} />
+                {label}
               </span>
-              <span className={`hidden text-xs sm:block ${on ? "text-white/70" : "text-ink-400"}`}>{a === "customer" ? s.customerHint : s.ownerHint}</span>
+              <span className={`hidden text-xs sm:block ${on ? "text-white/70" : "text-ink-400"}`}>{hint}</span>
             </button>
           );
         })}
@@ -198,6 +218,20 @@ export function AcademyHub({ courses, locale }: { courses: CourseCard[]; locale:
         )}
       </div>
 
+      {/* craft track: what these lessons are, and what they are not */}
+      {audience === "pro" && (
+        <section className="mt-6 flex items-start gap-3 rounded-3xl bg-gradient-to-br from-[#fbf4e2] to-white p-4 ring-1 ring-[#e8d3a6] sm:gap-4 sm:p-5">
+          <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${GOLD} text-primary-900`}>
+            <ShieldCheck className="h-5 w-5" />
+          </span>
+          <div className="min-w-0">
+            <h2 className="text-base font-extrabold text-ink-900 sm:text-lg">{cs.introTitle}</h2>
+            <p className="mt-0.5 text-sm leading-relaxed text-ink-700">{cs.introBody}</p>
+            <p className="mt-2 text-xs leading-relaxed text-ink-400 sm:text-sm">{cs.disclaimer}</p>
+          </div>
+        </section>
+      )}
+
       {/* courses */}
       <div className="mt-12 space-y-12">
         {mine.map((c) => {
@@ -239,6 +273,28 @@ export function AcademyHub({ courses, locale }: { courses: CourseCard[]; locale:
           );
         })}
       </div>
+
+      {/* craft track: the software lessons that turn the skill into bookings */}
+      {audience === "pro" && bridge.length > 0 && (
+        <section id="p-varaaai" className="mt-12 scroll-mt-24 overflow-hidden rounded-3xl bg-gradient-to-br from-[#2a1f3d] via-primary-900 to-[#150f20] p-5 text-white ring-1 ring-[#e8d3a6]/30 sm:p-7">
+          <div className="flex items-start gap-3">
+            <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${GOLD} text-primary-900`}>
+              <CalendarDays className="h-6 w-6" />
+            </span>
+            <div className="min-w-0">
+              <h2 className="text-xl font-extrabold tracking-tight sm:text-2xl">{cs.bridgeTitle}</h2>
+              <p className="mt-0.5 text-sm leading-relaxed text-white/75 sm:text-base">{cs.bridgeBody}</p>
+            </div>
+          </div>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+            {bridge.map((l) => (
+              <li key={l.slug}>
+                <LessonTile lesson={l} done={!!state.lessons[l.slug]?.done} pos={state.lessons[l.slug]?.pos ?? 0} s={s} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* badges */}
       <section className="mt-16">

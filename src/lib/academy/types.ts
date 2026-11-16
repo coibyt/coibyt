@@ -12,10 +12,14 @@ export const l3 = (vi: string, en: string, fi: string): L3 => ({ vi, en, fi });
 
 export const pick = (t: L3, locale: string) => (locale === "vi" ? t.vi : locale === "fi" ? t.fi : t.en);
 
-export type Audience = "customer" | "owner";
+/** "pro" is the craft-skills track (nails, lashes, hair, spa, hygiene) for people who work in salons. */
+export type Audience = "customer" | "owner" | "pro";
+
+export const AUDIENCES: Audience[] = ["customer", "owner", "pro"];
 
 export type CourseIcon =
-  | "compass" | "calendar" | "gift" | "rocket" | "megaphone" | "briefcase" | "heart" | "trending";
+  | "compass" | "calendar" | "gift" | "rocket" | "megaphone" | "briefcase" | "heart" | "trending"
+  | "shield" | "sparkles" | "eye" | "scissors" | "flower";
 
 export interface Course {
   id: string;
@@ -61,6 +65,12 @@ export interface Lesson {
   steps?: L3[];
   tips?: L3[];
   quiz?: QuizQuestion[];
+  /** Craft lessons: a safety note shown above the steps (local rules apply, follow the product label…). */
+  notice?: L3;
+  /** Official sources behind the rules a lesson states. */
+  sources?: { label: string; url: string }[];
+  /** Slugs of software lessons that put this skill to work in VaraaAi. */
+  related?: string[];
 }
 
 /** What the pages hand to client components: one language, plain strings. */

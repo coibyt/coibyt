@@ -1,15 +1,20 @@
 /** Read-side helpers for the Academy pages: the curriculum in one language,
  * shaped for the hub and for a lesson page. */
-import { COURSES, LESSONS } from "@/lib/academy/curriculum";
+import { COURSES as SITE_COURSES, LESSONS as SITE_LESSONS } from "@/lib/academy/curriculum";
+import { CRAFT_BRIDGE, CRAFT_COURSES, CRAFT_LESSONS } from "@/lib/academy/craft";
 import { localizedUrl } from "@/lib/seo";
 import { pick, type Audience, type CourseCard, type Lesson, type LessonCard } from "@/lib/academy/types";
+
+/** The software lessons (curriculum.ts) and the craft-skill lessons (craft.ts) form one Academy. */
+const COURSES = [...SITE_COURSES, ...CRAFT_COURSES];
+const LESSONS = [...SITE_LESSONS, ...CRAFT_LESSONS];
 
 const audienceOf = (lesson: Lesson): Audience => COURSES.find((c) => c.id === lesson.course)?.audience ?? "customer";
 
 /** Lesson numbers run 1…n within each audience, in curriculum order. */
 function numbers() {
   const no = new Map<string, number>();
-  const count: Record<Audience, number> = { customer: 0, owner: 0 };
+  const count: Record<Audience, number> = { customer: 0, owner: 0, pro: 0 };
   for (const c of COURSES) {
     for (const l of LESSONS.filter((x) => x.course === c.id)) {
       count[c.audience] += 1;
@@ -49,6 +54,14 @@ export function courseCards(locale: string): CourseCard[] {
 
 export const liveLessons = () => LESSONS.filter((l) => l.video);
 
+/** Software lessons shown under the craft track: once you can do the work, this is how you take bookings for it. */
+export function bridgeCards(locale: string): LessonCard[] {
+  const { no } = numbers();
+  return CRAFT_BRIDGE.map((slug) => LESSONS.find((l) => l.slug === slug && l.video))
+    .filter((l): l is Lesson => !!l)
+    .map((l) => card(l, locale, no.get(l.slug) ?? 0));
+}
+
 export const findLesson = (slug: string) => LESSONS.find((l) => l.slug === slug && l.video) ?? null;
 
 /** Everything a lesson page needs, in one language. */
@@ -83,6 +96,12 @@ export function lessonPageData(slug: string, locale: string) {
       quiz: (lesson.quiz ?? []).map((q) => ({ q: pick(q.q, locale), options: q.options.map((o) => pick(o, locale)), answer: q.answer, why: pick(q.why, locale) })),
       siblings: LESSONS.filter((l) => l.course === lesson.course).map((l) => card(l, locale, no.get(l.slug) ?? 0)),
       next: after ? { slug: after.slug, title: pick(after.title, locale) } : null,
+      notice: lesson.notice ? pick(lesson.notice, locale) : null,
+      sources: lesson.sources ?? [],
+      related: (lesson.related ?? [])
+        .map((r) => LESSONS.find((l) => l.slug === r && l.video))
+        .filter((l): l is Lesson => !!l)
+        .map((l) => card(l, locale, no.get(l.slug) ?? 0)),
     },
   };
 }
