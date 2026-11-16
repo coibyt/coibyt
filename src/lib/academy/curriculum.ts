@@ -329,14 +329,80 @@ export const LESSONS: Lesson[] = [
     course: "c-bookings",
     title: l3("Chat với salon", "Chat with the salon", "Viestittele salongin kanssa"),
     summary: l3("Hỏi salon ngay trên trang, xem lại tin nhắn trong Hộp thư.", "Ask the salon right on its page and find the replies in your inbox.", "Kysy salongilta suoraan sen sivulla ja löydä vastaukset viesteistäsi."),
-    video: null,
+    video: video("chat-voi-salon", 39, "2026-11-16"),
+    href: "/search",
+    hrefLabel: l3("Tìm salon để nhắn tin", "Find a salon to message", "Etsi salonki ja lähetä viesti"),
+    steps: [
+      l3("Mở trang của salon và bấm “Chat với Salon”, ngay cạnh nút “Đặt lịch”.", "Open the salon's page and press “Chat with the salon”, next to “Book”.", "Avaa salongin sivu ja paina ”Chat salongin kanssa” Varaa-painikkeen vieressä."),
+      l3("Gõ câu hỏi vào ô “Nhập tin nhắn...” rồi bấm nút gửi. Có thể đính kèm ảnh.", "Type your question in “Type a message...” and press send. You can attach a photo.", "Kirjoita kysymyksesi viestikenttään ja paina lähetä. Voit liittää kuvan."),
+      l3("Khi salon trả lời, tin nhắn hiện ngay trong khung chat.", "The salon's reply appears in the same chat window.", "Salongin vastaus näkyy samassa chat-ikkunassa."),
+      l3("Xem lại mọi cuộc trò chuyện: bấm vào tên bạn ở góc trên và chọn “Hộp thư”.", "To find every conversation again, tap your name at the top and choose “Inbox”.", "Löydät kaikki keskustelut napauttamalla nimeäsi ja valitsemalla ”Viestit”."),
+    ],
+    tips: [
+      l3("Gửi kèm ảnh mẫu bạn thích để salon tư vấn và báo giá chính xác hơn.", "Attach a picture of the look you want so the salon can advise and quote more precisely.", "Liitä kuva haluamastasi tyylistä, niin salonki osaa neuvoa ja hinnoitella tarkemmin."),
+    ],
+    quiz: [
+      {
+        q: l3("Nút “Chat với Salon” nằm ở đâu?", "Where is the “Chat with the salon” button?", "Missä ”Chat salongin kanssa” -painike on?"),
+        options: [l3("Trên trang của salon, cạnh nút Đặt lịch", "On the salon's page, next to Book", "Salongin sivulla Varaa-painikkeen vieressä"), l3("Trong email xác nhận", "In the confirmation email", "Vahvistussähköpostissa"), l3("Ở trang chủ", "On the home page", "Etusivulla")],
+        answer: 0,
+        why: l3("Mỗi salon có nút chat riêng trên trang của mình.", "Every salon has its own chat button on its page.", "Jokaisella salongilla on oma chat-painike sivullaan."),
+      },
+      {
+        q: l3("Muốn xem lại các cuộc trò chuyện cũ, bạn mở mục nào?", "Where do you find your earlier conversations?", "Mistä löydät aiemmat keskustelusi?"),
+        options: [l3("Hộp thư", "Inbox", "Viestit"), l3("Thẻ tích điểm", "Loyalty cards", "Kanta-asiakaskortit"), l3("Bảng tin", "Feed", "Syöte")],
+        answer: 0,
+        why: l3("“Hộp thư” nằm trong danh sách khi bạn bấm vào tên mình.", "“Inbox” is in the menu under your name.", "”Viestit” on nimesi alla olevassa valikossa."),
+      },
+      {
+        q: l3("Bạn có thể gửi gì kèm tin nhắn?", "What can you send with a message?", "Mitä voit lähettää viestin mukana?"),
+        options: [l3("Ảnh", "A photo", "Kuvan"), l3("Tiền", "Money", "Rahaa"), l3("Không gửi kèm được gì", "Nothing", "Et mitään")],
+        answer: 0,
+        why: l3("Nút đính kèm ảnh nằm bên trái ô nhập tin nhắn.", "The attach-photo button is to the left of the message box.", "Kuvan liitepainike on viestikentän vasemmalla puolella."),
+      },
+    ],
   },
   {
     slug: "viet-danh-gia",
     course: "c-bookings",
     title: l3("Viết đánh giá sau khi làm đẹp", "Leave a review after your visit", "Kirjoita arvostelu käynnin jälkeen"),
     summary: l3("Chấm sao và chia sẻ trải nghiệm từ email mời đánh giá hoặc từ Lịch hẹn của tôi.", "Rate and share your experience from the review email or from My bookings.", "Anna tähdet ja kerro kokemuksestasi arvostelusähköpostista tai varauksistasi."),
-    video: null,
+    video: video("viet-danh-gia", 49, "2026-11-16"),
+    href: "/account/bookings",
+    hrefLabel: l3("Mở Lịch hẹn của tôi", "Open My bookings", "Avaa Varaukseni"),
+    steps: [
+      l3(
+        "Sau lần hẹn, bấm “Đánh giá dịch vụ” trong email mời đánh giá — hoặc vào “Lịch hẹn của tôi”, tìm lịch đã “Hoàn thành” và bấm “Đánh giá”.",
+        "After your visit, press “Review the service” in the invitation email — or open “My bookings”, find the completed booking and press “Review”.",
+        "Käynnin jälkeen paina kutsusähköpostin arvostelupainiketta — tai avaa ”Varaukseni”, etsi valmis varaus ja paina ”Arvostele”."
+      ),
+      l3("Ở “Chất lượng dịch vụ”, chọn số sao từ 1 đến 5.", "Under “Service quality”, choose 1 to 5 stars.", "Valitse kohdassa ”Palvelun laatu” 1–5 tähteä."),
+      l3("Viết vài câu vào ô “Chia sẻ trải nghiệm của bạn...” rồi bấm “Gửi đánh giá”.", "Write a few words under “Share your experience...” and press “Submit review”.", "Kirjoita muutama sana kokemuksestasi ja paina ”Lähetä arvostelu”."),
+      l3("Màn hình báo “Cảm ơn bạn đã đánh giá!”. Salon xem và đăng đánh giá lên trang của họ.", "You'll see “Thank you for your review!”. The salon then publishes it on its page.", "Näet kiitosviestin. Salonki julkaisee arvostelun sivullaan."),
+    ],
+    tips: [
+      l3("Chỉ khách đã đặt lịch mới viết được đánh giá, nên mọi đánh giá trên VaraaAi đều là thật.", "Only customers who booked can write a review, so every review on VaraaAi is genuine.", "Vain varanneet asiakkaat voivat arvostella, joten kaikki VaraaAin arvostelut ovat aitoja."),
+    ],
+    quiz: [
+      {
+        q: l3("Ai được viết đánh giá cho một salon?", "Who can review a salon?", "Kuka voi arvostella salongin?"),
+        options: [l3("Bất kỳ ai", "Anyone", "Kuka tahansa"), l3("Chỉ khách đã đặt lịch ở salon đó", "Only customers who booked there", "Vain siellä varanneet asiakkaat"), l3("Chỉ chủ salon", "Only the salon owner", "Vain salongin omistaja")],
+        answer: 1,
+        why: l3("Vì vậy đánh giá trên VaraaAi đáng tin.", "That is why reviews on VaraaAi can be trusted.", "Siksi VaraaAin arvosteluihin voi luottaa."),
+      },
+      {
+        q: l3("Nút “Đánh giá” nằm ở đâu?", "Where is the “Review” button?", "Missä ”Arvostele”-painike on?"),
+        options: [l3("Trên từng lịch hẹn trong “Lịch hẹn của tôi”", "On each booking in “My bookings”", "Jokaisessa varauksessa kohdassa ”Varaukseni”"), l3("Ở trang chủ", "On the home page", "Etusivulla"), l3("Trong Hồ sơ của tôi", "In My profile", "Profiilissani")],
+        answer: 0,
+        why: l3("Bạn cũng có thể bấm nút trong email mời đánh giá.", "You can also use the button in the invitation email.", "Voit käyttää myös kutsusähköpostin painiketta."),
+      },
+      {
+        q: l3("Sau khi bạn gửi, đánh giá hiện trên trang salon khi nào?", "After you submit, when does the review appear on the salon's page?", "Milloin arvostelu näkyy salongin sivulla?"),
+        options: [l3("Sau khi salon xem và đăng", "Once the salon has seen and published it", "Kun salonki on nähnyt ja julkaissut sen"), l3("Không bao giờ", "Never", "Ei koskaan"), l3("Sau một năm", "After a year", "Vuoden kuluttua")],
+        answer: 0,
+        why: l3("Salon duyệt đánh giá trước khi đăng công khai.", "Salons approve reviews before they are shown publicly.", "Salonki hyväksyy arvostelut ennen julkaisua."),
+      },
+    ],
   },
   /* ================= customers: rewards ================= */
   {
@@ -434,9 +500,53 @@ export const LESSONS: Lesson[] = [
     slug: "ho-so-salon",
     course: "o-start",
     guide: "profile",
-    title: l3("Thông tin salon, logo và ảnh bìa", "Salon details, logo and cover", "Salongin tiedot, logo ja kansikuva"),
+    title: l3("Hồ sơ salon, logo và ảnh bìa", "Salon profile, logo and cover", "Salongin profiili, logo ja kansikuva"),
     summary: l3("Hoàn thiện hồ sơ để mở khoá Thẻ tích điểm và Marketing.", "Complete your profile to unlock Loyalty cards and Marketing.", "Täydennä profiili avataksesi kanta-asiakaskortit ja markkinoinnin."),
-    video: null,
+    video: null, // batch 6
+    href: "/business/dashboard/settings",
+    hrefLabel: l3("Mở Cài đặt", "Open Settings", "Avaa Asetukset"),
+    steps: [
+      l3(
+        "Vào “Cài đặt”. Thẻ “Mức độ hoàn thiện hồ sơ” cho biết hồ sơ đạt bao nhiêu phần trăm và còn thiếu mục nào; bấm “Bổ sung” để đến đúng chỗ.",
+        "Open “Settings”. The “Profile completeness” card shows your percentage and what is missing; “Add” takes you to the right place.",
+        "Avaa ”Asetukset”. Profiilin valmiusaste näyttää prosentin ja puuttuvat kohdat; ”Täydennä” vie oikeaan kohtaan."
+      ),
+      l3(
+        "Ở “Thông tin salon”, nhập “Tên salon”, “Giới thiệu ngắn” (từ 80 ký tự), “Địa chỉ”, “Thành phố”, “Quốc gia”, chọn danh mục rồi bấm “Lưu”.",
+        "Under “Salon details”, enter the name, a short introduction (80+ characters), address, city and country, choose categories and press “Save”.",
+        "Anna kohdassa ”Salongin tiedot” nimi, lyhyt esittely (yli 80 merkkiä), osoite, kaupunki ja maa, valitse kategoriat ja tallenna."
+      ),
+      l3("Bấm “Tải ảnh bìa lên” và “Tải logo lên”.", "Press “Upload cover photo” and “Upload logo”.", "Lataa kansikuva ja logo."),
+      l3(
+        "Ở “Liên hệ & mạng xã hội”, điền số điện thoại, email, website, Facebook, Instagram, TikTok.",
+        "Under “Contact & social media”, fill in your phone, email, website, Facebook, Instagram and TikTok.",
+        "Täytä kohdassa ”Yhteystiedot ja some” puhelin, sähköposti, verkkosivu, Facebook, Instagram ja TikTok."
+      ),
+    ],
+    tips: [
+      l3("Hồ sơ đạt 85% sẽ mở khoá “Thẻ tích điểm” và “Marketing”.", "Reaching 85% unlocks “Loyalty cards” and “Marketing”.", "85 %:n valmiusaste avaa kanta-asiakaskortit ja markkinoinnin."),
+      l3("Hồ sơ đầy đủ giúp salon nổi bật trên bản đồ tìm kiếm và khách tin tưởng đặt lịch hơn.", "A complete profile stands out on the search map and makes customers more confident to book.", "Täydellinen profiili erottuu hakukartalla ja lisää asiakkaiden luottamusta."),
+    ],
+    quiz: [
+      {
+        q: l3("Hồ sơ cần đạt bao nhiêu phần trăm để mở Thẻ tích điểm và Marketing?", "What percentage unlocks Loyalty cards and Marketing?", "Mikä prosentti avaa kanta-asiakaskortit ja markkinoinnin?"),
+        options: [l3("50%", "50%", "50 %"), l3("85%", "85%", "85 %"), l3("100%", "100%", "100 %")],
+        answer: 1,
+        why: l3("Thẻ “Mức độ hoàn thiện hồ sơ” ghi rõ mức 85%.", "The “Profile completeness” card states the 85% mark.", "Valmiusastekortissa mainitaan 85 %:n raja."),
+      },
+      {
+        q: l3("Nút “Bổ sung” cạnh từng mục còn thiếu dùng để làm gì?", "What does “Add” next to a missing item do?", "Mitä puuttuvan kohdan ”Täydennä” tekee?"),
+        options: [l3("Đưa bạn đến đúng chỗ cần điền", "Takes you to the right place to fill it in", "Vie oikeaan kohtaan täytettäväksi"), l3("Xoá mục đó", "Deletes the item", "Poistaa kohdan"), l3("Gọi hỗ trợ", "Calls support", "Soittaa tukeen")],
+        answer: 0,
+        why: l3("Bạn không phải tự tìm từng phần trong trang Cài đặt.", "You don't have to hunt for each section in Settings.", "Sinun ei tarvitse etsiä osioita asetuksista itse."),
+      },
+      {
+        q: l3("“Giới thiệu ngắn” nên dài ít nhất bao nhiêu?", "How long should the short introduction be at least?", "Kuinka pitkä lyhyen esittelyn tulisi vähintään olla?"),
+        options: [l3("10 ký tự", "10 characters", "10 merkkiä"), l3("80 ký tự", "80 characters", "80 merkkiä"), l3("1.000 ký tự", "1,000 characters", "1 000 merkkiä")],
+        answer: 1,
+        why: l3("Mục “Mô tả salon (từ 80 ký tự)” được tính vào mức độ hoàn thiện.", "“Salon description (80+ characters)” counts towards completeness.", "”Salongin kuvaus (yli 80 merkkiä)” lasketaan valmiusasteeseen."),
+      },
+    ],
   },
   {
     slug: "dich-vu",
@@ -611,9 +721,48 @@ export const LESSONS: Lesson[] = [
     slug: "chia-se-link",
     course: "o-reach",
     guide: "share",
-    title: l3("Chia sẻ link đặt lịch và nhúng vào website", "Share your booking link and embed it", "Jaa varauslinkki ja upota se sivuillesi"),
+    title: l3("Chia sẻ link đặt lịch", "Share your booking link", "Jaa varauslinkkisi"),
     summary: l3("Sao chép link, tải mã QR và lấy mã nhúng cho website riêng.", "Copy the link, download the QR code and get the embed code for your own site.", "Kopioi linkki, lataa QR-koodi ja hae upotuskoodi omille sivuillesi."),
-    video: null,
+    video: null, // batch 6
+    href: "/business/dashboard/settings",
+    hrefLabel: l3("Mở Cài đặt", "Open Settings", "Avaa Asetukset"),
+    steps: [
+      l3(
+        "Vào “Cài đặt”: trên cùng là “Trang đặt lịch công khai”. Bấm biểu tượng sao chép để lấy link và dán vào Facebook, Instagram hoặc tin nhắn.",
+        "Open “Settings”: at the top is your “Public booking page”. Tap the copy icon and paste the link into Facebook, Instagram or a message.",
+        "Avaa ”Asetukset”: ylhäällä on julkinen varaussivusi. Kopioi linkki ja liitä se Facebookiin, Instagramiin tai viestiin."
+      ),
+      l3("Bấm biểu tượng mã QR để tải mã QR của salon, dùng để in danh thiếp, tờ rơi hoặc dán ở quầy.", "Tap the QR icon to download your salon's QR code for business cards, flyers or the counter.", "Napauta QR-kuvaketta ja lataa salongin QR-koodi käyntikortteihin, esitteisiin tai tiskille."),
+      l3("Bấm “Xem trang” để xem trang salon đúng như khách thấy.", "Press “View page” to see your salon page as customers do.", "Paina ”Näytä sivu” nähdäksesi salongin sivun asiakkaan silmin."),
+      l3(
+        "Có website riêng: ở “Website & nhúng đặt lịch”, bấm “Sao chép liên kết” hoặc “Lấy mã nhúng” rồi dán vào website.",
+        "With your own website: under “Website & booking embed”, press “Copy link” or “Get embed code” and paste it into your site.",
+        "Jos sinulla on omat sivut: kopioi linkki tai upotuskoodi kohdasta ”Verkkosivu ja upotus” ja liitä se sivuillesi."
+      ),
+    ],
+    tips: [
+      l3("Trang “Tổng quan” cũng có nút “Sao chép link đặt lịch” để gửi nhanh.", "The “Overview” page also has a “Copy booking link” button for quick sharing.", "Myös yleiskatsauksessa on ”Kopioi varauslinkki” -painike."),
+    ],
+    quiz: [
+      {
+        q: l3("Link đặt lịch công khai của salon nằm ở đâu?", "Where is your salon's public booking link?", "Missä salongin julkinen varauslinkki on?"),
+        options: [l3("Trên cùng trang Cài đặt", "At the top of Settings", "Asetusten yläosassa"), l3("Trong mục Kho hàng", "Under Inventory", "Varastossa"), l3("Chỉ VaraaAi mới biết", "Only VaraaAi knows it", "Vain VaraaAi tietää sen")],
+        answer: 0,
+        why: l3("Phần “Trang đặt lịch công khai” có nút sao chép, mã QR và “Xem trang”.", "“Public booking page” has copy, QR and “View page” buttons.", "”Julkinen varaussivu” -kohdassa on kopiointi, QR ja ”Näytä sivu”."),
+      },
+      {
+        q: l3("Muốn khách đặt lịch ngay trên website riêng, bạn dùng gì?", "What lets customers book right on your own website?", "Millä asiakkaat voivat varata suoraan omilla sivuillasi?"),
+        options: [l3("Lấy mã nhúng", "Get embed code", "Upotuskoodi"), l3("Xuất Excel", "Excel export", "Excel-vienti"), l3("Thêm ca", "Add shift", "Lisää vuoro")],
+        answer: 0,
+        why: l3("Dán đoạn mã vào website là trang đặt lịch hiện ngay tại đó.", "Paste the code into your site and the booking page appears there.", "Liitä koodi sivuillesi, niin varaussivu näkyy siellä."),
+      },
+      {
+        q: l3("Mã QR của salon dùng để làm gì?", "What is the salon's QR code for?", "Mihin salongin QR-koodia käytetään?"),
+        options: [l3("In lên danh thiếp, tờ rơi, dán ở quầy để khách quét và đặt lịch", "Printing on cards and flyers or at the counter so customers scan and book", "Käyntikortteihin, esitteisiin tai tiskille, jotta asiakas skannaa ja varaa"), l3("Thanh toán", "Taking payments", "Maksamiseen"), l3("Đăng nhập", "Signing in", "Kirjautumiseen")],
+        answer: 0,
+        why: l3("Quét mã là mở thẳng trang đặt lịch của salon.", "Scanning it opens your booking page directly.", "Skannaus avaa varaussivusi suoraan."),
+      },
+    ],
   },
   {
     slug: "poster-qr",
@@ -906,9 +1055,53 @@ export const LESSONS: Lesson[] = [
     slug: "mau-lich-hen",
     course: "o-daily",
     fresh: true,
-    title: l3("Màu riêng cho lịch online và giờ khách đặt", "Own colours for online bookings, and when they were made", "Omat värit verkkovarauksille ja varaushetki"),
+    title: l3("Màu riêng cho lịch online", "Own colours for online bookings", "Omat värit verkkovarauksille"),
     summary: l3("Phân biệt “Khách tự đặt online” với “Salon tự thêm” bằng màu, và xem khách đặt lúc nào.", "Tell “Booked online” from “Added by the salon” by colour, and see when each booking was made.", "Erota verkkovaraukset salongin lisäämistä väreillä ja näe, milloin varaus tehtiin."),
-    video: null,
+    video: null, // batch 6
+    href: "/business/dashboard/settings",
+    hrefLabel: l3("Mở Cài đặt", "Open Settings", "Avaa Asetukset"),
+    steps: [
+      l3(
+        "Vào “Cài đặt”, phần “Giao diện & màu sắc”, tìm thẻ “Màu ô lịch hẹn”.",
+        "Open “Settings”, go to “Appearance & colours” and find the “Booking colours” card.",
+        "Avaa ”Asetukset”, siirry kohtaan ”Ulkoasu ja värit” ja etsi varausten värit."
+      ),
+      l3(
+        "Ở dòng “Khách tự đặt online”, bấm một ô màu có sẵn, hoặc bấm “Màu nền” và “Màu chữ” để tự chọn.",
+        "On the “Booked online” row, tap a ready-made colour, or use “Background” and “Text” to pick your own.",
+        "Valitse verkkovarausten riviltä valmis väri tai määritä tausta- ja tekstiväri itse."
+      ),
+      l3("Làm tương tự với dòng “Salon tự thêm”, rồi xem kết quả ở phần “Xem trước”.", "Do the same on the “Added by the salon” row and check the result under “Preview”.", "Tee sama salongin lisäämille varauksille ja katso tulos esikatselusta."),
+      l3(
+        "Bấm vào một lịch hẹn trên lịch để thấy dòng “Khách đặt online lúc …” hoặc “Salon thêm lúc …”.",
+        "Tap any booking on the calendar to see “Booked online at …” or “Added by the salon at …”.",
+        "Napauta varausta kalenterissa nähdäksesi, milloin se tehtiin verkossa tai milloin salonki lisäsi sen."
+      ),
+    ],
+    tips: [
+      l3("Nếu hai loại lịch đang cùng màu, hệ thống sẽ nhắc bạn đổi.", "If both kinds of booking end up the same colour, you are warned to change one.", "Jos molemmat varaustyypit ovat samanvärisiä, saat kehotuksen vaihtaa väriä."),
+      l3("Lịch đã xong hoặc khách không đến vẫn giữ màu trạng thái riêng.", "Completed and no-show bookings keep their own status colours.", "Valmiit ja saapumatta jääneet varaukset säilyttävät omat tilavärinsä."),
+    ],
+    quiz: [
+      {
+        q: l3("Đổi màu ô lịch hẹn ở đâu?", "Where do you change booking colours?", "Missä varausten värit vaihdetaan?"),
+        options: [l3("Cài đặt → Giao diện & màu sắc → Màu ô lịch hẹn", "Settings → Appearance & colours → Booking colours", "Asetukset → Ulkoasu ja värit → Varausten värit"), l3("Trang Dịch vụ", "The Services page", "Palvelut-sivulla"), l3("Không đổi được", "They can't be changed", "Niitä ei voi vaihtaa")],
+        answer: 0,
+        why: l3("Mỗi loại lịch có màu nền và màu chữ riêng.", "Each kind of booking has its own background and text colour.", "Kummallakin varaustyypillä on oma tausta- ja tekstivärinsä."),
+      },
+      {
+        q: l3("Hai loại lịch được tô màu khác nhau là gì?", "Which two kinds of booking get different colours?", "Mitkä kaksi varaustyyppiä saavat eri värit?"),
+        options: [l3("Khách tự đặt online và Salon tự thêm", "Booked online and added by the salon", "Verkossa varatut ja salongin lisäämät"), l3("Buổi sáng và buổi chiều", "Morning and afternoon", "Aamu ja iltapäivä"), l3("Khách nam và khách nữ", "Men and women", "Miehet ja naiset")],
+        answer: 0,
+        why: l3("Nhìn màu là biết lịch đến từ đâu.", "The colour tells you at a glance where a booking came from.", "Väristä näkee heti, mistä varaus tuli."),
+      },
+      {
+        q: l3("Làm sao biết một lịch được đặt lúc nào?", "How do you find out when a booking was made?", "Mistä näet, milloin varaus tehtiin?"),
+        options: [l3("Bấm vào lịch hẹn và đọc dòng “Khách đặt online lúc …”", "Tap the booking and read “Booked online at …”", "Napauta varausta ja lue varaushetki"), l3("Hỏi khách", "Ask the customer", "Kysy asiakkaalta"), l3("Không xem được", "You can't", "Sitä ei näe")],
+        answer: 0,
+        why: l3("Lịch salon tự thêm thì ghi “Salon thêm lúc …”.", "Bookings added by the salon say “Added by the salon at …”.", "Salongin lisäämissä varauksissa lukee lisäysaika."),
+      },
+    ],
   },
   {
     slug: "thanh-toan-hoa-don",
@@ -1042,9 +1235,56 @@ export const LESSONS: Lesson[] = [
     slug: "tin-nhan-ai",
     course: "o-daily",
     guide: "ai-chat",
-    title: l3("Tin nhắn và trợ lý AI trả lời khách", "Messages and the AI assistant", "Viestit ja tekoälyavustaja"),
+    title: l3("Tin nhắn và trợ lý AI", "Messages and the AI assistant", "Viestit ja tekoälyavustaja"),
     summary: l3("Trả lời khách trong Hộp thư và bật trợ lý AI khi bạn vắng mặt.", "Answer customers in the inbox and let the AI reply while you're away.", "Vastaa asiakkaille ja anna tekoälyn vastata, kun olet poissa."),
-    video: null,
+    video: null, // tin-nhan-ai: rebuilding
+    href: "/business/dashboard/messages",
+    hrefLabel: l3("Mở Tin nhắn", "Open Messages", "Avaa Viestit"),
+    steps: [
+      l3(
+        "Bấm mục “Tin nhắn”: trên cùng là số cuộc trò chuyện, tin chưa đọc và tin đang chờ bạn trả lời.",
+        "Open “Messages”: at the top are your conversations, unread messages and those waiting for your reply.",
+        "Avaa ”Viestit”: ylhäällä näkyvät keskustelut, lukemattomat viestit ja vastaustasi odottavat."
+      ),
+      l3("Lọc danh sách theo “Chưa đọc” hoặc “Chờ trả lời”, rồi bấm vào một khách để mở cuộc trò chuyện.", "Filter by “Unread” or “Awaiting reply”, then tap a customer to open the conversation.", "Suodata lukemattomat tai vastausta odottavat ja avaa keskustelu napauttamalla asiakasta."),
+      l3(
+        "Gõ câu trả lời vào ô “Nhập tin nhắn...” và bấm gửi — hoặc dùng câu trả lời mẫu: “Chào khách”, “Đặt lịch”, “Còn chỗ”, “Hết chỗ”, “Cảm ơn”; bấm “Thêm mẫu” để tạo mẫu riêng.",
+        "Type a reply and press send — or use a quick reply (greeting, booking, slots free, fully booked, thanks); “Add template” makes your own.",
+        "Kirjoita vastaus ja lähetä — tai käytä pikavastausta (tervehdys, varaus, vapaita aikoja, täynnä, kiitos); lisää myös omia malleja."
+      ),
+      l3(
+        "Ở “Cài đặt tin nhắn”, đánh dấu “Bật trợ lý AI” để AI tự trả lời khách khi bạn vắng mặt, và bấm “Bật thông báo trên thiết bị này”.",
+        "Under “Message settings”, tick “Turn on the AI assistant” so it answers while you're away, and press “Turn on notifications on this device”.",
+        "Ota kohdassa ”Viestiasetukset” tekoälyavustaja käyttöön poissaolojasi varten ja salli ilmoitukset tällä laitteella."
+      ),
+    ],
+    tips: [
+      l3(
+        "Trợ lý AI trả lời dựa trên dịch vụ và sản phẩm của salon; khách vẫn bấm được “Nói chuyện với chủ salon” bất cứ lúc nào.",
+        "The AI answers from your services and products; customers can still press “Talk to the salon owner” at any time.",
+        "Tekoäly vastaa palvelujesi ja tuotteidesi pohjalta; asiakas voi silti pyytää omistajaa milloin tahansa."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Trợ lý AI trả lời khách dựa trên gì?", "What does the AI assistant base its answers on?", "Mihin tekoälyavustajan vastaukset perustuvat?"),
+        options: [l3("Dịch vụ và sản phẩm hiện có của salon", "Your salon's services and products", "Salonkisi palveluihin ja tuotteisiin"), l3("Tin tức trên mạng", "News from the internet", "Verkon uutisiin"), l3("Nó trả lời ngẫu nhiên", "It answers at random", "Se vastaa satunnaisesti")],
+        answer: 0,
+        why: l3("Vì vậy hãy giữ dịch vụ và giá luôn đúng.", "So keep your services and prices up to date.", "Pidä siis palvelut ja hinnat ajan tasalla."),
+      },
+      {
+        q: l3("Cách trả lời nhanh nhất cho câu “Tiệm còn chỗ không?”", "What's the quickest way to answer “Do you have a free slot?”", "Mikä on nopein tapa vastata kysymykseen vapaista ajoista?"),
+        options: [l3("Bấm câu trả lời mẫu “Còn chỗ”", "Tap the quick reply for free slots", "Napauttaa vapaista ajoista kertovaa pikavastausta"), l3("Gọi điện cho khách", "Call the customer", "Soittaa asiakkaalle"), l3("Chờ khách hỏi lại", "Wait for them to ask again", "Odottaa uutta kysymystä")],
+        answer: 0,
+        why: l3("Câu mẫu nằm ngay dưới ô nhập tin nhắn; bạn vẫn sửa được trước khi gửi.", "Quick replies sit under the message box, and you can edit them before sending.", "Pikavastaukset ovat viestikentän alla, ja voit muokata niitä ennen lähettämistä."),
+      },
+      {
+        q: l3("Khi trợ lý AI đang bật, khách muốn gặp người thật thì sao?", "With the AI on, what if a customer wants a real person?", "Entä jos asiakas haluaa oikean ihmisen, kun tekoäly on päällä?"),
+        options: [l3("Khách bấm “Nói chuyện với chủ salon”", "They press “Talk to the salon owner”", "Hän painaa ”Puhu omistajan kanssa”"), l3("Không có cách nào", "There is no way", "Se ei ole mahdollista"), l3("Khách phải đến tiệm", "They must come to the salon", "Hänen on tultava salonkiin")],
+        answer: 0,
+        why: l3("Bạn nhận được thông báo để trả lời trực tiếp.", "You get a notification so you can answer yourself.", "Saat ilmoituksen ja voit vastata itse."),
+      },
+    ],
   },
   {
     slug: "danh-gia-google",
@@ -1052,7 +1292,55 @@ export const LESSONS: Lesson[] = [
     guide: "reviews",
     title: l3("Đánh giá và Google", "Reviews and Google", "Arvostelut ja Google"),
     summary: l3("Đăng đánh giá lên trang, trả lời khách và mời khách đánh giá trên Google.", "Publish reviews, reply to them and invite customers to review you on Google.", "Julkaise arvostelut, vastaa niihin ja pyydä Google-arvosteluja."),
-    video: null,
+    video: video("danh-gia-google", 60, "2026-11-16"),
+    href: "/business/dashboard/reviews",
+    hrefLabel: l3("Mở Đánh giá", "Open Reviews", "Avaa Arvostelut"),
+    steps: [
+      l3(
+        "Bấm mục “Đánh giá”: trên cùng là điểm trung bình, số đánh giá “Chờ duyệt” và tỉ lệ phản hồi.",
+        "Open “Reviews”: at the top are your average score, reviews awaiting approval and your reply rate.",
+        "Avaa ”Arvostelut”: ylhäällä näkyvät keskiarvo, hyväksyntää odottavat arvostelut ja vastausprosentti."
+      ),
+      l3(
+        "Với từng đánh giá, bấm “Đăng lên trang” để công khai hoặc “Ẩn”. Nút màu vàng đăng nhanh mọi đánh giá 4–5 sao đang chờ.",
+        "For each review press “Publish” to show it or “Hide”. The gold button publishes every waiting 4–5 star review at once.",
+        "Julkaise tai piilota jokainen arvostelu. Kultainen painike julkaisee kaikki odottavat 4–5 tähden arvostelut kerralla."
+      ),
+      l3(
+        "Bấm “Trả lời”, chọn một mẫu (“Cảm ơn”, “Ghi nhận”, “Xin lỗi”), sửa cho hợp rồi bấm “Đăng phản hồi”.",
+        "Press “Reply”, pick a template (thanks, noted, apology), adjust it and press “Post reply”.",
+        "Paina ”Vastaa”, valitse malli (kiitos, huomioitu, pahoittelu), muokkaa ja julkaise vastaus."
+      ),
+      l3(
+        "Thêm liên kết Google Maps trong “Cài đặt” để mời khách hài lòng đánh giá cả trên Google.",
+        "Add your Google Maps link in “Settings” to invite happy customers to review you on Google too.",
+        "Lisää Google Maps -linkki asetuksiin, niin tyytyväisiä asiakkaita pyydetään arvostelemaan myös Googlessa."
+      ),
+    ],
+    tips: [
+      l3("Đánh giá mới chỉ hiện trên trang của salon sau khi bạn bấm Đăng.", "A new review only shows on your salon's page after you publish it.", "Uusi arvostelu näkyy salongin sivulla vasta, kun julkaiset sen."),
+      l3("Khách tự động nhận email mời đánh giá sau mỗi lịch hẹn đã hoàn thành.", "Customers automatically get a review invitation after every completed appointment.", "Asiakkaat saavat arvostelukutsun automaattisesti jokaisen valmiin käynnin jälkeen."),
+    ],
+    quiz: [
+      {
+        q: l3("Một đánh giá mới hiện trên trang salon khi nào?", "When does a new review appear on the salon's page?", "Milloin uusi arvostelu näkyy salongin sivulla?"),
+        options: [l3("Ngay khi khách gửi", "As soon as the customer sends it", "Heti kun asiakas lähettää sen"), l3("Sau khi bạn bấm “Đăng lên trang”", "After you press “Publish”", "Kun painat ”Julkaise”"), l3("Sau 30 ngày", "After 30 days", "30 päivän kuluttua")],
+        answer: 1,
+        why: l3("Bạn duyệt từng đánh giá trước khi công khai.", "You approve each review before it goes public.", "Hyväksyt jokaisen arvostelun ennen julkaisua."),
+      },
+      {
+        q: l3("Mẫu trả lời nào hợp với đánh giá 5 sao?", "Which reply template suits a 5-star review?", "Mikä vastausmalli sopii 5 tähden arvosteluun?"),
+        options: [l3("Cảm ơn", "Thanks", "Kiitos"), l3("Xin lỗi", "Apology", "Pahoittelu"), l3("Không cần trả lời", "No reply needed", "Vastausta ei tarvita")],
+        answer: 0,
+        why: l3("Trả lời cả đánh giá tốt giúp khách thấy được trân trọng.", "Replying to good reviews too makes customers feel valued.", "Myös hyviin arvosteluihin vastaaminen saa asiakkaan tuntemaan itsensä arvostetuksi."),
+      },
+      {
+        q: l3("Cần làm gì để khách được mời đánh giá trên Google?", "What do you need to do so customers are invited to review you on Google?", "Mitä tarvitaan, jotta asiakkaita pyydetään arvostelemaan Googlessa?"),
+        options: [l3("Thêm liên kết Google Maps trong Cài đặt", "Add your Google Maps link in Settings", "Lisätä Google Maps -linkki asetuksiin"), l3("Trả phí cho Google", "Pay Google", "Maksaa Googlelle"), l3("Không làm được", "It can't be done", "Se ei onnistu")],
+        answer: 0,
+        why: l3("Phần “Có thêm đánh giá trên Google” có nút “Mở Cài đặt”.", "The “More reviews on Google” box has an “Open Settings” button.", "Googlen arvosteluosiossa on painike asetusten avaamiseen."),
+      },
+    ],
   },
   /* ================= owners: retain ================= */
   {
@@ -1184,9 +1472,60 @@ export const LESSONS: Lesson[] = [
     course: "o-retain",
     guide: "gift-cards",
     fresh: true,
-    title: l3("Thẻ quà tặng: tạo mẫu, bán và ghi nhận lần dùng", "Gift cards: design, sell and redeem", "Lahjakortit: luo, myy ja lunasta"),
+    title: l3("Thẻ quà tặng", "Gift cards", "Lahjakortit"),
     summary: l3("Tạo mẫu thẻ, gửi thẻ qua email, xác nhận thanh toán và kiểm tra mã khi khách đến.", "Create card designs, email cards, confirm payment and check the code at the visit.", "Luo korttimallit, lähetä kortit sähköpostilla, vahvista maksu ja tarkista koodi käynnillä."),
-    video: null,
+    video: null, // batch 6
+    href: "/business/dashboard/gift-cards",
+    hrefLabel: l3("Mở Thẻ quà tặng", "Open Gift cards", "Avaa Lahjakortit"),
+    steps: [
+      l3(
+        "Bấm mục “Thẻ quà tặng”, rồi “Tạo mẫu thẻ mới”: chọn “Dịch vụ”, đặt “Tên thẻ”, “Giảm giá (%)”, “Hiệu lực”, “Số lần được dùng”, “Giá trị / giá bán” và bấm “Tạo mẫu thẻ”.",
+        "Open “Gift cards” and press “New card design”: choose the service, name the card, set the discount %, validity, number of uses and price, then press “Create design”.",
+        "Avaa ”Lahjakortit” ja luo uusi korttimalli: valitse palvelu, nimeä kortti, aseta alennus-%, voimassaolo, käyttökerrat ja hinta."
+      ),
+      l3(
+        "Ở “Gửi thẻ quà tặng cho khách”, chọn “Mẫu thẻ”, nhập “Tên khách nhận thẻ”, “Email” và “Lời nhắn trên thẻ”.",
+        "Under “Send a gift card”, choose the design and enter the recipient's name, email and a message for the card.",
+        "Valitse kohdassa ”Lähetä lahjakortti” malli ja anna saajan nimi, sähköposti ja korttiin tuleva viesti."
+      ),
+      l3(
+        "Khách đã trả tiền thì đánh dấu “Khách đã thanh toán — kích hoạt thẻ ngay”, rồi bấm “Tạo ảnh thẻ & gửi email cho khách”.",
+        "If it is already paid, tick “Customer has paid — activate now”, then press “Create card image & email it”.",
+        "Jos kortti on maksettu, valitse heti aktivointi ja paina kortin luonti- ja lähetyspainiketta."
+      ),
+      l3(
+        "Khi khách đến: ở “Kiểm tra và dùng thẻ”, quét QR hoặc nhập “Mã thẻ”, bấm “Kiểm tra mã”, rồi “Ghi nhận lần dùng”.",
+        "At the visit: under “Check and redeem”, scan the QR or type the card code, press “Check code”, then “Record a use”.",
+        "Käynnillä: skannaa QR tai kirjoita kortin koodi, paina ”Tarkista koodi” ja kirjaa käyttökerta."
+      ),
+    ],
+    tips: [
+      l3(
+        "Danh sách “Thẻ đã bán / đã gửi” cho xem ảnh thẻ, tải ảnh và gửi lại email. Thẻ khách tự mua trên website của salon cần bấm “Xác nhận đã thanh toán” để kích hoạt.",
+        "“Sold / sent cards” lets you view or download the card image and resend the email. Cards bought on your salon website need “Confirm payment” to be activated.",
+        "Myytyjen korttien luettelosta voit katsoa ja ladata kortin kuvan ja lähettää sähköpostin uudelleen. Verkkosivuilta ostetut kortit aktivoidaan vahvistamalla maksu."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Việc đầu tiên phải làm trước khi gửi thẻ quà tặng là gì?", "What must you do before you can send a gift card?", "Mitä on tehtävä ennen lahjakortin lähettämistä?"),
+        options: [l3("Tạo ít nhất một mẫu thẻ", "Create at least one card design", "Luoda vähintään yksi korttimalli"), l3("In thẻ giấy", "Print paper cards", "Tulostaa paperikortteja"), l3("Bật trợ lý AI", "Turn on the AI assistant", "Ottaa tekoälyavustaja käyttöön")],
+        answer: 0,
+        why: l3("Mẫu thẻ quyết định dịch vụ, mức giảm, hiệu lực và giá bán.", "The design sets the service, discount, validity and price.", "Malli määrää palvelun, alennuksen, voimassaolon ja hinnan."),
+      },
+      {
+        q: l3("Khách mang thẻ đến, bạn làm gì?", "A customer arrives with a card — what do you do?", "Asiakas tulee kortin kanssa — mitä teet?"),
+        options: [l3("Quét QR hoặc nhập mã, bấm “Kiểm tra mã”, rồi “Ghi nhận lần dùng”", "Scan or type the code, press “Check code”, then “Record a use”", "Skannaat tai kirjoitat koodin, tarkistat sen ja kirjaat käytön"), l3("Tạo mẫu thẻ mới", "Create a new design", "Luot uuden mallin"), l3("Gửi lại email", "Resend the email", "Lähetät sähköpostin uudelleen")],
+        answer: 0,
+        why: l3("Thẻ hiện ra cho biết còn hiệu lực không và còn mấy lần dùng.", "The card shows whether it is valid and how many uses remain.", "Kortista näkyy, onko se voimassa ja montako käyttökertaa on jäljellä."),
+      },
+      {
+        q: l3("Thẻ khách tự mua trên website của salon được kích hoạt khi nào?", "When is a card bought on your website activated?", "Milloin verkkosivuilta ostettu kortti aktivoituu?"),
+        options: [l3("Khi bạn bấm “Xác nhận đã thanh toán”", "When you press “Confirm payment”", "Kun painat ”Vahvista maksu”"), l3("Ngay khi khách bấm mua", "As soon as the customer orders", "Heti tilauksen jälkeen"), l3("Sau 90 ngày", "After 90 days", "90 päivän kuluttua")],
+        answer: 0,
+        why: l3("Khách nhận mã qua email, nhưng thẻ chỉ dùng được sau khi salon xác nhận đã nhận tiền.", "The customer gets the code by email, but it only works once the salon confirms the payment.", "Asiakas saa koodin sähköpostiin, mutta kortti toimii vasta maksun vahvistamisen jälkeen."),
+      },
+    ],
   },
   {
     slug: "email-marketing",
