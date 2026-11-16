@@ -162,9 +162,65 @@ export const LESSONS: Lesson[] = [
   {
     slug: "tai-khoan",
     course: "c-start",
-    title: l3("Tạo tài khoản và hồ sơ của tôi", "Your account and profile", "Tili ja oma profiili"),
-    summary: l3("Đăng ký, đăng nhập, đổi email, mật khẩu và ảnh đại diện.", "Sign up, sign in, and change your email, password and photo.", "Rekisteröidy, kirjaudu ja vaihda sähköposti, salasana ja kuva."),
-    video: null,
+    title: l3("Tạo tài khoản và đăng nhập", "Create an account and sign in", "Luo tili ja kirjaudu"),
+    summary: l3(
+      "Đăng ký trong một phút, đăng nhập, lấy lại mật khẩu khi quên, và xem các mục của tài khoản.",
+      "Sign up in a minute, sign in, reset a forgotten password and find your way around your account.",
+      "Rekisteröidy minuutissa, kirjaudu, palauta unohtunut salasana ja tutustu tilisi osioihin."
+    ),
+    video: video("tai-khoan", 66, "2026-11-16"),
+    href: "/auth/sign-up",
+    hrefLabel: l3("Tạo tài khoản", "Create an account", "Luo tili"),
+    steps: [
+      l3("Trên varaaai.com, bấm “Đăng ký” ở góc trên bên phải.", "On varaaai.com, press “Sign up” in the top right corner.", "Paina varaaai.comissa oikean yläkulman ”Rekisteröidy”."),
+      l3(
+        "Ở trang “Tạo tài khoản mới”, nhập “Họ và tên”, “Email”, “Số điện thoại”, “Mật khẩu” và “Xác nhận mật khẩu”.",
+        "On “Create a new account”, enter your name, email, phone, a password and the password again.",
+        "Anna nimi, sähköposti, puhelin, salasana ja salasana uudelleen."
+      ),
+      l3(
+        "Chọn có nhận tin khuyến mãi “Qua email” hay “Qua tin nhắn văn bản” không, rồi bấm “Tạo tài khoản”.",
+        "Choose whether you want offers by email or by text message, then press “Create account”.",
+        "Valitse, haluatko tarjouksia sähköpostilla tai tekstiviestillä, ja paina ”Luo tili”."
+      ),
+      l3("Lần sau: bấm “Đăng nhập”, nhập Email và Mật khẩu.", "Next time: press “Sign in” and enter your email and password.", "Seuraavalla kerralla: paina ”Kirjaudu” ja anna sähköposti ja salasana."),
+      l3(
+        "Quên mật khẩu: bấm “Quên mật khẩu?”, nhập email, bấm “Gửi liên kết đặt lại” rồi làm theo email để chọn mật khẩu mới.",
+        "Forgot it? Press “Forgot password?”, enter your email, press “Send reset link” and follow the email to choose a new one.",
+        "Unohtuiko? Paina ”Unohditko salasanan?”, anna sähköposti, lähetä palautuslinkki ja valitse uusi salasana sähköpostin ohjeilla."
+      ),
+    ],
+    tips: [
+      l3(
+        "Sau khi đăng nhập, bấm vào tên bạn ở góc trên để mở: Hồ sơ của tôi, Lịch hẹn của tôi, Thẻ tích điểm, Hộp thư, Đang theo dõi, Bảng tin.",
+        "Once signed in, tap your name at the top to open: My profile, My bookings, Loyalty cards, Inbox, Following and Feed.",
+        "Kirjautuneena napauta nimeäsi ylhäällä: Profiilini, Varaukseni, Kanta-asiakaskortit, Viestit, Seuratut ja Syöte."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Tạo tài khoản VaraaAi có mất phí không?", "Does a VaraaAi account cost anything?", "Maksaako VaraaAi-tili jotain?"),
+        options: [l3("Có, trả theo tháng", "Yes, a monthly fee", "Kyllä, kuukausimaksu"), l3("Không, hoàn toàn miễn phí", "No, it's completely free", "Ei, se on täysin ilmainen"), l3("Miễn phí 7 ngày đầu", "Free for the first 7 days", "Ilmainen ensimmäiset 7 päivää")],
+        answer: 1,
+        why: l3("Khách hàng dùng VaraaAi miễn phí.", "VaraaAi is free for customers.", "VaraaAi on asiakkaille ilmainen."),
+      },
+      {
+        q: l3("Quên mật khẩu thì làm gì?", "What do you do if you forget your password?", "Mitä teet, jos unohdat salasanasi?"),
+        options: [
+          l3("Tạo tài khoản mới", "Create a new account", "Luot uuden tilin"),
+          l3("Bấm “Quên mật khẩu?” và nhập email để nhận liên kết đặt lại", "Press “Forgot password?” and enter your email to get a reset link", "Painat ”Unohditko salasanan?” ja annat sähköpostin saadaksesi palautuslinkin"),
+          l3("Gọi cho salon", "Call the salon", "Soitat salonkiin"),
+        ],
+        answer: 1,
+        why: l3("Liên kết đặt lại mật khẩu được gửi qua email.", "A reset link is sent to your email.", "Palautuslinkki lähetetään sähköpostiisi."),
+      },
+      {
+        q: l3("Mục nào trong tài khoản cho bạn đổi email và mật khẩu?", "Where in your account do you change your email and password?", "Missä tilin osiossa vaihdat sähköpostin ja salasanan?"),
+        options: [l3("Hồ sơ của tôi", "My profile", "Profiilini"), l3("Bảng tin", "Feed", "Syöte"), l3("Đang theo dõi", "Following", "Seuratut")],
+        answer: 0,
+        why: l3("“Hồ sơ của tôi” có ảnh đại diện, email và mật khẩu.", "“My profile” holds your photo, email and password.", "”Profiilini” sisältää kuvan, sähköpostin ja salasanan."),
+      },
+    ],
   },
   {
     slug: "cai-app",
@@ -281,7 +337,58 @@ export const LESSONS: Lesson[] = [
     guide: "register",
     title: l3("Đăng ký và kích hoạt salon", "Register and activate your salon", "Rekisteröi ja aktivoi salonki"),
     summary: l3("Điền thông tin, xác minh email là salon hoạt động ngay — không phải chờ duyệt.", "Fill in the form and verify your email — the salon is live at once, no review.", "Täytä lomake ja vahvista sähköposti — salonki on heti käytössä."),
-    video: null,
+    video: video("dang-ky-salon", 77, "2026-11-16"),
+    href: "/business/apply",
+    hrefLabel: l3("Đăng ký salon", "Register your salon", "Rekisteröi salonki"),
+    steps: [
+      l3(
+        "Trên trang chủ varaaai.com, bấm “Bạn là chủ salon? Đưa salon lên VaraaAi miễn phí”, rồi bấm “Đăng ký salon miễn phí”.",
+        "On the varaaai.com home page, press “Are you a salon owner? Put your salon on VaraaAi for free”, then “Register your salon for free”.",
+        "Paina varaaai.comin etusivulla salonkiyrittäjän linkkiä ja sitten ”Rekisteröi salonki ilmaiseksi”."
+      ),
+      l3(
+        "Chưa có tài khoản: ở “Tạo tài khoản của bạn”, nhập “Họ và tên”, “Email”, “Mật khẩu” và “Xác nhận mật khẩu”.",
+        "No account yet: under “Create your account”, enter your name, email, a password and the password again.",
+        "Jos sinulla ei ole tiliä, anna kohdassa ”Luo tilisi” nimi, sähköposti, salasana ja salasana uudelleen."
+      ),
+      l3(
+        "Nhập “Tên doanh nghiệp”, “Giới thiệu ngắn” và chọn “Danh mục dịch vụ”.",
+        "Enter the business name and a short introduction, and choose your service categories.",
+        "Anna yrityksen nimi ja lyhyt esittely ja valitse palvelukategoriat."
+      ),
+      l3(
+        "Nhập “Địa chỉ”, chọn “Quốc gia” (quyết định múi giờ của lịch), “Thành phố” và “Số điện thoại”.",
+        "Enter the address, choose the country (it sets your calendar's time zone), the city and the phone number.",
+        "Anna osoite, valitse maa (se määrää kalenterin aikavyöhykkeen), kaupunki ja puhelinnumero."
+      ),
+      l3("Bấm “Gửi đăng ký”.", "Press “Submit”.", "Paina ”Lähetä”."),
+      l3(
+        "Mở email VaraaAi gửi và bấm “Xác minh email” — salon được kích hoạt ngay. Sau đó bấm “Vào trang quản trị”.",
+        "Open the email from VaraaAi and press “Verify email” — the salon is live at once. Then press “Go to dashboard”.",
+        "Avaa VaraaAin sähköposti ja paina ”Vahvista sähköposti” — salonki on heti käytössä. Siirry sitten hallintapaneeliin."
+      ),
+    ],
+    tips: [l3("Chưa thấy email? Kiểm tra thư mục Spam hoặc Quảng cáo.", "No email? Check your Spam or Promotions folder.", "Eikö sähköpostia näy? Tarkista roskaposti- tai tarjouskansio.")],
+    quiz: [
+      {
+        q: l3("Sau khi gửi đăng ký, salon được kích hoạt khi nào?", "After you submit, when does the salon go live?", "Milloin salonki aktivoituu lähettämisen jälkeen?"),
+        options: [l3("Sau khi VaraaAi duyệt vài ngày", "After a few days of review", "Muutaman päivän tarkistuksen jälkeen"), l3("Ngay khi bạn bấm “Xác minh email”", "As soon as you press “Verify email”", "Heti kun painat ”Vahvista sähköposti”"), l3("Sau khi trả phí", "After you pay", "Maksun jälkeen")],
+        answer: 1,
+        why: l3("Xác minh email xong là salon hoạt động ngay, không phải chờ duyệt.", "Once the email is verified the salon is live — no waiting for a review.", "Kun sähköposti on vahvistettu, salonki on käytössä — ei odottelua."),
+      },
+      {
+        q: l3("Vì sao phải chọn đúng “Quốc gia”?", "Why does the country have to be right?", "Miksi maa on valittava oikein?"),
+        options: [l3("Vì nó quyết định múi giờ của lịch hẹn", "It sets the time zone of your calendar", "Se määrää kalenterin aikavyöhykkeen"), l3("Vì nó quyết định giá dịch vụ", "It sets your prices", "Se määrää hinnat"), l3("Không quan trọng", "It doesn't matter", "Sillä ei ole väliä")],
+        answer: 0,
+        why: l3("Giờ hẹn hiển thị theo múi giờ của quốc gia bạn chọn.", "Appointment times follow the time zone of the country you choose.", "Varausajat näytetään valitsemasi maan aikavyöhykkeessä."),
+      },
+      {
+        q: l3("Chưa thấy email xác minh thì nên làm gì trước?", "No verification email — what do you check first?", "Vahvistusviestiä ei näy — mitä tarkistat ensin?"),
+        options: [l3("Đăng ký lại từ đầu", "Register again from scratch", "Rekisteröidyt uudelleen"), l3("Xem thư mục Spam hoặc Quảng cáo", "The Spam or Promotions folder", "Roskaposti- tai tarjouskansion"), l3("Đổi số điện thoại", "Change your phone number", "Vaihdat puhelinnumeron")],
+        answer: 1,
+        why: l3("Email đôi khi rơi vào Spam hoặc Quảng cáo.", "The email sometimes lands in Spam or Promotions.", "Viesti päätyy joskus roskapostiin tai tarjouksiin."),
+      },
+    ],
   },
   {
     slug: "ho-so-salon",
@@ -406,8 +513,69 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Tạo bảng giá đa ngôn ngữ", "Make a multilingual price list", "Tee monikielinen hinnasto"),
     summary: l3("Nhập dịch vụ, dịch tự động, thêm mã QR đặt lịch rồi tải PDF hoặc PNG.", "Enter services, translate automatically, add a booking QR code and download a PDF or PNG.", "Lisää palvelut, käännä automaattisesti, lisää varaus-QR ja lataa PDF tai PNG."),
-    video: null,
+    video: video("bang-gia", 91, "2026-11-16"),
     href: "/tools/price-list",
+    hrefLabel: l3("Mở công cụ tạo bảng giá", "Open the price-list maker", "Avaa hinnastotyökalu"),
+    steps: [
+      l3(
+        "Mở varaaai.com, kéo xuống cuối trang và bấm “Tạo bảng giá miễn phí”. Ở “Thông tin salon”, nhập tên salon, địa chỉ và số điện thoại.",
+        "Open varaaai.com, scroll to the bottom and press “Create a free price list”. Under “Salon details”, enter the name, address and phone.",
+        "Avaa varaaai.com, vieritä alas ja avaa ilmainen hinnastotyökalu. Anna salongin nimi, osoite ja puhelin."
+      ),
+      l3(
+        "Ở “Ngôn ngữ & tiền tệ”, chọn các ngôn ngữ hiện trên bảng giá và loại tiền. Nút “Dịch tự động” dịch tên dịch vụ giúp bạn.",
+        "Under “Languages & currency”, choose the languages on the list and the currency. “Translate automatically” translates service names for you.",
+        "Valitse kohdassa ”Kielet ja valuutta” hinnaston kielet ja valuutta. Automaattinen käännös kääntää palvelujen nimet."
+      ),
+      l3(
+        "Ở “Dịch vụ & giá”, bấm một danh mục (Nail & móng, Cắt tóc, Spa & massage…), bấm “Thêm dịch vụ” rồi điền “Tên dịch vụ”, “Giá” và “Phút”.",
+        "Under “Services & prices”, pick a category (nails, hair, spa…), press “Add service” and fill in the name, price and minutes.",
+        "Valitse kohdassa ”Palvelut ja hinnat” kategoria, paina ”Lisää palvelu” ja täytä nimi, hinta ja minuutit."
+      ),
+      l3(
+        "Giá chỉ là mức khởi điểm thì đánh dấu “Giá “từ””; muốn giải thích thêm thì bấm “Thêm mô tả”.",
+        "Tick “Price ‘from’” if it is a starting price; press “Add description” to explain a service.",
+        "Valitse ”Hinta alkaen”, jos hinta on lähtöhinta; lisää kuvaus tarvittaessa."
+      ),
+      l3(
+        "Ở “Mã QR đặt lịch”, dán link trang đặt lịch của salon để khách quét mã là đặt được lịch.",
+        "Under “Booking QR code”, paste your booking link so customers can scan and book.",
+        "Liitä kohtaan ”Varaus-QR-koodi” varauslinkkisi, jotta asiakas voi skannata ja varata."
+      ),
+      l3(
+        "Ở “Thiết kế”, chọn mẫu (Tối giản, Sang trọng, Màu sắc), “Màu chủ đạo” và khổ giấy.",
+        "Under “Design”, choose a style (Minimal, Elegant, Colourful), a main colour and a paper size.",
+        "Valitse kohdassa ”Ulkoasu” tyyli (Pelkistetty, Tyylikäs, Värikäs), pääväri ja paperikoko."
+      ),
+      l3("Bấm “Xem trước”, rồi “Tải PDF” để in hoặc “Tải PNG” để đăng mạng xã hội.", "Press “Preview”, then “Download PDF” to print or “Download PNG” for social media.", "Paina ”Esikatselu” ja sitten ”Lataa PDF” tulostusta tai ”Lataa PNG” somea varten."),
+    ],
+    tips: [
+      l3(
+        "Đăng nhập rồi bấm “Lưu vào tài khoản” để lần sau sửa tiếp bảng giá.",
+        "Sign in and press “Save to my account” to keep the list and edit it later.",
+        "Kirjaudu ja tallenna hinnasto tilillesi, niin voit muokata sitä myöhemmin."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Nút nào giúp dịch tên dịch vụ sang ngôn ngữ khác?", "Which button translates service names into other languages?", "Mikä painike kääntää palvelujen nimet muille kielille?"),
+        options: [l3("Dịch tự động", "Translate automatically", "Käännä automaattisesti"), l3("Thêm mô tả", "Add description", "Lisää kuvaus"), l3("Xem trước", "Preview", "Esikatselu")],
+        answer: 0,
+        why: l3("“Dịch tự động” nằm trong phần Ngôn ngữ & tiền tệ.", "“Translate automatically” is in the Languages & currency section.", "Automaattinen käännös on kielten ja valuutan osiossa."),
+      },
+      {
+        q: l3("Khi nào nên đánh dấu ô “Giá “từ””?", "When should you tick “Price ‘from’”?", "Milloin valitaan ”Hinta alkaen”?"),
+        options: [l3("Khi giá chỉ là mức khởi điểm", "When the price is only a starting price", "Kun hinta on vain lähtöhinta"), l3("Khi dịch vụ miễn phí", "When the service is free", "Kun palvelu on ilmainen"), l3("Khi muốn ẩn giá", "When you want to hide the price", "Kun haluat piilottaa hinnan")],
+        answer: 0,
+        why: l3("Bảng giá sẽ ghi “từ …” trước con số.", "The list then shows “from …” before the amount.", "Hinnastossa näkyy silloin ”alkaen …”."),
+      },
+      {
+        q: l3("Thêm mã QR đặt lịch vào bảng giá để làm gì?", "Why add a booking QR code to the price list?", "Miksi hinnastoon lisätään varaus-QR-koodi?"),
+        options: [l3("Để trang trí", "For decoration", "Koristeeksi"), l3("Để khách quét mã là đặt được lịch ngay", "So customers can scan and book straight away", "Jotta asiakas voi skannata ja varata heti"), l3("Để tính tiền", "To take payment", "Maksun ottamiseksi")],
+        answer: 1,
+        why: l3("Mã QR dẫn khách thẳng tới trang đặt lịch của salon.", "The code takes customers straight to your booking page.", "Koodi vie asiakkaan suoraan varaussivullesi."),
+      },
+    ],
   },
   {
     slug: "website-salon",
@@ -430,8 +598,61 @@ export const LESSONS: Lesson[] = [
     course: "o-reach",
     title: l3("Kiểm tra salon trông thế nào trên mạng", "Check how your salon looks online", "Tarkista, miltä salonkisi näyttää verkossa"),
     summary: l3("Nhận điểm hiện diện trực tuyến cho Website, Google, Facebook và Instagram.", "Get an online-presence score for your website, Google, Facebook and Instagram.", "Saat verkkonäkyvyyspisteet sivustolle, Googlelle, Facebookille ja Instagramille."),
-    video: null,
+    video: video("kiem-tra-salon", 93, "2026-11-16"),
     href: "/salon-check",
+    hrefLabel: l3("Kiểm tra salon của tôi", "Check my salon", "Tarkista salonkini"),
+    steps: [
+      l3(
+        "Mở varaaai.com, kéo xuống cuối trang và bấm “Kiểm tra salon miễn phí”.",
+        "Open varaaai.com, scroll to the bottom and press “Free salon check”.",
+        "Avaa varaaai.com, vieritä alas ja avaa ilmainen salonkitarkistus."
+      ),
+      l3(
+        "Nhập “Tên salon” và “Địa chỉ salon”, chọn “Loại hình salon”, và điền “Website” nếu có.",
+        "Enter the salon name and address, choose the type of salon and add your website if you have one.",
+        "Anna salongin nimi ja osoite, valitse salongin tyyppi ja lisää verkkosivusto, jos sinulla on sellainen."
+      ),
+      l3(
+        "Trả lời “Salon đã có hồ sơ Google doanh nghiệp chưa?” (Đã có / Chưa có / Không chắc), rồi bấm “Kiểm tra miễn phí ngay”.",
+        "Answer “Does the salon have a Google Business Profile?” (Yes / No / Not sure), then press “Check for free now”.",
+        "Vastaa, onko salongilla Google-yritysprofiili (Kyllä / Ei / En ole varma), ja käynnistä tarkistus."
+      ),
+      l3(
+        "Đọc “Điểm hiện diện trực tuyến” (trên 100) và điểm từng kênh: Website, Hồ sơ Google, Facebook, Instagram. Bấm “Xem chi tiết” để biết vì sao.",
+        "Read your online-presence score (out of 100) and the score of each channel: website, Google profile, Facebook, Instagram. “See details” explains why.",
+        "Lue verkkonäkyvyyspisteesi (asteikolla 0–100) ja kanavakohtaiset pisteet. ”Näytä tiedot” kertoo syyt."
+      ),
+      l3(
+        "Xem “Cơ hội lớn nhất của bạn”: mỗi điểm đều có mục “Nên làm gì”.",
+        "Look at “Your biggest opportunities”: each point comes with “What to do”.",
+        "Katso ”Suurimmat mahdollisuutesi”: jokaisessa kohdassa on ”Mitä tehdä”."
+      ),
+      l3("Bấm “In / Lưu PDF” để giữ báo cáo, hoặc “Kiểm tra salon khác”.", "Press “Print / Save PDF” to keep the report, or “Check another salon”.", "Tallenna raportti painikkeella ”Tulosta / Tallenna PDF” tai tarkista toinen salonki."),
+    ],
+    tips: [
+      l3("Không cần email hay đăng ký; kết quả hiện ngay trên trang.", "No email or sign-up needed; the result appears right on the page.", "Sähköpostia tai rekisteröitymistä ei tarvita; tulos näkyy heti sivulla."),
+      l3("Làm xong từng việc được gợi ý rồi kiểm tra lại để thấy điểm tăng.", "Fix the suggested points one by one, then check again to see the score rise.", "Korjaa ehdotetut kohdat yksi kerrallaan ja tarkista uudelleen nähdäksesi pisteiden nousun."),
+    ],
+    quiz: [
+      {
+        q: l3("Công cụ chấm điểm những kênh nào?", "Which channels does the tool score?", "Mitkä kanavat työkalu pisteyttää?"),
+        options: [l3("Website, Google, Facebook và Instagram", "Website, Google, Facebook and Instagram", "Verkkosivusto, Google, Facebook ja Instagram"), l3("Chỉ website", "Only the website", "Vain verkkosivusto"), l3("TikTok và YouTube", "TikTok and YouTube", "TikTok ja YouTube")],
+        answer: 0,
+        why: l3("Bốn kênh được chấm và xếp loại Mạnh, Khá hoặc Yếu.", "Four channels are scored and rated strong, fair or weak.", "Neljä kanavaa pisteytetään ja luokitellaan."),
+      },
+      {
+        q: l3("Phần nào cho biết việc cần làm trước tiên?", "Which part tells you what to do first?", "Mikä osa kertoo, mitä tehdä ensin?"),
+        options: [l3("Cơ hội lớn nhất của bạn", "Your biggest opportunities", "Suurimmat mahdollisuutesi"), l3("Chân trang", "The footer", "Alatunniste"), l3("Mã QR", "The QR code", "QR-koodi")],
+        answer: 0,
+        why: l3("Mỗi điểm trong phần này có kèm “Nên làm gì”.", "Each point there comes with “What to do”.", "Jokaisessa kohdassa on ”Mitä tehdä”."),
+      },
+      {
+        q: l3("Dùng công cụ kiểm tra salon có cần đăng ký không?", "Do you need to sign up to use the salon check?", "Tarvitaanko salonkitarkistukseen rekisteröityminen?"),
+        options: [l3("Có, cần email", "Yes, an email is required", "Kyllä, sähköposti vaaditaan"), l3("Không cần email, không cần đăng ký", "No email and no sign-up", "Ei sähköpostia eikä rekisteröitymistä"), l3("Chỉ chủ salon đã trả phí", "Only paying salons", "Vain maksavat salongit")],
+        answer: 1,
+        why: l3("Công cụ miễn phí và mở cho mọi người.", "The tool is free and open to everyone.", "Työkalu on ilmainen ja avoin kaikille."),
+      },
+    ],
   },
   /* ================= owners: day-to-day ================= */
   {
