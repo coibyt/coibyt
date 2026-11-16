@@ -502,7 +502,7 @@ export const LESSONS: Lesson[] = [
     guide: "profile",
     title: l3("Hồ sơ salon, logo và ảnh bìa", "Salon profile, logo and cover", "Salongin profiili, logo ja kansikuva"),
     summary: l3("Hoàn thiện hồ sơ để mở khoá Thẻ tích điểm và Marketing.", "Complete your profile to unlock Loyalty cards and Marketing.", "Täydennä profiili avataksesi kanta-asiakaskortit ja markkinoinnin."),
-    video: null, // batch 6
+    video: video("ho-so-salon", 51, "2026-11-16"),
     href: "/business/dashboard/settings",
     hrefLabel: l3("Mở Cài đặt", "Open Settings", "Avaa Asetukset"),
     steps: [
@@ -714,7 +714,63 @@ export const LESSONS: Lesson[] = [
     guide: "payments",
     title: l3("Thanh toán, chính sách huỷ và thông tin hoá đơn", "Payments, cancellation policy and invoice details", "Maksut, peruutusehdot ja laskutustiedot"),
     summary: l3("Nhận chuyển khoản, đặt hạn huỷ lịch và điền thông tin xuất hoá đơn.", "Take bank transfers, set a cancellation deadline and fill in invoice details.", "Ota vastaan tilisiirtoja, aseta perumisaika ja täytä laskutustiedot."),
-    video: null,
+    video: null, // batch 7
+    href: "/business/dashboard/settings",
+    hrefLabel: l3("Mở Cài đặt", "Open Settings", "Avaa Asetukset"),
+    steps: [
+      l3(
+        "Vào “Cài đặt”, phần “Tùy chọn salon”. Ở dòng “Khách được hủy trước”, chọn thời hạn, ví dụ 24 giờ trước lịch hẹn.",
+        "Open “Settings” and find the salon options. Under “Customers can cancel up to”, choose a deadline, for example 24 hours before the appointment.",
+        "Avaa ”Asetukset” ja kohta ”Salongin asetukset”. Valitse kohdassa ”Asiakas voi perua viimeistään” määräaika, esimerkiksi 24 tuntia ennen aikaa."
+      ),
+      l3(
+        "Ở ô “Chính sách hủy đặt chỗ”, viết ngắn gọn quy định của salon rồi bấm “Lưu”.",
+        "In the cancellation policy box, write your salon's rules in a few lines and press “Save”.",
+        "Kirjoita peruutusehtojen kenttään salongin säännöt lyhyesti ja tallenna."
+      ),
+      l3(
+        "Ở khung “Nhận thanh toán qua chuyển khoản”, điền “Tên ngân hàng”, “Số tài khoản”, “Tên chủ tài khoản” rồi bấm “Lưu thông tin ngân hàng”.",
+        "Under bank transfers, fill in the bank name, account number and account holder, then press “Save bank details”.",
+        "Täytä tilisiirtojen kohtaan pankin nimi, tilinumero ja tilinhaltija ja paina ”Tallenna pankkitiedot”."
+      ),
+      l3(
+        "Ở khung “Thông tin xuất hóa đơn”, điền “Tên công ty”, “Địa chỉ công ty”, “Mã số doanh nghiệp / mã số thuế”, “Thuế VAT (%)” rồi bấm “Lưu thông tin hóa đơn”.",
+        "Under “Invoice details”, fill in the company name, address, business ID and VAT %, then save.",
+        "Täytä kohtaan ”Laskutustiedot” yrityksen nimi, osoite, Y-tunnus ja ALV-% ja tallenna."
+      ),
+    ],
+    tips: [
+      l3(
+        "Qua hạn huỷ, khách không tự huỷ trên mạng được nữa — chỉ salon huỷ được từ trang quản trị.",
+        "After the deadline customers can no longer cancel online themselves — only the salon can, from the dashboard.",
+        "Määräajan jälkeen asiakas ei voi enää perua itse verkossa — vain salonki voi perua hallintapaneelista."
+      ),
+      l3(
+        "Khách thấy chính sách huỷ sau khi đặt lịch xong và trong email xác nhận.",
+        "Customers see the cancellation policy right after booking and in the confirmation email.",
+        "Asiakas näkee peruutusehdot heti varauksen jälkeen ja vahvistusviestissä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("“Khách được hủy trước 24 giờ” nghĩa là gì?", "What does “Customers can cancel up to 24 hours before” mean?", "Mitä tarkoittaa, että asiakas voi perua viimeistään 24 tuntia ennen?"),
+        options: [l3("Qua thời hạn đó, khách không tự huỷ trên mạng được nữa", "After that deadline customers can no longer cancel online themselves", "Määräajan jälkeen asiakas ei voi enää perua itse verkossa"), l3("Khách phải trả tiền trước 24 giờ", "Customers must pay 24 hours ahead", "Asiakkaan on maksettava 24 tuntia etukäteen"), l3("Salon đóng cửa 24 giờ", "The salon closes for 24 hours", "Salonki on kiinni 24 tuntia")],
+        answer: 0,
+        why: l3("Sau hạn, chỉ salon mới huỷ được từ trang quản trị.", "After the deadline only the salon can cancel, from the dashboard.", "Määräajan jälkeen vain salonki voi perua hallintapaneelista."),
+      },
+      {
+        q: l3("Khách thấy thông tin chuyển khoản của salon khi nào?", "When do customers see the salon's bank details?", "Milloin asiakas näkee salongin pankkitiedot?"),
+        options: [l3("Khi đặt lịch", "When they book", "Varatessaan ajan"), l3("Không bao giờ", "Never", "Ei koskaan"), l3("Chỉ khi gọi điện hỏi", "Only if they phone and ask", "Vain soittamalla")],
+        answer: 0,
+        why: l3("Nhờ vậy khách chuyển khoản thẳng cho salon.", "That way they can transfer the money straight to the salon.", "Näin asiakas voi maksaa tilisiirrolla suoraan salongille."),
+      },
+      {
+        q: l3("Vì sao phải điền “Thông tin xuất hóa đơn”?", "Why must you fill in the invoice details?", "Miksi laskutustiedot on täytettävä?"),
+        options: [l3("Để trang đẹp hơn", "To make the page look nicer", "Jotta sivu näyttäisi paremmalta"), l3("Điền đủ thì mới xuất được hoá đơn ở quầy thanh toán", "Invoices can only be issued at checkout once they are complete", "Laskun voi tehdä kassalla vasta, kun tiedot on täytetty"), l3("Không cần điền", "You don't have to", "Niitä ei tarvitse täyttää")],
+        answer: 1,
+        why: l3("Tên công ty, địa chỉ, mã số thuế và VAT được in trên hoá đơn.", "The company name, address, business ID and VAT are printed on the invoice.", "Yrityksen nimi, osoite, Y-tunnus ja ALV tulostuvat laskulle."),
+      },
+    ],
   },
   /* ================= owners: reach ================= */
   {
@@ -723,7 +779,7 @@ export const LESSONS: Lesson[] = [
     guide: "share",
     title: l3("Chia sẻ link đặt lịch", "Share your booking link", "Jaa varauslinkkisi"),
     summary: l3("Sao chép link, tải mã QR và lấy mã nhúng cho website riêng.", "Copy the link, download the QR code and get the embed code for your own site.", "Kopioi linkki, lataa QR-koodi ja hae upotuskoodi omille sivuillesi."),
-    video: null, // batch 6
+    video: video("chia-se-link", 58, "2026-11-16"),
     href: "/business/dashboard/settings",
     hrefLabel: l3("Mở Cài đặt", "Open Settings", "Avaa Asetukset"),
     steps: [
@@ -908,7 +964,63 @@ export const LESSONS: Lesson[] = [
     guide: "website",
     title: l3("Website riêng cho salon", "Your salon's own website", "Salongin omat verkkosivut"),
     summary: l3("Chọn bộ màu, sắp xếp các phần trên trang chủ và xuất bản.", "Pick a colour set, arrange the home-page sections and publish.", "Valitse värit, järjestä etusivun osiot ja julkaise."),
-    video: null,
+    video: null, // batch 8
+    href: "/business/dashboard/landing",
+    hrefLabel: l3("Mở Trang landing", "Open the website editor", "Avaa verkkosivujen muokkaus"),
+    steps: [
+      l3(
+        "Bấm mục “Trang landing”. Ở “Bộ màu của website”, chọn một phong cách (ví dụ “Champagne”) — cả website đổi màu ngay.",
+        "Open the website editor. Under the colour sets, pick a style (for example “Champagne”) — the whole site changes colour at once.",
+        "Avaa verkkosivujen muokkaus. Valitse värimaailma (esimerkiksi ”Champagne”) — koko sivusto vaihtaa väriä heti."
+      ),
+      l3(
+        "Ở “Phần đầu trang”, chọn bố cục, điền dòng chữ nhỏ, “Tiêu đề”, “Nội dung”, thêm “Ảnh trình chiếu” (tối đa 5) và “Nhãn nút”, rồi bấm “Lưu”.",
+        "In the top section, choose a layout, fill in the small line, the title and the text, add up to 5 slideshow photos and the button label, then save.",
+        "Valitse yläosan asettelu, täytä pieni rivi, otsikko ja teksti, lisää enintään 5 kuvaa ja painikkeen teksti ja tallenna."
+      ),
+      l3(
+        "Ở “Các phần trên trang chủ”, bật hoặc tắt từng phần: Giới thiệu, Dịch vụ nổi bật, Thư viện ảnh, Đội ngũ, Đánh giá khách hàng…",
+        "Under the home-page sections, turn each part on or off: about, featured services, gallery, team, customer reviews…",
+        "Ota etusivun osiot käyttöön tai pois: esittely, suositut palvelut, galleria, tiimi, asiakasarviot…"
+      ),
+      l3(
+        "Bấm “Xem trước” để kiểm tra, rồi bật “Xuất bản”. Bấm “Sao chép link” để gửi địa chỉ website cho khách.",
+        "Press preview to check it, then turn on publishing. Copy the link to send your website address to customers.",
+        "Tarkista esikatselusta ja ota julkaisu käyttöön. Kopioi linkki ja lähetä sivuston osoite asiakkaille."
+      ),
+    ],
+    tips: [
+      l3(
+        "Các phần có nhãn “Tự động” (dịch vụ, đội ngũ, đánh giá) tự lấy dữ liệu sẵn có của salon — bạn không phải nhập lại.",
+        "Parts marked automatic (services, team, reviews) use the data your salon already has — nothing to type again.",
+        "Automaattiset osiot (palvelut, tiimi, arviot) käyttävät salongin olemassa olevia tietoja — mitään ei tarvitse kirjoittaa uudelleen."
+      ),
+      l3(
+        "Khi còn là “Bản nháp”, khách chưa xem được website. Chỉ sau khi bật “Xuất bản” thì ai cũng mở được.",
+        "While it is a draft, customers cannot see the website. Only after you publish can anyone open it.",
+        "Luonnoksena sivusto ei näy asiakkaille. Vasta julkaisun jälkeen kuka tahansa voi avata sen."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Đổi màu cho cả website ở đâu?", "Where do you change the colours of the whole website?", "Missä koko sivuston värit vaihdetaan?"),
+        options: [l3("“Bộ màu của website” trong mục Trang landing", "The colour sets in the website editor", "Verkkosivujen muokkauksen värimaailmoissa"), l3("Trang Giờ mở cửa", "The Opening hours page", "Aukioloajat-sivulla"), l3("Không đổi được", "It can't be changed", "Niitä ei voi vaihtaa")],
+        answer: 0,
+        why: l3("Chọn một phong cách là cả website đổi màu ngay.", "Pick a style and the whole site changes colour at once.", "Kun valitset tyylin, koko sivusto vaihtaa väriä heti."),
+      },
+      {
+        q: l3("Khách xem được website của salon khi nào?", "When can customers see the salon's website?", "Milloin asiakkaat näkevät salongin verkkosivut?"),
+        options: [l3("Ngay khi tạo salon", "As soon as the salon is created", "Heti kun salonki on luotu"), l3("Sau khi bạn bật “Xuất bản”", "After you turn on publishing", "Kun otat julkaisun käyttöön"), l3("Sau 30 ngày", "After 30 days", "30 päivän kuluttua")],
+        answer: 1,
+        why: l3("Trước đó website là bản nháp, chỉ bạn xem được qua “Xem trước”.", "Before that it is a draft that only you can see in the preview.", "Sitä ennen sivusto on luonnos, jonka näet vain esikatselussa."),
+      },
+      {
+        q: l3("Phần có nhãn “Tự động” nghĩa là gì?", "What does a part marked “automatic” mean?", "Mitä automaattinen osio tarkoittaa?"),
+        options: [l3("Tự lấy dữ liệu sẵn có của salon", "It uses the data your salon already has", "Se käyttää salongin olemassa olevia tietoja"), l3("Tự xoá sau một tuần", "It deletes itself after a week", "Se poistuu viikon kuluttua"), l3("Chỉ hiện ban đêm", "It only shows at night", "Se näkyy vain yöllä")],
+        answer: 0,
+        why: l3("Dịch vụ, đội ngũ và đánh giá được lấy từ trang quản trị.", "Services, team and reviews come from your dashboard.", "Palvelut, tiimi ja arviot tulevat hallintapaneelista."),
+      },
+    ],
   },
   {
     slug: "fanpage",
@@ -916,7 +1028,63 @@ export const LESSONS: Lesson[] = [
     guide: "fanpage",
     title: l3("Fanpage: đăng bài cho khách theo dõi", "Fanpage: post for your followers", "Fanisivu: julkaise seuraajillesi"),
     summary: l3("Đăng ảnh, video, hẹn giờ đăng và ghim bài quan trọng.", "Post photos and videos, schedule posts and pin the important ones.", "Julkaise kuvia ja videoita, ajasta julkaisut ja kiinnitä tärkeimmät."),
-    video: null,
+    video: null, // batch 8
+    href: "/business/dashboard/fanpage",
+    hrefLabel: l3("Mở Fanpage", "Open Fanpage", "Avaa fanisivu"),
+    steps: [
+      l3(
+        "Bấm mục “Fanpage” và viết nội dung vào ô “Hôm nay salon có gì mới?”.",
+        "Open “Fanpage” and write your post in the box at the top.",
+        "Avaa fanisivu ja kirjoita julkaisu yläosan kenttään."
+      ),
+      l3(
+        "Chọn “Nhãn” cho bài (“Khuyến mãi”, “Tác phẩm mới”, “Thông báo”, “Mẹo làm đẹp”) và “Nút dưới bài” (“Đặt lịch ngay”, “Xem sản phẩm”, “Gọi ngay”).",
+        "Pick a label for the post (offer, new work, notice or beauty tip) and a button under it (book now, see products or call now).",
+        "Valitse julkaisulle tunniste (tarjous, uusi työ, tiedote tai kauneusvinkki) ja painike (varaa heti, katso tuotteet tai soita)."
+      ),
+      l3(
+        "Bấm “Ảnh” hoặc “Video” để thêm hình; bấm “Hẹn giờ” nếu muốn đăng sau, “Ghim lên đầu” cho bài quan trọng.",
+        "Add a photo or a video; schedule the post for later if you like, and pin the important ones to the top.",
+        "Lisää kuva tai video; ajasta julkaisu halutessasi myöhemmäksi ja kiinnitä tärkeät ylimmäksi."
+      ),
+      l3(
+        "Bấm “Đăng bài”. Bấm “Xem fanpage” để xem trang như khách thấy, hoặc “Sao chép link” để chia sẻ.",
+        "Press “Publish”. Open the fanpage to see it as customers do, or copy the link to share it.",
+        "Paina julkaisupainiketta. Avaa fanisivu nähdäksesi sen asiakkaan silmin tai kopioi linkki jaettavaksi."
+      ),
+    ],
+    tips: [
+      l3(
+        "Khách đã bấm “Theo dõi” salon sẽ thấy bài mới ngay trong “Bảng tin” của họ.",
+        "Customers who follow your salon see new posts straight away in their feed.",
+        "Salonkia seuraavat asiakkaat näkevät uudet julkaisut heti syötteessään."
+      ),
+      l3(
+        "Thêm nút “Đặt lịch ngay” dưới bài khuyến mãi để khách đặt lịch chỉ với một lần bấm.",
+        "Add the “book now” button under an offer so customers can book with one tap.",
+        "Lisää tarjouksen alle varauspainike, niin asiakas varaa yhdellä napautuksella."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Ai thấy bài đăng trên Fanpage của salon?", "Who sees the posts on your salon's fanpage?", "Ketkä näkevät salongin fanisivun julkaisut?"),
+        options: [l3("Chỉ chủ salon", "Only the owner", "Vain omistaja"), l3("Khách theo dõi thấy trong bảng tin, và ai cũng xem được trên fanpage", "Followers see them in their feed, and anyone can view the fanpage", "Seuraajat näkevät ne syötteessään, ja kuka tahansa voi katsoa fanisivua"), l3("Chỉ nhân viên", "Only the staff", "Vain henkilökunta")],
+        answer: 1,
+        why: l3("Fanpage là kênh công khai của salon.", "The fanpage is your salon's public channel.", "Fanisivu on salongin julkinen kanava."),
+      },
+      {
+        q: l3("Muốn bài tự đăng vào ngày mai, bạn bấm gì?", "Which button makes a post go out tomorrow by itself?", "Millä painikkeella julkaisu lähtee itsestään huomenna?"),
+        options: [l3("“Hẹn giờ”", "Schedule", "Ajasta"), l3("“Ghim lên đầu”", "Pin to top", "Kiinnitä ylimmäksi"), l3("“Gọi ngay”", "Call now", "Soita heti")],
+        answer: 0,
+        why: l3("Chọn ngày giờ, bài sẽ tự đăng đúng lúc đó.", "Choose the date and time and the post goes out by itself.", "Valitse päivä ja aika, niin julkaisu lähtee itsestään."),
+      },
+      {
+        q: l3("Nút nào dưới bài giúp khách đặt lịch nhanh nhất?", "Which button under a post lets customers book fastest?", "Mikä julkaisun alla oleva painike auttaa varaamaan nopeimmin?"),
+        options: [l3("“Đặt lịch ngay”", "Book now", "Varaa heti"), l3("Không có nút nào", "There is no such button", "Sellaista ei ole"), l3("“Ghim lên đầu”", "Pin to top", "Kiinnitä ylimmäksi")],
+        answer: 0,
+        why: l3("Khách bấm nút là sang thẳng trang đặt lịch của salon.", "One tap takes the customer straight to your booking page.", "Yksi napautus vie asiakkaan suoraan varaussivulle."),
+      },
+    ],
   },
   {
     slug: "kiem-tra-salon",
@@ -1057,7 +1225,7 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Màu riêng cho lịch online", "Own colours for online bookings", "Omat värit verkkovarauksille"),
     summary: l3("Phân biệt “Khách tự đặt online” với “Salon tự thêm” bằng màu, và xem khách đặt lúc nào.", "Tell “Booked online” from “Added by the salon” by colour, and see when each booking was made.", "Erota verkkovaraukset salongin lisäämistä väreillä ja näe, milloin varaus tehtiin."),
-    video: null, // batch 6
+    video: video("mau-lich-hen", 47, "2026-11-16"),
     href: "/business/dashboard/settings",
     hrefLabel: l3("Mở Cài đặt", "Open Settings", "Avaa Asetukset"),
     steps: [
@@ -1165,7 +1333,68 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Báo cáo thu nhập của nhân viên", "Staff income reports", "Työntekijöiden tuloraportit"),
     summary: l3("Nhân viên báo cáo từng lịch hẹn, chủ salon duyệt và xem tổng thu, tiền tip.", "Staff report each booking; the owner approves and sees totals and tips.", "Työntekijät raportoivat varaukset; omistaja hyväksyy ja näkee summat ja tipit."),
-    video: null,
+    video: null, // batch 7
+    href: "/business/dashboard/income",
+    hrefLabel: l3("Mở Quản trị doanh thu", "Open Income management", "Avaa Tulojen hallinta"),
+    steps: [
+      l3(
+        "Nhân viên: làm xong cho khách, mở lịch hẹn đó trên trang “Lịch hẹn” rồi bấm “Báo cáo thu nhập”.",
+        "Staff: after the visit, open that booking on the “Bookings” page and press “Report income”.",
+        "Työntekijä: avaa käynnin jälkeen varaus ”Varaukset”-sivulla ja paina ”Raportoi tulot”."
+      ),
+      l3(
+        "Nhập số tiền khách đã trả vào đúng ô (tiền mặt, ngân hàng, MobilePay, trả trước online hoặc thẻ quà tặng); bấm “Điền đủ” để điền nhanh cả số tiền.",
+        "Enter what the customer paid in the right box (cash, bank, MobilePay, paid online in advance or gift card); “Fill in” enters the full amount for you.",
+        "Kirjaa asiakkaan maksama summa oikeaan kenttään (käteinen, pankki, MobilePay, ennakkoon verkossa tai lahjakortti); ”Täytä” lisää koko summan."
+      ),
+      l3(
+        "Ghi tiền tip vào ô “Tiền tip” nếu có, thêm ghi chú hoặc ảnh biên lai, rồi bấm “Gửi báo cáo”.",
+        "Add any tip under “Tip”, a note or a photo of the receipt if you like, then press “Send report”.",
+        "Lisää mahdollinen tippi, huomautus tai kuva kuitista ja paina ”Lähetä raportti”."
+      ),
+      l3(
+        "Chủ salon: mở “Quản trị doanh thu”, đối chiếu từng báo cáo với số cần thu rồi bấm “Duyệt”; số chưa đúng thì bấm “Chưa duyệt” để nhân viên sửa.",
+        "Owner: open “Income management”, compare each report with the amount due and press “Approve”; if it's wrong, press “Don't approve” so the staff member corrects it.",
+        "Omistaja: avaa ”Tulojen hallinta”, vertaa raporttia perittävään summaan ja paina ”Hyväksy”; jos summa on väärä, paina ”Älä hyväksy”, niin työntekijä korjaa sen."
+      ),
+      l3(
+        "Xem phần “Theo nhân viên” để biết mỗi người thu được bao nhiêu trong kỳ đã chọn.",
+        "Look at “By staff member” to see how much each person took in the chosen period.",
+        "Katso kohdasta ”Työntekijöittäin”, paljonko kukin on tuonut valitulla jaksolla."
+      ),
+    ],
+    tips: [
+      l3(
+        "Tiền tip là của riêng nhân viên: không cộng vào doanh thu salon, chỉ để thống kê tip cuối tháng.",
+        "Tips belong to the staff member: they are not added to the salon's income, only counted for the monthly tip summary.",
+        "Tipit kuuluvat työntekijälle: niitä ei lisätä salongin tuloihin, vaan ne tilastoidaan kuukauden yhteenvetoa varten."
+      ),
+      l3(
+        "Bật “Nhắc nhân viên báo cáo”: lịch hẹn kết thúc quá 24 giờ mà chưa báo cáo thì ứng dụng tự nhắc nhân viên.",
+        "Turn on “Remind staff to report”: when a booking ended over 24 hours ago with no report, the app reminds the staff member.",
+        "Ota käyttöön ”Muistuta henkilökuntaa raportoimaan”: jos varauksen päättymisestä on yli 24 tuntia eikä raporttia ole, sovellus muistuttaa työntekijää."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Nhân viên báo cáo số tiền đã thu ở đâu?", "Where does a staff member report what they took?", "Missä työntekijä raportoi perimänsä summan?"),
+        options: [l3("Mở lịch hẹn của khách và bấm “Báo cáo thu nhập”", "Open the customer's booking and press “Report income”", "Avaa asiakkaan varaus ja paina ”Raportoi tulot”"), l3("Nhắn tin cho chủ salon", "Text the owner", "Lähettää viestin omistajalle"), l3("Ghi vào sổ giấy", "Write it in a paper notebook", "Kirjoittaa paperivihkoon")],
+        answer: 0,
+        why: l3("Báo cáo gắn với đúng lịch hẹn nên dễ đối chiếu với số cần thu.", "The report is tied to the booking, so it is easy to compare with the amount due.", "Raportti liittyy varaukseen, joten sitä on helppo verrata perittävään summaan."),
+      },
+      {
+        q: l3("Tiền tip có được cộng vào doanh thu của salon không?", "Are tips added to the salon's income?", "Lisätäänkö tipit salongin tuloihin?"),
+        options: [l3("Có, cộng hết", "Yes, all of it", "Kyllä, kokonaan"), l3("Không, tip là của riêng nhân viên", "No, tips belong to the staff member", "Ei, tipit kuuluvat työntekijälle"), l3("Cộng một nửa", "Half of it", "Puolet")],
+        answer: 1,
+        why: l3("Tip chỉ được ghi lại để thống kê cuối tháng.", "Tips are only recorded for the monthly summary.", "Tipit kirjataan vain kuukauden yhteenvetoa varten."),
+      },
+      {
+        q: l3("Số tiền trong báo cáo chưa đúng, chủ salon làm gì?", "The amount in a report is wrong — what does the owner do?", "Raportin summa on väärä — mitä omistaja tekee?"),
+        options: [l3("Bấm “Chưa duyệt” để nhân viên sửa lại", "Press “Don't approve” so the staff member corrects it", "Painaa ”Älä hyväksy”, jotta työntekijä korjaa sen"), l3("Xoá lịch hẹn", "Delete the booking", "Poistaa varauksen"), l3("Bỏ qua", "Ignore it", "Jättää huomiotta")],
+        answer: 0,
+        why: l3("Báo cáo chưa duyệt quay về cho nhân viên cập nhật.", "A report that isn't approved goes back to the staff member to update.", "Hyväksymätön raportti palaa työntekijälle päivitettäväksi."),
+      },
+    ],
   },
   {
     slug: "xuat-excel",
@@ -1173,7 +1402,63 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Xuất Excel: doanh thu, khách hàng, đơn hàng", "Excel exports: income, customers, orders", "Excel-viennit: tulot, asiakkaat, tilaukset"),
     summary: l3("Tải bảng doanh thu, danh sách khách và đơn hàng về máy dưới dạng Excel.", "Download income sheets, customer lists and orders as Excel files.", "Lataa tulotaulukot, asiakasluettelot ja tilaukset Excel-tiedostoina."),
-    video: null,
+    video: null, // batch 7
+    href: "/business/dashboard/income",
+    hrefLabel: l3("Mở Quản trị doanh thu", "Open Income management", "Avaa Tulojen hallinta"),
+    steps: [
+      l3(
+        "Doanh thu: mở “Quản trị doanh thu”, chọn khoảng thời gian (ví dụ “Tháng này”) rồi bấm “Bảng tính”.",
+        "Income: open “Income management”, choose a period (for example “This month”) and press “Spreadsheet”.",
+        "Tulot: avaa ”Tulojen hallinta”, valitse jakso (esimerkiksi tämä kuukausi) ja paina ”Taulukko”."
+      ),
+      l3(
+        "Bấm “Tải bảng (Excel)”: tệp có mỗi lịch hẹn một dòng và dòng tổng dưới từng nhân viên.",
+        "Press “Download (Excel)”: the file has one row per booking and a totals row under each staff member.",
+        "Paina ”Lataa (Excel)”: tiedostossa on rivi jokaista varausta kohti ja summarivi kunkin työntekijän alla."
+      ),
+      l3(
+        "Khách hàng: mở “Khách hàng”, chọn nhóm khách muốn tải rồi bấm “Xuất Excel (CSV)”.",
+        "Customers: open “Customers”, choose the group you want and press “Export to Excel (CSV)”.",
+        "Asiakkaat: avaa ”Asiakkaat”, valitse haluamasi ryhmä ja paina ”Vie Exceliin (CSV)”."
+      ),
+      l3(
+        "Đơn hàng: khi salon đã có đơn sản phẩm, mở “Đơn hàng” và bấm “Xuất Excel (CSV)”.",
+        "Orders: once the salon has product orders, open “Orders” and press “Export to Excel (CSV)”.",
+        "Tilaukset: kun salongilla on tuotetilauksia, avaa ”Tilaukset” ja paina ”Vie Exceliin (CSV)”."
+      ),
+    ],
+    tips: [
+      l3(
+        "Danh sách khách tải về gồm đúng nhóm bạn đang chọn — chọn “Tất cả” nếu muốn tải toàn bộ.",
+        "The customer file contains exactly the group you have selected — choose “All” to download everyone.",
+        "Asiakastiedosto sisältää juuri valitsemasi ryhmän — valitse ”Kaikki”, jos haluat ladata kaikki."
+      ),
+      l3(
+        "Các tệp này có thông tin của khách: chỉ gửi cho người thật sự cần, ví dụ kế toán.",
+        "These files contain customer details: send them only to people who really need them, such as your accountant.",
+        "Tiedostoissa on asiakastietoja: lähetä ne vain niitä todella tarvitseville, esimerkiksi kirjanpitäjälle."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Nút “Tải bảng (Excel)” của doanh thu nằm ở đâu?", "Where is the income “Download (Excel)” button?", "Missä tulojen ”Lataa (Excel)” -painike on?"),
+        options: [l3("Quản trị doanh thu, sau khi chọn “Bảng tính”", "Income management, after choosing “Spreadsheet”", "Tulojen hallinnassa, kun valitset ”Taulukko”"), l3("Trang Giờ mở cửa", "The Opening hours page", "Aukioloajat-sivulla"), l3("Trang Dịch vụ", "The Services page", "Palvelut-sivulla")],
+        answer: 0,
+        why: l3("Bảng tính hiện từng lịch hẹn theo từng nhân viên; tải về là mở được bằng Excel.", "The spreadsheet lists each booking per staff member; the download opens in Excel.", "Taulukossa on jokainen varaus työntekijöittäin; ladattu tiedosto aukeaa Excelissä."),
+      },
+      {
+        q: l3("Danh sách khách tải về gồm những ai?", "Who is in the customer file you download?", "Keitä ladatussa asiakastiedostossa on?"),
+        options: [l3("Luôn là toàn bộ khách", "Always every customer", "Aina kaikki asiakkaat"), l3("Đúng nhóm khách bạn đang chọn", "Exactly the group you have selected", "Juuri valitsemasi ryhmä"), l3("Chỉ khách VIP", "Only VIP customers", "Vain VIP-asiakkaat")],
+        answer: 1,
+        why: l3("Chọn nhóm trước (Tất cả, Khách mới, Lâu chưa quay lại…) rồi mới bấm xuất.", "Pick the group first (All, New, Not seen for a while…) and then export.", "Valitse ensin ryhmä (kaikki, uudet, pitkään poissa olleet…) ja vie sitten."),
+      },
+      {
+        q: l3("Nên gửi các tệp Excel này cho ai?", "Who should you send these Excel files to?", "Kenelle nämä Excel-tiedostot kannattaa lähettää?"),
+        options: [l3("Chỉ người thật sự cần, ví dụ kế toán", "Only people who really need them, such as your accountant", "Vain niitä todella tarvitseville, kuten kirjanpitäjälle"), l3("Đăng lên mạng xã hội", "Post them on social media", "Julkaista somessa"), l3("Gửi cho mọi khách", "Send them to every customer", "Lähettää kaikille asiakkaille")],
+        answer: 0,
+        why: l3("Tệp có tên và số điện thoại của khách, cần giữ kín.", "The files contain customers' names and phone numbers and must be kept private.", "Tiedostoissa on asiakkaiden nimiä ja puhelinnumeroita, ja ne on pidettävä yksityisinä."),
+      },
+    ],
   },
   {
     slug: "khach-hang",
@@ -1474,7 +1759,7 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Thẻ quà tặng", "Gift cards", "Lahjakortit"),
     summary: l3("Tạo mẫu thẻ, gửi thẻ qua email, xác nhận thanh toán và kiểm tra mã khi khách đến.", "Create card designs, email cards, confirm payment and check the code at the visit.", "Luo korttimallit, lähetä kortit sähköpostilla, vahvista maksu ja tarkista koodi käynnillä."),
-    video: null, // batch 6
+    video: video("the-qua-tang-salon", 74, "2026-11-16"),
     href: "/business/dashboard/gift-cards",
     hrefLabel: l3("Mở Thẻ quà tặng", "Open Gift cards", "Avaa Lahjakortit"),
     steps: [
@@ -1630,7 +1915,63 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Tiện ích nhóm: chat, thông báo, đào tạo nhân viên", "Team hub: chat, notices and staff training", "Tiimin työtila: chat, tiedotteet ja koulutus"),
     summary: l3("Không gian làm việc chung của salon cho chủ và nhân viên.", "A shared workspace for the owner and the staff.", "Yhteinen työtila omistajalle ja henkilökunnalle."),
-    video: null,
+    video: null, // batch 7
+    href: "/business/dashboard/utilities",
+    hrefLabel: l3("Mở Tiện ích", "Open the team hub", "Avaa tiimin työtila"),
+    steps: [
+      l3(
+        "Bấm mục “Tiện ích”: trang tổng quan có ba phần chính là “Nhóm chat”, “Thông báo” và “Đào tạo”.",
+        "Open the team hub: the overview has three main parts — team chat, notices and training.",
+        "Avaa tiimin työtila: yleisnäkymässä on kolme pääosaa — ryhmächat, tiedotteet ja koulutus."
+      ),
+      l3(
+        "“Nhóm chat”: mở nhóm “Cả salon”, gõ tin nhắn rồi bấm gửi; bấm “Trò chuyện mới” để nhắn riêng với một nhân viên.",
+        "Team chat: open the whole-salon group, type a message and send it; start a new conversation to message one staff member privately.",
+        "Ryhmächat: avaa koko salongin ryhmä, kirjoita viesti ja lähetä; aloita uusi keskustelu, kun haluat viestiä yhdelle työntekijälle."
+      ),
+      l3(
+        "“Thông báo”: bấm “Viết thông báo mới”, nhập tiêu đề và nội dung, chọn mức độ (“Thông thường”, “Quan trọng”, “Khẩn cấp”) rồi bấm “Đăng thông báo”.",
+        "Notices: write a new notice with a title and text, choose how important it is (normal, important or urgent) and publish it.",
+        "Tiedotteet: kirjoita uusi tiedote otsikolla ja tekstillä, valitse tärkeys (tavallinen, tärkeä tai kiireellinen) ja julkaise."
+      ),
+      l3(
+        "“Đào tạo”: bấm “Thêm bài đào tạo”, đặt tên bài, chọn chủ đề, viết các bước hoặc dán link YouTube rồi bấm “Lưu bài học”.",
+        "Training: add a lesson with a name and a topic, write the steps or paste a YouTube link, then save it.",
+        "Koulutus: lisää oppitunti nimellä ja aiheella, kirjoita vaiheet tai liitä YouTube-linkki ja tallenna."
+      ),
+    ],
+    tips: [
+      l3(
+        "Bật “Ghim lên đầu” cho thông báo quan trọng, và “Yêu cầu xác nhận đã đọc” để biết ai đã đọc.",
+        "Pin important notices to the top, and ask for a read confirmation to see who has read them.",
+        "Kiinnitä tärkeät tiedotteet ylimmäksi ja pyydä lukukuittaus, niin näet, ketkä ovat lukeneet ne."
+      ),
+      l3(
+        "Bật “Bắt buộc” cho bài đào tạo mọi nhân viên phải học — bạn theo dõi được ai đã hoàn thành.",
+        "Mark a lesson as required when every staff member must take it — you can follow who has finished.",
+        "Merkitse oppitunti pakolliseksi, kun kaikkien on käytävä se — näet, ketkä ovat suorittaneet sen."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Mục “Tiện ích” có ba phần chính nào?", "What are the three main parts of the team hub?", "Mitkä ovat tiimin työtilan kolme pääosaa?"),
+        options: [l3("Nhóm chat, Thông báo, Đào tạo", "Team chat, notices and training", "Ryhmächat, tiedotteet ja koulutus"), l3("Dịch vụ, Giá, Giờ mở cửa", "Services, prices and opening hours", "Palvelut, hinnat ja aukioloajat"), l3("Poster, Bảng giá, Thẻ quà tặng", "Posters, price lists and gift cards", "Julisteet, hinnastot ja lahjakortit")],
+        answer: 0,
+        why: l3("Mọi thứ cả đội cần đều ở cùng một nơi.", "Everything the team needs is in one place.", "Kaikki tiimin tarvitsema on yhdessä paikassa."),
+      },
+      {
+        q: l3("Muốn biết nhân viên nào đã đọc thông báo, bạn bật gì?", "What do you turn on to see which staff have read a notice?", "Minkä otat käyttöön nähdäksesi, ketkä ovat lukeneet tiedotteen?"),
+        options: [l3("“Yêu cầu xác nhận đã đọc”", "The read confirmation", "Lukukuittauksen"), l3("“Ghim lên đầu”", "Pin to top", "Kiinnityksen ylimmäksi"), l3("Không có cách nào", "There is no way", "Se ei ole mahdollista")],
+        answer: 0,
+        why: l3("Nhân viên bấm xác nhận, và bạn thấy được ai đã đọc.", "Staff confirm they have read it, and you see who has.", "Työntekijät kuittaavat lukeneensa, ja näet ketkä ovat kuitanneet."),
+      },
+      {
+        q: l3("Bài đào tạo có thể chứa những gì?", "What can a training lesson contain?", "Mitä koulutusoppitunti voi sisältää?"),
+        options: [l3("Chỉ chữ", "Text only", "Vain tekstiä"), l3("Các bước, link video YouTube và tài liệu đính kèm", "Steps, a YouTube video link and attached files", "Vaiheet, YouTube-videolinkin ja liitetiedostoja"), l3("Chỉ hình ảnh", "Pictures only", "Vain kuvia")],
+        answer: 1,
+        why: l3("Nhân viên mở ra học trên điện thoại bất cứ lúc nào.", "Staff can open it and learn on their phone at any time.", "Työntekijät voivat avata sen puhelimella milloin tahansa."),
+      },
+    ],
   },
   {
     slug: "cong-tac-vien",
