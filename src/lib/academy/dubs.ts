@@ -5,9 +5,11 @@
  * without an English one keeps the original Vietnamese video. */
 export const DUBS: Record<string, Record<string, { seconds: number; published: string }>> = {
   en: {
-    "dat-lich-online": { seconds: 179, published: "2026-11-16" },
-    "dich-vu": { seconds: 100, published: "2026-11-16" },
-    "tai-khoan": { seconds: 83, published: "2026-11-16" },
-    "gio-mo-cua": { seconds: 63, published: "2026-11-16" },
+    "dat-lich-online": { seconds: 136, published: "2026-11-16" },
+    "tai-khoan": { seconds: 63, published: "2026-11-16" },
+    "dich-vu": { seconds: 85, published: "2026-11-16" },
+    "gio-mo-cua": { seconds: 55, published: "2026-11-16" },
+    "cai-app": { seconds: 82, published: "2026-11-16" },
+    "lich-hen-cua-toi": { seconds: 57, published: "2026-11-16" },
   },
 };

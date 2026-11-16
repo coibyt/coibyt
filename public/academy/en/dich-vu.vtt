@@ -1,100 +1,85 @@
 WEBVTT
 
-00:00:00.740 --> 00:00:01.190
-Hello.
+00:00:00.540 --> 00:00:01.070
+Hello!
 
-00:00:01.620 --> 00:00:04.950
-Services and prices are the first thing customers look at when they
+00:00:01.191 --> 00:00:04.670
+Services and prices are the first thing customers look at when they book.
 
-00:00:04.900 --> 00:00:05.270
-book.
+00:00:05.019 --> 00:00:08.110
+In this lesson, I'll show you how to add a service to your salon:
 
-00:00:05.780 --> 00:00:09.430
-In this lesson, I'll show you how to add a service to your salon,
-
-00:00:09.860 --> 00:00:14.150
+00:00:08.299 --> 00:00:12.270
 its name, how long it takes, the price, and who performs it.
 
-00:00:14.740 --> 00:00:17.190
+00:00:12.619 --> 00:00:15.150
 Customers see exactly that when they book online.
 
-00:00:18.116 --> 00:00:19.126
-In your dashboard.
+00:00:15.749 --> 00:00:18.359
+In your dashboard, tap Services in the menu.
 
-00:00:19.076 --> 00:00:20.806
-Tap services in the menu.
+00:00:18.608 --> 00:00:22.359
+Here is your salon's whole service menu, with prices and durations.
 
-00:00:21.316 --> 00:00:25.526
-Here is your salon's whole service menu with prices and durations.
+00:00:22.783 --> 00:00:25.079
+To add a new one, tap Add service.
 
-00:00:26.196 --> 00:00:28.486
-To add a new one Tap Add service.
+00:00:25.682 --> 00:00:26.772
+A form opens.
 
-00:00:29.328 --> 00:00:30.418
-A form opens
+00:00:26.880 --> 00:00:31.252
+Under Basics, enter the Service name, for example, French manicure.
 
-00:00:31.168 --> 00:00:33.618
-under Basics, enter the service name.
+00:00:31.608 --> 00:00:34.532
+Choose a Service group, if you sort your menu into groups.
 
-00:00:33.568 --> 00:00:35.698
-For example French Manicure
+00:00:34.919 --> 00:00:36.212
+And write a short Description:
 
-00:00:36.128 --> 00:00:37.458
-Choose a service group.
-
-00:00:37.408 --> 00:00:41.698
-If you sort your menu into groups and write a short description,
-
-00:00:42.128 --> 00:00:45.418
+00:00:36.467 --> 00:00:39.332
 it appears right under the service name when a customer picks it.
 
-00:00:46.054 --> 00:00:47.464
-Next time and price.
+00:00:39.924 --> 00:00:41.654
+Next, Time and price.
 
-00:00:48.214 --> 00:00:53.304
-Tap a duration, for example 45 minutes or type any number of minutes.
+00:00:41.763 --> 00:00:46.694
+Tap a Duration, for example forty-five minutes, or type any number of minutes.
 
-00:00:53.974 --> 00:00:57.304
+00:00:46.973 --> 00:00:50.054
 Cleanup time after is the break between two customers.
 
-00:00:57.734 --> 00:01:00.424
-Choose the currency, then enter the price.
+00:00:50.323 --> 00:00:52.694
+Choose the Currency, then enter the Price.
 
-00:01:00.934 --> 00:01:04.744
-If you want customers to pay a deposit, fill in deposit too.
+00:00:52.963 --> 00:00:56.294
+If you want customers to pay a deposit, fill in Deposit too.
 
-00:01:05.334 --> 00:01:08.904
-The Golden Line below shows exactly what customers will see.
+00:00:56.640 --> 00:00:59.894
+The golden line below shows exactly what customers will see.
 
-00:01:09.570 --> 00:01:11.060
-Then who performs it.
+00:01:00.410 --> 00:01:01.900
+Then, Who performs it.
 
-00:01:11.730 --> 00:01:14.180
-Tap the staff members who can do this service.
+00:01:02.195 --> 00:01:06.060
+Tap the staff members who can do this service, or tap Select all.
 
-00:01:14.370 --> 00:01:16.100
-Or tap select all
+00:01:06.308 --> 00:01:08.300
+When you're done, tap Save at the bottom.
 
-00:01:16.850 --> 00:01:19.620
-when you're done, tap save at the bottom.
-
-00:01:20.311 --> 00:01:22.841
+00:01:08.846 --> 00:01:11.197
 The new service appears in the list straight away.
 
-00:01:23.751 --> 00:01:25.721
-Each service has its buttons
+00:01:11.543 --> 00:01:13.197
+Each service has its buttons:
 
-00:01:26.151 --> 00:01:29.081
-Edit duplicate to quickly create a similar one,
+00:01:13.298 --> 00:01:17.810
+Edit, Duplicate to quickly create a similar one, Add-ons to attach extras,
 
-00:01:29.431 --> 00:01:32.321
-Add ons to attach extras and hide.
+00:01:17.760 --> 00:01:19.437
+and Hide when you pause it.
 
-00:01:32.271 --> 00:01:33.321
-When you pause it,
+00:01:19.892 --> 00:01:22.557
+You can also drag the handle on the left to change the order.
 
-00:01:33.991 --> 00:01:37.321
-you can also drag the handle on the left to change the order.
-
-00:01:38.151 --> 00:01:39.401
+00:01:22.906 --> 00:01:24.237
 Now take the quiz below.
