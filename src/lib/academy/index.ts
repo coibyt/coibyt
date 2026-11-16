@@ -2,12 +2,28 @@
  * shaped for the hub and for a lesson page. */
 import { COURSES as SITE_COURSES, LESSONS as SITE_LESSONS } from "@/lib/academy/curriculum";
 import { CRAFT_BRIDGE, CRAFT_COURSES, CRAFT_LESSONS } from "@/lib/academy/craft";
+import { DUBS } from "@/lib/academy/dubs";
 import { localizedUrl } from "@/lib/seo";
-import { pick, type Audience, type CourseCard, type Lesson, type LessonCard } from "@/lib/academy/types";
+import { pick, type Audience, type CourseCard, type Lesson, type LessonCard, type LessonVideo } from "@/lib/academy/types";
 
 /** The software lessons (curriculum.ts) and the craft-skill lessons (craft.ts) form one Academy. */
 const COURSES = [...SITE_COURSES, ...CRAFT_COURSES];
 const LESSONS = [...SITE_LESSONS, ...CRAFT_LESSONS];
+
+/** The video a visitor in `locale` gets, and the language it is spoken in:
+ * the recording in their language, else the English one, else the original. */
+export function videoFor(lesson: Lesson, locale: string): (LessonVideo & { lang: string }) | null {
+  if (!lesson.video) return null;
+  if (locale !== "vi") {
+    const lang = DUBS[locale]?.[lesson.slug] ? locale : "en";
+    const dub = DUBS[lang]?.[lesson.slug];
+    if (dub) {
+      const base = `/academy/${lang}/${lesson.slug}`;
+      return { src: `${base}.mp4`, poster: `${base}.jpg`, captions: `${base}.vtt`, seconds: dub.seconds, published: dub.published, lang };
+    }
+  }
+  return { ...lesson.video, lang: "vi" };
+}
 
 const audienceOf = (lesson: Lesson): Audience => COURSES.find((c) => c.id === lesson.course)?.audience ?? "customer";
 
@@ -34,8 +50,8 @@ function card(lesson: Lesson, locale: string, no: number): LessonCard {
     summary: pick(lesson.summary, locale),
     live: !!lesson.video,
     fresh: !!lesson.fresh,
-    poster: lesson.video?.poster ?? null,
-    seconds: lesson.video?.seconds ?? 0,
+    poster: videoFor(lesson, locale)?.poster ?? null,
+    seconds: videoFor(lesson, locale)?.seconds ?? 0,
     quizCount: lesson.quiz?.length ?? 0,
     style: lesson.style ?? null,
   };
@@ -68,7 +84,8 @@ export const findLesson = (slug: string) => LESSONS.find((l) => l.slug === slug 
 /** Everything a lesson page needs, in one language. */
 export function lessonPageData(slug: string, locale: string) {
   const lesson = findLesson(slug);
-  if (!lesson?.video) return null;
+  const video = lesson && videoFor(lesson, locale);
+  if (!lesson || !video) return null;
   const { no, count } = numbers();
   const audience = audienceOf(lesson);
   const course = COURSES.find((c) => c.id === lesson.course)!;
@@ -78,6 +95,7 @@ export function lessonPageData(slug: string, locale: string) {
   const after = [...track.slice(at + 1), ...track.slice(0, at)].find((l) => l.video);
   return {
     lesson,
+    video,
     audience,
     view: {
       slug,
@@ -88,7 +106,7 @@ export function lessonPageData(slug: string, locale: string) {
       courseTitle: pick(course.title, locale),
       title: pick(lesson.title, locale),
       summary: pick(lesson.summary, locale),
-      video: { src: lesson.video.src, poster: lesson.video.poster, captions: lesson.video.captions, seconds: lesson.video.seconds },
+      video: { src: video.src, poster: video.poster, captions: video.captions, seconds: video.seconds, lang: video.lang },
       href: lesson.href ?? null,
       hrefLabel: lesson.hrefLabel ? pick(lesson.hrefLabel, locale) : null,
       guide: lesson.guide ?? null,

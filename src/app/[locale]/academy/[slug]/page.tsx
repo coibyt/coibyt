@@ -10,10 +10,10 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { locale, slug } = await params;
   const data = lessonPageData(slug, locale);
   if (!data) return {};
-  const { view, lesson } = data;
+  const { view, video } = data;
   const title = `${view.title} — VaraaAi`;
   const description = metaDescription(view.summary);
-  const poster = absoluteUrl(lesson.video!.poster)!;
+  const poster = absoluteUrl(video.poster)!;
   return {
     title,
     description,
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       siteName: "VaraaAi",
       type: "video.other",
       images: [{ url: poster, width: 1280, height: 720 }],
-      videos: [{ url: absoluteUrl(lesson.video!.src)!, type: "video/mp4", width: 1280, height: 720 }],
+      videos: [{ url: absoluteUrl(video.src)!, type: "video/mp4", width: 1280, height: 720 }],
     },
     twitter: { card: "summary_large_image", title, description, images: [poster] },
   };
@@ -39,8 +39,7 @@ export default async function AcademyLessonPage({ params }: { params: Params }) 
   const { locale, slug } = await params;
   const data = lessonPageData(slug, locale);
   if (!data) notFound();
-  const { view, lesson } = data;
-  const video = lesson.video!;
+  const { view, video } = data;
 
   const videoLd = {
     "@context": "https://schema.org",
@@ -51,7 +50,7 @@ export default async function AcademyLessonPage({ params }: { params: Params }) 
     contentUrl: absoluteUrl(video.src),
     uploadDate: `${video.published}T08:00:00+02:00`,
     duration: isoDuration(video.seconds),
-    inLanguage: "vi",
+    inLanguage: video.lang,
     isFamilyFriendly: true,
     publisher: { "@type": "Organization", name: "VaraaAi", url: SITE, logo: { "@type": "ImageObject", url: `${SITE}/icons/icon-512.png` } },
   };

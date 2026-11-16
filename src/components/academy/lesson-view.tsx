@@ -19,7 +19,7 @@ export interface LessonViewData {
   courseTitle: string;
   title: string;
   summary: string;
-  video: { src: string; poster: string; captions: string; seconds: number };
+  video: { src: string; poster: string; captions: string; seconds: number; lang: string };
   href: string | null;
   hrefLabel: string | null;
   guide: string | null;
@@ -366,7 +366,7 @@ function Player({
           }}
           onError={() => setFailed(true)}
         >
-          <track kind="subtitles" srcLang="vi" label="Tiếng Việt" src={lesson.video.captions} />
+          <track kind="subtitles" srcLang={lesson.video.lang} label={lesson.video.lang === "vi" ? "Tiếng Việt" : "English"} src={lesson.video.captions} />
         </video>
 
         {!started && !failed && (
