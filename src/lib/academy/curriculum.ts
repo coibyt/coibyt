@@ -1522,7 +1522,7 @@ export const LESSONS: Lesson[] = [
     guide: "ai-chat",
     title: l3("Tin nhắn và trợ lý AI", "Messages and the AI assistant", "Viestit ja tekoälyavustaja"),
     summary: l3("Trả lời khách trong Hộp thư và bật trợ lý AI khi bạn vắng mặt.", "Answer customers in the inbox and let the AI reply while you're away.", "Vastaa asiakkaille ja anna tekoälyn vastata, kun olet poissa."),
-    video: null, // tin-nhan-ai: rebuilding
+    video: video("tin-nhan-ai", 55, "2026-11-16"),
     href: "/business/dashboard/messages",
     hrefLabel: l3("Mở Tin nhắn", "Open Messages", "Avaa Viestit"),
     steps: [
