@@ -265,7 +265,13 @@ export function AcademyHub({ courses, bridge, locale }: { courses: CourseCard[];
               <ul className="mt-5 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
                 {c.lessons.map((l) => (
                   <li key={l.slug}>
-                    <LessonTile lesson={l} done={!!state.lessons[l.slug]?.done} pos={state.lessons[l.slug]?.pos ?? 0} s={s} />
+                    <LessonTile
+                      lesson={l}
+                      done={!!state.lessons[l.slug]?.done}
+                      pos={state.lessons[l.slug]?.pos ?? 0}
+                      s={s}
+                      styleText={l.style === "theory" ? cs.styleTheory : l.style === "practice" ? cs.stylePractice : undefined}
+                    />
                   </li>
                 ))}
               </ul>
@@ -404,7 +410,7 @@ function Poster({ lesson, className = "" }: { lesson: LessonCard; className?: st
   );
 }
 
-function LessonTile({ lesson, done, pos, s }: { lesson: LessonCard; done: boolean; pos: number; s: ReturnType<typeof academyStrings> }) {
+function LessonTile({ lesson, done, pos, s, styleText }: { lesson: LessonCard; done: boolean; pos: number; s: ReturnType<typeof academyStrings>; styleText?: string }) {
   if (!lesson.live) {
     return (
       <div className="flex h-full items-center gap-3 rounded-2xl border border-dashed border-ink-200 bg-white/60 p-3">
@@ -448,6 +454,7 @@ function LessonTile({ lesson, done, pos, s }: { lesson: LessonCard; done: boolea
           <span className="text-[11px] font-bold uppercase tracking-wider text-[#b08a3e]">
             {s.lessonWord} {lesson.no}
           </span>
+          {styleText && <span className="rounded-full bg-primary-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary-700 ring-1 ring-primary-100">{styleText}</span>}
           {lesson.fresh && <span className="rounded-full bg-coral-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-coral-600">{s.fresh}</span>}
           {done && <span className="text-[11px] font-bold text-sage-600">{s.done}</span>}
         </span>

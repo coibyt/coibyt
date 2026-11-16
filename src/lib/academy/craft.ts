@@ -9,7 +9,11 @@
  *
  * The owner's direction (2026-11-16): theory in depth, the rules of the job
  * and shared experience, told like a mentor talking; pictures illustrate.
- * `steps` therefore hold a lesson's key points (shown as "Những điều cần nhớ").
+ * After the samples they asked for BOTH kinds for every topic, with two
+ * titles: `style: "theory"` (the mentor's talk) and `style: "practice"` (the
+ * steps in pictures), theory first. A planned topic is one `soon(…)` entry
+ * until its videos exist. `steps` hold a lesson's key points or steps (shown
+ * as "Những điều cần nhớ").
  *
  * Videos are made with the pipeline kept outside this repo
  * (C:\Hiep\hoat-hinh-ai\projects\varaaai-nghe): generated photographs with
@@ -89,7 +93,8 @@ export const CRAFT_LESSONS: Lesson[] = [
   {
     slug: "ve-sinh-dung-cu",
     course: "p-safety",
-    title: l3("Vệ sinh, khử khuẩn, tiệt trùng dụng cụ", "Cleaning, disinfecting and sterilising tools", "Välineiden puhdistus, desinfiointi ja sterilointi"),
+    style: "practice",
+    title: l3("Xử lý dụng cụ sau mỗi khách: quy trình từng bước", "Tools after every customer: the routine, step by step", "Välineet jokaisen asiakkaan jälkeen: työvaiheet"),
     summary: l3(
       "Quy trình xử lý dụng cụ sau mỗi khách cho tiệm nail, mi, tóc và spa: làm sạch, khử khuẩn, tiệt trùng, cất giữ — và dụng cụ nào cần mức nào.",
       "What to do with your tools after every customer in a nail, lash, hair or spa business: clean, disinfect, sterilise, store — and which tool needs which level.",
@@ -233,6 +238,7 @@ export const CRAFT_LESSONS: Lesson[] = [
   {
     slug: "gel-hieu-dung",
     course: "p-nail",
+    style: "theory",
     title: l3("Sơn gel: hiểu đúng để làm bền", "Gel polish: understand it to make it last", "Geelilakka: ymmärrä, niin se kestää"),
     summary: l3(
       "Người thầy ngồi xuống kể chuyện nghề: cấu tạo móng, vì sao gel bám và vì sao bong, gel chín như thế nào, dị ứng, quy định EU và kinh nghiệm xử lý với khách.",
@@ -354,7 +360,8 @@ export const CRAFT_LESSONS: Lesson[] = [
   {
     slug: "son-gel",
     course: "p-nail",
-    title: l3("Sơn gel từ A đến Z", "Gel polish from A to Z", "Geelilakkaus alusta loppuun"),
+    style: "practice",
+    title: l3("Sơn gel: thực hành từ A đến Z", "Gel polish: step-by-step practice from A to Z", "Geelilakkaus: käytäntö alusta loppuun"),
     summary: l3(
       "Một bộ sơn gel hoàn chỉnh: kiểm tra móng, dũa form, xử lý da, chà nhám, làm sạch, lớp base, hai lớp màu, lớp top và dầu dưỡng — bền 2–3 tuần.",
       "A complete gel polish manicure: checking the nails, shaping, cuticle work, buffing, cleansing, base, two colour coats, top coat and oil — lasting 2–3 weeks.",

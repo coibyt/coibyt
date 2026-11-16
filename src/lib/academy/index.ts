@@ -37,6 +37,7 @@ function card(lesson: Lesson, locale: string, no: number): LessonCard {
     poster: lesson.video?.poster ?? null,
     seconds: lesson.video?.seconds ?? 0,
     quizCount: lesson.quiz?.length ?? 0,
+    style: lesson.style ?? null,
   };
 }
 
@@ -96,6 +97,7 @@ export function lessonPageData(slug: string, locale: string) {
       quiz: (lesson.quiz ?? []).map((q) => ({ q: pick(q.q, locale), options: q.options.map((o) => pick(o, locale)), answer: q.answer, why: pick(q.why, locale) })),
       siblings: LESSONS.filter((l) => l.course === lesson.course).map((l) => card(l, locale, no.get(l.slug) ?? 0)),
       next: after ? { slug: after.slug, title: pick(after.title, locale) } : null,
+      style: lesson.style ?? null,
       notice: lesson.notice ? pick(lesson.notice, locale) : null,
       sources: lesson.sources ?? [],
       related: (lesson.related ?? [])

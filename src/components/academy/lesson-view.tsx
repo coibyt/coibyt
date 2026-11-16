@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { academyStrings } from "@/lib/academy/strings";
 import { craftStrings } from "@/lib/academy/craft-strings";
 import { WATCHED_RATIO, XP_ANSWER, XP_LESSON, fmtDuration } from "@/lib/academy/progress";
-import type { Audience, LessonCard } from "@/lib/academy/types";
+import type { Audience, LessonCard, LessonStyle } from "@/lib/academy/types";
 import { useAcademyProgress, useHydrated } from "@/components/academy/use-progress";
 
 export interface LessonViewData {
@@ -30,6 +30,8 @@ export interface LessonViewData {
   siblings: LessonCard[];
   /** The next lesson that has a video, if any. */
   next: { slug: string; title: string } | null;
+  /** Craft lessons: which of the topic's two videos this is. */
+  style: LessonStyle | null;
   /** Craft lessons: a safety note, the official sources behind it, and the
    * software lessons that put the skill to work in VaraaAi. */
   notice: string | null;
@@ -80,6 +82,11 @@ export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale:
           </Link>
           <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-bold uppercase tracking-[0.18em] text-[#e8d3a6]">
             <span>{lesson.courseTitle}</span>
+            {lesson.style && (
+              <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[11px] tracking-wide text-white ring-1 ring-white/20">
+                {lesson.style === "theory" ? cs.styleTheory : cs.stylePractice}
+              </span>
+            )}
             <span className="text-white/30">·</span>
             <span>{s.lessonOf(lesson.no, lesson.total)}</span>
             <span className="text-white/30">·</span>

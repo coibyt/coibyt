@@ -10,7 +10,9 @@ const vi = {
   certTrack: "Khoá học nghề làm đẹp trực tuyến",
   certNote: "Chứng nhận hoàn thành khoá học trực tuyến của VaraaAi — không phải chứng chỉ hành nghề hay bằng cấp chính thức.",
   introTitle: "Học nghề cùng người đi trước",
-  introBody: "Mỗi bài là một buổi trò chuyện với người thầy: lý thuyết chuyên sâu, quy tắc làm việc và kinh nghiệm thực tế trong nghề, kèm hình ảnh minh hoạ. Hiểu vì sao, rồi mới làm.",
+  introBody: "Mỗi chủ đề có hai video. Bài “Lý thuyết & kinh nghiệm”: người thầy kể chuyện nghề, phân tích lý thuyết và quy tắc làm việc. Bài “Thực hành từng bước”: hình ảnh từng thao tác, đánh dấu đúng chỗ đang làm. Hiểu vì sao, rồi mới làm.",
+  styleTheory: "Lý thuyết & kinh nghiệm",
+  stylePractice: "Thực hành từng bước",
   keyPointsTitle: "Những điều cần nhớ",
   disclaimer:
     "Video là tài liệu hỗ trợ học tập. Chúng không thay thế việc thực hành có người hướng dẫn và không phải chứng chỉ hành nghề. Luôn làm theo hướng dẫn của hãng sản phẩm và quy định ở nơi bạn làm việc.",
@@ -32,7 +34,9 @@ const en: S = {
   certTrack: "Online beauty craft course",
   certNote: "Certificate of completion for VaraaAi's online course — not a professional licence or an official qualification.",
   introTitle: "Learn the trade from someone who has done it",
-  introBody: "Each lesson is a talk with a mentor: the theory in depth, the rules of the job and what experience teaches, with pictures to illustrate. Understand why first, then do.",
+  introBody: "Every topic has two videos. “Theory & experience”: a mentor talks about the trade, the theory and the rules of the job. “Step-by-step practice”: each move in pictures, with the working area marked. Understand why first, then do.",
+  styleTheory: "Theory & experience",
+  stylePractice: "Step-by-step practice",
   keyPointsTitle: "Key points to remember",
   disclaimer:
     "These videos are study aids. They don't replace supervised hands-on training and they are not a professional licence. Always follow the product manufacturer's instructions and the rules where you work.",
@@ -52,7 +56,9 @@ const fi: S = {
   certTrack: "Kauneusalan verkkokurssi",
   certNote: "Todistus VaraaAin verkkokurssin suorittamisesta — ei ammattipätevyys eikä virallinen tutkinto.",
   introTitle: "Opi ammatti kokeneelta tekijältä",
-  introBody: "Jokainen tunti on keskustelu mentorin kanssa: syvällinen teoria, työn säännöt ja kokemuksen opit, kuvat havainnollistavat. Ymmärrä ensin miksi, tee sitten.",
+  introBody: "Jokaisesta aiheesta on kaksi videota. ”Teoria ja kokemus”: mentori kertoo ammatista, teoriasta ja työn säännöistä. ”Käytäntö vaihe vaiheelta”: jokainen työvaihe kuvina, työkohta merkittynä. Ymmärrä ensin miksi, tee sitten.",
+  styleTheory: "Teoria ja kokemus",
+  stylePractice: "Käytäntö vaihe vaiheelta",
   keyPointsTitle: "Muista nämä",
   disclaimer:
     "Videot ovat opiskelun tukea. Ne eivät korvaa ohjattua käytännön harjoittelua eivätkä ole ammattipätevyys. Noudata aina tuotteen valmistajan ohjeita ja työpaikkasi määräyksiä.",
