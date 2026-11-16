@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
 import { SEO_LOCALES, SITE, absoluteUrl, localizedUrl } from "@/lib/seo";
+import { liveLessons } from "@/lib/academy";
 
 // Built from the database on every request, so a new salon, product or
 // fanpage post is in the sitemap the moment it goes live — no rebuild.
@@ -132,6 +133,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/tools/price-list", 0.7, "monthly"),
     entry("/tools/qr-poster", 0.7, "monthly"),
     entry("/help/getting-started", 0.5, "monthly"),
+    entry("/academy", 0.7, "weekly"),
+    ...liveLessons().map((l) => entry(`/academy/${l.slug}`, 0.6, "monthly", new Date(l.video!.published), [l.video!.poster])),
     entry("/support", 0.4, "monthly"),
     entry("/directory", 0.3, "daily", newest),
     entry("/privacy", 0.2, "yearly"),

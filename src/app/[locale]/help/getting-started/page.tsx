@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, BookOpen, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, MessageCircle, PlayCircle, Sparkles } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { GROUPS, GUIDES, tr, type Block, type T } from "@/lib/help/guides";
@@ -26,6 +26,7 @@ const COPY = {
     subtitle: "Hướng dẫn từng bước, có hình minh họa chỉ đúng nút cần bấm — từ thiết lập salon đến giữ chân khách. Không cần tự mày mò.",
     dashboard: "Vào trang quản trị",
     chat: "Hỏi trợ lý AI",
+    videos: "Xem video hướng dẫn",
     stats: ["23 hướng dẫn", "Hình minh họa từng bước", "Hỗ trợ 24/7"],
     labels: {
       search: "Tìm hướng dẫn: thẻ tích điểm, giờ mở cửa, nhúng website…",
@@ -49,6 +50,7 @@ const COPY = {
     subtitle: "Step-by-step guides with pictures that point to the exact button — from setting up your salon to keeping customers. No guesswork.",
     dashboard: "Go to dashboard",
     chat: "Ask the AI assistant",
+    videos: "Watch video lessons",
     stats: ["23 guides", "Illustrated steps", "24/7 support"],
     labels: {
       search: "Search guides: loyalty cards, opening hours, embedding…",
@@ -152,6 +154,10 @@ export default async function GettingStartedPage({ params }: { params: Params })
               {c.chat}
             </OpenSupportButton>
           </div>
+          <Link href="/academy#owner" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-peach-200 underline-offset-4 hover:underline">
+            <PlayCircle className="h-4 w-4" />
+            {c.videos}
+          </Link>
           <ul className="mt-7 flex flex-wrap justify-center gap-2">
             {c.stats.map((s) => (
               <li key={s} className="rounded-full bg-white/[0.08] px-3.5 py-1.5 text-xs font-semibold text-white/85 ring-1 ring-white/10">

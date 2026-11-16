@@ -8,6 +8,7 @@ import { spotlightStrings } from "@/lib/business-landing/spotlight";
 import QRCode from "qrcode";
 import { BellRing, Check, Sparkles } from "lucide-react";
 import { FooterAppDownload } from "@/components/footer-app-download";
+import { academyNavLabel, academyOwnerNavLabel } from "@/lib/academy/strings";
 
 export async function Footer() {
   const [t, locale] = await Promise.all([getTranslations("footer"), getLocale()]);
@@ -118,6 +119,7 @@ export async function Footer() {
           links={[
             { href: "/", label: t("forCustomers") },
             { href: "/account/bookings", label: "" },
+            { href: "/academy", label: academyNavLabel(locale) },
           ].filter((l) => l.label)}
         />
         <FooterColumn
@@ -128,6 +130,7 @@ export async function Footer() {
             { href: "/salon-check", label: locale === "vi" ? "Kiểm tra salon miễn phí" : "Free salon check" },
             { href: "/tools/price-list", label: priceListNavLabel(locale) },
             { href: "/tools/qr-poster", label: posterNavLabel(locale) },
+            { href: "/academy#owner", label: academyOwnerNavLabel(locale) },
           ]}
         />
         <FooterColumn
