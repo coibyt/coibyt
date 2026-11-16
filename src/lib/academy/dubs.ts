@@ -7,5 +7,7 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
   en: {
     "dat-lich-online": { seconds: 179, published: "2026-11-16" },
     "dich-vu": { seconds: 100, published: "2026-11-16" },
+    "tai-khoan": { seconds: 83, published: "2026-11-16" },
+    "gio-mo-cua": { seconds: 63, published: "2026-11-16" },
   },
 };
