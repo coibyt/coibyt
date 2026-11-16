@@ -282,7 +282,47 @@ export const LESSONS: Lesson[] = [
     course: "c-bookings",
     title: l3("Xem và huỷ lịch hẹn", "See and cancel a booking", "Katso ja peru varaus"),
     summary: l3("Mở “Lịch hẹn của tôi”, xem thông tin đặt chỗ và tự huỷ trong thời hạn salon cho phép.", "Open “My bookings”, view the details and cancel within the salon's deadline.", "Avaa ”Varaukseni”, katso tiedot ja peru salongin määräajan sisällä."),
-    video: null,
+    video: video("lich-hen-cua-toi", 57, "2026-11-16"),
+    href: "/account/bookings",
+    hrefLabel: l3("Mở Lịch hẹn của tôi", "Open My bookings", "Avaa Varaukseni"),
+    steps: [
+      l3("Đăng nhập, bấm vào tên bạn ở góc trên rồi chọn “Lịch hẹn của tôi”.", "Sign in, tap your name at the top and choose “My bookings”.", "Kirjaudu, napauta nimeäsi ylhäällä ja valitse ”Varaukseni”."),
+      l3(
+        "Mỗi lịch hẹn ghi salon, dịch vụ, ngày giờ, số tiền và trạng thái (ví dụ “Đã xác nhận”).",
+        "Each booking shows the salon, service, date and time, amount and status (e.g. “Confirmed”).",
+        "Jokaisessa varauksessa näkyvät salonki, palvelu, aika, summa ja tila (esim. ”Vahvistettu”)."
+      ),
+      l3("Bấm “Xem thông tin đặt chỗ” để xem nhân viên, giờ hẹn, địa chỉ và số điện thoại salon.", "Press “View booking details” for the staff member, time, address and the salon's phone.", "Paina ”Näytä varauksen tiedot” nähdäksesi tekijän, ajan, osoitteen ja salongin puhelinnumeron."),
+      l3(
+        "Cần huỷ: bấm “Huỷ lịch hẹn”, đọc “Chính sách hủy đặt chỗ”, rồi bấm “Xác nhận hủy”. Lịch chuyển sang “Đã huỷ”.",
+        "To cancel: press “Cancel booking”, read the cancellation policy, then press “Confirm cancellation”. The booking turns to “Cancelled”.",
+        "Peruaksesi: paina ”Peru varaus”, lue peruutusehdot ja vahvista. Varauksen tilaksi tulee ”Peruttu”."
+      ),
+    ],
+    tips: [
+      l3("Đã quá thời hạn tự huỷ thì liên hệ trực tiếp với salon.", "If the self-cancellation deadline has passed, contact the salon directly.", "Jos oma perumisaika on umpeutunut, ota yhteyttä suoraan salonkiin."),
+      l3("Sau khi làm xong dịch vụ, bấm “Đánh giá” ngay trên lịch hẹn để chia sẻ cảm nhận.", "After your visit, press “Review” on the booking to share how it went.", "Käynnin jälkeen paina varauksen ”Arvostele”-painiketta ja kerro kokemuksestasi."),
+    ],
+    quiz: [
+      {
+        q: l3("Muốn huỷ lịch hẹn, bạn vào đâu?", "Where do you go to cancel a booking?", "Missä varaus perutaan?"),
+        options: [l3("Lịch hẹn của tôi", "My bookings", "Varaukseni"), l3("Bảng tin", "Feed", "Syöte"), l3("Hồ sơ của tôi", "My profile", "Profiilini")],
+        answer: 0,
+        why: l3("Mở lịch hẹn bằng “Xem thông tin đặt chỗ”, rồi bấm “Huỷ lịch hẹn”.", "Open the booking with “View booking details”, then press “Cancel booking”.", "Avaa varaus tiedoista ja paina ”Peru varaus”."),
+      },
+      {
+        q: l3("Trước khi xác nhận huỷ, màn hình cho bạn xem gì?", "What are you shown before you confirm a cancellation?", "Mitä näet ennen perumisen vahvistamista?"),
+        options: [l3("Chính sách huỷ đặt chỗ của salon", "The salon's cancellation policy", "Salongin peruutusehdot"), l3("Quảng cáo", "An advert", "Mainoksen"), l3("Mã giảm giá", "A discount code", "Alennuskoodin")],
+        answer: 0,
+        why: l3("Ví dụ: được tự huỷ đến 24 giờ trước giờ hẹn.", "For example: you may cancel yourself up to 24 hours before the appointment.", "Esimerkiksi: voit perua itse 24 tuntia ennen aikaa."),
+      },
+      {
+        q: l3("Nếu đã quá thời hạn tự huỷ thì làm gì?", "What if the self-cancellation deadline has passed?", "Entä jos oma perumisaika on umpeutunut?"),
+        options: [l3("Liên hệ trực tiếp với salon", "Contact the salon directly", "Ota yhteyttä salonkiin"), l3("Tạo tài khoản mới", "Create a new account", "Luo uusi tili"), l3("Không cần làm gì", "Do nothing", "Älä tee mitään")],
+        answer: 0,
+        why: l3("Salon có thể huỷ hoặc dời lịch giúp bạn.", "The salon can cancel or move the booking for you.", "Salonki voi perua tai siirtää varauksen puolestasi."),
+      },
+    ],
   },
   {
     slug: "chat-voi-salon",
@@ -402,17 +442,110 @@ export const LESSONS: Lesson[] = [
     slug: "dich-vu",
     course: "o-start",
     guide: "services",
-    title: l3("Thêm dịch vụ, nhóm dịch vụ và dịch vụ phụ", "Services, groups and add-ons", "Palvelut, ryhmät ja lisäpalvelut"),
+    title: l3("Thêm dịch vụ và giá", "Add services and prices", "Lisää palvelut ja hinnat"),
     summary: l3("Tên, thời lượng, giá, tiền cọc và nhân viên thực hiện cho từng dịch vụ.", "Name, duration, price, deposit and who performs each service.", "Nimi, kesto, hinta, varausmaksu ja tekijät jokaiselle palvelulle."),
-    video: null,
+    video: video("dich-vu", 79, "2026-11-16"),
+    href: "/business/dashboard/services",
+    hrefLabel: l3("Mở mục Dịch vụ", "Open Services", "Avaa Palvelut"),
+    steps: [
+      l3("Trong trang quản trị, bấm mục “Dịch vụ”, rồi bấm “Thêm dịch vụ”.", "In the dashboard, open “Services” and press “Add service”.", "Avaa hallintapaneelissa ”Palvelut” ja paina ”Lisää palvelu”."),
+      l3(
+        "Ở “Thông tin cơ bản”, nhập “Tên dịch vụ”, chọn “Nhóm dịch vụ” và viết “Mô tả” ngắn.",
+        "Under “Basics”, enter the service name, choose a group and write a short description.",
+        "Anna kohdassa ”Perustiedot” palvelun nimi, valitse ryhmä ja kirjoita lyhyt kuvaus."
+      ),
+      l3(
+        "Ở “Thời gian & giá”, chọn “Thời lượng”, “Thời gian dọn dẹp sau”, “Đơn vị tiền tệ”, “Giá” và “Tiền cọc” nếu cần.",
+        "Under “Time & price”, set the duration, the clean-up time after, the currency, the price and a deposit if you want one.",
+        "Aseta kohdassa ”Aika ja hinta” kesto, siivousaika, valuutta, hinta ja halutessasi varausmaksu."
+      ),
+      l3(
+        "Ở “Nhân viên thực hiện”, chọn những người làm được dịch vụ này (hoặc “Chọn tất cả”).",
+        "Under “Staff”, choose who can perform the service (or “Select all”).",
+        "Valitse kohdassa ”Tekijät”, ketkä tekevät palvelun (tai ”Valitse kaikki”)."
+      ),
+      l3("Bấm “Lưu” ở cuối trang.", "Press “Save” at the bottom.", "Paina lopuksi ”Tallenna”."),
+    ],
+    tips: [
+      l3(
+        "Mỗi dịch vụ có nút “Sửa”, “Nhân bản”, “Add-on” và “Ẩn”; kéo biểu tượng ⋮⋮ bên trái để sắp xếp thứ tự khách nhìn thấy.",
+        "Each service has “Edit”, “Duplicate”, “Add-on” and “Hide”; drag the ⋮⋮ handle on the left to set the order customers see.",
+        "Jokaisella palvelulla on ”Muokkaa”, ”Monista”, ”Lisäpalvelu” ja ”Piilota”; vedä vasemman reunan ⋮⋮-kahvasta järjestyksen muuttamiseksi."
+      ),
+      l3("Ô màu vàng “Khách thấy: …” cho xem trước thời lượng và giá khách sẽ thấy.", "The yellow “Customers see: …” box previews the duration and price shown to customers.", "Keltainen ”Asiakas näkee: …” -ruutu näyttää keston ja hinnan asiakkaan silmin."),
+    ],
+    quiz: [
+      {
+        q: l3("“Thời gian dọn dẹp sau” dùng để làm gì?", "What is “clean-up time after” for?", "Mihin ”siivousaika” on tarkoitettu?"),
+        options: [l3("Khoảng nghỉ giữa hai khách", "A gap between two customers", "Tauko kahden asiakkaan välissä"), l3("Thời gian khách chờ", "The time customers wait", "Asiakkaan odotusaika"), l3("Giờ đóng cửa", "Closing time", "Sulkemisaika")],
+        answer: 0,
+        why: l3("Lịch sẽ tự chừa khoảng trống này sau mỗi lần làm.", "The calendar leaves this gap free after each appointment.", "Kalenteri jättää tämän tauon jokaisen varauksen jälkeen."),
+      },
+      {
+        q: l3("Muốn tạo nhanh một dịch vụ gần giống dịch vụ đã có, bấm nút nào?", "Which button quickly makes a service similar to an existing one?", "Millä painikkeella teet nopeasti samankaltaisen palvelun?"),
+        options: [l3("Ẩn", "Hide", "Piilota"), l3("Nhân bản", "Duplicate", "Monista"), l3("Add-on", "Add-on", "Lisäpalvelu")],
+        answer: 1,
+        why: l3("“Nhân bản” sao chép dịch vụ để bạn chỉ cần sửa tên và giá.", "“Duplicate” copies the service so you only change the name and price.", "”Monista” kopioi palvelun, joten muutat vain nimen ja hinnan."),
+      },
+      {
+        q: l3("Phần “Nhân viên thực hiện” quyết định điều gì?", "What does the “Staff” section decide?", "Mitä ”Tekijät”-osio määrää?"),
+        options: [l3("Ai làm được dịch vụ này", "Who can perform this service", "Kuka voi tehdä palvelun"), l3("Lương nhân viên", "Staff salaries", "Henkilökunnan palkat"), l3("Giờ mở cửa", "Opening hours", "Aukioloajat")],
+        answer: 0,
+        why: l3("Khách chỉ đặt được nhân viên đã được chọn cho dịch vụ.", "Customers can only book staff who are assigned to the service.", "Asiakas voi varata vain palveluun valitun tekijän."),
+      },
+    ],
   },
   {
     slug: "nhan-vien",
     course: "o-start",
     guide: "staff",
-    title: l3("Nhân viên, giờ làm và phân quyền", "Staff, working hours and permissions", "Työntekijät, työajat ja oikeudet"),
-    summary: l3("Thêm nhân viên, lịch làm việc và chọn mục nào nhân viên được xem.", "Add staff and schedules, and choose what each person may see.", "Lisää työntekijät ja vuorot ja valitse, mitä kukin saa nähdä."),
-    video: null,
+    title: l3("Thêm nhân viên và phân quyền", "Add staff and set permissions", "Lisää työntekijät ja oikeudet"),
+    summary: l3("Thêm nhân viên, chọn dịch vụ họ làm và mục nào họ được xem.", "Add staff, choose the services they perform and what each person may see.", "Lisää työntekijät, valitse heidän palvelunsa ja mitä kukin saa nähdä."),
+    video: video("nhan-vien", 64, "2026-11-16"),
+    href: "/business/dashboard/staff",
+    hrefLabel: l3("Mở mục Nhân viên", "Open Staff", "Avaa Henkilökunta"),
+    steps: [
+      l3("Bấm mục “Nhân viên”, rồi bấm “Thêm nhân viên”.", "Open “Staff” and press “Add staff member”.", "Avaa ”Henkilökunta” ja paina ”Lisää työntekijä”."),
+      l3(
+        "Ở “Hồ sơ”, tải ảnh đại diện, nhập “Tên nhân viên”, “Chức danh” và “Giới thiệu”.",
+        "Under “Profile”, upload a photo and enter the name, job title and an introduction.",
+        "Lataa kohdassa ”Profiili” kuva ja anna nimi, tehtävänimike ja esittely."
+      ),
+      l3("Ở “Dịch vụ thực hiện”, chọn những dịch vụ người này làm được.", "Under “Services”, choose what this person can do.", "Valitse kohdassa ”Palvelut”, mitä hän tekee."),
+      l3(
+        "Ở “Tài khoản & quyền truy cập”, nhập email và mật khẩu nếu muốn nhân viên tự đăng nhập, rồi chọn vai trò: Kỹ thuật viên, Lễ tân hoặc Quản lý.",
+        "Under “Account & access”, enter an email and password if they should sign in themselves, then pick a role: Technician, Receptionist or Manager.",
+        "Anna kohdassa ”Tili ja käyttöoikeudet” sähköposti ja salasana, jos hän kirjautuu itse, ja valitse rooli: tekijä, vastaanotto tai esihenkilö."
+      ),
+      l3("Bật tắt từng mục ở “Được xem những mục nào” nếu cần, rồi bấm “Lưu”.", "Fine-tune under “What they may see” if needed, then press “Save”.", "Hienosäädä kohdassa ”Mitä hän saa nähdä” ja paina ”Tallenna”."),
+    ],
+    tips: [
+      l3(
+        "Trong danh sách, bấm “Lịch làm việc” để đặt giờ làm riêng cho từng người, “Cho nghỉ việc” khi họ không còn làm.",
+        "In the list, “Working hours” sets a person's own schedule and “Remove from staff” is for when they leave.",
+        "Luettelossa ”Työajat” asettaa oman aikataulun ja ”Poista henkilökunnasta” on lähtevälle työntekijälle."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Vai trò nào chỉ xem được lịch hẹn của chính mình?", "Which role sees only their own bookings?", "Mikä rooli näkee vain omat varauksensa?"),
+        options: [l3("Kỹ thuật viên", "Technician", "Tekijä"), l3("Lễ tân", "Receptionist", "Vastaanotto"), l3("Quản lý", "Manager", "Esihenkilö")],
+        answer: 0,
+        why: l3("Lễ tân xem lịch cả tiệm; Quản lý xem được mọi mục.", "A receptionist sees the whole salon's calendar; a manager sees every section.", "Vastaanotto näkee koko salongin kalenterin; esihenkilö näkee kaikki osiot."),
+      },
+      {
+        q: l3("Vì sao phải chọn “Dịch vụ thực hiện” cho nhân viên?", "Why choose a staff member's services?", "Miksi työntekijälle valitaan palvelut?"),
+        options: [l3("Để tính lương", "To calculate pay", "Palkan laskemiseksi"), l3("Để khách chỉ đặt được họ cho đúng dịch vụ họ làm", "So customers can only book them for what they do", "Jotta asiakas voi varata hänet vain hänen tekemiinsä palveluihin"), l3("Không bắt buộc, không ảnh hưởng gì", "It makes no difference", "Sillä ei ole merkitystä")],
+        answer: 1,
+        why: l3("Trang đặt lịch chỉ hiện nhân viên được chọn cho dịch vụ đó.", "The booking page only offers staff assigned to that service.", "Varaussivu näyttää vain palveluun valitut tekijät."),
+      },
+      {
+        q: l3("Muốn đặt giờ làm riêng cho một nhân viên, bấm nút nào?", "Which button sets one person's own working hours?", "Mistä asetetaan yhden työntekijän omat työajat?"),
+        options: [l3("Lịch làm việc", "Working hours", "Työajat"), l3("Cho nghỉ việc", "Remove from staff", "Poista henkilökunnasta"), l3("Thêm nhân viên", "Add staff member", "Lisää työntekijä")],
+        answer: 0,
+        why: l3("“Lịch làm việc” nằm ngay trên thẻ của từng nhân viên.", "“Working hours” is on each person's card.", "”Työajat” on jokaisen työntekijän kortissa."),
+      },
+    ],
   },
   {
     slug: "gio-mo-cua",
@@ -420,7 +553,50 @@ export const LESSONS: Lesson[] = [
     guide: "hours",
     title: l3("Giờ mở cửa và ngày nghỉ", "Opening hours and days off", "Aukioloajat ja vapaapäivät"),
     summary: l3("Lịch hằng tuần, nhiều ca trong ngày, ngày nghỉ lễ.", "Weekly schedule, several shifts a day and holidays.", "Viikkoaikataulu, useita vuoroja päivässä ja pyhäpäivät."),
-    video: null,
+    video: video("gio-mo-cua", 49, "2026-11-16"),
+    href: "/business/dashboard/hours",
+    hrefLabel: l3("Mở mục Giờ mở cửa", "Open Opening hours", "Avaa Aukioloajat"),
+    steps: [
+      l3(
+        "Bấm mục “Giờ mở cửa”. Ở “Lịch hằng tuần”, bấm một “Mẫu nhanh” (ví dụ T2–T7 · 9:00–19:00) để điền sẵn cả tuần.",
+        "Open “Opening hours”. Under “Weekly schedule”, press a quick preset (e.g. Mon–Sat 9:00–19:00) to fill the whole week.",
+        "Avaa ”Aukioloajat”. Täytä koko viikko pikamallilla (esim. ma–la 9.00–19.00)."
+      ),
+      l3(
+        "Chỉnh từng ngày: gạt công tắc để bật/tắt ngày, sửa giờ mở và giờ đóng; bấm “Thêm ca” nếu salon nghỉ trưa.",
+        "Adjust single days: switch a day on or off and edit the opening and closing times; press “Add shift” if you close for lunch.",
+        "Muokkaa yksittäisiä päiviä: kytke päivä päälle tai pois ja muuta ajat; lisää toinen vuoro, jos pidät lounastauon."
+      ),
+      l3("Bấm “Lưu giờ mở cửa”.", "Press “Save opening hours”.", "Paina ”Tallenna aukioloajat”."),
+      l3(
+        "Ở “Ngày nghỉ lễ & ngày đóng cửa”, chọn “Từ ngày”, “Đến ngày”, ghi lý do rồi bấm “Thêm ngày nghỉ” — hoặc bấm một gợi ý ngày lễ có sẵn.",
+        "Under “Holidays & closed days”, choose the dates, write a reason and press “Add day off” — or tap one of the suggested holidays.",
+        "Valitse kohdassa ”Pyhät ja suljetut päivät” päivät, kirjoita syy ja lisää vapaapäivä — tai napauta ehdotettua pyhäpäivää."
+      ),
+    ],
+    tips: [
+      l3("Khách chỉ đặt được lịch trong giờ mở cửa, và không đặt được vào ngày nghỉ.", "Customers can only book within opening hours, and never on a closed day.", "Asiakkaat voivat varata vain aukioloaikoina, eivät koskaan suljettuina päivinä."),
+    ],
+    quiz: [
+      {
+        q: l3("Cách nhanh nhất để điền giờ mở cửa cho cả tuần?", "What's the quickest way to fill the whole week?", "Mikä on nopein tapa täyttää koko viikko?"),
+        options: [l3("Bấm một “Mẫu nhanh”", "Press a quick preset", "Painaa pikamallia"), l3("Gõ từng ngày một", "Type each day by hand", "Kirjoittaa joka päivä käsin"), l3("Gọi hỗ trợ", "Call support", "Soittaa tukeen")],
+        answer: 0,
+        why: l3("Mẫu nhanh điền sẵn mọi ngày, sau đó bạn vẫn chỉnh được từng ngày.", "A preset fills every day, and you can still adjust single days afterwards.", "Pikamalli täyttää kaikki päivät, ja voit silti muokata yksittäisiä päiviä."),
+      },
+      {
+        q: l3("Salon nghỉ trưa thì làm thế nào?", "What do you do if the salon closes for lunch?", "Mitä teet, jos salonki on kiinni lounasaikaan?"),
+        options: [l3("Bấm “Thêm ca” để có ca thứ hai trong ngày", "Press “Add shift” for a second shift that day", "Lisäät päivälle toisen vuoron"), l3("Tắt cả ngày đó", "Switch the whole day off", "Suljet koko päivän"), l3("Không làm được", "It can't be done", "Se ei onnistu")],
+        answer: 0,
+        why: l3("Mỗi ngày có thể có hai ca, khoảng giữa là giờ nghỉ.", "A day can have two shifts; the gap between them is the break.", "Päivässä voi olla kaksi vuoroa; niiden väli on tauko."),
+      },
+      {
+        q: l3("Vào ngày đã thêm ở “Ngày nghỉ lễ & ngày đóng cửa”, khách có đặt lịch được không?", "Can customers book on a day added under “Holidays & closed days”?", "Voiko asiakas varata päivälle, joka on lisätty suljetuksi?"),
+        options: [l3("Có", "Yes", "Kyllä"), l3("Không", "No", "Ei"), l3("Chỉ buổi sáng", "Mornings only", "Vain aamulla")],
+        answer: 1,
+        why: l3("Những ngày này khách không đặt được, kể cả khi là ngày làm việc trong tuần.", "Those days can't be booked even if they are normal working days.", "Niille päiville ei voi varata, vaikka ne olisivat tavallisia työpäiviä."),
+      },
+    ],
   },
   {
     slug: "thanh-toan-chinh-sach",
@@ -660,9 +836,71 @@ export const LESSONS: Lesson[] = [
     course: "o-daily",
     guide: "bookings",
     fresh: true,
-    title: l3("Lịch hẹn: thêm, dời, đổi trạng thái", "Calendar: add, move and update bookings", "Kalenteri: lisää, siirrä ja päivitä varauksia"),
+    title: l3("Lịch hẹn: xem, thêm và cập nhật", "Calendar: view, add and update bookings", "Kalenteri: katso, lisää ja päivitä varauksia"),
     summary: l3("Kể cả lịch gọn trên điện thoại: nhấn giữ ô trống để tạo lịch, kéo để dời.", "Including the compact phone calendar: hold an empty slot to add, drag to move.", "Myös puhelimen tiivis kalenteri: pidä tyhjää kohtaa painettuna lisätäksesi, vedä siirtääksesi."),
-    video: null,
+    video: video("lich-hen", 83, "2026-11-16"),
+    href: "/business/dashboard/bookings",
+    hrefLabel: l3("Mở Lịch hẹn", "Open Bookings", "Avaa Varaukset"),
+    steps: [
+      l3(
+        "Bấm mục “Lịch hẹn”: mỗi nhân viên một cột. Trên cùng là số lịch hẹn, số đã xong và doanh thu dự kiến trong ngày.",
+        "Open “Bookings”: one column per staff member. At the top are the day's bookings, how many are done and the expected revenue.",
+        "Avaa ”Varaukset”: yksi sarake työntekijää kohti. Ylhäällä näkyvät päivän varaukset, valmiit ja arvioitu myynti."
+      ),
+      l3(
+        "Ô có biểu tượng quả địa cầu là “Khách tự đặt online”; ô còn lại là “Salon tự thêm”. Bấm tên nhân viên để ẩn/hiện cột.",
+        "A globe marks “Booked online”; the others were “Added by the salon”. Tap a staff name to hide or show their column.",
+        "Maapallo tarkoittaa verkkovarausta; muut on lisännyt salonki. Napauta työntekijän nimeä piilottaaksesi tai näyttääksesi sarakkeen."
+      ),
+      l3(
+        "Ở thanh dưới cùng: mũi tên để đổi ngày, bấm vào ngày để chọn ngày, và đổi cách xem “Ngày”, “Tuần”, “Tháng”.",
+        "On the bottom bar: arrows change the day, the date opens a date picker, and you switch between “Day”, “Week” and “Month”.",
+        "Alapalkissa: nuolet vaihtavat päivää, päivämäärä avaa valitsimen ja näkymäksi valitaan ”Päivä”, ”Viikko” tai ”Kuukausi”."
+      ),
+      l3(
+        "Thêm lịch: nhấn giữ khoảng 1 giây vào ô trống. Ở “Đặt lịch cho khách”, chọn “Dịch vụ”, nhập “Tên khách hàng”, “Số điện thoại”, rồi bấm “Đặt lịch”.",
+        "Add a booking: hold an empty slot for about a second. In “Book for a customer”, choose the service, enter the name and phone, then press “Book”.",
+        "Lisää varaus: pidä tyhjää kohtaa painettuna noin sekunti. Valitse palvelu, anna nimi ja puhelin ja paina ”Varaa”."
+      ),
+      l3(
+        "Bấm vào một lịch hẹn để xem chi tiết, rồi bấm “Đến quầy thanh toán”, “Hoàn thành”, “Không đến” hoặc “Huỷ”.",
+        "Tap a booking for its details, then press “Go to checkout”, “Completed”, “No-show” or “Cancel”.",
+        "Napauta varausta nähdäksesi tiedot ja valitse ”Kassalle”, ”Valmis”, ”Ei saapunut” tai ”Peru”."
+      ),
+      l3("Dời lịch: kéo ô lịch hẹn sang giờ mới; hệ thống hỏi lại trước khi chuyển.", "Move a booking: drag it to a new time; you are asked to confirm first.", "Siirrä varaus vetämällä se uuteen aikaan; siirto vahvistetaan ensin."),
+    ],
+    tips: [
+      l3(
+        "Trong chi tiết lịch hẹn có dòng “Khách đặt online lúc …” hoặc “Salon thêm lúc …” cho biết lịch được tạo khi nào.",
+        "The booking details show “Booked online at …” or “Added by the salon at …”, so you know when it was made.",
+        "Varauksen tiedoissa näkyy, milloin se tehtiin verkossa tai milloin salonki lisäsi sen."
+      ),
+      l3(
+        "Muốn gửi email xác nhận và nhắc lịch cho khách khi tự thêm lịch, điền email và đánh dấu ô “Gửi email xác nhận và nhắc lịch cho khách hàng”.",
+        "To email a confirmation and reminder for a booking you add yourself, fill in the email and tick “Send confirmation and reminder emails to the customer”.",
+        "Jos haluat lähettää vahvistuksen ja muistutuksen itse lisäämästäsi varauksesta, anna sähköposti ja valitse sähköpostien lähetys."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Làm sao thêm lịch cho khách gọi điện, trên điện thoại?", "On a phone, how do you add a booking for someone who called?", "Miten lisäät puhelimella varauksen soittaneelle asiakkaalle?"),
+        options: [l3("Nhấn giữ khoảng 1 giây vào ô trống trên lịch", "Hold an empty slot on the calendar for about a second", "Pidät kalenterin tyhjää kohtaa painettuna noin sekunnin"), l3("Gửi email cho VaraaAi", "Email VaraaAi", "Lähetät sähköpostia VaraaAille"), l3("Không thêm được", "It isn't possible", "Se ei ole mahdollista")],
+        answer: 0,
+        why: l3("Trang “Đặt lịch cho khách” mở ra đúng giờ và đúng cột nhân viên bạn vừa nhấn.", "“Book for a customer” opens at the time and staff column you pressed.", "Varauslomake aukeaa painamasi ajan ja työntekijän kohdalle."),
+      },
+      {
+        q: l3("Ô lịch hẹn có biểu tượng quả địa cầu nghĩa là gì?", "What does a globe on a booking mean?", "Mitä maapallo varauksessa tarkoittaa?"),
+        options: [l3("Khách tự đặt online", "The customer booked online", "Asiakas varasi verkossa"), l3("Khách nước ngoài", "A customer from abroad", "Ulkomainen asiakas"), l3("Lịch đã huỷ", "The booking was cancelled", "Varaus on peruttu")],
+        answer: 0,
+        why: l3("Lịch do salon tự thêm có biểu tượng và màu khác.", "Bookings added by the salon have a different icon and colour.", "Salongin lisäämillä varauksilla on eri kuvake ja väri."),
+      },
+      {
+        q: l3("Khách không đến thì bấm nút nào?", "Which button do you press when the customer doesn't show up?", "Mitä painat, kun asiakas ei saavu?"),
+        options: [l3("Hoàn thành", "Completed", "Valmis"), l3("Không đến", "No-show", "Ei saapunut"), l3("Đến quầy thanh toán", "Go to checkout", "Kassalle")],
+        answer: 1,
+        why: l3("“Không đến” ghi lại để bạn biết khách nào hay bỏ hẹn.", "“No-show” is recorded, so you can see who tends to miss appointments.", "”Ei saapunut” tallentuu, joten näet, kuka jättää usein tulematta."),
+      },
+    ],
   },
   {
     slug: "mau-lich-hen",
@@ -679,7 +917,54 @@ export const LESSONS: Lesson[] = [
     fresh: true,
     title: l3("Thanh toán tại quầy và hoá đơn", "Checkout and invoices", "Kassa ja laskut"),
     summary: l3("Tiền mặt, ngân hàng hoặc thẻ quà tặng; gửi hoá đơn qua email hoặc cho khách quét QR.", "Cash, bank or gift card; email the invoice or let the customer scan a QR code.", "Käteinen, pankki tai lahjakortti; lähetä lasku sähköpostilla tai QR-koodilla."),
-    video: null,
+    video: video("thanh-toan-hoa-don", 55, "2026-11-16"),
+    href: "/business/dashboard/bookings",
+    hrefLabel: l3("Mở Lịch hẹn", "Open Bookings", "Avaa Varaukset"),
+    steps: [
+      l3(
+        "Làm một lần: vào “Cài đặt”, phần “Thông tin xuất hóa đơn”, nhập “Tên công ty”, “Địa chỉ công ty”, “Mã số doanh nghiệp / mã số thuế”, “Thuế VAT (%)” rồi bấm “Lưu thông tin hóa đơn”.",
+        "Once only: in “Settings”, under “Invoice details”, enter the company name, address, business ID and VAT %, then press “Save invoice details”.",
+        "Kerran: anna ”Asetukset”-sivun laskutustiedoissa yrityksen nimi, osoite, Y-tunnus ja ALV-% ja tallenna."
+      ),
+      l3("Khi khách ra quầy: mở “Lịch hẹn”, bấm vào lịch của khách rồi bấm “Đến quầy thanh toán”.", "When the customer pays: open “Bookings”, tap their booking and press “Go to checkout”.", "Kun asiakas maksaa: avaa ”Varaukset”, napauta varausta ja paina ”Kassalle”."),
+      l3(
+        "Kiểm tra tổng tiền, chọn “Hình thức thanh toán” (“Tiền mặt”, “Qua ngân hàng” hoặc “Thẻ quà tặng”) rồi bấm “Xác nhận thanh toán”.",
+        "Check the total, choose how they pay (“Cash”, “Bank” or “Gift card”) and press “Confirm payment”.",
+        "Tarkista summa, valitse maksutapa (käteinen, pankki tai lahjakortti) ja paina ”Vahvista maksu”."
+      ),
+      l3(
+        "Bấm “Xem / tải hóa đơn”, hoặc nhập email khách và bấm “Gửi”, hoặc bấm “Hiện mã QR” để khách quét và tải hoá đơn.",
+        "Press “View / download invoice”, or enter the customer's email and press “Send”, or press “Show QR code” so they can scan and download it.",
+        "Paina ”Näytä / lataa lasku”, lähetä se asiakkaan sähköpostiin tai näytä QR-koodi, jonka asiakas skannaa."
+      ),
+    ],
+    tips: [
+      l3(
+        "Chưa điền thông tin xuất hoá đơn thì chưa xác nhận thanh toán được — trang sẽ nhắc bạn điền ở Cài đặt trước.",
+        "Payment can't be confirmed until the invoice details are filled in — the page reminds you to do it in Settings first.",
+        "Maksua ei voi vahvistaa ennen kuin laskutustiedot on täytetty — sivu muistuttaa täyttämään ne asetuksissa."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Cần làm gì một lần trước khi xác nhận thanh toán đầu tiên?", "What must you do once before confirming your first payment?", "Mitä on tehtävä kerran ennen ensimmäisen maksun vahvistamista?"),
+        options: [l3("Điền thông tin xuất hoá đơn trong Cài đặt", "Fill in the invoice details in Settings", "Täyttää laskutustiedot asetuksissa"), l3("Mua máy in", "Buy a printer", "Ostaa tulostimen"), l3("Gọi cho VaraaAi", "Call VaraaAi", "Soittaa VaraaAille")],
+        answer: 0,
+        why: l3("Tên công ty, địa chỉ, mã số doanh nghiệp và VAT sẽ hiện trên hoá đơn.", "The company name, address, business ID and VAT appear on the invoice.", "Yrityksen nimi, osoite, Y-tunnus ja ALV näkyvät laskulla."),
+      },
+      {
+        q: l3("Có mấy hình thức thanh toán để chọn tại quầy?", "How many payment methods can you choose at checkout?", "Kuinka monta maksutapaa kassalla on?"),
+        options: [l3("Một", "One", "Yksi"), l3("Hai", "Two", "Kaksi"), l3("Ba: Tiền mặt, Qua ngân hàng, Thẻ quà tặng", "Three: cash, bank and gift card", "Kolme: käteinen, pankki ja lahjakortti")],
+        answer: 2,
+        why: l3("Chọn đúng hình thức để báo cáo doanh thu chính xác.", "Choosing the right one keeps your income reports accurate.", "Oikea valinta pitää tuloraportit tarkkoina."),
+      },
+      {
+        q: l3("Khách muốn nhận hoá đơn ngay trên điện thoại, cách nhanh nhất là gì?", "The customer wants the invoice on their phone right away — what's quickest?", "Asiakas haluaa laskun heti puhelimeensa — mikä on nopein tapa?"),
+        options: [l3("Bấm “Hiện mã QR” để khách quét", "Press “Show QR code” for them to scan", "Näytä QR-koodi skannattavaksi"), l3("Chép tay", "Write it out by hand", "Kirjoittaa käsin"), l3("Gửi bưu điện", "Send it by post", "Lähettää postitse")],
+        answer: 0,
+        why: l3("Khách quét mã là mở được hoá đơn; bạn cũng có thể gửi qua email.", "Scanning the code opens the invoice; you can also email it.", "Koodin skannaus avaa laskun; voit myös lähettää sen sähköpostilla."),
+      },
+    ],
   },
   {
     slug: "doanh-thu-nhan-vien",
@@ -703,7 +988,55 @@ export const LESSONS: Lesson[] = [
     guide: "customers",
     title: l3("Sổ khách hàng", "Customer book", "Asiakasrekisteri"),
     summary: l3("Nhóm VIP, khách quen, khách lâu chưa quay lại; ghi chú và lịch sử từng khách.", "VIPs, regulars and lapsed customers; notes and history for each one.", "VIP-asiakkaat, kanta-asiakkaat ja pitkään poissa olleet; muistiinpanot ja historia."),
-    video: null,
+    video: video("khach-hang", 55, "2026-11-16"),
+    href: "/business/dashboard/customers",
+    hrefLabel: l3("Mở Khách hàng", "Open Customers", "Avaa Asiakkaat"),
+    steps: [
+      l3(
+        "Bấm mục “Khách hàng”: trên cùng là tổng số khách, khách mới 30 ngày, tỉ lệ quay lại và chi tiêu trung bình mỗi khách.",
+        "Open “Customers”: at the top are your total customers, new ones in 30 days, the return rate and average spend per customer.",
+        "Avaa ”Asiakkaat”: ylhäällä näkyvät asiakkaiden määrä, uudet 30 päivässä, paluuprosentti ja keskiostos."
+      ),
+      l3(
+        "Lọc theo nhóm: “Tất cả”, “VIP”, “Khách quen”, “Khách mới”, “Có lịch sắp tới”, “Lâu chưa quay lại”; hoặc tìm theo tên, email, số điện thoại.",
+        "Filter by group: all, VIP, regulars, new, with upcoming bookings, not seen for a while; or search by name, email or phone.",
+        "Suodata ryhmittäin (kaikki, VIP, kanta-asiakkaat, uudet, tulevia varauksia, pitkään poissa) tai hae nimellä, sähköpostilla tai puhelimella."
+      ),
+      l3(
+        "Bấm “Xuất Excel (CSV)” để tải danh sách nhóm đang xem, hoặc “Gửi email cho nhóm này” để gửi ưu đãi.",
+        "Press “Export Excel (CSV)” to download the group you're viewing, or “Email this group” to send an offer.",
+        "Lataa näkyvä ryhmä Exceliin tai lähetä ryhmälle sähköpostitarjous."
+      ),
+      l3(
+        "Bấm vào một khách để mở hồ sơ: lượt hoàn thành, tổng chi tiêu, dịch vụ yêu thích, nhân viên quen, “Ghi chú nội bộ” và “Lịch sử lịch hẹn”.",
+        "Tap a customer to open their profile: completed visits, total spend, favourite service, usual staff member, internal notes and booking history.",
+        "Napauta asiakasta nähdäksesi profiilin: käynnit, kokonaisostot, suosikkipalvelu, tuttu tekijä, sisäiset muistiinpanot ja varaushistoria."
+      ),
+    ],
+    tips: [
+      l3("“Ghi chú nội bộ” chỉ salon thấy — khách không bao giờ thấy ghi chú này.", "Internal notes are for the salon only — customers never see them.", "Sisäiset muistiinpanot näkyvät vain salongille — asiakas ei näe niitä koskaan."),
+      l3("Sổ khách hàng tự lập từ các lịch hẹn; bạn không cần nhập tay.", "The customer book builds itself from bookings; there is nothing to type in.", "Asiakasrekisteri syntyy varauksista itsestään; mitään ei tarvitse kirjata käsin."),
+    ],
+    quiz: [
+      {
+        q: l3("Muốn tải danh sách khách về máy, bấm nút nào?", "Which button downloads your customer list?", "Mistä asiakasluettelo ladataan?"),
+        options: [l3("Xuất Excel (CSV)", "Export Excel (CSV)", "Vie Exceliin (CSV)"), l3("Gửi email cho nhóm này", "Email this group", "Lähetä ryhmälle sähköposti"), l3("Thêm dịch vụ", "Add service", "Lisää palvelu")],
+        answer: 0,
+        why: l3("Tệp tải về là danh sách của nhóm bạn đang xem.", "The file contains the group you are currently viewing.", "Tiedosto sisältää parhaillaan näkyvän ryhmän."),
+      },
+      {
+        q: l3("Ai nhìn thấy “Ghi chú nội bộ” của một khách?", "Who can see a customer's internal notes?", "Kuka näkee asiakkaan sisäiset muistiinpanot?"),
+        options: [l3("Chỉ salon", "Only the salon", "Vain salonki"), l3("Cả khách hàng đó", "The customer too", "Myös asiakas"), l3("Mọi người trên mạng", "Everyone online", "Kaikki verkossa")],
+        answer: 0,
+        why: l3("Dùng để ghi dị ứng, sở thích, thói quen đặt lịch của khách.", "Use them for allergies, preferences and booking habits.", "Kirjaa niihin allergiat, mieltymykset ja varaustottumukset."),
+      },
+      {
+        q: l3("Nhóm nào giúp bạn tìm khách đã lâu không ghé?", "Which group finds customers who haven't visited for a while?", "Mikä ryhmä löytää pitkään poissa olleet asiakkaat?"),
+        options: [l3("Lâu chưa quay lại", "Not seen for a while", "Pitkään poissa"), l3("Khách mới", "New customers", "Uudet asiakkaat"), l3("VIP", "VIP", "VIP")],
+        answer: 0,
+        why: l3("Gửi cho nhóm này một ưu đãi để mời họ quay lại.", "Send this group an offer to invite them back.", "Lähetä tälle ryhmälle tarjous ja kutsu heidät takaisin."),
+      },
+    ],
   },
   {
     slug: "tin-nhan-ai",
@@ -892,9 +1225,65 @@ export const LESSONS: Lesson[] = [
     slug: "tong-quan",
     course: "o-grow",
     guide: "overview",
-    title: l3("Trang tổng quan và số liệu", "The overview and your numbers", "Yleiskatsaus ja luvut"),
-    summary: l3("Doanh thu, lịch hẹn, dịch vụ bán chạy, hiệu suất nhân viên và lượt quét QR.", "Revenue, bookings, best-selling services, staff performance and QR scans.", "Liikevaihto, varaukset, suosituimmat palvelut, tiimin tulokset ja QR-skannaukset."),
-    video: null,
+    title: l3("Trang tổng quan", "The overview page", "Yleiskatsaus"),
+    summary: l3("Doanh thu, lịch hẹn, việc cần xử lý và dịch vụ bán chạy — nhìn một lần là nắm cả tiệm.", "Revenue, bookings, things to handle and best-selling services — the whole salon at a glance.", "Liikevaihto, varaukset, hoidettavat asiat ja suosituimmat palvelut — koko salonki yhdellä silmäyksellä."),
+    video: video("tong-quan", 49, "2026-11-16"),
+    href: "/business/dashboard",
+    hrefLabel: l3("Mở Tổng quan", "Open the overview", "Avaa yleiskatsaus"),
+    steps: [
+      l3(
+        "Mở trang quản trị: trên cùng là số lịch hẹn hôm nay, “Doanh thu dự kiến hôm nay” và “Lịch tiếp theo”.",
+        "Open the dashboard: at the top are today's bookings, today's expected revenue and the next appointment.",
+        "Avaa hallintapaneeli: ylhäällä näkyvät päivän varaukset, arvioitu myynti ja seuraava varaus."
+      ),
+      l3(
+        "Dùng ba nút “Mở lịch hẹn”, “Xem trang salon” và “Sao chép link đặt lịch”.",
+        "Use the three buttons “Open calendar”, “View salon page” and “Copy booking link”.",
+        "Käytä painikkeita ”Avaa kalenteri”, ”Näytä salongin sivu” ja ”Kopioi varauslinkki”."
+      ),
+      l3(
+        "Xem bốn con số của tháng: doanh thu, lịch hẹn, khách hàng mới và đánh giá trung bình, so với tháng trước.",
+        "Check the month's four numbers: revenue, bookings, new customers and average rating, compared with last month.",
+        "Katso kuukauden neljä lukua: myynti, varaukset, uudet asiakkaat ja keskiarvosana verrattuna edelliseen kuukauteen."
+      ),
+      l3(
+        "“Lịch hẹn hôm nay” liệt kê từng khách theo giờ; “Cần xử lý” nhắc những việc đang chờ.",
+        "“Today's bookings” lists each customer by time; “To handle” reminds you of what is waiting.",
+        "”Päivän varaukset” listaa asiakkaat ajan mukaan; ”Hoidettavat” muistuttaa odottavista asioista."
+      ),
+      l3(
+        "Kéo xuống để xem “7 ngày tới”, “Doanh thu 6 tháng” và “Dịch vụ bán chạy tháng này”.",
+        "Scroll down for “Next 7 days”, “Revenue over 6 months” and “Best-selling services this month”.",
+        "Vieritä alas nähdäksesi seuraavat 7 päivää, 6 kuukauden myynnin ja kuukauden suosituimmat palvelut."
+      ),
+    ],
+    tips: [
+      l3(
+        "Trang này cũng đếm lượt quét mã QR in trên bảng giá và poster trong 30 ngày.",
+        "This page also counts scans of the QR codes printed on your price list and posters over 30 days.",
+        "Sivu laskee myös hinnaston ja julisteiden QR-koodien skannaukset 30 päivältä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Phần nào nhắc bạn tin nhắn chưa đọc hay đánh giá chờ duyệt?", "Which part reminds you of unread messages or reviews awaiting approval?", "Mikä osa muistuttaa lukemattomista viesteistä tai hyväksyntää odottavista arvosteluista?"),
+        options: [l3("Cần xử lý", "To handle", "Hoidettavat"), l3("7 ngày tới", "Next 7 days", "Seuraavat 7 päivää"), l3("Doanh thu 6 tháng", "Revenue over 6 months", "6 kuukauden myynti")],
+        answer: 0,
+        why: l3("Khi không có gì chờ, phần này báo “Mọi thứ đều ổn”.", "When nothing is waiting it says everything is fine.", "Kun mikään ei odota, osio kertoo kaiken olevan kunnossa."),
+      },
+      {
+        q: l3("Muốn gửi link đặt lịch cho khách thật nhanh, bấm nút nào?", "Which button quickly gives you the booking link to send to customers?", "Mistä saat nopeasti varauslinkin lähetettäväksi?"),
+        options: [l3("Sao chép link đặt lịch", "Copy booking link", "Kopioi varauslinkki"), l3("Mở lịch hẹn", "Open calendar", "Avaa kalenteri"), l3("Tin nhắn", "Messages", "Viestit")],
+        answer: 0,
+        why: l3("Dán link vào Facebook, Instagram hoặc tin nhắn để khách tự đặt.", "Paste it into Facebook, Instagram or a message so customers can book themselves.", "Liitä se Facebookiin, Instagramiin tai viestiin, niin asiakkaat varaavat itse."),
+      },
+      {
+        q: l3("Bốn con số của tháng được so sánh với gì?", "What are the month's four numbers compared with?", "Mihin kuukauden neljää lukua verrataan?"),
+        options: [l3("Cùng kỳ tháng trước", "The same period last month", "Edellisen kuukauden samaan jaksoon"), l3("Salon khác", "Other salons", "Muihin salonkeihin"), l3("Năm ngoái", "Last year", "Viime vuoteen")],
+        answer: 0,
+        why: l3("Mỗi ô có dòng “so với cùng kỳ tháng trước”.", "Each card says “compared with the same period last month”.", "Jokaisessa kortissa lukee vertailu edelliseen kuukauteen."),
+      },
+    ],
   },
   {
     slug: "tien-ich-nhom",

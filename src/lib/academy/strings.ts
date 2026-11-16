@@ -88,6 +88,11 @@ const vi = {
   backToAcademy: "Về Học viện",
   newBadge: "Huy hiệu mới",
   videoError: "Không tải được video. Hãy kiểm tra mạng rồi thử lại.",
+  download: "Tải video",
+  share: "Chia sẻ",
+  shareOn: "Chia sẻ lên",
+  copyLink: "Sao chép link",
+  copied: "Đã sao chép",
   reload: "Thử lại",
 };
 
@@ -180,6 +185,11 @@ const en: S = {
   backToAcademy: "Back to the Academy",
   newBadge: "New badge",
   videoError: "The video couldn't be loaded. Check your connection and try again.",
+  download: "Download video",
+  share: "Share",
+  shareOn: "Share on",
+  copyLink: "Copy link",
+  copied: "Copied",
   reload: "Try again",
 };
 
@@ -270,6 +280,11 @@ const fi: S = {
   backToAcademy: "Takaisin akatemiaan",
   newBadge: "Uusi merkki",
   videoError: "Videon lataus ei onnistunut. Tarkista yhteys ja yritä uudelleen.",
+  download: "Lataa video",
+  share: "Jaa",
+  shareOn: "Jaa palvelussa",
+  copyLink: "Kopioi linkki",
+  copied: "Kopioitu",
   reload: "Yritä uudelleen",
 };
 

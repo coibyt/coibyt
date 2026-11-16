@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowRight, Award, BookOpen, Check, ChevronLeft, CircleCheck, CircleX, ExternalLink, Lightbulb, Lock, Play, RotateCcw, Trophy } from "lucide-react";
+import { ArrowRight, Award, BookOpen, Check, ChevronLeft, CircleCheck, CircleX, Copy, Download, ExternalLink, Lightbulb, Lock, Play, RotateCcw, Share2, Trophy } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { academyStrings } from "@/lib/academy/strings";
 import { WATCHED_RATIO, XP_ANSWER, XP_LESSON, fmtDuration } from "@/lib/academy/progress";
@@ -11,6 +11,8 @@ import { useAcademyProgress, useHydrated } from "@/components/academy/use-progre
 export interface LessonViewData {
   slug: string;
   audience: Audience;
+  /** Public address of this lesson (for sharing). */
+  shareUrl: string;
   no: number;
   total: number;
   courseTitle: string;
@@ -88,6 +90,7 @@ export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale:
 
       <div className="container -mt-24 max-w-5xl pb-20 sm:-mt-32">
         <Player lesson={lesson} locale={locale} onComplete={complete} onQuiz={lesson.quiz.length ? toQuiz : null} celebrate={celebrate} />
+        <LessonActions lesson={lesson} locale={locale} />
         <p className="mt-3 px-1 text-center text-xs text-ink-400 sm:text-sm">{s.subtitleNote}</p>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
@@ -368,6 +371,77 @@ function Player({
           >
             {x}×
           </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+
+const NETWORKS: { id: string; label: string; dot: string; href: (url: string, title: string) => string }[] = [
+  { id: "facebook", label: "Facebook", dot: "bg-[#1877f2]", href: (u) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(u)}` },
+  { id: "whatsapp", label: "WhatsApp", dot: "bg-[#25d366]", href: (u, t) => `https://wa.me/?text=${encodeURIComponent(`${t} ${u}`)}` },
+  { id: "telegram", label: "Telegram", dot: "bg-[#229ed9]", href: (u, t) => `https://t.me/share/url?url=${encodeURIComponent(u)}&text=${encodeURIComponent(t)}` },
+  { id: "x", label: "X", dot: "bg-ink-900", href: (u, t) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(u)}&text=${encodeURIComponent(t)}` },
+];
+
+/** Save the video to the device, or pass the lesson on: the phone's own
+ * share sheet where there is one, plus direct links to the big networks. */
+function LessonActions({ lesson, locale }: { lesson: LessonViewData; locale: string }) {
+  const s = academyStrings(locale);
+  const [copied, setCopied] = useState(false);
+  const canShare = useHydrated() && typeof navigator !== "undefined" && typeof navigator.share === "function";
+
+  const share = async () => {
+    try {
+      await navigator.share({ title: lesson.title, text: lesson.summary, url: lesson.shareUrl });
+    } catch {
+      // The visitor closed the share sheet — nothing to do.
+    }
+  };
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(lesson.shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2200);
+    } catch {
+      window.prompt(s.copyLink, lesson.shareUrl);
+    }
+  };
+
+  const pill = "inline-flex min-h-[40px] items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-xs font-bold text-ink-900 ring-1 ring-ink-100 transition-colors hover:bg-primary-50 sm:text-sm";
+
+  return (
+    <div className="mt-4 rounded-2xl bg-white/70 p-3 ring-1 ring-ink-100 sm:p-4">
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        <a
+          href={lesson.video.src}
+          download={`varaaai-${lesson.slug}.mp4`}
+          className={`inline-flex min-h-[40px] items-center gap-2 rounded-full ${GOLD} px-4 py-2 text-xs font-extrabold text-primary-900 transition-transform hover:scale-[1.03] sm:text-sm`}
+        >
+          <Download className="h-4 w-4" />
+          {s.download}
+        </a>
+        {canShare && (
+          <button type="button" onClick={share} className="inline-flex min-h-[40px] items-center gap-2 rounded-full bg-ink-900 px-4 py-2 text-xs font-bold text-white transition-transform hover:scale-[1.03] sm:text-sm">
+            <Share2 className="h-4 w-4" />
+            {s.share}
+          </button>
+        )}
+        <button type="button" onClick={copy} className={pill}>
+          {copied ? <Check className="h-4 w-4 text-emerald-600" /> : <Copy className="h-4 w-4 text-primary-500" />}
+          {copied ? s.copied : s.copyLink}
+        </button>
+      </div>
+      <div className="mt-2.5 flex flex-wrap items-center justify-center gap-2">
+        <span className="text-xs font-semibold text-ink-400">{s.shareOn}</span>
+        {NETWORKS.map((n) => (
+          <a key={n.id} href={n.href(lesson.shareUrl, lesson.title)} target="_blank" rel="noopener noreferrer" className={pill}>
+            <span className={`h-2.5 w-2.5 rounded-full ${n.dot}`} aria-hidden />
+            {n.label}
+          </a>
         ))}
       </div>
     </div>

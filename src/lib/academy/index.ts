@@ -1,6 +1,7 @@
 /** Read-side helpers for the Academy pages: the curriculum in one language,
  * shaped for the hub and for a lesson page. */
 import { COURSES, LESSONS } from "@/lib/academy/curriculum";
+import { localizedUrl } from "@/lib/seo";
 import { pick, type Audience, type CourseCard, type Lesson, type LessonCard } from "@/lib/academy/types";
 
 const audienceOf = (lesson: Lesson): Audience => COURSES.find((c) => c.id === lesson.course)?.audience ?? "customer";
@@ -67,6 +68,7 @@ export function lessonPageData(slug: string, locale: string) {
     view: {
       slug,
       audience,
+      shareUrl: localizedUrl(locale, `/academy/${slug}`),
       no: no.get(slug) ?? 0,
       total: count[audience],
       courseTitle: pick(course.title, locale),
