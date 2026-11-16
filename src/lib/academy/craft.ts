@@ -9,7 +9,8 @@
  *
  * The owner's direction (2026-11-16): theory in depth, the rules of the job
  * and shared experience, told like a mentor talking; pictures illustrate.
- * After the samples they asked for BOTH kinds for every topic, with two
+ * After the samples they asked for BOTH kinds for every nail and lash topic
+ * (hygiene and safety: one video per topic is enough), with two
  * titles: `style: "theory"` (the mentor's talk) and `style: "practice"` (the
  * steps in pictures), theory first. A planned topic is one `soon(…)` entry
  * until its videos exist. `steps` hold a lesson's key points or steps (shown
@@ -46,7 +47,7 @@ const EU_TPO = {
   url: "https://single-market-economy.ec.europa.eu/sectors/cosmetics/tpo-nail-products-questions-answers_en",
 };
 
-export const CRAFT_COURSES: Course[] = [
+const ALL_COURSES: Course[] = [
   {
     id: "p-safety",
     audience: "pro",
@@ -88,12 +89,11 @@ export const CRAFT_COURSES: Course[] = [
   },
 ];
 
-export const CRAFT_LESSONS: Lesson[] = [
+const ALL_LESSONS: Lesson[] = [
   /* ================= hygiene & safety ================= */
   {
     slug: "ve-sinh-dung-cu",
     course: "p-safety",
-    style: "practice",
     title: l3("Xử lý dụng cụ sau mỗi khách: quy trình từng bước", "Tools after every customer: the routine, step by step", "Välineet jokaisen asiakkaan jälkeen: työvaiheet"),
     summary: l3(
       "Quy trình xử lý dụng cụ sau mỗi khách cho tiệm nail, mi, tóc và spa: làm sạch, khử khuẩn, tiệt trùng, cất giữ — và dụng cụ nào cần mức nào.",
@@ -641,6 +641,13 @@ export const CRAFT_LESSONS: Lesson[] = [
     "Kuorinta, parafiini, käsi- ja jalkahieronta sekä jalkakylpyaltaan hygienia.",
   ]),
 ];
+
+/** Trades the owner set aside for later (2026-11-16: hygiene, nails and lashes first). Their courses
+ * and planned lessons stay in this file but are not shown; remove an id here to bring a trade back. */
+const LATER = new Set(["p-hair", "p-spa"]);
+
+export const CRAFT_COURSES = ALL_COURSES.filter((c) => !LATER.has(c.id));
+export const CRAFT_LESSONS = ALL_LESSONS.filter((l) => !LATER.has(l.course));
 
 /** Software lessons shown at the end of the craft track, in this order
  * (only those that have a video are shown). */
