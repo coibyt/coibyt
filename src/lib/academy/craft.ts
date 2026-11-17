@@ -2465,11 +2465,253 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("mi-hybrid", "p-lash", ["Nối mi hybrid", "Hybrid lashes", "Hybridiripset"], [
-    "Phối classic và volume để có độ dày và độ tơi tự nhiên.",
-    "Mixing classic and volume for natural density and texture.",
-    "Klassisten ja volyymiripsien yhdistäminen luonnolliseen tuuheuteen.",
-  ]),
+  {
+    slug: "mi-hybrid-hieu-dung",
+    course: "p-lash",
+    style: "theory",
+    title: l3("Nối mi hybrid: hiểu đúng để có độ tơi tự nhiên", "Hybrid lashes: understand them for natural texture", "Hybridiripset: ymmärrä ne, niin saat luonnollisen tekstuurin"),
+    summary: l3(
+      "Hybrid là gì (sợi đơn classic và fan volume phối trên cùng một mắt, mỗi sợi mi thật chỉ mang một thứ), vẻ tơi có kết cấu nằm giữa classic và volume, hợp với ai, chọn sợi đơn hay fan theo sức từng sợi mi thật, tỉ lệ phối là điểm xuất phát chứ không phải luật, độ tơi từ độ dài, rải đều, an toàn, dặm và tư vấn thật lòng.",
+      "What hybrid is (classic singles and volume fans mixed on one eye, each natural lash carrying only one of them), the textured look between classic and volume, who it suits, choosing a single or a fan by the strength of each natural lash, the mix as a starting point rather than a rule, texture through length, even distribution, safety, refills and an honest consultation.",
+      "Mitä hybridi on (klassisia yksittäisiä ripsiä ja volyymiviuhkoja samassa silmässä, jokaisessa luomuripsessä vain toinen niistä), klassisten ja volyymin väliin sijoittuva tekstuurinen ilme, kenelle se sopii, yksittäisen ripsen tai viuhkan valinta kunkin luomuripsen vahvuuden mukaan, sekoitussuhde lähtökohtana eikä sääntönä, tekstuuri pituuksilla, tasainen jakauma, turvallisuus, huollot ja rehellinen konsultaatio."
+    ),
+    video: video("mi-hybrid-hieu-dung", 277, "2026-11-17"),
+    notice: l3(
+      "Tỉ lệ phối, độ dài và số sợi trong bài là hướng dẫn chung theo kinh nghiệm nghề, không phải con số tuyệt đối: luôn chọn theo mi thật của khách, xem bảng gợi ý của hãng mi và hướng dẫn của hãng keo. Keo không được chạm vào da. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "The mix, lengths and lashes per fan in this lesson are general trade guidance, not exact figures: always decide by the client's natural lashes and check the lash maker's chart and the glue maker's instructions. Glue must never touch the skin. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Tämän tunnin sekoitussuhde, pituudet ja ripsimäärät ovat yleisiä alan ohjeita, eivät tarkkoja lukuja: päätä aina asiakkaan omien ripsien mukaan ja tarkista ripsivalmistajan taulukko sekä liimavalmistajan ohjeet. Liima ei saa koskaan koskea ihoa. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["dich-vu", "khach-hang", "lich-hen"],
+    steps: [
+      l3(
+        "Hybrid phối sợi đơn classic và fan volume trên cùng một mắt. Mỗi sợi mi thật vẫn chỉ mang đúng một thứ: hoặc một sợi đơn, hoặc một fan, không bao giờ cả hai.",
+        "Hybrid mixes classic singles and volume fans on the same eye. Each natural lash still carries exactly one thing: either one single or one fan, never both.",
+        "Hybridissä samaan silmään yhdistetään klassisia yksittäisiä ripsiä ja volyymiviuhkoja. Jokainen luomuripsi kantaa silti vain yhden: joko yksittäisen ripsen tai viuhkan, ei koskaan molempia."
+      ),
+      l3(
+        "Vẻ ngoài: sợi đơn rõ nét như những mũi nhọn nhỏ, fan mảnh lấp vào giữa. Hàng mi có kết cấu, hơi tơi (kiểu “spiky”): dày hơn classic, mềm và tự nhiên hơn một bộ volume phủ kín.",
+        "The look: singles stand out as fine defined spikes, fine fans fill in between. A textured, slightly “spiky” lash line: fuller than classic, softer and more natural than a full volume set.",
+        "Ilme: yksittäiset ripset erottuvat terävinä piikkeinä, ohuet viuhkat täyttävät välit. Tekstuurinen, hieman ”spiky” ripsiraja: tuuheampi kuin klassiset, pehmeämpi ja luonnollisempi kuin täysi volyymi."
+      ),
+      l3(
+        "Hợp với: khách có mi thưa, có khoảng trống hoặc mi không đều; và khách đã quen classic, muốn dày hơn nhưng chưa muốn volume — nhiều khách đi từ classic sang hybrid rồi mới đến volume.",
+        "Suits: clients with sparse, gappy or uneven natural lashes; and clients used to classic who want more but not yet volume — many move from classic to hybrid and only later to volume.",
+        "Sopii: asiakkaille, joiden omat ripset ovat harvat, aukkoiset tai epätasaiset, sekä klassisiin tottuneille, jotka haluavat enemmän mutta eivät vielä volyymia — moni siirtyy klassisista hybridiin ja vasta myöhemmin volyymiin."
+      ),
+      l3(
+        "Chọn theo từng sợi mi thật, không theo khuôn: sợi khoẻ, dài, dày có thể mang một fan nhẹ; sợi mảnh, ngắn hay sợi non chỉ mang sợi đơn thật mảnh, thật ngắn; sợi non quá yếu thì để trống đến lần dặm sau.",
+        "Decide lash by lash, not by a pattern: a strong, long, thick lash can carry a light fan; a fine, short or young lash only a very fine, short single; a lash too weak is left bare until the next refill.",
+        "Päätä ripsi kerrallaan, ei kaavan mukaan: vahva, pitkä ja paksu ripsi voi kantaa kevyen viuhkan; ohut, lyhyt tai nuori ripsi vain hyvin ohuen, lyhyen yksittäisen ripsen; liian heikko ripsi jätetään paljaaksi seuraavaan huoltoon."
+      ),
+      l3(
+        "Tỉ lệ phối hay được nhắc là khoảng nửa nửa, hoặc fan chiếm khoảng 30–50 %. Đó là điểm xuất phát, không phải luật: mi nhiều sợi khoẻ thì nhiều fan hơn, mi yếu thì nhiều sợi đơn mảnh hơn.",
+        "The mix is often quoted as about half and half, or fans making up around 30–50 %. That is a starting point, not a rule: many strong lashes allow more fans, weak lashes call for more fine singles.",
+        "Sekoitussuhteeksi mainitaan usein noin puolet ja puolet tai viuhkoja noin 30–50 %. Se on lähtökohta, ei sääntö: vahvoja ripsiä paljon, viuhkoja enemmän; heikot ripset, enemmän ohuita yksittäisiä ripsiä."
+      ),
+      l3(
+        "Làm theo nhịp cứng (đơn, fan, đơn, fan) mà không nhìn mi thật dễ đặt fan lên sợi non yếu: sợi đó rụng sớm, và mi thưa đi đúng chỗ vốn đã thưa. Nhịp đều là tốt, nhưng nhịp phải theo mi thật.",
+        "A rigid rhythm (single, fan, single, fan) that ignores the natural lashes easily puts a fan on a weak young lash: it sheds early and the lash line thins exactly where it was already sparse. An even rhythm is good, but it must follow the natural lashes.",
+        "Jäykkä rytmi (yksittäinen, viuhka, yksittäinen, viuhka), joka ei katso omia ripsiä, laittaa helposti viuhkan heikkoon nuoreen ripseen: se irtoaa aikaisin ja ripsiraja harvenee juuri siellä, missä se oli jo harva. Tasainen rytmi on hyvä, mutta sen on seurattava omia ripsiä."
+      ),
+      l3(
+        "Độ tơi từ độ dài: sợi đơn dài hơn fan một chút cho mũi nhọn rõ, nét sắc; sợi đơn bằng hoặc ngắn hơn fan cho nét mềm, bông, có chiều sâu. Cả hai đều đúng — chọn theo kiểu đã thống nhất với khách, chỉ chênh một chút.",
+        "Texture from length: singles slightly longer than the fans give clear spikes and a sharper look; singles the same length or slightly shorter give a softer, fluffier look with depth. Both are right — choose by the look agreed with the client, and keep the difference small.",
+        "Tekstuuri pituuksilla: viuhkoja hieman pidemmät yksittäiset ripset antavat selvät piikit ja terävämmän ilmeen; samanpituiset tai hieman lyhyemmät pehmeämmän, pörröisemmän ja syvemmän ilmeen. Molemmat ovat oikein — valitse asiakkaan kanssa sovitun ilmeen mukaan ja pidä ero pienenä."
+      ),
+      l3(
+        "Rải fan và sợi đơn đều khắp hàng mi; fan dồn vào một chỗ làm mi loang lổ. Làm theo vùng, lùi ra nhìn tổng thể sau mỗi vùng, và so cả hai mắt.",
+        "Spread fans and singles evenly along the whole lash line; fans bunched in one place look patchy. Work zone by zone, step back after each zone, and compare both eyes.",
+        "Jaa viuhkat ja yksittäiset ripset tasaisesti koko ripsirajalle; yhteen kohtaan kasautuneet viuhkat näyttävät laikukkailta. Työskentele alue kerrallaan, katso kokonaisuutta jokaisen alueen jälkeen ja vertaa molempia silmiä."
+      ),
+      l3(
+        "An toàn như classic và volume: tách đúng một sợi, không dính chùm, gắn cách da mí khoảng 0,5–1 mm, không bao giờ chạm da, giọt keo nhỏ. Dặm thường sau 2–3 tuần — lúc dặm, đọc lại mi thật: sợi non lần trước có thể đã đủ khoẻ để mang fan.",
+        "Safety as in classic and volume: isolate one lash, no stickies, about 0.5–1 mm from the lid, never on the skin, a small drop of glue. Refills usually every 2–3 weeks — at each refill read the natural lashes again: last time's young lash may now be strong enough for a fan.",
+        "Turvallisuus kuten klassisissa ja volyymissa: eristä yksi ripsi, ei tarttumia, noin 0,5–1 mm luomesta, ei koskaan iholle, pieni liimapisara. Huolto yleensä 2–3 viikon välein — arvioi omat ripset joka kerta uudelleen: viime kerran nuori ripsi voi nyt kantaa viuhkan."
+      ),
+    ],
+    tips: [
+      l3(
+        "Cho khách xem hình hybrid trước khi làm và nói rõ: đây là kiểu tơi, có kết cấu, không phải hàng mi đen kín như volume. Mi khách thưa thì nói trước rằng lần này phối nhiều sợi đơn hơn để mi thật được khoẻ.",
+        "Show the client hybrid photos before you start and say clearly: this is a textured look, not the solid dark line of volume. If their lashes are sparse, say up front that this time you will use more singles to keep the natural lashes healthy.",
+        "Näytä asiakkaalle hybridikuvia ennen aloitusta ja kerro selvästi: tämä on tekstuurinen ilme, ei volyymin tasaisen tumma ripsiraja. Jos omat ripset ovat harvat, kerro etukäteen, että käytät tällä kertaa enemmän yksittäisiä ripsiä, jotta omat ripset pysyvät terveinä."
+      ),
+      l3(
+        "Trong VaraaAi, ghi vào hồ sơ khách kiểu đã chọn (sợi đơn dài hay ngắn hơn fan, khoảng bao nhiêu fan) để lần dặm sau, dù thợ khác làm, bộ mi vẫn giữ đúng kiểu.",
+        "In VaraaAi, note the chosen look in the client's profile (singles longer or shorter than the fans, roughly how many fans) so the next refill keeps the same style, even with another technician.",
+        "Kirjaa VaraaAi:ssa valittu tyyli asiakkaan tietoihin (yksittäiset ripset viuhkoja pidempiä vai lyhyempiä, viuhkojen osuus), jotta seuraava huolto pitää saman tyylin, vaikka tekijä vaihtuisi."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Trong hybrid, một sợi mi thật mang gì?", "In a hybrid set, what does one natural lash carry?", "Mitä yksi luomuripsi kantaa hybridiripsissä?"),
+        options: [
+          l3("Một sợi đơn và một fan cùng lúc, cho dày", "A single and a fan together, for fullness", "Yksittäisen ripsen ja viuhkan yhtä aikaa tuuheuden vuoksi"),
+          l3("Hoặc một sợi đơn, hoặc một fan — chỉ một thứ", "Either one single or one fan — only one", "Joko yhden yksittäisen ripsen tai yhden viuhkan — vain toisen"),
+          l3("Một fan ôm hai sợi mi thật bên cạnh nhau", "One fan wrapped around two neighbouring lashes", "Yhden viuhkan, joka kietoutuu kahteen vierekkäiseen ripseen"),
+        ],
+        answer: 1,
+        why: l3(
+          "Hybrid chỉ phối hai kiểu trên cùng một mắt; quy tắc một sợi mi thật mang một thứ, tách riêng, vẫn giữ nguyên như classic và volume.",
+          "Hybrid only mixes the two styles across the eye; the rule of one thing per natural lash, fully isolated, stays exactly as in classic and volume.",
+          "Hybridi vain yhdistää kaksi tyyliä samassa silmässä; sääntö yksi asia yhteen eristettyyn luomuripseen pysyy samana kuin klassisissa ja volyymissa."
+        ),
+      },
+      {
+        q: l3("Một sợi mi thật non, ngắn và mảnh. Bạn đặt gì lên nó?", "A natural lash is young, short and fine. What do you put on it?", "Luomuripsi on nuori, lyhyt ja ohut. Mitä laitat siihen?"),
+        options: [
+          l3("Một sợi đơn thật mảnh, thật ngắn — hoặc để trống nếu quá yếu", "A very fine, short single — or nothing if it is too weak", "Hyvin ohuen, lyhyen yksittäisen ripsen — tai ei mitään, jos se on liian heikko"),
+          l3("Một fan, để che chỗ mi thưa", "A fan, to cover the sparse spot", "Viuhkan, joka peittää harvan kohdan"),
+          l3("Theo nhịp: nếu đến lượt fan thì gắn fan", "Follow the pattern: if it is a fan's turn, a fan", "Kaavan mukaan: jos on viuhkan vuoro, viuhkan"),
+        ],
+        answer: 0,
+        why: l3(
+          "Sức của sợi mi thật quyết định. Fan đặt lên sợi non yếu kéo sợi đó rụng sớm và làm mi thưa thêm; khoảng trống được che bằng fan trên những sợi khoẻ xung quanh.",
+          "The strength of the natural lash decides. A fan on a weak young lash makes it shed early and thins the lashes further; gaps are covered with fans on the strong lashes around them.",
+          "Luomuripsen vahvuus ratkaisee. Viuhka heikossa nuoressa ripsessä saa sen irtoamaan aikaisin ja harventaa ripsiä lisää; aukot peitetään viuhkoilla ympärillä olevissa vahvoissa ripsissä."
+        ),
+      },
+      {
+        q: l3("Tỉ lệ fan khoảng 30–50 % nên được hiểu thế nào?", "How should a fan share of about 30–50 % be understood?", "Miten noin 30–50 %:n viuhkaosuus pitäisi ymmärtää?"),
+        options: [
+          l3("Luật bắt buộc cho mọi bộ hybrid", "A fixed rule for every hybrid set", "Pakollisena sääntönä jokaiselle hybridisetille"),
+          l3("Càng nhiều fan càng đẹp, con số chỉ là tối thiểu", "The more fans the better; the figure is just a minimum", "Mitä enemmän viuhkoja, sitä parempi; luku on vain minimi"),
+          l3("Điểm xuất phát, điều chỉnh theo mi thật của khách", "A starting point, adjusted to the client's natural lashes", "Lähtökohtana, jota säädetään asiakkaan omien ripsien mukaan"),
+        ],
+        answer: 2,
+        why: l3(
+          "Mi nhiều sợi khoẻ thì có thể nhiều fan hơn, mi yếu thì nhiều sợi đơn mảnh hơn. Con số đẹp nhất là con số mi thật của khách chịu được.",
+          "Many strong lashes allow more fans, weak lashes call for more fine singles. The best figure is the one the client's natural lashes can carry.",
+          "Vahvoja ripsiä paljon, viuhkoja voi olla enemmän; heikot ripset, enemmän ohuita yksittäisiä ripsiä. Paras luku on se, jonka asiakkaan omat ripset kestävät."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "mi-hybrid",
+    course: "p-lash",
+    style: "practice",
+    title: l3("Nối mi hybrid: thực hành từng bước", "Hybrid lashes: step by step", "Hybridiripset: vaihe vaiheelta"),
+    summary: l3(
+      "Một bộ mi hybrid từng bước: tư vấn và chọn kiểu, chuẩn bị như bài classic, đọc mi thật từng vùng để quyết định chỗ sợi đơn và chỗ fan, sắp bàn với cả hai loại mi, chia độ dài, gắn sợi đơn lên mi yếu và fan lên mi khoẻ, đan xen cho đều, kiểm tra dính chùm và chỗ trống, so hai mắt, hoàn thiện và dọn dẹp.",
+      "A hybrid set step by step: consultation and choosing the look, prep as in the classic lesson, reading the natural lashes zone by zone to decide where singles and where fans go, a station with both kinds of lashes, mapping the lengths, singles on weaker lashes and fans on strong ones, an even mix, checking for stickies and gaps, comparing both eyes, finishing and clearing up.",
+      "Hybridiripset vaihe vaiheelta: konsultaatio ja tyylin valinta, valmistelu kuten klassisten tunnilla, omien ripsien arviointi alue kerrallaan (mihin yksittäiset, mihin viuhkat), työpiste molemmilla ripsityypeillä, pituuksien suunnittelu, yksittäiset ripset heikompiin ja viuhkat vahvoihin ripsiin, tasainen sekoitus, tarttumien ja aukkojen tarkistus, silmien vertailu, viimeistely ja siivous."
+    ),
+    video: video("mi-hybrid", 281, "2026-11-17"),
+    notice: l3(
+      "Khoảng cách, độ dài, số sợi và tỉ lệ phối trong bài là hướng dẫn chung theo kinh nghiệm nghề; luôn chọn theo mi thật của khách và theo bảng của hãng mi, hướng dẫn của hãng keo (độ ẩm, nhiệt độ, thời gian giữ khô). Mắt khách nhắm kín suốt buổi, keo không được chạm da. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Distances, lengths, lashes per fan and the mix here are general trade guidance; always decide by the client's natural lashes and follow the lash maker's chart and the glue maker's instructions (humidity, temperature, how long to keep lashes dry). The client's eyes stay closed throughout, and glue must never touch the skin. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Etäisyydet, pituudet, ripsimäärät ja sekoitussuhde ovat yleisiä alan ohjeita; päätä aina asiakkaan omien ripsien mukaan ja noudata ripsivalmistajan taulukkoa ja liimavalmistajan ohjeita (kosteus, lämpötila, kuinka kauan ripset pidetään kuivina). Asiakkaan silmät pysyvät kiinni koko ajan, eikä liima saa koskaan koskea ihoa. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "dich-vu", "lich-hen"],
+    steps: [
+      l3(
+        "Tư vấn và chọn kiểu: hỏi về dị ứng và mắt như bài classic, cho khách xem hình hybrid, thống nhất sợi đơn dài hơn fan một chút (nét sắc) hay bằng hoặc ngắn hơn (nét mềm).",
+        "Consultation and the look: ask about allergies and the eyes as in the classic lesson, show hybrid photos, and agree whether the singles are slightly longer than the fans (sharper) or the same or shorter (softer).",
+        "Konsultaatio ja tyyli: kysy allergioista ja silmistä kuten klassisten tunnilla, näytä hybridikuvia ja sovi, ovatko yksittäiset ripset hieman viuhkoja pidempiä (terävämpi) vai saman pituisia tai lyhyempiä (pehmeämpi)."
+      ),
+      l3(
+        "Chuẩn bị giống hệt bài thực hành classic: khách nằm thoải mái, làm sạch mi, miếng lót dưới mắt, chải mi.",
+        "Prep exactly as in the classic practice lesson: client comfortable, lashes cleansed, under-eye pads, lashes brushed.",
+        "Valmistelu täsmälleen kuten klassisten käytäntötunnilla: asiakas mukavasti, ripset puhdistettu, silmänalustyynyt, ripset harjattu."
+      ),
+      l3(
+        "Đọc mi thật từng vùng (đầu, giữa, đuôi mắt): sợi dài, dày, khoẻ là chỗ cho fan; sợi mảnh, ngắn là chỗ cho sợi đơn thật nhẹ; sợi non quá yếu để trống. Để ý khoảng trống: fan trên những sợi khoẻ quanh đó giúp che.",
+        "Read the natural lashes zone by zone (inner, middle, outer): long, thick, strong lashes are for fans; fine, short ones for a very light single; a lash too young and weak is left bare. Note the gaps: fans on the strong lashes around them help cover them.",
+        "Arvioi omat ripset alue kerrallaan (sisä-, keski-, ulko-osa): pitkät, paksut ja vahvat ripset viuhkoille; ohuet ja lyhyet hyvin kevyelle yksittäiselle ripselle; liian nuori ja heikko ripsi jätetään paljaaksi. Huomaa aukot: viuhkat niiden ympärillä olevissa vahvoissa ripsissä auttavat peittämään ne."
+      ),
+      l3(
+        "Bàn làm việc: một vỉ sợi classic và một vỉ sợi volume thật mảnh, xếp theo độ dài; đá ngọc với giọt keo mới; nhíp thẳng để tách, nhíp đầu cong cho sợi đơn, nhíp volume gập góc để tạo fan; đồ dùng một lần; chai keo đậy nắp ngay.",
+        "Station: a tile of classic lashes and a tile of very fine volume lashes, sorted by length; a jade stone with a fresh drop of glue; a straight tweezer for isolating, a curved one for singles, an angled volume tweezer for fans; single-use items; the glue bottle closed at once.",
+        "Työpiste: alusta klassisille ja alusta hyvin ohuille volyymiripsille pituusjärjestyksessä; jadekivi ja tuore liimapisara; suorat pinsetit eristykseen, kaarevat yksittäisille ripsille, kulmikkaat volyymipinsetit viuhkoille; kertakäyttövälineet; liimapullo suljetaan heti."
+      ),
+      l3(
+        "Chia độ dài: thường ngắn ở góc trong, dài dần về đuôi mắt (kiểu theo dáng mắt: bài lash mapping). Chọn sẵn độ dài cho sợi đơn và cho fan ở mỗi vùng; chỉ chênh nhau một chút.",
+        "Map the lengths: usually short at the inner corner and gradually longer towards the outer corner (styles for eye shapes: the lash-mapping lesson). Choose the single and fan lengths for each zone in advance; keep the difference small.",
+        "Suunnittele pituudet: yleensä lyhyet sisänurkassa ja vähitellen pidemmät ulkonurkkaa kohti (silmänmuodon mukaiset tyylit: ripsikartoituksen tunti). Valitse yksittäisten ripsien ja viuhkojen pituudet kullekin alueelle etukäteen; pidä ero pienenä."
+      ),
+      l3(
+        "Sợi đơn lên sợi mi yếu hơn: tách đúng một sợi, chọn sợi classic mảnh và ngắn vừa sức, chỉ chạm chân sợi vào mép giọt keo, đặt dọc sợi mi thật cách da mí khoảng 0,5–1 mm, giữ yên cho keo bắt rồi nhả nhíp.",
+        "Singles on the weaker lashes: isolate exactly one lash, pick a fine, short classic lash it can carry, touch only its base into the edge of the drop, lay it along the natural lash about 0.5–1 mm from the lid, hold still until the glue grabs, then release.",
+        "Yksittäiset ripset heikompiin ripsiin: eristä täsmälleen yksi ripsi, valitse ohut ja lyhyt klassinen ripsi, jonka se kantaa, kosketa vain sen kannalla pisaran reunaa, aseta luomuripsen suuntaisesti noin 0,5–1 mm luomesta, pidä paikallaan kunnes liima tarttuu ja irrota."
+      ),
+      l3(
+        "Fan lên sợi mi khoẻ: tạo fan như bài thực hành volume (chân nhỏ, gọn, xoè đều; trong hybrid thường là fan ít sợi, nhẹ), chỉ chạm chân fan vào keo, chân fan ôm quanh sợi mi đã tách, cùng hướng mọc, không chạm da.",
+        "Fans on the strong lashes: make the fan as in the volume practice lesson (narrow, neat base, even spread; in hybrid usually a light fan of few lashes), touch only the base into the glue, wrap the base around the isolated lash in its growth direction, never on the skin.",
+        "Viuhkat vahvoihin ripsiin: tee viuhka kuten volyymin käytäntötunnilla (kapea, siisti kanta, tasainen levitys; hybridissä yleensä kevyt, harvaripsinen viuhka), kosketa liimaan vain kannalla, kiedo kanta eristetyn ripsen ympärille kasvusuunnassa, ei koskaan iholle."
+      ),
+      l3(
+        "Đan xen và giữ đều: không gắn hết fan rồi mới gắn sợi đơn; làm từng vùng theo mi thật, gắn xen kẽ đuôi, giữa, đầu mắt cho keo khô; sau mỗi vùng lùi ra nhìn xem fan có dồn vào một chỗ không.",
+        "Mix and keep it even: don't place all the fans first and the singles later; work zone by zone following the natural lashes, alternating outer, middle and inner so the glue can dry; after each zone step back and check the fans are not bunched in one place.",
+        "Sekoita ja pidä tasaisena: älä laita ensin kaikkia viuhkoja ja sitten yksittäisiä; etene alue kerrallaan omien ripsien mukaan ja vuorottele ulko-, keski- ja sisäosaa, jotta liima ehtii kuivua; katso jokaisen alueen jälkeen, etteivät viuhkat kasaannu yhteen kohtaan."
+      ),
+      l3(
+        "Kiểm tra: lướt nhíp thẳng từ chân ra ngọn, mỗi sợi đơn và mỗi fan phải đứng riêng trên một sợi mi thật; thấy dính tách ngay; nhìn từ trên xuống và từ cạnh bên; chỗ trống có sợi mi khoẻ thì bổ sung. So hai mắt từ đầu giường: độ dài, độ dày, độ cong và độ đậm ở đuôi mắt phải giống nhau.",
+        "Check: run the straight tweezer from base to tip — every single and every fan must stand alone on one natural lash; separate any sticky at once; look from above and from the side; fill gaps where a strong lash is free. Compare both eyes from the head of the bed: length, fullness, curl and density at the outer corners must match.",
+        "Tarkista: vedä suorilla pinseteillä tyvestä kärkeen — jokaisen yksittäisen ripsen ja viuhkan on oltava yksin yhdessä luomuripsessä; erota tarttumat heti; katso ylhäältä ja sivulta; täydennä aukot, joissa on vapaa vahva ripsi. Vertaa silmiä sängyn päästä: pituuden, tuuheuden, taivutuksen ja ulkonurkan tummuuden on vastattava toisiaan."
+      ),
+      l3(
+        "Hoàn thiện: chải mi, gỡ miếng lót khi mắt khách vẫn nhắm, mở mắt từ từ; dặn dò như bài classic và hẹn dặm sau khoảng 2–3 tuần. Đồ dùng một lần bỏ thùng có nắp; nhíp làm sạch và khử khuẩn sau mỗi khách.",
+        "Finish: brush the lashes, remove the pads while the eyes are still closed, open slowly; aftercare as in the classic lesson and book a refill in about 2–3 weeks. Single-use items into a lidded bin; tweezers cleaned and disinfected after every client.",
+        "Viimeistely: harjaa ripset, poista tyynyt silmien ollessa vielä kiinni, avaus hitaasti; jälkihoito kuten klassisten tunnilla ja huolto noin 2–3 viikon päähän. Kertakäyttötuotteet kannelliseen roska-astiaan; pinsetit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen."
+      ),
+    ],
+    tips: [
+      l3(
+        "Mi thật hai bên thường không giống hệt nhau, nên cách phối mỗi bên có thể hơi khác. Cái cần giống là vẻ ngoài khi khách mở mắt — so hai mắt trước khi gỡ miếng lót.",
+        "Natural lashes are rarely identical on both sides, so the mix may differ a little per eye. What must match is the look when the client opens her eyes — compare both eyes before removing the pads.",
+        "Omat ripset ovat harvoin täsmälleen samanlaiset molemmissa silmissä, joten sekoitus voi hieman vaihdella. Ilmeen on vastattava toisiaan, kun asiakas avaa silmänsä — vertaa silmiä ennen tyynyjen poistoa."
+      ),
+      l3(
+        "Hybrid thường lâu hơn classic vì phải đổi nhíp và đổi loại mi liên tục. Trong VaraaAi, đặt thời lượng dịch vụ hybrid và dặm hybrid theo tốc độ thật của thợ, và hẹn lịch dặm trước khi khách về.",
+        "Hybrid usually takes longer than classic because you keep switching tweezers and lash types. In VaraaAi, set the hybrid and hybrid-refill service durations to the technician's real pace, and book the refill before the client leaves.",
+        "Hybridi kestää yleensä kauemmin kuin klassiset, koska pinsettejä ja ripsityyppiä vaihdetaan jatkuvasti. Aseta VaraaAi:ssa hybridin ja hybridihuollon kesto tekijän todellisen tahdin mukaan ja varaa huolto ennen kuin asiakas lähtee."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Trước khi gắn sợi nào, bước quyết định của một bộ hybrid là gì?", "Before placing anything, what is the deciding step of a hybrid set?", "Mikä on hybridisetin ratkaiseva vaihe ennen kuin mitään kiinnitetään?"),
+        options: [
+          l3("Chọn sẵn một nhịp cố định: đơn, fan, đơn, fan", "Picking a fixed pattern: single, fan, single, fan", "Kiinteän kaavan valinta: yksittäinen, viuhka, yksittäinen, viuhka"),
+          l3("Lấy thật nhiều keo lên đá cho đủ cả buổi", "Putting plenty of glue on the stone for the whole session", "Runsaan liiman annostelu kivelle koko käsittelyä varten"),
+          l3("Đọc mi thật từng vùng để biết sợi nào khoẻ, sợi nào yếu", "Reading the natural lashes zone by zone to see which are strong and which weak", "Omien ripsien arviointi alue kerrallaan: mitkä ovat vahvoja, mitkä heikkoja"),
+        ],
+        answer: 2,
+        why: l3(
+          "Sợi khoẻ có thể mang fan, sợi yếu chỉ mang sợi đơn nhẹ hoặc để trống. Nhịp cố định không nhìn mi thật dễ đặt fan lên sợi non; giọt keo thì lấy nhỏ và thay mới thường xuyên.",
+          "Strong lashes can carry a fan, weak ones only a light single or nothing. A fixed pattern ignores the natural lashes and easily puts a fan on a young lash; glue is taken in small, fresh drops.",
+          "Vahvat ripset voivat kantaa viuhkan, heikot vain kevyen yksittäisen ripsen tai ei mitään. Kiinteä kaava ei katso omia ripsiä ja laittaa helposti viuhkan nuoreen ripseen; liimaa otetaan pieninä, tuoreina pisaroina."
+        ),
+      },
+      {
+        q: l3("Bạn lùi ra nhìn và thấy fan dồn hết vào giữa mắt, hai đầu chỉ có vài sợi đơn. Điều đó có nghĩa là gì?", "You step back and see the fans bunched in the middle and only a few singles at both ends. What does that mean?", "Katsot kauempaa ja huomaat viuhkojen kasautuneen keskelle ja päihin vain muutaman yksittäisen ripsen. Mitä se tarkoittaa?"),
+        options: [
+          l3("Hàng mi sẽ loang lổ; cần rải fan đều theo từng vùng", "The lash line will look patchy; fans need spreading evenly zone by zone", "Ripsiraja näyttää laikukkaalta; viuhkat on jaettava tasaisesti alue kerrallaan"),
+          l3("Đó là kiểu hybrid chuẩn", "That is the standard hybrid look", "Se on tavallinen hybridi-ilme"),
+          l3("Cần thêm fan ở giữa cho cân", "More fans are needed in the middle to balance it", "Keskelle tarvitaan lisää viuhkoja tasapainoksi"),
+        ],
+        answer: 0,
+        why: l3(
+          "Hybrid đẹp khi fan và sợi đơn rải đều khắp hàng mi, theo mi thật của từng vùng. Fan dồn một chỗ làm giữa đậm thành mảng, hai đầu thưa.",
+          "Hybrid looks right when fans and singles are spread evenly along the lash line, following each zone's natural lashes. Fans bunched in one place make a heavy block in the middle and sparse ends.",
+          "Hybridi näyttää oikealta, kun viuhkat ja yksittäiset ripset jakautuvat tasaisesti koko ripsirajalle kunkin alueen omien ripsien mukaan. Yhteen kohtaan kasautuneet viuhkat tekevät keskelle raskaan läikän ja harvat päät."
+        ),
+      },
+      {
+        q: l3("Sợi đơn và fan nên cách da mí bao xa?", "How far from the eyelid skin should singles and fans be placed?", "Kuinka kauas luomen ihosta yksittäiset ripset ja viuhkat kiinnitetään?"),
+        options: [
+          l3("Sát da, cho chắc", "Right on the skin, for hold", "Aivan ihoon pitävyyden vuoksi"),
+          l3("Khoảng 0,5–1 mm, không bao giờ chạm da", "About 0.5–1 mm, never touching the skin", "Noin 0,5–1 mm, ei koskaan iholle"),
+          l3("Fan sát da, sợi đơn xa hơn", "Fans on the skin, singles further out", "Viuhkat ihoon, yksittäiset kauemmas"),
+        ],
+        answer: 1,
+        why: l3(
+          "Quy tắc như classic và volume: keo chạm da gây cộm, ngứa, có khi kích ứng, và kéo sợi mi khi mọc; gắn quá xa thì sợi nối lỏng và rụng sớm.",
+          "The same rule as classic and volume: glue on the skin causes discomfort, itching, sometimes irritation, and pulls the lash as it grows; too far out and the extension is loose and falls early.",
+          "Sama sääntö kuin klassisissa ja volyymissa: iholle joutunut liima aiheuttaa epämukavuutta, kutinaa, joskus ärsytystä, ja vetää ripseä sen kasvaessa; liian kaukana pidennys on löysä ja irtoaa aikaisin."
+        ),
+      },
+    ],
+  },
   soon("mi-mapping", "p-lash", ["Lash mapping: natural, doll, cat, fox", "Lash mapping: natural, doll, cat, fox", "Ripsikartoitus: natural, doll, cat, fox"], [
     "Chọn kiểu theo dáng mắt, chia vùng và chọn độ dài, độ cong.",
     "Choosing a style for the eye shape, zoning, and picking lengths and curls.",
