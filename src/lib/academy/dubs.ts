@@ -44,5 +44,7 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "the-khach-quen": { seconds: 140, published: "2026-11-17" },
     "the-tich-diem": { seconds: 73, published: "2026-11-17" },
     "khach-dan-khach": { seconds: 70, published: "2026-11-17" },
+    "lich-hen": { seconds: 92, published: "2026-11-17" },
+    "the-thanh-vien": { seconds: 58, published: "2026-11-17" },
   },
 };
