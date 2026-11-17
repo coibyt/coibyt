@@ -661,11 +661,171 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("xu-ly-su-co", "p-safety", ["Xử lý sự cố: chảy máu, dị ứng, bỏng", "Incidents: bleeding, allergic reactions, burns", "Vahinkotilanteet: verenvuoto, allergiset reaktiot, palovammat"], [
-    "Làm gì ngay trong phút đầu tiên, ghi lại sự cố và khi nào phải gọi cấp cứu.",
-    "What to do in the first minute, how to record the incident, and when to call for emergency help.",
-    "Mitä tehdään ensimmäisen minuutin aikana, miten tapahtuma kirjataan ja milloin soitetaan hätänumeroon.",
-  ]),
+  {
+    slug: "xu-ly-su-co",
+    course: "p-safety",
+    title: l3("Xử lý sự cố: chảy máu, dị ứng, bỏng", "Incidents: bleeding, allergic reactions, burns", "Vahinkotilanteet: verenvuoto, allergiset reaktiot, palovammat"),
+    summary: l3(
+      "Phút đầu tiên khi có sự cố trong tiệm: vết cắt chảy máu, sản phẩm bắn vào mắt, khách bị phản ứng, bỏng vì sáp nóng, hoá chất hay đèn, khách xỉu, và khi chính người thợ bị dụng cụ đâm vào tay. Sau đó: nói thật với khách, ghi biên bản sự cố, báo chủ tiệm và bổ sung túi sơ cứu.",
+      "The first minute of a salon incident: a bleeding cut, product in the eye, an allergic reaction, a burn from hot wax, chemicals or the lamp, a customer who faints, and a sharps injury to the professional. Then: tell the customer honestly, write the incident record, inform the owner and restock the first-aid kit.",
+      "Vahinkotilanteen ensimmäinen minuutti: vuotava haava, tuotetta silmässä, allerginen reaktio, palovamma kuumasta vahasta, kemikaalista tai lampusta, asiakkaan pyörtyminen ja tekijän oma pisto- tai viiltotapaturma. Sen jälkeen: kerro asiakkaalle rehellisesti, kirjaa tapahtuma, ilmoita omistajalle ja täydennä ensiapulaukku."
+    ),
+    video: video("xu-ly-su-co", 320, "2026-11-16"),
+    notice: l3(
+      "Bài này không thay cho một khoá học sơ cứu. Khi nguy hiểm đến tính mạng — khó thở, sưng môi hay mặt, máu không cầm, khách không tỉnh lại — gọi cấp cứu ngay (112 ở Liên minh châu Âu). Hướng dẫn sơ cứu và quy định về báo cáo sự cố khác nhau theo từng nước.",
+      "This lesson does not replace a first-aid course. When life is in danger — difficulty breathing, swollen lips or face, bleeding that will not stop, a customer who does not come round — call the emergency number at once (112 in the EU). First-aid guidance and incident-reporting rules differ by country.",
+      "Tämä tunti ei korvaa ensiapukurssia. Kun henki on vaarassa — hengitysvaikeus, huulten tai kasvojen turvotus, verenvuoto ei tyrehdy, asiakas ei virkoa — soita heti hätänumeroon (112 EU:ssa). Ensiapuohjeet ja vahinkojen ilmoitussäännöt vaihtelevat maittain."
+    ),
+    sources: [
+      { label: "NHS — Burns and scalds: treatment", url: "https://www.nhs.uk/conditions/burns-and-scalds/treatment/" },
+      { label: "Finnish Red Cross — First aid for burns (Palovammat)", url: "https://www.punainenristi.fi/ensiapu/ensiapuohjeet/palovammat/" },
+      { label: "NHS — Eye injuries", url: "https://www.nhs.uk/conditions/eye-injuries/" },
+      { label: "NHS — Cuts and grazes", url: "https://www.nhs.uk/conditions/cuts-and-grazes/" },
+      { label: "Finnish Red Cross — Severe allergic reaction (Vakava allerginen reaktio)", url: "https://www.punainenristi.fi/ensiapu/ensiapuohjeet/vakava-allerginen-reaktio/" },
+      { label: "NHS — Fainting", url: "https://www.nhs.uk/conditions/fainting/" },
+      { label: "HSE (UK) — How to deal with an exposure incident (blood-borne viruses)", url: "https://www.hse.gov.uk/biosafety/blood-borne-viruses/how-deal-exposure-incident.htm" },
+      { label: "HSE (UK) — First aid at work: what a first-aid box should contain", url: "https://www.hse.gov.uk/firstaid/faqs.htm" },
+      HELSINKI_HYGIENE,
+    ],
+    related: ["khach-hang", "nhan-vien", "kiem-tra-salon"],
+    steps: [
+      l3(
+        "Trong mọi sự cố có ba việc giống nhau: dừng tay; giữ bình tĩnh, vì khách nhìn vào mặt mình mà biết nên sợ hay không; và nếu nguy hiểm đến tính mạng thì gọi cấp cứu trước (112 ở Liên minh châu Âu).",
+        "Three things are the same in every incident: stop working; stay calm, because the customer reads your face; and if life is in danger, call the emergency number first (112 in the EU).",
+        "Kolme asiaa pätee jokaisessa vahinkotilanteessa: keskeytä työ; pysy rauhallisena, sillä asiakas lukee tilanteen kasvoiltasi; ja jos henki on vaarassa, soita ensin hätänumeroon (112 EU:ssa)."
+      ),
+      l3(
+        "Vết cắt chảy máu: dừng lại, đeo găng mới, ép gạc sạch thẳng lên vết cắt và giữ yên cho đến khi máu cầm. Rồi rửa bằng nước sạch, thấm khô và băng lại. Dặn khách giữ vết thương sạch và khô; những ngày sau nếu sưng, đỏ, đau hơn thì đi khám. Ép mãi mà máu không cầm: gọi cấp cứu.",
+        "A bleeding cut: stop, put on fresh gloves, press clean gauze straight onto the cut and hold it still until the bleeding stops. Then rinse with clean water, pat dry and cover. Tell the customer to keep the wound clean and dry and to see a doctor if it becomes swollen, red or more painful in the following days. If pressure does not stop the bleeding, call for emergency help.",
+        "Vuotava haava: keskeytä, vaihda puhtaat käsineet, paina puhdasta sideharsoa suoraan haavaan ja pidä paikallaan, kunnes vuoto tyrehtyy. Huuhtele sitten puhtaalla vedellä, taputtele kuivaksi ja peitä. Neuvo asiakasta pitämään haava puhtaana ja kuivana ja hakeutumaan lääkäriin, jos se lähipäivinä turpoaa, punoittaa tai kipu pahenee. Jos vuoto ei tyrehdy painamalla, soita hätänumeroon."
+      ),
+      l3(
+        "Sau đó mới đến đồ đạc: bề mặt dính máu luôn phải khử khuẩn; dụng cụ đó không dùng tiếp mà đưa đi làm sạch và tiệt trùng (xem bài xử lý dụng cụ); lưỡi dao, kim dùng một lần bỏ vào hộp đựng vật sắc nhọn.",
+        "Only then the equipment: a surface with blood on it is always disinfected; that tool is not used again but goes to cleaning and sterilisation (see the lesson on tools); single-use blades and needles go into a sharps container.",
+        "Vasta sitten välineet: veren tahrima pinta desinfioidaan aina; kyseistä välinettä ei käytetä enää, vaan se puhdistetaan ja steriloidaan (katso välineiden huoltoa käsittelevä tunti); kertakäyttöiset terät ja neulat laitetaan viiltävän jätteen astiaan."
+      ),
+      l3(
+        "Sản phẩm bắn vào mắt (keo, thuốc nhuộm, acetone, dung dịch khử khuẩn): rửa ngay. Cho nước sạch, không nóng, chảy nhẹ qua con mắt đang mở, liên tục ít nhất 20 phút. Nhờ khách tháo kính áp tròng nếu tháo được; dặn khách đừng dụi mắt. Rồi đưa khách đi khám ngay và mang theo chai sản phẩm. Với hoá chất mạnh: vừa rửa vừa gọi cấp cứu.",
+        "Product in the eye (glue, tint, acetone, disinfectant): rinse at once. Let clean water that is not hot run gently over the open eye for at least 20 minutes. Ask the customer to take out contact lenses if they can, and not to rub the eye. Then get medical help straight away and take the product bottle along. With a strong chemical: keep rinsing and call for emergency help.",
+        "Tuotetta silmässä (liima, väri, asetoni, desinfiointiaine): huuhtele heti. Anna puhtaan, ei kuuman veden valua kevyesti avoimen silmän yli vähintään 20 minuuttia. Pyydä asiakasta poistamaan piilolinssit, jos se onnistuu, ja kiellä hieromasta silmää. Hakeudu sitten heti hoitoon ja ota tuotepullo mukaan. Voimakkaan kemikaalin kohdalla: jatka huuhtelua ja soita hätänumeroon."
+      ),
+      l3(
+        "Khách bị phản ứng (ngứa, rát, đỏ, sưng): dừng lại, lấy sản phẩm ra thật nhẹ, rửa bằng nhiều nước. Dấu hiệu nguy hiểm — khó thở, khàn tiếng, sưng môi, sưng mặt, choáng váng: gọi cấp cứu ngay, đừng chờ xem có đỡ không. Hỏi khách có mang bút tiêm adrenaline không, và để khách ở tư thế dễ thở nhất.",
+        "An allergic reaction (itching, burning, redness, swelling): stop, remove the product gently, rinse with plenty of water. Danger signs — difficulty breathing, a hoarse voice, swollen lips or face, dizziness: call for emergency help at once; do not wait to see whether it passes. Ask whether the customer carries an adrenaline auto-injector, and help them into the position in which breathing is easiest.",
+        "Allerginen reaktio (kutina, kirvely, punoitus, turvotus): keskeytä, poista tuote varovasti ja huuhtele runsaalla vedellä. Vaaran merkit — hengitysvaikeus, äänen käheys, huulten tai kasvojen turvotus, huimaus: soita heti hätänumeroon, älä jää odottamaan. Kysy, onko asiakkaalla adrenaliinikynä, ja auta hänet asentoon, jossa hengittäminen on helpointa."
+      ),
+      l3(
+        "Bỏng nhiệt (sáp quá nóng, dụng cụ nóng): xả ngay dưới vòi nước mát — ít nhất 10 phút, tốt nhất 20 phút. Tháo nhẫn, vòng gần chỗ bỏng trước khi sưng. Không chườm đá; không bôi kem, dầu hay kem đánh răng; không chọc vỡ bọng nước. Làm mát xong, che bằng màng bọc thực phẩm sạch, đặt nhẹ lên trên, không quấn chặt.",
+        "A heat burn (wax too hot, a hot tool): cool it straight away under cool running water — at least 10 minutes, ideally 20. Take off rings and bracelets near the burn before it swells. No ice; no creams, oils or toothpaste; do not burst blisters. After cooling, cover with clean cling film laid loosely on top, not wrapped tight.",
+        "Lämpöpalovamma (liian kuuma vaha, kuuma väline): jäähdytä heti viileällä juoksevalla vedellä — vähintään 10 minuuttia, mieluiten 20. Poista sormukset ja rannekorut palovamman läheltä ennen turvotusta. Ei jäätä; ei voiteita, öljyjä tai hammastahnaa; älä puhkaise rakkuloita. Peitä jäähdytyksen jälkeen puhtaalla tuorekelmulla, joka asetetaan kevyesti päälle eikä kiedota tiukasti."
+      ),
+      l3(
+        "Đi khám khi chỗ bỏng phồng rộp mà rộng hơn lòng bàn tay của khách, khi bỏng sâu, khi bỏng ở mặt hay ở khớp, và với mọi vết bỏng do hoá chất. Hoá chất dính trên da: xả nước thật nhiều, thật lâu, cởi bỏ khăn áo đã thấm hoá chất, đừng bôi thứ gì lên. Khách kêu nóng dưới đèn: rút tay ra ngay — lớp gel quá dày, hoặc móng đã mỏng.",
+        "Get medical care when a blistered burn is larger than the customer's own palm, when it is deep, when it is on the face or over a joint, and for every chemical burn. Chemical on the skin: rinse with lots of water for a long time, remove towels or clothing soaked with it, put nothing on it. If the customer feels heat under the lamp: hand out at once — the gel is too thick or the nail is thin.",
+        "Hoitoon on hakeuduttava, kun rakkulainen palovamma on asiakkaan omaa kämmentä suurempi, kun vamma on syvä, kun se on kasvoissa tai nivelen kohdalla, ja aina kun palovamman on aiheuttanut kemikaali. Kemikaalia iholla: huuhtele runsaalla vedellä pitkään, poista kemikaalin kastelemat pyyhkeet ja vaatteet, älä levitä iholle mitään. Jos asiakas tuntee kuumotusta lampussa: käsi heti pois — geelikerros on liian paksu tai kynsi ohut."
+      ),
+      l3(
+        "Khách xỉu (hay gặp khi wax, khi đứng dậy nhanh, khi sợ máu): thấy chóng mặt, tái mặt, vã mồ hôi thì cho khách nằm xuống ngay, kê hai chân lên cao, nới cổ áo, mở cửa cho thoáng. Thường chưa đầy một phút khách tỉnh lại; để khách nghỉ rồi ngồi dậy thật từ từ. Không tỉnh lại sau một phút, thở không bình thường, co giật hay đau ngực: gọi cấp cứu.",
+        "Fainting (common during waxing, on standing up fast, at the sight of blood): at the first dizziness, paleness or sweating, lay the customer down, raise the legs, loosen the collar, let in fresh air. Most people come round in under a minute; let them rest and sit up slowly. Not awake after one minute, abnormal breathing, a seizure or chest pain: call for emergency help.",
+        "Pyörtyminen (yleistä vahauksessa, nopeasti noustessa, verta nähdessä): kun asiakasta huimaa, hän kalpenee tai hikoilee, auta hänet heti makuulle, nosta jalat koholle, löysää kaulusta ja päästä raitista ilmaa sisään. Useimmat virkoavat alle minuutissa; anna levätä ja nousta hitaasti istumaan. Jos asiakas ei herää minuutissa, hengittää poikkeavasti, kouristelee tai hänellä on rintakipua: soita hätänumeroon."
+      ),
+      l3(
+        "Khi chính bạn bị dụng cụ đã dùng cho khách đâm hay cắt vào tay: để máu chảy ra nhẹ nhàng dưới vòi nước, đừng nặn mạnh, đừng mút vết thương; rửa bằng xà phòng và thật nhiều nước rồi băng lại. Báo ngay cho chủ tiệm và liên hệ bác sĩ hoặc y tế lao động ngay trong ngày — việc dự phòng bệnh lây qua đường máu chỉ có tác dụng khi làm sớm.",
+        "If a tool used on a customer pricks or cuts you: let the wound bleed gently under running water, do not squeeze hard, do not suck it; wash with soap and plenty of water, then cover. Tell the owner immediately and contact a doctor or occupational health the same day — protection against blood-borne infections only works when it starts early.",
+        "Jos asiakkaalle käytetty väline pistää tai viiltää sinua: anna haavan vuotaa kevyesti juoksevan veden alla, älä purista voimakkaasti äläkä ime haavaa; pese saippualla ja runsaalla vedellä ja peitä. Ilmoita heti omistajalle ja ota samana päivänä yhteys lääkäriin tai työterveyshuoltoon — veriteitse tarttuvien tautien estohoito tehoaa vain ajoissa aloitettuna."
+      ),
+      l3(
+        "Sau phút đầu tiên: nói thật với khách — chuyện gì đã xảy ra, mình đã làm gì, khách nên theo dõi điều gì; xin lỗi chân thành, không đổ lỗi, không giấu. Ghi biên bản sự cố ngay trong ngày: ngày giờ, ai làm, chuyện gì, sản phẩm và số lô, đã xử lý ra sao, đã khuyên khách điều gì. Báo chủ tiệm; chủ tiệm xem có phải báo cho bảo hiểm hay cơ quan nào không, theo quy định nơi mình làm.",
+        "After the first minute: tell the customer the truth — what happened, what you did, what to watch for; apologise sincerely, no blaming, no hiding. Write an incident record the same day: date and time, who was working, what happened, product and batch number, what you did, what you advised. Inform the owner, who checks whether the insurer or an authority must be told under local rules.",
+        "Ensimmäisen minuutin jälkeen: kerro asiakkaalle totuus — mitä tapahtui, mitä teit ja mitä hänen kannattaa seurata; pahoittele vilpittömästi, älä syyttele äläkä salaa. Kirjaa tapahtuma samana päivänä: päivämäärä ja kellonaika, tekijä, mitä tapahtui, tuote ja eränumero, mitä teit ja mitä neuvoit. Ilmoita omistajalle, joka selvittää, onko asiasta ilmoitettava vakuutusyhtiölle tai viranomaiselle paikallisten sääntöjen mukaan."
+      ),
+    ],
+    tips: [
+      l3(
+        "Túi sơ cứu của tiệm nên có: băng dán đủ cỡ, gạc vô trùng, băng cuộn, băng dính y tế, miếng che mắt, găng dùng một lần, kéo, nước muối để rửa mắt và rửa vết thương, và một tờ hướng dẫn sơ cứu. Không để thuốc uống trong đó. Đặt ở chỗ ai cũng biết, kiểm tra đều đặn và bổ sung ngay sau mỗi lần dùng.",
+        "A salon first-aid kit should hold: plasters in several sizes, sterile gauze, rolled bandages, medical tape, eye pads, disposable gloves, scissors, saline for rinsing eyes and wounds, and a first-aid leaflet. No tablets or medicines. Keep it where everyone can find it, check it regularly and restock straight after use.",
+        "Liikkeen ensiapulaukussa tulisi olla: erikokoisia laastareita, steriilejä sideharsotaitoksia, sidetarvikerullia, teippiä, silmälappuja, kertakäyttökäsineitä, sakset, keittosuolaliuosta silmien ja haavojen huuhteluun sekä ensiapuohje. Ei tabletteja tai lääkkeitä. Säilytä laukku paikassa, jonka kaikki tietävät, tarkista se säännöllisesti ja täydennä heti käytön jälkeen."
+      ),
+      l3(
+        "Phần lớn sự cố tránh được từ trước: thử nhiệt độ sáp lên cổ tay mình trước khi thoa cho khách, che mắt khách thật kỹ khi dùng hoá chất gần mặt, đừng làm vội và đừng vừa làm vừa nhìn điện thoại. Ghi sẵn ở quầy số cấp cứu và địa chỉ của tiệm. Tiệm nào cũng nên có người đã học sơ cứu — hãy đi học một khoá và ôn lại sau vài năm.",
+        "Most incidents can be prevented: test the wax temperature on your own wrist before it touches the customer, shield the customer's eyes well when working with chemicals near the face, don't rush and don't look at your phone while working. Keep the emergency number and the salon's address written at the desk. Every salon should have someone trained in first aid — take a course and refresh it every few years.",
+        "Useimmat vahingot voi ehkäistä: kokeile vahan lämpö omaan ranteeseesi ennen kuin levität sitä asiakkaalle, suojaa asiakkaan silmät huolellisesti, kun käsittelet kemikaaleja kasvojen lähellä, älä kiirehdi äläkä katso puhelinta kesken työn. Pidä hätänumero ja liikkeen osoite näkyvillä tiskillä. Jokaisessa liikkeessä tulisi olla ensiapukoulutettu henkilö — käy kurssi ja kertaa taidot muutaman vuoden välein."
+      ),
+      l3(
+        "Trong VaraaAi, ghi lại trong “Ghi chú nội bộ” của hồ sơ khách rằng đã có sự cố và đã khuyên khách điều gì — chỉ salon thấy. Biên bản đầy đủ thì giữ ở nơi chủ tiệm quy định.",
+        "In VaraaAi, note on the customer's profile (internal notes — only the salon sees them) that there was an incident and what you advised. Keep the full incident record where the owner has decided.",
+        "Kirjaa VaraaAissa asiakasprofiilin sisäisiin muistiinpanoihin (näkyvät vain salongille), että vahinko sattui ja mitä neuvoit. Varsinainen tapahtumaraportti säilytetään omistajan määräämässä paikassa."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3(
+          "Sáp wax quá nóng làm đỏ rát cổ tay khách. Việc đầu tiên là gì?",
+          "Wax that was too hot has left a red, stinging patch on a customer's wrist. What comes first?",
+          "Liian kuuma vaha on jättänyt asiakkaan ranteeseen punaisen, kirvelevän läiskän. Mitä teet ensin?"
+        ),
+        options: [
+          l3("Chườm đá trực tiếp lên chỗ bỏng", "Put ice straight on the burn", "Laitan jäätä suoraan palovamman päälle"),
+          l3("Bôi kem dưỡng hoặc kem đánh răng cho dịu", "Soothe it with cream or toothpaste", "Rauhoitan voiteella tai hammastahnalla"),
+          l3(
+            "Xả dưới vòi nước mát ít nhất 10 phút, tốt nhất 20 phút",
+            "Cool it under cool running water for at least 10 minutes, ideally 20",
+            "Jäähdytän viileällä juoksevalla vedellä vähintään 10 minuuttia, mieluiten 20"
+          ),
+        ],
+        answer: 2,
+        why: l3(
+          "Nước mát chảy liên tục lấy nhiệt ra khỏi da. Đá, kem, dầu hay kem đánh răng đều không nên dùng trên vết bỏng mới.",
+          "Cool running water draws the heat out of the skin. Ice, creams, oils and toothpaste do not belong on a fresh burn.",
+          "Viileä juokseva vesi poistaa lämmön ihosta. Jää, voiteet, öljyt ja hammastahna eivät kuulu tuoreeseen palovammaan."
+        ),
+      },
+      {
+        q: l3(
+          "Một giọt keo nối mi bắn vào mắt khách. Bạn làm gì?",
+          "A drop of lash adhesive gets into a customer's eye. What do you do?",
+          "Pisara ripsiliimaa joutuu asiakkaan silmään. Mitä teet?"
+        ),
+        options: [
+          l3(
+            "Rửa ngay bằng nước sạch chảy nhẹ, liên tục ít nhất 20 phút, rồi đưa khách đi khám",
+            "Rinse at once with gently running clean water for at least 20 minutes, then get medical help",
+            "Huuhtelen heti kevyesti valuvalla puhtaalla vedellä vähintään 20 minuuttia ja ohjaan sitten hoitoon"
+          ),
+          l3("Bảo khách dụi mắt cho keo trôi ra", "Tell the customer to rub the eye so the glue comes out", "Kehotan asiakasta hieromaan silmää, jotta liima irtoaa"),
+          l3("Lau bằng bông khô rồi làm tiếp", "Wipe with dry cotton and carry on", "Pyyhin kuivalla vanulla ja jatkan työtä"),
+        ],
+        answer: 0,
+        why: l3(
+          "Điều quan trọng nhất là rửa ngay và rửa lâu. Dụi mắt làm tổn thương nặng thêm; mang theo chai sản phẩm để bác sĩ đọc nhãn.",
+          "What matters most is rinsing at once and for a long time. Rubbing makes the damage worse; take the product bottle along so the doctor can read the label.",
+          "Tärkeintä on huuhdella heti ja pitkään. Hierominen pahentaa vauriota; ota tuotepullo mukaan, jotta lääkäri voi lukea etiketin."
+        ),
+      },
+      {
+        q: l3(
+          "Cây kềm vừa cắt da cho khách đâm vào ngón tay của chính bạn. Điều nào đúng?",
+          "The nippers you have just used on a customer cut your own finger. Which is right?",
+          "Asiakkaalle juuri käyttämäsi kynsinauhapihdit viiltävät omaa sormeasi. Mikä on oikein?"
+        ),
+        options: [
+          l3("Mút vết thương rồi dán băng, làm tiếp", "Suck the wound, put on a plaster and carry on", "Imen haavaa, laitan laastarin ja jatkan"),
+          l3(
+            "Rửa bằng xà phòng và nhiều nước, băng lại, báo chủ tiệm và liên hệ bác sĩ hoặc y tế lao động ngay trong ngày",
+            "Wash with soap and plenty of water, cover it, tell the owner and contact a doctor or occupational health the same day",
+            "Pesen saippualla ja runsaalla vedellä, peitän haavan, ilmoitan omistajalle ja otan samana päivänä yhteyttä lääkäriin tai työterveyshuoltoon"
+          ),
+          l3("Xịt cồn rồi coi như xong, vì vết đâm rất nhỏ", "Spray alcohol on it and forget it; the cut is tiny", "Suihkautan desinfiointiainetta ja unohdan asian, haava on niin pieni"),
+        ],
+        answer: 1,
+        why: l3(
+          "Có những bệnh lây qua đường máu, và việc dự phòng chỉ có tác dụng khi bắt đầu sớm. Đừng tặc lưỡi cho qua.",
+          "Some infections travel through blood, and preventive treatment only works when it starts early. Do not shrug it off.",
+          "Jotkin taudit tarttuvat veren välityksellä, ja estohoito tehoaa vain ajoissa aloitettuna. Älä ohita asiaa olankohautuksella."
+        ),
+      },
+    ],
+  },
   soon("ve-sinh-tiem", "p-safety", ["Vệ sinh tiệm hằng ngày và kế hoạch tự kiểm soát", "Daily salon cleaning and the in-house control plan", "Liikkeen päivittäinen siivous ja omavalvontasuunnitelma"], [
     "Lịch lau dọn, giặt khăn, thông gió và những gì cơ quan y tế kiểm tra.",
     "A cleaning schedule, laundry, ventilation, and what health inspectors look at.",
