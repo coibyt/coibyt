@@ -2092,11 +2092,258 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("mi-volume", "p-lash", ["Nối mi volume: tạo fan 2D–6D", "Volume lashes: making 2D–6D fans", "Volyymiripset: 2D–6D-viuhkat"], [
-    "Các cách tạo fan, chân fan nhỏ gọn, lượng keo và trọng lượng an toàn cho mi thật.",
-    "Ways to make fans, narrow bases, glue amount and a safe weight for the natural lash.",
-    "Viuhkan tekotavat, kapea kanta, liiman määrä ja luomuripselle turvallinen paino.",
-  ]),
+  {
+    slug: "mi-volume-hieu-dung",
+    course: "p-lash",
+    style: "theory",
+    title: l3("Nối mi volume: hiểu đúng để dày mà vẫn nhẹ", "Volume lashes: understand them so they are full yet light", "Volyymiripset: ymmärrä ne, niin ripset ovat tuuheat mutta kevyet"),
+    summary: l3(
+      "Volume là gì (một fan nhiều sợi rất mảnh gắn vào đúng một sợi mi thật), vì sao sợi volume phải mảnh hơn classic, chọn 2D–6D theo sức mi thật, một fan đẹp trông thế nào, fan làm sẵn và fan tự tạo, lượng keo, dính chùm, tốc độ, độ bền và lịch dặm, và nói thật với khách.",
+      "What volume is (a fan of several very fine extensions on ONE natural lash), why volume lashes are much finer than classic, choosing 2D–6D by the strength of the natural lashes, what a good fan looks like, pre-made versus handmade fans, glue amount, stickies, speed, retention and refills, and honest talk with clients.",
+      "Mitä volyymi on (useasta hyvin ohuesta pidennyksestä tehty viuhka YHTEEN luomuripseen), miksi volyymiripset ovat paljon klassisia ohuempia, 2D–6D-valinta luomuripsien vahvuuden mukaan, millainen on hyvä viuhka, valmiit ja käsin tehdyt viuhkat, liiman määrä, tarttumat, nopeus, kestävyys ja huollot sekä rehellinen puhe asiakkaan kanssa."
+    ),
+    video: video("mi-volume-hieu-dung", 308, "2026-11-17"),
+    notice: l3(
+      "Độ dày, độ dài và số sợi trong bài là hướng dẫn chung theo kinh nghiệm nghề, không phải con số tuyệt đối: luôn xem bảng gợi ý của hãng mi và hướng dẫn của hãng keo. Keo không được chạm vào da. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Thickness, length and lashes per fan in this lesson are general trade guidance, not exact figures: always check the lash maker's chart and the glue maker's instructions. Glue must never touch the skin. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Tämän tunnin paksuudet, pituudet ja ripsimäärät viuhkassa ovat yleisiä alan ohjeita, eivät tarkkoja lukuja: tarkista aina ripsivalmistajan taulukko ja liimavalmistajan ohjeet. Liima ei saa koskaan koskea ihoa. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["dich-vu", "lich-hen", "the-khach-quen"],
+    steps: [
+      l3(
+        "Volume vẫn là một fan trên đúng MỘT sợi mi thật. Fan gồm vài sợi rất mảnh xoè ra từ một chân chung; gọi theo số sợi: 2D, 3D… 6D. Không bao giờ một fan ôm hai, ba sợi mi thật.",
+        "Volume is still one fan on exactly ONE natural lash. A fan is several very fine lashes opening from one shared base, named by the number of lashes: 2D, 3D… 6D. A fan never wraps two or three natural lashes.",
+        "Volyymi on edelleen yksi viuhka täsmälleen YHDESSÄ luomuripsessä. Viuhka on useita hyvin ohuita ripsiä, jotka avautuvat yhteisestä kannasta; nimi tulee ripsien määrästä: 2D, 3D… 6D. Viuhka ei koskaan kiedo kahta tai kolmea luomuripseä."
+      ),
+      l3(
+        "Thêm sợi thì bớt độ dày: sức chịu của sợi mi thật không đổi, nên sợi volume mảnh hơn classic rất nhiều. Một fan vài sợi thật mảnh có thể chỉ nặng gần bằng một sợi classic dày. Độ dày cụ thể: theo bảng của hãng mi.",
+        "More lashes, less thickness: what a natural lash can carry does not change, so volume lashes are much finer than classic. A fan of a few very fine lashes can weigh about as much as one thicker classic lash. Exact thickness: follow the lash maker's chart.",
+        "Lisää ripsiä, vähemmän paksuutta: luomuripsen kantokyky ei muutu, joten volyymiripset ovat paljon klassisia ohuempia. Muutamasta hyvin ohuesta ripsestä tehty viuhka voi painaa suunnilleen yhden paksumman klassisen ripsen verran. Tarkka paksuus: ripsivalmistajan taulukon mukaan."
+      ),
+      l3(
+        "Chọn mấy D theo sức mi thật, không chỉ theo ý khách. Mi khoẻ, dài, dày đỡ được fan nhiều sợi hơn; mi mảnh, ngắn, thưa hay nhiều sợi non thì ít sợi, mảnh và ngắn hơn (2D–3D). Góc trong thường nhẹ hơn.",
+        "Choose the number of lashes by the strength of the natural lashes, not only by the client's wish. Strong, long, thick lashes carry more; fine, short, sparse or young lashes get fewer, finer and shorter ones (2D–3D). The inner corner is usually lighter.",
+        "Valitse ripsimäärä luomuripsien vahvuuden mukaan, ei pelkästään asiakkaan toiveen mukaan. Vahvat, pitkät ja paksut ripset kantavat enemmän; ohuet, lyhyet, harvat tai nuoret ripset saavat vähemmän, ohuempia ja lyhyempiä (2D–3D). Sisänurkka on yleensä kevyempi."
+      ),
+      l3(
+        "Fan quá nặng kéo trĩu sợi mi thật, gốc mi chịu lực, mi rụng sớm từng mảng và hàng mi thật thưa dần.",
+        "Fans that are too heavy drag the natural lash down, strain the root, make lashes fall out early in patches and thin the natural lash line over time.",
+        "Liian painavat viuhkat painavat luomuripsen alas, rasittavat juurta, saavat ripset irtoamaan ennenaikaisesti laikuittain ja harventavat luomuripsiä ajan myötä."
+      ),
+      l3(
+        "Một fan đẹp: chân nhỏ, khép kín, gọn gần như một sợi để ôm quanh sợi mi thật; các sợi xoè đều, không dính đôi; cân đối hai bên, độ xoè vừa phải. Fan chân bè, xoè lệch thì nặng và dễ dính sang sợi bên cạnh.",
+        "A good fan: a narrow, closed base, almost as slim as one lash, so it wraps the natural lash; lashes evenly spread, none stuck together; symmetrical, not too wide. A wide-based, lopsided fan is heavy and easily catches the next lash.",
+        "Hyvä viuhka: kapea, suljettu kanta, lähes yhden ripsen ohut, jotta se kietoutuu luomuripsen ympärille; ripset tasaisesti levällään, ei yhteen tarttuneita; symmetrinen, ei liian leveä. Leveäkantainen, vino viuhka on painava ja tarttuu helposti viereiseen ripseen."
+      ),
+      l3(
+        "Fan làm sẵn (promade) dùng được, nhất là khi mới tập; chọn loại chân nhỏ, gọn và vẫn kiểm tra từng fan. Tự tạo fan bằng tay là tay nghề thật: chọn được số sợi, độ xoè, độ dài cho từng sợi mi thật.",
+        "Pre-made (promade) fans are fine, especially while learning; choose narrow, neat bases and still check every fan. Handmade fans are the real skill: you choose the number of lashes, the spread and the length for each natural lash.",
+        "Valmiit (promade) viuhkat käyvät, etenkin harjoitellessa; valitse kapeakantaiset ja tarkista silti jokainen viuhka. Käsin tehty viuhka on varsinainen taito: valitset ripsimäärän, leveyden ja pituuden jokaiselle luomuripselle."
+      ),
+      l3(
+        "Keo thật ít: chỉ chạm chân fan vào giọt keo. Keo nhiều làm chân fan nặng, cứng, thành cục, keo leo lên làm fan dính khối và dính sang sợi bên cạnh. Mi bền nhờ chân fan ôm khít, không nhờ cục keo.",
+        "Very little glue: only the base of the fan touches the drop. Too much glue makes a heavy, stiff, lumpy base, creeps up and glues the fan into a clump and onto the next lash. Retention comes from a base that wraps snugly, not from a blob of glue.",
+        "Hyvin vähän liimaa: vain viuhkan kanta koskettaa pisaraa. Liika liima tekee kannasta painavan, jäykän ja paakkuisen, nousee ripsien väliin ja liimaa viuhkan möykyksi ja viereiseen ripseen. Kestävyys tulee tiiviisti kietoutuvasta kannasta, ei liimapaakusta."
+      ),
+      l3(
+        "Dính chùm còn dễ xảy ra hơn classic vì fan rộng: tách mi thật sạch và kiểm tra lại sau mỗi vùng. Tốc độ đến từ kỹ thuật (fan đều, keo đúng lượng, đặt một lần là xong), không đến từ vội.",
+        "Stickies happen even more easily than in classic because a fan is wide: isolate cleanly and check after every zone. Speed comes from technique (even fans, the right amount of glue, placed right the first time), not from rushing.",
+        "Tarttumia syntyy vielä helpommin kuin klassisissa, koska viuhka on leveä: eristä huolellisesti ja tarkista jokaisen alueen jälkeen. Nopeus tulee tekniikasta (tasaiset viuhkat, oikea liimamäärä, kerralla oikeaan kohtaan), ei kiirehtimisestä."
+      ),
+      l3(
+        "Độ bền phụ thuộc vào làm sạch mi kỹ, độ ẩm và nhiệt độ phòng theo hãng keo, và cách khách giữ mi ở nhà; mi vẫn rụng theo vòng đời nên dặm sau khoảng 2–3 tuần. Nhíp làm sạch và khử khuẩn sau mỗi khách (bài “Xử lý dụng cụ sau mỗi khách”); keo có thể gây dị ứng (bài “Dị ứng và hoá chất”).",
+        "Retention depends on thorough cleansing, room humidity and temperature within the glue maker's range, and aftercare at home; lashes still shed with their growth cycle, so refills come every 2–3 weeks or so. Tweezers are cleaned and disinfected after every client (see the tool-hygiene lesson); glue can cause allergy (see the allergy lesson).",
+        "Kestävyys riippuu huolellisesta puhdistuksesta, liimavalmistajan suosittelemasta huoneen kosteudesta ja lämpötilasta sekä kotihoidosta; ripset irtoavat silti kasvusyklinsä mukaan, joten huolto noin 2–3 viikon välein. Pinsetit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen (välinehygienian tunti); liima voi aiheuttaa allergian (allergiatunti)."
+      ),
+      l3(
+        "Nói thật với khách: volume đẹp nhất khi vừa sức mi thật. Mi yếu thì làm nhẹ hơn hôm nay để mi khoẻ, lần sau có thể dày hơn.",
+        "Be honest with clients: volume looks best when it suits the natural lashes. With weak lashes, go lighter today so they stay healthy; next time it can be fuller.",
+        "Ole rehellinen asiakkaalle: volyymi näyttää parhaalta, kun se sopii luomuripsille. Heikoille ripsille tehdään tänään kevyemmin, jotta ne pysyvät terveinä; ensi kerralla voi olla tuuheampaa."
+      ),
+    ],
+    tips: [
+      l3(
+        "Khách đưa ảnh mi thật dày mà mi thật mảnh: cho khách xem mi thật của chính họ trong gương, giải thích vì sao hôm nay làm nhẹ hơn. Khách hiểu thì tin, và quay lại.",
+        "A client brings a photo of very full lashes but has fine natural lashes: show them their own lashes in the mirror and explain why you go lighter today. A client who understands trusts you, and comes back.",
+        "Asiakas tuo kuvan hyvin tuuheista ripsistä, mutta omat ripset ovat ohuet: näytä hänelle omat ripsensä peilistä ja kerro, miksi teet tänään kevyemmin. Ymmärtävä asiakas luottaa ja palaa."
+      ),
+      l3(
+        "Trong VaraaAi, tạo riêng dịch vụ “Nối mi volume” và “Dặm mi volume” với thời lượng thật của tiệm, rồi hẹn lịch dặm cho khách ngay trước khi khách về.",
+        "In VaraaAi, create separate “Volume lashes” and “Volume refill” services with your salon's real durations, then book the client's refill before they leave.",
+        "Luo VaraaAi:ssa erilliset palvelut ”Volyymiripset” ja ”Volyymiripsien huolto” liikkeesi todellisilla kestoilla ja varaa asiakkaan huoltoaika ennen kuin hän lähtee."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Một fan 4D được gắn vào bao nhiêu sợi mi thật?", "How many natural lashes does one 4D fan go on?", "Kuinka moneen luomuripseen yksi 4D-viuhka kiinnitetään?"),
+        options: [
+          l3("Bốn sợi, mỗi sợi một nhánh", "Four, one branch on each", "Neljään, yksi haara kuhunkin"),
+          l3("Đúng một sợi", "Exactly one", "Täsmälleen yhteen"),
+          l3("Hai sợi, cho chắc", "Two, for strength", "Kahteen, lujuuden vuoksi"),
+        ],
+        answer: 1,
+        why: l3(
+          "Dù fan có bao nhiêu sợi, chân fan chỉ ôm đúng một sợi mi thật. Ôm hai sợi là dính chùm: mi bị kéo và rụng sớm.",
+          "However many lashes a fan has, its base wraps exactly one natural lash. Two natural lashes in one fan is a sticky: they are pulled and shed early.",
+          "Viuhkassa voi olla monta ripseä, mutta sen kanta kietoutuu täsmälleen yhteen luomuripseen. Kaksi luomuripseä samassa viuhkassa on tarttuma: ripsiä vedetään ja ne irtoavat ennenaikaisesti."
+        ),
+      },
+      {
+        q: l3("Khách có mi thật mảnh, ngắn và thưa nhưng muốn một bộ thật dày. Bạn làm gì?", "A client with fine, short, sparse lashes wants a very full set. What do you do?", "Asiakkaalla on ohuet, lyhyet ja harvat ripset, mutta hän haluaa hyvin tuuheat. Mitä teet?"),
+        options: [
+          l3("Làm fan nhiều sợi, sợi dày cho đúng ý khách", "Big fans with thick lashes, as the client wants", "Isot viuhkat paksuilla ripsillä asiakkaan toiveen mukaan"),
+          l3("Từ chối làm mi cho khách", "Refuse to do lashes at all", "Kieltäydyn tekemästä ripsiä lainkaan"),
+          l3("Giải thích, chọn fan ít sợi, mảnh và ngắn hơn để mi thật khoẻ", "Explain, and choose fewer, finer, shorter lashes per fan to keep the natural lashes healthy", "Selitän ja valitsen viuhkaan vähemmän, ohuempia ja lyhyempiä ripsiä, jotta luomuripset pysyvät terveinä"),
+        ],
+        answer: 2,
+        why: l3(
+          "Số sợi chọn theo sức mi thật. Fan quá nặng kéo mi thật rụng sớm, và vài tháng sau hàng mi thưa đi.",
+          "The number of lashes follows what the natural lash can carry. Too heavy a fan makes natural lashes fall out early, and months later the lash line is thinner.",
+          "Ripsimäärä valitaan luomuripsen kantokyvyn mukaan. Liian painava viuhka saa luomuripset irtoamaan ennenaikaisesti, ja kuukausien päästä ripsirivi on harvempi."
+        ),
+      },
+      {
+        q: l3("Lấy nhiều keo ở chân fan thì sao?", "What happens with a lot of glue on the base of the fan?", "Mitä tapahtuu, jos viuhkan kannassa on paljon liimaa?"),
+        options: [
+          l3("Chân fan nặng, cứng, dễ dính chùm", "A heavy, stiff base and stickies come easily", "Kanta on painava ja jäykkä, ja tarttumia syntyy helposti"),
+          l3("Mi giữ lâu hơn", "The lashes last longer", "Ripset kestävät pidempään"),
+          l3("Fan xoè đẹp hơn", "The fan opens more nicely", "Viuhka aukeaa kauniimmin"),
+        ],
+        answer: 0,
+        why: l3(
+          "Keo nhiều thành cục, leo lên giữa các sợi và dính sang sợi bên cạnh. Mi bền nhờ chân fan ôm khít sợi mi thật, không nhờ cục keo.",
+          "Too much glue forms a lump, creeps between the lashes and catches the next lash. Retention comes from a base that wraps the natural lash snugly, not from a blob.",
+          "Liika liima muodostaa paakun, nousee ripsien väliin ja tarttuu viereiseen ripseen. Kestävyys tulee tiiviisti luomuripsen ympärille kietoutuvasta kannasta, ei paakusta."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "mi-volume",
+    course: "p-lash",
+    style: "practice",
+    title: l3("Nối mi volume: thực hành tạo fan từng bước", "Volume lashes: making fans step by step", "Volyymiripset: viuhkan teko vaihe vaiheelta"),
+    summary: l3(
+      "Một bộ mi volume với fan tự tạo bằng tay: chuẩn bị như bài classic, sắp bàn làm việc, lấy vài sợi trên dải, trượt nhíp để mở fan và khép chân fan, kiểm tra fan, chỉ chạm chân fan vào keo, tách một sợi mi thật, gắn fan ôm quanh sợi mi cách da mí 0,5–1 mm, gắn xen kẽ, kiểm tra dính chùm, hoàn thiện và dọn dẹp.",
+      "A volume set with handmade fans: prep as in the classic lesson, setting up the station, picking a few lashes off the strip, sliding the tweezer to open the fan and close its base, checking the fan, touching only the base into the glue, isolating one natural lash, placing the fan so it wraps the lash 0.5–1 mm from the lid, alternating zones, checking for stickies, finishing and clearing up.",
+      "Volyymiripset käsin tehdyillä viuhkoilla: valmistelu kuten klassisten tunnilla, työpisteen järjestäminen, muutaman ripsen nosto nauhalta, pinsettien liu'utus viuhkan avaamiseksi ja kannan sulkemiseksi, viuhkan tarkistus, vain kannan kastaminen liimaan, yhden luomuripsen eristys, viuhkan kiinnitys luomuripsen ympärille 0,5–1 mm luomesta, alueiden vuorottelu, tarttumien tarkistus, viimeistely ja siivous."
+    ),
+    video: video("mi-volume", 280, "2026-11-17"),
+    notice: l3(
+      "Khoảng cách, độ dày và số sợi trong bài là hướng dẫn chung theo kinh nghiệm nghề; luôn theo bảng của hãng mi và hướng dẫn của hãng keo (độ ẩm, nhiệt độ, thời gian giữ khô). Mắt khách nhắm kín suốt buổi, keo không được chạm da. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Distances, thickness and lashes per fan here are general trade guidance; always follow the lash maker's chart and the glue maker's instructions (humidity, temperature, how long to keep lashes dry). The client's eyes stay closed throughout, and glue must never touch the skin. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Etäisyydet, paksuudet ja ripsimäärät ovat yleisiä alan ohjeita; noudata aina ripsivalmistajan taulukkoa ja liimavalmistajan ohjeita (kosteus, lämpötila, kuinka kauan ripset pidetään kuivina). Asiakkaan silmät pysyvät kiinni koko ajan, eikä liima saa koskaan koskea ihoa. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["dich-vu", "lich-hen", "khach-hang"],
+    steps: [
+      l3(
+        "Chuẩn bị như bài thực hành classic: tư vấn và hỏi dị ứng, khách nằm thoải mái, làm sạch mi, miếng lót dưới mắt, chải mi. Khi chải, nhìn kỹ mi thật từng vùng để chọn fan mấy sợi.",
+        "Prep as in the classic practice lesson: consultation and allergy questions, client comfortable, lashes cleansed, under-eye pads, lashes brushed. While brushing, read the natural lashes zone by zone to choose how many lashes per fan.",
+        "Valmistelu kuten klassisten käytäntötunnilla: konsultaatio ja allergiakysymykset, asiakas mukavasti, ripset puhdistettu, silmänalustyynyt, ripset harjattu. Harjatessa arvioi luomuripset alue kerrallaan ja valitse ripsimäärä viuhkaan."
+      ),
+      l3(
+        "Bàn làm việc: vỉ mi volume (sợi rất mảnh) xếp theo độ dài, đá ngọc với giọt keo mới, nhíp thẳng để tách mi và nhíp volume đầu gập góc để tạo và gắn fan, đồ dùng một lần; chai keo đậy nắp ngay.",
+        "Station: a tile of volume lashes (very fine) sorted by length, a jade stone with a fresh drop of glue, a straight tweezer for isolating and an angled volume tweezer for making and placing fans, single-use items; the glue bottle closed straight away.",
+        "Työpiste: volyymiripsialusta (hyvin ohuet ripset) pituusjärjestyksessä, jadekivi ja tuore liimapisara, suorat pinsetit eristykseen ja kulmikkaat volyymipinsetit viuhkan tekoon ja kiinnitykseen, kertakäyttövälineet; liimapullo suljetaan heti."
+      ),
+      l3(
+        "Lấy sợi: đặt đầu nhíp volume ngang qua vài sợi trên dải, ở phần gần ngọn; lấy đúng số sợi cần cho fan, kẹp thật nhẹ, lấy từ mép dải vào.",
+        "Picking: lay the volume tweezer tip across a few lashes on the strip, towards the tips; take exactly the number you need, grip very lightly, and work in from the edge of the strip.",
+        "Nosto: aseta volyymipinsettien kärki muutaman ripsen yli nauhalla, kärkien puolelle; ota juuri tarvittava määrä, purista hyvin kevyesti ja etene nauhan reunasta sisäänpäin."
+      ),
+      l3(
+        "Mở fan: trượt nhíp từ từ về phía chân sợi để các sợi xoè ra (có thợ lăn hoặc nghiêng nhíp); khép nhíp ở chân cho chân fan nhỏ, gọn, rồi nhấc fan ra. Đừng xoè quá rộng.",
+        "Opening the fan: slide the tweezer slowly towards the base so the lashes spread (some roll or tilt the tweezer instead); close the tweezer at the base so it is narrow and neat, then lift the fan off. Don't spread it too wide.",
+        "Viuhkan avaus: liu'uta pinsettejä hitaasti kantaa kohti, jolloin ripset levittyvät (jotkut pyörittävät tai kallistavat pinsettejä); sulje pinsetit kannasta, jotta se on kapea ja siisti, ja nosta viuhka irti. Älä levitä liian leveäksi."
+      ),
+      l3(
+        "Kiểm tra trước khi lấy keo: chân nhỏ và kín, các sợi xoè đều và cân đối, đúng số sợi. Fan lệch, chân bè hay sợi dính đôi thì bỏ, làm fan mới.",
+        "Check before the glue: narrow, closed base, lashes evenly spread and symmetrical, the right number of lashes. A lopsided fan, a wide base or two lashes stuck together: discard it and make a new one.",
+        "Tarkista ennen liimaa: kapea, suljettu kanta, ripset tasaisesti ja symmetrisesti levällään, oikea määrä ripsiä. Vino viuhka, leveä kanta tai yhteen tarttuneet ripset: hylkää ja tee uusi."
+      ),
+      l3(
+        "Lấy keo: chỉ chạm chân fan vào mép giọt keo rồi rút ra; không nhúng sâu, không để keo leo lên giữa các sợi. Fan dính cục keo to thì bỏ. Thay giọt keo mới thường xuyên theo hướng dẫn của hãng.",
+        "Glue: touch only the base of the fan into the edge of the drop and draw it out; don't dip deep or let glue creep up between the lashes. A fan with a big blob of glue goes in the bin. Replace the drop often, as the glue maker advises.",
+        "Liima: kosketa vain viuhkan kannalla pisaran reunaa ja vedä pois; älä kasta syvälle äläkä anna liiman nousta ripsien väliin. Viuhka, jossa on iso liimapaakku, hylätään. Vaihda pisara usein liimavalmistajan ohjeen mukaan."
+      ),
+      l3(
+        "Tách đúng một sợi mi thật bằng nhíp thẳng, thật sạch, như bài classic — fan rộng nên chỉ một sợi còn sát là dính.",
+        "Isolate exactly one natural lash with the straight tweezer, cleanly, as in the classic lesson — a fan is wide, so one lash left close by will be caught.",
+        "Eristä suorilla pinseteillä täsmälleen yksi luomuripsi huolellisesti kuten klassisten tunnilla — viuhka on leveä, joten yksikin lähelle jäänyt ripsi tarttuu."
+      ),
+      l3(
+        "Gắn fan: chân fan ôm quanh sợi mi thật, cùng hướng mọc, cách da mí khoảng 0,5–1 mm, không bao giờ chạm da; áp nhẹ, giữ yên cho keo bắt rồi nhả nhíp. Fan lệch thì gỡ ngay khi keo chưa bắt.",
+        "Placing: the base wraps the natural lash, in its growth direction, about 0.5–1 mm from the lid, never on the skin; press lightly, hold still until the glue grabs, then release. If it sits crooked, remove it at once before the glue sets.",
+        "Kiinnitys: kanta kietoutuu luomuripsen ympärille kasvusuunnassa noin 0,5–1 mm luomesta, ei koskaan iholle; paina kevyesti, pidä paikallaan kunnes liima tarttuu, ja irrota sitten. Jos viuhka on vinossa, poista se heti ennen kuin liima kovettuu."
+      ),
+      l3(
+        "Gắn xen kẽ các vùng (đuôi, giữa, đầu mắt) để keo có thời gian khô; sau mỗi vùng lướt nhíp từ chân ra ngọn kiểm tra dính chùm và tách ngay. Góc trong ngắn và nhẹ, dài dần về đuôi mắt (chọn kiểu: bài lash mapping).",
+        "Alternate zones (outer, middle, inner) so the glue has time to dry; after each zone run the tweezer from base to tip to check for stickies and separate them at once. Short and light at the inner corner, gradually longer towards the outer corner (styles: the lash-mapping lesson).",
+        "Vuorottele alueita (ulko-, keski-, sisäosa), jotta liima ehtii kuivua; jokaisen alueen jälkeen vedä pinseteillä tyvestä kärkeen, tarkista tarttumat ja erota ne heti. Sisänurkassa lyhyet ja kevyet, ulkonurkkaa kohti vähitellen pidemmät (tyylit: ripsikartoituksen tunti)."
+      ),
+      l3(
+        "Hoàn thiện: chải và so hai mắt, gỡ miếng lót khi mắt khách vẫn nhắm, mở mắt từ từ; dặn dò như bài classic và hẹn dặm sau khoảng 2–3 tuần. Đồ dùng một lần bỏ thùng có nắp; nhíp làm sạch và khử khuẩn sau mỗi khách.",
+        "Finish: brush and compare both eyes, remove the pads while the eyes are still closed, open slowly; aftercare as in the classic lesson and book a refill in about 2–3 weeks. Single-use items into a lidded bin; tweezers cleaned and disinfected after every client.",
+        "Viimeistely: harjaa ja vertaa molempia silmiä, poista tyynyt silmien ollessa vielä kiinni, avaus hitaasti; jälkihoito kuten klassisten tunnilla ja huolto noin 2–3 viikon päähän. Kertakäyttötuotteet kannelliseen roska-astiaan; pinsetit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen."
+      ),
+    ],
+    tips: [
+      l3(
+        "Làm lại một fan chỉ mất vài giây; gắn một fan xấu lên mắt khách thì mất nhiều hơn thế. Tập tạo fan trên vỉ mi hằng ngày cho đến khi tay đều, rồi mới tính đến tốc độ.",
+        "Remaking a fan takes seconds; putting a bad fan on a client's eye costs far more. Practise making fans on a tile every day until they are even; speed comes after that.",
+        "Viuhkan uusiminen vie sekunteja; huono viuhka asiakkaan silmässä maksaa paljon enemmän. Harjoittele viuhkoja alustalla päivittäin, kunnes ne ovat tasaisia; nopeus tulee vasta sen jälkeen."
+      ),
+      l3(
+        "Bộ volume đầu tiên sẽ lâu hơn nhiều so với classic. Trong VaraaAi, đặt thời lượng dịch vụ volume theo tốc độ thật của từng thợ, để lịch không bị dồn.",
+        "Your first volume sets will take much longer than classic. In VaraaAi, set the volume service duration to each technician's real pace so the calendar doesn't overrun.",
+        "Ensimmäiset volyymisetit vievät paljon kauemmin kuin klassiset. Aseta VaraaAi:ssa volyymipalvelun kesto kunkin tekijän todellisen tahdin mukaan, jottei kalenteri veny."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khi lấy keo cho fan, phần nào chạm vào giọt keo?", "When picking up glue, which part of the fan touches the drop?", "Mikä viuhkan osa koskettaa liimapisaraa?"),
+        options: [
+          l3("Cả fan, cho keo phủ đều các sợi", "The whole fan, so every lash is coated", "Koko viuhka, jotta jokainen ripsi peittyy"),
+          l3("Chỉ phần chân fan, rồi rút ra nhẹ", "Only the base, then draw it out gently", "Vain kanta, ja sitten vedetään kevyesti pois"),
+          l3("Phần ngọn fan", "The tips of the fan", "Viuhkan kärjet"),
+        ],
+        answer: 1,
+        why: l3(
+          "Keo chỉ cần ở chân fan, chỗ ôm sợi mi thật. Keo leo lên giữa các sợi làm fan nặng, dính khối và dễ dính chùm.",
+          "Glue belongs only at the base, where it wraps the natural lash. Glue between the lashes makes the fan heavy, clumped and prone to stickies.",
+          "Liimaa tarvitaan vain kannassa, joka kietoutuu luomuripseen. Ripsien väliin noussut liima tekee viuhkasta painavan, möykkyisen ja altiin tarttumille."
+        ),
+      },
+      {
+        q: l3("Chân fan nên cách da mí khoảng bao nhiêu?", "About how far from the eyelid skin should the base of the fan be?", "Kuinka kaukana luomen ihosta viuhkan kannan pitäisi olla?"),
+        options: [
+          l3("Khoảng 0,5–1 mm, không bao giờ chạm da", "About 0.5–1 mm, never touching the skin", "Noin 0,5–1 mm, ei koskaan iholla"),
+          l3("Sát da cho chắc", "Right on the skin, for hold", "Aivan ihossa pitävyyden vuoksi"),
+          l3("Khoảng giữa sợi mi thật", "Halfway up the natural lash", "Puolivälissä luomuripseä"),
+        ],
+        answer: 0,
+        why: l3(
+          "Keo chạm da gây cộm, ngứa, có khi kích ứng, và kéo sợi mi khi mọc; gắn quá xa thì fan lỏng và rụng sớm.",
+          "Glue on the skin causes discomfort, itching, sometimes irritation, and pulls the lash as it grows; too far out and the fan is loose and falls early.",
+          "Iholle joutunut liima aiheuttaa epämukavuutta, kutinaa, joskus ärsytystä, ja vetää ripseä sen kasvaessa; liian kaukana viuhka on löysä ja irtoaa aikaisin."
+        ),
+      },
+      {
+        q: l3("Bạn vừa tạo một fan có chân bè và hai sợi dính vào nhau. Bạn làm gì?", "You've just made a fan with a wide base and two lashes stuck together. What do you do?", "Teit juuri viuhkan, jonka kanta on leveä ja kaksi ripseä on tarttunut yhteen. Mitä teet?"),
+        options: [
+          l3("Thêm keo cho chắc rồi gắn", "Add more glue to hold it and place it", "Lisään liimaa pitävyyden vuoksi ja kiinnitän"),
+          l3("Gắn vào hai sợi mi thật cho vừa", "Place it on two natural lashes so it fits", "Kiinnitän sen kahteen luomuripseen, jotta se sopii"),
+          l3("Bỏ fan đó và làm fan mới", "Discard it and make a new fan", "Hylkään sen ja teen uuden viuhkan"),
+        ],
+        answer: 2,
+        why: l3(
+          "Fan xấu vừa nặng vừa dễ dính chùm. Làm lại chỉ mất vài giây, còn một fan ôm hai sợi mi thật sẽ kéo mi và làm mi rụng sớm.",
+          "A bad fan is heavy and causes stickies. Remaking it takes seconds; a fan on two natural lashes pulls them and makes them shed early.",
+          "Huono viuhka on painava ja aiheuttaa tarttumia. Uuden teko vie sekunteja; kahteen luomuripseen kiinnitetty viuhka vetää ripsiä ja saa ne irtoamaan ennenaikaisesti."
+        ),
+      },
+    ],
+  },
   soon("mi-hybrid", "p-lash", ["Nối mi hybrid", "Hybrid lashes", "Hybridiripset"], [
     "Phối classic và volume để có độ dày và độ tơi tự nhiên.",
     "Mixing classic and volume for natural density and texture.",
