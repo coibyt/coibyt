@@ -87,8 +87,7 @@ export function AcademyHub({
   defaultAudience?: Audience;
   /** Inside the business dashboard: no hero above to overlap. */
   embedded?: boolean;
-  /** Which tracks this viewer gets (owner, 2026-11-17: owners and staff must not see the same thing in the
-   * dashboard — owners get the owner and craft tracks, staff only the craft track). One tab hides the switch. */
+  /** Which tracks this viewer gets (all three by default). One tab hides the switch. */
   tabs?: Audience[];
 }) {
   const s = academyStrings(locale);
