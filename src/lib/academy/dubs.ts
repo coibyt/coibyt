@@ -20,5 +20,9 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "thanh-toan-hoa-don": { seconds: 62, published: "2026-11-17" },
     "khach-hang": { seconds: 63, published: "2026-11-17" },
     "tong-quan": { seconds: 54, published: "2026-11-17" },
+    "viet-danh-gia": { seconds: 46, published: "2026-11-17" },
+    "chat-voi-salon": { seconds: 39, published: "2026-11-17" },
+    "danh-gia-google": { seconds: 68, published: "2026-11-17" },
+    "tin-nhan-ai": { seconds: 60, published: "2026-11-17" },
   },
 };
