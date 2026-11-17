@@ -2428,11 +2428,258 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("dua-form-mong", "p-nail", ["Dũa form: vuông, tròn, hạnh nhân, coffin", "Shapes: square, round, almond, coffin", "Muodot: neliö, pyöreä, manteli, coffin"], [
-    "Các đường dũa chuẩn cho từng form và cách kiểm tra đối xứng.",
-    "The filing lines for each shape and how to check symmetry.",
-    "Viilauslinjat jokaiselle muodolle ja symmetrian tarkistus.",
-  ]),
+  {
+    slug: "dua-form-mong-hieu-dung",
+    course: "p-nail",
+    style: "theory",
+    title: l3("Dáng móng: hiểu đúng để chọn form hợp tay khách", "Nail shapes: understand them to choose the right shape for each client", "Kynsien muodot: ymmärrä ne ja valitse asiakkaalle sopiva muoto"),
+    summary: l3(
+      "Bảy dáng móng hay gặp (vuông, vuông bo góc, tròn, ô van, hạnh nhân, coffin/ba lê, nhọn stiletto): mỗi dáng trông thế nào, dáng nào thường chắc hơn, dáng nào dễ gãy, cách chọn theo bàn tay, chân móng, công việc và độ khỏe của móng thật, sự đều nhau của mười móng, hai cạnh bên, chọn dũa và cách nói thật với khách.",
+      "The seven common nail shapes (square, squoval, round, oval, almond, coffin/ballerina, stiletto): how each looks, which tend to be stronger and which break more easily, choosing by the hands, the nail bed, the client's work and the strength of the natural nail, symmetry across ten nails, the side walls, choosing a file and talking honestly with clients.",
+      "Seitsemän yleistä kynsimuotoa (neliö, squoval, pyöreä, ovaali, manteli, coffin/ballerina, stiletto): miltä kukin näyttää, mitkä ovat yleensä kestävämpiä ja mitkä katkeavat helpommin, valinta käsien, kynsipedin, työn ja oman kynnen vahvuuden mukaan, kymmenen kynnen symmetria, sivuseinät, viilan valinta ja rehellinen keskustelu asiakkaan kanssa."
+    ),
+    video: video("dua-form-mong-hieu-dung", 279, "2026-11-17"),
+    notice: l3(
+      "Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề. Độ chắc của từng dáng là xu hướng chung, còn tùy móng của từng khách. Móng có dấu hiệu bệnh hay da quanh móng sưng đỏ thì không làm. Quy định về nghề làm móng khác nhau theo từng nước.",
+      "This is a training aid, not a licence. How strong each shape is describes a general tendency; it always depends on the client's own nails. Don't work on nails showing signs of disease or with red, swollen skin around them. Rules for nail work differ by country.",
+      "Tämä on koulutusmateriaali, ei pätevyystodistus. Muotojen kestävyys kuvaa yleistä taipumusta; se riippuu aina asiakkaan omista kynsistä. Älä työskentele kynsillä, joissa on sairauden merkkejä tai joiden ympärillä iho on punoittava ja turvonnut. Kynsitöitä koskevat määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "dich-vu", "lich-hen"],
+    steps: [
+      l3(
+        "Bảy dáng hay gặp: vuông (thẳng ngang, góc sắc), vuông bo góc (thẳng ngang, góc bo nhẹ), tròn (ngắn, theo đường cong đầu ngón), ô van (dài hơn, đầu tròn như quả trứng), hạnh nhân (thon về một mũi tròn mềm), coffin/ba lê (thon hai bên, đầu dũa thẳng), stiletto (thon tới mũi nhọn sắc).",
+        "Seven common shapes: square (straight across, sharp corners), squoval (straight across, softened corners), round (short, follows the fingertip), oval (longer, egg-shaped tip), almond (tapers to a soft rounded point), coffin/ballerina (tapered sides, tip filed straight), stiletto (tapers to a sharp point).",
+        "Seitsemän yleistä muotoa: neliö (suora kärki, terävät kulmat), squoval (suora kärki, pehmennetyt kulmat), pyöreä (lyhyt, seuraa sormenpäätä), ovaali (pidempi, munanmuotoinen kärki), manteli (kapenee pehmeään pyöreään kärkeen), coffin/ballerina (kapenevat sivut, suoraksi viilattu kärki), stiletto (kapenee teräväksi kärjeksi)."
+      ),
+      l3(
+        "Va chạm dồn vào đầu móng. Dáng thon về một điểm (hạnh nhân, nhọn) còn ít chất liệu ở đầu móng nên thường hợp với móng thật khỏe hoặc móng đắp gel, đắp bột.",
+        "Knocks land on the tip. Shapes that narrow to a point (almond, stiletto) have little material at the tip, so they tend to suit strong natural nails or gel and acrylic enhancements.",
+        "Iskut kohdistuvat kärkeen. Kärkeen kapenevissa muodoissa (manteli, stiletto) kärjessä on vähän materiaalia, joten ne sopivat yleensä vahvoille omille kynsille tai geeli- ja akryylirakenteille."
+      ),
+      l3(
+        "Dáng vuông có đầu rộng, chắc, nhưng góc sắc dễ vướng và dễ mẻ. Tròn, ô van và vuông bo góc là những dáng thực tế và chắc nhất cho móng thật. Coffin cần độ dài nên thường làm trên móng đắp.",
+        "A square tip is wide and strong, but its sharp corners snag and chip. Round, oval and squoval are the most practical and strongest shapes for natural nails. Coffin needs length, so it is usually done on enhancements.",
+        "Neliön kärki on leveä ja vahva, mutta terävät kulmat tarttuvat ja lohkeavat. Pyöreä, ovaali ja squoval ovat käytännöllisimmät ja kestävimmät muodot omille kynsille. Coffin vaatii pituutta, joten se tehdään yleensä rakennekynsiin."
+      ),
+      l3(
+        "Chọn theo bàn tay: ngón dài, thon hợp hầu hết các dáng; ngón ngắn, móng rộng thường trông thon hơn với ô van hay hạnh nhân, còn dáng vuông dễ làm ngón trông ngắn lại.",
+        "Choose by the hands: long, slender fingers suit almost every shape; short fingers with wide nails usually look slimmer with oval or almond, while square can make them look shorter.",
+        "Valitse käsien mukaan: pitkiin, hoikkiin sormiin sopii lähes mikä tahansa muoto; lyhyet sormet ja leveät kynnet näyttävät yleensä hoikemmilta ovaalina tai mantelina, kun taas neliö voi lyhentää niitä."
+      ),
+      l3(
+        "Một mẹo hay: dáng đầu móng thường hài hòa nhất khi lặp lại đường cong ở chân móng — chân tròn hợp tròn hay ô van, chân vuông hơn hợp vuông bo góc. Đây là điểm khởi đầu, không phải luật.",
+        "A useful tip: the tip usually looks most harmonious when it mirrors the curve at the cuticle — a round cuticle line suits round or oval, a squarer one suits squoval. A starting point, not a rule.",
+        "Hyvä nyrkkisääntö: kärki näyttää yleensä harmonisimmalta, kun se toistaa kynsinauhan kaaren — pyöreä kynsinauhalinja sopii pyöreään tai ovaaliin, suorempi squovaliin. Lähtökohta, ei sääntö."
+      ),
+      l3(
+        "Hỏi về công việc và cuộc sống: người gõ phím nhiều hay làm việc bằng tay thường dễ chịu nhất với móng ngắn, tròn hay vuông bo góc. Nhiều nơi làm việc (bệnh viện, bếp ăn…) có quy định riêng về móng.",
+        "Ask about work and daily life: people who type a lot or work with their hands are usually most comfortable with short round or squoval nails. Many workplaces (hospitals, kitchens…) have their own rules on nails.",
+        "Kysy työstä ja arjesta: paljon näppäilevät tai käsillään työskentelevät viihtyvät yleensä parhaiten lyhyillä pyöreillä tai squoval-kynsillä. Monilla työpaikoilla (sairaalat, keittiöt…) on omat kynsiä koskevat sääntönsä."
+      ),
+      l3(
+        "Móng thật mỏng, mềm hay tách lớp: đừng dũa nhọn, đừng để dài; tròn hay ô van ngắn giữ lâu hơn. Muốn hạnh nhân dài hay dáng nhọn thì làm trên móng đắp.",
+        "Thin, soft or peeling natural nails: don't file them to a point or keep them long; a short round or oval lasts longer. Long almond or stiletto belongs on enhancements.",
+        "Ohuet, pehmeät tai lohkeilevat omat kynnet: älä viilaa niitä teräviksi äläkä jätä pitkiksi; lyhyt pyöreä tai ovaali kestää pidempään. Pitkä manteli tai stiletto tehdään rakennekynsiin."
+      ),
+      l3(
+        "Mười móng cùng độ dài, cùng dáng. Nhìn từ trên xuống: mũi móng nằm giữa, hai bên đối xứng; nhìn từ đầu móng: hai cạnh cân, độ cong đều.",
+        "Ten nails, same length, same shape. From above: the tip is centred and both sides match; from the end: the side walls are balanced and the curve is even.",
+        "Kymmenen kynttä, sama pituus, sama muoto. Ylhäältä: kärki on keskellä ja sivut symmetriset; päästä katsottuna: sivuseinät ovat tasapainossa ja kaari tasainen."
+      ),
+      l3(
+        "Hai cạnh bên đi thẳng ra từ điểm chịu lực (chỗ móng rời nền da) rồi mới tạo dáng. Không dũa sâu vào khóe móng thật: móng yếu đi, dễ gãy, và mép móng có thể đâm vào da khi mọc ra.",
+        "The side walls run straight out from the stress points (where the nail leaves the nail bed) before the tip is shaped. Never file deep into the side walls of a natural nail: it weakens the nail and the edge can grow into the skin.",
+        "Sivuseinät jatkuvat suoraan rasituskohdista (joissa kynsi irtoaa kynsipedistä) ennen kärjen muotoilua. Älä koskaan viilaa syvälle oman kynnen sivuihin: kynsi heikkenee ja reuna voi kasvaa ihoon."
+      ),
+      l3(
+        "Số trên dũa càng lớn, dũa càng mịn: móng thật dùng dũa mịn (thường từ 180 trở lên) và dũa một chiều; dũa thô hơn dành cho móng đắp. Nói thật với khách khi dáng họ muốn không hợp móng thật, và đưa ra lựa chọn.",
+        "The higher the grit number, the finer the file: natural nails get a fine file (usually 180 and up), filed in one direction; coarser files are for enhancements. Be honest when the shape a client wants won't suit their natural nails, and offer options.",
+        "Mitä suurempi karkeusluku, sitä hienompi viila: omille kynsille hieno viila (yleensä 180 tai hienompi) ja viilaus yhteen suuntaan; karkeammat viilat ovat rakennekynsille. Kerro rehellisesti, jos toivottu muoto ei sovi asiakkaan omille kynsille, ja tarjoa vaihtoehtoja."
+      ),
+    ],
+    tips: [
+      l3(
+        "Khách mang ảnh móng nhọn dài mà móng thật mỏng: giải thích nhẹ nhàng, rồi đưa hai lựa chọn — hạnh nhân ngắn hơn trên móng thật, hoặc đắp thêm để làm dáng nhọn.",
+        "A client brings a photo of long stiletto nails but her natural nails are thin: explain gently, then offer two options — a shorter almond on the natural nails, or an enhancement for the pointed shape.",
+        "Asiakas tuo kuvan pitkistä stiletoista, mutta omat kynnet ovat ohuet: selitä ystävällisesti ja tarjoa kaksi vaihtoehtoa — lyhyempi manteli omiin kynsiin tai rakenne terävää muotoa varten."
+      ),
+      l3(
+        "Trong VaraaAi, ghi dáng và độ dài khách đã chọn vào ghi chú của khách hàng, để lần sau ai làm cũng làm giống như vậy.",
+        "In VaraaAi, write the shape and length the client chose in the client's notes, so whoever does the next appointment does it the same way.",
+        "Kirjaa VaraaAi:ssa asiakkaan valitsema muoto ja pituus asiakkaan muistiinpanoihin, jotta seuraavalla kerralla kuka tahansa tekee sen samoin."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Móng thật của khách mỏng và mềm. Dáng nào thường giữ được lâu nhất?", "The client's natural nails are thin and soft. Which shape usually lasts longest?", "Asiakkaan omat kynnet ovat ohuet ja pehmeät. Mikä muoto kestää yleensä pisimpään?"),
+        options: [
+          l3("Stiletto dài", "Long stiletto", "Pitkä stiletto"),
+          l3("Tròn hoặc ô van ngắn", "Short round or oval", "Lyhyt pyöreä tai ovaali"),
+          l3("Coffin dài", "Long coffin", "Pitkä coffin"),
+        ],
+        answer: 1,
+        why: l3(
+          "Dáng thon về một điểm và móng dài dồn lực vào đầu móng; móng yếu nên ngắn và tròn đều.",
+          "Pointed and long shapes concentrate force on the tip; weak nails do better short with an even curve.",
+          "Terävät ja pitkät muodot keskittävät voiman kärkeen; heikot kynnet pärjäävät parhaiten lyhyinä ja tasaisesti kaarevina."
+        ),
+      },
+      {
+        q: l3("Vì sao không nên dũa sâu vào hai khóe của móng thật?", "Why shouldn't you file deep into the side walls of a natural nail?", "Miksi oman kynnen sivuihin ei pidä viilata syvälle?"),
+        options: [
+          l3("Vì móng mất phần đỡ hai bên, yếu đi, và mép móng có thể đâm vào da", "The nail loses its side support, gets weaker, and the edge can grow into the skin", "Kynsi menettää sivutukensa, heikkenee ja reuna voi kasvaa ihoon"),
+          l3("Vì sơn gel sẽ không bám", "Because gel polish won't stick", "Koska geelilakka ei tartu"),
+          l3("Vì móng sẽ mọc chậm hơn", "Because the nail will grow more slowly", "Koska kynsi kasvaa hitaammin"),
+        ],
+        answer: 0,
+        why: l3(
+          "Hai cạnh bên phải đi thẳng ra từ điểm chịu lực; dáng chỉ được tạo ở đầu móng.",
+          "The side walls must run straight from the stress points; the shape is made only at the tip.",
+          "Sivuseinien on jatkuttava suoraan rasituskohdista; muoto tehdään vain kärkeen."
+        ),
+      },
+      {
+        q: l3("Khách có ngón tay ngắn và móng rộng, muốn tay trông thon hơn. Gợi ý nào thường hợp?", "A client with short fingers and wide nails wants her hands to look slimmer. Which suggestion usually works?", "Asiakas, jolla on lyhyet sormet ja leveät kynnet, haluaa kätensä näyttävän hoikemmilta. Mikä ehdotus toimii yleensä?"),
+        options: [
+          l3("Dáng vuông, càng ngắn càng tốt", "Square, as short as possible", "Neliö, mahdollisimman lyhyt"),
+          l3("Không quan trọng, dáng nào cũng như nhau", "It doesn't matter, every shape looks the same", "Ei väliä, kaikki muodot näyttävät samalta"),
+          l3("Ô van hoặc hạnh nhân", "Oval or almond", "Ovaali tai manteli"),
+        ],
+        answer: 2,
+        why: l3(
+          "Ô van và hạnh nhân thường làm ngón tay trông dài và thon hơn; dáng vuông trên móng rộng dễ làm ngón trông ngắn lại.",
+          "Oval and almond usually make fingers look longer and slimmer; square on wide nails tends to make them look shorter.",
+          "Ovaali ja manteli saavat sormet yleensä näyttämään pidemmiltä ja hoikemmilta; neliö leveissä kynsissä lyhentää niitä helposti."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "dua-form-mong",
+    course: "p-nail",
+    style: "practice",
+    title: l3("Dũa form móng: thực hành từng bước", "Shaping nails: step by step", "Kynsien muotoilu: vaihe vaiheelta"),
+    summary: l3(
+      "Thống nhất dáng và độ dài với khách, tạo độ dài đều cho mười móng, tìm đường giữa và hai điểm chịu lực, rồi đường dũa của từng dáng: vuông, vuông bo góc, tròn, ô van, hạnh nhân, coffin và stiletto; kiểm tra đối xứng từ trên xuống và từ đầu móng, mài mịn mép, phủi bụi và dầu dưỡng.",
+      "Agree the shape and length with the client, make all ten nails the same length, find the centre line and the two stress points, then the filing path for each shape: square, squoval, round, oval, almond, coffin and stiletto; check symmetry from above and from the end, smooth the edge, remove the dust and finish with oil.",
+      "Sovi muoto ja pituus asiakkaan kanssa, tee kaikista kymmenestä kynnestä saman pituiset, etsi keskilinja ja kaksi rasituskohtaa ja viilaa sitten jokainen muoto: neliö, squoval, pyöreä, ovaali, manteli, coffin ja stiletto; tarkista symmetria ylhäältä ja päästä, viimeistele reuna, poista pöly ja lopuksi öljy."
+    ),
+    video: video("dua-form-mong", 271, "2026-11-17"),
+    notice: l3(
+      "Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề. Dụng cụ dùng chung phải được làm sạch và khử khuẩn sau mỗi khách; dũa và phao chà loại dùng một lần thì mỗi khách một cái mới. Móng có dấu hiệu bệnh hay da quanh móng sưng đỏ thì không làm. Quy định khác nhau theo từng nước.",
+      "This is a training aid, not a licence. Shared tools must be cleaned and disinfected after every client; single-use files and buffers are new for each client. Don't work on nails showing signs of disease or with red, swollen skin around them. Rules differ by country.",
+      "Tämä on koulutusmateriaali, ei pätevyystodistus. Yhteiset työvälineet puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen; kertakäyttöiset viilat ja hiomapalat ovat jokaiselle asiakkaalle uudet. Älä työskentele kynsillä, joissa on sairauden merkkejä tai joiden ympärillä iho on punoittava ja turvonnut. Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Rửa tay, sát khuẩn, nhìn kỹ móng và da. Hỏi khách dáng và độ dài, cho xem hình các dáng và nói thật dáng nào hợp móng của khách.",
+        "Wash and sanitise hands, look closely at the nails and skin. Ask the client about shape and length, show pictures of the shapes and say honestly which suits her nails.",
+        "Pese ja desinfioi kädet, katso kynnet ja iho tarkasti. Kysy asiakkaalta muoto ja pituus, näytä kuvia muodoista ja kerro rehellisesti, mikä sopii hänen kynsilleen."
+      ),
+      l3(
+        "Tạo độ dài trước, rồi mới tạo dáng: móng dài nhiều thì cắt bớt từng chút bằng kềm cắt móng, chừa dư để dũa; mười móng cùng một độ dài. Có móng gãy ngắn thì độ dài chung theo móng ngắn nhất, hoặc nối riêng móng đó.",
+        "Set the length first, then the shape: shorten long nails a little at a time with clippers, leaving a bit to file; all ten nails the same length. If one nail is broken short, match the others to it or extend that nail.",
+        "Ensin pituus, sitten muoto: lyhennä pitkiä kynsiä vähän kerrallaan kynsileikkureilla ja jätä varaa viilalle; kaikki kymmenen kynttä samanpituisiksi. Jos yksi kynsi on katkennut lyhyeksi, sovita muut siihen tai pidennä se kynsi."
+      ),
+      l3(
+        "Nhìn móng từ trên xuống và từ đầu móng: tìm đường giữa và hai điểm chịu lực. Hai cạnh đi thẳng ra từ điểm chịu lực, mũi móng nằm trên đường giữa.",
+        "Look at the nail from above and from the end: find the centre line and the two stress points. The side walls run straight from the stress points; the tip sits on the centre line.",
+        "Katso kynttä ylhäältä ja päästä: etsi keskilinja ja kaksi rasituskohtaa. Sivuseinät jatkuvat suoraan rasituskohdista; kärki on keskilinjalla."
+      ),
+      l3(
+        "Dũa nhẹ tay, hơi nghiêng dưới đầu móng; móng thật dũa một chiều bằng dũa mịn. Giữ ngón tay khách nằm thẳng và cùng một góc dũa ở hai bên.",
+        "File lightly, slightly angled under the free edge; file natural nails in one direction with a fine file. Keep the client's finger straight and the same file angle on both sides.",
+        "Viilaa kevyesti, hieman kulmassa vapaan reunan alta; omat kynnet viilataan yhteen suuntaan hienolla viilalla. Pidä asiakkaan sormi suorana ja sama viilan kulma molemmilla puolilla."
+      ),
+      l3(
+        "Vuông: dũa thẳng ngang, hai cạnh thẳng song song, lướt nhẹ hai góc cho bớt sắc. Vuông bo góc: làm như vuông, rồi bo hai góc bằng nhau bằng vài đường ngắn theo vòng cung.",
+        "Square: file straight across, straight parallel side walls, a light pass over both corners to soften them. Squoval: as square, then round both corners equally with a few short arcs.",
+        "Neliö: viilaa suoraan poikki, suorat yhdensuuntaiset sivut, kevyt veto kulmien yli pehmentämään. Squoval: kuten neliö, sitten pyöristä molemmat kulmat tasan muutamalla lyhyellä kaarella."
+      ),
+      l3(
+        "Tròn: móng ngắn, dũa từ mỗi cạnh theo đường cong đầu ngón lên tới giữa. Ô van: dài hơn, hai bên cong đều tới một đầu tròn trên đường giữa — đừng dũa sâu kẻo thành hạnh nhân.",
+        "Round: short nails, file from each side along the fingertip's curve up to the centre. Oval: longer, both sides curve evenly to a rounded tip on the centre line — don't go too deep or it becomes almond.",
+        "Pyöreä: lyhyet kynnet, viilaa kummaltakin sivulta sormenpään kaarta pitkin keskelle. Ovaali: pidempi, molemmat sivut kaartuvat tasaisesti pyöreään kärkeen keskilinjalla — älä mene liian syvälle, ettei siitä tule mantelia."
+      ),
+      l3(
+        "Hạnh nhân: giữ cạnh thẳng từ điểm chịu lực, dũa xiên từ mỗi bên vào giữa thành mũi tròn mềm; dũa xong một bên thì nhìn lại rồi mới dũa bên kia.",
+        "Almond: keep the side walls straight from the stress points, file at an angle from each side towards the centre into a soft rounded point; check after one side before filing the other.",
+        "Manteli: pidä sivut suorina rasituskohdista, viilaa vinosti kummaltakin puolelta kohti keskustaa pehmeäksi pyöreäksi kärjeksi; tarkista toisen puolen jälkeen ennen kuin viilaat toisen."
+      ),
+      l3(
+        "Coffin: dũa xiên như hạnh nhân nhưng dừng sớm hơn, rồi dũa thẳng ngang để có đầu bằng nhỏ ở chính giữa. Stiletto: xiên dốc tới mũi nhọn ở giữa — chỉ làm trên móng đắp hoặc móng thật rất khỏe.",
+        "Coffin: taper like almond but stop earlier, then file straight across for a small flat tip in the centre. Stiletto: steeper taper to a sharp centred point — only on enhancements or very strong natural nails.",
+        "Coffin: kavenna kuten manteli mutta lopeta aiemmin, sitten viilaa suoraan poikki pieneksi tasaiseksi kärjeksi keskelle. Stiletto: jyrkempi kavennus teräväksi keskitetyksi kärjeksi — vain rakennekynsiin tai hyvin vahvoihin omiin kynsiin."
+      ),
+      l3(
+        "Kiểm tra từng móng từ trên xuống và từ đầu móng, đặt hai bàn tay cạnh nhau so cả mười móng, và nhìn từ phía khách; chỗ lệch sửa ngay bằng vài đường dũa nhẹ.",
+        "Check every nail from above and from the end, put both hands side by side to compare all ten, and look from the client's side; correct any difference at once with a few light strokes.",
+        "Tarkista jokainen kynsi ylhäältä ja päästä, aseta kädet vierekkäin ja vertaa kaikkia kymmentä, ja katso myös asiakkaan puolelta; korjaa erot heti muutamalla kevyellä vedolla."
+      ),
+      l3(
+        "Hoàn thiện: lướt phao chà mịn dưới mép đầu móng, phủi bụi bằng cọ mềm (bụi móng đắp thì hút, không thổi), nhỏ dầu dưỡng và xoa nhẹ.",
+        "Finish: smooth under the free edge with a fine buffer, brush off the dust with a soft brush (extract enhancement dust, don't blow it), apply oil and massage it in gently.",
+        "Viimeistely: hio vapaan reunan alapuoli hienolla hiomapalalla, harjaa pöly pehmeällä harjalla (rakennekynsien pöly imetään, sitä ei puhalleta), levitä öljy ja hiero se kevyesti."
+      ),
+    ],
+    tips: [
+      l3(
+        "Làm cùng một bước trên cả năm ngón rồi mới sang bước sau (cạnh trái cả năm móng, rồi cạnh phải, rồi đầu móng): tay giữ được một góc dũa và các móng ra đều hơn.",
+        "Do the same step on all five fingers before the next (left sides of all five, then right sides, then the tips): your hand keeps one file angle and the nails come out more even.",
+        "Tee sama vaihe kaikkiin viiteen sormeen ennen seuraavaa (kaikkien vasemmat sivut, sitten oikeat, sitten kärjet): käsi pitää saman viilakulman ja kynsistä tulee tasaisemmat."
+      ),
+      l3(
+        "Trong VaraaAi, ghi dáng và độ dài vào ghi chú của khách hàng ngay sau buổi làm, để lần sau không phải hỏi lại.",
+        "In VaraaAi, note the shape and length in the client's notes right after the appointment so you don't have to ask again next time.",
+        "Kirjaa VaraaAi:ssa muoto ja pituus asiakkaan muistiinpanoihin heti käynnin jälkeen, niin ensi kerralla ei tarvitse kysyä uudelleen."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Nên làm gì trước khi bắt đầu tạo dáng?", "What should you do before you start shaping?", "Mitä pitää tehdä ennen muotoilun aloittamista?"),
+        options: [
+          l3("Sơn lớp lót", "Apply the base coat", "Levitä aluslakka"),
+          l3("Tạo độ dài đều cho cả mười móng", "Make all ten nails the same length", "Tee kaikista kymmenestä kynnestä saman pituiset"),
+          l3("Nhỏ dầu dưỡng", "Apply cuticle oil", "Levitä kynsinauhaöljy"),
+        ],
+        answer: 1,
+        why: l3(
+          "Độ dài trước, dáng sau: có cùng độ dài thì mới dũa ra cùng một dáng.",
+          "Length first, shape second: only nails of the same length can be filed to the same shape.",
+          "Ensin pituus, sitten muoto: vain samanpituiset kynnet voi viilata samanmuotoisiksi."
+        ),
+      },
+      {
+        q: l3("Dáng coffin (ba lê) được tạo thế nào?", "How is a coffin (ballerina) shape made?", "Miten coffin- eli ballerinamuoto tehdään?"),
+        options: [
+          l3("Dũa theo đường cong đầu ngón tay", "File along the curve of the fingertip", "Viilaa sormenpään kaarta pitkin"),
+          l3("Dũa xiên hai bên tới một mũi nhọn sắc", "Taper both sides to a sharp point", "Kavenna molemmat sivut teräväksi kärjeksi"),
+          l3("Dũa xiên hai bên, rồi dũa thẳng ngang đầu móng thành đầu bằng nhỏ", "Taper both sides, then file the tip straight across into a small flat end", "Kavenna molemmat sivut ja viilaa kärki suoraan poikki pieneksi tasaiseksi pääksi"),
+        ],
+        answer: 2,
+        why: l3(
+          "Coffin là hạnh nhân dừng sớm cộng với một đầu bằng nhỏ nằm chính giữa; mũi nhọn sắc là stiletto.",
+          "Coffin is an almond stopped early plus a small flat tip in the centre; a sharp point is a stiletto.",
+          "Coffin on aikaisin pysäytetty manteli ja pieni tasainen kärki keskellä; terävä kärki on stiletto."
+        ),
+      },
+      {
+        q: l3("Dũa móng thật thế nào là đúng?", "What is the right way to file a natural nail?", "Miten omaa kynttä viilataan oikein?"),
+        options: [
+          l3("Dũa một chiều, bằng dũa mịn, nhẹ tay", "In one direction, with a fine file, lightly", "Yhteen suuntaan, hienolla viilalla, kevyesti"),
+          l3("Kéo cưa qua lại thật nhanh cho nhanh xong", "Saw back and forth quickly to finish faster", "Sahaa nopeasti edestakaisin, niin työ valmistuu nopeammin"),
+          l3("Dùng dũa thô nhất để ít đường dũa", "Use the coarsest file to need fewer strokes", "Käytä karkeinta viilaa, niin vetoja tarvitaan vähemmän"),
+        ],
+        answer: 0,
+        why: l3(
+          "Kéo cưa làm móng nóng lên và dễ tách lớp ở đầu; dũa thô dành cho móng đắp.",
+          "Sawing heats the nail and makes the tip peel; coarse files are for enhancements.",
+          "Sahaaminen kuumentaa kynttä ja saa kärjen lohkeilemaan; karkeat viilat ovat rakennekynsille."
+        ),
+      },
+    ],
+  },
   soon("french-ombre", "p-nail", ["French và ombré", "French and ombré", "Ranskalainen ja ombre"], [
     "Đường cười sắc nét, baby boomer và chuyển màu mịn.",
     "A crisp smile line, baby boomer and smooth colour fades.",
