@@ -2176,11 +2176,258 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("fill-mong", "p-nail", ["Dặm lại (fill) gel và bột", "Infills for gel and acrylic", "Geelin ja akryylin huolto"], [
-    "Hạ lớp cũ, xử lý chỗ hở, cân lại apex sau 3 tuần.",
-    "Thinning the old product, fixing lifting and rebalancing the apex after three weeks.",
-    "Vanhan materiaalin ohennus, irtoamien korjaus ja apexin tasapainotus kolmen viikon jälkeen.",
-  ]),
+  {
+    slug: "fill-mong-hieu-dung",
+    course: "p-nail",
+    style: "theory",
+    title: l3("Dặm móng: hiểu đúng để móng luôn cân và chắc", "Infills: understand them so the nails stay balanced and strong", "Huolto: ymmärrä se, niin kynnet pysyvät tasapainossa ja vahvoina"),
+    summary: l3(
+      "Điều gì xảy ra khi móng mọc (khoảng hở ở chân móng, apex trôi ra đầu, móng nặng đầu và lực bẻ dồn vào vùng chịu lực), vì sao dặm đúng hẹn, khi nào dặm và khi nào phải tháo hết, vì sao không bao giờ dặm đè lên chỗ hở, dùng đúng hệ sản phẩm, cân lại móng, dũa an toàn ở chân móng, bụi và dị ứng.",
+      "What growth does to a set (a gap at the cuticle, the apex drifting forward, a tip-heavy nail levering on the stress area), why to infill on time, when to infill and when to remove everything, why never to fill over lifting, matching products, rebalancing, safe filing at the cuticle, dust and allergy.",
+      "Mitä kasvu tekee kynsille (rako kynsinauhan kohdalla, apex siirtyy eteenpäin, kärkipainoinen kynsi vipuaa rasitusaluetta), miksi huolto ajallaan, milloin huolletaan ja milloin poistetaan kaikki, miksi irtoaman päälle ei koskaan tehdä huoltoa, yhteensopivat tuotteet, tasapainotus, turvallinen viilaus kynsinauhan kohdalla, pöly ja allergia."
+    ),
+    video: video("fill-mong-hieu-dung", 291, "2026-11-17"),
+    notice: l3(
+      "Khoảng thời gian dặm chỉ là thường gặp: builder gel khoảng 3–4 tuần, bột khoảng 2–3 tuần, tùy móng, tùy công việc của khách và tùy hãng. Thấy đổi màu, đau, sưng đỏ hay móng tách khỏi nền thì không làm và khuyên khách đi khám. Quy định về sản phẩm và hút bụi khác nhau theo từng nước. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Infill intervals are typical ranges only: builder gel about 3–4 weeks, acrylic about 2–3 weeks, depending on the nail, the customer's work and the brand. Discolouration, pain, swollen red skin or a nail separating from its bed: don't work, suggest a doctor. Rules on products and dust extraction differ by country. This lesson is a training aid, not a licence.",
+      "Huoltovälit ovat vain tyypillisiä: rakennegeeli noin 3–4 viikkoa, akryyli noin 2–3 viikkoa, kynnestä, asiakkaan työstä ja valmistajasta riippuen. Värimuutos, kipu, turvonnut punoittava iho tai alustastaan irtoava kynsi: älä tee, ohjaa lääkäriin. Tuotteita ja kohdepoistoa koskevat määräykset vaihtelevat maittain. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    related: ["lich-hen", "khach-hang", "tin-nhan-ai"],
+    steps: [
+      l3(
+        "Móng mọc kéo cả lớp sản phẩm theo: ở chân móng có một khoảng móng thật mới chưa phủ, rộng dần theo từng tuần, và một cái bậc ở chỗ lớp cũ dừng lại.",
+        "As the nail grows it carries the product with it: a band of new natural nail appears at the cuticle, wider every week, with a step where the old product ends.",
+        "Kasvaessaan kynsi vie tuotteen mukanaan: kynsinauhan kohdalle syntyy viikko viikolta levenevä kaistale uutta omaa kynttä ja porras siihen, missä vanha tuote päättyy."
+      ),
+      l3(
+        "Apex trôi dần về phía đầu móng; phần dày nhất nằm phía trước, móng dài và nặng đầu. Như một đòn bẩy, lực bẻ dồn vào vùng chịu lực, nơi không còn được apex đỡ: móng gãy ngang hoặc bật lên ở chân móng.",
+        "The apex drifts towards the free edge; the thickest part sits in front and the nail becomes long and tip-heavy. Like a lever, the force lands on the stress area, which the apex no longer supports: the nail snaps or lifts at the cuticle.",
+        "Apex siirtyy kohti vapaata reunaa; paksuin kohta on edessä ja kynsi pitkä ja kärkipainoinen. Kuin vipu, voima kohdistuu rasitusalueeseen, jota apex ei enää tue: kynsi katkeaa tai irtoaa kynsinauhan kohdalta."
+      ),
+      l3(
+        "Đừng đợi gãy hay hở mới dặm. Builder gel thường 3–4 tuần, bột thường 2–3 tuần; móng mọc nhanh hay khách làm việc nặng tay thì hẹn sớm hơn.",
+        "Don't wait for breaks or lifting. Builder gel usually every 3–4 weeks, acrylic usually every 2–3 weeks; fast growth or heavy hand work means sooner.",
+        "Älä odota katkeamista tai irtoamista. Rakennegeeli yleensä 3–4 viikon, akryyli yleensä 2–3 viikon välein; nopea kasvu tai raskas käsityö tarkoittaa aikaisempaa huoltoa."
+      ),
+      l3(
+        "Dặm khi lớp cũ còn bám chắc, chỉ hở nhỏ ở mép. Tháo hết khi hở thành mảng lớn hay có túi khí. Vết xanh hay đổi màu dưới chỗ hở, đau, sưng đỏ, móng tách khỏi nền: không làm, khuyên đi khám (xem bài Khi nào không làm cho khách; cách tháo xem bài tháo gel).",
+        "Infill when the old product is still well bonded with only small lifting at the edges. Remove everything when large areas have lifted or there are air pockets. A green patch or discolouration under the lifting, pain, swollen red skin, a nail separating from its bed: don't work, suggest a doctor (see the lesson on when not to work; for removal, see the gel removal lesson).",
+        "Huolla, kun vanha tuote on yhä hyvin kiinni ja vain reunoilla on pientä irtoamaa. Poista kaikki, kun laajoja alueita on irronnut tai alla on ilmataskuja. Vihreä läiskä tai värimuutos irtoaman alla, kipu, turvonnut punoittava iho, alustastaan irtoava kynsi: älä tee, ohjaa lääkäriin (katso tunti siitä, milloin ei tehdä; poistosta geelin poiston tunti)."
+      ),
+      l3(
+        "Không bao giờ đắp đè lên chỗ hở: nước, dầu và bụi bẩn bị nhốt lại, ấm và ẩm, là chỗ cho vi khuẩn và nấm, và lớp mới bong rất nhanh. Dũa bỏ phần hở tới khi mép còn lại bám chắc, mỏng, liền với móng.",
+        "Never put product over lifting: water, oil and dirt get sealed in, warm and moist — a place for bacteria and fungi — and the new layer soon lifts too. File the lifting away until the remaining edge is bonded, thin and flush with the nail.",
+        "Irtoaman päälle ei koskaan laiteta tuotetta: vesi, öljy ja lika jäävät loukkuun lämpimään ja kosteaan — paikka bakteereille ja sienille — ja uusikin kerros irtoaa pian. Viilaa irtoama pois, kunnes jäljelle jäävä reuna on kiinni, ohut ja tasainen kynnen kanssa."
+      ),
+      l3(
+        "Dùng cùng loại sản phẩm: gel trên gel, bột trên bột. Muốn dùng loại hay hãng khác thì xem hãng có nói là dùng chung được không; trộn bừa có thể không bám hoặc chín không đều.",
+        "Use the same product: gel on gel, acrylic on acrylic. To mix types or brands, check that the brand says they are compatible; random mixing may not bond or cure evenly.",
+        "Käytä samaa tuotetta: geeliä geelin päälle, akryyliä akryylin päälle. Jos sekoitat tyyppejä tai merkkejä, tarkista, että valmistaja ilmoittaa ne yhteensopiviksi; summittainen sekoittaminen voi heikentää tarttuvuutta tai kovettumista."
+      ),
+      l3(
+        "Dặm là cân lại bộ móng: dũa mỏng lớp cũ (nhất là apex đã trôi ra trước), cắt ngắn nếu cần và giữ form, đắp phần móng mới mọc, dựng lại apex trên vùng chịu lực. Mỗi lần dặm phải dũa mỏng lại, nếu không bộ móng dày và nặng dần.",
+        "An infill rebalances the set: thin the old product (especially the apex that moved forward), shorten if needed and keep the shape, cover the regrowth and rebuild the apex over the stress area. Thin it down every time, or the set gets thicker and heavier.",
+        "Huolto tasapainottaa kynnet: ohenna vanha tuote (etenkin eteenpäin siirtynyt apex), lyhennä tarvittaessa muodon säilyttäen, peitä uusi kasvu ja rakenna apex uudelleen rasitusalueen päälle. Ohenna joka kerta, muuten kynnet paksuuntuvat ja raskastuvat."
+      ),
+      l3(
+        "Chân móng là móng thật mới mọc, mỏng và mềm: chỉ lướt phao nhẹ cho mất bóng. Không dũa vào móng thật (móng mỏng dần, nóng, đau) và không dũa vào da (vết thương hở). Dũa tay hay dũa máy cũng vậy.",
+        "At the cuticle the new natural nail is thin and soft: only buff lightly to remove the shine. Never file into the natural nail (it thins, heats and hurts) or the skin (an open wound). The same goes for hand files and e-files.",
+        "Kynsinauhan kohdalla uusi oma kynsi on ohut ja pehmeä: hio vain kevyesti kiilto pois. Älä koskaan viilaa omaan kynteen (se ohenee, kuumenee ja sattuu) tai ihoon (avohaava). Sama koskee käsiviiloja ja sähköviiloja."
+      ),
+      l3(
+        "Dặm là dũa nhiều: máy hút tại bàn, khẩu trang, găng tay; phủi bụi bằng chổi, đừng thổi. Bụi gel chưa chín hết và gel dính da đều có thể gây dị ứng (xem bài Dị ứng và hoá chất).",
+        "Infills mean a lot of filing: extraction at the table, mask, gloves; brush dust away, don't blow. Dust from under-cured gel and gel on skin can both cause allergy (see the allergy and chemicals lesson).",
+        "Huollossa viilataan paljon: kohdepoisto pöydässä, maski, käsineet; harjaa pöly pois, älä puhalla. Puutteellisesti kovettuneen geelin pöly ja iholle joutunut geeli voivat molemmat aiheuttaa allergian (katso allergia- ja kemikaalitunti)."
+      ),
+      l3(
+        "Nói thật với khách: bộ móng dặm đúng hẹn thì bền lâu và móng thật vẫn khỏe; để quá hạn thì sớm muộn cũng gãy, hở và nhiều khi phải tháo hết. Hẹn lịch dặm trước khi khách ra về và giải thích vì sao.",
+        "Be honest with the customer: a set filled on time lasts and the natural nails stay healthy; an overdue one sooner or later breaks or lifts and often has to come off. Book the next infill before the customer leaves and explain why.",
+        "Kerro asiakkaalle suoraan: ajallaan huolletut kynnet kestävät ja omat kynnet pysyvät terveinä; myöhästynyt huolto johtaa ennemmin tai myöhemmin katkeamiseen tai irtoamiseen, ja usein kaikki joudutaan poistamaan. Varaa seuraava huolto ennen kuin asiakas lähtee ja kerro miksi."
+      ),
+    ],
+    tips: [
+      l3(
+        "Nhìn bộ móng từ cạnh bên trước khi dặm: điểm cao nhất đã trôi tới đâu? Đó là chỗ phải dũa mỏng, và chỗ apex mới phải lùi về.",
+        "Look at the set from the side before you start: where has the highest point moved to? That's what you thin down, and where the new apex must move back from.",
+        "Katso kynsiä sivulta ennen aloittamista: minne korkein kohta on siirtynyt? Sen kohdan ohennat, ja sieltä uusi apex siirretään takaisin oikealle paikalleen."
+      ),
+      l3(
+        "Trong VaraaAi, ghi vào hồ sơ khách móng nào hay hở hay gãy, và đặt lịch dặm kế tiếp ngay tại quầy, đánh dấu gửi email xác nhận và nhắc lịch cho khách.",
+        "In VaraaAi, note in the customer record which nails tend to lift or break, and book the next infill right at the desk, ticking the box to email the customer a confirmation and reminder.",
+        "Merkitse VaraaAi:n asiakastietoihin, mitkä kynnet irtoavat tai katkeavat herkästi, ja varaa seuraava huolto heti tiskillä ja valitse vahvistuksen ja muistutuksen lähetys asiakkaalle sähköpostitse."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Vì sao móng để quá hạn dặm dễ gãy?", "Why does an overdue set break more easily?", "Miksi myöhässä huollettu kynsi katkeaa helpommin?"),
+        options: [
+          l3("Vì sản phẩm hết hạn sử dụng", "Because the product has expired", "Koska tuote on vanhentunut"),
+          l3("Vì apex trôi ra đầu móng, móng nặng đầu và lực bẻ dồn vào vùng chịu lực", "Because the apex has moved forward, the nail is tip-heavy and the force lands on the stress area", "Koska apex on siirtynyt eteenpäin, kynsi on kärkipainoinen ja voima kohdistuu rasitusalueeseen"),
+          l3("Vì móng thật ngừng mọc", "Because the natural nail stops growing", "Koska oma kynsi lakkaa kasvamasta"),
+        ],
+        answer: 1,
+        why: l3(
+          "Móng mọc kéo apex ra phía trước. Đầu móng dài và nặng như một đòn bẩy, còn vùng chịu lực thì không còn được apex đỡ.",
+          "Growth carries the apex forward. The long, heavy tip acts as a lever, and the stress area is no longer supported by the apex.",
+          "Kasvu vie apexin eteenpäin. Pitkä, raskas kärki toimii vipuna, eikä apex enää tue rasitusaluetta."
+        ),
+      },
+      {
+        q: l3("Khách quay lại, mép ở chân móng hở một chút. Làm gì?", "The customer is back and the edge at the cuticle has lifted slightly. What do you do?", "Asiakas palaa, ja reuna on irronnut hieman kynsinauhan kohdalta. Mitä teet?"),
+        options: [
+          l3("Dũa bỏ phần hở tới khi mép bám chắc, rồi mới dặm", "File the lifting away until the edge is bonded, then infill", "Viilaa irtoama pois, kunnes reuna on kiinni, ja huolla sitten"),
+          l3("Đắp đè gel lên cho kín chỗ hở", "Put gel over it to seal the gap", "Laita geeliä päälle sulkemaan rako"),
+          l3("Cạy phần hở ra cho nhanh", "Pick the lifted part off to save time", "Revi irronnut osa pois ajan säästämiseksi"),
+        ],
+        answer: 0,
+        why: l3(
+          "Đắp đè sẽ nhốt ẩm và bụi bẩn bên dưới; cạy thì kéo theo lớp móng thật. Dũa nhẹ là cách an toàn.",
+          "Covering it seals in moisture and dirt; picking tears off natural nail layers. Gentle filing is the safe way.",
+          "Päälle laittaminen sulkee kosteuden ja lian sisään; repiminen irrottaa omaa kynttä. Kevyt viilaus on turvallinen tapa."
+        ),
+      },
+      {
+        q: l3("Dưới chỗ hở có một vết xanh nhỏ. Điều nào đúng?", "There is a small green patch under the lifting. Which is right?", "Irtoaman alla on pieni vihreä läiskä. Mikä on oikein?"),
+        options: [
+          l3("Dặm như bình thường, vì vết nhỏ", "Infill as usual, it's small", "Huolla tavalliseen tapaan, koska läiskä on pieni"),
+          l3("Phủ màu đậm lên để che đi", "Cover it with a dark colour", "Peitä se tummalla värillä"),
+          l3("Không dặm, không đắp lại, khuyên khách đi khám", "No infill, no new product, suggest a doctor", "Ei huoltoa eikä uutta tuotetta, ohjaa lääkäriin"),
+        ],
+        answer: 2,
+        why: l3(
+          "Đổi màu dưới chỗ hở có thể là dấu hiệu nhiễm trùng. Không làm gì thêm, và khuyên khách đi khám.",
+          "Discolouration under lifting can be a sign of infection. Do nothing more and suggest a doctor.",
+          "Värimuutos irtoaman alla voi olla merkki tulehduksesta. Älä tee enempää ja ohjaa asiakas lääkäriin."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "fill-mong",
+    course: "p-nail",
+    style: "practice",
+    title: l3("Dặm móng gel và bột: thực hành từng bước", "Builder gel and acrylic infills: step-by-step practice", "Geelin ja akryylin huolto: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Dặm một bộ builder gel hay bột đã mọc ra vài tuần: tư vấn và kiểm tra dưới ánh sáng tốt, chuẩn bị phần móng mới, dũa bỏ chỗ hở, dũa mỏng lớp cũ, làm liền đường nối, làm sạch, lớp bám chỉ trên móng mới, đắp và dựng lại apex (gel và bột), dũa hoàn thiện, màu, dầu dưỡng và hẹn lịch dặm.",
+      "Filling a builder gel or acrylic set that has grown out for a few weeks: consultation and checks under good light, prepping the regrowth, filing away lifting, thinning the old product, blending the line, cleansing, bonder only on the regrowth, applying product and rebuilding the apex (gel and acrylic), finish filing, colour, oil and booking the next infill.",
+      "Muutaman viikon kasvaneiden rakennegeeli- tai akryylikynsien huolto: konsultaatio ja tarkistus hyvässä valossa, uuden kasvun esikäsittely, irtoamien viilaus pois, vanhan tuotteen ohennus, saumakohdan tasoitus, puhdistus, tartunta-aine vain uudelle kasvulle, tuotteen levitys ja apexin uudelleenrakennus (geeli ja akryyli), viimeistelyviilaus, väri, öljy ja seuraavan huollon varaus."
+    ),
+    video: video("fill-mong", 285, "2026-11-17"),
+    notice: l3(
+      "Lớp bám, primer, thời gian hơ và thời gian chờ bột cứng luôn theo hướng dẫn của hãng. Hở thành mảng lớn, có túi khí, đổi màu, đau hay sưng đỏ thì không dặm: tháo hết hoặc khuyên khách đi khám. Máy dũa chỉ dùng khi đã được đào tạo. Quy định khác nhau theo từng nước.",
+      "Bonder, primer, cure times and acrylic set times always follow the brand's instructions. Large lifting, air pockets, discolouration, pain or swollen red skin: no infill — remove everything or suggest a doctor. Use an e-file only if you have been trained. Rules differ by country.",
+      "Tartunta-aine, primer, kovetusajat ja akryylin kovettumisajat noudattavat aina valmistajan ohjeita. Laaja irtoama, ilmataskut, värimuutos, kipu tai turvonnut punoittava iho: ei huoltoa — poista kaikki tai ohjaa lääkäriin. Käytä sähköviilaa vain koulutettuna. Määräykset vaihtelevat maittain."
+    ),
+    related: ["lich-hen", "dich-vu", "khach-hang"],
+    steps: [
+      l3(
+        "Tư vấn và kiểm tra: rửa và sát khuẩn tay, hỏi khách có móng nào gãy, hở hay đau, rồi nhìn từng móng dưới ánh sáng tốt, nghiêng qua lại — hở nhỏ thường chỉ là một đường mờ ở mép. Hở mảng lớn, túi khí, đổi màu, đau, sưng đỏ: không dặm. Ghi móng hay hở vào hồ sơ khách.",
+        "Consultation and checks: wash and disinfect hands, ask about breaks, lifting or pain, then look at each nail under good light, tilting it — small lifting is often just a faint line at the edge. Large lifting, air pockets, discolouration, pain, swollen red skin: no infill. Note nails that tend to lift in the customer record.",
+        "Konsultaatio ja tarkistus: pese ja desinfioi kädet, kysy katkeamista, irtoamista tai kivusta ja katso jokainen kynsi hyvässä valossa kallistellen — pieni irtoama on usein vain himmeä viiva reunassa. Laaja irtoama, ilmataskut, värimuutos, kipu, turvonnut punoittava iho: ei huoltoa. Merkitse herkästi irtoavat kynnet asiakastietoihin."
+      ),
+      l3(
+        "Chuẩn bị phần móng mới mọc như một móng mới (bài sơn gel): chuẩn bị khô, đẩy da nhẹ, lấy sạch lớp da mỏng trên móng, lướt phao thật nhẹ chỉ trên phần móng mới cho mất bóng.",
+        "Prep the regrowth like a fresh nail (gel polish lesson): dry prep, push back gently, remove the thin tissue on the plate, buff lightly only on the regrowth to remove the shine.",
+        "Esikäsittele uusi kasvu kuin uusi kynsi (geelilakkatunti): kuiva esikäsittely, työnnä kynsinauhat kevyesti, poista ohut iho kynsilevyltä, hio kevyesti vain uutta kasvua kiillon poistamiseksi."
+      ),
+      l3(
+        "Tìm mép hở ở chân móng và hai cạnh, dũa nhẹ tới khi mép còn lại bám chắc và liền với móng; nhìn lại dưới đèn. Không cạy, không giật. Dũa mãi vẫn hở hay hở cả mảng: dừng lại, tháo hết rồi làm lại (bài tháo gel).",
+        "Find lifting at the cuticle and side walls and file it away until the remaining edge is bonded and flush; check again under the light. Never pick or pull. If it keeps lifting or a whole area is loose: stop, remove everything and start again (gel removal lesson).",
+        "Etsi irtoamat kynsinauhan kohdalta ja sivuilta ja viilaa ne pois, kunnes jäljelle jäävä reuna on kiinni ja tasainen; tarkista uudelleen valossa. Älä koskaan revi tai kisko. Jos irtoamaa vain jatkuu tai koko alue on irti: lopeta, poista kaikki ja aloita alusta (geelin poiston tunti)."
+      ),
+      l3(
+        "Dũa mỏng lớp cũ: dũa nằm trên mặt móng, bớt độ dày, nhất là apex cũ đã trôi ra trước; cắt và dũa ngắn nếu móng quá dài, giữ đúng form. Không dũa xuyên xuống móng thật. Máy dũa chỉ khi đã được học kỹ, mũi dũa luôn trên lớp sản phẩm.",
+        "Thin the old product: file flat on the surface, reducing the bulk, especially the old apex that moved forward; shorten if too long, keeping the shape. Never file through to the natural nail. An e-file only if trained, the bit always on the product.",
+        "Ohenna vanha tuote: viilaa tasaisesti pinnalla ja vähennä paksuutta, etenkin eteenpäin siirtynyttä vanhaa apexia; lyhennä tarvittaessa muodon säilyttäen. Älä koskaan viilaa omaan kynteen asti. Sähköviila vain koulutettuna, terä aina tuotteen päällä."
+      ),
+      l3(
+        "Làm liền đường nối: dũa nhẹ cái bậc giữa lớp cũ và móng mới cho mỏng dần và phẳng, sờ không còn gờ; dũa nằm, nhẹ tay, giữ dũa xa da.",
+        "Blend the line: gently file the step between old product and regrowth until it is thin and flat with no ridge you can feel; file flat, lightly, away from the skin.",
+        "Tasoita sauma: viilaa vanhan tuotteen ja uuden kasvun välinen porras kevyesti ohueksi ja tasaiseksi, ettei reunaa tunnu; viilaa tasaisesti, kevyesti ja ihosta poispäin."
+      ),
+      l3(
+        "Làm sạch: máy hút vẫn chạy, phủi bụi bằng chổi (không thổi), lau cả móng bằng bông không xơ; sau đó không chạm tay vào mặt móng.",
+        "Cleanse: extraction still running, brush off the dust (don't blow), wipe the whole nail with a lint-free pad; then don't touch the nail plate.",
+        "Puhdista: kohdepoisto yhä päällä, harjaa pöly pois (älä puhalla), pyyhi koko kynsi nukkaamattomalla lapulla; älä sen jälkeen koske kynsilevyyn."
+      ),
+      l3(
+        "Lớp bám chỉ trên phần móng mới mọc, chừa một đường nhỏ cách da: với gel là lớp lót hay chất tăng bám của hãng (hơ hay không theo hướng dẫn); với bột là primer chấm thật mỏng chỉ trên móng thật.",
+        "Bonder only on the regrowth, with a small gap from the skin: for gel, the brand's base or bonder (cured or not as instructed); for acrylic, a very thin dab of primer on the natural nail only.",
+        "Tartunta-aine vain uudelle kasvulle, pieni rako ihoon: geelille valmistajan pohja tai tartunta-aine (kovetus ohjeen mukaan); akryylille hyvin ohut kerros primeria vain omalle kynnelle."
+      ),
+      l3(
+        "Builder gel: một lớp mỏng phủ cả móng để nối lớp cũ, đặt hạt gel ở giữa, dẫn nhẹ về chân móng (cách da như sợi tóc), ra hai cạnh và đầu móng, úp tay vài giây cho gel tạo apex, kiểm tra rồi hơ đủ thời gian; khách thấy nóng thì rút tay ra vài giây rồi hơ tiếp.",
+        "Builder gel: a thin layer over the whole nail to join the old product, a bead in the centre, floated towards the cuticle (a hair's width from the skin), to the sides and tip, finger turned over for a few seconds to form the apex, checked, then fully cured; if the customer feels heat, take the hand out for a few seconds and continue.",
+        "Rakennegeeli: ohut kerros koko kynnelle vanhan tuotteen yhdistämiseksi, pisara keskelle, ohjaus kynsinauhaa kohti (hiuksen verran irti ihosta), sivuille ja kärkeen, sormi käännetään hetkeksi apexin muodostamiseksi, tarkistus ja täysi kovetus; jos asiakas tuntee kuumuutta, käsi pois muutamaksi sekunniksi ja jatketaan."
+      ),
+      l3(
+        "Bột: hạt đầu nhỏ, ẩm hơn một chút, đặt trên móng mới gần chân móng, vuốt thật mỏng về phía da và không chạm da (lỡ chạm thì gạt đi ngay khi còn mềm); rồi một hạt vào vùng chịu lực, vuốt liền với lớp cũ, dựng lại apex. Chờ cứng theo hãng, gõ nghe tiếng khô là được.",
+        "Acrylic: a small, slightly wetter first bead on the regrowth near the cuticle, pressed very thin towards the skin without touching it (if it touches, remove it at once while soft); then a bead on the stress area, blended into the old product to rebuild the apex. Let it set as the brand says; a dry click when tapped means it's ready.",
+        "Akryyli: pieni, hieman kosteampi ensimmäinen pallo uudelle kasvulle kynsinauhan lähelle, painetaan hyvin ohueksi ihoa kohti koskematta siihen (jos koskee, poista heti pehmeänä); sitten pallo rasitusalueelle, häivytetään vanhaan tuotteeseen ja apex rakennetaan uudelleen. Anna kovettua valmistajan ohjeen mukaan; kuiva naksahdus koputettaessa kertoo, että se on valmis."
+      ),
+      l3(
+        "Dũa hoàn thiện giữ lại apex, gọn hai cạnh và đầu móng, liền ở chân móng mà không dũa vào móng thật hay da; nhìn lại từ trên xuống, cạnh bên và đầu móng. Màu và top như bài sơn gel, dầu dưỡng, hẹn lịch dặm (gel khoảng 3–4 tuần, bột khoảng 2–3 tuần) và dặn khách thấy hở thì quay lại, đừng tự lột.",
+        "Finish filing keeping the apex, refine side walls and tip, blend at the cuticle without touching natural nail or skin; check from above, the side and end-on. Colour and top as in the gel polish lesson, oil, book the next infill (gel about 3–4 weeks, acrylic about 2–3 weeks) and tell the customer to come back if it lifts, never peel it off.",
+        "Viimeistelyviilaus apex säilyttäen, sivut ja kärki siistiksi, häivytys kynsinauhan kohdalla koskematta omaan kynteen tai ihoon; tarkistus ylhäältä, sivulta ja päästä. Väri ja päällyslakka kuten geelilakkatunnilla, öljy, seuraavan huollon varaus (geeli noin 3–4 viikkoa, akryyli noin 2–3 viikkoa) ja ohje palata, jos kynsi irtoaa — ei koskaan itse repimistä."
+      ),
+    ],
+    tips: [
+      l3(
+        "Sau khi dũa chỗ hở, nghiêng móng dưới đèn: còn một đường trắng mờ ở mép là vẫn còn hở — dũa tiếp, đừng đắp đè.",
+        "After filing the lifting, tilt the nail under the light: a faint white line at the edge means it's still lifting — keep filing, don't cover it.",
+        "Kun olet viilannut irtoaman, kallista kynttä valossa: himmeä valkoinen viiva reunassa tarkoittaa, että se on yhä irti — jatka viilaamista, älä peitä."
+      ),
+      l3(
+        "Trong VaraaAi, tạo dịch vụ “Dặm gel” và “Dặm bột” riêng với thời lượng thật của tiệm, để lịch không bị chồng khi khách đặt dặm.",
+        "In VaraaAi, create separate “Gel infill” and “Acrylic infill” services with your real durations, so the calendar doesn't overlap when customers book infills.",
+        "Luo VaraaAi:hin erilliset palvelut ”Geelin huolto” ja ”Akryylin huolto” todellisilla kestoilla, jotta kalenteri ei mene päällekkäin, kun asiakkaat varaavat huoltoja."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Lớp bám (base, chất tăng bám hay primer) khi dặm đặt ở đâu?", "Where does the bonder (base, bonder or primer) go in an infill?", "Mihin tartunta-aine (pohja, tartunta-aine tai primer) laitetaan huollossa?"),
+        options: [
+          l3("Phủ khắp móng và cả da quanh móng", "All over the nail and the skin around it", "Koko kynnelle ja ympäröivälle iholle"),
+          l3("Chỉ ở đầu móng", "Only on the free edge", "Vain vapaaseen reunaan"),
+          l3("Chỉ trên phần móng thật mới mọc, chừa khe nhỏ cách da", "Only on the new natural growth, with a small gap from the skin", "Vain uudelle omalle kasvulle, pieni rako ihoon"),
+        ],
+        answer: 2,
+        why: l3(
+          "Lớp bám dành cho móng thật mới mọc; trên lớp cũ thì chỉ khi hãng hướng dẫn. Không bao giờ để chạm da.",
+          "Bonder is for the new natural nail; on the old product only if the brand says so. It never touches the skin.",
+          "Tartunta-aine on uutta omaa kynttä varten; vanhan tuotteen päälle vain, jos valmistaja niin ohjeistaa. Se ei koskaan koske ihoon."
+        ),
+      },
+      {
+        q: l3("Dũa chỗ hở mãi mà vẫn hở cả một mảng. Làm gì?", "You keep filing but a whole area is still lifting. What now?", "Viilaat, mutta koko alue on yhä irti. Mitä nyt?"),
+        options: [
+          l3("Dừng lại: tháo hết rồi làm lại", "Stop: remove everything and start again", "Lopeta: poista kaikki ja aloita alusta"),
+          l3("Đắp thật nhiều gel lên cho chắc", "Put lots of gel on top to hold it", "Laita paljon geeliä päälle pitämään se"),
+          l3("Cạy phần hở ra bằng que", "Pry the lifted part off with a stick", "Vipua irronnut osa pois tikulla"),
+        ],
+        answer: 0,
+        why: l3(
+          "Hở cả mảng thì không dặm được. Đắp đè nhốt ẩm bên dưới, còn cạy thì làm hỏng móng thật.",
+          "A whole lifted area can't be filled. Covering seals moisture in, prying damages the natural nail.",
+          "Laajaa irtoamaa ei voi huoltaa. Päälle laittaminen sulkee kosteuden sisään, vipuaminen vahingoittaa omaa kynttä."
+        ),
+      },
+      {
+        q: l3("Khi dặm bột, hạt bột gần chân móng phải thế nào?", "In an acrylic infill, what about the bead near the cuticle?", "Millainen kynsinauhan lähelle tuleva akryylipallo on huollossa?"),
+        options: [
+          l3("To và dày, để che hết khoảng hở", "Big and thick, to cover the gap", "Iso ja paksu, jotta rako peittyy"),
+          l3("Nhỏ, vuốt thật mỏng và không chạm da", "Small, pressed very thin and never touching the skin", "Pieni, painettu hyvin ohueksi eikä koskaan ihoon"),
+          l3("Đặt sát lên da cho khít", "Pushed right onto the skin for a tight fit", "Painettu suoraan ihoa vasten tiiviisti"),
+        ],
+        answer: 1,
+        why: l3(
+          "Mép dày ở chân móng dễ bật lên; bột chạm da dễ hở và có thể gây dị ứng. Apex được dựng ở vùng chịu lực, không phải ở chân móng.",
+          "A thick edge at the cuticle lifts easily; acrylic on the skin lifts and can cause allergy. The apex is built on the stress area, not at the cuticle.",
+          "Paksu reuna kynsinauhan kohdalla irtoaa helposti; iholle joutunut akryyli irtoaa ja voi aiheuttaa allergian. Apex rakennetaan rasitusalueelle, ei kynsinauhan kohdalle."
+        ),
+      },
+    ],
+  },
   soon("dua-form-mong", "p-nail", ["Dũa form: vuông, tròn, hạnh nhân, coffin", "Shapes: square, round, almond, coffin", "Muodot: neliö, pyöreä, manteli, coffin"], [
     "Các đường dũa chuẩn cho từng form và cách kiểm tra đối xứng.",
     "The filing lines for each shape and how to check symmetry.",
