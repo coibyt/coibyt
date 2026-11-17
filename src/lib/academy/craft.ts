@@ -1555,11 +1555,264 @@ const ALL_LESSONS: Lesson[] = [
     "Fitting the form, building the structure, the C-curve and shaping.",
     "Muotin asettaminen, rakenteen teko, C-kaari ja muotoilu.",
   ]),
-  soon("dap-bot-acrylic", "p-nail", ["Đắp bột acrylic cơ bản", "Acrylic basics", "Akryylin perusteet"], [
-    "Tỷ lệ bột – nước, ba viên bột, ép và vuốt, an toàn hoá chất và hút bụi.",
-    "Liquid-to-powder ratio, the three-bead method, pressing and smoothing, chemical safety and dust extraction.",
-    "Nesteen ja jauheen suhde, kolmen helmen tekniikka, painelu ja tasoitus, kemikaaliturvallisuus ja pölynpoisto.",
-  ]),
+  {
+    slug: "dap-bot-hieu-dung",
+    course: "p-nail",
+    style: "theory",
+    title: l3("Đắp bột acrylic: hiểu đúng để làm bền và an toàn", "Acrylic: understand it for lasting, safe nails", "Akryyli: ymmärrä, niin kynnet kestävät ja työ on turvallista"),
+    summary: l3(
+      "Bột acrylic cứng lại thế nào mà không cần đèn, tỉ lệ liquid và bột — hạt quá ướt, quá khô —, cấu trúc móng (vùng chịu lực, apex, độ cong chữ C), primer, vì sao bột bị hở, hơi và bụi, chất MMA, dị ứng, dặm và tháo.",
+      "How acrylic sets without a lamp, the liquid-to-powder ratio — beads too wet and too dry —, nail structure (stress area, apex, C-curve), primer, why acrylic lifts, vapour and dust, MMA, allergy, infills and removal.",
+      "Miten akryyli kovettuu ilman lamppua, nesteen ja jauheen suhde — liian märkä ja liian kuiva helmi —, kynnen rakenne (rasitusalue, apex, C-kaari), primer, miksi akryyli irtoaa, höyryt ja pöly, MMA, allergia, huolto ja poisto."
+    ),
+    video: video("dap-bot-hieu-dung", 312, "2026-11-17"),
+    notice: l3(
+      "Liquid có mùi mạnh và dễ cháy: hút khí tại bàn, thông gió, để xa lửa, đậy nắp. Tỉ lệ, primer và thời gian luôn theo hướng dẫn của hãng. Liquid và bột chưa cứng không được chạm vào da. Quy định khác nhau theo từng nước và thành phố.",
+      "Acrylic liquid has a strong vapour and is flammable: local exhaust at the table, ventilation, no flames, lids on. Ratio, primer and times always follow the brand's instructions. Liquid and unset product must never touch the skin. Rules differ by country and city.",
+      "Akryylineste höyryää voimakkaasti ja on syttyvää: kohdepoisto pöydässä, ilmanvaihto, ei avotulta, kannet kiinni. Suhde, primer ja ajat noudattavat aina valmistajan ohjetta. Neste ja kovettumaton massa eivät saa koskea ihoon. Määräykset vaihtelevat maittain ja kunnittain."
+    ),
+    sources: [
+      HELSINKI_HYGIENE,
+      { label: "U.S. FDA — Nail care products (methyl methacrylate)", url: "https://www.fda.gov/cosmetics/cosmetic-products/nail-care-products" },
+      { label: "BfR (German Federal Institute for Risk Assessment) — Liquid agents for nail modelling with high methyl methacrylate contents, opinion 014/2012", url: "https://www.bfr.bund.de/cm/349/liquid-agents-for-nail-modelling-with-high-methyl-methacrylate-contents-present-a-health-risk.pdf" },
+    ],
+    related: ["kho-hang", "dich-vu", "khach-hang"],
+    steps: [
+      l3(
+        "Acrylic có hai phần: liquid (phần lỏng) và bột. Khi cọ ướt liquid chạm vào bột, phản ứng bắt đầu ngay ngoài không khí, không cần đèn, và hạt bột cứng lại sau vài phút — nên phải đặt và vuốt dứt khoát.",
+        "Acrylic has two parts: the liquid and the powder. When the wet brush touches the powder the reaction starts at once in the air, with no lamp, and the bead sets within minutes — so place and press it decisively.",
+        "Akryylissä on kaksi osaa: neste ja jauhe. Kun märkä sivellin koskee jauheeseen, reaktio alkaa heti ilmassa ilman lamppua ja helmi kovettuu muutamassa minuutissa — siksi helmi asetetaan ja painetaan päättäväisesti."
+      ),
+      l3(
+        "Tỉ lệ liquid–bột là điều quan trọng nhất. Hạt đúng: ẩm, bóng, tròn, giữ được hình và chỉ dàn ra một chút. Mỗi hãng có tỉ lệ riêng; tập trên móng tập trước khi làm cho khách.",
+        "The liquid-to-powder ratio matters most. A good bead is moist, glossy and round, holds its shape and only settles a little. Every brand has its own ratio; practise on training nails before working on customers.",
+        "Nesteen ja jauheen suhde on tärkeintä. Hyvä helmi on kostea, kiiltävä ja pyöreä, pitää muotonsa ja leviää vain vähän. Jokaisella merkillä on oma suhteensa; harjoittele harjoituskynsillä ennen asiakastöitä."
+      ),
+      l3(
+        "Hạt quá ướt chảy, tràn vào khóe và chân móng, lâu cứng và yếu; liquid dư chưa phản ứng có thể đọng trên da và dẫn tới dị ứng. Hạt quá khô thì sần, có lỗ li ti, mép bở, bám kém và dễ ố.",
+        "A bead that is too wet runs, floods the side walls and cuticle, sets slowly and is weak; unreacted liquid can sit on the skin and lead to allergy. A bead that is too dry is grainy and porous, crumbles at the edge, grips poorly and stains.",
+        "Liian märkä helmi valuu kynsivalleihin ja kynsinauhaan, kovettuu hitaasti ja jää heikoksi; reagoimaton neste voi jäädä iholle ja johtaa allergiaan. Liian kuiva helmi on rakeinen ja huokoinen, murenee reunasta, tarttuu huonosti ja värjäytyy."
+      ),
+      l3(
+        "Cấu trúc như builder gel: mỏng ở chân móng và đầu móng, dày nhất ở apex trên vùng chịu lực (chỗ móng rời khỏi nền da, hơi lùi về sau), độ cong chữ C đều, hai cạnh thẳng. Móng nối càng dài càng cần cấu trúc đúng.",
+        "Structure as for builder gel: thin at the cuticle and the tip, thickest at the apex over the stress area (where the nail leaves the bed, slightly behind it), an even C-curve and straight side walls. The longer the extension, the more the structure matters.",
+        "Rakenne kuten rakennegeelissä: ohut kynsinauhan kohdalla ja kärjessä, paksuin apexissa rasitusalueen päällä (siinä missä kynsi irtoaa kynsipedistä, hieman sen takana), tasainen C-kaari ja suorat sivut. Mitä pidempi pidennys, sitä tärkeämpi rakenne."
+      ),
+      l3(
+        "Bám chắc nhờ chuẩn bị: làm khô, lấy sạch lớp da mỏng trên mặt móng, chà mất bóng, lau bụi và dầu. Primer (có axit hoặc không axit) chỉ thoa thật mỏng trên mặt móng, không chạm da vì có thể làm da bỏng rát; dùng theo hướng dẫn của hãng.",
+        "Adhesion comes from prep: dry prep, remove the cuticle tissue from the plate, take off the shine, clear dust and oil. Primer (acid or acid-free) goes on very thinly, on the nail plate only — never on skin, which it can burn; use it as the brand says.",
+        "Tartunta syntyy esikäsittelystä: kuiva esikäsittely, kynsinauhakudos pois levyltä, kiilto pois, pöly ja öljy pois. Primer (hapollinen tai hapoton) levitetään hyvin ohuesti vain kynsilevylle — ei koskaan iholle, jota se voi polttaa; käytä valmistajan ohjeen mukaan."
+      ),
+      l3(
+        "Bột hở thường do: chuẩn bị chưa kỹ, primer quá ít hoặc quá nhiều, bột chạm da, mép ở chân móng quá dày, hạt quá khô, hoặc thiếu apex. Thấy hở thì không đắp đè: dũa bỏ phần hở rồi mới dặm.",
+        "Lifting usually comes from poor prep, too little or too much primer, product on the skin, a thick edge at the cuticle, a dry bead or a missing apex. Never cover a lifted area: file it away first, then infill.",
+        "Irtoaminen johtuu yleensä huonosta esikäsittelystä, liian vähäisestä tai runsaasta primeristä, massasta iholla, paksusta reunasta kynsinauhan kohdalla, kuivasta helmestä tai puuttuvasta apexista. Irronnutta kohtaa ei peitetä: viilaa se ensin pois ja huolla sitten."
+      ),
+      l3(
+        "Hơi liquid mạnh và dễ cháy. Hướng dẫn vệ sinh của thành phố Helsinki: nơi làm móng bột, bàn làm phải có hệ thống hút tại chỗ đủ hiệu quả; khi dũa sinh bụi cũng phải hút tại chỗ. Đeo khẩu trang khi dũa.",
+        "The liquid's vapour is strong and flammable. The City of Helsinki's hygiene guidance: where acrylic nails are done, the workstation must have sufficiently efficient local exhaust ventilation, and filing dust must be extracted locally too. Wear a mask when filing.",
+        "Nesteen höyry on voimakas ja syttyvä. Helsingin kaupungin hygieniaohje: jos tiloissa tehdään akryylikynsiä, työpisteessä on oltava riittävän tehokas kohdepoisto, ja myös viilauspöly on poistettava kohdepoistolla. Käytä maskia viilatessa."
+      ),
+      l3(
+        "Rót liquid ít, vừa một khách, vào chén nhỏ có nắp và đậy lại khi không dùng; đậy chai ngay, xa lửa. Liquid thừa không đổ vào bồn rửa — xử lý theo bảng dữ liệu an toàn của sản phẩm và quy định rác thải nơi bạn làm.",
+        "Pour a small amount of liquid, enough for one customer, into a dappen dish with a lid and cover it when not in use; close the bottle at once, away from flames. Leftover liquid never goes down the sink — dispose of it as the product's safety data sheet and local waste rules say.",
+        "Kaada nestettä vähän, yhden asiakkaan tarpeeseen, kannelliseen dappen-astiaan ja peitä se, kun sitä ei käytetä; sulje pullo heti, kaukana avotulesta. Ylijäänyttä nestettä ei kaadeta viemäriin — hävitä se tuotteen käyttöturvallisuustiedotteen ja paikallisten jätemääräysten mukaan."
+      ),
+      l3(
+        "MMA: cơ quan FDA của Mỹ đã cho rút khỏi thị trường liquid làm hoàn toàn bằng MMA sau nhiều ca tổn thương móng và da; viện đánh giá rủi ro BfR của Đức khuyên nhà sản xuất không dùng MMA trong hệ bột–liquid. Liquid chuyên nghiệp thường dùng chất khác như EMA. Chỉ mua sản phẩm có nhãn rõ và bảng dữ liệu an toàn.",
+        "MMA: the US FDA had liquids made of 100 % MMA taken off the market after injuries to nails and skin; Germany's BfR advises manufacturers not to use MMA in powder–liquid systems. Professional liquids usually use other monomers such as EMA. Buy only clearly labelled products with a safety data sheet.",
+        "MMA: Yhdysvaltain FDA poisti markkinoilta 100-prosenttisesti MMA:sta tehdyt nesteet kynsi- ja ihovaurioiden jälkeen; Saksan BfR neuvoo valmistajia olemaan käyttämättä MMA:ta jauhe–neste-järjestelmissä. Ammattinesteissä käytetään yleensä muita monomeerejä, kuten EMA:ta. Osta vain selvästi merkittyjä tuotteita, joilla on käyttöturvallisuustiedote."
+      ),
+      l3(
+        "Dặm thường mỗi 2–3 tuần vì apex trôi ra theo móng mọc. Nói thật với khách: bột chắc nhưng móng thật cần được nâng niu, không cạy. Tháo: bột tan trong acetone nhưng lâu hơn gel nhiều — dũa mỏng bớt, ủ, đẩy nhẹ phần đã mềm, không bao giờ cạy (xem bài tháo gel). Dị ứng: xem bài dị ứng và hóa chất.",
+        "Infill usually every 2–3 weeks, as the apex moves forward with growth. Be honest: acrylic is strong, but the natural nail underneath needs care — no prying. Removal: acrylic soaks off in acetone but takes much longer than gel — file the bulk down, soak, push only softened product, never pry (see the gel removal lesson). Allergy: see the allergy and chemicals lesson.",
+        "Huolto yleensä 2–3 viikon välein, koska apex siirtyy kasvun mukana eteenpäin. Kerro rehellisesti: akryyli on vahva, mutta alla oleva oma kynsi tarvitsee hoitoa — ei vääntämistä. Poisto: akryyli liukenee asetoniin, mutta paljon hitaammin kuin geeli — viilaa paksuus pois, liota, työnnä vain pehmennyt massa, älä koskaan väännä (katso geelin poiston oppitunti). Allergia: katso allergiat ja kemikaalit -oppitunti."
+      ),
+    ],
+    tips: [
+      l3(
+        "Nhìn mặt bột vừa vuốt: mịn, bóng ẩm, không lỗ là tỉ lệ đúng.",
+        "Look at the bead you have just pressed: smooth, moist-glossy and free of pits means the ratio is right.",
+        "Katso juuri painettua helmeä: sileä, kostean kiiltävä ja kuopaton tarkoittaa oikeaa suhdetta."
+      ),
+      l3(
+        "Sản phẩm rẻ bất thường, không nhãn rõ, không có bảng dữ liệu an toàn: đừng mua.",
+        "Unusually cheap, no clear label, no safety data sheet: don't buy it.",
+        "Epätavallisen halpa, ei selkeää merkintää, ei käyttöturvallisuustiedotetta: älä osta."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Hạt bột quá ướt (nhiều liquid, ít bột) gây ra điều gì?", "What does a bead that is too wet (much liquid, little powder) cause?", "Mitä liian märkä helmi (paljon nestettä, vähän jauhetta) aiheuttaa?"),
+        options: [
+          l3("Mặt bột sần và có lỗ li ti", "A grainy, pitted surface", "Rakeisen, kuoppaisen pinnan"),
+          l3("Chảy tràn vào khóe móng, yếu, và liquid dư có thể đọng trên da", "It floods the side walls, is weak, and leftover liquid can sit on the skin", "Se valuu kynsivalleihin, jää heikoksi ja ylimääräistä nestettä voi jäädä iholle"),
+          l3("Cứng ngay lập tức, không kịp vuốt", "It sets instantly, before you can press it", "Se kovettuu heti, ennen kuin sitä ehtii painaa"),
+        ],
+        answer: 1,
+        why: l3(
+          "Quá ướt thì chảy, lâu cứng và yếu; liquid chưa phản ứng hết trên da là con đường dẫn tới dị ứng. Sần, có lỗ là dấu hiệu quá khô.",
+          "Too wet runs, sets slowly and is weak; unreacted liquid on the skin is a route to allergy. Grainy and pitted means too dry.",
+          "Liian märkä valuu, kovettuu hitaasti ja jää heikoksi; reagoimaton neste iholla on tie allergiaan. Rakeinen ja kuoppainen tarkoittaa liian kuivaa."
+        ),
+      },
+      {
+        q: l3("Theo hướng dẫn vệ sinh của Helsinki, bàn làm móng bột cần gì?", "Under Helsinki's hygiene guidance, what does an acrylic workstation need?", "Mitä akryylityöpiste tarvitsee Helsingin hygieniaohjeen mukaan?"),
+        options: [
+          l3("Một cây nến thơm để át mùi", "A scented candle to mask the smell", "Tuoksukynttilän peittämään hajua"),
+          l3("Chỉ cần mở cửa sổ khi khách về", "Just open a window when the customer leaves", "Riittää avata ikkuna asiakkaan lähdettyä"),
+          l3("Hệ thống hút tại chỗ đủ hiệu quả", "Sufficiently efficient local exhaust ventilation", "Riittävän tehokkaan kohdepoiston"),
+        ],
+        answer: 2,
+        why: l3(
+          "Hơi và bụi phải được hút ngay nơi chúng sinh ra. Nến là lửa — liquid dễ cháy.",
+          "Vapour and dust must be extracted where they are produced. A candle is a flame — the liquid is flammable.",
+          "Höyry ja pöly on poistettava siellä, missä ne syntyvät. Kynttilä on avotuli — neste on syttyvää."
+        ),
+      },
+      {
+        q: l3("Bột bị hở ở chân móng. Nên làm gì?", "The acrylic has lifted at the cuticle. What should you do?", "Akryyli on irronnut kynsinauhan kohdalta. Mitä teet?"),
+        options: [
+          l3("Dũa bỏ phần hở, rồi mới dặm", "File the lifted part away, then infill", "Viilaan irronneen osan pois ja huollan sitten"),
+          l3("Đắp thêm bột đè lên chỗ hở", "Put more acrylic over the lifted area", "Lisään akryyliä irronneen kohdan päälle"),
+          l3("Nhỏ keo dán vào khe hở", "Run glue into the gap", "Laitan liimaa rakoon"),
+        ],
+        answer: 0,
+        why: l3(
+          "Dưới chỗ hở có thể đọng nước và bẩn; đắp đè lên là nhốt chúng lại. Phải dũa bỏ phần hở trước.",
+          "Water and dirt can collect under a lifted area; covering it seals them in. File the lifted part away first.",
+          "Irronneen kohdan alle voi kertyä vettä ja likaa; päälle rakentaminen sulkee ne sisään. Viilaa irronnut osa ensin pois."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "dap-bot-acrylic",
+    course: "p-nail",
+    style: "practice",
+    title: l3("Đắp bột acrylic: thực hành từng bước", "Acrylic extensions: step-by-step practice", "Akryylipidennykset: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Nối dài bằng bột trên form: tư vấn, chuẩn bị khô, primer, gắn form, lấy hạt bột, ba hạt bột, chờ cứng và tháo form, kiểm tra ba hướng, dũa, hoàn thiện, dặn dò và rửa cọ.",
+      "A sculpted acrylic extension on a form: consultation, dry prep, primer, fitting the form, picking up a bead, the three-bead method, setting and removing the form, checking from three sides, filing, finishing, aftercare and brush care.",
+      "Muotille muotoiltu akryylipidennys: konsultaatio, kuiva esikäsittely, primer, muotin asettaminen, helmen ottaminen, kolmen helmen menetelmä, kovettuminen ja muotin poisto, tarkastus kolmesta suunnasta, viilaus, viimeistely, kotihoito-ohjeet ja siveltimen hoito."
+    ),
+    video: video("dap-bot-acrylic", 282, "2026-11-17"),
+    notice: l3(
+      "Bật hệ thống hút tại bàn trước khi mở liquid; để xa lửa. Primer và bột không được chạm vào da. Tỉ lệ, thời gian khô và cứng luôn theo hướng dẫn của hãng. Quy định khác nhau theo từng nước và thành phố.",
+      "Switch on the local exhaust before opening the liquid; keep away from flames. Primer and acrylic must never touch the skin. Ratio, drying and setting times always follow the brand's instructions. Rules differ by country and city.",
+      "Käynnistä kohdepoisto ennen nesteen avaamista; pidä kaukana avotulesta. Primer ja akryyli eivät saa koskea ihoon. Suhde, kuivumis- ja kovettumisajat noudattavat aina valmistajan ohjetta. Määräykset vaihtelevat maittain ja kunnittain."
+    ),
+    sources: [HELSINKI_HYGIENE],
+    related: ["lich-hen", "bang-gia", "dich-vu"],
+    steps: [
+      l3(
+        "Rửa và sát khuẩn tay, xem móng và da: móng tách, đổi màu, da sưng đỏ, có mủ hay vết thương hở thì không làm và khuyên khách đi khám. Hỏi tiền sử dị ứng, độ dài và form khách muốn, hẹn dặm sau 2–3 tuần. Bật máy hút ở bàn.",
+        "Wash and disinfect hands and check nails and skin: lifting, discolouration, swollen red skin, pus or open wounds — don't work, advise a doctor. Ask about past reactions, length and shape, and mention infills every 2–3 weeks. Switch on the table extraction.",
+        "Pese ja desinfioi kädet ja tarkasta kynnet ja iho: irtoaminen, värimuutos, turvonnut punainen iho, märkä tai avohaava — älä tee työtä, ohjaa lääkäriin. Kysy aiemmista reaktioista, pituudesta ja muodosta ja kerro huollosta 2–3 viikon välein. Käynnistä pöydän kohdepoisto."
+      ),
+      l3(
+        "Chuẩn bị khô như bài sơn gel: đẩy da, lấy sạch lớp da mỏng trên mặt móng, dũa ngắn đầu móng, chà mất bóng, phủi bụi và lau. Sau đó không chạm vào mặt móng.",
+        "Dry prep as in the gel polish lesson: push back, remove cuticle tissue from the plate, shorten the tip, take off the shine, dust and cleanse. Don't touch the nail plate afterwards.",
+        "Kuiva esikäsittely kuten geelilakkauksessa: työnnä kynsinauhat, poista kudos levyltä, lyhennä kärki, poista kiilto, harjaa pöly ja puhdista. Älä koske kynsilevyyn sen jälkeen."
+      ),
+      l3(
+        "Chất làm khô và primer đúng loại, đúng cách hãng hướng dẫn: một lớp thật mỏng, chỉ trên mặt móng, tránh da và khóe móng; để khô theo thời gian của hãng.",
+        "Dehydrator and primer exactly as the brand says: one very thin layer, on the nail plate only, away from the skin and side walls; let it dry for the brand's time.",
+        "Kuivatusaine ja primer tarkalleen valmistajan ohjeen mukaan: yksi hyvin ohut kerros vain kynsilevylle, poissa iholta ja kynsivalleista; anna kuivua valmistajan ajan."
+      ),
+      l3(
+        "Form nằm sát, khít dưới đầu móng, không khe hở, thẳng hàng với ngón tay; nhìn từ cạnh bên, form nối tiếp đường móng, không chúc xuống, không vểnh lên. Dùng tip thì dán vừa khít, cắt ngắn và dũa mỏng chỗ nối.",
+        "The form sits snugly under the free edge with no gap, in line with the finger; from the side it continues the line of the nail, neither dipping nor tilting up. With a tip: fit it to the nail's width, shorten it and blend the join thin.",
+        "Muotti istuu tiiviisti vapaan reunan alla ilman rakoa ja sormen suuntaisesti; sivulta katsoen se jatkaa kynnen linjaa, ei painu alas eikä nouse ylös. Tipin kanssa: sovita leveyteen, lyhennä ja ohenna liitos."
+      ),
+      l3(
+        "Rót ít liquid vào chén nhỏ có nắp. Nhúng cọ cho ngấm, gạt vào thành chén; chạm đầu cọ vào bột, giữ một chút cho thành hạt tròn. Hạt đúng: ẩm, bóng, tròn, không nhỏ giọt, không khô vụn.",
+        "Pour a little liquid into a dappen dish with a lid. Dip the brush, wipe it on the rim, touch the tip to the powder and hold it there a moment until a round bead forms. A good bead is moist, glossy and round — not dripping, not crumbly.",
+        "Kaada vähän nestettä kannelliseen dappen-astiaan. Kasta sivellin, pyyhi se reunaan, kosketa kärjellä jauhetta ja pidä hetki, kunnes muodostuu pyöreä helmi. Hyvä helmi on kostea, kiiltävä ja pyöreä — ei valu eikä murene."
+      ),
+      l3(
+        "Hạt một: trên form, ngay trước mép móng thật — tạo chiều dài, form đầu móng và hai cạnh thẳng. Hạt hai: vùng chịu lực, dựng apex, nối liền với phần đầu. Hạt ba: nhỏ, gần chân móng, vuốt thật mỏng, chừa khe hở như sợi tóc, không chạm da.",
+        "Bead one: on the form, just in front of the natural free edge — it sets the length, tip shape and straight side walls. Bead two: the stress area — it builds the apex and blends into the tip. Bead three: small, near the cuticle, pressed very thin with a hair-thin gap, never touching the skin.",
+        "Helmi yksi: muotille aivan oman vapaan reunan eteen — se määrää pituuden, kärjen muodon ja suorat sivut. Helmi kaksi: rasitusalueelle — se rakentaa apexin ja sulautuu kärkeen. Helmi kolme: pieni, kynsinauhan lähelle, painetaan hyvin ohueksi hiuksenohuen raon jättäen, ei koskaan iholle."
+      ),
+      l3(
+        "Ấn và vuốt bằng thân cọ đặt gần như nằm ngang; giữa các hạt lau cọ và nhúng lại liquid. Bột lỡ chạm da thì gạt đi ngay khi còn mềm.",
+        "Press and stroke with the belly of the brush held almost flat; wipe the brush and re-wet it between beads. If product touches the skin, lift it off at once while still soft.",
+        "Paina ja silitä siveltimen kyljellä lähes vaakatasossa; pyyhi ja kostuta sivellin helmien välillä. Jos massaa joutuu iholle, poista se heti, kun se on vielä pehmeää."
+      ),
+      l3(
+        "Chờ bột cứng (vài phút, tùy hãng): gõ nhẹ cán cọ nghe tiếng cạch khô là được. Không tháo form khi bột còn mềm; tháo nhẹ, kéo xuống dưới. Kiểm tra từ cạnh bên (mỏng–cao ở vùng chịu lực–mỏng), từ đầu móng (chữ C đều) và từ trên xuống (cạnh thẳng).",
+        "Let it set (a few minutes, depending on the brand): a light tap with the brush handle gives a dry click. Never remove the form while soft; take it off gently, downwards. Check from the side (thin – highest at the stress area – thin), from the end (even C-curve) and from above (straight side walls).",
+        "Anna kovettua (muutama minuutti merkistä riippuen): kevyt koputus siveltimen varrella antaa kuivan naksahduksen. Älä poista muottia pehmeänä; irrota varovasti alaspäin. Tarkasta sivulta (ohut – korkein rasitusalueella – ohut), päästä (tasainen C-kaari) ja ylhäältä (suorat sivut)."
+      ),
+      l3(
+        "Dũa khi máy hút chạy và đeo khẩu trang, nhẹ tay: đầu móng đúng form, cạnh bên thẳng, mặt móng mịn và giữ apex; chân móng mỏng, liền với móng thật nhưng không dũa vào móng thật. Phao mịn, phủi bụi bằng chổi (không thổi), lau sạch.",
+        "File with the extraction running and a mask on, with a light hand: tip to shape, side walls straight, surface smooth with the apex kept; thin at the cuticle, blended into the natural nail but never filed into it. Buff, brush the dust off (don't blow) and cleanse.",
+        "Viilaa kohdepoisto päällä ja maski kasvoilla kevyellä kädellä: kärki muotoon, sivut suoriksi, pinta sileäksi apex säilyttäen; ohut kynsinauhan kohdalta, sulautettuna omaan kynteen mutta viilaamatta siihen. Hio, harjaa pöly pois (älä puhalla) ja puhdista."
+      ),
+      l3(
+        "Top bóng hoặc màu tùy khách, rồi dầu dưỡng. Dặn: không cạy, đeo găng khi làm việc nhà, dầu mỗi ngày, hở thì quay lại tiệm, dặm sau 2–3 tuần. Rửa cọ bằng chính liquid của hãng (không dùng acetone), cất nằm ngang hoặc như hãng khuyên; đậy chén và chai, liquid thừa xử lý theo bảng dữ liệu an toàn.",
+        "Top coat or colour as the customer wishes, then oil. Advise: no prying, gloves for housework, oil daily, come back if it lifts, infill in 2–3 weeks. Clean the brush in the brand's own liquid (never acetone) and store it flat or as the brand says; close the dish and bottle, and dispose of leftover liquid per the safety data sheet.",
+        "Päällyslakka tai väri asiakkaan toiveen mukaan, sitten öljy. Neuvo: ei vääntämistä, käsineet kotitöihin, öljyä päivittäin, irrotessa takaisin liikkeeseen, huolto 2–3 viikon päästä. Puhdista sivellin merkin omalla nesteellä (ei asetonilla) ja säilytä se vaakatasossa tai valmistajan ohjeen mukaan; sulje astia ja pullo ja hävitä ylijäänyt neste käyttöturvallisuustiedotteen mukaan."
+      ),
+    ],
+    tips: [
+      l3(
+        "Lúc mới tập, hạt nhỏ dễ điều khiển hơn hạt to.",
+        "While you are learning, small beads are easier to control than big ones.",
+        "Harjoitusvaiheessa pienet helmet on helpompi hallita kuin isot."
+      ),
+      l3(
+        "Form có khe hở dưới đầu móng thì bột chảy xuống dưới: sửa form trước khi đặt hạt đầu tiên.",
+        "A gap under the free edge lets acrylic run underneath: fix the form before the first bead.",
+        "Rako vapaan reunan alla päästää akryylin valumaan alle: korjaa muotti ennen ensimmäistä helmeä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Trong cách đắp ba hạt, hạt thứ hai đặt ở đâu?", "In the three-bead method, where does the second bead go?", "Mihin toinen helmi asetetaan kolmen helmen menetelmässä?"),
+        options: [
+          l3("Sát da ở chân móng", "Right against the skin at the cuticle", "Aivan ihoa vasten kynsinauhan kohdalle"),
+          l3("Ở vùng chịu lực, để dựng apex", "In the stress area, to build the apex", "Rasitusalueelle rakentamaan apexia"),
+          l3("Dưới form, phía dưới đầu móng", "Under the form, below the tip", "Muotin alle, kärjen alapuolelle"),
+        ],
+        answer: 1,
+        why: l3(
+          "Hạt một ở đầu móng trên form, hạt hai ở vùng chịu lực tạo apex, hạt ba nhỏ và mỏng gần chân móng — không bao giờ chạm da.",
+          "Bead one goes on the form at the tip, bead two in the stress area for the apex, bead three small and thin near the cuticle — never touching the skin.",
+          "Helmi yksi menee muotille kärkeen, helmi kaksi rasitusalueelle apexiksi, helmi kolme pienenä ja ohuena kynsinauhan lähelle — ei koskaan iholle."
+        ),
+      },
+      {
+        q: l3("Rửa cọ đắp bột bằng gì?", "What do you clean an acrylic brush with?", "Millä akryylisivellin puhdistetaan?"),
+        options: [
+          l3("Acetone, cho sạch nhanh", "Acetone, to clean it fast", "Asetonilla, jotta se puhdistuu nopeasti"),
+          l3("Nước nóng và xà phòng", "Hot water and soap", "Kuumalla vedellä ja saippualla"),
+          l3("Chính liquid của hãng", "The brand's own liquid", "Merkin omalla nesteellä"),
+        ],
+        answer: 2,
+        why: l3(
+          "Acetone làm khô và hỏng lông cọ. Rửa bằng liquid, lau, vuốt nhọn và cất như hãng khuyên.",
+          "Acetone dries and ruins the bristles. Clean with liquid, wipe, reshape the point and store as the brand advises.",
+          "Asetoni kuivattaa ja pilaa harjakset. Puhdista nesteellä, pyyhi, muotoile kärki ja säilytä valmistajan ohjeen mukaan."
+        ),
+      },
+      {
+        q: l3("Làm sao biết bột đã cứng để tháo form?", "How do you know the acrylic has set and the form can come off?", "Mistä tiedät, että akryyli on kovettunut ja muotin voi poistaa?"),
+        options: [
+          l3("Gõ nhẹ cán cọ lên móng, nghe tiếng cạch khô", "Tap it lightly with the brush handle and hear a dry click", "Koputan kevyesti siveltimen varrella ja kuulen kuivan naksahduksen"),
+          l3("Ngay khi đặt xong hạt thứ ba", "As soon as the third bead is placed", "Heti kun kolmas helmi on asetettu"),
+          l3("Khi mặt bột còn bóng ướt", "While the surface still looks wet and glossy", "Kun pinta näyttää vielä märältä ja kiiltävältä"),
+        ],
+        answer: 0,
+        why: l3(
+          "Tháo form khi bột còn mềm làm đầu móng cong vênh. Chờ đủ thời gian theo hãng và gõ thử.",
+          "Removing the form while the acrylic is soft warps the tip. Wait the brand's time and do the tap test.",
+          "Muotin poistaminen pehmeänä vääntää kärjen. Odota valmistajan aika ja tee koputustesti."
+        ),
+      },
+    ],
+  },
   soon("fill-mong", "p-nail", ["Dặm lại (fill) gel và bột", "Infills for gel and acrylic", "Geelin ja akryylin huolto"], [
     "Hạ lớp cũ, xử lý chỗ hở, cân lại apex sau 3 tuần.",
     "Thinning the old product, fixing lifting and rebalancing the apex after three weeks.",
