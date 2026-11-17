@@ -3947,11 +3947,253 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("mi-mega-wispy", "p-lash", ["Mega volume, wispy và wet look", "Mega volume, wispy and wet look", "Megavolyymi, wispy ja wet look"], [
-    "Các kiểu mi đang được ưa chuộng và cách làm an toàn cho mi thật.",
-    "The styles customers ask for now, done safely for the natural lashes.",
-    "Suosituimmat tyylit luomuripsille turvallisesti tehtyinä.",
-  ]),
+  {
+    slug: "mi-mega-wispy-hieu-dung",
+    course: "p-lash",
+    style: "theory",
+    title: l3("Mega volume, wispy, wet look: hiểu đúng để đẹp mà không hại mi", "Mega volume, wispy and wet look: understand them for beautiful lashes without damage", "Megavolyymi, wispy ja wet look: ymmärrä ne, niin ripset ovat kauniit eivätkä vaurioidu"),
+    summary: l3(
+      "Mega volume, wispy và wet look là gì, vì sao ba kiểu này dễ làm mi thật quá tải, vì sao chỉ làm đúng kiểu trên mi thật khoẻ và làm phiên bản nhẹ cho mi yếu, sợi mảnh nhất và keo cực ít cho mega, spike nặng hơn vẻ ngoài, nhịp đều của wispy, tư vấn và lịch dặm, dấu hiệu quá tải và cách làm nhẹ bộ mi.",
+      "What mega volume, wispy and wet look are, why these looks easily overload the natural lashes, why the full look is only for strong natural lashes and weaker lashes get a lighter version, the finest lashes and very little glue for mega, why spikes weigh more than they look, an even rhythm for wispy, consultation and refills, and the signs of overload and how to lighten a set.",
+      "Mitä megavolyymi, wispy ja wet look ovat, miksi nämä tyylit kuormittavat luomuripsiä helposti, miksi täysi tyyli tehdään vain vahvoille luomuripsille ja heikommille kevyempi versio, ohuimmat ripset ja hyvin vähän liimaa megaan, miksi piikit painavat enemmän kuin näyttää, wispyn tasainen rytmi, konsultaatio ja huollot sekä ylikuormituksen merkit ja setin keventäminen."
+    ),
+    video: video("mi-mega-wispy-hieu-dung", 291, "2026-11-17"),
+    notice: l3(
+      "Số sợi, độ dày và độ dài trong bài là hướng dẫn chung theo kinh nghiệm nghề, không phải con số tuyệt đối: luôn xem bảng gợi ý của hãng mi và hướng dẫn của hãng keo, và làm theo sức của mi thật. Keo không được chạm vào da. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Numbers of lashes, thicknesses and lengths in this lesson are general trade guidance, not exact figures: always check the lash maker's chart and the glue maker's instructions, and work within what the natural lashes can carry. Glue must never touch the skin. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Tämän tunnin ripsimäärät, paksuudet ja pituudet ovat yleisiä alan ohjeita, eivät tarkkoja lukuja: tarkista aina ripsivalmistajan taulukko ja liimavalmistajan ohjeet ja työskentele sen mukaan, mitä luomuripset kantavat. Liima ei saa koskaan koskea ihoa. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["dich-vu", "lich-hen", "khach-hang"],
+    steps: [
+      l3(
+        "Mega volume là volume ở mức dày nhất: mỗi fan nhiều sợi hơn 6D, sợi nào cũng cực mảnh, cho một đường mi rất dày và đen. Dù bao nhiêu sợi, một fan vẫn chỉ gắn vào đúng MỘT sợi mi thật.",
+        "Mega volume is volume at its densest: each fan has more lashes than a 6D fan, all ultra-fine, for a very dense, dark lash line. However many lashes it has, a fan still goes on exactly ONE natural lash.",
+        "Megavolyymi on tuuheinta volyymia: viuhkassa on enemmän ripsiä kuin 6D-viuhkassa, kaikki erittäin ohuita, ja ripsiraja on hyvin tuuhea ja tumma. Ripsiä voi olla monta, mutta viuhka kiinnitetään silti täsmälleen YHTEEN luomuripseen."
+      ),
+      l3(
+        "Wispy là kiểu có kết cấu như lông vũ: một lớp nền fan ngắn, mềm, và xen vào đó, cách đều nhau, các spike (fan khép thành mũi nhọn hoặc sợi đơn) dài hơn lớp nền.",
+        "Wispy is a textured, feathery look: a base layer of short, soft fans with evenly spaced spikes (fans closed into a point, or singles) that are longer than the base.",
+        "Wispy on teksturoitu, höyhenmäinen tyyli: lyhyistä, pehmeistä viuhkoista tehty pohjakerros ja sen lomassa tasavälein pohjaa pidempiä piikkejä (kärjeksi suljettuja viuhkoja tai yksittäisiä ripsiä)."
+      ),
+      l3(
+        "Wet look dùng fan khép: các sợi ép sát thành từng mũi nhọn, đặt gần nhau dọc đường mi, nhìn như mi vừa ướt. Mỗi mũi vẫn nằm trên một sợi mi thật, các mũi phải tách rõ.",
+        "Wet look uses closed fans: the lashes pressed together into fine points placed close together along the lash line, like wet lashes. Each point still sits on one natural lash, and the points stay clearly separate.",
+        "Wet lookissa käytetään suljettuja viuhkoja: ripset painetaan yhteen ohuiksi kärjiksi, jotka sijoitetaan tiheästi ripsirajaa pitkin, kuin märät ripset. Jokainen kärki on silti yhdessä luomuripsessä, ja kärjet pysyvät selvästi erillään."
+      ),
+      l3(
+        "Nguyên tắc trọng lượng của bài classic và volume còn quan trọng hơn ở đây: sức chịu của sợi mi thật không đổi, mà fan thì nhiều sợi hơn và spike thì dài hơn.",
+        "The weight rule from the classic and volume lessons matters even more here: what a natural lash can carry does not change, while fans have more lashes and spikes are longer.",
+        "Klassisten ja volyymiripsien tuntien painosääntö on tässä vielä tärkeämpi: luomuripsen kantokyky ei muutu, mutta viuhkoissa on enemmän ripsiä ja piikit ovat pidempiä."
+      ),
+      l3(
+        "Làm đúng kiểu chỉ cho mi thật khoẻ, dài và dày. Mi mảnh, ngắn hay thưa thì làm phiên bản nhẹ: fan ít sợi hơn, spike ngắn hơn và ít spike hơn.",
+        "The full look is only for strong, long, thick natural lashes. Fine, short or sparse lashes get a lighter version: fewer lashes per fan, shorter and fewer spikes.",
+        "Täysi tyyli vain vahvoille, pitkille ja paksuille luomuripsille. Ohuet, lyhyet tai harvat ripset saavat kevyemmän version: vähemmän ripsiä viuhkassa, lyhyempiä ja harvempia piikkejä."
+      ),
+      l3(
+        "Mega cần sợi mảnh nhất mà hãng mi có (theo bảng của hãng) và keo cực ít: fan càng nhiều sợi, chân fan càng phải nhỏ, gọn. Chân to, keo nhiều thì nặng, cứng và dễ dính chùm.",
+        "Mega needs the finest lashes the lash maker offers (follow their chart) and very little glue: the more lashes in a fan, the narrower and neater its base must be. A wide base with a lot of glue is heavy, stiff and causes stickies.",
+        "Mega vaatii valmistajan ohuimmat ripset (valmistajan taulukon mukaan) ja hyvin vähän liimaa: mitä enemmän ripsiä viuhkassa, sitä kapeampi ja siistimpi kannan on oltava. Leveä kanta ja paljon liimaa on painava, jäykkä ja aiheuttaa tarttumia."
+      ),
+      l3(
+        "Spike trông mảnh nhưng nặng bằng tổng các sợi trong nó, và vì dài hơn lớp nền nên đè lên gốc mi như một cái cần dài. Đặt spike trên những sợi mi thật khoẻ nhất, đừng làm dài quá so với lớp nền.",
+        "A spike looks slim but weighs as much as all the lashes in it, and because it is longer than the base it acts like a long lever on the root. Put spikes on the strongest natural lashes and do not make them much longer than the base.",
+        "Piikki näyttää ohuelta, mutta painaa kaikkien siinä olevien ripsien verran, ja koska se on pohjaa pidempi, se toimii kuin pitkä vipu juureen. Laita piikit vahvimpiin luomuripsiin äläkä tee niistä paljon pohjaa pidempiä."
+      ),
+      l3(
+        "Wispy đẹp nhờ nhịp đều: spike cách đều nhau, dài theo bản đồ mi. Luôn vẽ bản đồ và đánh dấu chỗ đặt spike trước (bài “Lash mapping”).",
+        "Wispy looks good because of an even rhythm: evenly spaced spikes with lengths from the lash map. Always map and mark the spike positions first (see the lash mapping lesson).",
+        "Wispy on kaunis tasaisen rytmin ansiosta: tasavälein sijoitetut piikit, pituudet ripsikartan mukaan. Tee aina kartta ja merkitse piikkien paikat ensin (ripsikartoituksen tunti)."
+      ),
+      l3(
+        "Tư vấn: cho khách xem ảnh, thống nhất mức đậm, nói rõ cần dặm đều (thường 2–3 tuần) và độ bền nhờ mi thật khoẻ, không nhờ số sợi. Mi mọc dài ra thì fan nặng dễ xoay, xoắn: sợi đã mọc dài được gỡ khi dặm.",
+        "Consultation: show pictures, agree how dramatic, explain that regular refills are needed (often every 2–3 weeks) and that retention comes from healthy natural lashes, not from the number of lashes. As lashes grow out, heavy fans twist easily: grown-out ones are removed at the refill.",
+        "Konsultaatio: näytä kuvia, sovi kuinka näyttävä tyyli on, kerro että säännölliset huollot tarvitaan (usein 2–3 viikon välein) ja että kestävyys tulee terveistä luomuripsistä, ei ripsien määrästä. Kun ripset kasvavat ulos, painavat viuhkat kiertyvät helposti: ulos kasvaneet poistetaan huollossa."
+      ),
+      l3(
+        "Dấu hiệu quá tải: mi thật oằn xuống, xoắn, lệch hướng, có khoảng trống do mi rụng sớm. Người thợ giỏi dừng lại và làm nhẹ bộ mi (bớt sợi, rút ngắn, bỏ bớt spike), giải thích với khách. Dị ứng: bài “Dị ứng và hoá chất”; mắt đỏ, viêm: bài “Khi nào không làm cho khách”; nhíp: bài “Xử lý dụng cụ sau mỗi khách”.",
+        "Signs of overload: natural lashes drooping, twisting or turning, gaps where lashes fell out early. A professional stops and lightens the set (fewer lashes, shorter, fewer spikes) and explains why. Allergy: see the allergy lesson; red or inflamed eyes: see “When not to treat a customer”; tweezers: see the tool-hygiene lesson.",
+        "Ylikuormituksen merkit: luomuripset painuvat, kiertyvät tai kääntyvät, ja ennenaikaisesti irronneista ripsistä jää aukkoja. Ammattilainen pysähtyy ja keventää settiä (vähemmän ripsiä, lyhyemmät, vähemmän piikkejä) ja kertoo syyn. Allergia: allergiatunti; punainen tai tulehtunut silmä: ”Milloin asiakasta ei hoideta”; pinsetit: välinehygienian tunti."
+      ),
+    ],
+    tips: [
+      l3(
+        "Khách mang ảnh mega rất đậm mà mi thật mảnh: làm phiên bản nhẹ lần này, chụp ảnh mi thật trước và sau, và hẹn dặm đúng hẹn. Vài lần sau, khi mi thật khoẻ, mới tính đậm hơn.",
+        "A client brings a very dramatic mega photo but has fine natural lashes: do a lighter version this time, take before-and-after photos of the natural lashes, and book the refill on time. Go fuller only later, once the natural lashes are healthy.",
+        "Asiakas tuo kuvan hyvin näyttävästä megasta, mutta luomuripset ovat ohuet: tee nyt kevyempi versio, kuvaa luomuripset ennen ja jälkeen ja varaa huolto ajallaan. Tuuheampaa vasta myöhemmin, kun luomuripset ovat terveet."
+      ),
+      l3(
+        "Trong VaraaAi, ghi kiểu mi, số sợi và độ dài vào ghi chú của khách, và tạo dịch vụ “Mega volume” với thời lượng dài hơn volume thường để lịch không bị dồn.",
+        "In VaraaAi, note the style, lashes per fan and lengths in the client's notes, and create a “Mega volume” service with a longer duration than regular volume so the calendar is not squeezed.",
+        "Kirjaa VaraaAi:ssa tyyli, ripsimäärä viuhkassa ja pituudet asiakkaan muistiinpanoihin ja luo ”Megavolyymi”-palvelu tavallista volyymia pidemmällä kestolla, jotta kalenteri ei ahtaudu."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Một fan mega volume gắn vào bao nhiêu sợi mi thật?", "How many natural lashes does one mega volume fan go on?", "Kuinka moneen luomuripseen yksi megavolyymiviuhka kiinnitetään?"),
+        options: [
+          l3("Hai hoặc ba sợi, vì fan rất nhiều sợi", "Two or three, because the fan has so many lashes", "Kahteen tai kolmeen, koska viuhkassa on niin paljon ripsiä"),
+          l3("Đúng một sợi", "Exactly one", "Täsmälleen yhteen"),
+          l3("Tuỳ khách muốn đậm đến đâu", "Depends how dramatic the client wants it", "Riippuu siitä, kuinka näyttävää asiakas haluaa"),
+        ],
+        answer: 1,
+        why: l3(
+          "Dù fan có bao nhiêu sợi, chân fan chỉ ôm đúng một sợi mi thật. Ôm nhiều sợi là dính chùm, mi bị kéo và rụng sớm.",
+          "However many lashes a fan has, its base wraps exactly one natural lash. Wrapping several is a sticky: the lashes are pulled and shed early.",
+          "Viuhkassa voi olla monta ripseä, mutta sen kanta kietoutuu täsmälleen yhteen luomuripseen. Useamman kietominen on tarttuma: ripsiä vedetään ja ne irtoavat ennenaikaisesti."
+        ),
+      },
+      {
+        q: l3("Khách có mi thật mảnh, thưa muốn một bộ wispy thật nổi. Bạn làm gì?", "A client with fine, sparse natural lashes wants a very bold wispy set. What do you do?", "Asiakas, jolla on ohuet ja harvat luomuripset, haluaa hyvin näyttävän wispy-setin. Mitä teet?"),
+        options: [
+          l3("Làm spike thật dài cho đúng ảnh", "Make the spikes very long, like the photo", "Teen piikeistä hyvin pitkät kuvan mukaan"),
+          l3("Từ chối không làm mi", "Refuse to do lashes", "Kieltäydyn tekemästä ripsiä"),
+          l3("Làm phiên bản nhẹ: fan ít sợi, spike ngắn hơn và ít hơn, giải thích với khách", "Do a lighter version: fewer lashes per fan, shorter and fewer spikes, and explain why", "Teen kevyemmän version: vähemmän ripsiä viuhkassa, lyhyemmät ja harvemmat piikit, ja kerron syyn"),
+        ],
+        answer: 2,
+        why: l3(
+          "Kiểu dáng vẫn có mà mi thật không phải gánh quá sức. Spike dài trên mi yếu kéo mạnh lên gốc mi và làm mi rụng sớm.",
+          "The look is still there without overloading the natural lashes. Long spikes on weak lashes pull hard on the root and make lashes fall out early.",
+          "Tyyli säilyy ilman että luomuripsiä kuormitetaan liikaa. Pitkät piikit heikoissa ripsissä vetävät voimakkaasti juuresta ja saavat ripset irtoamaan ennenaikaisesti."
+        ),
+      },
+      {
+        q: l3("Lần dặm thứ ba, bạn thấy mi thật oằn xuống, xoắn và có khoảng trống. Nên làm gì?", "At the third refill you see natural lashes drooping, twisting and gaps. What should you do?", "Kolmannessa huollossa huomaat luomuripsien painuvan, kiertyvän ja aukkoja. Mitä teet?"),
+        options: [
+          l3("Làm nhẹ bộ mi: bớt sợi, rút ngắn, bỏ bớt spike, và giải thích", "Lighten the set: fewer lashes, shorter, fewer spikes, and explain", "Kevennän settiä: vähemmän ripsiä, lyhyemmät, vähemmän piikkejä, ja kerron syyn"),
+          l3("Thêm sợi vào chỗ trống cho đều", "Add more lashes to fill the gaps", "Lisään ripsiä aukkojen täyttämiseksi"),
+          l3("Dùng nhiều keo hơn cho chắc", "Use more glue so it holds", "Käytän enemmän liimaa, jotta pitää"),
+        ],
+        answer: 0,
+        why: l3(
+          "Đó là dấu hiệu quá tải. Thêm sợi hay thêm keo chỉ làm nặng thêm. Làm nhẹ vài lần dặm để mi thật hồi lại.",
+          "Those are signs of overload. More lashes or more glue only add weight. Go lighter for a few refills so the natural lashes recover.",
+          "Ne ovat ylikuormituksen merkkejä. Lisäripset tai lisäliima vain lisäävät painoa. Kevennä muutaman huollon ajan, jotta luomuripset palautuvat."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "mi-mega-wispy",
+    course: "p-lash",
+    style: "practice",
+    title: l3("Mega volume và wispy: thực hành từng bước", "Mega volume and wispy: step by step", "Megavolyymi ja wispy: vaihe vaiheelta"),
+    summary: l3(
+      "Một bộ wispy trên lớp nền volume hoặc mega, từng bước: tư vấn và chọn kiểu, chuẩn bị, bản đồ và đánh dấu chỗ đặt spike, fan mega chân nhỏ, keo thật ít, lớp nền trước, tạo và đặt spike cách đều, cách làm wet look, kiểm tra sức nặng và dính chùm, so hai mắt, hoàn thiện và dặn dò.",
+      "A wispy set on a volume or mega base, step by step: consult and choose the look, prep, map and mark the spike positions, mega fans with narrow bases, very little glue, the base layer first, making and placing evenly spaced spikes, how to do wet look, checking weight and stickies, symmetry, finish and aftercare.",
+      "Wispy-setti volyymi- tai megapohjalle vaihe vaiheelta: konsultaatio ja tyylin valinta, valmistelu, kartta ja piikkien paikkojen merkintä, kapeakantaiset megaviuhkat, hyvin vähän liimaa, pohjakerros ensin, piikkien teko ja tasavälinen sijoittelu, wet look, painon ja tarttumien tarkistus, symmetria, viimeistely ja kotihoito-ohjeet."
+    ),
+    video: video("mi-mega-wispy", 280, "2026-11-17"),
+    notice: l3(
+      "Độ dài và số sợi trong bài chỉ là ví dụ: bản đồ thật luôn theo đôi mắt và sức của mi thật từng khách, và theo bảng gợi ý của hãng mi, hướng dẫn của hãng keo. Keo không được chạm vào da. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Lengths and lashes per fan in this lesson are examples only: a real map always follows each client's eyes and what their natural lashes can carry, the lash maker's chart and the glue maker's instructions. Glue must never touch the skin. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Tämän tunnin pituudet ja ripsimäärät ovat vain esimerkkejä: todellinen kartta tehdään aina asiakkaan silmien ja luomuripsien kantokyvyn, ripsivalmistajan taulukon ja liimavalmistajan ohjeiden mukaan. Liima ei saa koskaan koskea ihoa. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Tư vấn và chọn kiểu: cho khách xem ảnh, thống nhất mức đậm và spike nổi đến đâu, nói rõ lịch dặm (thường 2–3 tuần). Mi thật mảnh, thưa thì làm phiên bản nhẹ và nói trước với khách.",
+        "Consult and choose the look: show pictures, agree how dramatic and how bold the spikes are, explain the refill schedule (often every 2–3 weeks). With fine or sparse natural lashes, do a lighter version and say so beforehand.",
+        "Konsultaatio ja tyylin valinta: näytä kuvia, sovi kuinka näyttävä tyyli ja piikit ovat, kerro huoltoväli (usein 2–3 viikkoa). Ohuille tai harvoille luomuripsille kevyempi versio, ja kerro siitä etukäteen."
+      ),
+      l3(
+        "Chuẩn bị giống bài thực hành classic và bài chuẩn bị nối mi: hỏi dị ứng, khách nằm thoải mái, làm sạch mi, dán miếng lót, chải mi.",
+        "Prep as in the classic practice and lash preparation lessons: ask about allergies, make the client comfortable, cleanse, apply the pads, comb the lashes.",
+        "Valmistelu kuten klassisten ripsien käytännön tunnilla ja valmistelutunnilla: kysy allergioista, asiakas mukavasti makuulle, puhdistus, suojatyynyt, ripsien kampaus."
+      ),
+      l3(
+        "Vẽ bản đồ lớp nền như bài lash mapping, rồi đánh dấu chỗ đặt spike bằng chấm nhỏ trên miếng lót, cách đều nhau. Spike thường dài hơn lớp nền khoảng 1–3 mm tuỳ kiểu, nhưng không quá sức mi thật.",
+        "Map the base layer as in the lash mapping lesson, then mark the spike positions with small evenly spaced dots on the pad. Spikes are often about 1–3 mm longer than the base depending on the look, but never more than the natural lash can carry.",
+        "Tee pohjakerroksen kartta kuten ripsikartoituksen tunnilla ja merkitse piikkien paikat tasavälein pienillä pisteillä suojatyynyyn. Piikit ovat usein noin 1–3 mm pohjaa pidempiä tyylin mukaan, mutta eivät koskaan enempää kuin luomuripsi kantaa."
+      ),
+      l3(
+        "Sắp bàn: vỉ mi thật mảnh cho lớp nền theo độ dài bản đồ, vỉ dài hơn cho spike, giọt keo mới, nhíp thẳng để tách và nhíp volume để tạo fan.",
+        "Set up: a tile of very fine lashes for the base in map order, longer lashes for the spikes, a fresh glue drop, a straight tweezer for isolating and a volume tweezer for fans.",
+        "Työpöytä: hyvin ohuet ripset pohjaan kartan järjestyksessä, pidemmät ripset piikkeihin, tuore liimapisara, suorat pinsetit eristämiseen ja volyymipinsetit viuhkoihin."
+      ),
+      l3(
+        "Tạo fan mega như bài volume (lấy sợi, trượt nhíp, mở fan, khép chân) nhưng nhiều sợi hơn, mảnh hơn, tay nhẹ hơn. Chân fan nhỏ, khép kín; fan chân bè, xoè lệch thì bỏ. Chỉ chạm chân fan vào mép giọt keo.",
+        "Make mega fans as in the volume lesson (pick up, slide, open, close the base) but with more, finer lashes and a lighter hand. The base must be narrow and closed; discard wide-based, lopsided fans. Only the base touches the edge of the glue drop.",
+        "Tee megaviuhkat kuten volyymitunnilla (nosto, liu'utus, avaus, kannan sulkeminen), mutta useammasta ja ohuemmasta ripsestä ja kevyemmällä kädellä. Kannan on oltava kapea ja suljettu; hylkää leveäkantaiset, vinot viuhkat. Vain kanta koskettaa liimapisaran reunaa."
+      ),
+      l3(
+        "Lớp nền trước: tách đúng một sợi, chân fan cách da mí khoảng 0,5–1 mm, gắn xen kẽ các vùng. Ở mỗi chấm đánh dấu, chừa lại một sợi mi thật khoẻ cho spike, vì mỗi sợi mi thật chỉ mang một thứ.",
+        "Base layer first: isolate one lash, keep the base about 0.5–1 mm from the eyelid, work zones in turn. At each marked dot, leave one strong natural lash free for a spike, because each natural lash carries only one thing.",
+        "Pohjakerros ensin: eristä yksi ripsi, kanta noin 0,5–1 mm luomesta, vuorottele alueita. Jätä jokaisen merkityn pisteen kohdalle yksi vahva luomuripsi vapaaksi piikille, koska jokainen luomuripsi kantaa vain yhden asian."
+      ),
+      l3(
+        "Spike: dùng spike làm sẵn hoặc tự khép vài sợi thành một mũi nhọn thẳng, gọn, chân nhỏ, keo chỉ ở chân. Đặt spike theo các chấm, mỗi spike trên một sợi mi thật khoẻ, cùng hướng lớp nền, cách đều nhau.",
+        "Spikes: use pre-made spikes or close a few lashes into one straight, neat point with a narrow base, glue only at the base. Place them on the dots, each on one strong natural lash, in the same direction as the base, evenly spaced.",
+        "Piikit: käytä valmiita piikkejä tai sulje muutama ripsi suoraksi, siistiksi kärjeksi kapealla kannalla, liimaa vain kantaan. Sijoita ne pisteiden kohdalle, kukin yhteen vahvaan luomuripseen, pohjan suuntaan ja tasavälein."
+      ),
+      l3(
+        "Wet look: cả hàng mi dùng fan khép, đặt gần nhau; các mũi phải tách rõ, mỗi mũi trên một sợi mi thật. Mũi dính vào nhau là dính chùm; keo leo dọc thân sợi làm mũi cứng.",
+        "Wet look: closed fans along the whole lash line, placed close together; the points stay clearly separate, each on one natural lash. Points stuck together are stickies; glue creeping up the lashes makes stiff points.",
+        "Wet look: suljetut viuhkat koko ripsirajalle tiheästi; kärjet pysyvät selvästi erillään, kukin yhdessä luomuripsessä. Toisiinsa tarttuneet kärjet ovat tarttumia; ripsiä pitkin noussut liima tekee kärjistä jäykkiä."
+      ),
+      l3(
+        "Kiểm tra: lướt nhíp từ chân ra ngọn, mỗi fan và spike đứng riêng trên một sợi; sợi mi thật nào oằn hay xoắn thì thay fan nhẹ hơn, ngắn hơn. Nhìn từ trên xuống và từ cạnh bên; so hai mắt từ đầu giường.",
+        "Check: run the tweezer from base to tip so every fan and spike stands alone on one lash; replace with a lighter, shorter fan on any natural lash that droops or twists. Look from above and from the side; compare both eyes from the head of the bed.",
+        "Tarkistus: vedä pinsetit tyvestä kärkeen niin, että jokainen viuhka ja piikki on erillään omassa ripsessään; vaihda kevyempi ja lyhyempi viuhka luomuripseen, joka painuu tai kiertyy. Katso ylhäältä ja sivulta; vertaa silmiä sängyn päästä."
+      ),
+      l3(
+        "Hoàn thiện và dặn dò như bài classic. Với kiểu đậm: khách rửa mi nhẹ nhàng bằng sản phẩm không dầu để chân mi không đọng bụi, bã nhờn, và dặm đều đặn. Dọn dẹp, khử khuẩn nhíp sau mỗi khách.",
+        "Finish and aftercare as in the classic lesson. For dense looks: the client cleanses the lashes gently with an oil-free product so dirt and oil do not build up at the base, and comes for regular refills. Clean up and disinfect the tweezers after every client.",
+        "Viimeistely ja kotihoito kuten klassisten ripsien tunnilla. Tuuheissa tyyleissä asiakas puhdistaa ripset hellästi öljyttömällä tuotteella, jotta tyveen ei kerry likaa ja talia, ja käy säännöllisesti huollossa. Siivous ja pinsettien desinfiointi jokaisen asiakkaan jälkeen."
+      ),
+    ],
+    tips: [
+      l3(
+        "Chụp ảnh hàng mi xong, cả từ trên xuống và từ cạnh bên, rồi lưu vào ghi chú của khách trong VaraaAi cùng bản đồ mi: lần dặm sau so lại nhịp spike và sức của mi thật.",
+        "Photograph the finished lashes from above and from the side and keep them with the lash map in the client's notes in VaraaAi: at the next refill, compare the spike rhythm and the health of the natural lashes.",
+        "Kuvaa valmiit ripset ylhäältä ja sivulta ja tallenna kuvat ripsikartan kanssa asiakkaan muistiinpanoihin VaraaAi:ssa: vertaa seuraavassa huollossa piikkien rytmiä ja luomuripsien kuntoa."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khi làm lớp nền wispy, ở chỗ đã đánh dấu spike bạn làm gì?", "While doing the wispy base layer, what do you do at a marked spike position?", "Mitä teet merkityn piikin kohdalla, kun teet wispyn pohjakerrosta?"),
+        options: [
+          l3("Gắn fan nền rồi đặt spike chồng lên cùng sợi đó", "Put a base fan there and then add the spike on the same lash", "Laitan pohjaviuhkan ja lisään piikin samaan ripseen"),
+          l3("Bỏ qua, không làm gì ở vùng đó", "Skip that area entirely", "Ohitan koko alueen"),
+          l3("Chừa lại một sợi mi thật khoẻ cho spike", "Leave one strong natural lash free for the spike", "Jätän yhden vahvan luomuripsen vapaaksi piikille"),
+        ],
+        answer: 2,
+        why: l3(
+          "Mỗi sợi mi thật chỉ mang một thứ: một fan hoặc một spike. Chồng hai thứ lên một sợi là quá tải.",
+          "Each natural lash carries one thing only: a fan or a spike. Stacking two on one lash overloads it.",
+          "Jokainen luomuripsi kantaa vain yhden asian: viuhkan tai piikin. Kaksi samassa ripsessä ylikuormittaa sen."
+        ),
+      },
+      {
+        q: l3("Spike nên đặt thế nào?", "How should spikes be placed?", "Miten piikit sijoitetaan?"),
+        options: [
+          l3("Cách đều nhau, trên sợi mi thật khoẻ, cùng hướng lớp nền", "Evenly spaced, on strong natural lashes, in the same direction as the base", "Tasavälein, vahvoihin luomuripsiin, pohjan suuntaan"),
+          l3("Dồn nhiều ở đuôi mắt cho nổi", "Bunched at the outer corner to stand out", "Kasaan ulkonurkkaan, jotta erottuvat"),
+          l3("Ở bất cứ đâu còn chỗ trống", "Wherever there is a gap", "Mihin tahansa, missä on tilaa"),
+        ],
+        answer: 0,
+        why: l3(
+          "Wispy đẹp nhờ nhịp đều. Spike dồn cục hay chỗ dày chỗ thưa nhìn rối, và spike dài phải nằm trên sợi mi khoẻ.",
+          "Wispy looks good because of an even rhythm. Bunched or uneven spikes look messy, and long spikes must sit on strong lashes.",
+          "Wispy on kaunis tasaisen rytmin ansiosta. Kasautuneet tai epätasaiset piikit näyttävät sotkuisilta, ja pitkien piikkien on oltava vahvoissa ripsissä."
+        ),
+      },
+      {
+        q: l3("Wet look: nhiều mũi nhọn dính vào nhau thì sao?", "Wet look: what if several points are stuck together?", "Wet look: entä jos useampi kärki on tarttunut yhteen?"),
+        options: [
+          l3("Đúng kiểu wet look, cứ để vậy", "That is the wet look, leave it", "Se on wet look, jätän niin"),
+          l3("Đó là dính chùm: tách ra ngay", "That is a sticky: separate them right away", "Se on tarttuma: erotan heti"),
+          l3("Thêm keo cho chắc", "Add glue so it holds", "Lisään liimaa, jotta pitää"),
+        ],
+        answer: 1,
+        why: l3(
+          "Mỗi mũi phải nằm trên một sợi mi thật và tách rõ. Dính chùm kéo mi thật, gây cộm và làm mi rụng sớm.",
+          "Each point must sit on one natural lash and stay separate. Stickies pull the natural lashes, feel uncomfortable and make lashes fall out early.",
+          "Jokaisen kärjen on oltava yhdessä luomuripsessä ja erillään. Tarttumat vetävät luomuripsiä, tuntuvat epämukavilta ja saavat ripset irtoamaan ennenaikaisesti."
+        ),
+      },
+    ],
+  },
   {
     slug: "mi-dam-thao-hieu-dung",
     course: "p-lash",
@@ -4199,11 +4441,261 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("lash-lift", "p-lash", ["Uốn mi (lash lift) và nhuộm mi", "Lash lift and tint", "Ripsien kestotaivutus ja värjäys"], [
-    "Chọn khuôn, thời gian thuốc theo loại mi, thử phản ứng trước khi nhuộm.",
-    "Choosing the shield, timing by lash type, and patch testing before tinting.",
-    "Muotin valinta, vaikutusajat ripsityypin mukaan ja ihotesti ennen värjäystä.",
-  ]),
+  {
+    slug: "lash-lift-hieu-dung",
+    course: "p-lash",
+    style: "theory",
+    title: l3("Uốn mi và nhuộm mi: hiểu đúng để cong đẹp và an toàn", "Lash lift and tint: understand them for a beautiful, safe curl", "Ripsien kestotaivutus ja värjäys: ymmärrä ne, niin taivutus on kaunis ja turvallinen"),
+    summary: l3(
+      "Uốn mi hoạt động thế nào (thuốc làm mềm, khuôn silicone, thuốc cố định), ai hợp với uốn mi, thời gian theo loại mi và theo hãng, chọn và đặt khuôn, vì sao quá giờ làm mi xù và gãy, thuốc nhuộm mi và thử phản ứng trước khi nhuộm, cảnh báo trên nhãn ở EU, khi nào không làm, thuốc không bao giờ vào mắt, dặn dò và kết quả giữ được bao lâu.",
+      "How a lash lift works (a softening lotion, a silicone shield, a setting lotion), who it suits, timing by lash type and by product, choosing and placing the shield, why over-processing leaves lashes frizzy and broken, lash tints and the allergy alert test before tinting, EU label warnings, when not to treat, never letting product into the eye, aftercare and how long the result lasts.",
+      "Miten kestotaivutus toimii (pehmentävä aine, silikonimuotti, kiinnittävä aine), kenelle se sopii, vaikutusajat ripsityypin ja tuotteen mukaan, muotin valinta ja asettelu, miksi liian pitkä käsittely tekee ripsistä kihartuneet ja katkeilevat, ripsivärit ja allergiatesti ennen värjäystä, EU:n pakkausvaroitukset, milloin ei hoideta, tuote ei koskaan saa joutua silmään, kotihoito ja tuloksen kesto."
+    ),
+    video: video("lash-lift-hieu-dung", 264, "2026-11-17"),
+    notice: l3(
+      "Thời gian để thuốc, cỡ khuôn và cách thử phản ứng luôn theo hướng dẫn của sản phẩm bạn dùng; bài này không đưa ra con số thời gian. Thuốc không được vào mắt; nếu lỡ vào mắt, rửa ngay bằng nhiều nước sạch và đi khám nếu mắt vẫn đau, đỏ hay nhìn mờ. Quy định về sản phẩm và dịch vụ làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Processing times, shield sizes and the allergy test always follow the instructions of the product you use; this lesson gives no timings. Products must never get into the eye; if they do, rinse at once with plenty of clean water and seek medical help if the eye stays painful, red or blurry. Rules on beauty products and services differ by country. This is a training aid, not a licence.",
+      "Vaikutusajat, muottikoot ja allergiatesti tehdään aina käyttämäsi tuotteen ohjeiden mukaan; tunnilla ei anneta aikoja. Tuote ei saa koskaan joutua silmään; jos niin käy, huuhtele heti runsaalla puhtaalla vedellä ja hakeudu hoitoon, jos silmä on edelleen kipeä, punainen tai näkö sumea. Kauneustuotteita ja -palveluja koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    sources: [
+      { label: "Commission Regulation (EU) 2017/237 — hair dyes and eyelash tints: restrictions and label warnings", url: "https://eur-lex.europa.eu/eli/reg/2017/237/oj/eng" },
+    ],
+    related: ["khach-hang", "dich-vu", "lich-hen"],
+    steps: [
+      l3(
+        "Uốn mi không gắn thêm sợi nào: sợi mi thật được chải thẳng lên một khuôn silicone dán trên mí, thuốc thứ nhất làm mềm cấu trúc bên trong sợi mi để nhận dáng mới, thuốc thứ hai cố định dáng đó.",
+        "A lash lift adds no lashes: the natural lashes are combed up onto a silicone shield on the eyelid, the first lotion softens the lash's inner structure so it takes the new shape, and the second lotion sets that shape.",
+        "Kestotaivutus ei lisää ripsiä: luomuripset kammataan silmäluomelle kiinnitetyn silikonimuotin päälle, ensimmäinen aine pehmentää ripsen sisärakenteen uuteen muotoon ja toinen aine kiinnittää muodon."
+      ),
+      l3(
+        "Hợp với mi thật khá dài nhưng mọc thẳng hay chúc xuống, và khách muốn ít chăm sóc. Mi rất ngắn khó lên dáng đẹp. Khách đang nối mi thì tháo mi nối trước (bài “Dặm và tháo mi”).",
+        "It suits fairly long natural lashes that grow straight or downward, and clients who want low maintenance. Very short lashes are hard to shape nicely. Clients with extensions have them removed first (see the refills and removal lesson).",
+        "Sopii melko pitkille luomuripsille, jotka kasvavat suoraan tai alaspäin, ja asiakkaille, jotka haluavat vähän hoitoa. Hyvin lyhyitä ripsiä on vaikea muotoilla kauniisti. Pidennykset poistetaan ensin (huolto ja poisto -tunti)."
+      ),
+      l3(
+        "Không có thời gian chung: tuỳ loại mi (mảnh, bình thường, dày cứng) và tuỳ sản phẩm. Mi mảnh thường cần ít thời gian hơn, mi dày cứng lâu hơn. Luôn theo bảng của hãng.",
+        "There is no single time: it depends on the lash type (fine, normal, coarse) and the product. Fine lashes usually need less time, coarse lashes more. Always follow the manufacturer's chart.",
+        "Yhteistä aikaa ei ole: se riippuu ripsityypistä (ohut, normaali, paksu) ja tuotteesta. Ohuet ripset tarvitsevat yleensä vähemmän aikaa, paksut enemmän. Noudata aina valmistajan taulukkoa."
+      ),
+      l3(
+        "Chọn khuôn theo độ dài mi và độ cong muốn: mi ngắn khuôn nhỏ, mi dài khuôn lớn; cùng độ dài, khuôn nhỏ cong mạnh hơn, khuôn lớn cong nhẹ hơn. Khuôn phải dán sát chân mi; khuôn xa chân mi làm sợi mi gập khúc.",
+        "Choose the shield by lash length and the curl wanted: short lashes, small shield; long lashes, larger shield; for the same length, a smaller shield gives more curl and a larger one a softer lift. The shield sits right at the lash line; a shield placed too high leaves a crimp in the lash.",
+        "Valitse muotti ripsen pituuden ja halutun taivutuksen mukaan: lyhyet ripset, pieni muotti; pitkät ripset, suurempi; samalla pituudella pienempi muotti taivuttaa enemmän ja suurempi pehmeämmin. Muotti asetetaan aivan ripsirajaan; liian ylös asetettu muotti jättää ripseen mutkan."
+      ),
+      l3(
+        "Quá giờ hoặc khuôn quá nhỏ làm mi xoăn tít, xù, khô, giòn và gãy, và không sửa ngay được: phải chờ mi mới mọc. Không uốn lại sớm hơn hãng khuyên.",
+        "Too long a processing time or too small a shield leaves lashes over-curled, frizzy, dry, brittle and broken, and it cannot be fixed at once: you wait for new lashes to grow. Do not lift again sooner than the manufacturer advises.",
+        "Liian pitkä vaikutusaika tai liian pieni muotti tekee ripsistä ylikihartuneet, pörröiset, kuivat, hauraat ja katkeilevat, eikä sitä voi korjata heti: on odotettava uusia ripsiä. Älä taivuta uudelleen valmistajan suositusta aiemmin."
+      ),
+      l3(
+        "Nhuộm chỉ bằng thuốc dành cho mi và mày, pha đúng tỉ lệ ngay trước khi dùng, màu theo màu mày và tóc. Không bao giờ dùng thuốc nhuộm tóc cho mi. Ở EU, nhãn thuốc nhuộm mi có cảnh báo dị ứng; đọc lại nhãn mỗi khi đổi sản phẩm.",
+        "Tint only with products made for lashes and brows, mixed exactly as directed just before use, in a shade that suits the brows and hair. Never use hair dye on lashes. In the EU, eyelash tint labels carry allergy warnings; read the label again whenever you change product.",
+        "Värjää vain ripsille ja kulmille tarkoitetuilla tuotteilla, sekoita ohjeen mukaan juuri ennen käyttöä ja valitse sävy kulmien ja hiusten mukaan. Älä koskaan käytä hiusväriä ripsiin. EU:ssa ripsivärien pakkauksissa on allergiavaroitukset; lue pakkaus uudelleen aina, kun vaihdat tuotetta."
+      ),
+      l3(
+        "Nhiều hãng yêu cầu thử phản ứng trước khi nhuộm, thường 48 giờ trước, ở vùng da hãng chỉ định (thường sau tai hoặc trong khuỷu tay). Có đỏ, ngứa, sưng, rát thì không nhuộm. Ghi ngày và kết quả vào hồ sơ khách. Xem bài “Dị ứng và hoá chất”.",
+        "Many manufacturers require an allergy alert test before tinting, often 48 hours before, on the skin area they name (often behind the ear or inside the elbow). Redness, itching, swelling or burning means no tint. Record the date and result in the client's file. See the allergy lesson.",
+        "Monet valmistajat edellyttävät allergiatestiä ennen värjäystä, usein 48 tuntia ennen, valmistajan nimeämälle ihoalueelle (usein korvan taakse tai kyynärtaipeeseen). Punoitus, kutina, turvotus tai kirvely tarkoittaa, ettei värjätä. Kirjaa päivä ja tulos asiakastietoihin. Katso allergiatunti."
+      ),
+      l3(
+        "Không làm khi mắt đỏ, viêm, chảy nước, mới mổ mắt, da quanh mắt kích ứng, hoặc khách từng phản ứng với thuốc uốn hay nhuộm (bài “Khi nào không làm cho khách”). Không chắc thì đừng làm.",
+        "Do not treat red, inflamed or watery eyes, after recent eye surgery, with irritated skin around the eyes, or when the client has reacted to lift or tint products before (see “When not to treat a customer”). If unsure, don't.",
+        "Ei hoideta, jos silmä on punainen, tulehtunut tai vetistää, silmäleikkauksen jälkeen, jos silmänympärysiho on ärtynyt tai asiakas on reagoinut taivutus- tai väriaineisiin aiemmin (”Milloin asiakasta ei hoideta”). Jos epäilet, älä tee."
+      ),
+      l3(
+        "Thuốc không bao giờ vào mắt: mắt nhắm suốt buổi, thuốc uốn chỉ bôi phần dưới sợi mi, cách da, không lên da mí và không ra tới ngọn, lấy thật ít. Lỡ vào mắt: rửa ngay bằng nhiều nước sạch, mắt vẫn đau, đỏ, mờ thì đi khám.",
+        "Product never goes into the eye: the eyes stay closed throughout, lift lotion goes only on the lower part of the lashes, off the skin, never on the eyelid or out to the tips, and very little of it. If it gets in: rinse at once with plenty of clean water and seek medical help if pain, redness or blurring persists.",
+        "Tuote ei koskaan saa joutua silmään: silmät ovat kiinni koko ajan, taivutusainetta laitetaan vain ripsien alaosaan, irti ihosta, ei luomelle eikä kärkiin, ja hyvin vähän. Jos ainetta joutuu silmään: huuhtele heti runsaalla puhtaalla vedellä ja hakeudu hoitoon, jos kipu, punoitus tai sumeus jatkuu."
+      ),
+      l3(
+        "Dặn dò: giữ mi khô trong thời gian hãng khuyên (thường một ngày), lúc đó không mascara, không xông hơi, không dụi mắt, không ngủ úp mặt. Kết quả thường giữ khoảng 6–8 tuần, gần bằng vòng đời sợi mi (bài classic).",
+        "Aftercare: keep the lashes dry for the time the product says (often one day), and meanwhile no mascara, no steam, no rubbing, no sleeping face down. The result usually lasts about 6–8 weeks, roughly one lash growth cycle (see the classic lesson).",
+        "Kotihoito: pidä ripset kuivina tuotteen ilmoittaman ajan (usein vuorokauden), eikä sinä aikana ripsiväriä, höyryä, hieromista tai kasvoillaan nukkumista. Tulos kestää yleensä noin 6–8 viikkoa, suunnilleen ripsen kasvusyklin (klassisten ripsien tunti)."
+      ),
+    ],
+    tips: [
+      l3(
+        "Một chuyện rất hay gặp: để thuốc lâu thêm vài phút “cho chắc” vì khách muốn thật cong. Đừng. Muốn cong hơn thì chọn khuôn nhỏ hơn một chút ở lần sau, không kéo dài thời gian.",
+        "A very common mistake: leaving the lotion on a few extra minutes “to be sure” because the client wants a strong curl. Don't. For more curl, choose a slightly smaller shield next time, not a longer time.",
+        "Hyvin yleinen virhe: aine jätetään muutamaksi minuutiksi pidempään ”varmuuden vuoksi”, koska asiakas haluaa vahvan taivutuksen. Älä tee niin. Jos haluat enemmän taivutusta, valitse seuraavalla kerralla hieman pienempi muotti, älä pidempää aikaa."
+      ),
+      l3(
+        "Trong VaraaAi, ghi vào ghi chú của khách ngày thử phản ứng và kết quả, cỡ khuôn, thời gian từng thuốc và màu nhuộm, để lần sau làm lại y như vậy hoặc chỉnh đúng chỗ.",
+        "In VaraaAi, note the allergy test date and result, shield size, each lotion's time and the tint shade in the client's notes, so next time you can repeat it exactly or adjust the right thing.",
+        "Kirjaa VaraaAi:ssa asiakkaan muistiinpanoihin allergiatestin päivä ja tulos, muottikoko, kunkin aineen aika ja värisävy, jotta voit ensi kerralla toistaa saman tai korjata oikeaa kohtaa."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Mỗi thuốc uốn để trên mi bao lâu?", "How long does each lift lotion stay on?", "Kuinka kauan kukin taivutusaine vaikuttaa?"),
+        options: [
+          l3("Luôn đúng mười phút cho mọi người", "Always exactly ten minutes for everyone", "Aina tasan kymmenen minuuttia kaikille"),
+          l3("Càng lâu càng cong, càng tốt", "The longer the better, for more curl", "Mitä pidempään, sitä parempi taivutus"),
+          l3("Tuỳ loại mi và sản phẩm, theo bảng của hãng", "It depends on the lash type and product, as in the manufacturer's chart", "Ripsityypin ja tuotteen mukaan, valmistajan taulukon mukaisesti"),
+        ],
+        answer: 2,
+        why: l3(
+          "Mi mảnh thường cần ít thời gian hơn, mi dày cứng lâu hơn, và mỗi sản phẩm khác nhau. Quá giờ làm mi xù, giòn và gãy.",
+          "Fine lashes usually need less time, coarse lashes more, and every product differs. Over-processing leaves lashes frizzy, brittle and broken.",
+          "Ohuet ripset tarvitsevat yleensä vähemmän aikaa, paksut enemmän, ja tuotteet eroavat toisistaan. Liian pitkä käsittely tekee ripsistä pörröiset, hauraat ja katkeilevat."
+        ),
+      },
+      {
+        q: l3("Trước khi nhuộm mi, nhiều hãng yêu cầu gì?", "Before tinting, what do many manufacturers require?", "Mitä monet valmistajat edellyttävät ennen ripsien värjäystä?"),
+        options: [
+          l3("Thử phản ứng, thường khoảng 48 giờ trước, theo hướng dẫn của hãng", "An allergy alert test, often about 48 hours before, as the product instructs", "Allergiatestin, usein noin 48 tuntia ennen, tuotteen ohjeen mukaan"),
+          l3("Không cần gì nếu khách đã từng nhuộm tóc", "Nothing if the client has dyed their hair before", "Ei mitään, jos asiakas on värjännyt hiuksensa aiemmin"),
+          l3("Nhỏ một giọt thuốc vào mắt để thử", "A drop of tint in the eye to test", "Tipan väriä silmään testiksi"),
+        ],
+        answer: 0,
+        why: l3(
+          "Thuốc nhuộm có thể gây dị ứng nặng; ở EU nhãn thuốc nhuộm mi có cảnh báo dị ứng. Thử trên vùng da hãng chỉ định, ghi ngày và kết quả. Thuốc không bao giờ được vào mắt.",
+          "Tints can cause serious allergic reactions; in the EU, eyelash tint labels carry allergy warnings. Test on the skin area the product names and record the date and result. Product must never get into the eye.",
+          "Värit voivat aiheuttaa vakavia allergisia reaktioita; EU:ssa ripsivärien pakkauksissa on allergiavaroitukset. Testaa tuotteen nimeämälle ihoalueelle ja kirjaa päivä ja tulos. Tuote ei saa koskaan joutua silmään."
+        ),
+      },
+      {
+        q: l3("Thuốc uốn thứ nhất bôi ở đâu?", "Where does the first lift lotion go?", "Mihin ensimmäinen taivutusaine laitetaan?"),
+        options: [
+          l3("Lên da mí, để thuốc ngấm vào chân mi", "On the eyelid skin, so it soaks into the roots", "Luomen iholle, jotta se imeytyy juuriin"),
+          l3("Chỉ phần dưới của sợi mi, cách da, không ra tới ngọn", "Only the lower part of the lashes, off the skin, not out to the tips", "Vain ripsien alaosaan, irti ihosta, ei kärkiin asti"),
+          l3("Phủ dày cả sợi mi từ chân đến ngọn", "A thick coat over the whole lash from root to tip", "Paksu kerros koko ripseen tyvestä kärkeen"),
+        ],
+        answer: 1,
+        why: l3(
+          "Thuốc trên da dễ gây kích ứng và có thể chảy vào mắt; ngọn mi mảnh, dễ hư. Một lớp mỏng ở phần dưới sợi mi là đủ.",
+          "Lotion on the skin irritates and can run into the eye; the fine tips are easily damaged. A thin layer on the lower part of the lashes is enough.",
+          "Aine iholla ärsyttää ja voi valua silmään; ohuet kärjet vaurioituvat helposti. Ohut kerros ripsien alaosassa riittää."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "lash-lift",
+    course: "p-lash",
+    style: "practice",
+    title: l3("Uốn mi và nhuộm mi: thực hành từng bước", "Lash lift and tint: step by step", "Ripsien kestotaivutus ja värjäys: vaihe vaiheelta"),
+    summary: l3(
+      "Uốn mi và nhuộm mi từng bước: tư vấn và thử phản ứng có ghi ngày, làm sạch không dầu, miếng lót, chọn và dán khuôn, đưa mi lên khuôn, thuốc thứ nhất chỉ ở phần dưới sợi mi, phủ màng và bấm giờ theo hãng, lau sạch, thuốc thứ hai, nhuộm, gỡ mi khỏi khuôn, dưỡng mi, dặn dò và ghi lại cho lần sau.",
+      "A lash lift and tint step by step: consultation and an allergy alert test with the date recorded, oil-free cleansing, pads, choosing and placing the shield, lashes onto the shield, the first lotion on the lower part of the lashes only, covering and timing as the product says, removing, the second lotion, tint, releasing the lashes, serum, aftercare and notes for next time.",
+      "Ripsien kestotaivutus ja värjäys vaihe vaiheelta: konsultaatio ja allergiatesti päivämäärineen, öljytön puhdistus, suojatyynyt, muotin valinta ja kiinnitys, ripset muotille, ensimmäinen aine vain ripsien alaosaan, peittäminen ja ajastus tuotteen ohjeen mukaan, poisto, toinen aine, värjäys, ripsien irrotus, seerumi, kotihoito ja muistiinpanot seuraavaa kertaa varten."
+    ),
+    video: video("lash-lift", 262, "2026-11-17"),
+    notice: l3(
+      "Thời gian để thuốc, tỉ lệ pha, cỡ khuôn và cách thử phản ứng luôn theo hướng dẫn của sản phẩm bạn dùng; bài này không đưa ra con số thời gian. Thuốc không được chạm da và không được vào mắt; nếu lỡ vào mắt, rửa ngay bằng nhiều nước sạch và đi khám nếu mắt vẫn đau, đỏ hay nhìn mờ. Quy định khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Processing times, mixing ratios, shield sizes and the allergy test always follow the instructions of the product you use; this lesson gives no timings. Products must not touch the skin or get into the eye; if they do get in, rinse at once with plenty of clean water and seek medical help if the eye stays painful, red or blurry. Rules differ by country. This is a training aid, not a licence.",
+      "Vaikutusajat, sekoitussuhteet, muottikoot ja allergiatesti tehdään aina käyttämäsi tuotteen ohjeiden mukaan; tunnilla ei anneta aikoja. Tuotteet eivät saa koskea ihoa eivätkä joutua silmään; jos niin käy, huuhtele heti runsaalla puhtaalla vedellä ja hakeudu hoitoon, jos silmä on edelleen kipeä, punainen tai näkö sumea. Säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Tư vấn: hỏi về mắt, dị ứng, lần uốn gần nhất; khách đang nối mi thì tháo trước. Nếu có nhuộm, thử phản ứng theo hướng dẫn của hãng (thường khoảng 48 giờ trước) và ghi ngày, kết quả vào hồ sơ khách.",
+        "Consultation: ask about the eyes, allergies and the last lift; remove any extensions first. If tinting, do the allergy alert test as the product instructs (often about 48 hours before) and record the date and result in the client's file.",
+        "Konsultaatio: kysy silmistä, allergioista ja edellisestä taivutuksesta; mahdolliset pidennykset poistetaan ensin. Jos värjätään, tee allergiatesti tuotteen ohjeen mukaan (usein noin 48 tuntia ennen) ja kirjaa päivä ja tulos asiakastietoihin."
+      ),
+      l3(
+        "Làm sạch mi bằng sản phẩm không dầu, rồi để mi khô hẳn: dầu và mascara còn sót làm thuốc ngấm không đều, mi ướt thì keo dán không bám.",
+        "Cleanse the lashes with an oil-free product and let them dry completely: leftover oil and mascara make the lotion work unevenly, and wet lashes will not stick to the shield.",
+        "Puhdista ripset öljyttömällä tuotteella ja anna kuivua kokonaan: jäänyt öljy ja ripsiväri saavat aineen vaikuttamaan epätasaisesti, eivätkä märät ripset tartu muottiin."
+      ),
+      l3(
+        "Dán miếng lót dưới mắt, phẳng, che hết mi dưới, không chạm mắt.",
+        "Place the under-eye pads flat, covering all the lower lashes, without touching the eye.",
+        "Aseta silmänalustyynyt sileästi niin, että ne peittävät kaikki alaripset koskematta silmään."
+      ),
+      l3(
+        "Chọn khuôn theo độ dài mi và độ cong muốn, ướm thử theo bảng của hãng, rồi dán khuôn lên mí trên sát chân mi, theo đường cong của mắt. Khuôn xa chân mi làm sợi mi gập khúc.",
+        "Choose the shield by lash length and the curl wanted, test the fit as the manufacturer's chart says, then stick it on the upper eyelid right at the lash line, following the curve of the eye. A shield too far from the lash line crimps the lashes.",
+        "Valitse muotti ripsen pituuden ja halutun taivutuksen mukaan, kokeile sopivuus valmistajan taulukon mukaan ja kiinnitä se yläluomelle aivan ripsirajaan silmän kaarta seuraten. Liian kaukana ripsirajasta oleva muotti tekee ripsiin mutkan."
+      ),
+      l3(
+        "Phết lớp keo dán mi mỏng lên khuôn, dùng que tách mi chải từng nhóm nhỏ sợi mi lên, từ đầu mắt ra đuôi: mỗi sợi thẳng, tách riêng, không bắt chéo, chân mi sát mép khuôn, không lẫn mi dưới.",
+        "Apply a thin layer of lash adhesive to the shield and use a lifting tool to comb small groups of lashes up, from the inner to the outer corner: each lash straight, separate, not crossing, roots right at the shield's edge, no lower lashes caught.",
+        "Levitä muotille ohut kerros ripsiliimaa ja nosta ripsiä pieninä ryhminä nostotyökalulla sisänurkasta ulkonurkkaan: jokainen ripsi suorana, erillään, ristiin menemättä, tyvi muotin reunassa, eikä alaripsiä mukana."
+      ),
+      l3(
+        "Thuốc thứ nhất: lớp mỏng chỉ ở phần dưới sợi mi, từ gần chân lên khoảng giữa; không lên da mí, không ra tới ngọn. Phủ màng bọc, bấm giờ theo bảng của hãng và loại mi; không tự ý để lâu hơn.",
+        "First lotion: a thin layer only on the lower part of the lashes, from near the root to about halfway; not on the eyelid, not out to the tips. Cover with film and time it by the manufacturer's chart and the lash type; never leave it on longer.",
+        "Ensimmäinen aine: ohut kerros vain ripsien alaosaan, läheltä tyveä noin puoliväliin; ei luomelle eikä kärkiin. Peitä kalvolla ja ajasta valmistajan taulukon ja ripsityypin mukaan; älä koskaan jätä pidempään."
+      ),
+      l3(
+        "Trong lúc chờ, hỏi khách có cay, rát không; nếu có, lau thuốc ra ngay, rửa bằng nước sạch và dừng lại.",
+        "While waiting, ask whether anything stings or burns; if so, remove the lotion at once, rinse with clean water and stop.",
+        "Kysy odottaessa, kirveleekö tai polttaako; jos kyllä, poista aine heti, huuhtele puhtaalla vedellä ja lopeta."
+      ),
+      l3(
+        "Lau thuốc bằng que bông khô từ chân lên ngọn, mi vẫn nằm yên trên khuôn. Thuốc thứ hai bôi đúng vùng như thuốc thứ nhất, phủ màng, bấm giờ theo hãng, rồi lau sạch.",
+        "Remove the lotion with a dry cotton swab from root to tip, keeping the lashes in place on the shield. Apply the second lotion to the same area, cover, time it as the product says, then remove it.",
+        "Poista aine kuivalla vanupuikolla tyvestä kärkeen ripsien pysyessä muotilla. Levitä toinen aine samalle alueelle, peitä, ajasta tuotteen ohjeen mukaan ja poista."
+      ),
+      l3(
+        "Nhuộm (chỉ khi thử phản ứng tốt): pha đúng tỉ lệ ngay trước khi dùng, bôi chỉ trên sợi mi, bấm giờ theo hãng, rồi lau thật sạch bằng bông ẩm đến khi bông không còn màu.",
+        "Tint (only after a clear allergy test): mix exactly as directed just before use, apply to the lashes only, time it as the product says, then remove thoroughly with damp cotton until no colour comes off.",
+        "Värjäys (vain puhtaan allergiatestin jälkeen): sekoita ohjeen mukaan juuri ennen käyttöä, levitä vain ripsiin, ajasta tuotteen ohjeen mukaan ja poista huolellisesti kostealla vanulla, kunnes väriä ei enää irtoa."
+      ),
+      l3(
+        "Gỡ mi khỏi khuôn bằng chút nước hoặc dung dịch gỡ của hãng, không kéo giật; gỡ khuôn, lau sạch mí, chải serum nếu bộ sản phẩm có, so hai mắt. Dặn khách giữ khô theo hãng (thường một ngày), không mascara, không xông hơi, không dụi mắt; kết quả thường 6–8 tuần.",
+        "Release the lashes with a little water or the product's remover, without pulling; remove the shield, clean the lid, comb on serum if the system has one, compare both eyes. Tell the client to keep the lashes dry as the product says (often one day), no mascara, no steam, no rubbing; the result usually lasts 6–8 weeks.",
+        "Irrota ripset muotista pienellä määrällä vettä tai tuotteen irrotusainetta vetämättä; poista muotti, puhdista luomi, kampaa seerumia, jos tuotesarjassa on sellainen, ja vertaa silmiä. Neuvo pitämään ripset kuivina tuotteen ohjeen mukaan (usein vuorokausi), ei ripsiväriä, höyryä eikä hieromista; tulos kestää yleensä 6–8 viikkoa."
+      ),
+    ],
+    tips: [
+      l3(
+        "Ghi vào ghi chú của khách trong VaraaAi: cỡ khuôn, thời gian từng thuốc, màu nhuộm, ngày thử phản ứng. Kết quả đẹp thì lần sau làm lại y như vậy; chưa ưng thì biết chính xác chỗ cần chỉnh.",
+        "Write in the client's notes in VaraaAi: shield size, each lotion's time, tint shade and the allergy test date. If the result was lovely, repeat it exactly next time; if not, you know exactly what to adjust.",
+        "Kirjaa asiakkaan muistiinpanoihin VaraaAi:ssa muottikoko, kunkin aineen aika, värisävy ja allergiatestin päivä. Jos tulos oli kaunis, toista sama ensi kerralla; jos ei, tiedät tarkalleen, mitä säätää."
+      ),
+      l3(
+        "Bước đưa mi lên khuôn đáng làm chậm nhất: sợi nằm cong vẹo trên khuôn thì sau khi uốn sẽ cong vẹo y như vậy.",
+        "Placing the lashes on the shield deserves the most time: a lash lying crooked on the shield stays crooked after the lift.",
+        "Ripsien asettelu muotille ansaitsee eniten aikaa: muotilla vinossa oleva ripsi jää vinoksi myös taivutuksen jälkeen."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Mi khách còn ướt sau khi làm sạch. Bạn làm gì?", "The client's lashes are still wet after cleansing. What do you do?", "Asiakkaan ripset ovat puhdistuksen jälkeen vielä märät. Mitä teet?"),
+        options: [
+          l3("Dán mi lên khuôn luôn cho nhanh", "Stick them to the shield straight away to save time", "Kiinnitän ne heti muotille ajan säästämiseksi"),
+          l3("Đợi mi khô hẳn rồi mới đưa lên khuôn", "Wait until they are completely dry before placing them", "Odotan, että ne ovat täysin kuivat, ennen kuin asettelen ne"),
+          l3("Bôi thêm dầu dưỡng cho mềm", "Apply some oil to soften them", "Levitän öljyä pehmentämään"),
+        ],
+        answer: 1,
+        why: l3(
+          "Mi ướt thì keo dán không bám, sợi mi trượt khỏi khuôn; dầu làm thuốc ngấm không đều.",
+          "Wet lashes do not stick, so they slide off the shield; oil makes the lotion work unevenly.",
+          "Märät ripset eivät tartu, vaan liukuvat muotilta; öljy saa aineen vaikuttamaan epätasaisesti."
+        ),
+      },
+      {
+        q: l3("Khách thấy cay, rát trong lúc thuốc đang ngấm. Bạn làm gì?", "The client feels stinging or burning while the lotion is on. What do you do?", "Asiakasta kirvelee tai polttaa aineen vaikuttaessa. Mitä teet?"),
+        options: [
+          l3("Lau thuốc ra ngay, rửa bằng nước sạch và dừng lại", "Remove the lotion at once, rinse with clean water and stop", "Poistan aineen heti, huuhtelen puhtaalla vedellä ja lopetan"),
+          l3("Bảo khách cố chịu đến hết giờ", "Ask the client to bear it until the time is up", "Pyydän asiakasta kestämään ajan loppuun"),
+          l3("Bôi thêm thuốc thứ hai cho nhanh xong", "Apply the second lotion early to finish faster", "Levitän toisen aineen aikaisemmin, jotta valmistuu nopeammin"),
+        ],
+        answer: 0,
+        why: l3(
+          "Cay, rát là dấu hiệu thuốc chạm da hoặc gần vào mắt, hay khách đang phản ứng. Không bao giờ để khách chịu đựng.",
+          "Stinging or burning means the product is on the skin or near the eye, or the client is reacting. Never make the client put up with it.",
+          "Kirvely tai poltto tarkoittaa, että ainetta on iholla tai lähellä silmää tai asiakas reagoi. Älä koskaan anna asiakkaan sietää sitä."
+        ),
+      },
+      {
+        q: l3("Khi nào được nhuộm mi sau khi uốn?", "When may you tint after the lift?", "Milloin ripset saa värjätä taivutuksen jälkeen?"),
+        options: [
+          l3("Luôn luôn, không cần thử", "Always, no test needed", "Aina, testiä ei tarvita"),
+          l3("Khi khách hứa là chưa từng bị dị ứng", "When the client promises they have never had an allergy", "Kun asiakas lupaa, ettei ole koskaan ollut allerginen"),
+          l3("Khi thử phản ứng theo hướng dẫn của hãng cho kết quả tốt", "When the allergy alert test done as the product instructs was clear", "Kun tuotteen ohjeen mukainen allergiatesti oli puhdas"),
+        ],
+        answer: 2,
+        why: l3(
+          "Nhiều hãng yêu cầu thử phản ứng trước khi nhuộm (thường khoảng 48 giờ trước). Có đỏ, ngứa, sưng, rát thì không nhuộm. Ghi ngày và kết quả vào hồ sơ.",
+          "Many manufacturers require an allergy alert test before tinting (often about 48 hours before). Redness, itching, swelling or burning means no tint. Record the date and result.",
+          "Monet valmistajat edellyttävät allergiatestiä ennen värjäystä (usein noin 48 tuntia ennen). Punoitus, kutina, turvotus tai kirvely tarkoittaa, ettei värjätä. Kirjaa päivä ja tulos."
+        ),
+      },
+    ],
+  },
 
   /* ================= hair ================= */
   soon("toc-tu-van-chia-vung", "p-hair", ["Tư vấn, gội và chia vùng tóc", "Consultation, shampoo and sectioning", "Konsultaatio, pesu ja jaottelu"], [
