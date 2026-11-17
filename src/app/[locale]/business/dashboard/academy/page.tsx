@@ -30,7 +30,6 @@ export default async function DashboardAcademyPage({ params }: { params: Promise
       <p className="mb-6 mt-1 text-sm text-ink-400 sm:text-base">
         {s.heroTitle} {s.heroAccent}
       </p>
-      <AcademyShareLinks locale={locale} baseUrl={localizedUrl(locale, "/academy")} />
       <AcademyHub
         courses={courseCards(locale)}
         bridge={bridgeCards(locale)}
@@ -38,6 +37,8 @@ export default async function DashboardAcademyPage({ params }: { params: Promise
         defaultAudience={access.isOwner ? "owner" : "pro"}
         embedded
       />
+      {/* Below the lessons (owner, 2026-11-17): the learning tabs come first. */}
+      <AcademyShareLinks locale={locale} baseUrl={localizedUrl(locale, "/academy")} />
     </div>
   );
 }

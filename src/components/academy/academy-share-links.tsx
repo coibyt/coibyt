@@ -41,7 +41,7 @@ export function AcademyShareLinks({ locale, baseUrl }: { locale: string; baseUrl
   };
 
   return (
-    <section className="mb-6 rounded-3xl bg-white p-4 shadow-card ring-1 ring-ink-100 sm:p-5">
+    <section className="mt-10 rounded-3xl bg-white p-4 shadow-card ring-1 ring-ink-100 sm:p-5">
       <h2 className="flex items-center gap-2 text-base font-extrabold text-ink-900 sm:text-lg">
         <Share2 className="h-5 w-5 text-[#b08a3e]" />
         {s.shareTitle}
