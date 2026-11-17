@@ -78,6 +78,7 @@ export function AcademyHub({
   locale,
   defaultAudience = "customer",
   embedded = false,
+  tabs = ["customer", "owner", "pro"],
 }: {
   courses: CourseCard[];
   bridge: LessonCard[];
@@ -86,25 +87,30 @@ export function AcademyHub({
   defaultAudience?: Audience;
   /** Inside the business dashboard: no hero above to overlap. */
   embedded?: boolean;
+  /** Which tracks this viewer gets (owner, 2026-11-17: owners and staff must not see the same thing in the
+   * dashboard — owners get the owner and craft tracks, staff only the craft track). One tab hides the switch. */
+  tabs?: Audience[];
 }) {
   const s = academyStrings(locale);
   const cs = craftStrings(locale);
   const { state, update } = useAcademyProgress();
   const hydrated = useHydrated();
   const [picked, setPicked] = useState<Audience | null>(null);
+  const tabKey = tabs.join(",");
 
   // /academy#owner opens the salon-owner track (links from business pages).
   useEffect(() => {
     const fromHash = () => {
       const h = window.location.hash.replace("#", "");
-      if (h === "owner" || h === "customer" || h === "pro") setPicked(h);
+      if ((h === "owner" || h === "customer" || h === "pro") && tabKey.split(",").includes(h)) setPicked(h);
     };
     fromHash();
     window.addEventListener("hashchange", fromHash);
     return () => window.removeEventListener("hashchange", fromHash);
-  }, []);
+  }, [tabKey]);
 
-  const audience: Audience = picked ?? (hydrated ? state.audience : undefined) ?? defaultAudience;
+  const saved = hydrated ? state.audience : undefined;
+  const audience: Audience = picked ?? (saved && tabs.includes(saved) ? saved : undefined) ?? defaultAudience;
   const choose = (a: Audience) => {
     setPicked(a);
     update((st) => ({ ...st, audience: a }));
@@ -142,8 +148,9 @@ export function AcademyHub({
   return (
     <div className={embedded ? "relative pb-12" : "container relative -mt-10 pb-20 sm:-mt-12"}>
       {/* who are you */}
-      <div className="mx-auto grid max-w-3xl grid-cols-3 gap-1.5 rounded-[1.75rem] bg-white p-1.5 shadow-popover ring-1 ring-ink-100 sm:gap-2 sm:p-2">
-        {TABS.map(({ id: a, icon: Icon }) => {
+      {tabs.length > 1 && (
+      <div className={`mx-auto grid max-w-3xl gap-1.5 rounded-[1.75rem] bg-white p-1.5 shadow-popover ring-1 ring-ink-100 sm:gap-2 sm:p-2 ${tabs.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
+        {TABS.filter((tab) => tabs.includes(tab.id)).map(({ id: a, icon: Icon }) => {
           const on = audience === a;
           const label = a === "customer" ? s.forCustomer : a === "owner" ? s.forOwner : cs.forPro;
           const hint = a === "customer" ? s.customerHint : a === "owner" ? s.ownerHint : cs.proHint;
@@ -166,6 +173,7 @@ export function AcademyHub({
           );
         })}
       </div>
+      )}
 
       {/* level + keep learning */}
       <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
