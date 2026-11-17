@@ -503,11 +503,164 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("khi-nao-khong-lam", "p-safety", ["Khi nào không làm cho khách", "When not to treat a customer", "Milloin asiakasta ei hoideta"], [
-    "Nhận biết dấu hiệu bệnh ở móng, da, mắt và da đầu; cách từ chối lịch sự và khuyên khách đi khám.",
-    "Spotting signs of nail, skin, eye and scalp conditions; how to decline politely and refer the customer to a doctor.",
-    "Kynsien, ihon, silmien ja päänahan sairauksien merkit; miten kieltäydytään kohteliaasti ja ohjataan lääkäriin.",
-  ]),
+  {
+    slug: "khi-nao-khong-lam",
+    course: "p-safety",
+    title: l3("Khi nào không làm cho khách", "When not to treat a customer", "Milloin asiakasta ei hoideta"),
+    summary: l3(
+      "Nhìn và hỏi gì trước mỗi dịch vụ, những dấu hiệu ở móng, mắt, da đầu và da có nghĩa là “chưa làm ở đây, nên đi khám trước”, cách từ chối cho khéo mà vẫn giữ thể diện cho khách, và khi nào chính người thợ không nên làm.",
+      "What to look at and ask before every service, the signs on nails, eyes, scalp and skin that mean “not here today — see a doctor or pharmacist first”, how to decline kindly and keep the customer's dignity, and when the professional should not be working.",
+      "Mitä katsotaan ja kysytään ennen jokaista hoitoa, mitkä kynsien, silmien, päänahan ja ihon merkit tarkoittavat ”ei tänään täällä — käy ensin lääkärissä tai apteekissa”, miten kieltäydytään ystävällisesti asiakkaan arvokkuutta kunnioittaen ja milloin tekijän itsensä ei pidä tehdä töitä."
+    ),
+    video: video("khi-nao-khong-lam", 329, "2026-11-16"),
+    notice: l3(
+      "Người thợ không chẩn đoán và không gọi tên bệnh: hãy tả điều mình thấy và khuyên khách hỏi bác sĩ hoặc dược sĩ. Bài này không thay cho ý kiến y tế, và quy định khác nhau theo từng nước. Khi phân vân: không làm.",
+      "A beauty professional does not diagnose or name a disease: describe what you see and suggest a doctor or pharmacist. This lesson does not replace medical advice, and rules differ by country. When in doubt, don't.",
+      "Kauneudenhoitoalan ammattilainen ei tee diagnooseja eikä nimeä sairauksia: kerro, mitä näet, ja ohjaa lääkäriin tai apteekkiin. Tämä tunti ei korvaa lääkärin ohjeita, ja määräykset vaihtelevat maittain. Jos epäröit, älä tee."
+    ),
+    sources: [
+      { label: "NHS — Common questions about isotretinoin capsules (no waxing during treatment)", url: "https://www.nhs.uk/medicines/isotretinoin-capsules/common-questions-about-isotretinoin-capsules/" },
+      { label: "Diabetes UK — Taking care of your feet", url: "https://www.diabetes.org.uk/about-diabetes/complications/feet/taking-care-of-your-feet" },
+    ],
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Trước mỗi dịch vụ: nhìn và hỏi. Nhìn dưới ánh sáng tốt, khi da và móng còn sạch, chưa sơn, chưa thoa gì. Hỏi vài câu ngắn và ghi vào phiếu tư vấn: dị ứng, thuốc đang dùng, đang điều trị gì ở da hay mắt, bệnh tiểu đường, phẫu thuật hay nhiễm trùng gần đây. Khách quen cũng hỏi lại.",
+        "Before every service: look and ask. Look in good light, while skin and nails are clean, unpolished and product-free. Ask a few short questions and note them on the consultation card: allergies, medicines, any treatment of skin or eyes, diabetes, recent surgery or infection. Ask regulars again, too.",
+        "Ennen jokaista hoitoa: katso ja kysy. Katso hyvässä valossa, kun iho ja kynnet ovat puhtaat, lakattomat ja tuotteettomat. Kysy muutama lyhyt kysymys ja kirjaa ne asiakaskorttiin: allergiat, lääkkeet, ihon tai silmien hoidot, diabetes, tuoreet leikkaukset tai tulehdukset. Kysy uudelleen myös vakioasiakkailta."
+      ),
+      l3(
+        "Người thợ không chẩn đoán. Đừng nói “chị bị nấm rồi”. Hãy nói điều mình thấy: “Em thấy móng này đổi màu và dày lên, em nghĩ chị nên để bác sĩ hoặc dược sĩ xem trước.” Nhìn bằng mắt không ai dám chắc: một cái móng dày, ngả vàng có thể là nấm, là vảy nến, hay chỉ do giày chật. Việc của mình là nhận ra điều không bình thường và dừng lại đúng lúc.",
+        "We do not diagnose. Never say “you have a fungus”. Say what you see: “This nail has changed colour and thickened — I think a doctor or pharmacist should look at it first.” Nobody can be sure by eye: a thick, yellowish nail may be a fungus, psoriasis, or just years of tight shoes. Our job is to notice that something is not normal and to stop in time.",
+        "Emme tee diagnooseja. Älä sano ”sinulla on kynsisieni”. Kerro, mitä näet: ”Tämän kynnen väri on muuttunut ja kynsi on paksuuntunut — lääkärin tai farmaseutin olisi hyvä katsoa se ensin.” Silmämääräisesti kukaan ei voi olla varma: paksu, kellertävä kynsi voi johtua sienestä, psoriaasista tai vain ahtaista kengistä. Meidän tehtävämme on huomata poikkeava ja keskeyttää ajoissa."
+      ),
+      l3(
+        "Móng — không làm trên móng hoặc vùng da đó khi thấy: móng ngả xanh, vàng hay nâu; móng dày lên, giòn, vụn; móng tách khỏi nền móng; da quanh móng sưng, đỏ, đau, có mủ; mụn cóc; vết thương hở.",
+        "Nails — do not work on that nail or skin when you see: green, yellow or brown discolouration; a thickened, brittle, crumbling nail; the plate lifting from the nail bed; swollen, red, painful skin or pus around the nail; warts; open wounds.",
+        "Kynnet — älä käsittele kyseistä kynttä tai ihoaluetta, jos näet: vihertävää, keltaista tai ruskeaa värimuutosta; paksuuntuneen, hauraan, murenevan kynnen; kynnen irtoamista kynsipedistä; turvonneen, punoittavan, kipeän tai märkivän kynsivallin; syyliä; avohaavoja."
+      ),
+      l3(
+        "Bàn chân của khách có bệnh tiểu đường cần thật cẩn thận: chân có thể giảm cảm giác và vết xước rất lâu lành. Nước chỉ ấm vừa, không ngâm lâu, không dùng dao bào, không cắt da. Chân có vết loét hay vết thương thì không làm; khuyên khách đến bác sĩ hoặc chuyên viên chăm sóc bàn chân.",
+        "A customer with diabetes needs extra care for a pedicure: the feet may have less feeling and small cuts heal slowly. Lukewarm water only, no long soaking, no blades, no cutting of skin. If there is an ulcer or a wound, do not treat; suggest a doctor or a podiatrist.",
+        "Diabetesta sairastavan asiakkaan jalkahoito vaatii erityistä varovaisuutta: jalkojen tunto voi olla heikentynyt ja pienetkin haavat paranevat hitaasti. Vain kädenlämpöistä vettä, ei pitkää liotusta, ei teriä, ei ihon leikkaamista. Jos jalassa on haavauma tai haava, älä hoida; ohjaa lääkärille tai jalkaterapeutille."
+      ),
+      l3(
+        "Mi và chân mày — không làm khi: mắt đỏ, ngứa, chảy nước hay có ghèn dính; lẹo; bờ mi sưng đỏ, đóng vảy; có những chấm nhỏ bám ở chân mi kèm ngứa nhiều. Sau phẫu thuật mắt hay nhiễm trùng mắt: chờ bác sĩ cho phép. Khách từng phản ứng với keo hay thuốc nhuộm mi thì không làm lại bằng sản phẩm đó.",
+        "Lashes and brows — do not treat when: the eyes are red, itchy, watery or sticky; there is a stye; the lid margins are swollen, red or crusty; tiny dots cling to the lash roots and the lashes itch badly. After eye surgery or an eye infection, wait until the doctor agrees. Someone who has reacted to glue or tint does not get that product again.",
+        "Ripset ja kulmat — älä hoida, jos: silmät punoittavat, kutisevat, vuotavat tai rähmivät; luomessa on näärännäppy; luomen reunat ovat turvonneet, punaiset tai karstaiset; ripsien tyvessä on pieniä pisteitä ja ripset kutisevat voimakkaasti. Silmäleikkauksen tai silmätulehduksen jälkeen odotetaan lääkärin lupaa. Jos asiakas on reagoinut liimaan tai väriin, samaa tuotetta ei käytetä uudelleen."
+      ),
+      l3(
+        "Tóc và da đầu — dừng lại khi thấy: chí (chấy) và trứng của chúng; vết loét, vết thương hở; những mảng tròn, đỏ, bong vảy; tóc rụng nhiều, từng mảng mà không rõ vì sao. Gặp chí: đừng hốt hoảng, nói riêng với khách, khuyên khách ra hiệu thuốc, rồi giặt khăn, xử lý lược, kéo và áo choàng thật kỹ.",
+        "Hair and scalp — stop when you see: head lice and nits; sores or open wounds; round, red, scaly patches; heavy or patchy hair loss with no clear reason. With lice: no panic, tell the customer in private, suggest the pharmacy, then wash the towels and reprocess combs, scissors and cape thoroughly.",
+        "Hiukset ja päänahka — keskeytä, jos näet: täitä ja saivareita; haavaumia tai avohaavoja; pyöreitä, punaisia, hilseileviä läiskiä; runsasta tai läiskittäistä hiustenlähtöä ilman selvää syytä. Täiden kohdalla: ei paniikkia, kerro asiakkaalle kahden kesken, ohjaa apteekkiin ja pese sen jälkeen pyyhkeet sekä puhdista ja desinfioi kammat, sakset ja kampausviitta huolellisesti."
+      ),
+      l3(
+        "Da, spa và wax — không làm trên: da cháy nắng, da trầy xước hay đang nhiễm trùng, mụn rộp ở môi, những mảng phát ban có thể lây. Trước khi wax luôn hỏi về thuốc trị mụn và kem retinoid: khách đang uống isotretinoin, hoặc mới ngừng trong khoảng sáu tháng, thì không wax; với kem bôi, làm theo hướng dẫn của hãng wax và của bác sĩ kê thuốc.",
+        "Skin, spa and waxing — do not treat: sunburnt skin, broken or infected skin, cold sores, rashes that may be contagious. Before waxing always ask about acne medicine and retinoid creams: no waxing for someone taking isotretinoin or who stopped within about the last six months; for creams, follow the wax brand's instructions and the prescriber's advice.",
+        "Iho, spa ja vahaus — älä hoida: auringon polttamaa ihoa, rikkinäistä tai tulehtunutta ihoa, huuliherpestä tai mahdollisesti tarttuvaa ihottumaa. Kysy ennen vahausta aina aknelääkkeistä ja retinoidivoiteista: isotretinoiinia käyttävää tai sen noin puolen vuoden sisällä lopettanutta ei vahata; voiteiden kohdalla noudatetaan vahan valmistajan ja lääkkeen määränneen lääkärin ohjeita."
+      ),
+      l3(
+        "Cách từ chối: nói riêng, nói nhỏ; nói về sự an toàn của khách, không phải nỗi sợ của mình; đưa ra một lối khác — làm những móng còn lại, đổi sang dịch vụ khác, hoặc hẹn lại khi bác sĩ nói là ổn. Đừng tỏ vẻ ghê sợ, đừng lùi lại.",
+        "How to decline: in private and quietly; talk about the customer's safety, not your own fear; offer another way — do the other nails, change to a different service, or rebook once the doctor says it is fine. Never show disgust, never step back.",
+        "Näin kieltäydyt: kahden kesken ja hiljaa; puhu asiakkaan turvallisuudesta, älä omasta pelostasi; tarjoa vaihtoehto — tee muut kynnet, vaihda toiseen palveluun tai varaa uusi aika, kun lääkäri on antanut luvan. Älä näytä inhoa äläkä peräänny."
+      ),
+      l3(
+        "Ghi lại trong hồ sơ khách: ngày nào, mình thấy gì, mình đã khuyên gì — chỉ điều mình thấy, không ghi tên bệnh. Đây là thông tin sức khoẻ: chỉ ghi khi khách đồng ý và giữ thật kín. Còn khi phân vân có nên làm hay không: không làm.",
+        "Note it on the customer's record: the date, what you saw, what you advised — only what you saw, never the name of a disease. This is health information: record it only with the customer's consent and keep it confidential. And when in doubt whether to treat: don't.",
+        "Kirjaa asiakastietoihin: päivämäärä, mitä näit ja mitä neuvoit — vain havainnot, ei sairauden nimeä. Kyse on terveystiedosta: kirjaa se vain asiakkaan suostumuksella ja pidä luottamuksellisena. Ja jos epäröit, hoidatko vai et: älä hoida."
+      ),
+      l3(
+        "Có lúc chính người thợ không nên làm. Vết xước nhỏ, sạch ở tay: dán băng kín nước rồi đeo găng. Vết thương ở tay đang sưng, đỏ, có mủ: không chạm vào khách, và đi khám. Sốt, tiêu chảy, nôn ói, đau mắt đỏ hay bệnh dễ lây: ở nhà.",
+        "Sometimes it is the professional who should not work. A small clean cut on the hand: waterproof plaster, then gloves. A hand wound that is swollen, red or has pus: do not touch customers, and see a doctor. Fever, diarrhoea, vomiting, pink eye or another contagious illness: stay at home.",
+        "Joskus tekijän itsensä ei pidä tehdä töitä. Pieni puhdas haava kädessä: vedenpitävä laastari ja käsineet. Turvonnut, punoittava tai märkivä haava kädessä: älä koske asiakkaisiin ja käy lääkärissä. Kuume, ripuli, oksentelu, silmätulehdus tai muu tarttuva tauti: pysy kotona."
+      ),
+    ],
+    tips: [
+      l3(
+        "Một câu dùng được trong mọi trường hợp: “Em muốn chị đẹp mà vẫn an toàn, nên chỗ này em xin chưa làm hôm nay.” Nếu khách năn nỉ “cứ làm đi, chị chịu trách nhiệm”, bạn vẫn không làm: lời hứa đó không làm cho mắt hết đỏ hay vết thương lành lại. Nhắc lại nhẹ nhàng: “Em từ chối là vì em quý chị.”",
+        "One sentence that always works: “I want you to look good and stay safe, so I'd rather not do this part today.” If the customer insists — “just do it, it's my responsibility” — you still don't: that promise will not make a red eye clear or a wound heal. Repeat gently: “I'm saying no because I care about you.”",
+        "Lause, joka toimii aina: ”Haluan, että lopputulos on kaunis ja turvallinen, joten tätä kohtaa en tee tänään.” Jos asiakas vaatii – ”tee vain, minä otan vastuun” – et silti tee: lupaus ei paranna punoittavaa silmää eikä haavaa. Toista ystävällisesti: ”Kieltäydyn, koska välitän sinusta.”"
+      ),
+      l3(
+        "Trong VaraaAi, chỗ ghi là “Ghi chú nội bộ” của hồ sơ khách — chỉ salon thấy. Hẹn lại cho khách ngay trong Lịch hẹn, để khách thấy mình không bị từ chối hẳn.",
+        "In VaraaAi the place for the note is the internal notes on the customer's profile — only the salon sees them. Rebook the customer in the calendar straight away, so they can see the door is still open.",
+        "VaraaAissa merkintä tehdään asiakasprofiilin sisäisiin muistiinpanoihin — ne näkyvät vain salongille. Varaa asiakkaalle uusi aika saman tien kalenterista, jotta hän näkee olevansa edelleen tervetullut."
+      ),
+      l3(
+        "Chủ tiệm nên nói rõ với nhân viên: báo bệnh không phải là lỗi. Một người thợ đi làm khi đang ốm có thể lây cho nhiều khách trong một ngày.",
+        "Owners should say it out loud: calling in sick is not a fault. One professional who works while ill can pass it on to many customers in a single day.",
+        "Omistajan kannattaa sanoa se ääneen: sairaana ilmoittautuminen ei ole virhe. Sairaana työskentelevä voi tartuttaa monta asiakasta yhden päivän aikana."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3(
+          "Khách có một móng ngả xanh và hơi hở ở đầu móng, muốn sơn gel màu đậm để che. Bạn làm gì?",
+          "A customer has one nail that looks greenish and is lifting at the tip, and wants dark gel polish to hide it. What do you do?",
+          "Asiakkaan yksi kynsi on vihertävä ja irtoaa kärjestä, ja hän haluaa tumman geelilakan peitoksi. Mitä teet?"
+        ),
+        options: [
+          l3("Sơn màu thật đậm để che đi", "Apply a very dark colour to cover it", "Lakkaan hyvin tummalla värillä, jotta se peittyy"),
+          l3(
+            "Không làm trên móng đó, tả điều mình thấy và khuyên khách hỏi bác sĩ hoặc dược sĩ",
+            "Leave that nail, describe what you see and suggest a doctor or pharmacist",
+            "Jätän sen kynnen tekemättä, kerron mitä näen ja ohjaan lääkäriin tai apteekkiin"
+          ),
+          l3("Nói với khách: “Chị bị nấm móng rồi”", "Tell the customer: “You have nail fungus”", "Sanon asiakkaalle: ”Sinulla on kynsisieni”"),
+        ],
+        answer: 1,
+        why: l3(
+          "Lớp sơn không chữa được gì, chỉ che đi cho đến khi nặng hơn. Người thợ không chẩn đoán: tả điều mình thấy và khuyên đi khám.",
+          "Polish cures nothing; it only hides the problem until it gets worse. We do not diagnose: describe what you see and recommend a check.",
+          "Lakka ei paranna mitään, se vain peittää ongelman, kunnes se pahenee. Emme tee diagnooseja: kuvaile näkemäsi ja suosittele tarkastusta."
+        ),
+      },
+      {
+        q: l3(
+          "Khách muốn wax chân mày và kể rằng đang uống thuốc trị mụn isotretinoin. Điều nào đúng?",
+          "A customer wants a brow wax and mentions taking isotretinoin for acne. Which is right?",
+          "Asiakas haluaa kulmien vahauksen ja kertoo käyttävänsä isotretinoiinia akneen. Mikä on oikein?"
+        ),
+        options: [
+          l3("Wax bình thường, vì thuốc uống không liên quan đến da", "Wax as usual; a tablet has nothing to do with the skin", "Vahaan normaalisti, tabletti ei vaikuta ihoon"),
+          l3("Wax nhưng để sáp nguội hơn", "Wax, but with cooler wax", "Vahaan, mutta viileämmällä vahalla"),
+          l3(
+            "Không wax; gợi ý cách nhẹ hơn như nhíp, nếu phù hợp",
+            "No waxing; suggest a gentler method such as tweezing, if suitable",
+            "En vahaa; ehdotan hellävaraisempaa tapaa, esimerkiksi nyppimistä, jos se sopii"
+          ),
+        ],
+        answer: 2,
+        why: l3(
+          "Isotretinoin làm da mỏng và yếu, wax có thể làm tróc cả lớp da. Không wax khi khách đang uống hoặc mới ngừng trong khoảng sáu tháng.",
+          "Isotretinoin makes the skin thin and fragile; wax can strip a layer of skin. No waxing during treatment or for about six months after stopping.",
+          "Isotretinoiini ohentaa ja haurastuttaa ihoa, ja vaha voi irrottaa ihon pintakerroksen. Ei vahausta hoidon aikana eikä noin puoleen vuoteen sen lopettamisesta."
+        ),
+      },
+      {
+        q: l3(
+          "Bạn phải từ chối một dịch vụ. Cách nào giữ được thể diện cho khách?",
+          "You have to decline a service. Which way keeps the customer's dignity?",
+          "Joudut kieltäytymään palvelusta. Mikä tapa säilyttää asiakkaan arvokkuuden?"
+        ),
+        options: [
+          l3(
+            "Nói riêng, nói nhỏ, nói về sự an toàn của khách và đề nghị hẹn lại hoặc đổi dịch vụ",
+            "Speak privately and quietly, about the customer's safety, and offer to rebook or change the service",
+            "Puhun kahden kesken ja hiljaa asiakkaan turvallisuudesta ja tarjoan uutta aikaa tai toista palvelua"
+          ),
+          l3("Giải thích to, rõ để các khách khác cũng yên tâm", "Explain loudly and clearly so other customers feel reassured", "Selitän kuuluvasti, jotta muutkin asiakkaat rauhoittuvat"),
+          l3("Lùi lại, đeo thêm găng rồi nói mình không dám làm", "Step back, put on extra gloves and say you are afraid to do it", "Peräännyn, laitan lisäkäsineet ja sanon, etten uskalla tehdä"),
+        ],
+        answer: 0,
+        why: l3(
+          "Khách sẽ nhớ rất lâu thái độ của bạn lúc đó. Riêng tư, tử tế và có một lối khác thì khách thường quay lại.",
+          "The customer will remember your attitude for a long time. Privacy, kindness and an alternative usually bring them back.",
+          "Asiakas muistaa asenteesi pitkään. Yksityisyys, ystävällisyys ja vaihtoehdon tarjoaminen tuovat hänet yleensä takaisin."
+        ),
+      },
+    ],
+  },
   soon("xu-ly-su-co", "p-safety", ["Xử lý sự cố: chảy máu, dị ứng, bỏng", "Incidents: bleeding, allergic reactions, burns", "Vahinkotilanteet: verenvuoto, allergiset reaktiot, palovammat"], [
     "Làm gì ngay trong phút đầu tiên, ghi lại sự cố và khi nào phải gọi cấp cứu.",
     "What to do in the first minute, how to record the incident, and when to call for emergency help.",
