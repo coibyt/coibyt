@@ -826,11 +826,132 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("ve-sinh-tiem", "p-safety", ["Vệ sinh tiệm hằng ngày và kế hoạch tự kiểm soát", "Daily salon cleaning and the in-house control plan", "Liikkeen päivittäinen siivous ja omavalvontasuunnitelma"], [
-    "Lịch lau dọn, giặt khăn, thông gió và những gì cơ quan y tế kiểm tra.",
-    "A cleaning schedule, laundry, ventilation, and what health inspectors look at.",
-    "Siivousaikataulu, pyykki, ilmanvaihto ja mitä terveystarkastaja katsoo.",
-  ]),
+  {
+    slug: "ve-sinh-tiem",
+    course: "p-safety",
+    title: l3("Vệ sinh tiệm hằng ngày và kế hoạch tự kiểm soát", "Daily salon cleaning and the in-house control plan", "Liikkeen päivittäinen siivous ja omavalvontasuunnitelma"),
+    summary: l3(
+      "Lấy hướng dẫn của thành phố Helsinki (Phần Lan) làm ví dụ: thông báo trước khi mở tiệm, kế hoạch tự kiểm soát (omavalvontasuunnitelma) gồm những gì, kế hoạch lau dọn, lau sạch rồi mới khử khuẩn, giặt khăn và đồ vải, chỗ rửa cạnh chỗ làm, thông gió, chậu cây, rác và vật sắc nhọn — và cách biến kế hoạch thành danh sách kiểm tra lúc mở và đóng cửa.",
+      "Using the City of Helsinki's guidance (Finland) as the example: notifying before you open, what goes into the in-house control plan (omavalvontasuunnitelma), the cleaning plan, cleaning before disinfecting, cloths and textiles, a water point by the workstation, ventilation, indoor plants, waste and sharps — and how the plan becomes an opening and closing checklist.",
+      "Esimerkkinä Helsingin kaupungin ohje: ilmoitus ennen toiminnan aloittamista, mitä omavalvontasuunnitelmaan kuuluu, siivoussuunnitelma, mekaaninen puhdistus ennen desinfiointia, siivousliinat ja tekstiilit, vesipiste työpisteen vieressä, ilmanvaihto, huonekasvit, jätteet ja terävät jätteet — ja miten suunnitelmasta tulee avaamisen ja sulkemisen tarkistuslista."
+    ),
+    video: video("ve-sinh-tiem", 324, "2026-11-17"),
+    notice: l3(
+      "Quy định khác nhau theo từng nước và thành phố. Bài này lấy ví dụ từ hướng dẫn của thành phố Helsinki (Phần Lan, bản 5/2025); lịch lau dọn và danh sách kiểm tra trong bài là cách làm tốt hay gặp, không phải quy định. Hãy hỏi cơ quan y tế nơi bạn làm việc để biết yêu cầu chính xác.",
+      "Rules differ by country and city. This lesson takes its examples from the City of Helsinki's guidance (Finland, version 5/2025); the cleaning schedule and checklists shown are common good practice, not rules. Ask the health authority where you work for the exact requirements.",
+      "Määräykset vaihtelevat maittain ja kunnittain. Tunnin esimerkit ovat Helsingin kaupungin ohjeesta (versio 5/2025); siivousaikataulu ja tarkistuslistat ovat yleisiä hyviä käytäntöjä, eivät määräyksiä. Tarkista tarkat vaatimukset oman kuntasi terveydensuojeluviranomaiselta."
+    ),
+    sources: [HELSINKI_HYGIENE],
+    related: ["tien-ich-nhom", "nhan-vien", "gio-mo-cua"],
+    steps: [
+      l3(
+        "Ở Helsinki, phần lớn tiệm làm đẹp phải gửi thông báo cho thành phố ít nhất 30 ngày trước khi bắt đầu (tiệm tóc chỉ khi có làm dịch vụ trên da), kể cả khi làm tại nhà hay làm tự do; báo lại khi thay đổi lớn, đổi chủ hay đóng cửa. Sau đó thành phố kiểm tra định kỳ và có thu phí.",
+        "In Helsinki most beauty premises must notify the city at least 30 days before starting (barbers and hair salons only if they offer skin treatments), including home-based and freelance work; notify again after substantial changes, a change of operator or closing down. The city then inspects regularly, for a fee.",
+        "Helsingissä useimpien kauneushoitoloiden on tehtävä ilmoitus kaupungille vähintään 30 päivää ennen toiminnan aloittamista (parturi-kampaamoiden vain, jos ne tekevät ihonkäsittelyjä), myös kotona tai freelancerina työskenneltäessä; uusi ilmoitus olennaisista muutoksista, toiminnanharjoittajan vaihtuessa ja lopetettaessa. Kaupunki tarkastaa toimintaa säännöllisesti maksua vastaan."
+      ),
+      l3(
+        "Tự kiểm soát nghĩa là chủ tiệm tự tìm ra những nguy cơ cho sức khỏe trong tiệm và nói được mình đã làm gì để ngăn chúng. Tiệm phải có kế hoạch tự kiểm soát và làm theo nó; thành phố khuyên viết ra giấy. Tiệm tóc vẫn phải tự kiểm soát dù không phải thông báo.",
+        "In-house control means the operator identifies the health risks on the premises and can show what has been done about them. Premises must have an in-house control plan and follow it; the city recommends writing it down. Hair salons must carry out in-house control even without the notification duty.",
+        "Omavalvonta tarkoittaa, että toiminnanharjoittaja tunnistaa tilojen ja toiminnan terveysriskit ja pystyy kertomaan, mitä niille on tehty. Kohteessa on oltava omavalvontasuunnitelma, jota noudatetaan; kaupunki suosittelee sen laatimista kirjallisena. Parturi-kampaamoiden on tehtävä omavalvontaa, vaikka ilmoitusvelvollisuutta ei olisi."
+      ),
+      l3(
+        "Kế hoạch gồm: mô tả tiệm (dịch vụ, giờ mở cửa, số người, chỗ rửa, nhà vệ sinh, máy móc); cách làm sạch, khử khuẩn, tiệt trùng dụng cụ; các nguy cơ (khách nhạy cảm, côn trùng và chuột, chỗ cần sửa, dịch bệnh); và cách phòng (hướng dẫn nhân viên, kế hoạch lau dọn, bảo trì thông gió, kiểm tra chỉ thị tiệt trùng). Cập nhật khi tiệm thay đổi.",
+        "The plan covers: a description of the premises (services, opening hours, number of people, water points, toilets, equipment); how tools are cleaned, disinfected and sterilised; the risks (sensitive customers, pests, repairs needed, epidemics); and prevention (staff orientation, the cleaning plan, ventilation maintenance, sterilisation indicators). Update it when things change.",
+        "Suunnitelmassa kuvataan toiminta ja tilat (palvelut, aukioloajat, henkilömäärä, vesipisteet, WC:t, laitteet); välineiden puhdistus, desinfiointi ja sterilointi; riskit (herkät asiakkaat, tuholaiset, korjaustarpeet, epidemiat) sekä niiden ehkäisy (perehdytys, siivoussuunnitelma, ilmanvaihdon huolto, sterilointi-indikaattorit). Päivitä suunnitelma muutosten myötä."
+      ),
+      l3(
+        "Kế hoạch lau dọn nên viết ra và để trong kế hoạch tự kiểm soát: lau cái gì, bao lâu một lần, bằng dụng cụ và chất gì, ai làm.",
+        "Write the cleaning plan down and add it to the in-house control plan: what is cleaned, how often, with which equipment and agents, and by whom.",
+        "Laadi siivoussuunnitelma kirjallisena ja liitä se omavalvontasuunnitelmaan: mitä siivotaan, kuinka usein, millä välineillä ja aineilla ja kuka siivoaa."
+      ),
+      l3(
+        "Lau sạch trước rồi mới khử khuẩn, vì chất bẩn làm khử khuẩn mất tác dụng. Bề mặt không chạm vùng da đang làm: lau sạch là đủ. Bề mặt chạm da khách: lau sạch rồi khử khuẩn. Chỗ dính máu luôn phải khử khuẩn.",
+        "Clean first, then disinfect — dirt makes disinfection ineffective. Surfaces that don't touch the treated skin: cleaning is enough. Surfaces that touch the customer's skin: clean, then disinfect. Anything with blood on it is always disinfected.",
+        "Puhdista ensin mekaanisesti, sitten desinfioi — lika heikentää desinfiointia. Pinnat, jotka eivät kosketa käsiteltävää ihoa: mekaaninen puhdistus riittää. Asiakkaan ihoa koskettavat pinnat: puhdistus ja desinfiointi. Veriset pinnat desinfioidaan aina."
+      ),
+      l3(
+        "Khăn lau giặt sau mỗi lần dùng, ít nhất 60 °C, tốt nhất 90 °C, hoặc dùng khăn dùng một lần. Dụng cụ lau dọn cất trong tủ riêng có cửa, không để dưới sàn, không cất trong nhà vệ sinh; nhà vệ sinh có bộ dụng cụ lau riêng, dễ phân biệt (ví dụ theo màu).",
+        "Wash cleaning cloths after use at least at 60 °C, preferably 90 °C, or use disposable ones. Keep cleaning equipment in its own cupboard with doors, off the floor and never in the toilet; the toilet has its own cleaning equipment that is easy to tell apart (for example by colour).",
+        "Pese siivousliinat käytön jälkeen vähintään 60 °C:ssa, mieluiten 90 °C:ssa, tai käytä kertakäyttöisiä. Säilytä siivousvälineet omassa ovellisessa kaapissa, ei lattialla eikä WC:ssä; WC:lle omat, helposti erotettavat siivousvälineet (esim. värikoodaus)."
+      ),
+      l3(
+        "Khăn và đồ vải giặt, sấy bằng máy; máy giặt không đặt trong nhà vệ sinh. Đồ sạch và đồ bẩn cất riêng: khăn sạch trong tủ đóng cửa, khăn đã dùng trong thùng có nắp.",
+        "Wash and dry towels and textiles in a washing machine, which must not stand in the toilet. Store clean and dirty textiles separately: clean ones in a closed cupboard, used ones in a lidded container.",
+        "Pese ja kuivaa tekstiilit pesukoneessa, joka ei saa olla WC:ssä. Säilytä puhtaat ja likaiset tekstiilit erillään: puhtaat suljetussa kaapissa, käytetyt kannellisessa astiassa."
+      ),
+      l3(
+        "Cạnh mỗi chỗ làm (hoặc ngay sát) có chỗ rửa riêng để rửa tay và dụng cụ, đi tới không qua cửa đóng; chỉ có một chỗ rửa thì nên là bồn đôi. Rửa dụng cụ xong, rửa và khử khuẩn bồn trước khi dùng cho khách.",
+        "Each workstation needs its own water point right next to it for hands and tools, with no closed door in between; if there is only one, it should have two basins. After washing tools, wash and disinfect the basin before using it for customer care.",
+        "Jokaisen työpisteen vieressä tai välittömässä läheisyydessä on oltava oma vesipiste käsien ja välineiden pesuun ilman suljettua ovea välissä; jos vesipisteitä on vain yksi, siinä tulisi olla kaksi allasta. Pese ja desinfioi allas välinehuollon jälkeen ennen asiakastyötä."
+      ),
+      l3(
+        "Thông gió ít nhất 6 lít mỗi giây cho mỗi người; nên có thông gió cơ học khi có hơn hai khách cùng lúc hoặc dùng hóa chất mùi mạnh; bàn làm móng bột cần hút tại chỗ. Không nên để chậu cây trong tiệm. Thùng rác nguyên vẹn, có nắp, đổ đủ thường xuyên để nắp luôn đóng được; kim, dao vào hộp đựng vật sắc nhọn làm sẵn rồi mang tới điểm thu gom được phép.",
+        "Ventilation of at least 6 litres per second per person; mechanical supply and exhaust is recommended with more than two customers at once or strong-smelling chemicals; acrylic workstations need local exhaust. Indoor plants should not be kept. Bins must be intact, lidded and emptied often enough that the lid always closes; needles and blades go into factory-made sharps containers and to an authorised collection point.",
+        "Ilmanvaihto vähintään 6 l/s henkilöä kohden; koneellinen tulo- ja poistoilmanvaihto on suositeltava, jos asiakkaita on yli kaksi kerralla tai käytetään voimakashajuisia kemikaaleja; akryylityöpisteessä on oltava kohdepoisto. Huonekasveja ei tulisi pitää. Jäteastiat ehjiä ja kannellisia ja ne tyhjennetään niin usein, että kansi menee aina kiinni; neulat ja terät tehdasvalmisteiseen riskijäteastiaan ja hyväksyttyyn vastaanottopisteeseen."
+      ),
+      l3(
+        "Biến kế hoạch thành thói quen: một danh sách ngắn lúc mở cửa (thông gió, nước nóng lạnh, xà phòng và khăn giấy, túi tiệt trùng còn hạn, thùng rác đã đổ) và lúc đóng cửa (lau bàn, lau sàn, giặt khăn, đổ rác, rửa bồn rửa dụng cụ, ghi điều bất thường). Người làm tích và ký tên; chủ tiệm xem lại mỗi tuần.",
+        "Turn the plan into a habit: a short opening checklist (ventilation, hot and cold water, soap and paper towels, sterile pouches in date, bins emptied) and a closing one (wipe tables, mop, wash cloths, empty bins, clean the tool basin, note anything unusual). Whoever does it ticks and signs; the owner reviews it every week.",
+        "Tee suunnitelmasta tapa: lyhyt avauslista (ilmanvaihto, kuuma ja kylmä vesi, saippua ja paperipyyhkeet, sterilointipussit voimassa, roskat tyhjennetty) ja sulkemislista (pöydät, lattia, liinojen pesu, roskat, välinealtaan pesu, poikkeamien kirjaus). Tekijä kuittaa ja allekirjoittaa; omistaja käy listat läpi viikoittain."
+      ),
+    ],
+    tips: [
+      l3(
+        "Xử lý dụng cụ, rửa tay và găng tay, và xử lý sự cố có bài riêng trong khóa này — kế hoạch tự kiểm soát chỉ cần ghi tiệm làm theo quy trình nào và ai chịu trách nhiệm.",
+        "Tool reprocessing, hand hygiene and gloves, and incidents have their own lessons in this course — the in-house control plan only needs to say which routine the salon follows and who is responsible.",
+        "Välinehuollolla, käsihygienialla ja käsineillä sekä vahinkotilanteilla on tällä kurssilla omat tuntinsa — omavalvontasuunnitelmaan riittää, mitä käytäntöä liike noudattaa ja kuka vastaa siitä."
+      ),
+      l3(
+        "Trong VaraaAi, dùng “Tiện ích” → “Thông báo” để nhắc cả nhóm danh sách mở và đóng cửa, và phần “Đào tạo” để nhân viên mới đọc kế hoạch tự kiểm soát ngay ngày đầu.",
+        "In VaraaAi, use the team hub's notices to remind everyone of the opening and closing checklists, and its training section so new staff read the in-house control plan on their first day.",
+        "VaraaAi:ssa voit muistuttaa tiimiä avaus- ja sulkemislistoista tiimin työtilan tiedotteilla ja jakaa omavalvontasuunnitelman uusille työntekijöille koulutusosiossa heti ensimmäisenä päivänä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Một mặt bàn có chạm vào da khách. Thứ tự đúng là gì?", "A surface touches the customer's skin. What is the right order?", "Pinta koskettaa asiakkaan ihoa. Mikä on oikea järjestys?"),
+        options: [
+          l3("Xịt khử khuẩn thẳng lên, không cần lau", "Spray disinfectant straight on, no cleaning needed", "Desinfiointiaine suoraan pinnalle, puhdistusta ei tarvita"),
+          l3("Lau sạch trước, rồi khử khuẩn", "Clean it first, then disinfect", "Ensin puhdistus, sitten desinfiointi"),
+          l3("Chỉ lau khô là đủ", "Just wipe it dry", "Pelkkä kuivaus riittää"),
+        ],
+        answer: 1,
+        why: l3(
+          "Chất bẩn làm dung dịch khử khuẩn mất tác dụng, nên luôn lau sạch trước.",
+          "Dirt makes disinfectant ineffective, so always clean first.",
+          "Lika heikentää desinfiointiainetta, joten puhdista aina ensin."
+        ),
+      },
+      {
+        q: l3("Theo hướng dẫn của Helsinki, khăn lau dọn nên giặt ở nhiệt độ nào?", "Under Helsinki's guidance, at what temperature are cleaning cloths washed?", "Missä lämpötilassa siivousliinat pestään Helsingin ohjeen mukaan?"),
+        options: [
+          l3("30 °C để khăn bền hơn", "30 °C so they last longer", "30 °C, jotta ne kestävät pidempään"),
+          l3("Không cần giặt nếu xịt cồn", "No need to wash if sprayed with alcohol", "Ei tarvitse pestä, jos ne suihkutetaan alkoholilla"),
+          l3("Ít nhất 60 °C, tốt nhất 90 °C, hoặc dùng khăn dùng một lần", "At least 60 °C, preferably 90 °C, or use disposable cloths", "Vähintään 60 °C, mieluiten 90 °C, tai kertakäyttöiset liinat"),
+        ],
+        answer: 2,
+        why: l3(
+          "Nhiệt độ cao diệt được vi sinh vật trong khăn; khăn dùng một lần là lựa chọn thay thế.",
+          "High temperatures kill the microbes in the cloths; disposable cloths are the alternative.",
+          "Korkea lämpötila tuhoaa liinojen mikrobit; kertakäyttöliinat ovat vaihtoehto."
+        ),
+      },
+      {
+        q: l3("Kế hoạch tự kiểm soát dùng để làm gì?", "What is the in-house control plan for?", "Mihin omavalvontasuunnitelmaa käytetään?"),
+        options: [
+          l3("Ghi ra những nguy cơ cho sức khỏe trong tiệm và cách tiệm phòng chúng, rồi làm đúng theo đó", "Writing down the health risks in the salon and how they are prevented — and following it", "Liikkeen terveysriskien ja niiden ehkäisyn kirjaamiseen — ja sen noudattamiseen"),
+          l3("Chỉ để đưa cho thanh tra xem, ngoài ra không cần dùng", "Only to show the inspector; otherwise it isn't used", "Vain tarkastajalle näytettäväksi; muuten sitä ei käytetä"),
+          l3("Thay cho việc thông báo với thành phố", "It replaces notifying the city", "Se korvaa ilmoituksen kaupungille"),
+        ],
+        answer: 0,
+        why: l3(
+          "Kế hoạch phải được làm theo hằng ngày; danh sách kiểm tra lúc mở và đóng cửa là cách dễ nhất để nó sống.",
+          "The plan has to be followed every day; opening and closing checklists are the easiest way to keep it alive.",
+          "Suunnitelmaa on noudatettava päivittäin; avaus- ja sulkemislistat ovat helpoin tapa pitää se elävänä."
+        ),
+      },
+    ],
+  },
 
   /* ================= nails ================= */
   {
