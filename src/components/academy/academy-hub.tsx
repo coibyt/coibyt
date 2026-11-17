@@ -72,7 +72,21 @@ const TABS: { id: Audience; icon: typeof Compass }[] = [
 /** The Academy's home: who-are-you switch, level card, "keep learning",
  * every course with its lessons, badges and the certificate. `bridge` holds
  * the software lessons shown at the end of the craft track. */
-export function AcademyHub({ courses, bridge, locale }: { courses: CourseCard[]; bridge: LessonCard[]; locale: string }) {
+export function AcademyHub({
+  courses,
+  bridge,
+  locale,
+  defaultAudience = "customer",
+  embedded = false,
+}: {
+  courses: CourseCard[];
+  bridge: LessonCard[];
+  locale: string;
+  /** Tab shown before the visitor picks one (the dashboard opens on "owner" or "pro"). */
+  defaultAudience?: Audience;
+  /** Inside the business dashboard: no hero above to overlap. */
+  embedded?: boolean;
+}) {
   const s = academyStrings(locale);
   const cs = craftStrings(locale);
   const { state, update } = useAcademyProgress();
@@ -90,7 +104,7 @@ export function AcademyHub({ courses, bridge, locale }: { courses: CourseCard[];
     return () => window.removeEventListener("hashchange", fromHash);
   }, []);
 
-  const audience: Audience = picked ?? (hydrated ? state.audience : undefined) ?? "customer";
+  const audience: Audience = picked ?? (hydrated ? state.audience : undefined) ?? defaultAudience;
   const choose = (a: Audience) => {
     setPicked(a);
     update((st) => ({ ...st, audience: a }));
@@ -126,7 +140,7 @@ export function AcademyHub({ courses, bridge, locale }: { courses: CourseCard[];
     id === "first" ? Zap : id === "ace" ? Star : id === "streak3" ? Flame : id === "five" ? BookOpen : id.startsWith("grad:") ? GraduationCap : Award;
 
   return (
-    <div className="container relative -mt-10 pb-20 sm:-mt-12">
+    <div className={embedded ? "relative pb-12" : "container relative -mt-10 pb-20 sm:-mt-12"}>
       {/* who are you */}
       <div className="mx-auto grid max-w-3xl grid-cols-3 gap-1.5 rounded-[1.75rem] bg-white p-1.5 shadow-popover ring-1 ring-ink-100 sm:gap-2 sm:p-2">
         {TABS.map(({ id: a, icon: Icon }) => {

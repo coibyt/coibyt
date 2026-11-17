@@ -18,6 +18,7 @@ import { teamCounts } from "@/lib/team";
 import { teamStrings } from "@/lib/team-strings";
 import { inventoryStrings } from "@/lib/inventory-strings";
 import { profileChecklist } from "@/lib/profile-completeness";
+import { academyStrings } from "@/lib/academy/strings";
 
 export default async function BusinessDashboardLayout({
   children,
@@ -124,6 +125,8 @@ export default async function BusinessDashboardLayout({
             },
           ]
         : []),
+    // Học viện: video lessons on using VaraaAi and on the craft — for the owner and every staff member.
+    { href: "/business/dashboard/academy", label: academyStrings(locale).back },
     ...(isOwner || permissions.customers
       ? [{ href: "/business/dashboard/customers", label: t("customers") }]
       : []),
