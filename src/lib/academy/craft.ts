@@ -1671,11 +1671,253 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("noi-mong-form", "p-nail", ["Nối móng builder gel bằng form", "Builder gel extensions on forms", "Rakennegeelipidennykset muotilla"], [
-    "Đặt form khít, dựng khung móng, tạo độ cong và dũa form.",
-    "Fitting the form, building the structure, the C-curve and shaping.",
-    "Muotin asettaminen, rakenteen teko, C-kaari ja muotoilu.",
-  ]),
+  {
+    slug: "noi-mong-form-hieu-dung",
+    course: "p-nail",
+    style: "theory",
+    title: l3("Nối móng bằng form: hiểu đúng để móng dài mà không gãy", "Extensions on forms: understand them so long nails don't break", "Pidennykset muotilla: ymmärrä, niin pitkät kynnet eivät katkea"),
+    summary: l3(
+      "Nối dài móng bằng builder gel trên form: form giấy và form kim loại, vì sao form phải khít và thẳng, độ dài và sức chịu lực, cấu trúc móng nối, những lỗi hay gặp (khe hở, form chúc xuống hay vểnh lên, móng xiên, gãy ở vùng chịu lực, gel chạm da) và lịch dặm.",
+      "Builder gel extensions on forms: paper and metal forms, why the form must fit snugly and sit straight, length versus strength, the structure of an extension, common faults (gaps, a form tilted down or up, crooked nails, breaks at the stress area, gel on the skin) and infills.",
+      "Rakennegeelipidennykset muotilla: paperi- ja metallimuotit, miksi muotin on istuttava tiiviisti ja suoraan, pituus ja kestävyys, pidennyksen rakenne, yleiset virheet (rako, alas tai ylös kallistunut muotti, vino kynsi, murtuma rasitusalueelta, geeliä iholla) ja huollot."
+    ),
+    video: video("noi-mong-form-hieu-dung", 285, "2026-11-17"),
+    notice: l3(
+      "Thời gian hơ và cách dùng sản phẩm luôn theo hướng dẫn của hãng. Gel chưa chín không được chạm vào da. Móng có dấu hiệu bệnh hay da quanh móng sưng đỏ thì không làm. Quy định về sản phẩm làm móng khác nhau theo từng nước.",
+      "Cure times and product use always follow the brand's instructions. Uncured gel must never touch the skin. Don't work on nails showing signs of disease or with red, swollen skin around them. Rules on nail products differ by country.",
+      "Kovetusajat ja tuotteiden käyttö noudattavat aina valmistajan ohjeita. Kovettumaton geeli ei saa koskea ihoa. Älä työskentele kynsillä, joissa on sairauden merkkejä tai joiden ympärillä iho on punoittava ja turvonnut. Kynsituotteita koskevat määräykset vaihtelevat maittain."
+    ),
+    related: ["dich-vu", "bang-gia", "the-khach-quen"],
+    steps: [
+      l3(
+        "Form là cái khuôn tạm đặt dưới đầu móng: gel được dựng trên đó, hơ chín, rồi gỡ form ra. Form giấy dùng một lần, dễ cắt cho vừa; form kim loại giữ đường thẳng tốt, dùng lại được sau khi làm sạch và khử khuẩn.",
+        "A form is a temporary mould under the free edge: the gel is built on it, cured, and the form comes off. Paper forms are single-use and easy to trim; metal forms keep a straight line and are reused after cleaning and disinfection.",
+        "Muotti on väliaikainen alusta vapaan reunan alla: geeli rakennetaan sen päälle, kovetetaan ja muotti irrotetaan. Paperimuotit ovat kertakäyttöisiä ja helppoja leikata; metallimuotit pitävät linjan suorana ja niitä käytetään uudelleen puhdistuksen ja desinfioinnin jälkeen."
+      ),
+      l3(
+        "Form phải nối tiếp đường móng thật: nhìn từ cạnh bên đi thẳng ra từ đầu móng, nhìn từ trên xuống và từ đầu móng thẳng hàng với ngón tay. Form đặt thế nào, móng ra thế ấy.",
+        "The form must continue the line of the natural nail: straight out from the free edge seen from the side, in line with the finger seen from above and end-on. As the form sits, so the nail turns out.",
+        "Muotin on jatkettava oman kynnen linjaa: sivulta katsottuna suoraan vapaasta reunasta eteenpäin, ylhäältä ja edestä katsottuna samassa linjassa sormen kanssa. Kynsi tulee sellainen kuin muotti on asetettu."
+      ),
+      l3(
+        "Form phải khít sát dưới đầu móng. Có khe hở thì gel chảy xuống dưới, thành gờ cộm và dễ giữ bẩn, phần nối không liền với móng thật nên yếu và dễ bong. Cần thì cắt lại đường cong của form cho vừa từng khách.",
+        "The form must sit snugly under the free edge. If there is a gap, gel runs underneath, leaving a ridge that feels bulky and traps dirt, and the extension isn't bonded to the natural nail, so it is weak and lifts. Trim the form's curve to fit each customer if needed.",
+        "Muotin on istuttava tiiviisti vapaan reunan alla. Jos väliin jää rako, geeli valuu alle, jättää kohouman, johon kertyy likaa, eikä pidennys liity omaan kynteen, joten se on heikko ja irtoaa. Leikkaa muotin kaarta tarvittaessa asiakkaan mukaan."
+      ),
+      l3(
+        "Form chúc xuống làm móng cụp như cái móc; form vểnh lên làm móng hếch như cầu trượt; form lệch một bên làm móng xiên, hai cạnh không song song. Dũa sau gần như không cứu được — hãy nhìn ngón tay từ ba hướng trước khi đặt gel.",
+        "A form tilted down gives a hooked nail; tilted up gives a ski-jump; turned to one side gives a crooked nail with side walls that aren't parallel. Filing can hardly fix it afterwards — check the finger from three directions before applying gel.",
+        "Alaspäin kallistunut muotti tekee kynnestä koukkumaisen, ylöspäin kallistunut hyppyrimäen muotoisen ja sivuun kääntynyt vinon kynnen, jonka sivuseinät eivät ole yhdensuuntaiset. Viilaus ei juuri korjaa tätä — tarkista sormi kolmesta suunnasta ennen geeliä."
+      ),
+      l3(
+        "Phần nối càng dài, lực dồn về vùng chịu lực (chỗ móng thật rời khỏi nền da) càng lớn. Chọn độ dài hợp với móng thật và công việc hằng ngày của khách; lần đầu nên vừa phải. Móng cắn sát, gần như không còn đầu móng, thì form khó tựa.",
+        "The longer the extension, the more force on the stress area (where the natural nail leaves the nail bed). Choose a length that suits the customer's natural nail and daily work; keep the first set moderate. Bitten nails with almost no free edge give the form little to rest on.",
+        "Mitä pidempi pidennys, sitä suurempi voima kohdistuu rasitusalueelle (kohtaan, jossa oma kynsi irtoaa kynsipedistä). Valitse pituus asiakkaan oman kynnen ja arjen mukaan; ensimmäisellä kerralla maltillinen. Pureskelluissa kynsissä, joissa vapaata reunaa ei juuri ole, muotilla ei ole tukea."
+      ),
+      l3(
+        "Cấu trúc như bài lý thuyết builder gel: mỏng ở chân móng, mỏng ở đầu móng, dày nhất ở điểm apex trên vùng chịu lực, độ cong chữ C đều hai bên, hai cạnh bên thẳng và song song. Với móng nối, apex còn phải gánh cả phần móng dài.",
+        "The structure is as in the builder gel theory lesson: thin at the cuticle, thin at the free edge, thickest at the apex over the stress area, an even C-curve, straight parallel side walls. On an extension the apex also carries the whole extended part.",
+        "Rakenne on sama kuin rakennegeelin teoriatunnilla: ohut kynsinauhan kohdalla, ohut vapaassa reunassa, paksuin apexissa rasitusalueen päällä, tasainen C-kaari, suorat ja yhdensuuntaiset sivuseinät. Pidennyksessä apex kantaa lisäksi koko pidennetyn osan."
+      ),
+      l3(
+        "Đầu móng nên mỏng và thanh nhưng không mỏng như giấy (người trong nghề hay ví: dày chừng tấm thẻ ngân hàng); chỗ phần nối gặp móng thật phải liền, không có bậc.",
+        "The free edge should be thin and fine but not paper-thin (in the trade it's often compared to a bank card); where the extension meets the natural nail there should be no step.",
+        "Vapaan reunan tulee olla ohut ja siro mutta ei paperinohut (alalla sitä verrataan usein pankkikorttiin); pidennyksen ja oman kynnen liitoskohdassa ei saa olla porrasta."
+      ),
+      l3(
+        "Gãy ngang ở vùng chịu lực sau vài ngày thường là vì móng phẳng và mỏng đều, không có apex: gel đủ nhưng không nằm đúng chỗ. Sửa bằng cách đặt gel đúng chỗ, không phải đắp dày cả móng.",
+        "A break across the stress area after a few days usually means a flat, evenly thin nail without an apex: enough gel, but not in the right place. Fix it by placing the gel correctly, not by making the whole nail thick.",
+        "Murtuma rasitusalueen poikki muutaman päivän jälkeen johtuu yleensä litteästä, tasaisen ohuesta kynnestä ilman apexia: geeliä on tarpeeksi, mutta väärässä paikassa. Korjaa sijoittamalla geeli oikein, ei paksuntamalla koko kynttä."
+      ),
+      l3(
+        "Gel chưa chín không chạm da (chân móng, khóe, hay chảy qua mép form xuống đầu ngón): chừa khe nhỏ như sợi tóc, lỡ dính thì lau trước khi hơ. Bật máy hút bụi khi dũa và hơ đủ thời gian của hãng. Dặm thường sau 3–4 tuần.",
+        "Uncured gel never on the skin (cuticle, side walls, or running over the edge of the form onto the fingertip): keep a hair-thin gap and wipe any spill before curing. Use dust extraction when filing and cure for the brand's full time. Infills usually every 3–4 weeks.",
+        "Kovettumatonta geeliä ei iholle (kynsinauha, sivuvallit tai muotin reunan yli sormenpäähän): jätä hiuksenohut rako ja pyyhi roiskeet ennen kovetusta. Käytä kohdepoistoa viilatessa ja kovete valmistajan koko ajan. Huolto yleensä 3–4 viikon välein."
+      ),
+    ],
+    tips: [
+      l3(
+        "Kiểm tra form từ ba hướng — cạnh bên, trên xuống, đầu móng — chỉ mất vài giây nhưng cứu được cả bộ móng.",
+        "Checking the form from three directions — side, top and end-on — takes seconds and saves the whole set.",
+        "Muotin tarkistaminen kolmesta suunnasta — sivulta, ylhäältä ja edestä — vie sekunteja ja pelastaa koko kynsisetin."
+      ),
+      l3(
+        "Trong VaraaAi, tách “nối móng mới” và “dặm móng nối” thành hai dịch vụ với thời lượng riêng, để lịch hẹn không bị dồn.",
+        "In VaraaAi, set up a new extension set and an infill as two services with their own durations so the calendar doesn't get squeezed.",
+        "VaraaAi:ssa kannattaa luoda uusi pidennyssetti ja huolto kahdeksi eri palveluksi omilla kestoillaan, jotta kalenteri ei ruuhkaudu."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Giữa đầu móng và form còn một khe hở nhỏ. Điều gì dễ xảy ra?", "There is a small gap between the free edge and the form. What is likely to happen?", "Vapaan reunan ja muotin väliin jää pieni rako. Mitä todennäköisesti tapahtuu?"),
+        options: [
+          l3("Không sao, gel sẽ tự lấp đầy và chắc hơn", "Nothing — the gel fills it and makes it stronger", "Ei mitään — geeli täyttää sen ja vahvistaa"),
+          l3("Móng sẽ dài hơn dự định", "The nail turns out longer than planned", "Kynnestä tulee suunniteltua pidempi"),
+          l3("Gel chảy xuống dưới, phần nối yếu và dễ bong", "Gel runs underneath and the extension is weak and lifts", "Geeli valuu alle, ja pidennys on heikko ja irtoaa"),
+        ],
+        answer: 2,
+        why: l3(
+          "Form phải khít sát dưới đầu móng để phần nối liền với móng thật.",
+          "The form must sit snugly under the free edge so the extension bonds with the natural nail.",
+          "Muotin on istuttava tiiviisti vapaan reunan alla, jotta pidennys liittyy omaan kynteen."
+        ),
+      },
+      {
+        q: l3("Form bị vểnh lên so với đường móng thì móng nối sẽ thế nào?", "If the form tilts upwards from the nail line, what does the extension look like?", "Jos muotti kallistuu ylöspäin kynnen linjasta, millainen pidennyksestä tulee?"),
+        options: [
+          l3("Hếch lên như cầu trượt tuyết", "It turns up like a ski jump", "Se kääntyy ylös kuin hyppyrimäki"),
+          l3("Cụp xuống như cái móc", "It hooks down like a claw", "Se kaartuu alas kuin koukku"),
+          l3("Không ảnh hưởng gì, dũa lại là được", "No effect — filing fixes it", "Ei vaikutusta — viilaus korjaa sen"),
+        ],
+        answer: 0,
+        why: l3(
+          "Gel đi theo form; cái sai nằm trong cả khung móng nên dũa sau gần như không cứu được.",
+          "The gel follows the form; the fault is in the whole structure, so filing can hardly fix it.",
+          "Geeli seuraa muottia; virhe on koko rakenteessa, joten viilaus ei juuri korjaa sitä."
+        ),
+      },
+      {
+        q: l3("Móng nối hay gãy ngang ở vùng chịu lực. Nguyên nhân thường gặp là gì?", "Extensions keep breaking across the stress area. What is the usual cause?", "Pidennykset katkeavat toistuvasti rasitusalueen poikki. Mikä on tavallinen syy?"),
+        options: [
+          l3("Đầu móng quá mỏng", "The free edge is too thin", "Vapaa reuna on liian ohut"),
+          l3("Không có apex: gel mỏng ngay chỗ cần dày nhất", "No apex: the gel is thin exactly where it should be thickest", "Ei apexia: geeli on ohut juuri siellä, missä sen pitäisi olla paksuin"),
+          l3("Hơ đèn quá lâu", "Curing for too long", "Liian pitkä kovetus"),
+        ],
+        answer: 1,
+        why: l3(
+          "Apex nằm trên vùng chịu lực và gánh phần nối; độ dài cũng phải hợp với móng thật của khách.",
+          "The apex sits over the stress area and carries the extension; the length must also suit the customer's natural nail.",
+          "Apex on rasitusalueen päällä ja kantaa pidennyksen; myös pituuden on sovittava asiakkaan omaan kynteen."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "noi-mong-form",
+    course: "p-nail",
+    style: "practice",
+    title: l3("Nối móng bằng form: thực hành từng bước", "Extensions on forms: step-by-step practice", "Pidennykset muotilla: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Nối dài móng bằng builder gel trên form, từng bước: tư vấn và chọn độ dài, chuẩn bị khô, cắt và gắn form khít, kiểm tra từ ba hướng, lớp lót mỏng, dựng phần nối trên form, lớp phủ và apex, gỡ form, dũa hoàn thiện, màu và top, dầu dưỡng, dặn dò và hẹn lịch dặm.",
+      "A builder gel extension on a form, step by step: consultation and choosing the length, dry prep, trimming and fitting the form snugly, checking from three directions, a thin base layer, building the extension on the form, the overlay and apex, removing the form, finish filing, colour and top coat, oil, aftercare and booking the infill.",
+      "Rakennegeelipidennys muotilla vaihe vaiheelta: konsultaatio ja pituuden valinta, kuiva esikäsittely, muotin leikkaus ja tiivis asettaminen, tarkistus kolmesta suunnasta, ohut pohjakerros, pidennyksen rakentaminen muotille, päällyste ja apex, muotin irrotus, viimeistelyviilaus, väri ja päällyslakka, öljy, kotihoito-ohjeet ja huoltoajan varaus."
+    ),
+    video: video("noi-mong-form", 285, "2026-11-17"),
+    notice: l3(
+      "Thời gian hơ, chế độ đèn và cách làm lớp lót (hơ hay không hơ) luôn theo hướng dẫn của hãng. Gel không được chạm vào da. Khách thấy nóng rát thì rút tay ra vài giây rồi hơ tiếp cho đủ. Quy định về sản phẩm làm móng khác nhau theo từng nước.",
+      "Cure times, lamp mode and how the base layer is handled (cured or not) always follow the brand's instructions. Gel must never touch the skin. If the customer feels burning heat, take the hand out for a few seconds, then finish the cure. Rules on nail products differ by country.",
+      "Kovetusajat, lampun tila ja pohjakerroksen käsittely (kovetetaanko vai ei) noudattavat aina valmistajan ohjeita. Geeli ei saa koskea ihoa. Jos asiakas tuntee polttavaa kuumuutta, ota käsi pois muutamaksi sekunniksi ja jatka sitten kovetusta loppuun. Kynsituotteita koskevat määräykset vaihtelevat maittain."
+    ),
+    related: ["dich-vu", "lich-hen", "khach-hang"],
+    steps: [
+      l3(
+        "Tư vấn và kiểm tra: rửa và sát khuẩn tay, xem móng và da quanh móng (móng tách, đổi màu, da sưng đỏ, có mủ, vết thương hở: không làm, khuyên đi khám), hỏi về phản ứng với gel trước đây, chọn độ dài và dáng hợp với móng thật và công việc của khách (lần đầu nên vừa phải), nói trước lịch dặm 3–4 tuần.",
+        "Consultation and checks: wash and disinfect hands, look at nails and skin (lifting, discolouration, swollen red skin, pus, open wounds: don't work, suggest a doctor), ask about earlier reactions to gel, choose a length and shape that suit the natural nail and the customer's work (moderate for a first set), mention the 3–4-week infill up front.",
+        "Konsultaatio ja tarkistus: pese ja desinfioi kädet, katso kynnet ja iho (irtoaminen, värimuutos, turvonnut punoittava iho, märkä, avohaava: älä tee, ohjaa lääkäriin), kysy aiemmista geelireaktioista, valitse pituus ja muoto oman kynnen ja asiakkaan työn mukaan (ensimmäisellä kerralla maltillinen) ja kerro 3–4 viikon huoltovälistä jo alussa."
+      ),
+      l3(
+        "Chuẩn bị khô như bài sơn gel và bài builder gel; dũa ngắn đầu móng thật nhưng chừa lại một chút để form tựa vào. Sau đó không chạm tay vào mặt móng.",
+        "Dry prep as in the gel polish and builder gel lessons; shorten the natural free edge but leave a little for the form to rest against. Don't touch the nail plate afterwards.",
+        "Kuiva esikäsittely kuten geelilakka- ja rakennegeelitunneilla; lyhennä omaa vapaata reunaa, mutta jätä vähän muotin tueksi. Älä koske kynsilevyyn sen jälkeen."
+      ),
+      l3(
+        "Chuẩn bị form: ướm dưới đầu móng, cắt lại đường cong nếu chưa khớp để form ôm sát, không hở.",
+        "Prepare the form: try it under the free edge and trim its curve if needed so it hugs the nail with no gap.",
+        "Valmistele muotti: sovita se vapaan reunan alle ja leikkaa kaarta tarvittaessa, jotta se istuu tiiviisti ilman rakoa."
+      ),
+      l3(
+        "Gắn form: luồn dưới đầu móng, đẩy cho khít; nhìn từ trên xuống (thẳng hàng với ngón tay, giữa móng), từ đầu móng (nằm ngang, không nghiêng) và từ cạnh bên (nối tiếp đường móng, không chúc xuống, không vểnh lên); rồi bóp hai đuôi form dưới ngón tay. Lúc mới học, làm từng ngón một; ngón cái thường làm riêng.",
+        "Fit the form: slide it under the free edge until snug; check from above (in line with the finger, centred), end-on (level, not tilted) and from the side (continuing the nail line, not dipping, not lifting); then pinch the form's tails together under the finger. While learning, do one finger at a time; thumbs are usually done separately.",
+        "Aseta muotti: liu'uta se vapaan reunan alle tiiviisti; tarkista ylhäältä (samassa linjassa sormen kanssa, keskellä), edestä (vaakasuorassa, ei kallellaan) ja sivulta (jatkaa kynnen linjaa, ei laske eikä nouse); purista sitten muotin hännät yhteen sormen alla. Opetteluvaiheessa yksi sormi kerrallaan; peukalot tehdään yleensä erikseen."
+      ),
+      l3(
+        "Lớp lót thật mỏng: ấn và chà nhẹ một chút gel vào mặt móng, gạt bớt phần thừa, chừa một đường nhỏ cách da; hơ hoặc để ướt đúng như hướng dẫn của hãng.",
+        "A very thin base layer: work a little gel into the nail plate, remove the excess and keep a tiny gap from the skin; cure it or leave it wet exactly as the brand says.",
+        "Hyvin ohut pohjakerros: hiero vähän geeliä kynsilevyyn, poista ylimäärä ja jätä pieni rako ihoon; kovete tai jätä märäksi valmistajan ohjeen mukaan."
+      ),
+      l3(
+        "Dựng phần nối trên form: đặt gel ngay trước mép móng thật, dàn mỏng trên form thành phần móng dài, liền với mép móng thật; tạo luôn độ dài, dáng đầu móng và hai cạnh thẳng nối tiếp cạnh móng thật; gel không tràn qua mép form. Hơ theo thời gian của hãng.",
+        "Build the extension on the form: place gel right in front of the natural free edge and spread it thinly over the form into the extension, joined to the free edge; set the length, tip shape and straight side walls that continue the natural ones now; don't let gel run over the edge of the form. Cure for the brand's time.",
+        "Rakenna pidennys muotille: aseta geeli heti oman vapaan reunan eteen ja levitä se ohueksi pidennykseksi muotille, liitettynä vapaaseen reunaan; muotoile pituus, kärki ja suorat sivuseinät oman kynnen jatkeeksi; geeli ei saa valua muotin reunan yli. Kovete valmistajan ajan."
+      ),
+      l3(
+        "Lớp phủ và apex: đặt một hạt gel ở vùng chịu lực, dẫn nhẹ về chân móng và dừng cách da như sợi tóc, rồi ra hai cạnh và hết phần nối, bọc kín đầu móng. Úp tay khách vài giây, kiểm tra từ cạnh bên và từ đầu móng, sửa khi gel còn ướt, rồi hơ đủ; lau lớp dính nếu có.",
+        "Overlay and apex: place a bead of gel over the stress area, float it towards the cuticle and stop a hair's width from the skin, then out to the side walls and over the whole extension, capping the tip. Turn the hand over for a few seconds, check from the side and end-on, correct while wet, then cure fully; remove the sticky layer if there is one.",
+        "Päällyste ja apex: aseta geelipisara rasitusalueelle, ohjaa sitä kynsinauhaa kohti ja pysähdy hiuksen paksuisen raon päähän ihosta, sitten sivuille ja koko pidennyksen yli kärki suljettuna. Käännä käsi hetkeksi alaspäin, tarkista sivulta ja edestä, korjaa märkänä ja kovete kunnolla; poista tahmakerros, jos sellainen jää."
+      ),
+      l3(
+        "Gỡ form: nới hai đuôi, kéo form xuống dưới, không bẻ ngược lên. Mặt dưới phần nối phải phẳng, sạch, liền với móng thật; có gờ gel thì dũa nhẹ cho sạch và lần sau đặt form khít hơn.",
+        "Remove the form: loosen the tails and pull the form downwards, never bend it back up. The underside of the extension should be flat, clean and joined to the natural nail; file away any gel ridge and fit the form more snugly next time.",
+        "Irrota muotti: löysää hännät ja vedä muotti alaspäin, älä taivuta sitä ylös. Pidennyksen alapinnan tulee olla tasainen, puhdas ja liittyä omaan kynteen; viilaa mahdollinen geeliharjanne pois ja aseta muotti seuraavalla kerralla tiiviimmin."
+      ),
+      l3(
+        "Dũa hoàn thiện với máy hút bụi và khẩu trang: dũa 180 tạo dáng đầu móng và hai cạnh thẳng, song song; dũa mặt móng mịn, giữ apex; ở chân móng dũa mỏng cho liền mà không dũa vào móng thật. Phủi bụi bằng chổi, lau sạch, rồi nhìn lại từ ba hướng cho các móng đều nhau.",
+        "Finish filing with dust extraction and a mask: a 180 file to shape the tip and straight, parallel side walls; smooth the surface while keeping the apex; blend thinly at the cuticle without filing into the natural nail. Brush off the dust, wipe, then check from three directions that all nails match.",
+        "Viimeistelyviilaus kohdepoiston ja maskin kanssa: 180-viilalla kärki ja suorat, yhdensuuntaiset sivuseinät; tasoita pinta apex säilyttäen; ohenna kynsinauhan kohdalta viilaamatta omaa kynttä. Harjaa pöly, pyyhi ja tarkista kolmesta suunnasta, että kaikki kynnet ovat samanlaiset."
+      ),
+      l3(
+        "Màu (nếu muốn) sơn mỏng như bài sơn gel, top bọc qua mép đầu móng và hơ đủ, rồi dầu dưỡng. Dặn khách: đừng cạy, đeo găng khi rửa chén, mấy ngày đầu cẩn thận với độ dài mới, hở hay nứt thì quay lại tiệm; hẹn dặm sau 3–4 tuần. Form giấy bỏ vào thùng rác có nắp; form kim loại làm sạch và khử khuẩn trước khi dùng lại.",
+        "Colour (if wanted) thinly as in the gel polish lesson, top coat capping the free edge and cured fully, then oil. Tell the customer: don't pick, wear gloves for washing up, take care with the new length for the first days, come back if it lifts or cracks; book the infill in 3–4 weeks. Paper forms go in a lidded bin; metal forms are cleaned and disinfected before reuse.",
+        "Väri (halutessa) ohuesti kuten geelilakkatunnilla, päällyslakka vapaan reunan yli ja kunnollinen kovetus, sitten öljy. Kerro asiakkaalle: älä nypi, käytä käsineitä tiskatessa, varo uutta pituutta ensimmäisinä päivinä ja tule takaisin, jos kynsi irtoaa tai halkeaa; varaa huolto 3–4 viikon päähän. Paperimuotit kannelliseen roska-astiaan; metallimuotit puhdistetaan ja desinfioidaan ennen uudelleenkäyttöä."
+      ),
+    ],
+    tips: [
+      l3(
+        "Dựng phần nối mỏng như một tấm nền; độ chắc đến từ lớp phủ có apex đúng chỗ, không phải từ một lớp thật dày.",
+        "Build the extension layer thin, like a base; strength comes from the overlay with a well-placed apex, not from one thick layer.",
+        "Rakenna pidennyskerros ohueksi kuin pohja; lujuus tulee päällysteestä ja oikein sijoitetusta apexista, ei yhdestä paksusta kerroksesta."
+      ),
+      l3(
+        "Trong VaraaAi, khi khách thanh toán, đặt luôn lịch dặm 3–4 tuần sau và ghi độ dài, dáng móng vào ghi chú của khách để lần sau làm giống hệt.",
+        "In VaraaAi, book the 3–4-week infill as the customer pays and note the length and shape in the customer's notes so next time matches exactly.",
+        "VaraaAi:ssa varaa 3–4 viikon huolto heti maksun yhteydessä ja kirjaa pituus ja muoto asiakkaan muistiinpanoihin, jotta seuraava kerta onnistuu samanlaisena."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Gắn form xong, bạn kiểm tra thế nào trước khi đặt gel?", "After fitting the form, how do you check it before applying gel?", "Miten tarkistat muotin ennen geelin levittämistä?"),
+        options: [
+          l3("Chỉ cần nhìn từ trên xuống", "Looking from above is enough", "Ylhäältä katsominen riittää"),
+          l3("Không cần kiểm tra, dũa sau sẽ sửa", "No need — filing will fix it later", "Ei tarvitse — viilaus korjaa myöhemmin"),
+          l3("Nhìn từ trên xuống, từ đầu móng và từ cạnh bên", "From above, end-on and from the side", "Ylhäältä, edestä ja sivulta"),
+        ],
+        answer: 2,
+        why: l3(
+          "Form lệch hay nghiêng làm cả khung móng sai; kiểm tra ba hướng chỉ mất vài giây.",
+          "A form that is turned or tilted makes the whole structure wrong; checking three directions takes seconds.",
+          "Kääntynyt tai kallistunut muotti tekee koko rakenteesta väärän; kolmen suunnan tarkistus vie sekunteja."
+        ),
+      },
+      {
+        q: l3("Gỡ form thế nào cho đúng?", "How do you remove the form correctly?", "Miten muotti irrotetaan oikein?"),
+        options: [
+          l3("Nới hai đuôi rồi kéo form xuống dưới", "Loosen the tails and pull the form downwards", "Löysää hännät ja vedä muotti alaspäin"),
+          l3("Bẻ form ngược lên phía trên", "Bend the form back upwards", "Taivuta muotti ylöspäin"),
+          l3("Gỡ ngay khi gel còn ướt", "Remove it while the gel is still wet", "Irrota se geelin ollessa vielä märkää"),
+        ],
+        answer: 0,
+        why: l3(
+          "Gel phải chín hẳn trước; bẻ ngược lên có thể làm nứt hay bong phần nối.",
+          "The gel must be fully cured first; bending the form upwards can crack or lift the extension.",
+          "Geelin on oltava täysin kovettunut; ylöspäin taivuttaminen voi halkaista tai irrottaa pidennyksen."
+        ),
+      },
+      {
+        q: l3("Đặt hạt gel tạo apex ở đâu?", "Where do you place the bead that forms the apex?", "Mihin apexin muodostava geelipisara asetetaan?"),
+        options: [
+          l3("Sát chân móng, chạm da", "Right at the cuticle, touching the skin", "Kynsinauhan viereen ihoa koskettaen"),
+          l3("Ở vùng chịu lực, chỗ móng thật rời khỏi nền da", "Over the stress area, where the natural nail leaves the nail bed", "Rasitusalueelle, kohtaan jossa oma kynsi irtoaa kynsipedistä"),
+          l3("Ở mép ngoài cùng của phần nối", "At the very end of the extension", "Pidennyksen uloimpaan reunaan"),
+        ],
+        answer: 1,
+        why: l3(
+          "Apex nằm trên vùng chịu lực để gánh phần móng dài; chân móng và đầu móng phải mỏng.",
+          "The apex sits over the stress area to carry the extension; the cuticle area and the tip stay thin.",
+          "Apex on rasitusalueen päällä kantamassa pidennystä; kynsinauhan alue ja kärki pysyvät ohuina."
+        ),
+      },
+    ],
+  },
   {
     slug: "dap-bot-hieu-dung",
     course: "p-nail",
