@@ -1587,11 +1587,258 @@ const ALL_LESSONS: Lesson[] = [
     "Allergy history, patch test, eye pads, cleansing the lashes and setting up your station.",
     "Allergiahistoria, ihotesti, silmälaput, ripsien puhdistus ja työpisteen valmistelu.",
   ]),
-  soon("mi-classic", "p-lash", ["Nối mi classic 1:1", "Classic 1:1 lashes", "Klassiset 1:1-ripset"], [
-    "Tách một sợi mi thật, lấy keo, gắn cách mí 0,5–1 mm và kiểm tra dính chùm.",
-    "Isolating one natural lash, picking up glue, placing 0.5–1 mm from the lid and checking for stickies.",
-    "Yhden luomuripsen eristys, liiman otto, kiinnitys 0,5–1 mm luomesta ja tarttumien tarkistus.",
-  ]),
+  {
+    slug: "mi-classic-hieu-dung",
+    course: "p-lash",
+    style: "theory",
+    title: l3("Nối mi classic: hiểu đúng để mi đẹp và mi thật khoẻ", "Classic lashes: understand them for beautiful lashes and healthy natural lashes", "Klassiset ripsienpidennykset: ymmärrä, niin ripset ovat kauniit ja omat ripset terveet"),
+    summary: l3(
+      "Vòng đời của sợi mi thật và vì sao mi nối rụng theo, nguyên tắc một sợi nối cho một sợi mi và vì sao dính chùm làm hại mi, chọn độ dài, độ dày, độ cong vừa sức mi thật, gắn cách da mí, keo nối mi và độ ẩm, tư vấn, dặn dò, và nói thật với khách classic trông như thế nào.",
+      "The growth cycle of the natural lash and why extensions shed with it, one extension per natural lash and why stickies harm the lashes, choosing length, thickness and curl the natural lash can carry, placement away from the lid, lash adhesive and humidity, consultation, aftercare, and an honest talk about what classic looks like.",
+      "Luonnollisen ripsen kasvusykli ja miksi pidennys irtoaa sen mukana, yksi pidennys yhteen omaan ripseen ja miksi yhteen liimautuneet ripset vahingoittavat, pituus, paksuus ja taivutus oman ripsen kantokyvyn mukaan, kiinnitys irti luomesta, ripsiliima ja kosteus, konsultaatio, jälkihoito sekä rehellinen puhe siitä, miltä klassiset ripset näyttävät."
+    ),
+    video: video("mi-classic-hieu-dung", 317, "2026-11-17"),
+    notice: l3(
+      "Thời gian giữ khô, độ ẩm và nhiệt độ phòng luôn theo hướng dẫn của hãng keo. Mắt đỏ, ngứa, sưng, có lẹo, mới mổ mắt hay khách từng phản ứng với keo thì không làm. Bài này là tài liệu đào tạo, không thay cho chứng chỉ nghề; quy định khác nhau theo từng nước.",
+      "Keep-dry times, room humidity and temperature always follow the adhesive maker's instructions. Do not work on red, itchy or swollen eyes, a stye, after recent eye surgery, or on a customer who has reacted to lash glue. This lesson is a training aid, not a qualification; rules differ by country.",
+      "Kastelukielto, huoneen kosteus ja lämpötila noudattavat aina liiman valmistajan ohjeita. Älä tee ripsiä punoittaviin, kutiaviin tai turvonneisiin silmiin, näärännäpyn kanssa, tuoreen silmäleikkauksen jälkeen tai asiakkaalle, joka on reagoinut ripsiliimaan. Tämä tunti on koulutusmateriaalia eikä korvaa ammattitutkintoa; määräykset vaihtelevat maittain."
+    ),
+    related: ["dich-vu", "lich-hen", "khach-hang"],
+    steps: [
+      l3(
+        "Mi thật có vòng đời ba giai đoạn: mọc (thường khoảng một tháng đến sáu tuần), chuyển tiếp (vài tuần) và nghỉ (vài tháng), rồi rụng và sợi mới mọc thay. Con số khác nhau theo từng người; trên một mí lúc nào cũng có sợi đang mọc, đang nghỉ và sắp rụng.",
+        "The natural lash has a three-phase cycle: growth (usually about a month to six weeks), transition (a few weeks) and rest (several months), then it sheds and a new lash grows in. The figures vary from person to person; on every lid some lashes are growing, some resting and some about to shed.",
+        "Luonnollisella ripsellä on kolmivaiheinen kasvusykli: kasvu (yleensä noin kuukaudesta kuuteen viikkoon), siirtymä (muutama viikko) ja lepo (useita kuukausia), minkä jälkeen ripsi irtoaa ja tilalle kasvaa uusi. Luvut vaihtelevat yksilöllisesti; jokaisessa luomessa osa ripsistä kasvaa, osa lepää ja osa on irtoamassa."
+      ),
+      l3(
+        "Mỗi ngày rụng vài sợi mi là bình thường, và sợi nối rụng theo sợi mi thật. Sợi rụng tự nhiên có chân nhỏ màu nhạt ở gốc. Vì vậy khách cần dặm mi, thường sau 2–3 tuần.",
+        "Losing a few lashes a day is normal, and the extension sheds with its natural lash. A naturally shed lash has a small pale bulb at its root. That is why customers need refills, usually every 2–3 weeks.",
+        "Muutaman ripsen irtoaminen päivässä on normaalia, ja pidennys irtoaa oman ripsen mukana. Luonnollisesti irronneen ripsen tyvessä on pieni vaalea juuri. Siksi asiakas tarvitsee huollon, yleensä 2–3 viikon välein."
+      ),
+      l3(
+        "Sợi mi non, rất ngắn và mảnh, chưa đỡ được sợi nối dài và dày: để lại cho lần dặm sau hoặc chọn sợi thật ngắn, thật nhẹ.",
+        "Young lashes, very short and fine, cannot carry a long, thick extension: leave them for the next refill or choose a very short, light one.",
+        "Nuori, hyvin lyhyt ja ohut ripsi ei kanna pitkää ja paksua pidennystä: jätä se seuraavaan huoltoon tai valitse hyvin lyhyt ja kevyt pidennys."
+      ),
+      l3(
+        "Nguyên tắc của classic: một sợi nối cho một sợi mi thật, tách riêng từng sợi. Hai sợi mi dính vào nhau (dính chùm) mọc và rụng theo hai lịch khác nhau, nên bị kéo căng: khách thấy cộm và mi thật có thể bị kéo rụng sớm.",
+        "The classic rule: one extension on one natural lash, every lash isolated. Two lashes glued together (a sticky) grow and shed on different schedules, so they pull on each other: the customer feels it and the natural lash can be pulled out early.",
+        "Klassisten ripsien sääntö: yksi pidennys yhteen omaan ripseen, jokainen ripsi erotettuna. Yhteen liimautuneet ripset kasvavat ja irtoavat eri tahtiin, joten ne kiristävät toisiaan: asiakas tuntee sen ja oma ripsi voi irrota ennenaikaisesti."
+      ),
+      l3(
+        "Chọn sợi nối vừa sức mi thật: không dài hơn quá nhiều, không dày hơn, không nặng hơn sức nó chịu được. Mi thật mảnh và ngắn thì chọn sợi mảnh và ngắn hơn; độ cong theo dáng mắt và hướng mọc của mi.",
+        "Choose an extension the natural lash can carry: not much longer, not thicker and not heavier than it can bear. Fine, short natural lashes need finer, shorter extensions; the curl follows the eye shape and the direction the lashes grow.",
+        "Valitse pidennys, jonka oma ripsi jaksaa kantaa: ei paljon pidempi, ei paksumpi eikä painavampi kuin se kestää. Ohuille ja lyhyille ripsille ohuempi ja lyhyempi pidennys; taivutus silmän muodon ja ripsien kasvusuunnan mukaan."
+      ),
+      l3(
+        "Gắn dọc theo sợi mi thật, chân sợi nối cách da mí khoảng 0,5–1 mm, không bao giờ chạm da. Sát quá: cộm, ngứa, kích ứng và kéo mi khi mọc; xa quá: lỏng và rụng sớm.",
+        "Attach along the natural lash, the base of the extension about 0.5–1 mm from the eyelid skin, never touching it. Too close: discomfort, itching, irritation and pulling as the lash grows; too far: loose and early shedding.",
+        "Kiinnitä oman ripsen suuntaisesti, pidennyksen tyvi noin 0,5–1 mm:n päähän luomen ihosta, ei koskaan ihoon. Liian lähellä: hankausta, kutinaa, ärsytystä ja vetoa ripsen kasvaessa; liian kaukana: löysä ja irtoaa aikaisin."
+      ),
+      l3(
+        "Keo nối mi là cyanoacrylate, khô nhờ hơi ẩm trong không khí. Giữ phòng trong khoảng độ ẩm và nhiệt độ hãng keo ghi: quá khô thì keo khô chậm, bay hơi nhiều; quá ẩm thì khô quá nhanh, mối dính giòn.",
+        "Lash adhesive is cyanoacrylate and cures with moisture in the air. Keep the room within the humidity and temperature range the adhesive maker gives: too dry and it cures slowly with more fumes; too humid and it cures too fast into a brittle bond.",
+        "Ripsiliima on syanoakrylaattia, joka kovettuu ilman kosteudesta. Pidä huone liiman valmistajan ilmoittamalla kosteus- ja lämpötila-alueella: liian kuiva ilma hidastaa kovettumista ja lisää höyryjä, liian kostea nopeuttaa sitä ja sidos haurastuu."
+      ),
+      l3(
+        "Giọt keo nhỏ, đậy nắp chai ngay, thay giọt mới thường xuyên, chỉ nhúng phần chân sợi nối. Hơi keo làm cay mắt và có thể gây dị ứng: mắt khách nhắm kín suốt buổi (xem bài Dị ứng và hoá chất).",
+        "A small drop, the bottle closed straight away, a fresh drop often, and only the base of the extension dipped. Adhesive vapour stings and can sensitise: the customer's eyes stay closed the whole time (see the lesson on allergies and chemicals).",
+        "Pieni tippa, pullo heti kiinni, uusi tippa usein ja vain pidennyksen tyvi liimaan. Liimahöyry kirvelee ja voi herkistää: asiakkaan silmät pysyvät kiinni koko ajan (katso tunti allergioista ja kemikaaleista)."
+      ),
+      l3(
+        "Tư vấn kỹ: kiểu khách muốn, kính áp tròng, bơi, xông hơi, dụi mắt, ngủ úp mặt. Dặn trước: giữ khô theo thời gian hãng keo khuyên, không dùng sản phẩm có dầu ở chân mi, chải mi mỗi ngày, không dụi, không tự nhổ.",
+        "Consult properly: the look the customer wants, contact lenses, swimming, sauna, eye rubbing, sleeping face down. Tell them up front: keep dry for the time the adhesive maker advises, no oil-based products at the lash base, brush daily, no rubbing, no picking.",
+        "Konsultoi huolellisesti: toivottu tyyli, piilolinssit, uinti, sauna, silmien hierominen, vatsallaan nukkuminen. Kerro etukäteen: pidä kuivana liiman valmistajan ohjeen ajan, ei öljypohjaisia tuotteita ripsien tyveen, kampaa päivittäin, älä hiero äläkä nypi."
+      ),
+      l3(
+        "Nói thật: classic cho vẻ tự nhiên như chải mascara; mi thật thưa thì classic vẫn thưa, chỉ dài và đen hơn. Muốn dày và đậm là volume hay hybrid. Đừng gắn sợi quá dày, quá dài để khách vui — người trả giá là mi thật của khách.",
+        "Be honest: classic gives a natural, mascara-like look; sparse natural lashes stay sparse, only longer and darker. Fuller and darker means volume or hybrid. Never put on extensions that are too thick or too long to please a customer — their natural lashes pay the price.",
+        "Ole rehellinen: klassiset ripset antavat luonnollisen, ripsivärimäisen ilmeen; harvat omat ripset pysyvät harvoina, vain pidempinä ja tummempina. Tuuheampi ja tummempi ilme tarkoittaa volyymi- tai hybridiripsiä. Älä laita liian paksuja tai pitkiä pidennyksiä asiakkaan mieliksi — hinnan maksavat hänen omat ripsensä."
+      ),
+    ],
+    tips: [
+      l3(
+        "Ghi vào sổ khách hàng độ dài, độ dày, độ cong và hãng keo đã dùng cho từng khách: lần dặm sau làm nhanh và đều hơn.",
+        "Note the lengths, thickness, curl and adhesive you used in each customer's record: the next refill is quicker and more consistent.",
+        "Merkitse asiakaskorttiin käytetyt pituudet, paksuus, taivutus ja liima: seuraava huolto on nopeampi ja tasaisempi."
+      ),
+      l3(
+        "Khi đặt lịch, chọn thời lượng đủ cho một bộ classic đầy đủ (thường 1,5–2 giờ) để không phải làm vội.",
+        "When booking, allow enough time for a full classic set (often 1.5–2 hours) so you never have to rush.",
+        "Varaa täydelle klassiselle setille riittävästi aikaa (usein 1,5–2 tuntia), ettei työtä tarvitse kiirehtiä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Vì sao khách cần dặm mi sau khoảng 2–3 tuần?", "Why does a customer need a refill after about 2–3 weeks?", "Miksi asiakas tarvitsee huollon noin 2–3 viikon kuluttua?"),
+        options: [
+          l3("Vì keo hết hạn sau hai tuần", "Because the glue expires after two weeks", "Koska liima vanhenee kahdessa viikossa"),
+          l3("Vì mi thật rụng tự nhiên theo vòng đời và sợi nối rụng theo", "Because natural lashes shed in their cycle and the extensions shed with them", "Koska omat ripset irtoavat kasvusyklinsä mukaan ja pidennykset niiden mukana"),
+          l3("Vì sợi nối tự mọc dài ra", "Because the extensions grow longer", "Koska pidennykset kasvavat pidemmiksi"),
+        ],
+        answer: 1,
+        why: l3(
+          "Mỗi ngày đều có sợi mi đến hạn rụng; sợi nối gắn trên nó rụng theo, nên hàng mi thưa dần và cần dặm.",
+          "Every day some lashes reach the end of their cycle; the extension on them falls too, so the set thins out and needs a refill.",
+          "Joka päivä osa ripsistä on kiertonsa lopussa; niihin kiinnitetyt pidennykset irtoavat mukana, joten ripsistö harvenee ja tarvitsee huollon."
+        ),
+      },
+      {
+        q: l3("Chân sợi nối nên đặt ở đâu?", "Where should the base of the extension sit?", "Mihin pidennyksen tyvi kiinnitetään?"),
+        options: [
+          l3("Dán sát vào da mí cho chắc", "Pressed onto the eyelid skin so it holds", "Tiukasti kiinni luomen ihoon, jotta se pysyy"),
+          l3("Ở giữa sợi mi thật, càng xa càng tốt", "Halfway along the natural lash, the further the better", "Oman ripsen puolivälissä, mitä kauempana sen parempi"),
+          l3("Dọc sợi mi thật, cách da mí khoảng 0,5–1 mm", "Along the natural lash, about 0.5–1 mm from the eyelid skin", "Oman ripsen suuntaisesti, noin 0,5–1 mm:n päässä luomen ihosta"),
+        ],
+        answer: 2,
+        why: l3(
+          "Keo chạm da gây cộm, kích ứng và kéo mi khi mọc; đặt quá xa thì sợi nối lỏng và rụng sớm.",
+          "Glue on the skin causes discomfort, irritation and pulling as the lash grows; too far out and the extension is loose and falls early.",
+          "Iholle joutunut liima hiertää, ärsyttää ja vetää ripseä sen kasvaessa; liian kaukana pidennys on löysä ja irtoaa aikaisin."
+        ),
+      },
+      {
+        q: l3("Khách muốn mi thật dày, thật dài nhưng mi thật của khách mảnh và yếu. Bạn làm gì?", "A customer wants very thick, long lashes, but her natural lashes are fine and weak. What do you do?", "Asiakas haluaa hyvin paksut ja pitkät ripset, mutta hänen omat ripsensä ovat ohuet ja heikot. Mitä teet?"),
+        options: [
+          l3("Giải thích thật lòng và chọn sợi vừa sức mi thật, hoặc gợi ý kỹ thuật khác", "Explain honestly and choose extensions the natural lashes can carry, or suggest another technique", "Kerron rehellisesti ja valitsen pidennykset, jotka omat ripset jaksavat kantaa, tai ehdotan toista tekniikkaa"),
+          l3("Gắn sợi dày và dài nhất để khách vui", "Use the thickest, longest extensions to make her happy", "Laitan paksuimmat ja pisimmät pidennykset, jotta hän on tyytyväinen"),
+          l3("Gắn hai sợi nối lên mỗi sợi mi thật", "Glue two classic extensions onto every natural lash", "Liimaan kaksi pidennystä jokaiseen omaan ripseen"),
+        ],
+        answer: 0,
+        why: l3(
+          "Sợi quá nặng làm mi thật oằn, gãy và rụng sớm. Người trả giá là mi thật của khách.",
+          "Extensions that are too heavy bend, break and pull out the natural lashes. Her own lashes pay the price.",
+          "Liian painavat pidennykset taivuttavat, katkaisevat ja irrottavat omia ripsiä. Hinnan maksavat asiakkaan omat ripset."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "mi-classic",
+    course: "p-lash",
+    style: "practice",
+    title: l3("Nối mi classic: thực hành từng bước", "Classic lashes: step-by-step practice", "Klassiset ripsienpidennykset: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Mười hai bước làm một bộ mi classic 1:1: tư vấn, cho khách nằm thoải mái, làm sạch mi, dán miếng lót dưới mắt, chải mi, sắp bàn làm việc, tách một sợi mi, lấy keo, gắn cách da mí, kiểm tra dính chùm, hoàn thiện và dặn dò — rồi dọn dẹp dụng cụ.",
+      "Twelve steps to a classic 1:1 set: consultation, a comfortable position, cleansing, under-eye pads, brushing, setting up the station, isolating one lash, picking up glue, placing away from the lid, checking for stickies, finishing and aftercare — then cleaning the tools.",
+      "Kaksitoista vaihetta klassiseen 1:1-ripsisettiin: konsultaatio, mukava asento, puhdistus, silmänalustyynyt, kampaus, työpisteen valmistelu, yhden ripsen eristys, liiman otto, kiinnitys irti luomesta, tarttumien tarkistus, viimeistely ja jälkihoito — sekä välineiden puhdistus."
+    ),
+    video: video("mi-classic", 283, "2026-11-17"),
+    notice: l3(
+      "Keo nối mi dính da và mắt trong vài giây: mắt khách nhắm kín suốt buổi, giọt keo để xa mặt khách. Lỡ dính vào mắt thì rửa ngay bằng nhiều nước sạch và đưa khách đi khám (xem bài Xử lý sự cố). Thời gian giữ khô theo hướng dẫn của hãng keo. Bài này là tài liệu đào tạo, không thay cho chứng chỉ nghề; quy định khác nhau theo từng nước.",
+      "Lash adhesive bonds skin and eyes in seconds: the customer's eyes stay closed the whole time and the glue drop stays away from her face. If any gets into the eye, rinse at once with plenty of clean water and send the customer to a doctor (see the lesson on incidents). Keep-dry times follow the adhesive maker's instructions. This lesson is a training aid, not a qualification; rules differ by country.",
+      "Ripsiliima liimaa ihon ja silmät sekunneissa: asiakkaan silmät pysyvät kiinni koko ajan ja liimatippa pidetään kaukana kasvoista. Jos liimaa joutuu silmään, huuhtele heti runsaalla puhtaalla vedellä ja ohjaa asiakas lääkäriin (katso tunti vahinkotilanteista). Kastelukielto liiman valmistajan ohjeen mukaan. Tämä tunti on koulutusmateriaalia eikä korvaa ammattitutkintoa; määräykset vaihtelevat maittain."
+    ),
+    related: ["lich-hen", "khach-hang", "tin-nhan-ai"],
+    steps: [
+      l3(
+        "Tư vấn khi khách còn mở mắt: dị ứng, từng phản ứng với keo chưa, mắt đỏ, ngứa, bệnh mắt hay mới mổ mắt, kiểu mi mong muốn. Kính áp tròng tháo ra trước. Mắt có vấn đề thì không làm.",
+        "Consult while the customer's eyes are open: allergies, any past reaction to lash glue, red or itchy eyes, eye conditions or recent eye surgery, and the look she wants. Contact lenses come out first. If the eyes are not healthy, do not work.",
+        "Konsultoi asiakkaan silmät auki: allergiat, aiemmat reaktiot ripsiliimaan, punoittavat tai kutiavat silmät, silmäsairaudet tai tuore silmäleikkaus sekä toivottu tyyli. Piilolinssit pois ensin. Jos silmät eivät ole terveet, älä tee."
+      ),
+      l3(
+        "Cho khách nằm thật thoải mái, gối đỡ cổ, nhắm mắt suốt buổi; một bộ classic đầy đủ thường mất khoảng 1,5–2 giờ.",
+        "Make the customer comfortable, neck supported, eyes closed throughout; a full classic set often takes about 1.5–2 hours.",
+        "Asiakas makaa mukavasti niska tuettuna ja silmät kiinni koko ajan; täysi klassinen setti vie usein noin 1,5–2 tuntia."
+      ),
+      l3(
+        "Làm sạch mi thật bằng dung dịch rửa mi và cọ mềm, chải từ chân ra ngọn, xả nước sạch và làm khô kỹ: dầu và phấn mắt làm keo bám kém.",
+        "Cleanse the natural lashes with lash shampoo and a soft brush from root to tip, rinse with clean water and dry thoroughly: oil and make-up weaken the bond.",
+        "Puhdista omat ripset ripsishampoolla ja pehmeällä siveltimellä tyvestä kärkeen, huuhtele puhtaalla vedellä ja kuivaa huolellisesti: öljy ja meikki heikentävät sidosta."
+      ),
+      l3(
+        "Miếng lót gel che kín toàn bộ mi dưới, mép trên nằm sát dưới hàng mi dưới nhưng không chạm viền mắt hay con mắt. Sợi mi dưới còn lọt ra thì dùng thêm băng dính giấy chuyên dụng.",
+        "The gel pad covers every lower lash; its top edge sits just below the lower lash line without touching the waterline or the eye. Use lash tape for any lower lashes that escape.",
+        "Geelityyny peittää kaikki alaripset; sen yläreuna on aivan alaripsirajan alla koskematta limakalvoon tai silmään. Karkaavat alaripset kiinnitetään ripsiteipillä."
+      ),
+      l3(
+        "Chải mi bằng chổi dùng một lần và quan sát: sợi khoẻ, dài và sợi non, ngắn, mảnh — để chọn độ dài và độ dày cho từng vùng.",
+        "Brush the lashes with a single-use spoolie and study them: strong, long lashes and young, short, fine ones — to choose the length and thickness for each zone.",
+        "Kampaa ripset kertakäyttöisellä harjalla ja tarkastele niitä: vahvat ja pitkät sekä nuoret, lyhyet ja ohuet ripset — valitse pituus ja paksuus vyöhykkeittäin."
+      ),
+      l3(
+        "Sắp bàn: vỉ mi theo độ dài, đá ngọc hay nhẫn keo với giọt keo mới, nhíp thẳng để tách và nhíp cong để gắp, chổi chải mi và que bông dùng một lần; đậy nắp chai keo ngay.",
+        "Set up: a lash tile sorted by length, a jade stone or glue ring with a fresh drop, a straight tweezer to isolate and a curved one to place, single-use spoolies and micro-brushes; close the glue bottle straight away.",
+        "Valmistele: ripsialusta pituusjärjestyksessä, jadekivi tai liimasormus ja tuore tippa, suorat pinsetit eristykseen ja kaarevat kiinnitykseen, kertakäyttöiset harjat ja mikroharjat; sulje liimapullo heti."
+      ),
+      l3(
+        "Tách đúng một sợi mi thật bằng nhíp thẳng; gắp sợi nối gần phần chân bằng nhíp cong và chỉ nhúng 1–2 mm chân vào giọt keo, không để thành cục.",
+        "Isolate exactly one natural lash with the straight tweezer; pick up the extension near its base with the curved tweezer and dip only 1–2 mm of the base into the glue, with no blob.",
+        "Eristä täsmälleen yksi oma ripsi suorilla pinseteillä; nosta pidennys tyven läheltä kaarevilla pinseteillä ja kasta liimaan vain 1–2 mm tyvestä, ilman liimapalloa."
+      ),
+      l3(
+        "Đặt sợi nối dọc theo sợi mi thật, cùng hướng, chân cách da mí khoảng 0,5–1 mm, không chạm da; giữ yên một chút cho keo bắt rồi mới nhả nhíp.",
+        "Lay the extension along the natural lash in the same direction, its base about 0.5–1 mm from the eyelid skin, never touching it; hold still a moment for the glue to grab before releasing.",
+        "Aseta pidennys oman ripsen suuntaisesti, tyvi noin 0,5–1 mm:n päähän luomen ihosta koskematta ihoon; pidä hetki paikallaan, kunnes liima tarttuu, ja irrota vasta sitten."
+      ),
+      l3(
+        "Gắn xen kẽ các vùng (đuôi mắt, giữa, đầu mắt) để keo kịp khô và sợi cạnh nhau không dính. Sau mỗi vùng, lướt nhíp từ chân ra ngọn kiểm tra dính chùm và tách ra ngay. Góc trong ngắn nhất, dài dần về phía đuôi mắt.",
+        "Alternate zones (outer, middle, inner) so the glue can set and neighbours do not stick. After each zone, run the tweezer from root to tip to check for stickies and separate them at once. Shortest in the inner corner, gradually longer towards the outer corner.",
+        "Vuorottele alueita (ulkonurkka, keskiosa, sisänurkka), jotta liima ehtii kuivua eivätkä vierekkäiset ripset tartu yhteen. Tarkista jokaisen alueen jälkeen tarttumat pinseteillä tyvestä kärkeen ja erota ne heti. Lyhimmät sisänurkkaan, pitenevät kohti ulkonurkkaa."
+      ),
+      l3(
+        "Hoàn thiện: so hai mắt cho cân đối, gỡ miếng lót nhẹ khi mắt còn nhắm, cho khách mở mắt từ từ. Dặn: giữ khô theo hướng dẫn của hãng keo (thường 24–48 giờ), không dùng sản phẩm có dầu ở chân mi, chải mi mỗi ngày, không dụi, không nhổ, dặm sau 2–3 tuần. Bỏ chổi, que bông, miếng lót đã dùng; làm sạch và khử khuẩn nhíp sau mỗi khách.",
+        "Finish: compare both eyes for symmetry, remove the pads gently while the eyes are still closed, and let the customer open her eyes slowly. Aftercare: keep dry as the adhesive maker says (often 24–48 hours), no oil-based products at the lash base, brush daily, no rubbing or picking, refill in 2–3 weeks. Bin used spoolies, micro-brushes and pads; clean and disinfect the tweezers after every customer.",
+        "Viimeistely: vertaa silmiä symmetrian varmistamiseksi, irrota tyynyt varovasti silmät yhä kiinni ja anna asiakkaan avata silmät hitaasti. Jälkihoito: pidä kuivana liiman valmistajan ohjeen mukaan (usein 24–48 tuntia), ei öljypohjaisia tuotteita tyveen, kampaa päivittäin, älä hiero äläkä nypi, huolto 2–3 viikon päästä. Käytetyt harjat, mikroharjat ja tyynyt roskiin; pinsetit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen."
+      ),
+    ],
+    tips: [
+      l3(
+        "Khách thấy cay hay chảy nước mắt trong lúc làm: dừng lại, cho khách nhắm mắt nghỉ, kiểm tra miếng lót có chạm viền mắt không.",
+        "If the customer's eyes sting or water during the treatment: stop, let her rest with eyes closed, and check whether a pad is touching the waterline.",
+        "Jos asiakkaan silmät kirvelevät tai vuotavat kesken hoidon: pysähdy, anna levätä silmät kiinni ja tarkista, koskeeko tyyny limakalvoon."
+      ),
+      l3(
+        "Hẹn luôn lịch dặm trước khi khách ra về, và gửi lời nhắc chăm sóc mi qua tin nhắn.",
+        "Book the refill before the customer leaves, and send the aftercare reminder by message.",
+        "Varaa huoltoaika ennen kuin asiakas lähtee ja lähetä jälkihoito-ohjeet viestillä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Miếng lót gel dưới mắt nên đặt thế nào?", "How should the under-eye gel pad sit?", "Miten silmänalustyyny asetetaan?"),
+        options: [
+          l3("Đặt lên con mắt để che kín cả mắt", "On the eye itself so the whole eye is covered", "Suoraan silmän päälle niin, että koko silmä peittyy"),
+          l3("Che kín mi dưới, mép trên sát dưới hàng mi nhưng không chạm viền mắt", "Covering all lower lashes, top edge just below the lash line but not touching the waterline", "Peittää kaikki alaripset, yläreuna aivan ripsirajan alla mutta ei kosketa limakalvoa"),
+          l3("Chỉ che một nửa mi dưới cho khách dễ chịu", "Covering only half of the lower lashes so it feels lighter", "Peittää vain puolet alaripsistä, jotta tuntuu kevyemmältä"),
+        ],
+        answer: 1,
+        why: l3(
+          "Mi dưới lọt ra sẽ bị dính lên mi trên; miếng lót chạm viền mắt làm cay, cộm và đỏ mắt.",
+          "Lower lashes left out get glued to the upper lashes; a pad touching the waterline stings and leaves the eye red.",
+          "Esiin jääneet alaripset liimautuvat yläripsiin; limakalvoon koskeva tyyny kirvelee ja punoittaa silmää."
+        ),
+      },
+      {
+        q: l3("Vì sao nên gắn xen kẽ các vùng thay vì gắn lần lượt từng sợi cạnh nhau?", "Why alternate zones instead of working lash by lash next to each other?", "Miksi alueita vuorotellaan sen sijaan, että edetään ripsi kerrallaan vierekkäin?"),
+        options: [
+          l3("Để làm nhanh hơn, không cần chờ", "To go faster without waiting", "Jotta työ etenee nopeammin ilman odottelua"),
+          l3("Để tiết kiệm keo", "To save glue", "Jotta liimaa kuluu vähemmän"),
+          l3("Để keo ở sợi trước kịp khô và các sợi cạnh nhau không dính vào nhau", "So the glue on the last lash can set and neighbouring lashes do not stick together", "Jotta edellisen ripsen liima ehtii kuivua eivätkä vierekkäiset ripset tartu yhteen"),
+        ],
+        answer: 2,
+        why: l3(
+          "Hai sợi nằm sát nhau khi keo còn ướt rất dễ dính chùm. Dính chùm kéo mi thật khi mọc.",
+          "Two neighbouring lashes with wet glue stick together easily, and a sticky pulls on the natural lashes as they grow.",
+          "Kaksi vierekkäistä ripseä tarttuu helposti yhteen, kun liima on märkä, ja tarttuma vetää omia ripsiä niiden kasvaessa."
+        ),
+      },
+      {
+        q: l3("Lấy keo cho sợi mi nối thế nào là đúng?", "What is the right way to pick up glue on an extension?", "Miten pidennykseen otetaan liimaa oikein?"),
+        options: [
+          l3("Chỉ nhúng khoảng 1–2 mm phần chân vào giọt keo mới", "Dip only about 1–2 mm of the base into a fresh drop", "Kastan vain noin 1–2 mm tyvestä tuoreeseen tippaan"),
+          l3("Nhúng cả sợi mi vào keo cho chắc", "Dip the whole extension so it holds better", "Kastan koko pidennyksen, jotta se pitää paremmin"),
+          l3("Dùng lại giọt keo đã đặc từ khách trước", "Reuse the thickened drop from the last customer", "Käytän edellisen asiakkaan sakeutunutta tippaa"),
+        ],
+        answer: 0,
+        why: l3(
+          "Keo thừa thành cục, dính chùm và có thể chạm da; giọt keo cũ đã đặc thì bám kém.",
+          "Excess glue forms blobs and stickies and can touch the skin; an old, thickened drop bonds poorly.",
+          "Liika liima muodostaa palloja ja tarttumia ja voi koskea ihoon; vanha sakeutunut tippa tarttuu huonosti."
+        ),
+      },
+    ],
+  },
   soon("mi-volume", "p-lash", ["Nối mi volume: tạo fan 2D–6D", "Volume lashes: making 2D–6D fans", "Volyymiripset: 2D–6D-viuhkat"], [
     "Các cách tạo fan, chân fan nhỏ gọn, lượng keo và trọng lượng an toàn cho mi thật.",
     "Ways to make fans, narrow bases, glue amount and a safe weight for the natural lash.",
