@@ -2,6 +2,8 @@ import { GraduationCap } from "lucide-react";
 import { redirect } from "@/i18n/navigation";
 import { getBusinessAccess } from "@/lib/current-business";
 import { AcademyHub } from "@/components/academy/academy-hub";
+import { AcademyShareLinks } from "@/components/academy/academy-share-links";
+import { localizedUrl } from "@/lib/seo";
 import { bridgeCards, courseCards } from "@/lib/academy";
 import { academyStrings } from "@/lib/academy/strings";
 
@@ -28,6 +30,7 @@ export default async function DashboardAcademyPage({ params }: { params: Promise
       <p className="mb-6 mt-1 text-sm text-ink-400 sm:text-base">
         {s.heroTitle} {s.heroAccent}
       </p>
+      <AcademyShareLinks locale={locale} baseUrl={localizedUrl(locale, "/academy")} />
       <AcademyHub
         courses={courseCards(locale)}
         bridge={bridgeCards(locale)}

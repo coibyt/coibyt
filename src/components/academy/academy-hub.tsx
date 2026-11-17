@@ -100,7 +100,8 @@ export function AcademyHub({
   // /academy#owner opens the salon-owner track (links from business pages).
   useEffect(() => {
     const fromHash = () => {
-      const h = window.location.hash.replace("#", "");
+      // #pro or ?tab=pro (the dashboard shares ?tab= links: some chat apps drop the #part).
+      const h = window.location.hash.replace("#", "") || new URLSearchParams(window.location.search).get("tab") || "";
       if ((h === "owner" || h === "customer" || h === "pro") && tabKey.split(",").includes(h)) setPicked(h);
     };
     fromHash();
@@ -113,7 +114,7 @@ export function AcademyHub({
   const choose = (a: Audience) => {
     setPicked(a);
     update((st) => ({ ...st, audience: a }));
-    if (window.location.hash) history.replaceState(null, "", window.location.pathname + window.location.search);
+    if (window.location.hash || window.location.search.includes("tab=")) history.replaceState(null, "", window.location.pathname);
   };
 
   const live = useMemo(() => new Set(courses.flatMap((c) => c.lessons.filter((l) => l.live).map((l) => l.slug))), [courses]);

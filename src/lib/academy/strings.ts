@@ -94,6 +94,10 @@ const vi = {
   copyLink: "Sao chép link",
   copied: "Đã sao chép",
   reload: "Thử lại",
+  shareTitle: "Chia sẻ Học viện",
+  shareBody: "Mỗi link mở Học viện ở một tab sẵn. Gửi cho nhân viên, khách hàng hoặc người muốn mở tiệm.",
+  shareFor: { pro: "Học nghề", owner: "Chủ salon", customer: "Khách hàng" },
+  shareHint: { pro: "Mở sẵn tab Tôi học nghề", owner: "Mở sẵn tab Tôi là chủ salon", customer: "Mở sẵn tab Tôi là khách hàng" },
 };
 
 type S = typeof vi;
@@ -191,6 +195,10 @@ const en: S = {
   copyLink: "Copy link",
   copied: "Copied",
   reload: "Try again",
+  shareTitle: "Share the Academy",
+  shareBody: "Each link opens the Academy on a ready-chosen tab. Send it to staff, customers or anyone planning to open a salon.",
+  shareFor: { pro: "Learn the trade", owner: "Salon owners", customer: "Customers" },
+  shareHint: { pro: "Opens on the trade tab", owner: "Opens on the salon-owner tab", customer: "Opens on the customer tab" },
 };
 
 const fi: S = {
@@ -286,6 +294,10 @@ const fi: S = {
   copyLink: "Kopioi linkki",
   copied: "Kopioitu",
   reload: "Yritä uudelleen",
+  shareTitle: "Jaa akatemia",
+  shareBody: "Jokainen linkki avaa akatemian valmiiksi valitulle välilehdelle. Lähetä se työntekijöille, asiakkaille tai liikettä suunnittelevalle.",
+  shareFor: { pro: "Opi ammatti", owner: "Salongin omistajat", customer: "Asiakkaat" },
+  shareHint: { pro: "Avautuu ammattivälilehdelle", owner: "Avautuu omistajan välilehdelle", customer: "Avautuu asiakkaan välilehdelle" },
 };
 
 export type AcademyStrings = S;
