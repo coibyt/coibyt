@@ -13,5 +13,12 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "lich-hen-cua-toi": { seconds: 57, published: "2026-11-16" },
     "dang-ky-salon": { seconds: 87, published: "2026-11-17" },
     "nhan-vien": { seconds: 70, published: "2026-11-17" },
+    "ho-so-salon": { seconds: 57, published: "2026-11-17" },
+    "thanh-toan-chinh-sach": { seconds: 74, published: "2026-11-17" },
+    "mau-lich-hen": { seconds: 53, published: "2026-11-17" },
+    "chia-se-link": { seconds: 64, published: "2026-11-17" },
+    "thanh-toan-hoa-don": { seconds: 62, published: "2026-11-17" },
+    "khach-hang": { seconds: 63, published: "2026-11-17" },
+    "tong-quan": { seconds: 54, published: "2026-11-17" },
   },
 };
