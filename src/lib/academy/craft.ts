@@ -2954,11 +2954,258 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("mi-mapping", "p-lash", ["Lash mapping: natural, doll, cat, fox", "Lash mapping: natural, doll, cat, fox", "Ripsikartoitus: natural, doll, cat, fox"], [
-    "Chọn kiểu theo dáng mắt, chia vùng và chọn độ dài, độ cong.",
-    "Choosing a style for the eye shape, zoning, and picking lengths and curls.",
-    "Tyylin valinta silmän muodon mukaan, vyöhykkeet sekä pituudet ja kaarevuudet.",
-  ]),
+  {
+    slug: "mi-mapping-hieu-dung",
+    course: "p-lash",
+    style: "theory",
+    title: l3("Lash mapping: hiểu đúng để chọn kiểu hợp dáng mắt", "Lash mapping: understand it to choose a style that suits the eye", "Ripsikartoitus: ymmärrä se, niin valitset silmänmuotoon sopivan tyylin"),
+    summary: l3(
+      "Mapping là gì (lên kế hoạch độ dài và độ cong theo từng vùng trước khi gắn), cách đọc dáng mắt, mi thật và mong muốn của khách, các kiểu chính (tự nhiên, búp bê, mắt mèo, sóc, mắt cáo) và kiểu nào thường hợp với dáng mắt nào, độ cong J, B, C, CC, D, L, vì sao hướng mọc của mi thật quyết định độ cong, cân đối hai mắt, và tư vấn thật lòng trước khi làm.",
+      "What mapping is (planning length and curl zone by zone before you start), reading the eye shape, the natural lashes and the client's wish, the main styles (natural, doll, cat-eye, squirrel, fox) and which usually suit which eye, curl types J, B, C, CC, D, L, why the natural lash direction decides the curl, symmetry between the eyes, and honest consultation before starting.",
+      "Mitä kartoitus on (pituuksien ja taivutusten suunnittelu alue kerrallaan ennen aloitusta), silmänmuodon, luomuripsien ja asiakkaan toiveen arviointi, päätyylit (luonnollinen, doll, cat eye, squirrel, fox) ja mikä sopii yleensä millekin silmälle, taivutukset J, B, C, CC, D, L, miksi luomuripsen kasvusuunta ratkaisee taivutuksen, silmien symmetria ja rehellinen konsultaatio ennen aloitusta."
+    ),
+    video: video("mi-mapping-hieu-dung", 320, "2026-11-17"),
+    notice: l3(
+      "Các kiểu mi và gợi ý theo dáng mắt trong bài là xu hướng chung theo kinh nghiệm nghề, không phải luật cứng; tên gọi và độ cong khác nhau đôi chút theo từng hãng. Luôn chọn theo đôi mắt và sức mi thật của từng khách, và theo hướng dẫn của hãng mi và hãng keo. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "The styles and eye-shape suggestions here are general trade tendencies, not fixed rules; names and curls differ a little between brands. Always choose for each client's eyes and the strength of their natural lashes, and follow the lash and glue makers' instructions. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Tunnin tyylit ja silmänmuotoihin liittyvät ehdotukset ovat alan yleisiä suuntauksia, eivät ehdottomia sääntöjä; nimet ja taivutukset vaihtelevat hieman merkeittäin. Valitse aina asiakkaan silmien ja luomuripsien vahvuuden mukaan ja noudata ripsi- ja liimavalmistajan ohjeita. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "dich-vu", "lich-hen"],
+    steps: [
+      l3(
+        "Mapping là lên kế hoạch trước khi gắn sợi đầu tiên: chia hàng mi thành vài vùng từ đầu mắt đến đuôi mắt và ghi độ dài, độ cong cho từng vùng. Có bản đồ thì hai mắt ra giống nhau và kết quả đúng như đã thống nhất.",
+        "Mapping is planning before the first lash: divide the lash line into zones from the inner to the outer corner and note the length and curl for each. With a map, both eyes match and the result is what you agreed.",
+        "Kartoitus on suunnittelua ennen ensimmäistä ripseä: jaa ripsirivi alueisiin sisänurkasta ulkonurkkaan ja merkitse kullekin pituus ja taivutus. Kartan avulla silmät vastaavat toisiaan ja lopputulos on sovitun mukainen."
+      ),
+      l3(
+        "Đọc dáng mắt khi khách ngồi, mở mắt, nhìn thẳng: hạnh nhân, tròn, sụp mí, một mí, mắt cụp, mắt xếch, mắt sâu, hai mắt gần hay xa nhau. Khi nằm nhắm mắt, mắt nào trông cũng gần giống nhau.",
+        "Read the eye shape with the client sitting, eyes open, looking straight ahead: almond, round, hooded, monolid, downturned, upturned, deep-set, close-set or wide-set. Lying down with eyes closed, all eyes look much the same.",
+        "Arvioi silmänmuoto asiakkaan istuessa silmät auki ja katse suoraan eteenpäin: manteli, pyöreä, raskas luomi, yksiluomi, alaspäin tai ylöspäin kääntyvä, syvällä oleva, lähekkäin tai kaukana toisistaan olevat silmät. Makuulla silmät kiinni kaikki silmät näyttävät lähes samoilta."
+      ),
+      l3(
+        "Đọc mi thật: dài hay ngắn, khoẻ hay mảnh, mọc chúc xuống, thẳng hay cong sẵn, chỗ nào thưa. Sợi nối không bao giờ dài hơn, nặng hơn sức mi thật chịu được (bài classic).",
+        "Read the natural lashes: long or short, strong or fine, pointing down, straight or already curled, any gaps. An extension is never longer or heavier than the natural lash can carry (the classic lesson).",
+        "Arvioi luomuripset: pitkät vai lyhyet, vahvat vai ohuet, alaspäin, suorat vai valmiiksi kaartuvat, onko aukkoja. Pidennys ei ole koskaan pidempi tai painavampi kuin luomuripsi kestää (klassisten tunti)."
+      ),
+      l3(
+        "Hỏi mong muốn của khách: tự nhiên hay nổi bật, dịp gì, có đeo kính không (mi quá dài, quá cong sẽ chạm mắt kính). Dáng mắt, mi thật và mong muốn của khách cùng quyết định bản đồ.",
+        "Ask about the client's wish: natural or striking, for what occasion, glasses or not (lashes that are too long or curled touch the lenses). Eye shape, natural lashes and the client's wish decide the map together.",
+        "Kysy asiakkaan toive: luonnollinen vai näyttävä, mihin tilaisuuteen, onko silmälasit (liian pitkät tai kaartuvat ripset koskettavat linssejä). Silmänmuoto, luomuripset ja asiakkaan toive ratkaisevat kartan yhdessä."
+      ),
+      l3(
+        "Tự nhiên: theo hàng mi thật, ngắn ở đầu mắt, dài dần một chút về đuôi; hợp hầu hết mọi người và an toàn cho lần đầu. Búp bê (mắt mở): dài nhất ở giữa, trên con ngươi; làm mắt to, tròn, sáng.",
+        "Natural: follows the natural lash line, short at the inner corner, a little longer towards the outer corner; suits most people and is a safe first set. Doll (open-eye): longest in the centre, above the pupil; makes the eye look bigger, rounder and brighter.",
+        "Luonnollinen: seuraa luomuripsien linjaa, lyhyt sisänurkassa, hieman pidempi ulkonurkkaa kohti; sopii useimmille ja on turvallinen ensimmäinen setti. Doll (open eye): pisin keskellä pupillin yläpuolella; silmä näyttää suuremmalta, pyöreämmältä ja kirkkaammalta."
+      ),
+      l3(
+        "Mắt mèo: ngắn ở đầu mắt, dài nhất ở đuôi; kéo mắt dài ra và nâng nhẹ đuôi. Sóc: dài nhất khoảng một phần ba phía ngoài rồi ngắn lại một chút ở đúng đuôi. Mắt cáo: đầu và giữa ngắn, tự nhiên; phần ngoài dài hơn, thường cong hơn, hướng lên.",
+        "Cat-eye: short at the inner corner, longest at the outer corner; elongates the eye and lifts the end slightly. Squirrel: peak around the outer third, then a little shorter at the very end. Fox: inner and middle short and natural; the outer part longer, usually more curled, pointing upwards.",
+        "Cat eye: lyhyt sisänurkassa, pisin ulkonurkassa; pidentää silmää ja nostaa ulkonurkkaa hieman. Squirrel: pisin noin ulommalla kolmanneksella ja hieman lyhyempi aivan lopussa. Fox: sisä- ja keskiosa lyhyitä ja luonnollisia; ulko-osa pidempi, yleensä taipuisampi ja ylöspäin suuntautuva."
+      ),
+      l3(
+        "Hợp với mắt nào (thường gặp, không phải luật): búp bê hợp mắt hạnh nhân, mắt nhỏ, mắt cụp, nhưng có thể làm mắt vốn tròn tròn quá; mắt mèo hợp mắt tròn, hai mắt gần nhau, nhưng có thể kéo mắt cụp xuống; hai mắt xa nhau thường nhấn ở đầu và giữa mắt; sụp mí và một mí thường cần cong nhiều hơn; mắt sâu cẩn thận với sợi quá dài, quá cong.",
+        "Which suits which eye (usually, not a rule): doll suits almond, small and downturned eyes but can make an already round eye too round; cat-eye suits round and close-set eyes but can drag a downturned eye down; wide-set eyes are usually emphasised at the inner and middle part; hooded and monolid eyes usually need more curl; with deep-set eyes, beware of lashes that are too long or curled.",
+        "Mikä sopii millekin (yleensä, ei sääntö): doll sopii manteli-, pienille ja alaspäin kääntyville silmille, mutta voi tehdä valmiiksi pyöreästä silmästä liian pyöreän; cat eye sopii pyöreille ja lähekkäisille silmille, mutta voi vetää alaspäin kääntyvää silmää alas; kaukana toisistaan olevissa silmissä korostetaan yleensä sisä- ja keskiosaa; raskas luomi ja yksiluomi tarvitsevat yleensä enemmän taivutusta; syvällä olevissa silmissä varo liian pitkiä tai kaartuvia ripsiä."
+      ),
+      l3(
+        "Độ cong J, B, C, CC, D, L (và vài kiểu khác) đi từ gần thẳng đến cong nhiều; L có chân thẳng rồi mới cong lên. Mỗi hãng uốn hơi khác nhau, nên cùng một chữ có thể không giống hệt.",
+        "Curls J, B, C, CC, D, L (and a few others) go from nearly straight to strongly curled; L has a flat base and then bends up. Each brand curls a little differently, so the same letter may not look identical.",
+        "Taivutukset J, B, C, CC, D, L (ja muutama muu) etenevät lähes suorasta voimakkaasti kaartuvaan; L:ssä on suora tyvi, josta ripsi taittuu ylös. Jokainen merkki taivuttaa hieman eri tavalla, joten sama kirjain ei välttämättä näytä täysin samalta."
+      ),
+      l3(
+        "Hướng mọc của mi thật quyết định độ cong: chân sợi nối phải áp dọc sợi mi thật. Mi thẳng hay chúc xuống mà gắn sợi quá cong thì chỉ chạm một điểm, bám kém, rụng sớm; mi đã cong sẵn mà gắn sợi quá thẳng thì sợi chĩa ra ngoài.",
+        "The direction of the natural lash decides the curl: the base of the extension must lie along the natural lash. Too much curl on a straight or downward lash touches at one point only, holds poorly and falls early; too little curl on an already curled lash sticks out.",
+        "Luomuripsen kasvusuunta ratkaisee taivutuksen: pidennyksen tyven on oltava luomuripsen myötäisesti. Liian kaartuva pidennys suoraan tai alaspäin kasvavassa ripsessä koskettaa vain yhdestä kohdasta, pysyy huonosti ja irtoaa aikaisin; liian suora valmiiksi kaartuvassa ripsessä sojottaa."
+      ),
+      l3(
+        "Hai mắt hiếm khi giống hệt nhau: mục tiêu là kết quả cân đối, có khi phải chỉnh độ dài một bên. Cho khách xem ảnh mẫu, nói thật kiểu nào hợp và mi thật đỡ được đến đâu, thống nhất rồi mới làm.",
+        "The two eyes are rarely identical: the goal is a result that looks symmetrical, sometimes by adjusting the length on one side. Show the client reference pictures, say honestly which style suits and what the natural lashes can carry, and start only once you agree.",
+        "Silmät ovat harvoin täysin samanlaiset: tavoite on symmetriseltä näyttävä lopputulos, joskus säätämällä pituutta toisella puolella. Näytä asiakkaalle mallikuvia, kerro rehellisesti mikä tyyli sopii ja mitä luomuripset kestävät, ja aloita vasta kun olette samaa mieltä."
+      ),
+    ],
+    tips: [
+      l3(
+        "Đừng chỉ làm theo ảnh khách mang đến. Nói rõ ảnh đó hợp hay không hợp với đôi mắt khách và vì sao; khách hiểu thì khách tin, và khách tin thì khách quay lại.",
+        "Don't just copy the picture the client brings. Explain whether it suits their eyes and why; a client who understands trusts you, and a client who trusts you comes back.",
+        "Älä vain kopioi asiakkaan tuomaa kuvaa. Kerro, sopiiko se hänen silmilleen ja miksi; ymmärtävä asiakas luottaa sinuun, ja luottava asiakas palaa."
+      ),
+      l3(
+        "Ghi kiểu mi, độ dài và độ cong từng vùng vào “Ghi chú nội bộ” trong hồ sơ khách ở VaraaAi, để lần dặm sau bất kỳ thợ nào cũng làm lại đúng bản đồ.",
+        "Write the style and the length and curl per zone in the client's internal notes in VaraaAi, so at the next refill any technician can repeat the same map.",
+        "Kirjaa tyyli sekä pituus ja taivutus alueittain asiakkaan sisäisiin muistiinpanoihin VaraaAi:ssa, jotta seuraavassa huollossa kuka tahansa tekijä voi toistaa saman kartan."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Lash mapping là gì?", "What is lash mapping?", "Mitä ripsikartoitus on?"),
+        options: [
+          l3("Lên kế hoạch độ dài và độ cong theo từng vùng trước khi gắn", "Planning length and curl zone by zone before you start", "Pituuksien ja taivutusten suunnittelu alue kerrallaan ennen aloitusta"),
+          l3("Chọn màu mi theo màu tóc", "Choosing the lash colour by the hair colour", "Ripsien värin valinta hiusten värin mukaan"),
+          l3("Gắn sợi dài nhất có thể ở mọi vùng", "Using the longest possible lashes in every zone", "Mahdollisimman pitkät ripset joka alueelle"),
+        ],
+        answer: 0,
+        why: l3(
+          "Có bản đồ từ trước thì hai mắt ra giống nhau và kết quả đúng như đã thống nhất với khách.",
+          "With a map made beforehand, both eyes match and the result is what you agreed with the client.",
+          "Etukäteen tehdyn kartan avulla silmät vastaavat toisiaan ja lopputulos on asiakkaan kanssa sovittu."
+        ),
+      },
+      {
+        q: l3("Khách có mắt cụp muốn kiểu mắt mèo thật dài ở đuôi. Điều gì thường xảy ra?", "A client with downturned eyes wants a cat-eye with very long outer lashes. What usually happens?", "Asiakas, jonka silmät kääntyvät alaspäin, haluaa cat eye -tyylin hyvin pitkillä ulkoripsillä. Mitä yleensä tapahtuu?"),
+        options: [
+          l3("Đuôi mắt được nâng lên rõ rệt", "The outer corners are clearly lifted", "Ulkonurkat nousevat selvästi"),
+          l3("Sợi dài, nặng ở đuôi kéo mắt xuống thêm, trông mệt hơn", "Long, heavy outer lashes drag the eye down further and it looks tired", "Pitkät, painavat ulkoripset vetävät silmää lisää alas ja se näyttää väsyneeltä"),
+          l3("Không có gì khác, mọi kiểu đều hợp mọi mắt", "Nothing changes; every style suits every eye", "Ei mitään eroa; kaikki tyylit sopivat kaikille"),
+        ],
+        answer: 1,
+        why: l3(
+          "Với mắt cụp, thường nên đưa điểm dài nhất vào gần giữa (kiểu búp bê) và dùng độ cong nhiều hơn ở phần ngoài để nâng mắt.",
+          "For downturned eyes it is usually better to move the longest point towards the centre (doll) and use more curl on the outer part to lift the eye.",
+          "Alaspäin kääntyvissä silmissä pisin kohta siirretään yleensä lähemmäs keskustaa (doll) ja ulko-osaan käytetään enemmän taivutusta silmän nostamiseksi."
+        ),
+      },
+      {
+        q: l3("Mi thật của khách mọc thẳng, hơi chúc xuống. Gắn sợi độ cong rất mạnh thì sao?", "The client's natural lashes grow straight and slightly downward. What happens with a very strong curl?", "Asiakkaan luomuripset kasvavat suoraan ja hieman alaspäin. Mitä tapahtuu hyvin voimakkaalla taivutuksella?"),
+        options: [
+          l3("Mi giữ lâu hơn vì cong nhiều", "They last longer because of the curl", "Ne kestävät pidempään taivutuksen ansiosta"),
+          l3("Không ảnh hưởng gì", "It makes no difference", "Sillä ei ole merkitystä"),
+          l3("Chân sợi chỉ chạm một điểm nhỏ, bám kém và dễ rụng sớm", "The base touches at one small point only, holds poorly and falls early", "Tyvi koskettaa vain pienestä kohdasta, pysyy huonosti ja irtoaa helposti aikaisin"),
+        ],
+        answer: 2,
+        why: l3(
+          "Chân sợi nối phải áp dọc sợi mi thật. Với mi chúc xuống, có thợ chọn loại chân thẳng như L để chân ôm sợi mi rồi mới cong lên.",
+          "The base of the extension must lie along the natural lash. For downward lashes some technicians choose a flat-base curl such as L, so the base hugs the lash before it bends up.",
+          "Pidennyksen tyven on oltava luomuripsen myötäisesti. Alaspäin kasvaville ripsille jotkut valitsevat suoratyvisen taivutuksen kuten L, jolloin tyvi myötäilee ripseä ennen kuin taittuu ylös."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "mi-mapping",
+    course: "p-lash",
+    style: "practice",
+    title: l3("Lash mapping: thực hành vẽ bản đồ mi từng bước", "Lash mapping: drawing a lash map step by step", "Ripsikartoitus: ripsikartan piirtäminen vaihe vaiheelta"),
+    summary: l3(
+      "Vẽ một bản đồ mi rồi làm theo nó: tư vấn và chọn kiểu, chuẩn bị như bài classic, đo mi thật từ trên xuống, chia năm vùng trên miếng lót, ghi độ dài và độ cong từng vùng (ví dụ một kiểu mắt mèo nhẹ), làm bản đồ mắt kia theo kiểu soi gương, xếp vỉ mi theo bản đồ, gắn mi neo, kiểm tra dáng, lấp đầy, kiểm tra cân đối từ đầu giường và ghi bản đồ cho lần dặm sau.",
+      "Draw a lash map and follow it: consult and agree on the style, prep as in the classic lesson, measure the natural lashes from above, divide the pad into five zones, note length and curl per zone (a soft cat-eye as the example), mirror the map on the other eye, set out the strips in map order, place anchor lashes, check the shape, fill in, check symmetry from the head of the bed and record the map for the next refill.",
+      "Piirrä ripsikartta ja noudata sitä: konsultaatio ja tyylistä sopiminen, valmistelu kuten klassisten tunnilla, luomuripsien mittaus ylhäältä, tyynyn jako viiteen alueeseen, pituus ja taivutus alueittain (esimerkkinä pehmeä cat eye), kartta peilikuvana toiseen silmään, ripsinauhat kartan järjestykseen, ankkuriripset, muodon tarkistus, täyttö, symmetrian tarkistus sängyn päästä ja kartan kirjaaminen seuraavaa huoltoa varten."
+    ),
+    video: video("mi-mapping", 269, "2026-11-17"),
+    notice: l3(
+      "Các độ dài trong bài (8–12 mm, độ cong C) chỉ là ví dụ cho một khách; bản đồ thật luôn tuỳ đôi mắt và sức mi thật của từng khách. Chỉ dùng bút an toàn cho da trên miếng lót, không chạm mi và mắt. Theo bảng của hãng mi và hướng dẫn của hãng keo. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "The lengths in this lesson (8–12 mm, C curl) are only an example for one client; a real map always depends on each client's eyes and the strength of their natural lashes. Use only a skin-safe pen, on the pad only, never touching the lashes or the eye. Follow the lash maker's chart and the glue maker's instructions. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Tunnin pituudet (8–12 mm, C-taivutus) ovat vain esimerkki yhdelle asiakkaalle; todellinen kartta riippuu aina asiakkaan silmistä ja luomuripsien vahvuudesta. Käytä vain iholle turvallista kynää ja vain tyynyyn, ei koskaan ripsiin tai silmään. Noudata ripsivalmistajan taulukkoa ja liimavalmistajan ohjeita. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Tư vấn khi khách ngồi, mở mắt, nhìn thẳng: nhìn dáng mắt và mi thật, hỏi mong muốn, cho xem ảnh mẫu và giải thích kiểu nào hợp. Nhớ hai mốc: vị trí con ngươi và điểm cao nhất của lông mày. Thống nhất một kiểu rồi mới làm.",
+        "Consult with the client sitting, eyes open, looking straight ahead: read the eye shape and natural lashes, ask what they want, show reference pictures and explain which style suits. Note two landmarks: the pupil and the highest point of the brow. Agree on one style before you start.",
+        "Konsultoi asiakkaan istuessa silmät auki ja katse suoraan: arvioi silmänmuoto ja luomuripset, kysy toive, näytä mallikuvia ja kerro mikä tyyli sopii. Painaa mieleen kaksi kiintopistettä: pupilli ja kulmakarvan korkein kohta. Sovi yksi tyyli ennen aloitusta."
+      ),
+      l3(
+        "Chuẩn bị như bài thực hành classic: khách nằm thoải mái, làm sạch mi, dán miếng lót thật phẳng và gọn (đó là tờ giấy để vẽ bản đồ), chải mi.",
+        "Prep as in the classic practice lesson: client comfortable, lashes cleansed, under-eye pads smooth and neat (they are the paper for the map), lashes brushed.",
+        "Valmistelu kuten klassisten käytäntötunnilla: asiakas mukavasti, ripset puhdistettu, silmänalustyynyt sileästi ja siististi (niihin piirretään kartta), ripset harjattu."
+      ),
+      l3(
+        "Đo mi thật nhìn thẳng từ trên xuống, không nhìn nghiêng: ở đầu, giữa và đuôi mắt, đặt một sợi mi nối đã biết độ dài song song cạnh sợi mi thật để so (hoặc dùng thước đo mi nhỏ). Độ dài và sức mi thật là giới hạn của bản đồ.",
+        "Measure the natural lashes looking straight down from above, not from the side: at the inner, middle and outer part, hold an extension of known length alongside a natural lash to compare (or use a small lash ruler). Their length and strength set the limit of the map.",
+        "Mittaa luomuripset katsoen suoraan ylhäältä, ei sivulta: sisä-, keski- ja ulko-osassa pidä tunnetun pituinen pidennys luomuripsen vieressä vertailua varten (tai käytä pientä ripsiviivainta). Luomuripsien pituus ja vahvuus ovat kartan raja."
+      ),
+      l3(
+        "Chia vùng: bút nét mảnh, không độc, an toàn cho da, vẽ vài vạch ngắn trên miếng lót, chia từ đầu mắt đến đuôi mắt thành năm vùng (hoặc dùng miếng dán mapping in sẵn). Bút chỉ chạm miếng lót. Đánh dấu thêm vị trí con ngươi.",
+        "Zones: with a fine, non-toxic, skin-safe pen draw a few short lines on the pad, dividing inner to outer corner into five zones (or use printed mapping stickers). The pen touches only the pad. Also mark where the pupil is.",
+        "Alueet: piirrä ohuella, myrkyttömällä, iholle turvallisella kynällä muutama lyhyt viiva tyynyyn ja jaa sisänurkasta ulkonurkkaan viiteen alueeseen (tai käytä valmiita kartoitustarroja). Kynä koskee vain tyynyä. Merkitse myös pupillin kohta."
+      ),
+      l3(
+        "Ghi độ dài và độ cong cho từng vùng. Ví dụ một kiểu mắt mèo nhẹ: 8, 9, 10, 11, 12 mm từ đầu mắt đến đuôi, độ cong C — chỉ là ví dụ. Vùng nào mi yếu thì ngắn và nhẹ hơn; với kiểu mắt cáo có thể cong mạnh hơn ở vùng đuôi (ví dụ C sang D).",
+        "Write the length and curl for each zone. Example for a soft cat-eye: 8, 9, 10, 11, 12 mm from inner to outer corner, C curl — an example only. Where the lashes are weak, go shorter and lighter; for a fox style the outer zone may get a stronger curl (e.g. C to D).",
+        "Merkitse jokaiselle alueelle pituus ja taivutus. Esimerkki pehmeästä cat eyestä: 8, 9, 10, 11, 12 mm sisänurkasta ulkonurkkaan, C-taivutus — vain esimerkki. Heikoilla alueilla lyhyempi ja kevyempi; fox-tyylissä ulkoalue voi saada voimakkaamman taivutuksen (esim. C:stä D:hen)."
+      ),
+      l3(
+        "Mắt bên kia làm theo kiểu soi gương: đầu mắt vẫn là vùng một, đuôi mắt vẫn là vùng năm. Đo lại mi thật bên đó và chỉnh độ dài nếu cần để kết quả cân đối.",
+        "Mirror the map on the other eye: the inner corner is still zone one, the outer corner zone five. Measure that side's natural lashes again and adjust lengths if needed so the result looks even.",
+        "Peilaa kartta toiseen silmään: sisänurkka on edelleen alue yksi ja ulkonurkka alue viisi. Mittaa sen puolen luomuripset uudelleen ja säädä pituuksia tarvittaessa, jotta lopputulos on tasainen."
+      ),
+      l3(
+        "Xếp vỉ mi theo đúng thứ tự bản đồ, ngắn nhất cho đầu mắt rồi dài dần, thêm một dải ngắn hơn cho mi non ở góc trong.",
+        "Set out the strips in map order, shortest for the inner corner and then longer, plus a shorter strip for the baby lashes at the inner corner.",
+        "Järjestä ripsinauhat kartan järjestykseen, lyhimmät sisänurkkaan ja sitten pidemmät, sekä lyhyempi nauha sisänurkan nuorille ripsille."
+      ),
+      l3(
+        "Gắn mi neo: vài sợi ở mỗi vùng, đúng độ dài trên bản đồ, đúng kỹ thuật bài classic (tách một sợi, cách da mí, không chạm da). Nhìn các sợi neo để thấy đường cong của kiểu mi trước khi lấp đầy.",
+        "Anchor lashes: a few in each zone at the planned length, with the classic technique (isolate one lash, keep off the lid, never on the skin). Look at the anchors to see the shape of the style before filling in.",
+        "Ankkuriripset: muutama jokaiselle alueelle suunnitellulla pituudella klassisella tekniikalla (yksi ripsi eristettynä, irti luomesta, ei koskaan iholle). Katso ankkureista tyylin muoto ennen täyttöä."
+      ),
+      l3(
+        "Kiểm tra dáng: có tiệm cho khách ngồi dậy xem nhanh trong gương sau khi gắn neo, khi keo đã khô và mắt không cay; nếu không, nhìn từ đầu giường xuống và so hai mắt. Rồi lấp đầy, độ dài chuyển dần giữa các vùng, gắn xen kẽ để không dính chùm.",
+        "Check the shape: some studios let the client sit up and look in a mirror after the anchors, once the glue has set and the eyes don't sting; otherwise look down from the head of the bed and compare the eyes. Then fill in, with lengths blending between zones, alternating zones to avoid stickies.",
+        "Tarkista muoto: jotkut liikkeet antavat asiakkaan nousta istumaan ja katsoa peiliin ankkurien jälkeen, kun liima on kuivunut eikä silmiä kirvele; muuten katso sängyn päästä ja vertaa silmiä. Täytä sitten niin, että pituudet vaihtuvat pehmeästi alueiden välillä, ja vuorottele alueita tarttumien välttämiseksi."
+      ),
+      l3(
+        "Kiểm tra cân đối từ đầu giường (độ dài ở đuôi, điểm dài nhất, độ cong), thêm sợi chỗ hụt, chải lại. Gỡ miếng lót khi mắt vẫn nhắm, dặn dò như bài classic, và ghi bản đồ (kiểu, độ dài, độ cong từng vùng) cho lần dặm sau.",
+        "Check symmetry from the head of the bed (outer length, longest point, curl), add lashes where something is missing, brush through. Remove the pads with the eyes still closed, give aftercare as in the classic lesson, and record the map (style, length and curl per zone) for the next refill.",
+        "Tarkista symmetria sängyn päästä (ulkopituus, pisin kohta, taivutus), lisää ripsiä puuttuviin kohtiin ja harjaa. Poista tyynyt silmien ollessa kiinni, anna jälkihoito-ohjeet kuten klassisten tunnilla ja kirjaa kartta (tyyli, pituus ja taivutus alueittain) seuraavaa huoltoa varten."
+      ),
+    ],
+    tips: [
+      l3(
+        "Ba lỗi hay gặp: đo và vẽ khi nhìn nghiêng, chép y nguyên bản đồ sang mắt kia, và nhảy độ dài quá xa giữa hai vùng thành bậc thang.",
+        "Three common mistakes: measuring and drawing from the side, copying the map unchanged to the other eye, and jumping lengths too far between zones so the lash line looks stepped.",
+        "Kolme yleistä virhettä: mittaus ja piirto sivusta katsoen, kartan kopiointi sellaisenaan toiseen silmään ja liian suuret pituushypyt alueiden välillä, jolloin ripsirivi näyttää porrastetulta."
+      ),
+      l3(
+        "Ghi bản đồ vào “Ghi chú nội bộ” trong hồ sơ khách ở VaraaAi (chỉ salon thấy), để lần dặm sau thợ nào cũng làm lại đúng như vậy.",
+        "Save the map in the client's internal notes in VaraaAi (visible to the salon only), so any technician can repeat it exactly at the next refill.",
+        "Tallenna kartta asiakkaan sisäisiin muistiinpanoihin VaraaAi:ssa (näkyvät vain salongille), jotta kuka tahansa tekijä voi toistaa sen tarkasti seuraavassa huollossa."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Vì sao phải đo và vẽ bản đồ khi nhìn mắt thẳng từ trên xuống?", "Why measure and draw the map looking straight down from above?", "Miksi kartta mitataan ja piirretään katsoen suoraan ylhäältä?"),
+        options: [
+          l3("Vì nhìn nghiêng làm độ dài và vị trí các vùng bị lệch", "Because looking from the side distorts the lengths and zone positions", "Koska sivulta katsottuna pituudet ja alueiden paikat vääristyvät"),
+          l3("Vì khách thích được nhìn từ trên xuống", "Because clients like being looked at from above", "Koska asiakkaat pitävät siitä"),
+          l3("Không quan trọng, nhìn góc nào cũng được", "It doesn't matter, any angle will do", "Sillä ei ole väliä, mikä tahansa kulma käy"),
+        ],
+        answer: 0,
+        why: l3(
+          "Nhìn nghiêng làm bản đồ lệch ngay từ đầu, và hai mắt sẽ không đều.",
+          "A side view skews the map from the start, and the two eyes won't match.",
+          "Sivukulma vinouttaa kartan heti alussa, eivätkä silmät vastaa toisiaan."
+        ),
+      },
+      {
+        q: l3("Mi neo dùng để làm gì?", "What are anchor lashes for?", "Mihin ankkuriripsiä käytetään?"),
+        options: [
+          l3("Để giữ miếng lót dưới mắt", "To hold the under-eye pad in place", "Silmänalustyynyn kiinnittämiseen"),
+          l3("Đặt trước vài sợi đúng độ dài ở mỗi vùng để thấy dáng kiểu mi trước khi lấp đầy", "A few lashes placed first at the planned length in each zone, to see the shape before filling in", "Muutama ripsi ensin suunnitellulla pituudella jokaiselle alueelle, jotta muoto näkyy ennen täyttöä"),
+          l3("Để thay thế bước tách mi", "To replace isolation", "Eristyksen korvaamiseen"),
+        ],
+        answer: 1,
+        why: l3(
+          "Mi neo là khung của bộ mi: nhìn chúng là thấy đường cong có đúng không, và đây là lúc dễ sửa nhất vì mới có vài sợi.",
+          "Anchors are the frame of the set: they show whether the curve is right, and it is the easiest moment to correct because only a few lashes are on.",
+          "Ankkurit ovat setin runko: niistä näkee, onko kaari oikea, ja korjaaminen on helpointa nyt, kun ripsiä on vasta muutama."
+        ),
+      },
+      {
+        q: l3("Bạn đã vẽ bản đồ cho mắt trái. Làm gì với mắt phải?", "You've mapped the left eye. What about the right eye?", "Olet kartoittanut vasemman silmän. Entä oikea?"),
+        options: [
+          l3("Chép y nguyên, không cần nhìn lại", "Copy it exactly without looking again", "Kopioin sen sellaisenaan katsomatta uudelleen"),
+          l3("Chọn một kiểu khác cho đa dạng", "Choose a different style for variety", "Valitsen vaihtelun vuoksi eri tyylin"),
+          l3("Làm theo kiểu soi gương, đo lại mi thật bên đó và chỉnh nếu cần", "Mirror it, measure that side's natural lashes again and adjust if needed", "Peilaan sen, mittaan sen puolen luomuripset uudelleen ja säädän tarvittaessa"),
+        ],
+        answer: 2,
+        why: l3(
+          "Hai mắt hiếm khi giống hệt nhau; mục tiêu là kết quả nhìn cân đối, không phải hai bản đồ giống hệt.",
+          "The two eyes are rarely identical; the goal is a result that looks even, not two identical maps.",
+          "Silmät ovat harvoin täysin samanlaiset; tavoite on tasaiselta näyttävä lopputulos, ei kaksi identtistä karttaa."
+        ),
+      },
+    ],
+  },
   soon("mi-mega-wispy", "p-lash", ["Mega volume, wispy và wet look", "Mega volume, wispy and wet look", "Megavolyymi, wispy ja wet look"], [
     "Các kiểu mi đang được ưa chuộng và cách làm an toàn cho mi thật.",
     "The styles customers ask for now, done safely for the natural lashes.",
