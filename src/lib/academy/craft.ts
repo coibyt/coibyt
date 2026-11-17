@@ -2680,16 +2680,518 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("french-ombre", "p-nail", ["French và ombré", "French and ombré", "Ranskalainen ja ombre"], [
-    "Đường cười sắc nét, baby boomer và chuyển màu mịn.",
-    "A crisp smile line, baby boomer and smooth colour fades.",
-    "Terävä hymylinja, baby boomer ja tasainen liukuväri.",
-  ]),
-  soon("cham-soc-mong-co-ban", "p-nail", ["Chăm sóc móng tay và móng chân cơ bản", "Basic manicure and pedicure", "Perusmanikyyri ja -pedikyyri"], [
-    "Quy trình manicure và pedicure cổ điển, từ ngâm đến sơn thường.",
-    "The classic manicure and pedicure routine, from soak to regular polish.",
-    "Klassinen manikyyri ja pedikyyri liotuksesta tavalliseen lakkaan.",
-  ]),
+  {
+    slug: "french-ombre-hieu-dung",
+    course: "p-nail",
+    style: "theory",
+    title: l3("French và ombré: hiểu đúng để đường cười đẹp và đều", "French and ombré: understand them for an even, beautiful smile line", "Ranskalainen ja ombre: ymmärrä ne, niin hymyviiva on kaunis ja tasainen"),
+    summary: l3(
+      "Điều gì làm nên một bộ French đẹp: đường cười đều độ sâu, cân đối, mép sắc và giống nhau trên cả mười móng; theo đường đầu móng thật hay chọn một đường; tỷ lệ theo chiều dài và dáng móng; French cổ điển, sâu, micro và French màu; ombré (baby boomer) và vì sao lớp mỏng, tán từ từ; lỗi hay gặp; chọn sản phẩm; nói thật với khách.",
+      "What makes a good French: a smile line of even depth, symmetrical, crisp and the same on all ten nails; following the natural free-edge line or choosing one; proportions by nail length and shape; classic, deep, micro and coloured French; ombré (baby boomer) and why thin layers and a gradual blend matter; common faults; choosing products; honest talk with the customer.",
+      "Mikä tekee ranskalaisesta kauniin: hymyviiva, jonka syvyys on tasainen, joka on symmetrinen, terävä ja sama kaikissa kymmenessä kynnessä; luonnollisen kärkiviivan seuraaminen tai oman viivan valinta; mittasuhteet kynnen pituuden ja muodon mukaan; klassinen, syvä, mikro- ja värillinen ranskalainen; ombre (baby boomer) ja miksi ohuet kerrokset ja asteittainen häivytys ratkaisevat; yleiset virheet; tuotteiden valinta; rehellinen puhe asiakkaan kanssa."
+    ),
+    video: video("french-ombre-hieu-dung", 308, "2026-11-17"),
+    notice: l3(
+      "Thời gian hơ và cách dùng sản phẩm luôn theo hướng dẫn của hãng; con số trong bài chỉ là thường gặp. Gel chưa chín không để chạm da. Quy định về sản phẩm làm móng khác nhau theo từng nước. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Curing times and product use always follow the manufacturer's instructions; numbers in the lesson are typical ranges only. Uncured gel never touches the skin. Rules on nail products differ by country. This lesson is a training aid, not a licence.",
+      "Kovetusajat ja tuotteiden käyttö noudattavat aina valmistajan ohjeita; tunnin luvut ovat vain tyypillisiä. Kovettumaton geeli ei saa koskea ihoa. Kynsituotteita koskevat määräykset vaihtelevat maittain. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    related: ["dich-vu", "bang-gia", "lich-hen"],
+    steps: [
+      l3(
+        "Với French, cái đẹp nằm ở cả mười móng đặt cạnh nhau, không phải ở một móng: móng này sâu, móng kia nông là khách nhìn thấy ngay.",
+        "With a French, the beauty is in all ten nails side by side, not in one nail: one deep tip next to a shallow one is the first thing the customer sees.",
+        "Ranskalaisen kauneus on kaikissa kymmenessä kynnessä vierekkäin, ei yhdessä kynnessä: syvä kärki matalan vieressä on ensimmäinen asia, jonka asiakas huomaa."
+      ),
+      l3(
+        "Đường cười đẹp có bốn điều: độ sâu đều, cân đối hai bên như soi gương, mép sắc gọn không nhòe, và giống nhau trên cả mười móng.",
+        "A good smile line has four things: even depth, both sides mirroring each other, a crisp clean edge, and the same line on all ten nails.",
+        "Hyvässä hymyviivassa on neljä asiaa: tasainen syvyys, puolet toistensa peilikuvat, terävä ja siisti reuna sekä sama viiva kaikissa kymmenessä kynnessä."
+      ),
+      l3(
+        "Theo đường đầu móng thật khi nó đẹp; khi nó lệch, chọn một đường cười đẹp cho cả bàn tay, vẽ đúng đường ấy trên mười móng và che chỗ lệch bằng nền hồng hơi đục.",
+        "Follow the natural free-edge line when it is good; when it is uneven, choose one good smile line for the whole hand, paint that line on all ten nails and hide the unevenness with a slightly more opaque pink base.",
+        "Seuraa luonnollista kärkiviivaa, kun se on kaunis; kun se on epätasainen, valitse koko kädelle yksi kaunis hymyviiva, maalaa se kaikkiin kymmeneen kynteen ja peitä epätasaisuus hieman peittävämmällä vaaleanpunaisella pohjalla."
+      ),
+      l3(
+        "Tỷ lệ cân với chiều dài và dáng móng: móng ngắn thì phần trắng mảnh (ngón tay trông thon dài), móng dài có thể sâu hơn; móng vuông đường cười thoải, móng hạnh nhân cong sâu hơn.",
+        "Proportions follow nail length and shape: on short nails keep the white slim (fingers look longer), long nails can take a deeper tip; square nails get a flatter smile line, almond nails a deeper curve.",
+        "Mittasuhteet seuraavat kynnen pituutta ja muotoa: lyhyissä kynsissä valkoinen pidetään kapeana (sormet näyttävät pidemmiltä), pitkiin kynsiin sopii syvempi kärki; neliökynnessä hymyviiva on loivempi, mantelikynnessä kaari on syvempi."
+      ),
+      l3(
+        "Các kiểu: cổ điển (nền hồng trong, đầu trắng vừa), sâu (phần trắng cao, hợp móng dài), micro (một đường trắng mảnh ở mép, hợp móng ngắn) và French màu (cùng kỹ thuật, khác màu).",
+        "Styles: classic (sheer pink base, medium white tip), deep (a higher white tip, for long nails), micro (a fine white line at the edge, for short nails) and coloured French (same technique, another colour).",
+        "Tyylit: klassinen (läpikuultava vaaleanpunainen pohja, keskikokoinen valkoinen kärki), syvä (korkeampi valkoinen kärki, pitkiin kynsiin), mikro (ohut valkoinen viiva reunassa, lyhyisiin kynsiin) ja värillinen ranskalainen (sama tekniikka, eri väri)."
+      ),
+      l3(
+        "Ombré (baby boomer) là hồng tự nhiên ở chân móng mờ dần thành trắng sữa ở đầu, không có đường; móng mọc ra cũng không lộ khoảng hở rõ.",
+        "Ombré (baby boomer) is natural pink at the cuticle fading into milky white at the tip, with no line; regrowth doesn't show a sharp gap either.",
+        "Ombre (baby boomer) on luonnollista vaaleanpunaista kynsinauhan kohdalla, joka häivyttyy maidonvalkoiseksi kärjessä ilman viivaa; kasvu ei myöskään näytä terävää rakoa."
+      ),
+      l3(
+        "Bí quyết của ombré: lớp trắng thật mỏng để màu hồng xuyên lên, và tán từ từ nhiều lần nhẹ. Lớp trắng dày rồi cố tán sẽ thành một vạch ngang, chỗ đậm chỗ nhạt.",
+        "The secret of ombré: very thin white so the pink shows through, and a gradual blend in several light passes. A thick white layer blended in a hurry leaves a band across the nail, patchy and streaky.",
+        "Ombren salaisuus: hyvin ohut valkoinen, jotta vaaleanpunainen kuultaa läpi, ja asteittainen häivytys monella kevyellä kerralla. Paksu valkoinen kerros kiireessä häivytettynä jättää kynnen poikki laikukkaan raidan."
+      ),
+      l3(
+        "Lỗi hay gặp: độ sâu không đều; phần trắng quá dày (gel trắng rất đục, ánh sáng khó xuyên, dễ chín không hết, nhăn, bong); mép nhòe vì không làm sạch đường trước khi hơ; trắng quá đục hay bị sọc.",
+        "Common faults: uneven depth; white too thick (white gel is very opaque, light struggles to get through, so it under-cures, wrinkles and lifts); a smudged edge from not cleaning the line before curing; white too opaque or streaky.",
+        "Yleiset virheet: epätasainen syvyys; liian paksu valkoinen (valkoinen geeli on hyvin peittävä, valo läpäisee sen huonosti, joten se kovettuu puutteellisesti, rypistyy ja irtoaa); suttuinen reuna, kun viivaa ei siistitä ennen kovetusta; liian peittävä tai raidallinen valkoinen."
+      ),
+      l3(
+        "Thà hai lớp trắng mỏng, mỗi lớp hơ đủ thời gian của hãng, còn hơn một lớp dày (xem bài Sơn gel: hiểu đúng để làm bền). Gel chưa chín không chạm da.",
+        "Two thin white layers, each cured for the brand's full time, are better than one thick one (see Gel polish: understand it so it lasts). Uncured gel never touches the skin.",
+        "Kaksi ohutta valkoista kerrosta, kumpikin kovetettuna valmistajan koko ajan, on parempi kuin yksi paksu (katso Geelilakkaus: ymmärrä se, niin se kestää). Kovettumaton geeli ei koske ihoa."
+      ),
+      l3(
+        "Nói thật với khách: kiểu trong ảnh không hợp móng ngắn hay đầu móng lệch thì đề nghị micro, cổ điển mảnh hơn hoặc ombré, giải thích vì sao và cho khách xem trên chính móng của họ.",
+        "Be honest with the customer: if the style in the photo doesn't suit short nails or an uneven free edge, suggest micro, a slimmer classic or ombré, explain why and show it on their own nails.",
+        "Ole rehellinen asiakkaalle: jos kuvan tyyli ei sovi lyhyisiin kynsiin tai epätasaiseen kärkeen, ehdota mikroa, kapeampaa klassista tai ombrea, kerro miksi ja näytä se asiakkaan omissa kynsissä."
+      ),
+    ],
+    tips: [
+      l3(
+        "Trước khi vẽ, cho khách đặt bàn tay thẳng và nhìn cả bốn móng từ trên xuống: chọn độ sâu theo móng ngắn nhất hay móng lệch nhất, để cả bộ làm được đều nhau.",
+        "Before painting, have the customer lay the hand flat and look at all four nails from above: set the depth by the shortest or most uneven nail so the whole set can match.",
+        "Ennen maalaamista pyydä asiakasta asettamaan käsi suoraksi ja katso kaikkia neljää kynttä ylhäältä: valitse syvyys lyhimmän tai epätasaisimman kynnen mukaan, jotta koko sarja voidaan tehdä yhtenäiseksi."
+      ),
+      l3(
+        "Trong VaraaAi, tạo French và ombré thành dịch vụ riêng với thời gian và giá riêng, để khách đặt đúng và lịch của bạn đủ thời gian làm kỹ.",
+        "In VaraaAi, set up French and ombré as their own services with their own duration and price, so customers book the right thing and your calendar leaves time to do it properly.",
+        "Luo VaraaAi:ssa ranskalainen ja ombre omiksi palveluikseen omalla kestolla ja hinnalla, jotta asiakkaat varaavat oikein ja kalenterissasi on aikaa tehdä työ huolella."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Điều gì làm nên một bộ French đẹp?", "What makes a beautiful French set?", "Mikä tekee ranskalaisesta sarjasta kauniin?"),
+        options: [
+          l3("Phần trắng càng dày càng trắng càng đẹp", "The thicker and whiter the tip, the better", "Mitä paksumpi ja valkoisempi kärki, sitä parempi"),
+          l3("Mỗi móng theo đúng đường đầu móng thật của nó, dù lệch", "Each nail follows its own natural free edge, even if uneven", "Jokainen kynsi seuraa omaa luonnollista kärkiviivaansa, vaikka se olisi epätasainen"),
+          l3("Đường cười đều độ sâu, cân đối, mép sắc và giống nhau trên cả mười móng", "An even, symmetrical, crisp smile line that is the same on all ten nails", "Tasasyvyinen, symmetrinen ja terävä hymyviiva, joka on sama kaikissa kymmenessä kynnessä"),
+        ],
+        answer: 2,
+        why: l3(
+          "Khách nhìn cả hai bàn tay cùng lúc. Một móng lệch là cả bộ trông không đều.",
+          "The customer looks at both hands at once. One uneven nail makes the whole set look off.",
+          "Asiakas katsoo molempia käsiä yhtä aikaa. Yksi epätasainen kynsi saa koko sarjan näyttämään epätasaiselta."
+        ),
+      },
+      {
+        q: l3("Vì sao không nên đắp một lớp trắng dày?", "Why not apply one thick white layer?", "Miksi valkoista ei kannata laittaa yhtenä paksuna kerroksena?"),
+        options: [
+          l3("Vì gel trắng rất đục, lớp dày khó chín hết, dễ nhăn, bong và gây dị ứng", "White gel is very opaque, so a thick layer under-cures, wrinkles, lifts and can cause allergy", "Valkoinen geeli on hyvin peittävä, joten paksu kerros kovettuu puutteellisesti, rypistyy, irtoaa ja voi aiheuttaa allergian"),
+          l3("Vì tốn gel", "Because it wastes gel", "Koska se tuhlaa geeliä"),
+          l3("Vì lớp dày khô quá nhanh", "Because a thick layer dries too fast", "Koska paksu kerros kuivuu liian nopeasti"),
+        ],
+        answer: 0,
+        why: l3(
+          "Ánh sáng đèn khó xuyên qua màu trắng. Hai lớp mỏng, mỗi lớp hơ đủ, luôn đẹp và bền hơn.",
+          "Lamp light struggles to pass through white. Two thin layers, each fully cured, always look better and last longer.",
+          "Lampun valo läpäisee valkoisen huonosti. Kaksi ohutta, kunnolla kovetettua kerrosta näyttää aina paremmalta ja kestää pidempään."
+        ),
+      },
+      {
+        q: l3("Khách có móng ngắn mang ảnh French sâu trên móng dài. Bạn làm gì?", "A customer with short nails shows a photo of a deep French on long nails. What do you do?", "Lyhytkyntinen asiakas näyttää kuvan syvästä ranskalaisesta pitkissä kynsissä. Mitä teet?"),
+        options: [
+          l3("Làm đúng như ảnh, khách muốn gì làm nấy", "Copy the photo exactly, the customer is always right", "Teet täsmälleen kuten kuvassa, asiakas saa mitä haluaa"),
+          l3("Giải thích kiểu ấy làm ngón tay trông ngắn đi, đề nghị micro, cổ điển mảnh hơn hoặc ombré", "Explain that it would make the fingers look shorter and suggest micro, a slimmer classic or ombré", "Kerrot, että se lyhentäisi sormia optisesti, ja ehdotat mikroa, kapeampaa klassista tai ombrea"),
+          l3("Từ chối làm French", "Refuse to do a French", "Kieltäydyt tekemästä ranskalaista"),
+        ],
+        answer: 1,
+        why: l3(
+          "Phần trắng quá dày trên móng ngắn làm ngón tay trông ngắn và mập. Khách thường cảm kích khi được giải thích thật lòng.",
+          "A deep white tip on short nails makes fingers look short and wide. Customers usually appreciate an honest explanation.",
+          "Syvä valkoinen kärki lyhyissä kynsissä saa sormet näyttämään lyhyiltä ja leveiltä. Asiakkaat yleensä arvostavat rehellistä selitystä."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "french-ombre",
+    course: "p-nail",
+    style: "practice",
+    title: l3("French và ombré: thực hành từng bước", "French and ombré: step by step", "Ranskalainen ja ombre: vaihe vaiheelta"),
+    summary: l3(
+      "French cổ điển bằng cọ nét: chuẩn bị và lớp lót như bài sơn gel, nền hồng mỏng, chọn đường cười, vẽ từ một góc vào giữa rồi soi gương từ góc kia, làm sạch đường bằng cọ hơi ẩm trước khi hơ, sửa móng lệch, top và kiểm tra cả mười móng. Rồi ombré: nền hồng, trắng chỉ ở đầu móng, tán lên bằng cọ hoặc mút, hơ, thêm lớp mỏng nếu cần.",
+      "A classic French with a liner brush: prep and base as in the gel polish lesson, a thin pink base, choosing the smile line, painting from one corner to the centre and mirroring from the other, cleaning the line with a barely damp brush before curing, fixing an uneven nail, top coat and checking all ten nails. Then ombré: pink base, white only on the tip, blending upwards with a brush or sponge, curing, another thin layer if needed.",
+      "Klassinen ranskalainen ohuella siveltimellä: esikäsittely ja pohjakerros kuten geelilakkaustunnilla, ohut vaaleanpunainen pohja, hymyviivan valinta, maalaus kulmasta keskelle ja peilikuvana toisesta kulmasta, viivan siistiminen hädin tuskin kostealla siveltimellä ennen kovetusta, epätasaisen kynnen korjaus, päällyslakka ja kaikkien kymmenen kynnen tarkistus. Sitten ombre: vaaleanpunainen pohja, valkoinen vain kärkeen, häivytys ylöspäin siveltimellä tai sienellä, kovetus ja tarvittaessa uusi ohut kerros."
+    ),
+    video: video("french-ombre", 274, "2026-11-17"),
+    notice: l3(
+      "Thời gian hơ và cách dùng sản phẩm luôn theo hướng dẫn của hãng. Gel chưa chín không để chạm da. Quy định về sản phẩm làm móng khác nhau theo từng nước. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Curing times and product use always follow the manufacturer's instructions. Uncured gel never touches the skin. Rules on nail products differ by country. This lesson is a training aid, not a licence.",
+      "Kovetusajat ja tuotteiden käyttö noudattavat aina valmistajan ohjeita. Kovettumaton geeli ei saa koskea ihoa. Kynsituotteita koskevat määräykset vaihtelevat maittain. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    related: ["dich-vu", "bang-gia", "lich-hen"],
+    steps: [
+      l3(
+        "Chuẩn bị khô như bài sơn gel: đẩy da, lấy sạch da chết trên mặt móng, chà nhẹ cho mất bóng, lau sạch dầu. Dũa dáng xong trước, vì đường cười phải hợp với dáng móng.",
+        "Dry prep as in the gel polish lesson: push back, remove cuticle tissue from the plate, lightly remove the shine, clean off oil. Shape the nails first, because the smile line has to suit the shape.",
+        "Kuivaesikäsittely kuten geelilakkaustunnilla: työnnä kynsinauhat, poista kynsinauhakudos levyltä, poista kiilto kevyesti ja puhdista öljy. Muotoile kynnet ensin, koska hymyviivan on sovittava muotoon."
+      ),
+      l3(
+        "Lớp lót mỏng, bịt đầu móng, hơ; rồi một hay hai lớp hồng trong mỏng, hơ từng lớp. Nền hơi đục giúp che đường đầu móng thật bị lệch.",
+        "A thin base coat, cap the free edge, cure; then one or two thin sheer pink coats, each cured. A slightly more opaque base hides an uneven natural free edge.",
+        "Ohut pohjakerros, kärjen sulkeminen, kovetus; sitten yksi tai kaksi ohutta läpikuultavaa vaaleanpunaista kerrosta, kukin kovetettuna. Hieman peittävämpi pohja kätkee epätasaisen luonnollisen kärkiviivan."
+      ),
+      l3(
+        "Nhìn cả mười móng rồi mới chọn đường cười: độ sâu theo móng ngắn nhất hay lệch nhất; hình dung ba điểm, hai góc sâu bằng nhau và một điểm giữa nông nhất.",
+        "Look at all ten nails before choosing the smile line: set the depth by the shortest or most uneven nail; picture three points, two corners of equal depth and the shallowest point in the centre.",
+        "Katso kaikki kymmenen kynttä ennen hymyviivan valintaa: syvyys lyhimmän tai epätasaisimman kynnen mukaan; kuvittele kolme pistettä, kaksi yhtä syvää kulmaa ja matalin kohta keskellä."
+      ),
+      l3(
+        "Ít gel trắng trên cọ nét. Đặt cọ ở một góc, kéo theo đường cong về giữa; rồi từ góc kia, cùng độ sâu, kéo về giữa cho hai nửa liền nhau. Xoay ngón tay khách, không xoay cổ tay mình.",
+        "A little white gel on the liner brush. Start at one corner and follow the curve to the centre; then from the other corner, at the same depth, to the centre so the halves meet. Turn the customer's finger, not your wrist.",
+        "Vähän valkoista geeliä ohueen siveltimeen. Aloita yhdestä kulmasta ja seuraa kaarta keskelle; sitten toisesta kulmasta samalta syvyydeltä keskelle, niin että puolikkaat kohtaavat. Käännä asiakkaan sormea, älä omaa rannettasi."
+      ),
+      l3(
+        "Tô kín ra tới mép và quét nhẹ qua mép đầu móng. Lớp trắng mỏng; chưa đủ trắng thì để lớp sau.",
+        "Fill in to the edge and lightly cap the free edge. Keep the white thin; if it isn't white enough, that's for the next layer.",
+        "Täytä reunaan asti ja sulje kärki kevyesti. Pidä valkoinen ohuena; jos se ei ole tarpeeksi valkoinen, se hoidetaan seuraavalla kerroksella."
+      ),
+      l3(
+        "Trước khi hơ, làm sạch đường cười bằng cọ dẹt nhỏ chỉ hơi ẩm dung dịch lau, lướt dọc mép trong phần trắng; lau cọ sau mỗi lần. Cọ ướt quá sẽ làm loang màu trắng.",
+        "Before curing, clean the smile line with a small flat brush that is only barely damp with cleanser, gliding along the inner edge of the white; wipe the brush every time. A wet brush makes the white bleed.",
+        "Siisti hymyviiva ennen kovetusta pienellä litteällä siveltimellä, joka on vain hädin tuskin kostea puhdistusaineesta, liu'uttaen valkoisen sisäreunaa pitkin; pyyhi sivellin joka kerta. Märkä sivellin levittää valkoista."
+      ),
+      l3(
+        "Lệch thì sửa trước khi hơ: lau sạch phần trắng ở móng đó và vẽ lại. Vẽ vài móng rồi hơ, và đừng để tay khách gần đèn khi đang vẽ.",
+        "Fix an uneven tip before curing: wipe that nail's white off and paint it again. Paint a few nails, then cure, and keep the customer's hand away from the lamp while painting.",
+        "Korjaa epätasainen kärki ennen kovetusta: pyyhi kynnen valkoinen pois ja maalaa uudelleen. Maalaa muutama kynsi ja koveta, äläkä pidä asiakkaan kättä lampun lähellä maalatessa."
+      ),
+      l3(
+        "Hơ đủ thời gian; cần trắng hơn thì thêm một lớp mỏng theo đúng đường cũ. Top phủ kín, quét qua mép, hơ, lau lớp dính nếu có. Rồi kiểm tra cả mười móng từ trên xuống và sửa ngay móng lệch.",
+        "Cure for the full time; if it needs to be whiter, add one more thin layer along the same line. Top coat over everything, cap the edge, cure, wipe the sticky layer if there is one. Then check all ten nails from above and fix any uneven one right away.",
+        "Kovetus koko ajan; jos tarvitaan valkoisempaa, vielä yksi ohut kerros samaa viivaa pitkin. Päällyslakka kauttaaltaan, kärki suljettuna, kovetus, tahmakerroksen pyyhintä jos sellainen on. Tarkista sitten kaikki kymmenen kynttä ylhäältä ja korjaa epätasainen heti."
+      ),
+      l3(
+        "Ombré: nền hồng hay màu da mỏng, hơ chín. Trắng (thường là trắng sữa) chỉ ở khoảng một phần ba phía đầu móng, mỏng, không đưa lên gần chân móng.",
+        "Ombré: a thin pink or nude base, fully cured. White (often milky white) only on about the front third of the nail, thin, never up near the cuticle.",
+        "Ombre: ohut vaaleanpunainen tai nude-pohja, kunnolla kovetettu. Valkoinen (usein maidonvalkoinen) vain noin kynnen etummaiseen kolmannekseen, ohuena, ei lähelle kynsinauhaa."
+      ),
+      l3(
+        "Tán bằng cọ dẹt sạch gần khô, nét thật ngắn và nhẹ hướng lên chân móng, hoặc chấm nhẹ bằng mút (một khách một miếng). Từng móng một, tán xong là hơ; thêm lớp mỏng nếu cần, thường hai đến ba lớp. Có vạch hay sọc là lớp quá dày hoặc tán chưa đủ.",
+        "Blend with a clean, almost dry flat brush in very short, light strokes towards the cuticle, or dab with a sponge (one per customer). One nail at a time, cure as soon as it's blended; add thin layers if needed, usually two to three. A band or streaks means the layer is too thick or not blended enough.",
+        "Häivytä puhtaalla, lähes kuivalla litteällä siveltimellä hyvin lyhyin, kevyin vedoin kohti kynsinauhaa tai taputtele sienellä (yksi asiakasta kohden). Yksi kynsi kerrallaan, kovetus heti häivytyksen jälkeen; ohuita kerroksia lisää tarvittaessa, yleensä kaksi tai kolme. Raita tai juovat tarkoittavat liian paksua kerrosta tai riittämätöntä häivytystä."
+      ),
+    ],
+    tips: [
+      l3(
+        "Hình dung ba điểm trước khi đặt cọ: hai góc sâu bằng nhau, điểm giữa nông nhất. Đặt đúng ba điểm, đường cười gần như tự đều.",
+        "Picture three points before the brush touches the nail: two corners of equal depth and the shallowest point in the centre. Get the three points right and the smile line almost evens itself.",
+        "Kuvittele kolme pistettä ennen kuin sivellin koskee kynteen: kaksi yhtä syvää kulmaa ja matalin kohta keskellä. Kun pisteet ovat oikein, hymyviiva tasaantuu lähes itsestään."
+      ),
+      l3(
+        "Trong VaraaAi, ghi vào hồ sơ khách kiểu French, độ sâu và màu nền đã làm, để lần sau làm lại y như cũ.",
+        "In VaraaAi, note the French style, depth and base shade in the customer record, so next time you can repeat it exactly.",
+        "Merkitse VaraaAi:n asiakastietoihin ranskalaisen tyyli, syvyys ja pohjasävy, niin voit toistaa sen seuraavalla kerralla täsmälleen."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Vẽ phần trắng của French theo thứ tự nào?", "In what order do you paint the white of a French?", "Missä järjestyksessä ranskalaisen valkoinen maalataan?"),
+        options: [
+          l3("Từ một góc vào giữa, rồi từ góc kia vào giữa với cùng độ sâu", "From one corner to the centre, then from the other corner to the centre at the same depth", "Yhdestä kulmasta keskelle, sitten toisesta kulmasta keskelle samalta syvyydeltä"),
+          l3("Một nét ngang từ bên này sang bên kia", "One stroke straight across from side to side", "Yksi veto suoraan reunasta reunaan"),
+          l3("Đổ một giọt trắng lên giữa móng rồi để tự chảy", "Drop white in the middle and let it flow", "Tiputetaan valkoista keskelle ja annetaan valua"),
+        ],
+        answer: 0,
+        why: l3(
+          "Đi từ hai góc vào giữa giúp hai nửa đường cười cân nhau như soi gương.",
+          "Working from both corners to the centre makes the two halves of the smile line mirror each other.",
+          "Kun työskennellään molemmista kulmista keskelle, hymyviivan puolikkaat tulevat toistensa peilikuviksi."
+        ),
+      },
+      {
+        q: l3("Làm sạch đường cười bằng gì, và khi nào?", "What do you clean the smile line with, and when?", "Millä ja milloin hymyviiva siistitään?"),
+        options: [
+          l3("Bằng dũa, sau khi top đã chín", "With a file, after the top coat is cured", "Viilalla, kun päällyslakka on kovettunut"),
+          l3("Bằng cọ dẹt nhỏ chỉ hơi ẩm dung dịch lau, trước khi hơ", "With a small flat brush only barely damp with cleanser, before curing", "Pienellä litteällä siveltimellä, joka on vain hädin tuskin kostea puhdistusaineesta, ennen kovetusta"),
+          l3("Bằng cọ ướt đẫm dung dịch, sau khi hơ", "With a brush soaked in cleanser, after curing", "Puhdistusaineesta märällä siveltimellä kovetuksen jälkeen"),
+        ],
+        answer: 1,
+        why: l3(
+          "Trước khi hơ, gel còn mềm nên dễ cắt cho sắc. Cọ ướt quá sẽ làm loang màu trắng.",
+          "Before curing the gel is still soft and easy to sharpen. A wet brush makes the white bleed.",
+          "Ennen kovetusta geeli on vielä pehmeää ja helppo terävöittää. Märkä sivellin levittää valkoista."
+        ),
+      },
+      {
+        q: l3("Ombré bị một vạch trắng ngang móng. Nguyên nhân thường là gì?", "An ombré shows a white band across the nail. What is the usual cause?", "Ombressa näkyy valkoinen raita kynnen poikki. Mikä on tavallinen syy?"),
+        options: [
+          l3("Nền hồng quá mỏng", "The pink base is too thin", "Vaaleanpunainen pohja on liian ohut"),
+          l3("Hơ đèn quá lâu", "Curing too long", "Liian pitkä kovetus"),
+          l3("Lớp trắng quá dày hoặc tán chưa đủ, chưa đi từ từ", "The white is too thick or not blended gradually enough", "Valkoinen on liian paksu tai sitä ei ole häivytetty tarpeeksi asteittain"),
+        ],
+        answer: 2,
+        why: l3(
+          "Ombré đẹp nhờ lớp trắng mỏng và tán nhẹ nhiều lần. Lớp dày tán vội sẽ để lại vạch và sọc.",
+          "A good ombré comes from thin white and several light blends. A thick layer blended in a hurry leaves bands and streaks.",
+          "Hyvä ombre syntyy ohuesta valkoisesta ja monesta kevyestä häivytyksestä. Paksu, kiireessä häivytetty kerros jättää raitoja ja juovia."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "cham-soc-mong-co-ban-hieu-dung",
+    course: "p-nail",
+    style: "theory",
+    title: l3("Chăm sóc móng cơ bản: hiểu đúng để tay chân khỏe đẹp", "Basic manicure and pedicure: understand them for healthy, beautiful hands and feet", "Perusmanikyyri ja -pedikyyri: ymmärrä ne, niin kädet ja jalat ovat terveet ja kauniit"),
+    summary: l3(
+      "Dịch vụ chăm sóc móng tay, móng chân với sơn thường: mục đích là móng khỏe, da khỏe; nếp da sống không cắt; móng chân cắt thẳng ngang; vệ sinh bồn ngâm với túi lót và dụng cụ tiệt trùng; khách tiểu đường hay có vấn đề tuần hoàn; vết chai chỉ làm mịn; sơn thường so với gel; mát xa, dưỡng ẩm và dặn dò khách.",
+      "The classic manicure and pedicure with regular polish: the aim is healthy nails and skin; the living fold is not cut; toenails are cut straight across; basin hygiene with liners and sterilised tools; customers with diabetes or circulation problems; calluses are only smoothed; regular polish vs gel; massage, moisture and aftercare.",
+      "Klassinen manikyyri ja pedikyyri tavallisella lakalla: tavoitteena terveet kynnet ja iho; elävää kynsivallia ei leikata; varpaankynnet leikataan suoraan; jalkakylvyn hygienia suojapusseineen ja steriloiduin välinein; diabetesta tai verenkiertohäiriöitä sairastavat asiakkaat; kovettumat vain tasoitetaan; tavallinen lakka vai geeli; hieronta, kosteutus ja kotiohjeet."
+    ),
+    video: video("cham-soc-mong-co-ban-hieu-dung", 282, "2026-11-17"),
+    notice: l3(
+      "Quy định vệ sinh khác nhau theo từng nước; bài nêu theo hướng dẫn của thành phố Helsinki. Người thợ không chẩn đoán: thấy vết loét, vết thương, móng dày, đổi màu hay móng đâm vào da thì không làm và khuyên khách đến bác sĩ hoặc chuyên viên chăm sóc bàn chân. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Hygiene rules differ by country; the lesson follows the City of Helsinki guidance. Nail professionals don't diagnose: ulcers, wounds, thick or discoloured nails or an ingrown nail mean no treatment and a referral to a doctor or foot-care professional. This lesson is a training aid, not a licence.",
+      "Hygieniamääräykset vaihtelevat maittain; tunti noudattaa Helsingin kaupungin ohjetta. Kynsiammattilainen ei tee diagnooseja: haavauma, haava, paksuuntunut tai värjäytynyt kynsi tai sisäänkasvanut kynsi tarkoittaa, että hoitoa ei tehdä ja asiakas ohjataan lääkäriin tai jalkojenhoidon ammattilaiselle. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    sources: [
+      HELSINKI_HYGIENE,
+      { label: "NHS — Ingrown toenail", url: "https://www.nhs.uk/conditions/ingrown-toenail/" },
+    ],
+    related: ["khach-hang", "lich-hen", "the-khach-quen"],
+    steps: [
+      l3(
+        "Mục đích không chỉ là lên màu mà là móng khỏe, da khỏe: móng cắt dũa gọn, da quanh móng mềm, sạch. Người thợ tinh ý thấy điều bất thường thì khuyên khách đi khám.",
+        "The aim is not only colour but healthy nails and skin: neatly cut and filed nails, soft clean skin around them. An attentive professional who notices something unusual suggests a doctor.",
+        "Tavoite ei ole vain väri vaan terveet kynnet ja iho: siististi leikatut ja viilatut kynnet, pehmeä ja puhdas iho niiden ympärillä. Tarkkaavainen ammattilainen, joka huomaa jotain poikkeavaa, ohjaa lääkäriin."
+      ),
+      l3(
+        "Nếp da sống ở chân móng bịt kín, bảo vệ mầm móng: không cắt. Chỉ lấy lớp da chết mỏng bám trên mặt móng và những mảnh da khô đã bong lên (xem bài Sơn gel: hiểu đúng để làm bền).",
+        "The living fold at the base of the nail seals and protects the matrix: never cut it. Remove only the thin dead tissue stuck to the nail plate and dry flakes that have lifted (see Gel polish: understand it so it lasts).",
+        "Kynnen tyven elävä kynsivalli sulkee ja suojaa kasvukohtaa: sitä ei leikata. Poista vain kynsilevyyn tarttunut ohut kuollut kudos ja irronneet kuivat hilseet (katso Geelilakkaus: ymmärrä se, niin se kestää)."
+      ),
+      l3(
+        "Cắt vào da sống thì da thường mọc lại dày, sần, dễ xước măng rô, và mỗi vết cắt là đường cho nhiễm trùng. Giải thích cho khách: đẩy nhẹ, lấy da chết, dưỡng dầu mỗi ngày.",
+        "Cutting living skin usually makes it grow back thicker and rougher with more hangnails, and every cut is a way in for infection. Explain to the customer: gentle push-back, removing dead tissue, oil every day.",
+        "Elävän ihon leikkaaminen saa sen yleensä kasvamaan takaisin paksumpana ja karheampana, ja jokainen viilto on reitti tulehdukselle. Kerro asiakkaalle: kevyt työntö, kuolleen kudoksen poisto ja öljy joka päivä."
+      ),
+      l3(
+        "Móng chân cắt thẳng ngang, chỉ bo nhẹ hai góc, không đào khóe và không cắt quá ngắn; mép móng ngang đầu ngón chân. Khóe cắt sâu dễ thành móng quặp.",
+        "Toenails are cut straight across with only slightly softened corners, never dug into the corners or cut too short; the edge level with the tip of the toe. Corners cut deep easily become ingrown.",
+        "Varpaankynnet leikataan suoraan, kulmat vain hieman pyöristäen, kulmia ei kaiveta eikä kynsiä leikata liian lyhyiksi; reuna varpaan kärjen tasolla. Syvälle leikatut kulmat kasvavat helposti sisään."
+      ),
+      l3(
+        "Theo hướng dẫn vệ sinh của Helsinki: lót túi dùng một lần trong bồn ngâm, dụng cụ làm móng chân luôn tiệt trùng và để riêng. Sau mỗi khách, bồn được làm sạch và khử khuẩn. Quy định nơi bạn làm có thể khác.",
+        "Under the Helsinki hygiene guidance: a disposable liner in the foot basin, pedicure tools always sterilised and stored separately. After every customer the basin is cleaned and disinfected. Rules where you work may differ.",
+        "Helsingin hygieniaohjeen mukaan: jalkakylpyyn kertakäyttöinen suojapussi, jalkahoitovälineet aina steriloituina ja erillään säilytettyinä. Jokaisen asiakkaan jälkeen allas puhdistetaan ja desinfioidaan. Määräykset työpaikallasi voivat poiketa."
+      ),
+      l3(
+        "Dũa giấy, phao, que gỗ, miếng tách ngón: mỗi khách một bộ mới. Kềm và cây đẩy da kim loại có thể làm xước da: làm sạch rồi tiệt trùng sau mỗi khách, mở túi trước mặt khách.",
+        "Paper files, buffers, wooden sticks, toe separators: a new set for every customer. Metal nippers and pushers can break the skin: clean and sterilise them after every customer, and open the pouch in front of the customer.",
+        "Paperiviilat, hiomapalat, puutikut ja varvaserottimet: jokaiselle asiakkaalle uudet. Metalliset kynsinauhaleikkurit ja -työntimet voivat rikkoa ihon: puhdista ja steriloi ne jokaisen asiakkaan jälkeen ja avaa pussi asiakkaan nähden."
+      ),
+      l3(
+        "Luôn hỏi về tiểu đường và tuần hoàn máu. Với những khách này: nước ấm vừa, ngâm ngắn, không cắt da, không dùng dao, dũa thật nhẹ. Vết loét, vết thương, móng dày hay đổi màu: không làm, khuyên đến bác sĩ hay chuyên viên chăm sóc bàn chân (xem bài Khi nào không làm cho khách).",
+        "Always ask about diabetes and circulation. For these customers: warm, not hot, water, a short soak, no cutting, no blades, very gentle filing. Ulcers, wounds, thick or discoloured nails: no treatment, refer to a doctor or foot-care professional (see When not to work on a customer).",
+        "Kysy aina diabeteksesta ja verenkierrosta. Näille asiakkaille: lämmin, ei kuuma, vesi, lyhyt liotus, ei leikkaamista, ei teriä, hyvin kevyt viilaus. Haavaumat, haavat, paksut tai värjäytyneet kynnet: ei hoitoa, ohjaus lääkärille tai jalkojenhoidon ammattilaiselle (katso Milloin asiakasta ei hoideta)."
+      ),
+      l3(
+        "Chai là da dày lên để bảo vệ: chỉ làm mềm, làm mịn bằng dũa chân mịn. Không dùng dao bào hay lưỡi cắt chai, trừ khi đã được đào tạo và nơi bạn làm cho phép. Lấy quá nhiều thì đau, xước và chai thường dày lại.",
+        "A callus is skin thickened for protection: only soften and smooth it with a fine foot file. No blades or callus cutters unless you are trained and it is allowed where you work. Taking too much hurts, scratches and the callus usually comes back thicker.",
+        "Kovettuma on suojaksi paksuuntunutta ihoa: sitä vain pehmennetään ja tasoitetaan hienolla jalkaraspilla. Ei teriä eikä kovettumahöyliä, ellei sinulla ole koulutusta ja se ole työpaikallasi sallittua. Liika poisto sattuu, naarmuttaa ja kovettuma palaa yleensä paksumpana."
+      ),
+      l3(
+        "Sơn thường khô nhờ dung môi bay hơi, không cần đèn, tháo nhẹ nhàng bằng nước tẩy, thường giữ đẹp vài ngày đến khoảng một tuần; mặt khô nhanh nhưng bên dưới cần vài giờ. Gel bền hơn nhưng cần đèn và tháo kỹ hơn.",
+        "Regular polish dries as solvents evaporate, needs no lamp, comes off gently with remover and usually looks good for a few days to about a week; the surface dries fast but underneath takes a few hours. Gel lasts longer but needs a lamp and a more careful removal.",
+        "Tavallinen lakka kuivuu liuottimien haihtuessa, ei tarvitse lamppua, lähtee hellävaraisesti poistoaineella ja pysyy kauniina yleensä muutamasta päivästä noin viikkoon; pinta kuivuu nopeasti, mutta alla kestää muutaman tunnin. Geeli kestää pidempään mutta vaatii lampun ja huolellisemman poiston."
+      ),
+      l3(
+        "Mát xa và dưỡng ẩm là lúc khách nhớ tiệm lâu nhất, nhưng phải lau sạch kem và dầu trên mặt móng trước khi sơn. Dặn khách tránh nước nóng và giày bít vài giờ, dưỡng dầu mỗi ngày, ở nhà cũng cắt móng chân thẳng ngang.",
+        "Massage and moisture are what customers remember, but clean cream and oil off the nail plate before polishing. Tell the customer to avoid hot water and closed shoes for a few hours, use oil daily and cut toenails straight across at home too.",
+        "Hieronta ja kosteutus jäävät asiakkaan mieleen, mutta puhdista voide ja öljy kynsilevyltä ennen lakkausta. Neuvo asiakasta välttämään kuumaa vettä ja umpikenkiä muutaman tunnin, käyttämään öljyä päivittäin ja leikkaamaan varpaankynnet kotonakin suoraan."
+      ),
+    ],
+    tips: [
+      l3(
+        "Khách đòi cắt da thật sâu: đừng chiều, hãy hẹn lại sau vài tuần đẩy nhẹ và dưỡng dầu để khách tự thấy da đẹp hơn.",
+        "When a customer insists on deep cuticle cutting, don't give in: book them back after a few weeks of gentle push-back and daily oil so they see the difference themselves.",
+        "Kun asiakas vaatii syvää kynsinauhojen leikkaamista, älä anna periksi: varaa uusi aika muutaman viikon kevyen työnnön ja päivittäisen öljyn jälkeen, niin asiakas näkee eron itse."
+      ),
+      l3(
+        "Trong VaraaAi, ghi vào hồ sơ khách những điều cần nhớ, như tiểu đường, dị ứng hay móng hay quặp, để cả tiệm cùng biết và cẩn thận ở lần sau.",
+        "In VaraaAi, note what matters in the customer record, such as diabetes, allergies or a tendency to ingrown nails, so the whole team knows and takes care next time.",
+        "Merkitse VaraaAi:n asiakastietoihin tärkeät asiat, kuten diabetes, allergiat tai taipumus sisäänkasvaviin kynsiin, jotta koko tiimi tietää ja on varovainen seuraavalla kerralla."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Cắt móng chân thế nào là đúng?", "What is the right way to cut toenails?", "Miten varpaankynnet leikataan oikein?"),
+        options: [
+          l3("Cắt cong sâu xuống hai khóe cho gọn", "Cut in a deep curve down into the corners to keep them neat", "Syvälle kaarelle kulmiin asti, jotta ne ovat siistit"),
+          l3("Cắt thẳng ngang, chỉ bo nhẹ hai góc, không cắt quá ngắn", "Straight across, corners only slightly softened, not too short", "Suoraan, kulmat vain hieman pyöristäen, ei liian lyhyiksi"),
+          l3("Cắt thật ngắn để lâu mọc lại", "Very short so they take longer to grow back", "Hyvin lyhyiksi, jotta kasvamiseen menee kauemmin"),
+        ],
+        answer: 1,
+        why: l3(
+          "Khóe cắt sâu hay móng cắt quá ngắn dễ làm móng mọc đâm vào da, thành móng quặp.",
+          "Corners cut deep or nails cut too short easily grow into the skin and become ingrown.",
+          "Syvälle leikatut kulmat tai liian lyhyet kynnet kasvavat helposti ihoon ja muuttuvat sisäänkasvaneiksi."
+        ),
+      },
+      {
+        q: l3("Điều nào đúng về vệ sinh bồn ngâm chân theo hướng dẫn của Helsinki?", "Which is right about foot basin hygiene under the Helsinki guidance?", "Mikä pitää paikkansa jalkakylvyn hygieniasta Helsingin ohjeen mukaan?"),
+        options: [
+          l3("Thay nước là đủ, không cần túi lót", "Changing the water is enough, no liner needed", "Veden vaihto riittää, suojapussia ei tarvita"),
+          l3("Chỉ cần lau bồn vào cuối ngày", "Wiping the basin at the end of the day is enough", "Riittää, että allas pyyhitään päivän päätteeksi"),
+          l3("Lót túi dùng một lần cho mỗi khách, dụng cụ móng chân tiệt trùng và để riêng", "A disposable liner for every customer, pedicure tools sterilised and stored separately", "Kertakäyttöinen suojapussi jokaiselle asiakkaalle, jalkahoitovälineet steriloituina ja erillään"),
+        ],
+        answer: 2,
+        why: l3(
+          "Bồn ấm và ẩm là nơi vi khuẩn, nấm dễ phát triển. Ngoài túi lót, bồn còn được làm sạch và khử khuẩn sau mỗi khách.",
+          "A warm, damp basin is where bacteria and fungi grow easily. Besides the liner, the basin is also cleaned and disinfected after every customer.",
+          "Lämmin ja kostea allas on paikka, jossa bakteerit ja sienet kasvavat helposti. Suojapussin lisäksi allas puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen."
+        ),
+      },
+      {
+        q: l3("Khách có bệnh tiểu đường đến làm móng chân. Bạn làm gì?", "A customer with diabetes comes for a pedicure. What do you do?", "Diabeetikkoasiakas tulee jalkahoitoon. Mitä teet?"),
+        options: [
+          l3("Nước ấm vừa, ngâm ngắn, không cắt da, không dùng dao; có vết loét hay vết thương thì không làm và khuyên đi khám", "Warm water, a short soak, no cutting, no blades; ulcers or wounds mean no treatment and a referral", "Lämmin vesi, lyhyt liotus, ei leikkaamista, ei teriä; haavaumat tai haavat tarkoittavat, ettei hoideta, ja ohjaat lääkäriin"),
+          l3("Ngâm thật lâu trong nước nóng cho da mềm", "A long soak in hot water to soften the skin", "Pitkä liotus kuumassa vedessä ihon pehmentämiseksi"),
+          l3("Cắt chai thật sạch bằng dao bào", "Remove the calluses thoroughly with a blade", "Poistat kovettumat perusteellisesti terällä"),
+        ],
+        answer: 0,
+        why: l3(
+          "Bàn chân có thể giảm cảm giác và vết xước rất lâu lành, nên mọi thứ phải thật nhẹ nhàng.",
+          "The feet may have less feeling and scratches heal slowly, so everything must be very gentle.",
+          "Jalkojen tunto voi olla heikentynyt ja naarmut paranevat hitaasti, joten kaiken on oltava hyvin hellävaraista."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "cham-soc-mong-co-ban",
+    course: "p-nail",
+    style: "practice",
+    title: l3("Chăm sóc móng tay, móng chân: thực hành từng bước", "Manicure and pedicure: step by step", "Manikyyri ja pedikyyri: vaihe vaiheelta"),
+    summary: l3(
+      "Một buổi chăm sóc móng tay: tư vấn, tẩy sơn cũ, dũa dáng, làm mềm da, đẩy da và chỉ lấy da chết, phao nhẹ, mát xa tay, lau sạch dầu, sơn lót, hai lớp màu mỏng, sơn bóng, để khô. Rồi móng chân: bồn với túi lót mới, nhìn kỹ đôi chân, ngâm ngắn, cắt thẳng ngang, dũa, đẩy da, dũa chai nhẹ không dùng dao, tẩy da chết, mát xa, tách ngón, sơn; và vệ sinh sau khách.",
+      "A manicure: consultation, removing old polish, shaping, softening the cuticle, pushing back and removing only dead tissue, light buffing, hand massage, cleaning off oil, base coat, two thin colour coats, top coat, drying. Then a pedicure: a basin with a fresh liner, checking the feet, a short soak, cutting straight across, filing, cuticle care, gentle callus filing with no blades, scrub, massage, toe separators, polish; and hygiene after the customer.",
+      "Manikyyri: konsultaatio, vanhan lakan poisto, muotoilu, kynsinauhojen pehmennys, työntö ja vain kuolleen kudoksen poisto, kevyt hionta, käsihieronta, öljyn puhdistus, aluslakka, kaksi ohutta värikerrosta, päällyslakka, kuivatus. Sitten pedikyyri: allas uudella suojapussilla, jalkojen tarkastus, lyhyt liotus, suora leikkaus, viilaus, kynsinauhojen hoito, kevyt kovettumien raspaus ilman teriä, kuorinta, hieronta, varvaserottimet, lakkaus; ja hygienia asiakkaan jälkeen."
+    ),
+    video: video("cham-soc-mong-co-ban", 284, "2026-11-17"),
+    notice: l3(
+      "Thời gian ngâm và dùng sản phẩm theo hướng dẫn của sản phẩm. Quy định vệ sinh khác nhau theo từng nước; bài nêu theo hướng dẫn của thành phố Helsinki. Thấy dấu hiệu bất thường ở móng hay da thì không làm và khuyên khách đi khám. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Soaking times and product use follow the product's instructions. Hygiene rules differ by country; the lesson follows the City of Helsinki guidance. If a nail or the skin looks unusual, don't work and suggest a doctor. This lesson is a training aid, not a licence.",
+      "Liotusajat ja tuotteiden käyttö noudattavat tuotteen ohjeita. Hygieniamääräykset vaihtelevat maittain; tunti noudattaa Helsingin kaupungin ohjetta. Jos kynsi tai iho näyttää poikkeavalta, älä tee hoitoa ja ohjaa lääkäriin. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    sources: [
+      HELSINKI_HYGIENE,
+      { label: "NHS — Ingrown toenail", url: "https://www.nhs.uk/conditions/ingrown-toenail/" },
+    ],
+    related: ["khach-hang", "lich-hen", "the-khach-quen"],
+    steps: [
+      l3(
+        "Rửa tay, sát khuẩn tay cho mình và cho khách. Hỏi dáng, màu và sức khỏe (dị ứng, tiểu đường), nhìn kỹ móng và da; thấy bất thường thì không làm.",
+        "Wash and disinfect your hands and the customer's. Ask about shape, colour and health (allergies, diabetes) and look closely at nails and skin; if something looks unusual, don't work.",
+        "Pese ja desinfioi omat ja asiakkaan kädet. Kysy muodosta, väristä ja terveydestä (allergiat, diabetes) ja katso kynnet ja iho tarkasti; jos jokin näyttää poikkeavalta, älä tee hoitoa."
+      ),
+      l3(
+        "Tẩy sơn cũ: bông thấm nước tẩy đặt lên móng vài giây, vuốt một chiều từ chân móng ra đầu móng, không chà qua lại. Rồi dũa một chiều theo dáng khách chọn.",
+        "Remove old polish: a cotton pad with remover held on the nail for a few seconds, then wiped one way from cuticle to tip, never rubbed back and forth. Then file one way into the chosen shape.",
+        "Poista vanha lakka: poistoaineella kostutettu vanulappu kynnen päälle muutamaksi sekunniksi ja pyyhkäisy yhteen suuntaan tyvestä kärkeen, ei edestakaisin hankaamista. Viilaa sitten yhteen suuntaan valittuun muotoon."
+      ),
+      l3(
+        "Làm mềm da bằng cách ngâm nước ấm thật ngắn rồi lau khô, hoặc bằng chất làm mềm da đúng thời gian ghi trên sản phẩm. Trước khi làm gel thì chuẩn bị khô.",
+        "Soften the cuticle with a very short soak in warm water, then dry well, or with a cuticle remover for the time on the product. Before gel, prep dry instead.",
+        "Pehmennä kynsinauhat hyvin lyhyellä lämpimällä liotuksella ja kuivaa hyvin, tai kynsinauhanpoistoaineella tuotteen ilmoittaman ajan. Ennen geeliä esikäsittely tehdään kuivana."
+      ),
+      l3(
+        "Đẩy da thật nhẹ với cây đẩy nghiêng thấp, lấy sạch da chết trên mặt móng; kềm chỉ cắt mảnh da chết đã bong, không cắt nếp da sống dù khách yêu cầu.",
+        "Push back very gently with the pusher held low, clean the dead tissue off the plate; nippers only trim dead flakes that have lifted, never the living fold, even if the customer asks.",
+        "Työnnä kynsinauhat hyvin kevyesti matalassa kulmassa pidetyllä työntimellä ja puhdista kuollut kudos levyltä; leikkurilla leikataan vain irronneet kuolleet hilseet, ei koskaan elävää kynsivallia, vaikka asiakas pyytäisi."
+      ),
+      l3(
+        "Phao mịn thật nhẹ cho mặt móng đều, mát xa tay với kem dưỡng, rồi lau sạch kem và dầu trên mặt móng bằng bông không xơ.",
+        "Buff very lightly with a fine buffer to even the surface, massage the hand with lotion, then clean cream and oil off the nail plates with a lint-free wipe.",
+        "Hio hyvin kevyesti hienolla hiomapalalla tasoittaaksesi pinnan, hiero kättä voiteella ja puhdista sitten voide ja öljy kynsilevyiltä nukkaamattomalla liinalla."
+      ),
+      l3(
+        "Sơn lót mỏng, hai lớp màu mỏng (ba đường cọ, chừa khe ở chân móng, quét qua mép đầu móng, đợi lớp trước se mặt), rồi sơn bóng. Lem ra da thì lau bằng que gỗ quấn bông thấm nước tẩy.",
+        "A thin base coat, two thin colour coats (three strokes, a small gap at the cuticle, cap the free edge, let each coat set), then top coat. If polish touches the skin, clean it with a cotton-tipped wooden stick and remover.",
+        "Ohut aluslakka, kaksi ohutta värikerrosta (kolme vetoa, pieni rako tyvessä, kärjen sulkeminen, jokainen kerros saa asettua) ja päällyslakka. Jos lakkaa joutuu iholle, puhdista se poistoaineella kostutetulla, vanulla päällystetyllä puutikulla."
+      ),
+      l3(
+        "Bồn móng chân: đã làm sạch và khử khuẩn, lót túi mới dùng một lần, nước ấm thử bằng cổ tay; dụng cụ lấy từ túi tiệt trùng, mở trước mặt khách. Nhìn kỹ đôi chân trước khi ngâm.",
+        "Pedicure basin: cleaned and disinfected, a new disposable liner, warm water tested on your wrist; tools from a sterilisation pouch opened in front of the customer. Check the feet carefully before the soak.",
+        "Jalkakylpy: puhdistettu ja desinfioitu, uusi kertakäyttöinen suojapussi, lämmin vesi ranteella kokeiltuna; välineet sterilointipussista, joka avataan asiakkaan nähden. Tarkasta jalat huolellisesti ennen liotusta."
+      ),
+      l3(
+        "Ngâm ngắn (khách tiểu đường càng ngắn, nước chỉ ấm vừa). Cắt móng chân thẳng ngang từng nhát nhỏ, không đào khóe, mép ngang đầu ngón; dũa thẳng ngang, chỉ bo nhẹ góc.",
+        "A short soak (even shorter, and only warm water, for customers with diabetes). Cut toenails straight across in small snips, never into the corners, edge level with the toe tip; file straight across, only slightly softening the corners.",
+        "Lyhyt liotus (diabeetikolle vielä lyhyempi ja vain lämmin vesi). Leikkaa varpaankynnet suoraan pienin leikkauksin, ei kulmiin, reuna varpaan kärjen tasolle; viilaa suoraan ja pyöristä kulmia vain hieman."
+      ),
+      l3(
+        "Đẩy da nhẹ, chỉ lấy da chết. Chai: dũa chân mịn vài lượt nhẹ, không dao, không lưỡi bào; chai quá dày hay nứt sâu thì khuyên đến chuyên viên chăm sóc bàn chân. Tẩy da chết, rửa, lau thật khô kẽ ngón, mát xa.",
+        "Gentle cuticle care, dead tissue only. Calluses: a few light passes with a fine foot file, no blades; very thick calluses or deep cracks go to a foot-care professional. Scrub, rinse, dry well between the toes, massage.",
+        "Kevyt kynsinauhojen hoito, vain kuollut kudos. Kovettumat: muutama kevyt veto hienolla jalkaraspilla, ei teriä; hyvin paksut kovettumat tai syvät halkeamat jalkojenhoidon ammattilaiselle. Kuorinta, huuhtelu, varvasvälien huolellinen kuivaus, hieronta."
+      ),
+      l3(
+        "Lau sạch dầu, tách ngón, sơn lót, hai lớp màu mỏng, sơn bóng; chờ se mặt rồi mới mang dép. Sau khách: bỏ túi lót, làm sạch rồi khử khuẩn bồn đủ thời gian, bỏ đồ dùng một lần, kềm và cây đẩy mang đi rửa và tiệt trùng.",
+        "Clean off oil, toe separators, base, two thin colour coats, top coat; let it set before sandals go on. After the customer: liner out, basin cleaned then disinfected for the full contact time, disposables thrown away, nippers and pushers washed and sterilised.",
+        "Puhdista öljy, varvaserottimet, aluslakka, kaksi ohutta värikerrosta, päällyslakka; anna asettua ennen sandaaleja. Asiakkaan jälkeen: suojapussi pois, allas puhdistetaan ja desinfioidaan koko vaikutusajan, kertakäyttöiset roskiin, leikkurit ja työntimet pestään ja steriloidaan."
+      ),
+    ],
+    tips: [
+      l3(
+        "Cắt móng chân bằng nhiều nhát nhỏ thay vì một nhát hết cả móng: móng không bị nứt dọc, và bạn giữ được đường thẳng ngang.",
+        "Cut toenails in several small snips rather than one big cut: the nail doesn't split and you keep a straight line.",
+        "Leikkaa varpaankynnet usealla pienellä leikkauksella yhden ison sijaan: kynsi ei halkea ja linja pysyy suorana."
+      ),
+      l3(
+        "Trong VaraaAi, đặt sẵn lịch hẹn kế tiếp ngay tại quầy, khoảng bốn tuần sau, và ghi vào hồ sơ khách màu sơn đã dùng để lần sau khách khỏi phải nhớ.",
+        "In VaraaAi, book the next appointment right at the desk, about four weeks later, and note the polish colour in the customer record so the customer doesn't have to remember it.",
+        "Varaa VaraaAi:ssa seuraava aika heti tiskillä noin neljän viikon päähän ja merkitse lakan sävy asiakastietoihin, jottei asiakkaan tarvitse muistaa sitä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Tẩy sơn cũ thế nào cho đúng?", "How do you remove old polish properly?", "Miten vanha lakka poistetaan oikein?"),
+        options: [
+          l3("Chà mạnh qua lại cho nhanh", "Rub hard back and forth to be quick", "Hankaa voimakkaasti edestakaisin, niin se käy nopeasti"),
+          l3("Đặt bông thấm nước tẩy vài giây, rồi vuốt một chiều từ chân móng ra đầu móng", "Hold a pad with remover on the nail a few seconds, then wipe one way from cuticle to tip", "Pidä poistoaineella kostutettua lappua kynnellä muutama sekunti ja pyyhkäise yhteen suuntaan tyvestä kärkeen"),
+          l3("Cạo sơn bằng cây đẩy da", "Scrape it off with the pusher", "Raaputa lakka pois työntimellä"),
+        ],
+        answer: 1,
+        why: l3(
+          "Chà qua lại làm sơn lem ra da và khóe móng; vuốt một chiều sạch và nhẹ nhàng hơn.",
+          "Rubbing back and forth smears polish onto the skin and into the corners; one-way wipes are cleaner and gentler.",
+          "Edestakainen hankaus levittää lakkaa iholle ja kulmiin; yhteen suuntaan pyyhkiminen on puhtaampaa ja hellävaraisempaa."
+        ),
+      },
+      {
+        q: l3("Khách có vết chai dày ở gót. Bạn làm gì?", "The customer has a thick callus on the heel. What do you do?", "Asiakkaalla on paksu kovettuma kantapäässä. Mitä teet?"),
+        options: [
+          l3("Dùng dao bào cắt cho sạch hết", "Shave it all off with a blade", "Höylää se kokonaan pois terällä"),
+          l3("Ngâm nước nóng thật lâu rồi cạo", "Soak in hot water for a long time, then scrape", "Liota pitkään kuumassa vedessä ja raaputa"),
+          l3("Dũa chân mịn vài lượt nhẹ để làm mịn; quá dày hay nứt sâu thì khuyên đến chuyên viên chăm sóc bàn chân", "A few light passes with a fine foot file to smooth it; very thick or deeply cracked means a foot-care professional", "Muutama kevyt veto hienolla jalkaraspilla tasoittamaan; hyvin paksu tai syvästi halkeillut kuuluu jalkojenhoidon ammattilaiselle"),
+        ],
+        answer: 2,
+        why: l3(
+          "Chai bảo vệ chân. Lấy quá nhiều thì đau, dễ xước, và lưỡi dao chỉ dành cho người được đào tạo, ở nơi được phép.",
+          "A callus protects the foot. Taking too much hurts and scratches, and blades are only for those trained to use them, where it is allowed.",
+          "Kovettuma suojaa jalkaa. Liika poisto sattuu ja naarmuttaa, ja terät kuuluvat vain koulutetuille ja vain siellä, missä se on sallittua."
+        ),
+      },
+      {
+        q: l3("Việc gì đúng sau khi khách làm móng chân ra về?", "What is right after a pedicure customer leaves?", "Mikä on oikein, kun pedikyyriasiakas on lähtenyt?"),
+        options: [
+          l3("Bỏ túi lót, làm sạch rồi khử khuẩn bồn, kềm và cây đẩy mang đi rửa và tiệt trùng", "Liner out, basin cleaned then disinfected, nippers and pushers washed and sterilised", "Suojapussi pois, allas puhdistetaan ja desinfioidaan, leikkurit ja työntimet pestään ja steriloidaan"),
+          l3("Giữ túi lót cho khách sau nếu còn sạch", "Keep the liner for the next customer if it looks clean", "Säästä suojapussi seuraavalle asiakkaalle, jos se näyttää puhtaalta"),
+          l3("Lau kềm bằng khăn ướt rồi dùng tiếp", "Wipe the nippers with a damp cloth and reuse them", "Pyyhi leikkurit kostealla liinalla ja käytä uudelleen"),
+        ],
+        answer: 0,
+        why: l3(
+          "Túi lót dùng một lần cho mỗi khách, và dụng cụ móng chân luôn phải tiệt trùng (hướng dẫn vệ sinh của Helsinki).",
+          "Liners are single-use for each customer, and pedicure tools are always sterilised (Helsinki hygiene guidance).",
+          "Suojapussi on kertakäyttöinen jokaiselle asiakkaalle, ja jalkahoitovälineet steriloidaan aina (Helsingin hygieniaohje)."
+        ),
+      },
+    ],
+  },
 
   /* ================= lashes ================= */
   {
