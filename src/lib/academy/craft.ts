@@ -2692,11 +2692,258 @@ const ALL_LESSONS: Lesson[] = [
   ]),
 
   /* ================= lashes ================= */
-  soon("mi-chuan-bi", "p-lash", ["Chuẩn bị, tư vấn và thử keo", "Preparation, consultation and glue test", "Valmistelu, konsultaatio ja liimatesti"], [
-    "Hỏi tiền sử dị ứng, thử phản ứng, dán miếng lót, làm sạch mi và sắp bàn làm việc.",
-    "Allergy history, patch test, eye pads, cleansing the lashes and setting up your station.",
-    "Allergiahistoria, ihotesti, silmälaput, ripsien puhdistus ja työpisteen valmistelu.",
-  ]),
+  {
+    slug: "mi-chuan-bi-hieu-dung",
+    course: "p-lash",
+    style: "theory",
+    title: l3("Chuẩn bị nối mi: hiểu đúng để an toàn từ phút đầu", "Lash preparation: understand it to be safe from the first minute", "Ripsienpidennysten valmistelu: ymmärrä, niin työ on turvallista ensimmäisestä minuutista"),
+    summary: l3(
+      "Vì sao mười phút đầu quyết định độ bền và sự an toàn: hỏi gì khi tư vấn (dị ứng, phản ứng cũ với keo hay thuốc nhuộm, bệnh mắt, mổ mắt gần đây, kính áp tròng, thuốc làm khô mắt, mang thai), khi nào không làm, keo cyanoacrylate và hơi keo, vì sao thử keo trước lần đầu và vì sao thử keo không phải là bảo đảm, độ ẩm và nhiệt độ phòng, vệ sinh chỗ làm và ghi hồ sơ khi khách đồng ý.",
+      "Why the first ten minutes decide how long the set lasts and how safe it is: what to ask in the consultation (allergies, earlier reactions to lash glue or tint, eye conditions, recent eye surgery, contact lenses, medicines that dry the eyes, pregnancy), when not to work, cyanoacrylate glue and its vapour, why a test is done before the first set and why a test is no guarantee, room humidity and temperature, station hygiene, and keeping a record with the client's consent.",
+      "Miksi ensimmäiset kymmenen minuuttia ratkaisevat kestävyyden ja turvallisuuden: mitä konsultaatiossa kysytään (allergiat, aiemmat reaktiot ripsiliimaan tai -väriin, silmäsairaudet, äskettäinen silmäleikkaus, piilolinssit, silmiä kuivattavat lääkkeet, raskaus), milloin ei tehdä, syanoakrylaattiliima ja sen höyry, miksi ennen ensimmäistä settiä tehdään testi ja miksi testi ei ole tae, huoneen kosteus ja lämpötila, työpisteen hygienia sekä kirjaukset asiakkaan suostumuksella."
+    ),
+    video: video("mi-chuan-bi-hieu-dung", 275, "2026-11-17"),
+    notice: l3(
+      "Thời gian và cách thử keo, độ ẩm và nhiệt độ phòng: luôn theo hướng dẫn của hãng keo. Thử keo không bảo đảm khách sẽ không phản ứng về sau. Chúng ta là thợ, không phải bác sĩ: khi có dấu hiệu bất thường hay câu hỏi về sức khoẻ (kể cả khi mang thai), hãy khuyên khách hỏi bác sĩ. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "How and when to do the test, and the room's humidity and temperature: always as the glue maker says. A test does not guarantee that the client will not react later. We are technicians, not doctors: when something looks unusual or there is a health question (pregnancy included), advise the client to ask a doctor. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Testin tapa ja ajankohta sekä huoneen kosteus ja lämpötila: aina liimavalmistajan ohjeiden mukaan. Testi ei takaa, ettei asiakas reagoi myöhemmin. Olemme ammattilaisia, emme lääkäreitä: jos jokin näyttää poikkeavalta tai on terveyskysymys (myös raskaus), neuvo asiakasta kysymään lääkäriltä. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Buổi nào cũng bắt đầu bằng tư vấn, kể cả với khách quen. Chỉ một câu hỏi lúc đầu có thể tránh được một lần phản ứng.",
+        "Every appointment starts with a consultation, regular clients included. One question at the start can prevent a reaction.",
+        "Jokainen käynti alkaa konsultaatiolla, myös vakioasiakkailla. Yksi kysymys alussa voi estää reaktion."
+      ),
+      l3(
+        "Hỏi về an toàn trước: dị ứng, phản ứng cũ với keo nối mi, thuốc nhuộm mi hay chân mày, khô mắt, viêm bờ mi, mổ mắt gần đây, kính áp tròng, thuốc đang dùng (một số thuốc có thể làm khô mắt).",
+        "Ask about safety first: allergies, earlier reactions to lash glue or lash/brow tint, dry eyes, blepharitis, recent eye surgery, contact lenses, current medicines (some can dry the eyes).",
+        "Kysy ensin turvallisuudesta: allergiat, aiemmat reaktiot ripsiliimaan tai ripsi-/kulmaväriin, kuivat silmät, luomitulehdus, äskettäinen silmäleikkaus, piilolinssit, käytössä olevat lääkkeet (osa voi kuivattaa silmiä)."
+      ),
+      l3(
+        "Khách mang thai: là lý do để hỏi kỹ hơn, làm theo hướng dẫn của hãng keo và lời khuyên tại nơi bạn làm việc. Không tự đưa ra lời khuyên y khoa.",
+        "A pregnant client: a reason to ask more carefully and to follow the glue maker's instructions and local advice. Do not give medical advice yourself.",
+        "Raskaana oleva asiakas: syy kysyä tarkemmin ja noudattaa liimavalmistajan ohjeita ja paikallisia suosituksia. Älä anna itse lääketieteellisiä neuvoja."
+      ),
+      l3(
+        "Rồi mới hỏi chuyện đẹp: kiểu mi khách muốn, công việc, thói quen (bơi, xông hơi, dụi mắt, ngủ úp mặt), và nói thật mi thật chịu được đến đâu.",
+        "Then ask about the look: the style the client wants, their work and habits (swimming, sauna, rubbing the eyes, sleeping face down), and say honestly what their natural lashes can carry.",
+        "Kysy sitten ulkonäöstä: toivottu tyyli, työ ja tavat (uinti, sauna, silmien hieronta, vatsallaan nukkuminen), ja kerro rehellisesti, mitä omat ripset kestävät."
+      ),
+      l3(
+        "Nhìn mắt dưới ánh sáng tốt. Mắt đỏ, chảy nước, lẹo, bờ mi sưng hay đóng vảy, mới mổ mắt: hôm nay chưa làm (xem bài “Khi nào không làm cho khách”).",
+        "Look at the eyes in good light. Red or watery eyes, a stye, swollen or crusted lid margins, recent eye surgery: not today (see “When not to treat a customer”).",
+        "Katso silmiä hyvässä valossa. Punaiset tai vetistävät silmät, näärännäppy, turvonneet tai karstaiset luomenreunat, äskettäinen silmäleikkaus: ei tänään (katso ”Milloin asiakasta ei hoideta”)."
+      ),
+      l3(
+        "Keo nối mi là cyanoacrylate, khô nhờ hơi ẩm và bay hơi khi khô: mắt khách nhắm kín suốt buổi. Dị ứng với keo có thể hình thành dần, sau nhiều lần làm không sao, ở cả khách lẫn thợ (xem bài “Dị ứng và hoá chất”).",
+        "Lash glue is cyanoacrylate: it cures with moisture and gives off vapour while curing, so the client's eyes stay closed throughout. An allergy to the glue can build up over time, after many trouble-free sets, in clients and technicians alike (see “Allergies and chemicals”).",
+        "Ripsiliima on syanoakrylaattia: se kovettuu kosteuden avulla ja höyrystyy kovettuessaan, joten asiakkaan silmät ovat kiinni koko ajan. Liima-allergia voi kehittyä vähitellen monen ongelmattoman kerran jälkeen sekä asiakkaille että tekijöille (katso ”Allergiat ja kemikaalit”)."
+      ),
+      l3(
+        "Thử keo trước lần nối đầu tiên: nhiều hãng keo và nhiều tiệm khuyên làm thường từ 24 đến 48 giờ trước, theo đúng cách hãng hướng dẫn (vài sợi mi ở đuôi mắt, hoặc một chút keo gần chân mi). Thử keo không phải là bảo đảm, nên lần nào cũng hỏi lại.",
+        "Test before the first set: many glue makers and studios advise doing it, often 24 to 48 hours before, exactly as the glue maker describes (a few lashes at the outer corner, or a little glue near the lash line). A test is no guarantee, so ask again at every visit.",
+        "Testi ennen ensimmäistä settiä: monet liimavalmistajat ja liikkeet suosittelevat sitä usein 24–48 tuntia etukäteen tarkalleen valmistajan ohjeen mukaan (muutama ripsi ulkonurkkaan tai hieman liimaa ripsirajan lähelle). Testi ei ole tae, joten kysy uudelleen joka käynnillä."
+      ),
+      l3(
+        "Khách báo đỏ, ngứa, sưng sau khi thử: không nối, khuyên khách hỏi bác sĩ, ghi lại. Đừng đổi sang keo khác rồi làm luôn.",
+        "If the client reports redness, itching or swelling after the test: no set, advise them to ask a doctor, and record it. Don't switch to another glue and go ahead.",
+        "Jos asiakas kertoo punoituksesta, kutinasta tai turvotuksesta testin jälkeen: ei pidennyksiä, neuvo kysymään lääkäriltä ja kirjaa asia. Älä vaihda toiseen liimaan ja jatka."
+      ),
+      l3(
+        "Phòng giữ trong khoảng độ ẩm và nhiệt độ hãng keo ghi, thoáng khí, chai keo đậy nắp ngay. Giường, khăn và miếng lót đầu sạch cho từng khách; đồ dùng một lần; nhíp làm sạch và khử khuẩn sau mỗi khách.",
+        "Keep the room within the humidity and temperature range the glue maker gives, well ventilated, with the glue bottle closed straight away. A clean bed, linen and headrest cover for every client; single-use items; tweezers cleaned and disinfected after every client.",
+        "Pidä huone liimavalmistajan ilmoittamassa kosteus- ja lämpötilavälissä, hyvin tuuletettuna ja liimapullo heti suljettuna. Puhdas sänky, liinat ja niskatuen suoja jokaiselle asiakkaalle; kertakäyttötarvikkeet; pinsetit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen."
+      ),
+      l3(
+        "Ghi lại câu trả lời, ngày thử keo, kết quả, loại keo, độ dài và độ cong. Đây là thông tin sức khoẻ: chỉ ghi khi khách đồng ý, và giữ kín.",
+        "Record the answers, the test date and result, the glue used, lengths and curls. This is health information: record it only with the client's consent, and keep it confidential.",
+        "Kirjaa vastaukset, testin päivämäärä ja tulos, käytetty liima, pituudet ja taivutukset. Kyse on terveystiedoista: kirjaa vain asiakkaan suostumuksella ja pidä tiedot luottamuksellisina."
+      ),
+    ],
+    tips: [
+      l3(
+        "Ghi tư vấn và ngày thử keo vào “Ghi chú nội bộ” trong hồ sơ khách ở VaraaAi (chỉ salon thấy), để lần sau thợ nào làm cũng biết ngay.",
+        "Save the consultation and the test date in the client's internal notes in VaraaAi (visible to the salon only), so whoever does the next appointment knows straight away.",
+        "Tallenna konsultaatio ja testipäivä asiakkaan sisäisiin muistiinpanoihin VaraaAi:ssa (näkyvät vain salongille), jotta seuraavan käynnin tekijä tietää heti."
+      ),
+      l3(
+        "Mỗi lần khách quay lại, hỏi một câu: “Lần trước làm xong, mắt chị có sao không?”",
+        "Every time a client comes back, ask one question: “Were your eyes all right after last time?”",
+        "Aina kun asiakas palaa, kysy yksi kysymys: ”Oliko silmien kanssa kaikki hyvin viime kerran jälkeen?”"
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khách thử keo không bị phản ứng. Điều đó có nghĩa là gì?", "A client had no reaction to the test. What does that mean?", "Asiakas ei reagoinut testiin. Mitä se tarkoittaa?"),
+        options: [
+          l3("Khách sẽ không bao giờ bị dị ứng với keo", "The client will never be allergic to the glue", "Asiakas ei koskaan tule allergiseksi liimalle"),
+          l3("Không thấy phản ứng lúc này, nhưng dị ứng vẫn có thể đến sau, nên lần nào cũng hỏi lại", "No reaction now, but an allergy can still develop later, so ask again every time", "Reaktiota ei nyt ole, mutta allergia voi silti kehittyä myöhemmin, joten kysy joka kerta"),
+          l3("Không cần tư vấn ở những lần sau", "No consultation is needed at later visits", "Myöhemmillä käynneillä konsultaatiota ei tarvita"),
+        ],
+        answer: 1,
+        why: l3(
+          "Dị ứng với keo có thể hình thành dần sau nhiều lần tiếp xúc; thử keo chỉ giúp phát hiện sớm những khách đã nhạy cảm sẵn.",
+          "A glue allergy can build up after repeated exposure; the test only helps to spot clients who are already sensitive.",
+          "Liima-allergia voi kehittyä toistuvan altistuksen jälkeen; testi auttaa vain löytämään jo herkistyneet asiakkaat."
+        ),
+      },
+      {
+        q: l3("Khách báo mí mắt đỏ và ngứa sau khi thử keo. Bạn làm gì?", "The client reports a red, itchy eyelid after the test. What do you do?", "Asiakas kertoo luomen punoittavan ja kutiavan testin jälkeen. Mitä teet?"),
+        options: [
+          l3("Đổi sang một loại keo khác và nối luôn", "Switch to another glue and do the set", "Vaihdan toiseen liimaan ja teen pidennykset"),
+          l3("Nối như dự định, vì khách đã đặt lịch", "Do the set as planned because it is booked", "Teen pidennykset suunnitellusti, koska aika on varattu"),
+          l3("Không nối, khuyên khách hỏi bác sĩ và ghi lại kết quả", "No set: advise the client to ask a doctor and record the result", "En tee pidennyksiä: neuvon kysymään lääkäriltä ja kirjaan tuloksen"),
+        ],
+        answer: 2,
+        why: l3(
+          "Mình không biết khách phản ứng với chất nào, và lần sau có thể nặng hơn. Ghi lại để không ai trong tiệm vô tình làm.",
+          "You don't know which ingredient caused it, and the next reaction could be worse. Record it so nobody in the salon does it by mistake.",
+          "Et tiedä, mikä aine reaktion aiheutti, ja seuraava voi olla pahempi. Kirjaa se, jottei kukaan liikkeessä tee pidennyksiä vahingossa."
+        ),
+      },
+      {
+        q: l3("Vì sao mắt khách phải nhắm kín suốt buổi nối mi?", "Why must the client's eyes stay closed throughout the treatment?", "Miksi asiakkaan silmien on oltava kiinni koko hoidon ajan?"),
+        options: [
+          l3("Vì keo bay hơi khi khô, hơi keo làm cay và kích ứng mắt", "Because the glue gives off vapour as it cures, which stings and irritates the eyes", "Koska liima höyrystyy kovettuessaan ja höyry kirvelee ja ärsyttää silmiä"),
+          l3("Để khách ngủ được", "So the client can sleep", "Jotta asiakas voi nukkua"),
+          l3("Chỉ để thợ dễ nhìn hơn", "Only so the technician can see better", "Vain jotta tekijä näkee paremmin"),
+        ],
+        answer: 0,
+        why: l3(
+          "Keo cyanoacrylate khô nhờ hơi ẩm và bay hơi; mở mắt là hơi keo vào mắt.",
+          "Cyanoacrylate cures with moisture and gives off vapour; open eyes take that vapour in.",
+          "Syanoakrylaatti kovettuu kosteuden avulla ja höyrystyy; avoimiin silmiin höyry pääsee suoraan."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "mi-chuan-bi",
+    course: "p-lash",
+    style: "practice",
+    title: l3("Chuẩn bị nối mi: thực hành từng bước", "Lash preparation: step by step", "Ripsienpidennysten valmistelu: vaihe vaiheelta"),
+    summary: l3(
+      "Phần chuẩn bị trước sợi mi đầu tiên, từng bước: đón khách và phiếu tư vấn, nhìn mắt dưới ánh sáng tốt, thử keo cho khách lần đầu và ghi ngày thử, chuẩn bị giường, đèn và vệ sinh, tháo kính áp tròng và tẩy trang không dầu, rửa mi, xả và làm khô, dán miếng lót che kín mi dưới mà không chạm viền mắt, băng dính khi cần, primer theo hãng keo, chải mi và khay dụng cụ sẵn sàng.",
+      "Everything before the first lash, step by step: welcome and consultation form, the eyes checked in good light, the test for first-time clients and its date recorded, bed, light and hygiene, contact lenses out and oil-free make-up removal, lash cleansing, rinsing and drying, pads covering every lower lash without touching the waterline, tape when needed, primer as the glue maker says, brushing, and the tray ready.",
+      "Kaikki ennen ensimmäistä ripseä vaihe vaiheelta: vastaanotto ja konsultaatiolomake, silmien tarkistus hyvässä valossa, testi ensikertalaisille ja sen päivämäärän kirjaus, sänky, valo ja hygienia, piilolinssit pois ja öljytön meikinpoisto, ripsien pesu, huuhtelu ja kuivaus, silmänalustyynyt kaikkien alaripsien päälle koskematta limakalvoreunaan, teippi tarvittaessa, primer liimavalmistajan ohjeen mukaan, harjaus ja valmis työtarjotin."
+    ),
+    video: video("mi-chuan-bi", 278, "2026-11-17"),
+    notice: l3(
+      "Cách thử keo, thời gian chờ, primer, độ ẩm và nhiệt độ phòng: luôn theo hướng dẫn của hãng keo. Thử keo không bảo đảm khách sẽ không phản ứng về sau. Miếng lót và băng dính không bao giờ chạm vào con mắt. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "How to do the test, waiting times, primer, room humidity and temperature: always as the glue maker says. A test does not guarantee that the client will not react later. Pads and tape never touch the eye itself. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Testin tapa, odotusajat, primer sekä huoneen kosteus ja lämpötila: aina liimavalmistajan ohjeiden mukaan. Testi ei takaa, ettei asiakas reagoi myöhemmin. Tyynyt ja teippi eivät koskaan kosketa itse silmää. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Đón khách, rửa tay, tư vấn khi khách còn mở mắt bằng phiếu giấy hay máy tính bảng: dị ứng, phản ứng cũ với keo hay thuốc nhuộm, bệnh mắt, mổ mắt, kính áp tròng, thuốc đang dùng, mang thai, kiểu mi mong muốn. Khách đọc lại và đồng ý.",
+        "Welcome the client, wash your hands and consult while their eyes are open, on paper or a tablet: allergies, earlier reactions to glue or tint, eye conditions, eye surgery, contact lenses, current medicines, pregnancy, the look they want. The client reads it back and agrees.",
+        "Ota asiakas vastaan, pese kädet ja konsultoi silmien ollessa auki paperilla tai tabletilla: allergiat, aiemmat reaktiot liimaan tai väriin, silmäsairaudet, silmäleikkaukset, piilolinssit, lääkkeet, raskaus ja toivottu tyyli. Asiakas lukee vastaukset ja hyväksyy ne."
+      ),
+      l3(
+        "Dặn khách trước: buổi làm kéo dài, mắt nhắm suốt; thấy cay, cộm hay muốn nghỉ thì giơ tay, đừng mở mắt.",
+        "Tell the client beforehand: the appointment takes a while with the eyes closed throughout; if it stings, feels scratchy or they need a break, raise a hand, don't open the eyes.",
+        "Kerro asiakkaalle etukäteen: hoito kestää ja silmät ovat kiinni koko ajan; jos kirvelee, hiertää tai tarvitaan tauko, nosta käsi, älä avaa silmiä."
+      ),
+      l3(
+        "Nhìn mắt dưới ánh sáng tốt: đỏ, chảy nước, lẹo, bờ mi sưng hay đóng vảy là dừng lại. Nhìn luôn mi thật: dày hay thưa, khoẻ hay yếu, có chỗ gãy hay rụng thành mảng không.",
+        "Check the eyes in good light: redness, watering, a stye, swollen or crusted lid margins mean stop. Look at the natural lashes too: dense or sparse, strong or weak, any broken lashes or patchy loss.",
+        "Tarkista silmät hyvässä valossa: punoitus, vetistys, näärännäppy tai turvonneet tai karstaiset luomenreunat tarkoittavat seis. Katso myös luomuripset: tiheät vai harvat, vahvat vai heikot, katkenneita tai laikuittaista lähtöä."
+      ),
+      l3(
+        "Khách lần đầu: thử keo theo hướng dẫn của hãng keo, thường 24 đến 48 giờ trước (vài sợi ở đuôi mắt bằng đúng keo sẽ dùng, hoặc một chút keo gần chân mi). Dặn khách theo dõi và báo lại. Ghi ngày thử, loại keo và kết quả; khách đã thử từ trước thì xem hồ sơ và hỏi lại.",
+        "First-time clients: test as the glue maker describes, often 24 to 48 hours before (a few lashes at the outer corner with the same glue you will use, or a little glue near the lash line). Ask the client to watch for a reaction and report back. Record the date, the glue and the result; if the client was tested earlier, check the record and ask again.",
+        "Ensikertalaiset: testi liimavalmistajan ohjeen mukaan, usein 24–48 tuntia etukäteen (muutama ripsi ulkonurkkaan samalla liimalla, jota käytät, tai hieman liimaa ripsirajan lähelle). Pyydä asiakasta seuraamaan reaktioita ja kertomaan niistä. Kirjaa päivämäärä, liima ja tulos; jos testi on tehty aiemmin, tarkista kirjaus ja kysy uudelleen."
+      ),
+      l3(
+        "Giường lau bằng khăn khử khuẩn, khăn trải và miếng lót đầu mới, gối đỡ cổ, đèn sáng đều không chói vào mặt khách. Rửa tay rồi đeo găng mới.",
+        "Wipe the bed with a disinfectant wipe, fresh linen and headrest cover, neck support, even light that does not glare in the client's face. Wash your hands, then put on fresh gloves.",
+        "Pyyhi sänky desinfiointiliinalla, vaihda puhtaat liinat ja niskatuen suoja, niskatuki, tasainen valo, joka ei häikäise asiakkaan kasvoja. Pese kädet ja laita uudet käsineet."
+      ),
+      l3(
+        "Khách tháo kính áp tròng. Tẩy sạch phấn mắt, mascara và kem dưỡng bằng nước tẩy trang không dầu: dầu còn sót lại làm keo bám kém.",
+        "The client takes out contact lenses. Remove eye make-up, mascara and creams with an oil-free cleanser: leftover oil weakens the bond.",
+        "Asiakas poistaa piilolinssit. Poista silmämeikki, ripsiväri ja voiteet öljyttömällä puhdistusaineella: jäljelle jäänyt öljy heikentää kiinnittymistä."
+      ),
+      l3(
+        "Rửa mi bằng dung dịch rửa mi và cọ mềm từ chân ra ngọn, xả nước sạch có khăn giấy đỡ ở đuôi mắt, làm khô hoàn toàn bằng quạt nhỏ để cách mặt.",
+        "Cleanse the lashes with lash shampoo and a soft brush from root to tip, rinse with clean water with a tissue at the outer corner, and dry completely with a small fan held away from the face.",
+        "Pese ripset ripsishampoolla ja pehmeällä harjalla tyvestä kärkeen, huuhtele puhtaalla vedellä paperi ulkonurkassa ja kuivaa täysin pienellä tuulettimella kasvoista etäällä."
+      ),
+      l3(
+        "Miếng lót che kín toàn bộ mi dưới, mép trên sát dưới hàng mi dưới nhưng không chạm viền mắt. Nhờ khách hé mắt nhìn lên khi dán, rồi nhắm lại; hỏi có cộm không và chỉnh ngay. Kiểm tra đuôi mắt: không sợi mi dưới nào lọt ra.",
+        "Pads cover every lower lash, the top edge just under the lower lash line but never touching the waterline. Ask the client to look up slightly while you place them, then close; ask if anything feels scratchy and adjust at once. Check the outer corner: no lower lash pokes out.",
+        "Tyynyt peittävät kaikki alaripset, yläreuna heti alaripsirajan alla mutta koskematta limakalvoreunaan. Pyydä asiakasta katsomaan hieman ylös asettamisen ajan ja sitten sulkemaan silmät; kysy hiertääkö ja korjaa heti. Tarkista ulkonurkka: yksikään alaripsi ei pilkistä esiin."
+      ),
+      l3(
+        "Băng dính giấy chuyên dụng khi cần: giữ sợi mi dưới lọt ra (chỉ trên miếng lót và da má), hoặc nâng nhẹ da mí với mắt mí sụp. Không bao giờ dán lên con mắt; hỏi khách có thấy căng không.",
+        "Medical paper tape when needed: to hold down stray lower lashes (only on the pad and cheek), or to lift the lid skin gently on hooded eyes. Never on the eye itself; ask the client if it feels tight.",
+        "Lääkinnällistä paperiteippiä tarvittaessa: pitämään irralliset alaripset alhaalla (vain tyynyn ja posken päällä) tai nostamaan luomen ihoa kevyesti, jos luomi on raskas. Ei koskaan itse silmään; kysy, kiristääkö."
+      ),
+      l3(
+        "Chải mi, primer nếu hãng keo khuyên (cọ nhỏ dùng một lần, trên thân và ngọn mi, tránh chân mi và da mí), chải lại. Khay sẵn sàng: vỉ mi theo bản đồ, giọt keo mới, nhíp đã khử khuẩn, đồ dùng một lần, chai keo đậy nắp. Rồi tiếp tục như bài thực hành classic.",
+        "Brush the lashes, apply primer if the glue maker recommends it (single-use micro-brush, on the body and tips, away from the roots and lid skin), brush again. Tray ready: strips in map order, a fresh glue drop, disinfected tweezers, single-use items, glue bottle closed. Then continue as in the classic practice lesson.",
+        "Harjaa ripset, primer jos liimavalmistaja suosittelee (kertakäyttöinen mikroharja, ripsen keskiosaan ja kärkiin, ei tyveen eikä luomen iholle), harjaa uudelleen. Tarjotin valmiina: nauhat kartan järjestyksessä, tuore liimapisara, desinfioidut pinsetit, kertakäyttötarvikkeet, liimapullo kiinni. Jatka sitten kuten klassisten käytäntötunnilla."
+      ),
+    ],
+    tips: [
+      l3(
+        "Lỗi hay gặp nhất: miếng lót thấp hoặc lệch để mi dưới lọt ra ở đuôi mắt — mi dưới bị dính lên mi trên, khách mở mắt là bị kéo.",
+        "The most common mistake: a pad placed too low or crooked so lower lashes poke out at the outer corner — they get glued to the upper lashes and pull when the client opens their eyes.",
+        "Yleisin virhe: liian alas tai vinoon asetettu tyyny, jolloin alaripset pilkistävät ulkonurkassa — ne liimautuvat yläripsiin ja nykivät, kun asiakas avaa silmät."
+      ),
+      l3(
+        "Lưu ngày thử keo, loại keo và kết quả vào “Ghi chú nội bộ” trong hồ sơ khách ở VaraaAi (chỉ salon thấy, ghi khi khách đồng ý).",
+        "Save the test date, glue and result in the client's internal notes in VaraaAi (visible to the salon only, recorded with the client's consent).",
+        "Tallenna testipäivä, liima ja tulos asiakkaan sisäisiin muistiinpanoihin VaraaAi:ssa (näkyvät vain salongille, kirjataan asiakkaan suostumuksella)."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Mép trên của miếng lót dưới mắt nên nằm ở đâu?", "Where should the top edge of the under-eye pad sit?", "Missä silmänalustyynyn yläreunan pitäisi olla?"),
+        options: [
+          l3("Sát dưới hàng mi dưới, che kín mi dưới, nhưng không chạm viền mắt", "Just under the lower lash line, covering every lower lash, without touching the waterline", "Heti alaripsirajan alla, kaikki alaripset peittäen, koskematta limakalvoreunaan"),
+          l3("Đè lên viền mắt cho chắc", "Pressed onto the waterline so it holds", "Painettuna limakalvoreunaan, jotta pysyy"),
+          l3("Thấp xuống giữa má cho khách dễ chịu", "Low down on the cheek for comfort", "Alas poskelle mukavuuden vuoksi"),
+        ],
+        answer: 0,
+        why: l3(
+          "Chạm viền mắt gây cộm, cay và đỏ mắt; dán thấp quá thì mi dưới lọt ra và bị dính lên mi trên.",
+          "Touching the waterline causes scratching, stinging and red eyes; too low and the lower lashes escape and get glued to the upper ones.",
+          "Limakalvoreunan kosketus aiheuttaa hiertämistä, kirvelyä ja punoitusta; liian alhaalla alaripset jäävät esiin ja liimautuvat yläripsiin."
+        ),
+      },
+      {
+        q: l3("Vì sao khách phải tháo kính áp tròng và tẩy trang không dầu trước khi nối?", "Why must the client remove contact lenses and use an oil-free make-up remover first?", "Miksi asiakkaan on poistettava piilolinssit ja käytettävä öljytöntä meikinpoistoa ensin?"),
+        options: [
+          l3("Chỉ để ảnh chụp đẹp hơn", "Only so the photos look better", "Vain jotta kuvat näyttävät paremmilta"),
+          l3("Hơi keo và dung dịch có thể đọng dưới kính, và dầu còn sót làm keo bám kém", "Glue vapour and liquids can collect under the lens, and leftover oil weakens the bond", "Liimahöyry ja nesteet voivat kertyä linssin alle, ja jäljelle jäävä öljy heikentää kiinnittymistä"),
+          l3("Vì dầu giúp keo khô nhanh hơn", "Because oil makes the glue cure faster", "Koska öljy nopeuttaa liiman kovettumista"),
+        ],
+        answer: 1,
+        why: l3(
+          "Mi phải sạch dầu và khô hoàn toàn thì keo mới bám tốt; kính áp tròng thì tháo ra trước để bảo vệ mắt.",
+          "The lashes must be oil-free and completely dry for a good bond; contact lenses come out first to protect the eyes.",
+          "Ripsien on oltava öljyttömät ja täysin kuivat, jotta liima tarttuu; piilolinssit poistetaan ensin silmien suojaamiseksi."
+        ),
+      },
+      {
+        q: l3("Khách lần đầu đặt lịch nối mi. Thử keo làm thế nào là đúng?", "A first-time client books a lash set. How is the test done correctly?", "Ensikertalainen varaa ripsienpidennykset. Miten testi tehdään oikein?"),
+        options: [
+          l3("Không cần thử nếu khách nói không bị dị ứng", "No test needed if the client says they have no allergies", "Testiä ei tarvita, jos asiakas sanoo, ettei ole allergioita"),
+          l3("Thử bằng một loại keo bất kỳ ngay trước khi nối", "Test with any glue right before the set", "Testataan millä tahansa liimalla juuri ennen pidennyksiä"),
+          l3("Theo hướng dẫn của hãng keo, thường 24–48 giờ trước, bằng đúng keo sẽ dùng, rồi ghi ngày và kết quả", "As the glue maker describes, often 24–48 hours before, with the glue you will use, then record the date and result", "Liimavalmistajan ohjeen mukaan, usein 24–48 tuntia etukäteen, samalla liimalla jota käytät, ja kirjataan päivämäärä ja tulos"),
+        ],
+        answer: 2,
+        why: l3(
+          "Thử bằng đúng keo sẽ dùng, đủ thời gian để phản ứng kịp xuất hiện, và ghi lại để cả tiệm biết.",
+          "Test with the glue you will actually use, allow time for a reaction to show, and record it so the whole salon knows.",
+          "Testaa samalla liimalla, jota todella käytät, anna aikaa reaktion ilmaantumiseen ja kirjaa tulos koko liikkeen tietoon."
+        ),
+      },
+    ],
+  },
   {
     slug: "mi-classic-hieu-dung",
     course: "p-lash",
@@ -3705,11 +3952,253 @@ const ALL_LESSONS: Lesson[] = [
     "The styles customers ask for now, done safely for the natural lashes.",
     "Suosituimmat tyylit luomuripsille turvallisesti tehtyinä.",
   ]),
-  soon("mi-dam-thao", "p-lash", ["Dặm mi và tháo mi", "Refills and removal", "Huolto ja poisto"], [
-    "Gỡ sợi mọc dài, dặm lại sau 2–3 tuần và tháo mi bằng kem tháo.",
-    "Removing grown-out extensions, refilling after 2–3 weeks, and removal with cream remover.",
-    "Ulos kasvaneiden pidennysten poisto, huolto 2–3 viikon välein ja poisto voidemaisella poistoaineella.",
-  ]),
+  {
+    slug: "mi-dam-thao-hieu-dung",
+    course: "p-lash",
+    style: "theory",
+    title: l3("Dặm và tháo mi: hiểu đúng để mi thật không hư", "Refills and removal: understand them so natural lashes stay healthy", "Huolto ja poisto: ymmärrä ne, niin omat ripset pysyvät terveinä"),
+    summary: l3(
+      "Vì sao mi nối rụng theo mi thật và khách cần dặm sau khoảng 2–3 tuần; đọc bộ mi khi dặm để tìm nguyên nhân rụng; gỡ sợi nào (sợi mọc dài, dính chùm, sợi lỏng); vì sao không bao giờ kéo hay bứt; vì sao không dùng dầu gần mắt nếu hãng không hướng dẫn; chất tháo dạng kem, gel và lỏng; khi nào tháo hết cả bộ; và dặn khách giữ mi ở nhà.",
+      "Why extensions fall with the natural lashes and clients need a refill after about 2–3 weeks; reading the set at a refill to find the cause of loss; what to remove (grown-out extensions, stickies, loose ones); why you never pull or pick; why no oil near the eyes unless the maker says so; cream, gel and liquid removers; when to remove the whole set; and teaching clients how to care for their lashes at home.",
+      "Miksi pidennykset lähtevät luomuripsien mukana ja asiakas tarvitsee huollon noin 2–3 viikon välein; setin lukeminen huollossa lähtemisen syyn löytämiseksi; mitä poistetaan (ulos kasvaneet, tarttumat, löysät); miksi ripsiä ei koskaan vedetä tai nypitä; miksi öljyä ei käytetä silmien lähellä ilman valmistajan ohjetta; voide-, geeli- ja nestemäiset poistoaineet; milloin koko setti poistetaan; ja asiakkaan kotihoito-ohjeet."
+    ),
+    video: video("mi-dam-thao-hieu-dung", 272, "2026-11-17"),
+    notice: l3(
+      "Thời gian dặm là khoảng thường gặp, tuỳ từng khách. Loại chất tháo, lượng bôi và thời gian chờ: luôn theo hướng dẫn của hãng. Chất tháo không được vào mắt; nếu khách thấy cay, dừng ngay, lau sạch và xử lý như bài “Xử lý sự cố”. Khi có phản ứng, khuyên khách đi khám. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Refill intervals are typical ranges and vary by client. Remover type, amount and waiting time: always as the maker says. Remover must never get into the eye; if the client feels stinging, stop at once, wipe it off and act as in “Incidents”. If there is a reaction, advise the client to see a doctor. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Huoltovälit ovat tyypillisiä vaihteluvälejä ja vaihtelevat asiakkaittain. Poistoaineen tyyppi, määrä ja vaikutusaika: aina valmistajan ohjeen mukaan. Poistoainetta ei saa joutua silmään; jos asiakasta kirvelee, lopeta heti, pyyhi aine pois ja toimi kuten tunnilla ”Vahinkotilanteet”. Jos ilmenee reaktio, neuvo asiakasta hakeutumaan lääkäriin. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["lich-hen", "khach-hang", "tin-nhan-ai"],
+    steps: [
+      l3(
+        "Mi thật rụng mỗi ngày theo vòng đời, và sợi nối rụng theo; các sợi khác dài ra, đẩy mối keo xa mí. Vì vậy khách thường cần dặm sau khoảng 2–3 tuần, tuỳ tốc độ rụng và cách giữ mi.",
+        "Natural lashes shed every day as part of their cycle, and their extensions go with them; other lashes grow, moving the bond away from the lid. So clients usually need a refill after about 2–3 weeks, depending on their shedding and aftercare.",
+        "Luomuripsiä lähtee päivittäin kasvusyklin mukaan, ja pidennykset lähtevät niiden mukana; muut ripset kasvavat ja siirtävät liimakohtaa pois luomesta. Siksi asiakas tarvitsee yleensä huollon noin 2–3 viikon välein, riippuen ripsien lähtemisestä ja jälkihoidosta."
+      ),
+      l3(
+        "Để quá lâu thì việc dặm gần như làm lại từ đầu; mỗi tiệm tự đặt quy định bao lâu vẫn tính là dặm. Hẹn lịch dặm ngay khi khách vừa làm xong.",
+        "Leave it too long and a refill is almost a new set; each salon sets its own rule for how long still counts as a refill. Book the refill as soon as the set is finished.",
+        "Liian pitkän tauon jälkeen huolto on lähes uusi setti; jokainen liike päättää itse, kuinka pitkä väli lasketaan vielä huolloksi. Varaa huolto heti setin valmistuttua."
+      ),
+      l3(
+        "Đọc bộ mi khi dặm: rụng nhiều một bên thường do ngủ nghiêng; rụng mảng ở đuôi mắt có thể do dụi mắt hay dầu tẩy trang; rụng đều khắp nơi thì xem lại keo, độ ẩm phòng và bước làm sạch. Ghi lại nguyên nhân.",
+        "Read the set at a refill: heavy loss on one side often comes from side sleeping; patchy loss at the outer corner can come from rubbing or oil cleansers; even loss everywhere means checking the glue, room humidity and cleansing step. Record the cause.",
+        "Lue setti huollossa: runsas lähtö toiselta puolelta johtuu usein kyljellään nukkumisesta; laikuittainen lähtö ulkonurkasta voi johtua hieromisesta tai öljypuhdistuksesta; tasainen lähtö kaikkialta tarkoittaa liiman, huoneen kosteuden ja puhdistusvaiheen tarkistamista. Kirjaa syy."
+      ),
+      l3(
+        "Khi dặm, gỡ: sợi đã mọc dài (mối keo xa mí, xoay ngang, chĩa ra, bắt chéo), chỗ dính chùm, sợi gắn lỏng. Sợi còn đẹp và sát mí thì giữ lại.",
+        "At a refill, remove: grown-out extensions (bond far from the lid, twisted, sticking out, crossing), stickies, and loosely attached ones. Keep the ones that are still neat and close to the lid.",
+        "Huollossa poistetaan: ulos kasvaneet pidennykset (liimakohta kaukana luomesta, kiertyneet, sojottavat, ristikkäiset), tarttumat ja löysästi kiinnitetyt. Siistit ja luomen lähellä olevat jätetään."
+      ),
+      l3(
+        "Không bao giờ kéo, giật hay bứt sợi nối: kéo sợi nối là kéo luôn mi thật khỏi chân mi; lặp lại nhiều lần thì mi mọc lại thưa, yếu hơn. Dặn khách: mi vướng cũng đừng tự gỡ, hãy quay lại tiệm.",
+        "Never pull, tug or pick off an extension: pulling it pulls the natural lash out of the follicle; repeated often, lashes grow back thinner and weaker. Tell clients: even if a lash bothers them, don't remove it themselves, come back to the salon.",
+        "Pidennystä ei koskaan vedetä, nykäistä tai nypitä: se vetää luomuripsen irti karvatupesta; toistuvasti tehtynä ripset kasvavat takaisin harvempina ja heikompina. Kerro asiakkaalle: vaikka ripsi häiritsisi, älä poista sitä itse, tule liikkeeseen."
+      ),
+      l3(
+        "Muốn gỡ thì làm mềm keo bằng chất tháo chuyên dụng rồi trượt sợi nối ra nhẹ nhàng. Không dùng dầu gần mắt để làm tan keo, trừ khi hãng sản phẩm hướng dẫn rõ.",
+        "To remove an extension, soften the bond with a professional remover and slide it off gently. Don't use oil near the eyes to dissolve the glue unless the product maker clearly says so.",
+        "Pidennyksen poistamiseksi liima pehmennetään ammattikäyttöön tarkoitetulla poistoaineella ja pidennys liu'utetaan varovasti pois. Älä käytä öljyä silmien lähellä liiman liuottamiseen, ellei tuotteen valmistaja selvästi niin ohjeista."
+      ),
+      l3(
+        "Chất tháo dạng kem và gel nằm yên chỗ bôi nên dễ kiểm soát gần mắt; dạng lỏng dễ chảy hơn. Dạng nào cũng làm theo hướng dẫn của hãng về lượng bôi và thời gian chờ. Chất tháo không bao giờ được vào mắt; mắt khách nhắm kín suốt lúc tháo.",
+        "Cream and gel removers stay where you put them, so they are easier to control near the eye; liquid removers run more easily. Whatever the type, follow the maker on amount and waiting time. Remover must never get into the eye; the client's eyes stay closed throughout.",
+        "Voide- ja geelimäiset poistoaineet pysyvät paikallaan ja ovat helpommin hallittavia silmän lähellä; nestemäiset valuvat helpommin. Tyypistä riippumatta noudata valmistajan ohjetta määrästä ja vaikutusajasta. Poistoainetta ei koskaan saa joutua silmään; asiakkaan silmät ovat kiinni koko ajan."
+      ),
+      l3(
+        "Tháo hết cả bộ khi: mi giữ kém, khách muốn cho mi nghỉ, khách có phản ứng (tháo hết và khuyên đi khám), hoặc sau nhiều lần dặm bộ mi đã rối và không đều.",
+        "Remove the whole set when: retention is poor, the client wants a break, the client has a reaction (remove everything and advise seeing a doctor), or after several refills the set has become messy and uneven.",
+        "Koko setti poistetaan, kun: ripset pysyvät huonosti, asiakas haluaa tauon, asiakkaalla on reaktio (poista kaikki ja neuvo hakeutumaan lääkäriin) tai useiden huoltojen jälkeen setti on sotkuinen ja epätasainen."
+      ),
+      l3(
+        "Tháo xong, mi thật thường trông thưa và ngắn hơn khách nhớ — vì khách đã quen nhìn mi nối. Nói trước, thật nhẹ nhàng. Không tháo một nửa rồi để đó, không chỉ khách tự tháo ở nhà.",
+        "After removal the natural lashes often look sparser and shorter than the client remembers — they have got used to the extensions. Say so beforehand, gently. Never leave a set half removed, and never tell clients to remove lashes at home.",
+        "Poiston jälkeen omat ripset näyttävät usein harvemmilta ja lyhyemmiltä kuin asiakas muistaa — hän on tottunut pidennyksiin. Kerro siitä etukäteen lempeästi. Älä jätä settiä puoliksi poistetuksi äläkä neuvo asiakasta poistamaan ripsiä kotona."
+      ),
+      l3(
+        "Dặn khách: không dụi, không tự bứt, sản phẩm không dầu quanh mắt, rửa và chải mi nhẹ mỗi ngày, không kẹp uốn mi, tránh mascara chống nước, ngủ nằm ngửa hay nghiêng nhẹ, không úp mặt xuống gối.",
+        "Teach the client: no rubbing, no picking, oil-free products around the eyes, gentle daily cleansing and brushing, no lash curler, avoid waterproof mascara, sleep on the back or lightly on the side, not face down.",
+        "Opeta asiakkaalle: ei hieromista eikä nyppimistä, öljyttömät tuotteet silmien ympärillä, kevyt päivittäinen pesu ja harjaus, ei ripsitaivutinta, vältä vedenkestävää ripsiväriä, nuku selällään tai kevyesti kyljellään, ei vatsallaan."
+      ),
+    ],
+    tips: [
+      l3(
+        "Hẹn lịch dặm tiếp theo ngay trong VaraaAi trước khi khách ra về, và ghi lý do mi rụng (nếu có) vào “Ghi chú nội bộ” trong hồ sơ khách.",
+        "Book the next refill in VaraaAi before the client leaves, and note any cause of lash loss in the client's internal notes.",
+        "Varaa seuraava huolto VaraaAi:ssa ennen kuin asiakas lähtee, ja kirjaa mahdollinen ripsien lähtemisen syy asiakkaan sisäisiin muistiinpanoihin."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Vì sao không bao giờ được kéo sợi mi nối ra?", "Why must you never pull an extension off?", "Miksi pidennystä ei koskaan saa vetää irti?"),
+        options: [
+          l3("Vì sẽ làm mất thời gian", "Because it wastes time", "Koska se vie aikaa"),
+          l3("Vì keo dính sợi nối vào mi thật, kéo là kéo luôn mi thật khỏi chân mi và làm tổn thương chân mi", "Because the glue holds it to the natural lash, so pulling pulls the natural lash out and damages the follicle", "Koska liima pitää sen kiinni luomuripsessä, joten vetäminen irrottaa luomuripsen ja vahingoittaa karvatuppea"),
+          l3("Vì sợi nối sẽ không dùng lại được", "Because the extension can't be reused", "Koska pidennystä ei voi käyttää uudelleen"),
+        ],
+        answer: 1,
+        why: l3(
+          "Làm mềm keo bằng chất tháo rồi trượt ra; kéo nhiều lần làm mi mọc lại thưa và yếu hơn.",
+          "Soften the bond with remover and slide it off; repeated pulling makes lashes grow back thinner and weaker.",
+          "Pehmennä liima poistoaineella ja liu'uta pidennys pois; toistuva vetäminen saa ripset kasvamaan harvempina ja heikompina."
+        ),
+      },
+      {
+        q: l3("Khách quay lại sau 2–3 tuần. Những sợi nào thường cần gỡ khi dặm?", "A client returns after 2–3 weeks. Which extensions usually need removing at the refill?", "Asiakas palaa 2–3 viikon jälkeen. Mitkä pidennykset yleensä poistetaan huollossa?"),
+        options: [
+          l3("Sợi đã mọc dài, xoay hay chĩa ra, chỗ dính chùm và sợi gắn lỏng", "Grown-out, twisted or sticking-out extensions, stickies and loose ones", "Ulos kasvaneet, kiertyneet tai sojottavat pidennykset, tarttumat ja löysät"),
+          l3("Tất cả, lần nào cũng tháo hết", "All of them, every time", "Kaikki, joka kerta"),
+          l3("Không gỡ sợi nào, chỉ gắn thêm", "None, just add more", "Ei mitään, lisätään vain uusia"),
+        ],
+        answer: 0,
+        why: l3(
+          "Sợi mọc dài nặng ở ngọn, làm mi thật bị kéo và xoắn; sợi còn đẹp, sát mí thì giữ lại.",
+          "Grown-out extensions weigh on the tip and twist the natural lash; the neat ones close to the lid stay.",
+          "Ulos kasvaneet painavat kärkeä ja kiertävät luomuripsiä; siistit, luomen lähellä olevat jätetään."
+        ),
+      },
+      {
+        q: l3("Khách thấy cay khi bạn đang tháo mi. Bạn làm gì?", "The client feels stinging while you are removing lashes. What do you do?", "Asiakasta kirvelee poiston aikana. Mitä teet?"),
+        options: [
+          l3("Làm nhanh hơn cho xong", "Work faster to finish", "Teen nopeammin, jotta valmistuu"),
+          l3("Bảo khách mở mắt ra xem", "Ask the client to open their eyes", "Pyydän asiakasta avaamaan silmät"),
+          l3("Dừng ngay, lau sạch chất tháo và xử lý như bài xử lý sự cố", "Stop at once, wipe off the remover and act as in the incidents lesson", "Lopetan heti, pyyhin poistoaineen pois ja toimin vahinkotilanteiden tunnin mukaan"),
+        ],
+        answer: 2,
+        why: l3(
+          "Chất tháo không được vào mắt; cay là dấu hiệu phải dừng ngay.",
+          "Remover must not get into the eye; stinging is the signal to stop at once.",
+          "Poistoainetta ei saa joutua silmään; kirvely on merkki lopettaa heti."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "mi-dam-thao",
+    course: "p-lash",
+    style: "practice",
+    title: l3("Dặm và tháo mi: thực hành từng bước", "Refills and removal: step by step", "Huolto ja poisto: vaihe vaiheelta"),
+    summary: l3(
+      "Hai việc, từng bước. Dặm mi: hỏi thăm và nhìn mắt, làm sạch, miếng lót, kiểm tra từng sợi, gỡ sợi mọc dài bằng một chấm kem tháo đúng mối keo rồi trượt ra (không kéo), dặm mới theo bản đồ đã ghi, kiểm tra dính chùm, hẹn lịch và ghi lại. Tháo hết cả bộ: miếng lót bảo vệ, kem tháo mỏng dọc mối keo, chờ đúng thời gian hãng hướng dẫn, vuốt nhẹ từ chân ra ngọn, rửa sạch, kiểm tra mi thật và dặn dò.",
+      "Two jobs, step by step. Refill: check in and look at the eyes, cleanse, pads, inspect every lash, remove grown-out extensions with a dot of remover on the bond only and slide them off (never pull), refill following the recorded map, check for stickies, book and record. Full removal: protective pads, a thin line of cream remover along the bonds, wait the maker's time, glide gently from base to tip, cleanse, check the natural lashes and give aftercare.",
+      "Kaksi työtä vaihe vaiheelta. Huolto: kuulumiset ja silmien tarkistus, puhdistus, tyynyt, jokaisen ripsen tarkistus, ulos kasvaneiden poisto pisaralla poistoainetta vain liimakohtaan ja liu'uttamalla (ei koskaan vetämällä), täyttö kirjatun kartan mukaan, tarttumien tarkistus, ajanvaraus ja kirjaus. Koko setin poisto: suojaavat tyynyt, ohut raita voidemaista poistoainetta liimakohtiin, valmistajan vaikutusaika, kevyt pyyhkäisy tyvestä kärkeen, puhdistus, omien ripsien tarkistus ja jälkihoito-ohjeet."
+    ),
+    video: video("mi-dam-thao", 274, "2026-11-17"),
+    notice: l3(
+      "Loại chất tháo, lượng bôi và thời gian chờ: luôn theo hướng dẫn của hãng. Chất tháo không được vào mắt; khách thấy cay thì dừng ngay, lau sạch và xử lý như bài “Xử lý sự cố”. Khách tháo vì phản ứng thì khuyên đi khám. Quy định về dịch vụ và sản phẩm làm đẹp khác nhau theo từng nước. Đây là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Remover type, amount and waiting time: always as the maker says. Remover must never get into the eye; if the client feels stinging, stop at once, wipe it off and act as in “Incidents”. If the set is removed because of a reaction, advise the client to see a doctor. Rules on beauty services and products differ by country. This is a training aid, not a licence.",
+      "Poistoaineen tyyppi, määrä ja vaikutusaika: aina valmistajan ohjeen mukaan. Poistoainetta ei saa joutua silmään; jos asiakasta kirvelee, lopeta heti, pyyhi aine pois ja toimi kuten tunnilla ”Vahinkotilanteet”. Jos setti poistetaan reaktion vuoksi, neuvo asiakasta hakeutumaan lääkäriin. Kauneuspalveluja ja -tuotteita koskevat säännöt vaihtelevat maittain. Tämä on koulutusmateriaali, ei ammattipätevyys."
+    ),
+    related: ["lich-hen", "khach-hang", "dich-vu"],
+    steps: [
+      l3(
+        "Dặm — hỏi thăm khi khách ngồi, mở mắt: lần trước có đỏ, ngứa, sưng không, mi rụng nhiều hay ít. Nhìn mắt dưới ánh sáng tốt; có dấu hiệu phản ứng thì không dặm mà tháo hết.",
+        "Refill — check in while the client sits with eyes open: any redness, itching or swelling after last time, how many lashes fell. Look at the eyes in good light; any sign of a reaction means no refill but a full removal.",
+        "Huolto — kysy kuulumiset asiakkaan istuessa silmät auki: punoitusta, kutinaa tai turvotusta viime kerran jälkeen, paljonko ripsiä lähti. Katso silmiä hyvässä valossa; reaktion merkit tarkoittavat koko setin poistoa, ei huoltoa."
+      ),
+      l3(
+        "Rửa cả mi nối lẫn mi thật bằng dung dịch rửa mi, xả nước sạch, làm khô; dán miếng lót che kín mi dưới, không chạm viền mắt.",
+        "Cleanse extensions and natural lashes with lash shampoo, rinse, dry; place pads covering every lower lash without touching the waterline.",
+        "Pese pidennykset ja omat ripset ripsishampoolla, huuhtele ja kuivaa; aseta tyynyt peittämään kaikki alaripset koskematta limakalvoreunaan."
+      ),
+      l3(
+        "Chải mi rồi lướt nhíp thẳng qua từng sợi: tìm sợi đã mọc dài, xoay ngang hay chĩa ra, chỗ dính chùm và sợi lỏng.",
+        "Brush through, then glide a straight tweezer over each lash: look for grown-out, twisted or sticking-out extensions, stickies and loose ones.",
+        "Harjaa ja käy suorilla pinseteillä läpi jokainen ripsi: etsi ulos kasvaneet, kiertyneet tai sojottavat pidennykset, tarttumat ja löysät."
+      ),
+      l3(
+        "Gỡ sợi mọc dài: chấm một chút kem tháo bằng cọ nhỏ dùng một lần đúng vào mối keo của sợi đó, không chạm da mí và chân mi; chờ theo hướng dẫn của hãng.",
+        "Remove grown-out extensions: dab a little cream remover with a single-use micro-brush onto that extension's bond only, never on the lid skin or roots; wait as the maker says.",
+        "Ulos kasvaneiden poisto: taputtele kertakäyttöisellä mikroharjalla hieman voidemaista poistoainetta vain kyseisen pidennyksen liimakohtaan, ei luomen iholle eikä tyveen; odota valmistajan ohjeen mukaan."
+      ),
+      l3(
+        "Một nhíp giữ yên mi thật, nhíp kia trượt sợi nối về phía ngọn. Không trượt ra là keo chưa mềm: chấm thêm, chờ thêm, không kéo. Lau sạch kem còn lại trên mi thật.",
+        "One tweezer holds the natural lash steady, the other slides the extension towards the tip. If it won't slide, the bond isn't soft yet: add a little more, wait longer, never pull. Wipe the remaining remover off the natural lash.",
+        "Yksi pinsetti pitää luomuripsen paikallaan, toinen liu'uttaa pidennystä kärkeä kohti. Jos se ei liu'u, liima ei ole vielä pehmennyt: lisää hieman, odota, älä koskaan vedä. Pyyhi jäljelle jäänyt poistoaine luomuripsestä."
+      ),
+      l3(
+        "Dặm mới theo bản đồ mi đã ghi: tách một sợi, gắn như bài classic hay volume. Mi non quá ngắn để lần sau; không chọn sợi dài hay dày hơn sức mi thật. Kiểm tra dính chùm sau mỗi vùng, so hai mắt, gỡ miếng lót khi mắt vẫn nhắm. Bộ mi quá rối thì đề nghị tháo hết làm lại.",
+        "Refill following the recorded map: isolate one lash and apply as in the classic or volume lesson. Leave baby lashes that are too short for next time; never go longer or heavier than the natural lash can carry. Check for stickies after each zone, compare both eyes, remove the pads with the eyes closed. If the set is too messy, suggest a full removal and a new set.",
+        "Täytä kirjatun kartan mukaan: eristä yksi ripsi ja kiinnitä kuten klassisten tai volyymin tunnilla. Liian lyhyet nuoret ripset jätetään seuraavaan kertaan; ei koskaan pidempää tai painavampaa kuin luomuripsi kestää. Tarkista tarttumat jokaisen alueen jälkeen, vertaa silmiä ja poista tyynyt silmien ollessa kiinni. Jos setti on liian sotkuinen, ehdota poistoa ja uutta settiä."
+      ),
+      l3(
+        "Hẹn lịch dặm tiếp theo, thường sau 2–3 tuần, và ghi lại: mi giữ thế nào, gỡ nhiều hay ít, nguyên nhân rụng, đã dặn gì.",
+        "Book the next refill, usually after 2–3 weeks, and record: how the lashes held, how many were removed, the cause of loss, what you advised.",
+        "Varaa seuraava huolto, yleensä 2–3 viikon päähän, ja kirjaa: miten ripset pysyivät, paljonko poistettiin, lähtemisen syy ja mitä neuvoit."
+      ),
+      l3(
+        "Tháo hết — miếng lót che kín mi dưới để bảo vệ da và mi dưới; mắt nhắm kín; dặn khách cay hay nóng thì báo ngay. Khách tháo vì phản ứng: làm thật nhẹ, thật chậm.",
+        "Full removal — pads cover every lower lash to protect the skin and lower lashes; eyes closed; ask the client to say at once if anything stings or burns. If it is because of a reaction: work very gently and slowly.",
+        "Koko setin poisto — tyynyt peittävät kaikki alaripset suojaten ihoa ja alaripsiä; silmät kiinni; pyydä asiakasta kertomaan heti kirvelystä tai kuumotuksesta. Jos syynä on reaktio: työskentele erityisen hellästi ja hitaasti."
+      ),
+      l3(
+        "Bôi một lớp kem tháo mỏng dọc các mối keo, cách chân mi một chút, không chạm da mí hay viền mắt, không bôi thừa. Chờ đúng thời gian hãng hướng dẫn, ở bên cạnh khách. Rồi vuốt nhẹ bằng que bông hay cọ nhỏ sạch từ chân ra ngọn, mỗi lần một mặt sạch; sợi còn bám thì bôi thêm, chờ thêm, không kéo.",
+        "Apply a thin line of cream remover along the bonds, a little away from the roots, never on the lid skin or waterline, no excess. Wait the maker's time, staying with the client. Then glide gently from base to tip with a clean cotton swab or micro-brush, a clean side each time; if extensions still hold, add more, wait, never pull.",
+        "Levitä ohut raita voidemaista poistoainetta liimakohtiin hieman irti tyvestä, ei luomen iholle eikä limakalvoreunaan, ei ylimäärää. Odota valmistajan vaikutusaika asiakkaan luona. Pyyhkäise sitten hellästi tyvestä kärkeen puhtaalla pumpulipuikolla tai mikroharjalla, joka kerta puhtaalla puolella; jos pidennyksiä jää, lisää, odota, älä koskaan vedä."
+      ),
+      l3(
+        "Rửa sạch kem tháo bằng dung dịch rửa mi, xả nước, làm khô. Kiểm tra mi thật, gỡ miếng lót, cho khách mở mắt từ từ, nói trước rằng mi thật thường trông thưa hơn khách nhớ. Dặn dò, bỏ đồ dùng một lần vào thùng có nắp, khử khuẩn nhíp.",
+        "Wash off the remover with lash shampoo, rinse and dry. Check the natural lashes, remove the pads, let the client open their eyes slowly, and tell them natural lashes often look sparser than they remember. Give aftercare, put single-use items in a lidded bin, disinfect the tweezers.",
+        "Pese poistoaine pois ripsishampoolla, huuhtele ja kuivaa. Tarkista omat ripset, poista tyynyt, anna asiakkaan avata silmät hitaasti ja kerro, että omat ripset näyttävät usein harvemmilta kuin hän muistaa. Anna jälkihoito-ohjeet, laita kertakäyttötarvikkeet kannelliseen roskakoriin ja desinfioi pinsetit."
+      ),
+    ],
+    tips: [
+      l3(
+        "Đừng vội: vuốt khi keo chưa mềm là kéo luôn mi thật. Chờ đủ thời gian hãng hướng dẫn.",
+        "Don't rush: gliding before the bond is soft pulls out natural lashes. Wait the full time the maker gives.",
+        "Älä kiirehdi: pyyhkäisy ennen kuin liima on pehmennyt irrottaa omia ripsiä. Odota valmistajan koko vaikutusaika."
+      ),
+      l3(
+        "Mở bản đồ mi trong “Ghi chú nội bộ” ở hồ sơ khách trên VaraaAi trước khi dặm, và cập nhật ghi chú khi xong.",
+        "Open the lash map in the client's internal notes in VaraaAi before the refill, and update the notes when you finish.",
+        "Avaa ripsikartta asiakkaan sisäisistä muistiinpanoista VaraaAi:ssa ennen huoltoa ja päivitä muistiinpanot lopuksi."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khi gỡ một sợi đã mọc dài lúc dặm, bôi chất tháo ở đâu?", "When removing one grown-out extension at a refill, where does the remover go?", "Kun huollossa poistetaan yksi ulos kasvanut pidennys, mihin poistoaine laitetaan?"),
+        options: [
+          l3("Dọc cả hàng mi cho nhanh", "Along the whole lash line to save time", "Koko ripsirajaan ajan säästämiseksi"),
+          l3("Lên da mí, sát chân mi", "On the lid skin, right at the roots", "Luomen iholle, aivan tyveen"),
+          l3("Một chấm nhỏ đúng vào mối keo của sợi đó, bằng cọ nhỏ", "A tiny dot on that extension's bond only, with a micro-brush", "Pieni pisara vain kyseisen pidennyksen liimakohtaan mikroharjalla"),
+        ],
+        answer: 2,
+        why: l3(
+          "Chỉ làm mềm mối keo cần gỡ; các sợi còn đẹp giữ nguyên, và chất tháo không chạm da hay mắt.",
+          "Only the bond you want to release is softened; the neat extensions stay, and the remover never touches skin or eye.",
+          "Vain irrotettava liimakohta pehmennetään; siistit pidennykset jäävät, eikä poistoaine kosketa ihoa tai silmää."
+        ),
+      },
+      {
+        q: l3("Sợi nối không trượt ra khi bạn vuốt. Làm gì tiếp?", "An extension won't slide off when you glide. What next?", "Pidennys ei liu'u irti pyyhkäistessä. Mitä seuraavaksi?"),
+        options: [
+          l3("Bôi thêm một chút chất tháo, chờ thêm, rồi thử lại; không kéo", "Add a little more remover, wait longer, try again; never pull", "Lisään hieman poistoainetta, odotan ja yritän uudelleen; en koskaan vedä"),
+          l3("Kéo mạnh hơn một chút", "Pull a little harder", "Vedän hieman kovempaa"),
+          l3("Cắt sợi mi thật cho nhanh", "Cut the natural lash to save time", "Leikkaan luomuripsen ajan säästämiseksi"),
+        ],
+        answer: 0,
+        why: l3(
+          "Không trượt ra nghĩa là keo chưa mềm; kéo lúc này là kéo luôn mi thật khỏi chân mi.",
+          "If it won't slide, the bond isn't soft yet; pulling now pulls the natural lash out of the follicle.",
+          "Jos se ei liu'u, liima ei ole vielä pehmennyt; vetäminen nyt irrottaa luomuripsen karvatupesta."
+        ),
+      },
+      {
+        q: l3("Vì sao miếng lót vẫn quan trọng khi tháo hết cả bộ?", "Why do the pads still matter during a full removal?", "Miksi tyynyt ovat tärkeitä myös koko setin poistossa?"),
+        options: [
+          l3("Không quan trọng, có thể bỏ qua", "They don't matter, you can skip them", "Eivät ole tärkeitä, ne voi jättää pois"),
+          l3("Chúng che mi dưới và da, giữ chất tháo không chạm vào mắt và mi dưới", "They cover the lower lashes and skin, keeping the remover off them and away from the eye", "Ne peittävät alaripset ja ihon ja pitävät poistoaineen erossa niistä ja silmästä"),
+          l3("Để giữ các sợi nối không rơi xuống sàn", "To stop extensions falling on the floor", "Jotta pidennykset eivät putoa lattialle"),
+        ],
+        answer: 1,
+        why: l3(
+          "Miếng lót bảo vệ da và mi dưới; chất tháo luôn phải tránh xa mắt.",
+          "The pads protect the skin and lower lashes; remover must always stay away from the eye.",
+          "Tyynyt suojaavat ihoa ja alaripsiä; poistoaineen on aina pysyttävä kaukana silmästä."
+        ),
+      },
+    ],
+  },
   soon("lash-lift", "p-lash", ["Uốn mi (lash lift) và nhuộm mi", "Lash lift and tint", "Ripsien kestotaivutus ja värjäys"], [
     "Chọn khuôn, thời gian thuốc theo loại mi, thử phản ứng trước khi nhuộm.",
     "Choosing the shield, timing by lash type, and patch testing before tinting.",
