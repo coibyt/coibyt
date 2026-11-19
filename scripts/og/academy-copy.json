@@ -1,0 +1,134 @@
+{
+  "vi": {
+    "pro": {
+      "eyebrow": "Học viện VaraaAi · Học nghề",
+      "title": "Học nail &amp; mi<br><em>chuẩn châu Âu</em>",
+      "chips": [
+        "Miễn phí",
+        "Thầy giảng + thực hành",
+        "Học trên điện thoại"
+      ],
+      "cta": "Vào học ngay",
+      "c1": "40+ video học nghề",
+      "c1s": "Nail · Mi · Vệ sinh an toàn",
+      "c2": "Điểm, huy hiệu",
+      "c2s": "Bài kiểm tra sau mỗi bài"
+    },
+    "owner": {
+      "eyebrow": "Học viện VaraaAi · Chủ salon",
+      "title": "Quản lý salon<br><em>nhẹ nhàng hơn</em>",
+      "chips": [
+        "Đặt lịch online",
+        "Thẻ khách quen",
+        "Đào tạo nhân viên"
+      ],
+      "cta": "Xem video hướng dẫn",
+      "c1": "Lịch hẹn mới",
+      "c1s": "Khách tự đặt, 24/7",
+      "c2": "Từng bước một",
+      "c2s": "Video có người hướng dẫn"
+    },
+    "customer": {
+      "eyebrow": "Học viện VaraaAi · Khách hàng",
+      "title": "Đặt lịch làm đẹp<br><em>chỉ trong 1 phút</em>",
+      "chips": [
+        "Tìm salon",
+        "Thẻ tích điểm",
+        "Thẻ quà tặng"
+      ],
+      "cta": "Xem cách đặt lịch",
+      "c1": "Đã đặt lịch",
+      "c1s": "Nhận xác nhận ngay",
+      "c2": "Miễn phí",
+      "c2s": "Không cần đăng nhập"
+    }
+  },
+  "en": {
+    "pro": {
+      "eyebrow": "VaraaAi Academy · Learn the trade",
+      "title": "Nails &amp; lashes,<br><em>the European way</em>",
+      "chips": [
+        "Free",
+        "Theory + practice",
+        "Learn on your phone"
+      ],
+      "cta": "Start learning",
+      "c1": "40+ craft videos",
+      "c1s": "Nails · Lashes · Hygiene",
+      "c2": "Points &amp; badges",
+      "c2s": "A quiz after every lesson"
+    },
+    "owner": {
+      "eyebrow": "VaraaAi Academy · Salon owners",
+      "title": "Run your salon<br><em>the easy way</em>",
+      "chips": [
+        "Online booking",
+        "Loyalty cards",
+        "Staff training"
+      ],
+      "cta": "Watch the guides",
+      "c1": "New booking",
+      "c1s": "Clients book 24/7",
+      "c2": "Step by step",
+      "c2s": "Narrated video lessons"
+    },
+    "customer": {
+      "eyebrow": "VaraaAi Academy · Customers",
+      "title": "Book your beauty visit<br><em>in one minute</em>",
+      "chips": [
+        "Find a salon",
+        "Loyalty cards",
+        "Gift cards"
+      ],
+      "cta": "See how to book",
+      "c1": "Booked",
+      "c1s": "Instant confirmation",
+      "c2": "Free",
+      "c2s": "No sign-in needed"
+    }
+  },
+  "fi": {
+    "pro": {
+      "eyebrow": "VaraaAi-akatemia · Opi ammatti",
+      "title": "Kynnet ja ripset<br><em>eurooppalaisittain</em>",
+      "chips": [
+        "Ilmainen",
+        "Teoria + käytäntö",
+        "Opi puhelimella"
+      ],
+      "cta": "Aloita nyt",
+      "c1": "Yli 40 opetusvideota",
+      "c1s": "Kynnet · Ripset · Hygienia",
+      "c2": "Pisteet ja merkit",
+      "c2s": "Testi jokaisen tunnin jälkeen"
+    },
+    "owner": {
+      "eyebrow": "VaraaAi-akatemia · Salongin omistajat",
+      "title": "Pyöritä salonkia<br><em>helpommin</em>",
+      "chips": [
+        "Verkkoajanvaraus",
+        "Kanta-asiakaskortit",
+        "Henkilöstön koulutus"
+      ],
+      "cta": "Katso ohjeet",
+      "c1": "Uusi varaus",
+      "c1s": "Asiakkaat varaavat 24/7",
+      "c2": "Vaihe vaiheelta",
+      "c2s": "Opastetut videot"
+    },
+    "customer": {
+      "eyebrow": "VaraaAi-akatemia · Asiakkaat",
+      "title": "Varaa kauneusaika<br><em>minuutissa</em>",
+      "chips": [
+        "Löydä salonki",
+        "Kanta-asiakaskortit",
+        "Lahjakortit"
+      ],
+      "cta": "Katso, miten varaat",
+      "c1": "Varattu",
+      "c1s": "Vahvistus heti",
+      "c2": "Ilmainen",
+      "c2s": "Ei kirjautumista"
+    }
+  }
+}

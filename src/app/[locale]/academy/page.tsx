@@ -4,13 +4,28 @@ import { AcademyHub } from "@/components/academy/academy-hub";
 import { bridgeCards, courseCards, liveLessons } from "@/lib/academy";
 import { academyStrings } from "@/lib/academy/strings";
 import { ogImage } from "@/lib/og-image";
+import { academyTabOg, isAudience } from "@/lib/academy/og";
+import { AcademyShareLinks } from "@/components/academy/academy-share-links";
 import { SITE, alternatesFor, jsonLd, localizedUrl } from "@/lib/seo";
 
 type Params = Promise<{ locale: string }>;
+type Search = Promise<{ tab?: string | string[] }>;
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: { params: Params; searchParams: Search }): Promise<Metadata> {
   const { locale } = await params;
   const s = academyStrings(locale);
+  // A shared ?tab= link previews with that tab's own banner, title and text.
+  const { tab } = await searchParams;
+  if (isAudience(tab)) {
+    const og = academyTabOg(tab, locale);
+    return {
+      title: og.title,
+      description: og.description,
+      alternates: alternatesFor("/academy", locale),
+      openGraph: { title: og.title, description: og.description, url: `${localizedUrl(locale, "/academy")}?tab=${tab}`, siteName: "VaraaAi", type: "website", images: [og.image] },
+      twitter: { card: "summary_large_image", title: og.title, description: og.description, images: [og.image.url] },
+    };
+  }
   return {
     title: s.metaTitle,
     description: s.metaDescription,
@@ -56,6 +71,10 @@ export default async function AcademyPage({ params }: { params: Params }) {
       </section>
 
       <AcademyHub courses={courses} bridge={bridgeCards(locale)} locale={locale} />
+      {/* Everyone can share the three tabs (owner, 2026-11-19). */}
+      <div className="container -mt-10 pb-20">
+        <AcademyShareLinks locale={locale} baseUrl={localizedUrl(locale, "/academy")} />
+      </div>
     </div>
   );
 }
