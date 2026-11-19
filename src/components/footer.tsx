@@ -131,6 +131,12 @@ export async function Footer() {
             { href: "/tools/price-list", label: priceListNavLabel(locale) },
             { href: "/tools/qr-poster", label: posterNavLabel(locale) },
             { href: "/academy#owner", label: academyOwnerNavLabel(locale) },
+            // Sister service for receipts and bookkeeping (owner, 2026-11-19).
+            {
+              href: "https://tositeo.com/",
+              label: locale === "vi" ? "Tositeo: hóa đơn & kế toán" : locale === "fi" ? "Tositeo: kuitit ja kirjanpito" : "Tositeo: receipts & bookkeeping",
+              external: true,
+            },
           ]}
         />
         <FooterColumn
@@ -156,7 +162,7 @@ function FooterColumn({
   links,
 }: {
   title: string;
-  links: { href: string; label: string }[];
+  links: { href: string; label: string; external?: boolean }[];
 }) {
   return (
     <div>
@@ -164,9 +170,15 @@ function FooterColumn({
       <ul className="space-y-2 text-sm text-ink-400">
         {links.map((l) => (
           <li key={l.href}>
-            <Link href={l.href} className="hover:text-ink-900">
-              {l.label}
-            </Link>
+            {l.external ? (
+              <a href={l.href} target="_blank" rel="noopener" className="hover:text-ink-900">
+                {l.label}
+              </a>
+            ) : (
+              <Link href={l.href} className="hover:text-ink-900">
+                {l.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>
