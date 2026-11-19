@@ -45,6 +45,7 @@ import type { Audience, CourseCard, CourseIcon, LessonCard } from "@/lib/academy
 import { useAcademyProgress, useHydrated } from "@/components/academy/use-progress";
 import { AcademyCertificate } from "@/components/academy/certificate";
 import { track as trackEvent, visitSource } from "@/lib/academy/track";
+import { coursePageStrings } from "@/lib/academy/course-page-strings";
 
 const COURSE_ICONS: Record<CourseIcon, typeof Compass> = {
   compass: Compass,
@@ -275,6 +276,12 @@ export function AcademyHub({
                 <div className="min-w-0 flex-1">
                   <h2 className="text-xl font-extrabold tracking-tight text-ink-900 sm:text-2xl">{c.title}</h2>
                   <p className="mt-0.5 text-sm text-ink-400 sm:text-base">{c.body}</p>
+                  {c.page && (
+                    <Link href={`/academy/khoa-hoc/${c.page}`} className="mt-1 inline-flex items-center gap-1 text-sm font-bold text-primary-700 hover:text-primary-900">
+                      {coursePageStrings(locale).catView}
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  )}
                 </div>
                 {p.total > 0 && (
                   <span

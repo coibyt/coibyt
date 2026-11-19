@@ -18,6 +18,8 @@ export interface LessonViewData {
   no: number;
   total: number;
   courseTitle: string;
+  /** Slug of the course landing page (/academy/khoa-hoc/<slug>). */
+  coursePage: string | null;
   title: string;
   summary: string;
   video: { src: string; poster: string; captions: string; seconds: number; lang: string };
@@ -86,7 +88,13 @@ export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale:
             {s.back}
           </Link>
           <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-bold uppercase tracking-[0.18em] text-[#e8d3a6]">
-            <span>{lesson.courseTitle}</span>
+            {lesson.coursePage ? (
+              <Link href={`/academy/khoa-hoc/${lesson.coursePage}`} className="hover:text-white">
+                {lesson.courseTitle}
+              </Link>
+            ) : (
+              <span>{lesson.courseTitle}</span>
+            )}
             {lesson.style && (
               <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-[11px] tracking-wide text-white ring-1 ring-white/20">
                 {lesson.style === "theory" ? cs.styleTheory : cs.stylePractice}

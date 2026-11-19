@@ -100,5 +100,7 @@ export interface CourseCard {
   icon: CourseIcon;
   title: string;
   body: string;
+  /** Slug of the course landing page (/academy/khoa-hoc/<slug>), if it has one. */
+  page: string | null;
   lessons: LessonCard[];
 }

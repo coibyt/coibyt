@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { GraduationCap } from "lucide-react";
 import { AcademyHub } from "@/components/academy/academy-hub";
-import { bridgeCards, courseCards, liveLessons } from "@/lib/academy";
+import { bridgeCards, catalogue, courseCards, liveLessons } from "@/lib/academy";
+import { AcademyCatalogue } from "@/components/academy/academy-catalogue";
+import { coursePageStrings } from "@/lib/academy/course-page-strings";
 import { academyStrings } from "@/lib/academy/strings";
 import { ogImage } from "@/lib/og-image";
 import { academyTabOg, isAudience } from "@/lib/academy/og";
@@ -40,6 +41,7 @@ export async function generateMetadata({ params, searchParams }: { params: Param
 export default async function AcademyPage({ params }: { params: Params }) {
   const { locale } = await params;
   const s = academyStrings(locale);
+  const cs = coursePageStrings(locale);
   const courses = courseCards(locale);
   const live = liveLessons();
 
@@ -47,30 +49,24 @@ export default async function AcademyPage({ params }: { params: Params }) {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: s.metaTitle,
-    itemListElement: live.map((l, i) => ({ "@type": "ListItem", position: i + 1, url: localizedUrl(locale, `/academy/${l.slug}`) })),
+    itemListElement: catalogue(locale).map((c, i) => ({ "@type": "ListItem", position: i + 1, url: localizedUrl(locale, `/academy/khoa-hoc/${c.slug}`), name: c.headline })),
     publisher: { "@type": "Organization", name: "VaraaAi", url: SITE },
   };
 
   return (
     <div className="overflow-x-clip bg-mist-50/60">
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(list)} />
-      <section className="relative isolate overflow-hidden bg-[#1a1326] text-white">
-        <div className="pointer-events-none absolute -left-32 -top-32 -z-10 h-96 w-96 rounded-full bg-primary-500/40 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 right-0 -z-10 h-96 w-96 rounded-full bg-[#b08a3e]/25 blur-3xl" />
-        {/* Kept to two short lines (owner, 2026-11-17) so the three learning tabs show on the first phone screen. */}
-        <div className="container flex flex-col items-center pb-14 pt-6 text-center sm:pb-16 sm:pt-10">
-          <h1 className="flex items-center gap-2 text-2xl font-extrabold tracking-tight sm:text-4xl">
-            <GraduationCap className="h-6 w-6 shrink-0 text-[#e8d3a6] sm:h-8 sm:w-8" />
-            {s.eyebrow}
-          </h1>
-          <p className="mt-1.5 max-w-2xl text-sm font-semibold text-white/75 sm:text-lg">
-            {s.heroTitle}{" "}
-            <span className="bg-gradient-to-r from-[#f0d9a0] to-[#c9a25a] bg-clip-text text-transparent">{s.heroAccent}</span>
-          </p>
-        </div>
-      </section>
+      {/* Course catalogue first, like a course marketplace (owner, 2026-11-19); every card opens the course page. */}
+      <AcademyCatalogue courses={catalogue(locale)} locale={locale} lessons={live.length} seconds={live.reduce((a, l) => a + (l.video?.seconds ?? 0), 0)} />
 
-      <AcademyHub courses={courses} bridge={bridgeCards(locale)} locale={locale} />
+      {/* The learning path with progress, badges and the certificate. */}
+      <div id="lo-trinh" className="scroll-mt-20 border-t border-ink-100 bg-white">
+        <div className="container pt-12 text-center">
+          <h2 className="text-2xl font-extrabold tracking-tight text-ink-900 sm:text-3xl">{cs.catPathTitle}</h2>
+          <p className="mt-1 text-sm text-ink-400 sm:text-base">{cs.catPathBody}</p>
+        </div>
+        <AcademyHub courses={courses} bridge={bridgeCards(locale)} locale={locale} />
+      </div>
       {/* Everyone can share the three tabs (owner, 2026-11-19). */}
       <div className="container -mt-10 pb-20">
         <AcademyShareLinks locale={locale} baseUrl={localizedUrl(locale, "/academy")} />

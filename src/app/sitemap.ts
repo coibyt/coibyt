@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
 import { SEO_LOCALES, SITE, absoluteUrl, localizedUrl } from "@/lib/seo";
-import { liveLessons } from "@/lib/academy";
+import { coursePageSlugs, liveLessons } from "@/lib/academy";
+import { courseImage } from "@/lib/academy/course-media";
 
 // Built from the database on every request, so a new salon, product or
 // fanpage post is in the sitemap the moment it goes live — no rebuild.
@@ -133,7 +134,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/tools/price-list", 0.7, "monthly"),
     entry("/tools/qr-poster", 0.7, "monthly"),
     entry("/help/getting-started", 0.5, "monthly"),
-    entry("/academy", 0.7, "weekly"),
+    entry("/academy", 0.8, "weekly"),
+    ...coursePageSlugs().map((slug) => entry(`/academy/khoa-hoc/${slug}`, 0.8, "weekly", undefined, [courseImage(slug)])),
     ...liveLessons().map((l) => entry(`/academy/${l.slug}`, 0.6, "monthly", new Date(l.video!.published), [l.video!.poster])),
     entry("/support", 0.4, "monthly"),
     entry("/directory", 0.3, "daily", newest),

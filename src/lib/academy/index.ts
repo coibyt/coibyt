@@ -4,7 +4,9 @@ import { COURSES as SITE_COURSES, LESSONS as SITE_LESSONS } from "@/lib/academy/
 import { CRAFT_BRIDGE, CRAFT_COURSES, CRAFT_LESSONS } from "@/lib/academy/craft";
 import { DUBS } from "@/lib/academy/dubs";
 import { localizedUrl } from "@/lib/seo";
-import { pick, type Audience, type CourseCard, type Lesson, type LessonCard, type LessonVideo } from "@/lib/academy/types";
+import { COURSE_SEO, courseSeoById, courseSeoBySlug } from "@/lib/academy/course-pages";
+import { courseImage, courseIntro, courseOgImage } from "@/lib/academy/course-media";
+import { pick, type Audience, type CourseCard, type CourseIcon, type Lesson, type LessonCard, type LessonVideo } from "@/lib/academy/types";
 
 /** The software lessons (curriculum.ts) and the craft-skill lessons (craft.ts) form one Academy. */
 const COURSES = [...SITE_COURSES, ...CRAFT_COURSES];
@@ -65,6 +67,7 @@ export function courseCards(locale: string): CourseCard[] {
     icon: c.icon,
     title: pick(c.title, locale),
     body: pick(c.body, locale),
+    page: courseSeoById(c.id)?.slug ?? null,
     lessons: LESSONS.filter((l) => l.course === c.id).map((l) => card(l, locale, no.get(l.slug) ?? 0)),
   }));
 }
@@ -104,6 +107,7 @@ export function lessonPageData(slug: string, locale: string) {
       no: no.get(slug) ?? 0,
       total: count[audience],
       courseTitle: pick(course.title, locale),
+      coursePage: courseSeoById(course.id)?.slug ?? null,
       title: pick(lesson.title, locale),
       summary: pick(lesson.summary, locale),
       video: { src: video.src, poster: video.poster, captions: video.captions, seconds: video.seconds, lang: video.lang },
@@ -123,5 +127,114 @@ export function lessonPageData(slug: string, locale: string) {
         .filter((l): l is Lesson => !!l)
         .map((l) => card(l, locale, no.get(l.slug) ?? 0)),
     },
+  };
+}
+
+// ── Course catalogue and course landing pages (/academy/khoa-hoc/<slug>) ──
+
+/** Languages a course can be watched in: Vietnamese always; English once every
+ * lesson that has a video also has an English recording. */
+function courseLangs(id: string): string[] {
+  const live = LESSONS.filter((l) => l.course === id && l.video);
+  return live.length > 0 && live.every((l) => DUBS.en?.[l.slug]) ? ["vi", "en"] : ["vi"];
+}
+
+export interface CatalogueCourse {
+  id: string;
+  audience: Audience;
+  icon: CourseIcon;
+  slug: string;
+  title: string;
+  headline: string;
+  /** English headline, for the "courses in English" shelf. */
+  headlineEn: string;
+  tagline: string;
+  image: string;
+  live: number;
+  total: number;
+  seconds: number;
+  langs: string[];
+  /** Seconds of the English recordings (courses with an English version). */
+  secondsEn: number;
+  first: string | null;
+}
+
+/** Every visible course that has a landing page, in curriculum order. */
+export function catalogue(locale: string): CatalogueCourse[] {
+  return COURSES.flatMap((c) => {
+    const seo = courseSeoById(c.id);
+    if (!seo) return [];
+    const all = LESSONS.filter((l) => l.course === c.id);
+    const live = all.filter((l) => l.video);
+    return [
+      {
+        id: c.id,
+        audience: c.audience,
+        icon: c.icon,
+        slug: seo.slug,
+        title: pick(c.title, locale),
+        headline: pick(seo.headline, locale),
+        headlineEn: seo.headline.en,
+        tagline: pick(seo.tagline, locale),
+        image: courseImage(seo.slug),
+        live: live.length,
+        total: all.length,
+        seconds: live.reduce((a, l) => a + (l.video?.seconds ?? 0), 0),
+        langs: courseLangs(c.id),
+        secondsEn: live.reduce((a, l) => a + (DUBS.en?.[l.slug]?.seconds ?? 0), 0),
+        first: live[0]?.slug ?? null,
+      },
+    ];
+  });
+}
+
+/** Slugs of the course pages that are shown (a hidden course has no page yet). */
+export const coursePageSlugs = () => COURSE_SEO.filter((s) => COURSES.some((c) => c.id === s.id)).map((s) => s.slug);
+
+export interface CourseTopic {
+  title: string;
+  lessons: LessonCard[];
+}
+
+/** Everything a course landing page needs, in one language. */
+export function coursePageData(slug: string, locale: string) {
+  const seo = courseSeoBySlug(slug);
+  const course = seo && COURSES.find((c) => c.id === seo.id);
+  if (!seo || !course) return null;
+  const { no } = numbers();
+  const lessons = LESSONS.filter((l) => l.course === course.id);
+  const cards = lessons.map((l) => card(l, locale, no.get(l.slug) ?? 0));
+  // Craft topics pair "<x>-hieu-dung" (theory) with "<x>" (practice); software courses are one list.
+  const topics: CourseTopic[] = [];
+  if (course.audience === "pro") {
+    const byKey = new Map<string, LessonCard[]>();
+    for (const c of cards) {
+      const k = c.slug.replace(/-hieu-dung$/, "");
+      byKey.set(k, [...(byKey.get(k) ?? []), c]);
+    }
+    for (const group of byKey.values()) {
+      const first = group[0].title;
+      topics.push({ title: group.length > 1 ? first.split(":")[0].trim() : first, lessons: group });
+    }
+  } else {
+    topics.push({ title: pick(course.title, locale), lessons: cards });
+  }
+  const live = cards.filter((c) => c.live);
+  const related = catalogue(locale).filter((c) => c.id !== course.id && c.audience === course.audience);
+  const others = catalogue(locale).filter((c) => c.audience !== course.audience);
+  return {
+    seo,
+    course,
+    title: pick(course.title, locale),
+    image: courseImage(seo.slug),
+    og: courseOgImage(seo.slug, locale),
+    intro: courseIntro(course.id, seo.slug),
+    langs: courseLangs(course.id),
+    topics,
+    lessons: cards,
+    live: live.length,
+    seconds: live.reduce((a, c) => a + c.seconds, 0),
+    first: live[0]?.slug ?? null,
+    related: [...related, ...others].slice(0, 4),
   };
 }
