@@ -423,7 +423,7 @@ function Player({
           }}
           onError={() => setFailed(true)}
         >
-          <track kind="subtitles" srcLang={lesson.video.lang} label={lesson.video.lang === "vi" ? "Tiếng Việt" : "English"} src={lesson.video.captions} />
+          <track kind="subtitles" srcLang={lesson.video.lang} label={lesson.video.lang === "vi" ? "Tiếng Việt" : lesson.video.lang === "fi" ? "Suomi" : "English"} src={lesson.video.captions} />
         </video>
 
         {!started && !failed && (

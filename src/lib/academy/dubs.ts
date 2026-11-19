@@ -46,5 +46,11 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "khach-dan-khach": { seconds: 70, published: "2026-11-17" },
     "lich-hen": { seconds: 92, published: "2026-11-17" },
     "the-thanh-vien": { seconds: 58, published: "2026-11-17" },
+    // Craft lessons in English (voice "Dean", same pictures as the Vietnamese lesson).
+    "son-gel": { seconds: 358, published: "2026-11-19" },
+  },
+  // Craft lessons in Finnish (voice "Jarmo").
+  fi: {
+    "son-gel": { seconds: 414, published: "2026-11-19" },
   },
 };
