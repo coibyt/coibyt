@@ -7,6 +7,7 @@ import { sendDueCampaigns } from "@/lib/marketing-send";
 import { settleReferrals } from "@/lib/loyalty-referral";
 import { sendTelegramIncomeReminders } from "@/lib/telegram";
 import { sendIncomeReminders } from "@/lib/income-reminders";
+import { sendAcademyUpdates } from "@/lib/academy/notify";
 
 const HOUR_MS = 60 * 60 * 1000;
 const MIN_MS = 60 * 1000;
@@ -197,5 +198,11 @@ export async function GET(req: Request) {
     return 0;
   });
 
-  return NextResponse.json({ ok: true, reminder24h, reminder2h, reminder15min, reviewRequests, campaigns, referrals, incomeReminders, telegramReminders });
+  // Academy learners who asked to hear about new lessons in a course.
+  const academyUpdates = await sendAcademyUpdates().catch((err) => {
+    console.error("[cron] sendAcademyUpdates", err);
+    return 0;
+  });
+
+  return NextResponse.json({ ok: true, reminder24h, reminder2h, reminder15min, reviewRequests, campaigns, referrals, incomeReminders, telegramReminders, academyUpdates });
 }

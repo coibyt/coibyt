@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
-import { liveLessons } from "@/lib/academy";
+import { liveLessons, pageCourse } from "@/lib/academy";
+import { AcademyReviewToggle } from "@/components/admin/academy-review-toggle";
 import { pick } from "@/lib/academy/types";
 
 /** Admin › Học viện: how many people study, how often they come back and how
@@ -35,6 +36,17 @@ export default async function AdminAcademyPage({ params }: { params: Promise<{ l
       orderBy: { lastSeen: "desc" },
       take: 100,
       select: { id: true, ipMasked: true, device: true, locale: true, source: true, tab: true, visitDays: true, seconds: true, firstSeen: true, lastSeen: true, userId: true, _count: { select: { views: true } } },
+    }),
+  ]);
+  // Accounts, ratings and "new lessons" follows (owner, 2026-11-19).
+  const [accounts, followers, reviewAgg, reviews] = await Promise.all([
+    prisma.academyProgress.count(),
+    prisma.academyFollow.count(),
+    prisma.academyReview.aggregate({ where: { status: "APPROVED" }, _avg: { rating: true }, _count: { _all: true } }),
+    prisma.academyReview.findMany({
+      orderBy: { updatedAt: "desc" },
+      take: 100,
+      select: { id: true, courseId: true, rating: true, comment: true, status: true, updatedAt: true, user: { select: { name: true, email: true } } },
     }),
   ]);
   const doneByVisitor = new Map(
@@ -75,6 +87,9 @@ export default async function AdminAcademyPage({ params }: { params: Promise<{ l
     [L("Quay lại", "Returning"), returning, L("học từ 2 ngày trở lên", "on 2+ different days")],
     [L("Giờ xem video", "Hours watched"), hours, L(`TB ${avgMin} phút/người`, `avg ${avgMin} min/person`)],
     [L("Bài học xong", "Lessons finished"), done, L("xem gần hết video", "watched to the end")],
+    [L("Tài khoản học viên", "Learner accounts"), accounts, L("lưu tiến độ vào tài khoản", "progress saved to an account")],
+    [L("Đánh giá khóa học", "Course reviews"), reviewAgg._count._all, reviewAgg._count._all ? L(`TB ${(reviewAgg._avg.rating ?? 0).toFixed(1)} sao`, `avg ${(reviewAgg._avg.rating ?? 0).toFixed(1)} stars`) : L("chưa có", "none yet")],
+    [L("Nhận bài mới", "Following courses"), followers, L("lượt theo dõi khóa học", "course follows")],
   ];
 
   return (
@@ -115,6 +130,46 @@ export default async function AdminAcademyPage({ params }: { params: Promise<{ l
               <li key={r.device} className="flex justify-between"><span>{devName(r.device)}</span><span className="font-bold tabular-nums">{r._count._all}</span></li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="rounded-2xl bg-white p-4 shadow-card ring-1 ring-ink-100">
+        <h2 className="text-base font-extrabold text-ink-900">{L("Đánh giá khóa học (100 mới nhất)", "Course reviews (newest 100)")}</h2>
+        <p className="mt-0.5 text-xs text-ink-400">{L("Đánh giá hiện ngay trên trang khóa học. Bấm Ẩn để gỡ đánh giá spam hoặc không phù hợp.", "Reviews show on the course page at once. Press Hide to take down spam or abuse.")}</p>
+        <div className="mt-3 overflow-x-auto">
+          <table className="w-full min-w-[720px] text-left text-sm">
+            <thead className="text-xs uppercase tracking-wider text-ink-400">
+              <tr>
+                <th className="py-2 pr-3">{L("Khóa học", "Course")}</th>
+                <th className="py-2 pr-3">{L("Người học", "Learner")}</th>
+                <th className="py-2 pr-3">{L("Sao", "Stars")}</th>
+                <th className="py-2 pr-3">{L("Nhận xét", "Comment")}</th>
+                <th className="py-2 pr-3">{L("Ngày", "Date")}</th>
+                <th className="py-2 text-right" />
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-ink-100">
+              {reviews.length === 0 && (
+                <tr><td colSpan={6} className="py-4 text-center text-ink-400">{L("Chưa có đánh giá.", "No reviews yet.")}</td></tr>
+              )}
+              {reviews.map((r) => {
+                const c = pageCourse(r.courseId);
+                return (
+                  <tr key={r.id} className={r.status === "HIDDEN" ? "opacity-50" : ""}>
+                    <td className="py-2 pr-3 font-semibold text-ink-900">{c ? pick(c.title, locale) : r.courseId}</td>
+                    <td className="py-2 pr-3">
+                      {r.user.name}
+                      <span className="block text-xs text-ink-400">{r.user.email}</span>
+                    </td>
+                    <td className="py-2 pr-3 whitespace-nowrap text-[#b08a3e]">{"★".repeat(r.rating)}<span className="text-ink-200">{"★".repeat(5 - r.rating)}</span></td>
+                    <td className="max-w-[320px] py-2 pr-3 text-ink-700">{r.comment ?? "—"}</td>
+                    <td className="py-2 pr-3 tabular-nums text-ink-500">{fmt(r.updatedAt)}</td>
+                    <td className="py-2 text-right"><AcademyReviewToggle id={r.id} hidden={r.status === "HIDDEN"} vi={vi} /></td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </section>
 

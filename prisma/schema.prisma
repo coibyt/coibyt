@@ -116,6 +116,10 @@ model User {
   pwaInstalls         PwaInstall[]
   priceListDrafts     PriceListDraft[]
   customerNotes       CustomerNote[]
+  // Academy: progress saved to the account, course ratings, "email me new lessons".
+  academyProgress     AcademyProgress?
+  academyReviews      AcademyReview[]
+  academyFollows      AcademyFollow[]
 
   @@index([role])
 }
@@ -2519,4 +2523,48 @@ model AcademyLessonView {
 
   @@unique([visitorId, slug])
   @@index([slug])
+}
+
+/// Academy progress saved to a learner's account so it follows them across
+/// devices. `data` is the same JSON the browser keeps (src/lib/academy/progress.ts);
+/// the two are merged whenever the learner opens the Academy signed in.
+model AcademyProgress {
+  userId    String   @id
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  data      String   @db.MediumText
+  updatedAt DateTime @updatedAt
+}
+
+/// A learner's rating of an Academy course: one per learner and course, can be
+/// edited. Only learners who finished at least one lesson of the course can
+/// rate it. Shown at once; the admin can hide one (status HIDDEN).
+model AcademyReview {
+  id        String       @id @default(cuid())
+  courseId  String       @db.VarChar(40)
+  userId    String
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rating    Int
+  comment   String?      @db.Text
+  locale    String       @db.VarChar(8)
+  status    ReviewStatus @default(APPROVED)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  @@unique([courseId, userId])
+  @@index([courseId, status])
+}
+
+/// "Email me when new lessons come out" for one course. The reminders cron
+/// emails lessons published after `notifiedThrough` (YYYY-MM-DD).
+model AcademyFollow {
+  id              String   @id @default(cuid())
+  courseId        String   @db.VarChar(40)
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  locale          String   @db.VarChar(8)
+  notifiedThrough String   @db.VarChar(10)
+  createdAt       DateTime @default(now())
+
+  @@unique([userId, courseId])
+  @@index([courseId])
 }

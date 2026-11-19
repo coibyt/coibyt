@@ -4,12 +4,16 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, Link } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
+import { safeCallback } from "@/lib/safe-callback";
 
 export function SignUpForm() {
   const t = useTranslations("auth");
   const locale = useLocale();
   const router = useRouter();
+  // Where to go once the account exists, e.g. back to the Academy lesson.
+  const callbackUrl = safeCallback(useSearchParams().get("callbackUrl"));
 
   const [form, setForm] = useState({
     name: "",
@@ -58,7 +62,7 @@ export function SignUpForm() {
       redirect: false,
     });
     setLoading(false);
-    router.push("/");
+    router.push(callbackUrl);
     router.refresh();
   }
 
@@ -177,7 +181,7 @@ export function SignUpForm() {
 
       <p className="text-center text-sm text-ink-400">
         {t("haveAccount")}{" "}
-        <Link href="/auth/sign-in" className="font-medium text-primary-500">
+        <Link href={callbackUrl === "/" ? "/auth/sign-in" : `/auth/sign-in?callbackUrl=${encodeURIComponent(callbackUrl)}`} className="font-medium text-primary-500">
           {t("signInInstead")}
         </Link>
       </p>

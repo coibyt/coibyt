@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   Smartphone,
   Sparkles,
+  Star,
   Users,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
@@ -24,9 +25,16 @@ import { coursePageData, coursePageSlugs } from "@/lib/academy";
 import { coursePageStrings } from "@/lib/academy/course-page-strings";
 import { fmtDuration } from "@/lib/academy/progress";
 import { pick, type Audience } from "@/lib/academy/types";
+import { courseReviews } from "@/lib/academy/community";
+import { accountStrings } from "@/lib/academy/account-strings";
+import { AcademyAccountCta } from "@/components/academy/account-cta";
+import { CourseReviews, FollowCourseButton } from "@/components/academy/course-community";
 import { SITE, absoluteUrl, alternatesFor, faqJsonLd, jsonLd, localizedUrl, metaDescription } from "@/lib/seo";
 
 type Params = Promise<{ locale: string; course: string }>;
+
+/** Course pages are static; the learner ratings in them are refreshed every 10 minutes. */
+export const revalidate = 600;
 
 export function generateStaticParams() {
   return coursePageSlugs().map((course) => ({ course }));
@@ -71,7 +79,10 @@ export default async function CoursePage({ params }: { params: Params }) {
   const d = coursePageData(course, locale);
   if (!d) notFound();
   const s = coursePageStrings(locale);
+  const as = accountStrings(locale);
   const seo = d.seo;
+  const rated = await courseReviews(d.course.id);
+  const { summary } = rated;
   const headline = pick(seo.headline, locale);
   const path = `/academy/khoa-hoc/${seo.slug}`;
   const trackName: Record<Audience, string> = { pro: s.trackPro, owner: s.trackOwner, customer: s.trackCustomer };
@@ -105,6 +116,19 @@ export default async function CoursePage({ params }: { params: Params }) {
     ],
     syllabusSections: d.topics.map((t) => ({ "@type": "Syllabus", name: t.title, description: t.lessons.map((l) => l.title).join(" · ") })),
     teaches: seo.outcomes.map((o) => pick(o, locale)),
+    // Real learner ratings only, and only once there are some.
+    ...(summary.count > 0
+      ? {
+          aggregateRating: { "@type": "AggregateRating", ratingValue: summary.average, ratingCount: summary.count, bestRating: 5, worstRating: 1 },
+          review: rated.reviews.slice(0, 3).map((r) => ({
+            "@type": "Review",
+            author: { "@type": "Person", name: r.name },
+            datePublished: r.date,
+            reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5, worstRating: 1 },
+            ...(r.comment ? { reviewBody: r.comment } : {}),
+          })),
+        }
+      : {}),
   };
   const crumbs = {
     "@context": "https://schema.org",
@@ -181,6 +205,7 @@ export default async function CoursePage({ params }: { params: Params }) {
           {s.continueSyllabus}
           <ChevronDown className="h-4 w-4" />
         </a>
+        <FollowCourseButton courseId={d.course.id} locale={locale} className="mt-2" />
         <ul className="mt-5 space-y-2.5 text-sm text-ink-700">
           {facts.map(([Icon, label, value]) => (
             <li key={label} className="flex items-start gap-2.5">
@@ -234,6 +259,15 @@ export default async function CoursePage({ params }: { params: Params }) {
             <p className="mt-4 text-base leading-relaxed text-white/80 sm:text-lg">{pick(seo.tagline, locale)}</p>
             <ul className="mt-6 flex flex-wrap gap-2 text-sm font-semibold">
               <li className="rounded-full bg-emerald-500/90 px-3 py-1 text-white">{s.free}</li>
+              {summary.count > 0 && (
+                <li>
+                  <a href="#danh-gia" className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 ring-1 ring-[#e8d3a6]/40 hover:bg-white/15">
+                    <Star className="h-4 w-4 fill-[#e8d3a6] text-[#e8d3a6]" />
+                    <span className="text-[#e8d3a6]">{summary.average.toFixed(1)}</span>
+                    <span className="text-white/70">({as.reviewsCount(summary.count)})</span>
+                  </a>
+                </li>
+              )}
               <li className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/15">
                 <PlayCircle className="h-4 w-4 text-[#e8d3a6]" />
                 {s.lessons(d.live)}
@@ -375,6 +409,9 @@ export default async function CoursePage({ params }: { params: Params }) {
             </div>
           </section>
 
+          {/* learner reviews (real ratings from learners who finished a lesson) */}
+          <CourseReviews courseId={d.course.id} locale={locale} firstLesson={d.first} initial={rated} />
+
           {/* FAQ */}
           <section className="rounded-3xl bg-white p-5 shadow-card ring-1 ring-ink-100 sm:p-7">
             <h2 className="text-xl font-extrabold tracking-tight text-ink-900 sm:text-2xl">{s.faqTitle}</h2>
@@ -398,6 +435,9 @@ export default async function CoursePage({ params }: { params: Params }) {
               ))}
             </p>
           </section>
+
+          {/* save progress to an account */}
+          <AcademyAccountCta locale={locale} />
 
           {/* closing call to action */}
           <section className="flex flex-col items-start gap-4 rounded-3xl bg-white p-5 shadow-card ring-1 ring-[#e8d3a6] sm:flex-row sm:items-center sm:p-7">

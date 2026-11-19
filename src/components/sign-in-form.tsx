@@ -6,12 +6,13 @@ import { useTranslations } from "next-intl";
 import { useRouter, Link } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
+import { safeCallback } from "@/lib/safe-callback";
 
 export function SignInForm() {
   const t = useTranslations("auth");
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") ?? "/";
+  const callbackUrl = safeCallback(searchParams.get("callbackUrl"));
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -75,7 +76,7 @@ export function SignInForm() {
 
       <p className="text-center text-sm text-ink-400">
         {t("noAccount")}{" "}
-        <Link href="/auth/sign-up" className="font-medium text-primary-500">
+        <Link href={callbackUrl === "/" ? "/auth/sign-up" : `/auth/sign-up?callbackUrl=${encodeURIComponent(callbackUrl)}`} className="font-medium text-primary-500">
           {t("createOne")}
         </Link>
       </p>

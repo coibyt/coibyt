@@ -162,3 +162,55 @@ export function fmtDuration(seconds: number) {
   const s = Math.round(seconds % 60);
   return `${m}:${String(s).padStart(2, "0")}`;
 }
+
+/* ---------- saved to the learner's account ---------- */
+
+const num = (x: unknown, max: number) => (typeof x === "number" && Number.isFinite(x) && x >= 0 ? Math.min(max, x) : undefined);
+
+/** A state from outside (the server, or JSON sent to it) with every value checked. */
+export function cleanState(x: unknown): AcademyState {
+  const s = parseState(typeof x === "string" ? x : JSON.stringify(x ?? null));
+  const lessons: Record<string, LessonProgress> = {};
+  for (const [slug, p] of Object.entries(s.lessons).slice(0, 400)) {
+    if (!/^[a-z0-9-]{1,80}$/.test(slug) || !p || typeof p !== "object") continue;
+    const q = p as Record<string, unknown>;
+    lessons[slug] = {
+      pos: num(q.pos, 36_000),
+      max: num(q.max, 36_000),
+      done: num(q.done, 9e15),
+      quiz: num(q.quiz, 50),
+      quizOf: num(q.quizOf, 50),
+    };
+  }
+  return { ...s, lessons, last: s.last && lessons[s.last] ? s.last : undefined };
+}
+
+/** Two copies of the progress (this browser and the account) put together:
+ * nothing learnt on either device is lost. */
+export function mergeStates(local: AcademyState, saved: AcademyState): AcademyState {
+  const lessons: Record<string, LessonProgress> = { ...saved.lessons };
+  for (const [slug, a] of Object.entries(local.lessons)) {
+    const b = lessons[slug];
+    if (!b) {
+      lessons[slug] = a;
+      continue;
+    }
+    const best = (a.quiz ?? -1) >= (b.quiz ?? -1) ? a : b;
+    lessons[slug] = {
+      pos: a.pos ?? b.pos,
+      max: Math.max(a.max ?? 0, b.max ?? 0) || undefined,
+      done: a.done && b.done ? Math.min(a.done, b.done) : (a.done ?? b.done),
+      quiz: best.quiz,
+      quizOf: best.quizOf,
+    };
+  }
+  const days = [...new Set([...saved.days, ...local.days])].sort().slice(-90);
+  return {
+    v: 1,
+    lessons,
+    last: local.last ?? saved.last,
+    days,
+    name: local.name ?? saved.name,
+    audience: local.audience ?? saved.audience,
+  };
+}

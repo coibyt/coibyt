@@ -44,6 +44,7 @@ import {
 import type { Audience, CourseCard, CourseIcon, LessonCard } from "@/lib/academy/types";
 import { useAcademyProgress, useHydrated } from "@/components/academy/use-progress";
 import { AcademyCertificate } from "@/components/academy/certificate";
+import { AcademyAccountCta } from "@/components/academy/account-cta";
 import { track as trackEvent, visitSource } from "@/lib/academy/track";
 import { coursePageStrings } from "@/lib/academy/course-page-strings";
 
@@ -247,6 +248,9 @@ export function AcademyHub({
           </div>
         )}
       </div>
+
+      {/* save progress to an account (owner, 2026-11-19) */}
+      <AcademyAccountCta locale={locale} className="mt-4" />
 
       {/* craft track: what these lessons are, and what they are not */}
       {audience === "pro" && (

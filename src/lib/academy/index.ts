@@ -247,3 +247,7 @@ export function coursePageData(slug: string, locale: string) {
     related: [...related, ...others].slice(0, 4),
   };
 }
+
+/** A course that has a landing page (only those can be rated or followed). */
+export const pageCourse = (id: string) => (courseSeoById(id) ? (COURSES.find((c) => c.id === id) ?? null) : null);
+export const lessonsOfCourse = (id: string) => LESSONS.filter((l) => l.course === id);

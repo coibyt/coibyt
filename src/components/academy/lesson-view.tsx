@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowRight, Award, BookOpen, CalendarDays, Check, ChevronLeft, CircleCheck, CircleX, Copy, Download, ExternalLink, Lightbulb, Lock, Play, RotateCcw, Share2, ShieldCheck, Trophy } from "lucide-react";
+import { ArrowRight, Award, BookOpen, CalendarDays, Check, ChevronLeft, CircleCheck, CircleX, Copy, Download, ExternalLink, Lightbulb, Lock, Play, RotateCcw, Share2, ShieldCheck, Star, Trophy } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { academyStrings } from "@/lib/academy/strings";
 import { craftStrings } from "@/lib/academy/craft-strings";
@@ -9,6 +9,8 @@ import { WATCHED_RATIO, XP_ANSWER, XP_LESSON, fmtDuration } from "@/lib/academy/
 import type { Audience, LessonCard, LessonStyle } from "@/lib/academy/types";
 import { useAcademyProgress, useHydrated } from "@/components/academy/use-progress";
 import { track } from "@/lib/academy/track";
+import { AcademyAccountCta } from "@/components/academy/account-cta";
+import { accountStrings } from "@/lib/academy/account-strings";
 
 export interface LessonViewData {
   slug: string;
@@ -245,6 +247,18 @@ export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale:
                   <span className="mt-0.5 block font-extrabold leading-snug">{lesson.next.title}</span>
                 </span>
                 <ArrowRight className="h-5 w-5 shrink-0 text-[#e8d3a6] transition-transform group-hover:translate-x-1" />
+              </Link>
+            )}
+
+            <AcademyAccountCta locale={locale} />
+
+            {lesson.coursePage && (
+              <Link
+                href={`/academy/khoa-hoc/${lesson.coursePage}#danh-gia`}
+                className="flex items-center justify-center gap-2 rounded-2xl bg-white px-4 py-3 text-sm font-bold text-primary-900 shadow-card ring-1 ring-ink-100 transition hover:bg-primary-50"
+              >
+                <Star className="h-4 w-4 fill-[#d9b25c] text-[#d9b25c]" />
+                {accountStrings(locale).rateCourse}
               </Link>
             )}
 
