@@ -2478,3 +2478,45 @@ model InventoryMove {
   @@index([businessId, createdAt])
   @@index([itemId, createdAt])
 }
+
+/// Academy learning statistics (admin › Học viện). One row per browser: the id
+/// is random and kept in the visitor's localStorage; the IP is stored masked
+/// (last part removed), never in full.
+model AcademyVisitor {
+  id        String              @id @db.VarChar(40)
+  ipMasked  String              @db.VarChar(64)
+  device    String              @db.VarChar(16)
+  locale    String?             @db.VarChar(8)
+  tab       String?             @db.VarChar(16)
+  source    String?             @db.VarChar(120)
+  userId    String?
+  /// Number of different days with activity, and the last of them (YYYY-MM-DD, UTC).
+  visitDays Int                 @default(1)
+  lastDay   String              @db.VarChar(10)
+  /// Video seconds watched in total.
+  seconds   Int                 @default(0)
+  firstSeen DateTime            @default(now())
+  lastSeen  DateTime            @default(now())
+  views     AcademyLessonView[]
+
+  @@index([lastSeen])
+  @@index([firstSeen])
+}
+
+model AcademyLessonView {
+  id        String         @id @default(cuid())
+  visitorId String         @db.VarChar(40)
+  visitor   AcademyVisitor @relation(fields: [visitorId], references: [id], onDelete: Cascade)
+  slug      String         @db.VarChar(80)
+  opens     Int            @default(1)
+  seconds   Int            @default(0)
+  maxPos    Int            @default(0)
+  completed Boolean        @default(false)
+  quizRight Int?
+  quizOf    Int?
+  firstAt   DateTime       @default(now())
+  lastAt    DateTime       @default(now())
+
+  @@unique([visitorId, slug])
+  @@index([slug])
+}

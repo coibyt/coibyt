@@ -44,6 +44,7 @@ import {
 import type { Audience, CourseCard, CourseIcon, LessonCard } from "@/lib/academy/types";
 import { useAcademyProgress, useHydrated } from "@/components/academy/use-progress";
 import { AcademyCertificate } from "@/components/academy/certificate";
+import { track as trackEvent, visitSource } from "@/lib/academy/track";
 
 const COURSE_ICONS: Record<CourseIcon, typeof Compass> = {
   compass: Compass,
@@ -98,6 +99,12 @@ export function AcademyHub({
   const tabKey = tabs.join(",");
 
   // /academy#owner opens the salon-owner track (links from business pages).
+  // Statistics: one "visit" ping per page load (admin › Học viện).
+  useEffect(() => {
+    const h = window.location.hash.replace("#", "") || new URLSearchParams(window.location.search).get("tab") || undefined;
+    trackEvent({ e: "visit", tab: h, src: visitSource() });
+  }, []);
+
   useEffect(() => {
     const fromHash = () => {
       // #pro or ?tab=pro (the dashboard shares ?tab= links: some chat apps drop the #part).

@@ -8,6 +8,7 @@ import { craftStrings } from "@/lib/academy/craft-strings";
 import { WATCHED_RATIO, XP_ANSWER, XP_LESSON, fmtDuration } from "@/lib/academy/progress";
 import type { Audience, LessonCard, LessonStyle } from "@/lib/academy/types";
 import { useAcademyProgress, useHydrated } from "@/components/academy/use-progress";
+import { track } from "@/lib/academy/track";
 
 export interface LessonViewData {
   slug: string;
@@ -56,6 +57,7 @@ export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale:
   // Remember this as the lesson to come back to.
   useEffect(() => {
     patchLesson(lesson.slug, (p) => p);
+    track({ e: "open", slug: lesson.slug });
   }, [lesson.slug, patchLesson]);
 
   const complete = useCallback(() => {
@@ -65,7 +67,10 @@ export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale:
       first = true;
       return { ...p, done: Date.now() };
     });
-    if (first) setCelebrate(true);
+    if (first) {
+      setCelebrate(true);
+      track({ e: "done", slug: lesson.slug });
+    }
   }, [lesson.slug, patchLesson]);
 
   const toQuiz = () => quizRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -295,6 +300,23 @@ function Player({
   const [failed, setFailed] = useState(false);
   const [speed, setSpeed] = useState(1);
   const lastSave = useRef(0);
+  // Statistics: seconds of video actually played, sent every 20 s and when playback stops.
+  const watched = useRef(0);
+  const lastTime = useRef(0);
+  const flushWatch = useCallback(() => {
+    const v = ref.current;
+    const sec = Math.round(watched.current);
+    if (sec >= 1) track({ e: "watch", slug: lesson.slug, sec, pos: Math.floor(v?.currentTime ?? 0) });
+    watched.current = 0;
+  }, [lesson.slug]);
+  const countWatch = () => {
+    const v = ref.current;
+    if (!v) return;
+    const d = v.currentTime - lastTime.current;
+    lastTime.current = v.currentTime;
+    if (!v.paused && d > 0 && d < 3) watched.current += d;
+    if (watched.current >= 20) flushWatch();
+  };
   const saved = hydrated ? state.lessons[lesson.slug]?.pos ?? 0 : 0;
   const resumeAt = saved > 5 && saved < lesson.video.seconds - 8 ? saved : 0;
 
@@ -315,14 +337,17 @@ function Player({
 
   // Don't lose the position when the tab is closed or the phone is locked.
   useEffect(() => {
-    const flush = () => save(true);
+    const flush = () => {
+      save(true);
+      flushWatch();
+    };
     document.addEventListener("visibilitychange", flush);
     window.addEventListener("pagehide", flush);
     return () => {
       document.removeEventListener("visibilitychange", flush);
       window.removeEventListener("pagehide", flush);
     };
-  }, [save]);
+  }, [save, flushWatch]);
 
   const start = (from: number) => {
     const v = ref.current;
@@ -356,11 +381,21 @@ function Player({
           playsInline
           preload="metadata"
           className="block aspect-video w-full bg-black"
-          onTimeUpdate={() => save()}
-          onPause={() => save(true)}
+          onTimeUpdate={() => {
+            save();
+            countWatch();
+          }}
+          onSeeked={() => {
+            lastTime.current = ref.current?.currentTime ?? 0;
+          }}
+          onPause={() => {
+            save(true);
+            flushWatch();
+          }}
           onRateChange={(e) => setSpeed(e.currentTarget.playbackRate)}
           onEnded={() => {
             save(true);
+            flushWatch();
             onComplete();
             setEnded(true);
           }}
@@ -549,6 +584,7 @@ function Quiz({ lesson, locale }: { lesson: LessonViewData; locale: string }) {
     }
     setFinished(true);
     patchLesson(lesson.slug, (p) => ({ ...p, quiz: Math.max(p.quiz ?? 0, right), quizOf: total }));
+    track({ e: "quiz", slug: lesson.slug, right, of: total });
   };
 
   const again = () => {
