@@ -9,6 +9,8 @@ export const courseOgImage = (slug: string, locale: string) => `/og/khoa-hoc/${s
 
 /** Course id → its intro video (filled in as the videos are made). */
 export const COURSE_INTROS: Record<string, { seconds: number; published: string }> = {
+  "p-nail": { seconds: 69, published: "2026-11-19" },
+  "p-lash": { seconds: 70, published: "2026-11-19" },
   "p-hair": { seconds: 73, published: "2026-11-19" },
   "p-spa": { seconds: 69, published: "2026-11-19" },
   "p-safety": { seconds: 71, published: "2026-11-19" },
