@@ -5200,16 +5200,510 @@ const ALL_LESSONS: Lesson[] = [
   },
 
   /* ================= hair ================= */
-  soon("toc-tu-van-chia-vung", "p-hair", ["Tư vấn, gội và chia vùng tóc", "Consultation, shampoo and sectioning", "Konsultaatio, pesu ja jaottelu"], [
-    "Đọc dáng mặt và chất tóc, gội đúng cách, chia bảy vùng tóc chuẩn.",
-    "Reading face shape and hair type, a proper shampoo, and the standard seven sections.",
-    "Kasvojen muodon ja hiuslaadun arviointi, oikea pesu ja seitsemän perusjakoa.",
-  ]),
-  soon("cat-nam-co-ban", "p-hair", ["Cắt tóc nam cơ bản: kéo trên lược và tông đơ", "Men's basics: scissor over comb and clippers", "Miesten perusleikkaus: sakset kamman päällä ja kone"], [
-    "Cầm kéo, cầm lược, đi tông đơ theo cữ và nối các vùng.",
-    "Holding scissors and comb, working with clipper guards and blending the zones.",
-    "Saksi- ja kampaote, koneen kammat ja vyöhykkeiden häivytys.",
-  ]),
+  {
+    slug: "toc-tu-van-chia-vung-hieu-dung",
+    course: "p-hair",
+    style: "theory",
+    title: l3("Tư vấn và chia vùng tóc: hiểu đúng để cắt chuẩn", "Consultation and sectioning: understand them to cut precisely", "Konsultaatio ja jaottelu: ymmärrä ne, niin leikkaat tarkasti"),
+    summary: l3(
+      "Vì sao nhiều kiểu tóc hỏng ngay từ lúc tư vấn, cách thống nhất độ dài bằng điểm chạm, đọc dáng mặt, dáng đầu, mật độ, chất tóc, độ xoăn và hướng mọc, tóc ướt và tóc khô, nhìn da đầu, gội êm và an toàn, chia bảy vùng, và những chữ mà bài cắt nào cũng dùng: đường chuẩn, góc nâng, kéo lệch, lực căng, kiểm tra chéo.",
+      "Why so many haircuts go wrong already at the consultation, agreeing length with touch points, reading face and head shape, density, texture, curl and growth patterns, wet versus dry hair, the scalp check, a comfortable and safe shampoo, the seven sections, and the words every cut uses: guideline, elevation, over-direction, tension, cross-checking.",
+      "Miksi moni leikkaus epäonnistuu jo konsultaatiossa, pituudesta sopiminen kosketuskohdilla, kasvojen ja pään muodon, tuuheuden, hiuslaadun, kiharuuden ja kasvusuuntien arviointi, märät ja kuivat hiukset, hiuspohjan tarkistus, miellyttävä ja turvallinen pesu, seitsemän jakoa sekä sanat, joita jokainen leikkaus käyttää: ohjauslinja, nostokulma, ylisuuntaus, kireys ja ristiintarkistus."
+    ),
+    video: video("toc-tu-van-chia-vung-hieu-dung", 309, "2026-11-19"),
+    notice: l3(
+      "Da đầu có vết thương hở, viêm, sưng đỏ hay có chấy thì không làm dịch vụ: nói riêng với khách và khuyên đi khám (bài “Khi nào không làm cho khách”). Thời gian để dầu xả theo hướng dẫn của sản phẩm. Quy định vệ sinh khác nhau theo từng nước. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Open wounds, inflammation, swollen red skin or head lice on the scalp: no service — tell the customer privately and suggest a doctor (lesson “When not to treat a customer”). Conditioner times follow the product's instructions. Hygiene rules differ by country. This lesson is a training aid, not a licence.",
+      "Avohaava, tulehdus, turvonnut punoittava iho tai täit hiuspohjassa: ei palvelua — kerro asiakkaalle kahden kesken ja ohjaa lääkäriin (tunti ”Milloin asiakasta ei hoideta”). Hoitoaineen vaikutusaika tuotteen ohjeen mukaan. Hygieniamääräykset vaihtelevat maittain. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Nhiều kiểu tóc hỏng không vì cây kéo mà vì thợ và khách chưa hiểu nhau. “Cắt ít thôi” với khách có thể là một phân, với thợ là năm phân: đừng nói bằng ít, nhiều, ngắn, dài.",
+        "Many haircuts go wrong not because of the scissors but because stylist and customer didn't understand each other. “Just a little” can mean one centimetre to the customer and five to the stylist: don't talk in little, a lot, short or long.",
+        "Moni leikkaus epäonnistuu ei saksien vaan väärinymmärryksen takia. ”Vähän vain” voi asiakkaalle tarkoittaa senttiä ja kampaajalle viittä: älä puhu sanoilla vähän, paljon, lyhyt tai pitkä."
+      ),
+      l3(
+        "Hỏi khách thích và không thích gì ở mái tóc hiện tại, xin xem ảnh mẫu, thống nhất độ dài bằng số hay bằng điểm chạm (đến cằm, chạm vai, ngang xương quai xanh) — cầm lọn tóc đặt đúng chỗ và hỏi lại.",
+        "Ask what the customer likes and dislikes about their hair now, look at a reference photo, and agree the length in numbers or with a touch point (to the chin, touching the shoulder, at the collarbone) — hold a lock at that point and ask again.",
+        "Kysy, mistä asiakas pitää ja mistä ei nykyisissä hiuksissaan, katso mallikuva ja sovi pituus numeroin tai kosketuskohdalla (leukaan, olkapäähän, solisluun kohdalle) — pidä suortuvaa siinä kohdassa ja varmista vielä."
+      ),
+      l3(
+        "Hỏi về cuộc sống: khách có sấy không, mất bao lâu mỗi sáng, hay buộc tóc, có chơi thể thao không. Kiểu tóc khách không tự làm được ở nhà thì sẽ sớm không còn thích.",
+        "Ask about everyday life: does the customer blow-dry, how long do they spend each morning, do they tie their hair up, do sport. A style they can't do at home soon stops pleasing them.",
+        "Kysy arjesta: föönaako asiakas, kauanko aamuisin menee, laittaako hiukset kiinni, urheileeko. Tyyli, jota ei pysty kotona tekemään, lakkaa pian miellyttämästä."
+      ),
+      l3(
+        "Đọc mái tóc khi còn khô: dáng mặt, dáng đầu (sau đầu phẳng thì để thêm độ dày), mật độ (rẽ ngôi xem da đầu lộ nhiều hay ít), chất tóc mảnh, vừa hay to, và độ xoăn.",
+        "Read the hair while it's dry: face shape, head shape (a flat back of the head benefits from more volume), density (part the hair and see how much scalp shows), fine, medium or coarse texture, and curl.",
+        "Arvioi hiukset kuivina: kasvojen muoto, pään muoto (litteä takaraivo hyötyy tuuheudesta), tuuheus (jakaus näyttää, paljonko hiuspohjaa näkyy), ohut, keskivahva tai paksu hiuslaatu ja kiharuus."
+      ),
+      l3(
+        "Hướng mọc: xoáy ở đỉnh, ở gáy, chỏm tóc ở chân tóc mái. Cắt quá ngắn ở đó thì tóc dựng đứng; chải nhiều hướng để thấy tóc rơi tự nhiên, để dài hơn hay cắt theo chiều mọc.",
+        "Growth patterns: a crown whorl, nape whorls, a cowlick at the front hairline. Cut too short there and the hair stands up; comb in several directions to see how it falls, leave it longer or cut with the growth.",
+        "Kasvusuunnat: päälaen pyörre, niskan pyörteet, otsatukan kasvusuunta. Liian lyhyeksi leikattuna hiukset nousevat pystyyn; kampaa eri suuntiin nähdäksesi luonnollisen laskeuman, jätä pidemmäksi tai leikkaa kasvusuunnan mukaan."
+      ),
+      l3(
+        "Tóc ướt nặng và trông dài hơn; tóc gợn sóng và xoăn co lên khi khô, có khi rất nhiều. Cắt dài hơn ý định, hoặc cắt khô theo kỹ thuật đã học — tóc đã cắt thì không nối lại được.",
+        "Wet hair is heavier and looks longer; wavy and curly hair shrinks when dry, sometimes a lot. Cut longer than intended, or cut dry with a technique you have learnt — what's cut can't be put back.",
+        "Märät hiukset ovat painavampia ja näyttävät pidemmiltä; laineikkaat ja kiharat hiukset kutistuvat kuivuessaan, joskus paljon. Leikkaa aiottua pidemmäksi tai kuivana opitulla tekniikalla — leikattua ei saa takaisin."
+      ),
+      l3(
+        "Gội: thử nước trên cổ tay mình trước, hỏi khách; khăn giữ cổ áo khô, cổ khách đặt êm trong lòng chậu; xoa bằng đầu ngón tay, không dùng móng; xả với một tay che chân tóc; thấm khăn ép nhẹ, không chà.",
+        "Shampoo: test the water on your own wrist first and ask the customer; a towel keeps the collar dry and the neck rests comfortably in the basin; massage with the pads of the fingers, never the nails; rinse with one hand shielding the hairline; press dry with a towel, don't rub.",
+        "Pesu: kokeile veden lämpö ensin omaan ranteeseen ja kysy asiakkaalta; pyyhe pitää kauluksen kuivana ja niska lepää mukavasti altaassa; hiero sormenpäillä, ei kynsillä; huuhtele toinen käsi hiusrajaa suojaten; painele pyyhkeellä, älä hankaa."
+      ),
+      l3(
+        "Chia vùng sạch sẽ để kiểm soát: đường ngôi thẳng, lọn vừa phải, lần nào cũng tìm lại được đường cắt trước. Phổ biến là bảy vùng: đỉnh, hai bên, hai vùng chẩm, hai vùng gáy; xoắn, kẹp phẳng, giữ tóc ẩm đều.",
+        "Clean sections give control: straight partings, even sections, and you always find the previous cut again. Most common are seven sections: top, two sides, two crown, two nape; twist, clip flat and keep the hair evenly damp.",
+        "Siistit jaot antavat hallinnan: suorat jakaukset, tasaiset osiot, ja edellinen leikkuulinja löytyy aina. Yleisin on seitsemän jakoa: päälaki, kaksi sivua, kaksi takaraivoa, kaksi niskaa; kierrä, kiinnitä litteäksi ja pidä hiukset tasaisen kosteina."
+      ),
+      l3(
+        "Đường chuẩn là đường cắt đầu tiên, mọi đường sau dựa vào nó. Góc nâng: 0° cắt bằng, nặng ở dưới; 45° tầng thấp, giữ độ dày; 90° tầng đều theo dáng đầu; 180° nâng thẳng lên đỉnh, tóc dưới dài dần.",
+        "The guideline is the first cut; every later cut follows it. Elevation: 0° a one-length line with weight at the bottom; 45° graduation that keeps weight; 90° even layers following the head shape; 180° lifted straight up, the hair below getting longer.",
+        "Ohjauslinja on ensimmäinen leikkuu, jota kaikki seuraavat noudattavat. Nostokulma: 0° tasapituus, paino alhaalla; 45° porrastus, joka säilyttää painon; 90° tasaiset kerrokset pään muodon mukaan; 180° suoraan ylös nostettuna, alemmat hiukset pitenevät."
+      ),
+      l3(
+        "Kéo lệch về phía nào thì tóc dài dần ra phía ngược lại. Lực căng đều và vừa phải — quá căng (tóc ướt, tóc xoăn, vành tai) thì khô rồi tóc bật ngắn. Cắt xong một chiều thì kiểm tra chéo theo chiều ngược lại và so hai bên.",
+        "Over-direct towards one side and the hair gets longer towards the other. Keep tension even and moderate — too much (wet hair, curls, over the ears) and the hair springs up shorter when dry. After cutting in one direction, cross-check in the other and compare both sides.",
+        "Ylisuuntaa toiselle puolelle, niin hiukset pitenevät vastakkaiseen suuntaan. Pidä kireys tasaisena ja maltillisena — liian kireällä (märät hiukset, kiharat, korvien kohta) hiukset nousevat kuivina lyhyemmiksi. Leikattuasi yhteen suuntaan ristiintarkista toiseen ja vertaa puolia."
+      ),
+    ],
+    tips: [
+      l3(
+        "Luôn nói lại điều đã thống nhất bằng lời của mình: “Mình cắt đến ngang vai, đúng không chị?” — một câu hỏi tránh được cả một buổi khách không vui.",
+        "Always repeat what you agreed in your own words: “So we cut to the shoulder, right?” — one question saves a whole unhappy appointment.",
+        "Toista sovittu aina omin sanoin: ”Leikataan siis olkapäähän, eikö niin?” — yksi kysymys säästää kokonaisen pettymyksen."
+      ),
+      l3(
+        "Trong VaraaAi, ghi độ dài đã thống nhất, xoáy và chất tóc vào ghi chú của khách, để lần sau ai làm cũng biết.",
+        "In VaraaAi, note the agreed length, whorls and hair type in the customer's notes, so whoever works next time knows.",
+        "Kirjaa VaraaAi:hin sovittu pituus, pyörteet ja hiuslaatu asiakkaan muistiinpanoihin, jotta seuraava tekijä tietää."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Cách thống nhất độ dài nào an toàn nhất?", "Which way of agreeing length is safest?", "Mikä tapa sopia pituudesta on turvallisin?"),
+        options: [
+          l3("Khách nói “cắt ít thôi” là đủ", "The customer saying “just a little” is enough", "Asiakkaan ”vähän vain” riittää"),
+          l3("Cầm lọn tóc đặt ở một điểm chạm, như chạm vai, và hỏi lại khách", "Holding a lock at a touch point, like the shoulder, and asking again", "Suortuvan pitäminen kosketuskohdassa, kuten olkapäässä, ja varmistaminen"),
+          l3("Cắt trước rồi hỏi khách sau", "Cut first, ask afterwards", "Leikkaa ensin, kysy jälkeenpäin"),
+        ],
+        answer: 1,
+        why: l3(
+          "“Ít” với mỗi người một khác. Một điểm chạm cụ thể và câu hỏi lại giúp cả hai hiểu giống nhau.",
+          "“A little” means different things to different people. A concrete touch point and a repeat question make sure you both mean the same.",
+          "”Vähän” tarkoittaa eri ihmisille eri asioita. Konkreettinen kosketuskohta ja varmistus takaavat, että tarkoitatte samaa."
+        ),
+      },
+      {
+        q: l3("Khách tóc xoăn muốn tóc khô dài chạm vai. Cắt thế nào?", "A customer with curly hair wants it to touch the shoulders when dry. How do you cut?", "Kiharahiuksinen asiakas haluaa hiusten yltävän kuivina olkapäille. Miten leikkaat?"),
+        options: [
+          l3("Để dài hơn vai khi tóc ướt, vì tóc khô sẽ co lên", "Leave it longer than the shoulders while wet, because it shrinks when dry", "Jätä märkänä olkapäitä pidemmäksi, koska ne kutistuvat kuivuessaan"),
+          l3("Cắt đúng ngang vai khi tóc ướt và kéo thật căng", "Cut exactly at the shoulders while wet, with lots of tension", "Leikkaa märkänä tarkalleen olkapäihin hyvin kireällä"),
+          l3("Cắt ngắn hơn vai cho chắc", "Cut shorter than the shoulders to be safe", "Leikkaa olkapäitä lyhyemmäksi varmuuden vuoksi"),
+        ],
+        answer: 0,
+        why: l3(
+          "Tóc xoăn và gợn sóng co lên khi khô; kéo căng khi ướt càng làm tóc bật ngắn hơn.",
+          "Curly and wavy hair shrinks as it dries; pulling it tight while wet makes it spring up even shorter.",
+          "Kiharat ja laineikkaat hiukset kutistuvat kuivuessaan; märkänä kiristäminen saa ne nousemaan vielä lyhyemmiksi."
+        ),
+      },
+      {
+        q: l3("Thử nhiệt độ nước khi gội thế nào?", "How do you check the water temperature for a shampoo?", "Miten tarkistat pesuveden lämpötilan?"),
+        options: [
+          l3("Xịt thẳng lên đầu khách rồi hỏi", "Spray straight onto the customer's head and ask", "Suihkuta suoraan asiakkaan päähän ja kysy"),
+          l3("Nước nóng mới sạch, không cần thử", "Hot water cleans best, no need to check", "Kuuma vesi puhdistaa parhaiten, ei tarvitse kokeilla"),
+          l3("Thử trên cổ tay mình trước, rồi hỏi khách khi nước chạm tóc", "Test it on your own wrist first, then ask the customer once it touches the hair", "Kokeile ensin omaan ranteeseen ja kysy asiakkaalta, kun vesi koskee hiuksiin"),
+        ],
+        answer: 2,
+        why: l3(
+          "Nhiệt độ vòi có thể thay đổi bất ngờ. Thử trên cổ tay mình, rồi hỏi khách — mỗi người cảm nhận một khác.",
+          "Tap temperature can change suddenly. Test on your wrist, then ask — everyone feels heat differently.",
+          "Hanan lämpötila voi muuttua yllättäen. Kokeile ranteeseen ja kysy sitten — jokainen kokee lämmön eri tavoin."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "toc-tu-van-chia-vung",
+    course: "p-hair",
+    style: "practice",
+    title: l3("Tư vấn, gội và chia vùng tóc: thực hành từng bước", "Consultation, shampoo and sectioning: step-by-step practice", "Konsultaatio, pesu ja jaottelu: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Từ lúc khách ngồi xuống tới khi tóc sẵn sàng để cắt: chuẩn bị và giấy cổ, tư vấn với ảnh mẫu và điểm chạm, kiểm tra tóc và da đầu khi khô, gội (thử nước, massage, xả, dầu xả), thấm khăn, gỡ rối từ ngọn, rẽ ngôi, chia bảy vùng và giữ tóc ẩm đều.",
+      "From the moment the customer sits down until the hair is ready to cut: preparation and neck strip, consultation with a reference photo and touch points, dry check of hair and scalp, shampoo (water test, massage, rinse, conditioner), towel-drying, detangling from the ends, parting, the seven sections and keeping the hair evenly damp.",
+      "Siitä, kun asiakas istuutuu, siihen kun hiukset ovat valmiit leikattaviksi: valmistelu ja kaulapaperi, konsultaatio mallikuvan ja kosketuskohtien avulla, hiusten ja hiuspohjan tarkistus kuivana, pesu (veden kokeilu, hieronta, huuhtelu, hoitoaine), pyyhekuivaus, selvittäminen latvoista alkaen, jakaus, seitsemän jakoa ja tasainen kosteus."
+    ),
+    video: video("toc-tu-van-chia-vung", 268, "2026-11-19"),
+    notice: l3(
+      "Lược, kéo, kẹp được làm sạch và khử khuẩn sau mỗi khách (bài “Xử lý dụng cụ sau mỗi khách”); dải giấy cổ dùng một lần. Da đầu có vết thương, viêm hay có chấy thì không làm dịch vụ (bài “Khi nào không làm cho khách”). Thời gian để dầu xả theo hướng dẫn của sản phẩm. Quy định khác nhau theo từng nước.",
+      "Combs, scissors and clips are cleaned and disinfected after every customer (lesson “Tools after every customer”); neck strips are single-use. Wounds, inflammation or head lice on the scalp: no service (lesson “When not to treat a customer”). Conditioner times follow the product's instructions. Rules differ by country.",
+      "Kammat, sakset ja klipsit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen (tunti ”Välineet jokaisen asiakkaan jälkeen”); kaulapaperit ovat kertakäyttöisiä. Haavat, tulehdus tai täit hiuspohjassa: ei palvelua (tunti ”Milloin asiakasta ei hoideta”). Hoitoaineen vaikutusaika tuotteen ohjeen mukaan. Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Rửa tay trước khi chạm vào khách; dụng cụ đã làm sạch và khử khuẩn. Quấn dải giấy cổ dùng một lần rồi mới cài áo choàng, để áo choàng không chạm da cổ.",
+        "Wash your hands before touching the customer; tools cleaned and disinfected. Wrap a single-use neck strip first, then fasten the cape, so the cape never touches the neck.",
+        "Pese kädet ennen kuin kosket asiakkaaseen; välineet puhdistettu ja desinfioitu. Kiedo ensin kertakäyttöinen kaulapaperi ja kiinnitä sitten suojaviitta, jottei viitta koske kaulaan."
+      ),
+      l3(
+        "Tư vấn khi tóc khô: thích và không thích gì, ảnh mẫu, thói quen ở nhà; thống nhất độ dài bằng điểm chạm và nói lại cho khách nghe. Tóc xoăn: nhắc khách tóc sẽ co lên. Ghi vào hồ sơ khách.",
+        "Consult with dry hair: likes and dislikes, a reference photo, home routine; agree the length with a touch point and repeat it back. Curly hair: remind the customer it will shrink. Note it in the customer record.",
+        "Konsultaatio kuivista hiuksista: mistä pitää ja mistä ei, mallikuva, kotirutiinit; sovi pituus kosketuskohdalla ja toista se ääneen. Kiharat hiukset: muistuta, että ne kutistuvat. Kirjaa asiakastietoihin."
+      ),
+      l3(
+        "Kiểm tra khi còn khô: kéo tóc ra sau xem dáng mặt và chân tóc, rẽ vài đường ngôi xem mật độ, chất tóc và da đầu, chải nhiều hướng tìm xoáy. Vết thương, viêm hay chấy: dừng lại, nói riêng với khách.",
+        "Check while dry: draw the hair back to see the face shape and hairline, make a few partings to see density, texture and scalp, comb in several directions to find whorls. Wounds, inflammation or lice: stop and tell the customer privately.",
+        "Tarkista kuivana: vedä hiukset taakse nähdäksesi kasvojen muodon ja hiusrajan, tee muutama jakaus nähdäksesi tuuheuden, hiuslaadun ja hiuspohjan, kampaa eri suuntiin löytääksesi pyörteet. Haavoja, tulehdusta tai täitä: lopeta ja kerro asiakkaalle kahden kesken."
+      ),
+      l3(
+        "Ở chậu gội: khăn quanh cổ, cổ khách đặt êm trong lòng chậu, hỏi có cấn không (khách đau cổ, lưng thì chỉnh ghế). Thử nước trên cổ tay mình, rồi hỏi lại khi nước chạm tóc.",
+        "At the basin: towel round the neck, the neck resting comfortably in the basin, ask if anything presses (adjust the chair for neck or back problems). Test the water on your own wrist, then ask again once it touches the hair.",
+        "Pesualtaalla: pyyhe kaulan ympärille, niska lepää mukavasti altaassa, kysy painaako jokin (säädä tuolia niska- tai selkävaivoissa). Kokeile vesi omaan ranteeseen ja kysy uudelleen, kun vesi koskee hiuksiin."
+      ),
+      l3(
+        "Dầu gội vừa đủ, massage bằng đầu ngón tay theo vòng nhỏ, không dùng móng. Xả sạch với một tay che chân tóc để nước không vào mặt, tai. Dầu xả lên thân và ngọn, đợi theo sản phẩm, xả lại.",
+        "Just enough shampoo, massage with the finger pads in small circles, never the nails. Rinse thoroughly with one hand shielding the hairline so no water reaches the face or ears. Conditioner on the lengths and ends, wait as the product says, rinse again.",
+        "Sopivasti shampoota, hiero sormenpäillä pienin pyörivin liikkein, ei kynsillä. Huuhtele huolellisesti toinen käsi hiusrajaa suojaten, ettei vettä mene kasvoille tai korviin. Hoitoaine pituuksiin ja latvoihin, vaikutusaika tuotteen mukaan, huuhtele uudelleen."
+      ),
+      l3(
+        "Thấm khăn: ép nhẹ từ chân xuống ngọn, không chà, không vò; tóc ẩm, không nhỏ giọt. Gỡ rối bằng lược răng thưa, bắt đầu từ ngọn rồi lên dần, tay giữ tóc phía trên để không kéo da đầu.",
+        "Towel-dry by pressing from roots to ends, no rubbing or scrunching; damp, not dripping. Detangle with a wide-tooth comb from the ends upwards, holding the hair above so the scalp isn't pulled.",
+        "Pyyhekuivaus painelemalla tyvestä latvoihin, ei hankausta eikä rutistusta; kostea, ei valuva. Selvitä harvalla kammalla latvoista ylöspäin ja pidä hiuksista kiinni yläpuolelta, ettei hiuspohja kisko."
+      ),
+      l3(
+        "Rẽ ngôi tự nhiên hoặc ngôi giữa bằng đầu nhọn lược đuôi chuột, một đường liền từ chân tóc trán tới đỉnh, thấy rõ đường da đầu.",
+        "Make the natural or a centre parting with the tip of a tail comb, one continuous line from the front hairline to the crown, the scalp line clearly visible.",
+        "Tee luonnollinen tai keskijakaus hännällisen kamman kärjellä yhtenä vetona otsan hiusrajasta päälaelle niin, että hiuspohjan viiva näkyy selvästi."
+      ),
+      l3(
+        "Bảy vùng: vùng đỉnh (từ hai bên thái dương ra sau tới đỉnh), hai vùng bên (đường từ đỉnh vành tai lên vùng đỉnh), phía sau chia đôi bằng ngôi giữa và một đường ngang ở xương chẩm thành hai vùng chẩm và hai vùng gáy. Xoắn vừa tay, kẹp phẳng sát đầu.",
+        "Seven sections: the top (from both temples back to the crown), two sides (a line from the top of the ear up to the top section), and the back split by a centre parting and a horizontal line at the occipital bone into two crown and two nape sections. Twist lightly and clip flat to the head.",
+        "Seitsemän jakoa: päälaki (ohimoilta taakse päälaelle), kaksi sivua (linja korvan yläreunasta päälakijakoon) ja takaosa jaettuna keskijakauksella ja takaraivon kohdalla kulkevalla vaakalinjalla kahteen takaraivo- ja kahteen niskajakoon. Kierrä kevyesti ja kiinnitä litteäksi päätä vasten."
+      ),
+      l3(
+        "Kiểm tra trong gương và từ phía sau: ngôi thẳng, hai bên cân, không sợi nào lọt vùng; chỗ lệch thì chải lại, kẻ lại — ngôi lệch thì đường cắt cũng lệch.",
+        "Check in the mirror and from behind: straight partings, balanced sides, no strays in the wrong section; re-comb and re-part anything off — a crooked parting means a crooked cut.",
+        "Tarkista peilistä ja takaa: suorat jakaukset, tasapainoiset puolet, ei harhahiuksia väärässä jaossa; kampaa ja jaa uudelleen, jos jokin on vinossa — vino jakaus tarkoittaa vinoa leikkuuta."
+      ),
+      l3(
+        "Giữ tóc ẩm đều bằng bình xịt phun sương trên vùng sắp cắt — chỗ khô chỗ ướt thì đường cắt không đều. Sau khách: khăn vào giỏ giặt, giấy cổ bỏ đi, lược, kéo, kẹp làm sạch và khử khuẩn.",
+        "Keep the hair evenly damp with a fine-mist spray on the area you're about to cut — patchy moisture gives an uneven line. After the customer: towels to the laundry, neck strip in the bin, combs, scissors and clips cleaned and disinfected.",
+        "Pidä hiukset tasaisen kosteina sumutepullolla leikattavalla alueella — epätasainen kosteus antaa epätasaisen linjan. Asiakkaan jälkeen: pyyhkeet pesuun, kaulapaperi roskiin, kammat, sakset ja klipsit puhdistetaan ja desinfioidaan."
+      ),
+    ],
+    tips: [
+      l3(
+        "Kẻ ngôi bằng một đường liền của đầu lược đuôi chuột, đừng ngoáy nhiều lần — đường ngôi sạch thì nhìn là thấy đâu lệch.",
+        "Draw each parting in one stroke with the tail-comb tip instead of scratching back and forth — a clean parting shows at once where something is off.",
+        "Vedä jakaus yhdellä vedolla kamman hännällä äläkä raavi edestakaisin — siististä jakauksesta näkee heti, missä on vinoutta."
+      ),
+      l3(
+        "Trong VaraaAi, ghi điều đã thống nhất vào ghi chú khách và đặt thời lượng dịch vụ có tính cả gội và chia vùng, để lịch không bị dồn.",
+        "In VaraaAi, record what you agreed in the customer notes and set the service duration to include the shampoo and sectioning, so the calendar doesn't get squeezed.",
+        "Kirjaa VaraaAi:ssa sovittu asiakkaan muistiinpanoihin ja aseta palvelun kesto niin, että pesu ja jaottelu mahtuvat mukaan, ettei kalenteri ruuhkaudu."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Gỡ rối tóc ướt bắt đầu từ đâu?", "Where do you start detangling wet hair?", "Mistä märkien hiusten selvittäminen aloitetaan?"),
+        options: [
+          l3("Từ chân tóc, chải mạnh xuống", "From the roots, combing hard downwards", "Tyvestä, kammaten voimakkaasti alas"),
+          l3("Từ ngọn, rồi lên dần, tay giữ tóc phía trên", "From the ends, working upwards, holding the hair above", "Latvoista ylöspäin, pitäen hiuksista kiinni yläpuolelta"),
+          l3("Từ giữa thân tóc", "From the middle of the lengths", "Pituuksien keskeltä"),
+        ],
+        answer: 1,
+        why: l3(
+          "Gỡ từ ngọn thì nút rối không bị dồn xuống, tóc ít gãy, và khách không bị kéo da đầu.",
+          "Starting at the ends stops knots being pushed down, breaks less hair and doesn't pull the scalp.",
+          "Latvoista aloittaminen ei työnnä takkuja alas, katkoo vähemmän hiuksia eikä kisko hiuspohjaa."
+        ),
+      },
+      {
+        q: l3("Bảy vùng tóc phổ biến gồm những vùng nào?", "What are the common seven sections?", "Mitkä ovat yleiset seitsemän jakoa?"),
+        options: [
+          l3("Bảy lọn bằng nhau quanh đầu", "Seven equal strands around the head", "Seitsemän samankokoista suortuvaa pään ympäri"),
+          l3("Ba vùng trước, bốn vùng sau tùy ý", "Three in front, four at the back, any way", "Kolme edessä, neljä takana miten vain"),
+          l3("Vùng đỉnh, hai vùng bên, hai vùng chẩm, hai vùng gáy", "Top, two sides, two crown, two nape", "Päälaki, kaksi sivua, kaksi takaraivoa, kaksi niskaa"),
+        ],
+        answer: 2,
+        why: l3(
+          "Chia theo dáng đầu — đỉnh, hai bên, chẩm và gáy — thì vùng nào cũng có mốc rõ, cắt lần nào cũng tìm lại được.",
+          "Following the head shape — top, sides, crown and nape — gives every section clear landmarks you can always find again.",
+          "Pään muotoa seuraava jako — päälaki, sivut, takaraivo ja niska — antaa jokaiselle jaolle selvät maamerkit, jotka löytyvät aina uudelleen."
+        ),
+      },
+      {
+        q: l3("Vì sao áo choàng không được chạm trực tiếp vào da cổ khách?", "Why must the cape not touch the customer's neck directly?", "Miksi suojaviitta ei saa koskea suoraan asiakkaan kaulaan?"),
+        options: [
+          l3("Áo choàng dùng cho nhiều khách; dải giấy cổ dùng một lần ngăn tiếp xúc trực tiếp", "The cape is used for many customers; a single-use neck strip prevents direct contact", "Viittaa käytetään monelle asiakkaalle; kertakäyttöinen kaulapaperi estää suoran kosketuksen"),
+          l3("Để áo choàng không bị nhăn", "So the cape doesn't crease", "Jotta viitta ei rypisty"),
+          l3("Không có lý do gì, chỉ là thói quen", "No reason, just habit", "Ei syytä, pelkkä tapa"),
+        ],
+        answer: 0,
+        why: l3(
+          "Dải giấy cổ dùng một lần là hàng rào vệ sinh giữa các khách, và giữ tóc vụn không lọt vào cổ áo.",
+          "A single-use neck strip is a hygiene barrier between customers and keeps cut hair out of the collar.",
+          "Kertakäyttöinen kaulapaperi on hygieniaeste asiakkaiden välillä ja pitää leikatut hiukset poissa kauluksesta."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "cat-nam-co-ban-hieu-dung",
+    course: "p-hair",
+    style: "theory",
+    title: l3("Cắt tóc nam cơ bản: hiểu đúng để gọn và cân", "Men's haircut basics: understand them for a clean, balanced cut", "Miesten perusleikkaus: ymmärrä se, niin tulos on siisti ja tasapainoinen"),
+    summary: l3(
+      "Các phần của kiểu tóc nam và hai mốc đường vòng đầu, xương chẩm; cữ tông đơ và cần gạt; cầm kéo đúng; đi tông đơ ngược chiều tóc mọc; kéo trên lược và tông đơ trên lược; nối phần đỉnh với hai bên; sự cân đối và đường viền; những lỗi hay gặp; đọc mái tóc; vệ sinh tông đơ; và nói thật với khách.",
+      "The parts of a men's cut and the two landmarks, the parietal ridge and the occipital bone; clipper guards and the taper lever; holding scissors correctly; clipping against the growth; scissor-over-comb and clipper-over-comb; blending the top into the sides; symmetry and the outline; common mistakes; reading the hair; clipper hygiene; and honest talk with customers.",
+      "Miesten leikkauksen osat ja kaksi maamerkkiä, päälaen reuna ja takaraivon kyhmy; koneen ohjauskammat ja säätövipu; oikea saksiote; koneella kasvusuuntaa vastaan; sakset ja kone kamman päällä; päälaen häivytys sivuihin; symmetria ja rajaus; yleiset virheet; hiusten arviointi; koneen hygienia ja rehellinen puhe asiakkaan kanssa."
+    ),
+    video: video("cat-nam-co-ban-hieu-dung", 282, "2026-11-19"),
+    notice: l3(
+      "Số cữ chỉ cho biết tóc còn dài khoảng bao nhiêu và khác nhau theo hãng: xem bảng của hãng mình dùng. Lưỡi tông đơ, cữ, lược và kéo được làm sạch, khử khuẩn sau mỗi khách theo hướng dẫn của sản phẩm; lưỡi dao cạo dùng một lần (bài “Xử lý dụng cụ sau mỗi khách”). Da đầu có vết thương, viêm hay có chấy thì không cắt (bài “Khi nào không làm cho khách”). Quy định khác nhau theo từng nước.",
+      "A guard number only tells you roughly how much length is left and varies by brand: check your brand's chart. Clipper blades, guards, combs and scissors are cleaned and disinfected after every customer as the product instructs; razor blades are single-use (lesson “Tools after every customer”). Wounds, inflammation or head lice on the scalp: no cut (lesson “When not to treat a customer”). Rules differ by country.",
+      "Ohjauskamman numero kertoo vain suunnilleen jäävän pituuden ja vaihtelee valmistajittain: katso oman merkkisi taulukko. Koneen terät ja ohjauskammat, kammat ja sakset puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen tuotteen ohjeen mukaan; partaterät ovat kertakäyttöisiä (tunti ”Välineet jokaisen asiakkaan jälkeen”). Haavat, tulehdus tai täit hiuspohjassa: ei leikkausta (tunti ”Milloin asiakasta ei hoideta”). Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "lich-hen", "the-khach-quen"],
+    steps: [
+      l3(
+        "Các phần: đỉnh (thường dài nhất), hai bên, chẩm, gáy, và đường viền quanh tai, tóc mai, gáy. Hai mốc: đường vòng đầu (chỗ đầu rộng nhất hai bên) và xương chẩm — phần nối ngắn với dài thường nằm quanh đó.",
+        "The parts: top (usually the longest), sides, back, nape, and the outline around the ears, sideburns and nape. Two landmarks: the parietal ridge (the widest part of the head at the sides) and the occipital bone — the blend from short to long usually sits around them.",
+        "Osat: päälaki (yleensä pisin), sivut, takaraivo, niska sekä rajaus korvien ympärillä, pulisongeissa ja niskassa. Kaksi maamerkkiä: päälaen reuna (pään levein kohta sivuilla) ja takaraivon kyhmy — häivytys lyhyestä pitkään sijoittuu yleensä niiden tienoille."
+      ),
+      l3(
+        "Số cữ cho biết tóc còn dài khoảng bao nhiêu, số lớn thì dài hơn; mỗi hãng một khác nên xem bảng của hãng. Cần gạt bên hông chỉnh dài ngắn thêm một chút, dùng để nối giữa hai cữ. Luôn bắt đầu bằng cữ dài hơn.",
+        "The guard number tells roughly how much length is left, a bigger number leaves more; brands differ, so check the chart. The taper lever on the side fine-tunes the length and helps blend between two guards. Always start with a longer guard.",
+        "Ohjauskamman numero kertoo suunnilleen jäävän pituuden, isompi numero jättää enemmän; merkit eroavat, joten katso taulukko. Sivun säätövipu hienosäätää pituutta ja auttaa häivyttämään kahden ohjauskamman välillä. Aloita aina pidemmällä ohjauskammalla."
+      ),
+      l3(
+        "Cầm kéo: ngón cái một vòng, ngón áp út vòng kia, ngón út tựa đuôi kéo; chỉ lưỡi phía ngón cái chuyển động. Khi chải, cuộn kéo vào lòng bàn tay; không chĩa mũi kéo về phía mặt khách.",
+        "Scissors: thumb in one ring, ring finger in the other, little finger on the tang; only the thumb blade moves. While combing, palm the scissors; never point the tips towards the customer's face.",
+        "Sakset: peukalo toisessa renkaassa, nimetön toisessa, pikkusormi tuella; vain peukalon terä liikkuu. Kammatessa sakset kämmenen sisään; älä koskaan osoita kärjillä asiakkaan kasvoja kohti."
+      ),
+      l3(
+        "Tông đơ đi ngược chiều tóc mọc, cữ áp phẳng, chậm, các đường chồng nhau; ở gáy và quanh xoáy đi thêm vài hướng. Ấn mạnh hay nghiêng tông đơ làm thành lỗ.",
+        "Clip against the growth with the guard flat, slowly, overlapping strokes; at the nape and around whorls go over it in a few directions. Pressing hard or tilting the clipper makes holes.",
+        "Leikkaa koneella kasvusuuntaa vastaan ohjauskampa tasaisesti päätä vasten, hitaasti ja vedot limittäin; niskassa ja pyörteiden ympärillä useasta suunnasta. Painaminen tai koneen kallistaminen tekee kuoppia."
+      ),
+      l3(
+        "Kéo trên lược và tông đơ trên lược: lược sát đầu, răng hơi nghiêng ra, cắt phần tóc lòi qua lược; góc lược quyết định độ dài. Kéo cho đường nối mềm, tông đơ nhanh và đều. Lược luôn đi lên, không dừng một chỗ.",
+        "Scissor-over-comb and clipper-over-comb: comb close to the head, teeth angled slightly out, cut what sticks through; the comb's angle decides the length. Scissors give a soft blend, clippers are fast and even. Keep the comb moving up, never pause in one place.",
+        "Sakset ja kone kamman päällä: kampa lähellä päätä, piikit hieman ulospäin, leikkaa kamman läpi nouseva osa; kamman kulma ratkaisee pituuden. Sakset antavat pehmeän häivytyksen, kone on nopea ja tasainen. Liikuta kampaa koko ajan ylöspäin, älä pysähdy."
+      ),
+      l3(
+        "Lỗi hay gặp nhất là đường gờ cứng chỗ hai bên gặp phần đỉnh. Nối dần từ ngắn tới dài bằng kéo trên lược hay một cữ dài hơn ở giữa, cho tới khi vuốt lên không còn gờ.",
+        "The most common fault is a hard line where the sides meet the top. Blend gradually from short to long with scissor-over-comb or a longer guard in between, until you feel no ridge when you brush upwards.",
+        "Yleisin virhe on kova raja, jossa sivut kohtaavat päälaen. Häivytä vähitellen lyhyestä pitkään saksilla kamman päällä tai välissä pidemmällä ohjauskammalla, kunnes ylöspäin sivellessä reunaa ei tunnu."
+      ),
+      l3(
+        "Viền tai gọn, tự nhiên, không khoét cao; hai mai bằng nhau (đầu khách thẳng, nhìn thẳng gương, hai ngón tay so chân mai); gáy vuông hay tròn theo ý khách. Nhìn trong gương, nhìn nghiêng và từ phía sau.",
+        "A clean, natural outline round the ears, not cut too high; level sideburns (head straight, looking into the mirror, two fingers comparing the bottoms); a square or rounded nape as the customer wants. Check in the mirror, from the side and from behind.",
+        "Siisti, luonnollinen rajaus korvien ympärillä, ei liian korkealle; tasaiset pulisongit (pää suorassa, katse peiliin, kaksi sormea vertaa alareunoja); suora tai pyöristetty niska asiakkaan toiveen mukaan. Tarkista peilistä, sivulta ja takaa."
+      ),
+      l3(
+        "Đọc mái tóc trước: tóc dày, sợi to cắt quá ngắn sẽ dựng đứng; tóc thưa ở đỉnh để quá dài càng lộ da đầu, cắt gọn thường trông dày hơn; chỗ xoáy đừng cắt quá sát.",
+        "Read the hair first: thick, coarse hair cut too short stands up; thin hair on top left too long shows more scalp, a neater cut often looks fuller; don't cut too close at a whorl.",
+        "Arvioi hiukset ensin: tuuhea, paksu hius liian lyhyeksi leikattuna nousee pystyyn; ohut hiuslaki liian pitkänä näyttää enemmän hiuspohjaa, siistimpi leikkaus näyttää usein tuuheammalta; älä leikkaa pyörteen kohdalta liian lyhyeksi."
+      ),
+      l3(
+        "Sau mỗi khách: chải sạch tóc trong lưỡi tông đơ, khử khuẩn lưỡi và cữ theo hướng dẫn sản phẩm, tra dầu cho lưỡi; lược, kéo làm sạch và khử khuẩn; lưỡi dao cạo dùng một lần.",
+        "After every customer: brush the hair out of the clipper blades, disinfect blades and guards as the product instructs, oil the blades; clean and disinfect combs and scissors; razor blades are single-use.",
+        "Jokaisen asiakkaan jälkeen: harjaa hiukset pois koneen teristä, desinfioi terät ja ohjauskammat tuotteen ohjeen mukaan, öljyä terät; puhdista ja desinfioi kammat ja sakset; partaterät ovat kertakäyttöisiä."
+      ),
+      l3(
+        "Nói thật với khách: xoáy mạnh thì cạo sát sẽ dựng; ảnh mẫu tóc dày mà tóc khách mảnh thì nói rõ sẽ không giống hệt; kiểu cần vuốt sáp mà khách không vuốt thì gợi ý kiểu dễ hơn; kiểu ngắn thường giữ dáng khoảng 3–5 tuần.",
+        "Be honest: with a strong whorl a very short crown will stand up; if the photo shows thick hair and the customer's is fine, say it won't look identical; if a style needs product the customer never uses, suggest an easier one; short cuts usually keep their shape for about 3–5 weeks.",
+        "Ole rehellinen: voimakkaan pyörteen kohdalla hyvin lyhyt päälaki nousee pystyyn; jos mallikuvassa on paksut hiukset ja asiakkaalla ohuet, kerro ettei tulos ole identtinen; jos tyyli vaatii muotoilutuotetta, jota asiakas ei käytä, ehdota helpompaa; lyhyt leikkaus pysyy muodossa yleensä noin 3–5 viikkoa."
+      ),
+    ],
+    tips: [
+      l3(
+        "Khi không chắc, lắp cữ dài hơn một số. Đi lại bằng cữ ngắn hơn chỉ mất một phút; cắt lẹm thì khách phải đợi vài tuần.",
+        "When in doubt, put on a guard one size longer. Going over again with a shorter one takes a minute; cutting too short makes the customer wait weeks.",
+        "Epävarmana valitse yhtä pidempi ohjauskampa. Uusi kierros lyhyemmällä vie minuutin; liian lyhyeksi leikattu saa asiakkaan odottamaan viikkoja."
+      ),
+      l3(
+        "Trong VaraaAi, nhắc khách hẹn lại sau vài tuần bằng thẻ khách quen hay tin nhắn, để kiểu tóc luôn gọn.",
+        "In VaraaAi, remind customers to rebook after a few weeks with the loyalty card or a message, so the cut always stays sharp.",
+        "Muistuta VaraaAi:ssa asiakkaita varaamaan uudelleen muutaman viikon päästä kanta-asiakaskortilla tai viestillä, jotta leikkaus pysyy aina siistinä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Số trên cữ tông đơ cho biết điều gì?", "What does the number on a clipper guard tell you?", "Mitä koneen ohjauskamman numero kertoo?"),
+        options: [
+          l3("Tóc sẽ còn dài khoảng bao nhiêu — và mỗi hãng một khác", "Roughly how much length is left — and it varies by brand", "Suunnilleen jäävän pituuden — ja se vaihtelee valmistajittain"),
+          l3("Đúng số milimét, giống nhau ở mọi hãng", "The exact millimetres, the same for every brand", "Tarkat millimetrit, samat kaikilla merkeillä"),
+          l3("Tốc độ của tông đơ", "The clipper's speed", "Koneen nopeuden"),
+        ],
+        answer: 0,
+        why: l3(
+          "Số lớn thì tóc để dài hơn, nhưng độ dài thật khác nhau theo hãng; xem bảng của hãng mình dùng.",
+          "A bigger number leaves longer hair, but the real length differs by brand; check your brand's chart.",
+          "Isompi numero jättää pidemmät hiukset, mutta todellinen pituus vaihtelee merkeittäin; katso oman merkkisi taulukko."
+        ),
+      },
+      {
+        q: l3("Vì sao chỗ hai bên gặp phần đỉnh hay bị lỗi?", "Why does the area where the sides meet the top often go wrong?", "Miksi kohta, jossa sivut kohtaavat päälaen, epäonnistuu usein?"),
+        options: [
+          l3("Vì tóc ở đó mọc chậm hơn", "Because the hair there grows more slowly", "Koska hiukset kasvavat siinä hitaammin"),
+          l3("Vì không nối dần từ ngắn tới dài, để lại một đường gờ cứng", "Because it isn't blended gradually from short to long, leaving a hard line", "Koska sitä ei häivytetä vähitellen lyhyestä pitkään, ja jää kova raja"),
+          l3("Vì dùng kéo thay vì tông đơ", "Because scissors were used instead of clippers", "Koska käytettiin saksia koneen sijaan"),
+        ],
+        answer: 1,
+        why: l3(
+          "Hai bên ngắn, đỉnh dài: phải nối dần bằng kéo trên lược hay một cữ dài hơn ở giữa, tới khi vuốt lên không còn gờ.",
+          "Short sides and a long top must be blended gradually with scissor-over-comb or a longer guard in between, until no ridge is left.",
+          "Lyhyet sivut ja pitkä päälaki häivytetään vähitellen saksilla kamman päällä tai välissä pidemmällä ohjauskammalla, kunnes reunaa ei jää."
+        ),
+      },
+      {
+        q: l3("Kiểm tra hai bên tóc mai bằng nhau thế nào?", "How do you check that the sideburns are level?", "Miten tarkistat, että pulisongit ovat tasan?"),
+        options: [
+          l3("Nhìn từ một bên là đủ", "Looking from one side is enough", "Yhdeltä puolelta katsominen riittää"),
+          l3("Để khách nghiêng đầu cho dễ cắt", "Let the customer tilt their head to make it easier", "Anna asiakkaan kallistaa päätä, niin on helpompaa"),
+          l3("Đầu khách thẳng, nhìn thẳng gương, hai ngón tay so chân hai bên mai", "Head straight, looking into the mirror, two fingers comparing the bottoms of both sideburns", "Pää suorassa, katse peiliin, kaksi sormea vertaa molempien pulisonkien alareunoja"),
+        ],
+        answer: 2,
+        why: l3(
+          "Đầu nghiêng là mai lệch. So cả hai bên cùng lúc trong gương mới thấy chênh lệch.",
+          "A tilted head means crooked sideburns. Only comparing both sides at once in the mirror shows a difference.",
+          "Kallistettu pää tarkoittaa vinoja pulisonkeja. Vain molempien vertaaminen yhtä aikaa peilistä paljastaa eron."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "cat-nam-co-ban",
+    course: "p-hair",
+    style: "practice",
+    title: l3("Cắt tóc nam cơ bản: thực hành từng bước", "Men's haircut basics: step-by-step practice", "Miesten perusleikkaus: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Một kiểu tóc nam ngắn cổ điển từng bước: chuẩn bị và giấy cổ, tư vấn, làm ẩm, hai bên và phía sau bằng tông đơ có cữ, kéo trên lược để nối lên, cắt phần đỉnh với đường chuẩn và kiểm tra chéo, nối đỉnh với hai bên, viền tai, tóc mai và gáy, phủi tóc, tạo kiểu, gương tay, ghi hồ sơ và dọn dẹp.",
+      "A classic short men's cut step by step: preparation and neck strip, consultation, dampening, sides and back with a clipper guard, scissor-over-comb to blend upwards, cutting the top with a guideline and cross-checking, blending the top into the sides, outlining ears, sideburns and nape, brushing off, styling, the hand mirror, notes and clean-up.",
+      "Klassinen lyhyt miesten leikkaus vaihe vaiheelta: valmistelu ja kaulapaperi, konsultaatio, kostutus, sivut ja takaosa koneella ohjauskammalla, häivytys ylöspäin saksilla kamman päällä, päälaen leikkaus ohjauslinjalla ja ristiintarkistus, päälaen häivytys sivuihin, korvien, pulisonkien ja niskan rajaus, hiusten harjaus pois, muotoilu, käsipeili, muistiinpanot ja siivous."
+    ),
+    video: video("cat-nam-co-ban", 259, "2026-11-19"),
+    notice: l3(
+      "Số cữ khác nhau theo hãng: luôn bắt đầu bằng cữ dài hơn. Chỉ cắt ngắn hơn hay bỏ cữ ở viền dưới khi đã thống nhất với khách. Lưỡi tông đơ, cữ, lược và kéo làm sạch, khử khuẩn sau mỗi khách theo hướng dẫn sản phẩm; dải giấy cổ và lưỡi dao cạo dùng một lần (bài “Xử lý dụng cụ sau mỗi khách”). Da đầu có vết thương, viêm hay có chấy thì không cắt. Quy định khác nhau theo từng nước.",
+      "Guard numbers differ by brand: always start with a longer guard. Go shorter or remove the guard at the bottom edge only when agreed with the customer. Clipper blades, guards, combs and scissors are cleaned and disinfected after every customer as the product instructs; neck strips and razor blades are single-use (lesson “Tools after every customer”). Wounds, inflammation or head lice on the scalp: no cut. Rules differ by country.",
+      "Ohjauskampojen numerot vaihtelevat valmistajittain: aloita aina pidemmällä. Lyhennä tai poista ohjauskampa alareunasta vain asiakkaan kanssa sovittaessa. Koneen terät, ohjauskammat, kammat ja sakset puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen tuotteen ohjeen mukaan; kaulapaperit ja partaterät ovat kertakäyttöisiä (tunti ”Välineet jokaisen asiakkaan jälkeen”). Haavat, tulehdus tai täit hiuspohjassa: ei leikkausta. Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "lich-hen", "the-khach-quen"],
+    steps: [
+      l3(
+        "Rửa tay; tông đơ, cữ, lược, kéo đã làm sạch và khử khuẩn. Dải giấy cổ dùng một lần, rồi mới cài áo choàng.",
+        "Wash your hands; clipper, guards, combs and scissors cleaned and disinfected. A single-use neck strip first, then the cape.",
+        "Pese kädet; kone, ohjauskammat, kammat ja sakset puhdistettu ja desinfioitu. Ensin kertakäyttöinen kaulapaperi, sitten suojaviitta."
+      ),
+      l3(
+        "Tư vấn (bài Tư vấn và chia vùng): hai bên ngắn cỡ nào, đỉnh để bao nhiêu, gáy vuông hay tròn, tóc mai đến đâu; lần trước khách không thích gì. Thống nhất bằng cữ hay ngón tay; tìm xoáy, nhìn da đầu.",
+        "Consult (Consultation and sectioning lesson): how short the sides, how much on top, square or rounded nape, sideburn length; what the customer disliked last time. Agree with a guard or your fingers; look for whorls and check the scalp.",
+        "Konsultaatio (tunti Konsultaatio ja jaottelu): kuinka lyhyet sivut, paljonko päälle, suora vai pyöristetty niska, pulisonkien pituus; mistä asiakas ei pitänyt viimeksi. Sovi ohjauskammalla tai sormilla; etsi pyörteet ja tarkista hiuspohja."
+      ),
+      l3(
+        "Làm ẩm đều bằng bình phun sương, vừa chải vừa xịt, không nhỏ giọt (nhiều thợ đi tông đơ khi tóc khô, sạch — miễn là tóc chải thẳng, không rối).",
+        "Dampen evenly with a fine mist while combing, never dripping (many barbers clip on clean dry hair — what matters is combed, tangle-free hair).",
+        "Kostuta tasaisesti sumutteella kammaten, ei valuvaksi (moni parturi leikkaa koneella puhtaat kuivat hiukset — tärkeintä on kammattu, takuton tukka)."
+      ),
+      l3(
+        "Hai bên và phía sau: cữ đã thống nhất hay dài hơn, áp phẳng ở chân tóc, đi lên ngược chiều mọc, chậm, chồng đường; tới đường vòng đầu thì lật cổ tay ra; gập nhẹ vành tai; phía sau từ gáy lên xương chẩm; đi lại theo hướng khác. Không ấn mạnh.",
+        "Sides and back: the agreed guard or longer, flat at the hairline, up against the growth, slowly, overlapping; flick the wrist out at the parietal ridge; fold the ear gently; at the back from the nape to the occipital bone; go over again in another direction. Never press hard.",
+        "Sivut ja takaosa: sovittu ohjauskampa tai pidempi, tasaisesti hiusrajasta ylös kasvusuuntaa vastaan, hitaasti, vedot limittäin; päälaen reunan kohdalla ranne kääntyy ulos; taita korvaa kevyesti; takana niskasta takaraivon kyhmylle; käy läpi uudelleen toisesta suunnasta. Älä paina."
+      ),
+      l3(
+        "Viền dưới ngắn hơn hay bỏ cữ chỉ khi đã thống nhất từ trước — ngắn rồi không làm dài lại được.",
+        "A shorter guard or no guard at the bottom edge only if agreed beforehand — short can't be made long again.",
+        "Lyhyempi tai ei ohjauskampaa alareunassa vain etukäteen sovittaessa — lyhyttä ei saa takaisin pitkäksi."
+      ),
+      l3(
+        "Kéo trên lược nối lên: lược sát đầu ở chỗ tông đơ dừng, răng hơi nghiêng ra, lưỡi kéo song song theo lược; lược đi lên và nghiêng ra dần, không dừng một chỗ.",
+        "Scissor-over-comb to blend upwards: comb close to the head where the clipper stopped, teeth angled slightly out, blade parallel to the comb; the comb moves up and gradually out, never pausing.",
+        "Sakset kamman päällä ylöspäin häivyttäen: kampa lähelle päätä siitä, mihin kone jäi, piikit hieman ulospäin, terä kamman suuntaisesti; kampa nousee ja kallistuu vähitellen ulos pysähtymättä."
+      ),
+      l3(
+        "Phần đỉnh: chia từ hai góc trán ra sau tới đỉnh; lọn đầu ở trán nâng 90°, kẹp giữa ngón trỏ và ngón giữa, cắt đúng độ dài — đó là đường chuẩn; các lọn sau lấy kèm một chút lọn trước, giữ cùng góc nâng; chỗ xoáy để dài hơn, nhẹ tay; hỏi khách giữa chừng.",
+        "The top: section from both front corners back to the crown; the first section at the front lifted to 90° between index and middle finger and cut to length — that's the guideline; each next section takes a little of the previous, same elevation; leave more at the whorl with light tension; check with the customer midway.",
+        "Päälaki: jaa etukulmista taakse päälaelle; ensimmäinen osio edessä 90°:n kulmaan etu- ja keskisormen väliin ja leikataan pituuteen — se on ohjauslinja; seuraaviin otetaan hieman edellistä, sama nostokulma; pyörteen kohdalle enemmän pituutta ja kevyt kireys; kysy asiakkaalta välillä."
+      ),
+      l3(
+        "Kiểm tra chéo phần đỉnh bằng các lọn ngang từ bên này sang bên kia; tỉa lại lọn nhô lên. Nối đỉnh với hai bên ở góc bằng kéo trên lược hay cắt góc ra ngoài, tới khi vuốt lên không còn bậc; nhìn nghiêng để kiểm tra.",
+        "Cross-check the top with sections across the head from side to side; trim anything that sticks out. Blend the top into the sides at the corner with scissor-over-comb or by cutting the corner out, until no step is felt; check in profile.",
+        "Ristiintarkista päälaki poikittaisilla osioilla puolelta toiselle; tasaa esiin nousevat. Häivytä päälaki sivuihin kulmasta saksilla kamman päällä tai leikkaamalla kulma pois, kunnes porrasta ei tunnu; tarkista profiilista."
+      ),
+      l3(
+        "Đường viền: gập vành tai, viền theo đường cong tự nhiên, không khoét cao; hai mai bằng nhau (đầu thẳng, nhìn thẳng gương, hai ngón tay so); gáy vuông hay tròn theo thống nhất, khách cúi nhẹ, không đẩy đường gáy lên cao.",
+        "Outline: fold the ear, follow the natural curve, not too high; level sideburns (head straight, looking in the mirror, two fingers comparing); a square or rounded nape as agreed, head slightly forward, without pushing the line up too high.",
+        "Rajaus: taita korva, seuraa luonnollista kaarta, ei liian korkealle; tasaiset pulisongit (pää suorassa, katse peiliin, kaksi sormea vertaa); sovittu suora tai pyöristetty niska, pää hieman eteen, linjaa nostamatta liian korkealle."
+      ),
+      l3(
+        "Hoàn thiện: phủi tóc vụn bằng chổi phủi cổ, bỏ dải giấy; tạo kiểu như khách sẽ tự làm ở nhà và chỉ cách; gương tay cho xem phía sau, khách muốn chỉnh thì chỉnh ngay. Ghi cữ, độ dài, kiểu gáy vào hồ sơ, hẹn lần sau khoảng 3–5 tuần; làm sạch, khử khuẩn, tra dầu tông đơ.",
+        "Finish: brush off loose hair with a neck brush, remove the strip; style it the way the customer will at home and show how; the hand mirror for the back, adjust at once if asked. Note guards, lengths and nape shape in the record, book the next visit in about 3–5 weeks; clean, disinfect and oil the clipper.",
+        "Viimeistely: harjaa irtohiukset kaulaharjalla, poista paperi; muotoile niin kuin asiakas tekee kotona ja näytä miten; käsipeilillä takaosa näkyviin, korjaa heti pyydettäessä. Kirjaa ohjauskammat, pituudet ja niskan muoto, varaa seuraava käynti noin 3–5 viikon päähän; puhdista, desinfioi ja öljyä kone."
+      ),
+    ],
+    tips: [
+      l3(
+        "Đi xong tông đơ một lượt, chải tóc xuống rồi đi lại theo hướng khác — những sợi nằm rạp sẽ không bị sót.",
+        "After one pass with the clipper, comb the hair down and go over it again in another direction — no flattened hairs get missed.",
+        "Kun olet ajanut koneella kerran, kampaa hiukset alas ja aja uudelleen toiseen suuntaan — painuneet hiukset eivät jää leikkaamatta."
+      ),
+      l3(
+        "Trong VaraaAi, ghi cữ và độ dài vào ghi chú khách; lần sau khách chỉ cần nói “như lần trước”.",
+        "In VaraaAi, record the guards and lengths in the customer notes; next time the customer only needs to say “same as last time”.",
+        "Kirjaa VaraaAi:hin ohjauskammat ja pituudet asiakkaan muistiinpanoihin; ensi kerralla asiakkaan tarvitsee sanoa vain ”kuten viimeksi”."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Đi tông đơ có cữ ở hai bên thế nào cho đều?", "How do you clip the sides evenly with a guard?", "Miten sivut leikataan koneella tasaisesti ohjauskammalla?"),
+        options: [
+          l3("Đi từ trên xuống, ấn mạnh cho sát", "From the top down, pressing hard to get close", "Ylhäältä alas, painaen lähelle"),
+          l3("Cữ áp phẳng, đi lên ngược chiều tóc mọc, chậm, các đường chồng nhau", "Guard flat, upwards against the growth, slowly, overlapping strokes", "Ohjauskampa tasaisesti, ylöspäin kasvusuuntaa vastaan, hitaasti, vedot limittäin"),
+          l3("Nghiêng tông đơ để lưỡi cắm vào tóc", "Tilt the clipper so the blade digs in", "Kallista konetta, jotta terä uppoaa"),
+        ],
+        answer: 1,
+        why: l3(
+          "Ngược chiều mọc thì tóc dựng lên, cắt đều; ấn mạnh hay nghiêng tông đơ sẽ tạo lỗ.",
+          "Against the growth the hair stands up and cuts evenly; pressing or tilting the clipper makes holes.",
+          "Kasvusuuntaa vastaan hiukset nousevat ja leikkautuvat tasaisesti; painaminen tai kallistaminen tekee kuoppia."
+        ),
+      },
+      {
+        q: l3("Khi nào được bỏ cữ ở viền dưới cùng?", "When may you remove the guard at the bottom edge?", "Milloin ohjauskamman saa poistaa alareunasta?"),
+        options: [
+          l3("Lúc nào cũng được, cho gọn", "Any time, to make it neat", "Milloin vain, siistiyden vuoksi"),
+          l3("Khi thợ thấy đẹp hơn", "Whenever the barber thinks it looks better", "Kun parturin mielestä se näyttää paremmalta"),
+          l3("Chỉ khi đã thống nhất với khách từ trước", "Only when agreed with the customer beforehand", "Vain kun asiakkaan kanssa on sovittu etukäteen"),
+        ],
+        answer: 2,
+        why: l3(
+          "Tóc đã cắt ngắn thì không làm dài lại được; mọi thay đổi độ dài phải được khách đồng ý.",
+          "Hair cut short can't be made long again; every change in length needs the customer's agreement.",
+          "Lyhyeksi leikattua ei saa takaisin; jokainen pituusmuutos vaatii asiakkaan suostumuksen."
+        ),
+      },
+      {
+        q: l3("Lọn đầu tiên ở trán khi cắt phần đỉnh có vai trò gì?", "What is the first section at the front of the top for?", "Mikä tehtävä on päälaen ensimmäisellä osiolla edessä?"),
+        options: [
+          l3("Là đường chuẩn để các lọn sau làm theo", "It's the guideline the later sections follow", "Se on ohjauslinja, jota seuraavat osiot noudattavat"),
+          l3("Chỉ để thử kéo có sắc không", "Just to test if the scissors are sharp", "Vain saksien terävyyden testaamiseen"),
+          l3("Không quan trọng, cắt lọn nào trước cũng được", "Not important, any section can go first", "Ei merkitystä, mikä tahansa osio käy ensin"),
+        ],
+        answer: 0,
+        why: l3(
+          "Mỗi lọn sau lấy kèm một chút lọn trước và cắt theo nó, nên phần đỉnh dài đều từ trán tới đỉnh đầu.",
+          "Each next section takes a little of the previous one and follows it, so the top stays even from the front to the crown.",
+          "Jokaiseen seuraavaan osioon otetaan hieman edellistä ja leikataan sen mukaan, joten päälaki pysyy tasaisena edestä päälaelle."
+        ),
+      },
+    ],
+  },
   soon("cat-nam-fade", "p-hair", ["Fade: low, mid, high", "Fades: low, mid, high", "Fade: matala, keski, korkea"], [
     "Đặt đường guideline, mở – đóng cần gạt, xoá đường và hoàn thiện viền.",
     "Setting guidelines, lever open and closed, erasing lines and finishing the edges.",
@@ -5276,7 +5770,7 @@ const ALL_LESSONS: Lesson[] = [
 
 /** Trades the owner set aside for later (2026-11-16: hygiene, nails and lashes first). Their courses
  * and planned lessons stay in this file but are not shown; remove an id here to bring a trade back. */
-const LATER = new Set(["p-hair", "p-spa"]);
+const LATER = new Set(["p-spa"]);
 
 export const CRAFT_COURSES = ALL_COURSES.filter((c) => !LATER.has(c.id));
 export const CRAFT_LESSONS = ALL_LESSONS.filter((l) => !LATER.has(l.course));
