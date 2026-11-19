@@ -5736,16 +5736,483 @@ const ALL_LESSONS: Lesson[] = [
   ]),
 
   /* ================= spa ================= */
-  soon("spa-soi-da", "p-spa", ["Soi da và tư vấn", "Skin analysis and consultation", "Ihoanalyysi ja konsultaatio"], [
-    "Nhận biết loại da, tình trạng da, chống chỉ định và ghi phiếu khách.",
-    "Recognising skin types and conditions, contraindications and the customer record.",
-    "Ihotyypit ja ihon tila, vasta-aiheet ja asiakaskortti.",
-  ]),
-  soon("spa-facial", "p-spa", ["Chăm sóc da mặt cơ bản", "A basic facial", "Peruskasvohoito"], [
-    "Tẩy trang, rửa mặt, tẩy da chết, xông, mặt nạ và dưỡng — theo đúng thứ tự.",
-    "Cleansing, exfoliation, steam, mask and care — in the right order.",
-    "Puhdistus, kuorinta, höyry, naamio ja hoitotuotteet — oikeassa järjestyksessä.",
-  ]),
+  {
+    slug: "spa-soi-da-hieu-dung",
+    course: "p-spa",
+    style: "theory",
+    title: l3("Soi da và tư vấn: hiểu đúng để chọn đúng liệu trình", "Skin analysis and consultation: understand it to choose the right treatment", "Ihoanalyysi ja konsultaatio: ymmärrä ne, niin valitset oikean hoidon"),
+    summary: l3(
+      "Vì sao mọi liệu trình bắt đầu từ việc đọc da, loại da khác tình trạng da thế nào, đọc da bằng mắt, bằng tay và đèn lúp, những câu cần hỏi trong phiếu tư vấn (dị ứng, thuốc, retinoid, axit, isotretinoin, liệu trình gần đây, nắng, mang thai), khi nào không làm, nói thật về kết quả, kế hoạch chăm sóc tại nhà và giữ kín hồ sơ khách.",
+      "Why every treatment starts with reading the skin, how a skin type differs from a skin condition, reading the skin by eye, by touch and under a magnifier lamp, what to ask on the consultation card (allergies, medicines, retinoids, acids, isotretinoin, recent treatments, sun, pregnancy), when not to treat, honest expectations, a home-care plan and keeping the client's record confidential.",
+      "Miksi jokainen hoito alkaa ihon lukemisesta, miten ihotyyppi eroaa ihon tilasta, ihon arviointi silmin, käsin ja suurennuslampun alla, mitä asiakaskortissa kysytään (allergiat, lääkkeet, retinoidit, hapot, isotretinoiini, viimeaikaiset hoidot, aurinko, raskaus), milloin ei hoideta, rehelliset odotukset, kotihoito-ohjelma ja asiakastietojen luottamuksellisuus."
+    ),
+    video: video("spa-soi-da-hieu-dung", 291, "2026-11-19"),
+    notice: l3(
+      "Người làm da không chẩn đoán: hãy tả điều mình thấy và khuyên khách hỏi bác sĩ. Với thuốc, sản phẩm hoạt tính và thai kỳ, làm theo hướng dẫn của hãng và của bác sĩ kê thuốc. Quy định khác nhau theo từng nước. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "A skin therapist does not diagnose: describe what you see and suggest a doctor. With medicines, active products and pregnancy, follow the product brand's guidance and the prescriber's advice. Rules differ by country. This lesson is a training aid, not a licence.",
+      "Ihonhoitaja ei tee diagnooseja: kerro, mitä näet, ja ohjaa lääkäriin. Lääkkeiden, aktiivisten tuotteiden ja raskauden kohdalla noudatetaan valmistajan ohjeita ja lääkkeen määränneen lääkärin neuvoja. Määräykset vaihtelevat maittain. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    sources: [
+      { label: "NHS — Common questions about isotretinoin capsules (no waxing during treatment)", url: "https://www.nhs.uk/medicines/isotretinoin-capsules/common-questions-about-isotretinoin-capsules/" },
+    ],
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Mọi liệu trình bắt đầu từ việc đọc da. Chỉ nghe khách nói “da em nhiều dầu” rồi chọn sản phẩm mạnh là sai thường gặp: da có thể vừa dầu vừa thiếu nước, và làm sạch quá mạnh khiến da căng rát, bong vảy mà vẫn bóng.",
+        "Every treatment starts with reading the skin. Hearing “my skin is oily” and reaching for strong products is a common mistake: skin can be oily and dehydrated at once, and over-cleansing leaves it tight, flaky and still shiny.",
+        "Jokainen hoito alkaa ihon lukemisesta. Yleinen virhe on kuulla ”ihoni on rasvainen” ja valita heti voimakkaat tuotteet: iho voi olla yhtä aikaa rasvainen ja kuivunut, ja liian voimakas puhdistus jättää sen kireäksi, hilseileväksi ja silti kiiltäväksi."
+      ),
+      l3(
+        "Loại da khá ổn định: da thường, khô, dầu, hỗn hợp, nhạy cảm. Tình trạng da thay đổi theo mùa, sản phẩm, tuổi, giấc ngủ: thiếu nước, đỏ da, bít tắc, sắc tố, dấu hiệu lão hóa.",
+        "A skin type is fairly constant: normal, dry, oily, combination, sensitive. A skin condition changes with the season, products, age and sleep: dehydration, redness, congestion, pigmentation, signs of ageing.",
+        "Ihotyyppi on melko pysyvä: normaali, kuiva, rasvainen, seka-iho, herkkä. Ihon tila vaihtelee vuodenajan, tuotteiden, iän ja unen mukaan: kuivuminen, punoitus, tukkeutuminen, pigmentti, ikääntymisen merkit."
+      ),
+      l3(
+        "Da hỗn hợp bóng ở vùng chữ T (trán, mũi, cằm), má thường hoặc khô. Thiếu dầu là da khô; thiếu nước thì loại da nào cũng có thể bị, kể cả da dầu.",
+        "Combination skin shines in the T-zone (forehead, nose, chin) while the cheeks are normal or dry. Lack of oil means dry skin; lack of water (dehydration) can affect any type, oily skin too.",
+        "Seka-iho kiiltää T-alueella (otsa, nenä, leuka), posket ovat normaalit tai kuivat. Rasvan puute tarkoittaa kuivaa ihoa; kosteuden puute voi koskea mitä tahansa ihotyyppiä, myös rasvaista."
+      ),
+      l3(
+        "Soi da trên da sạch, không trang điểm, dưới ánh sáng tốt và đèn lúp; che mắt khách bằng bông. Nhìn bề mặt, lỗ chân lông, vùng bóng dầu; sờ thật nhẹ xem da mềm, căng hay ráp; chỗ vừa chạm đã ửng đỏ là da đang nhạy cảm.",
+        "Analyse clean, make-up-free skin in good light under a magnifier lamp, with cotton pads over the client's eyes. Look at the texture, the pores and where it shines; touch very lightly to feel soft, tight or rough skin; skin that flushes at a light touch is sensitive right now.",
+        "Arvioi puhdas, meikitön iho hyvässä valossa suurennuslampun alla, asiakkaan silmät pumpulilapuilla suojattuina. Katso pintaa, huokosia ja kiiltäviä alueita; tunnustele kevyesti, onko iho pehmeä, kireä vai karhea; kevyestä kosketuksesta punoittava iho on juuri nyt herkkä."
+      ),
+      l3(
+        "Phiếu tư vấn: dị ứng và phản ứng với mỹ phẩm trước đây, thuốc đang dùng, sản phẩm đang bôi ở nhà (nhất là retinoid và axit), thuốc trị mụn isotretinoin, liệu trình gần đây (lột da hóa học, laser, tẩy lông bằng sáp), đi nắng. Khách quen cũng hỏi lại.",
+        "The consultation card: allergies and earlier reactions to cosmetics, current medicines, products used at home (especially retinoids and acids), the acne medicine isotretinoin, recent treatments (chemical peels, laser, waxing), sun exposure. Ask regulars again too.",
+        "Asiakaskortti: allergiat ja aiemmat reaktiot kosmetiikkaan, käytössä olevat lääkkeet, kotona käytetyt tuotteet (etenkin retinoidit ja hapot), aknelääke isotretinoiini, viimeaikaiset hoidot (kemialliset kuorinnat, laser, vahaus), auringolle altistuminen. Kysy uudelleen myös vakioasiakkailta."
+      ),
+      l3(
+        "Da đang dùng retinoid hay axit mỏng và nhạy hơn: tẩy da chết mạnh dễ trầy, rát. Khách đang uống isotretinoin, hoặc mới ngừng trong khoảng sáu tháng: không wax (xem bài Khi nào không làm cho khách). Mang thai: hỏi thêm và chọn sản phẩm theo hướng dẫn của hãng.",
+        "Skin on retinoids or acids is thinner and more reactive: strong exfoliation easily grazes and stings. A client taking isotretinoin, or who stopped within about six months: no waxing (see the lesson on when not to treat). Pregnancy: ask more and choose products by the brand's guidance.",
+        "Retinoideja tai happoja käyttävä iho on ohuempi ja herkempi: voimakas kuorinta naarmuttaa ja kirvelee helposti. Isotretinoiinia käyttävä tai sen noin puolen vuoden sisällä lopettanut: ei vahausta (katso tunti siitä, milloin ei hoideta). Raskaus: kysy lisää ja valitse tuotteet valmistajan ohjeiden mukaan."
+      ),
+      l3(
+        "Không chẩn đoán. Da cháy nắng, trầy xước, mụn rộp, vùng sưng đỏ, đau, có mủ, nốt ruồi lạ đổi màu đổi dáng: không làm trên vùng đó, tả điều mình thấy và khuyên khách hỏi bác sĩ.",
+        "Don't diagnose. Sunburn, broken skin, cold sores, swollen, red, painful or pus-filled areas, a mole that changes colour or shape: don't treat that area; describe what you see and suggest a doctor.",
+        "Älä diagnosoi. Auringon polttama tai rikkinäinen iho, huuliherpes, turvonnut, punainen, kipeä tai märkivä alue, väriä tai muotoa muuttava luomi: älä hoida aluetta, kerro mitä näet ja ohjaa lääkäriin."
+      ),
+      l3(
+        "Nói thật về kết quả: một buổi làm da sạch, mềm, tươi hơn, nhưng đốm nâu, nếp nhăn hay mụn lâu năm không hết sau một buổi. Ghi mục tiêu của khách để lần sau so sánh.",
+        "Be honest about results: one treatment leaves the skin clean, soft and fresh, but pigmentation, lines or long-standing acne do not disappear in one visit. Note the client's goal to compare next time.",
+        "Kerro tuloksista rehellisesti: yksi hoito jättää ihon puhtaaksi, pehmeäksi ja raikkaaksi, mutta pigmenttimuutokset, juonteet tai pitkäaikainen akne eivät katoa yhdellä käynnillä. Kirjaa asiakkaan tavoite, jotta voit verrata seuraavalla kerralla."
+      ),
+      l3(
+        "Kế hoạch tại nhà ít bước mà đều đặn: làm sạch dịu nhẹ, dưỡng ẩm hợp loại da, kem chống nắng mỗi sáng. Đừng bán mười sản phẩm. Hẹn lần sau để xem da thay đổi.",
+        "A home-care plan with few steps, done every day: gentle cleansing, a moisturiser for the skin type, sunscreen every morning. Don't sell ten products. Book the next visit to see how the skin changes.",
+        "Kotihoito-ohjelma, jossa on vähän vaiheita mutta joka tehdään päivittäin: hellävarainen puhdistus, ihotyypille sopiva kosteusvoide ja aurinkosuoja joka aamu. Älä myy kymmentä tuotetta. Varaa seuraava käynti, jotta näet ihon muutoksen."
+      ),
+      l3(
+        "Dị ứng, thuốc men, sức khỏe là chuyện riêng tư: chỉ ghi khi khách đồng ý và giữ thật kín.",
+        "Allergies, medicines and health are private: record them only with the client's consent and keep them confidential.",
+        "Allergiat, lääkkeet ja terveys ovat yksityisasioita: kirjaa ne vain asiakkaan suostumuksella ja pidä ne luottamuksellisina."
+      ),
+    ],
+    tips: [
+      l3(
+        "Soi da luôn theo cùng một thứ tự (trán, vùng chữ T, má, hàm và cằm, cổ) để không bỏ sót vùng nào.",
+        "Always analyse in the same order (forehead, T-zone, cheeks, jaw and chin, neck) so no area is missed.",
+        "Arvioi aina samassa järjestyksessä (otsa, T-alue, posket, leukalinja ja leuka, kaula), ettei mikään alue jää huomaamatta."
+      ),
+      l3(
+        "Trong VaraaAi, ghi loại da, tình trạng da và câu trả lời tư vấn vào ghi chú nội bộ trong hồ sơ khách (chỉ tiệm mới thấy), để ai làm lần sau cũng biết ngay.",
+        "In VaraaAi, save the skin type, its condition and the consultation answers in the client's internal notes (visible to the salon only), so whoever treats the client next knows straight away.",
+        "Tallenna VaraaAi:ssa ihotyyppi, ihon tila ja konsultaation vastaukset asiakkaan sisäisiin muistiinpanoihin (näkyvät vain yritykselle), jotta seuraava hoitaja tietää ne heti."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Điều nào đúng về loại da và tình trạng da?", "Which is true about skin type and skin condition?", "Mikä pitää paikkansa ihotyypistä ja ihon tilasta?"),
+        options: [
+          l3("Hai cái là một, không cần phân biệt", "They are the same, no need to tell them apart", "Ne ovat sama asia, eroa ei tarvitse tehdä"),
+          l3("Loại da khá ổn định; tình trạng da thay đổi, ví dụ da dầu cũng có thể thiếu nước", "The type is fairly constant; the condition changes — oily skin can be dehydrated too", "Tyyppi on melko pysyvä; tila vaihtelee — rasvainenkin iho voi olla kuivunut"),
+          l3("Da dầu thì không bao giờ thiếu nước", "Oily skin is never dehydrated", "Rasvainen iho ei koskaan kuivu"),
+        ],
+        answer: 1,
+        why: l3(
+          "Thiếu dầu là da khô, còn thiếu nước là tình trạng, loại da nào cũng có thể bị.",
+          "Lack of oil is dry skin; lack of water is a condition that any skin type can have.",
+          "Rasvan puute on kuiva iho; kosteuden puute on tila, joka voi olla millä tahansa ihotyypillä."
+        ),
+      },
+      {
+        q: l3("Khách kể đang uống thuốc trị mụn isotretinoin và muốn wax môi trên. Làm gì?", "The client says she is taking the acne medicine isotretinoin and wants her upper lip waxed. What do you do?", "Asiakas kertoo käyttävänsä aknelääke isotretinoiinia ja haluaa ylähuulen vahauksen. Mitä teet?"),
+        options: [
+          l3("Wax nhẹ tay là được", "Wax gently and it's fine", "Vahaa kevyesti, se riittää"),
+          l3("Tẩy da chết trước cho sạch rồi wax", "Exfoliate first, then wax", "Kuori ensin ja vahaa sitten"),
+          l3("Không wax, giải thích lý do và ghi lại, theo bài Khi nào không làm cho khách", "No waxing; explain why and note it, as in the lesson on when not to treat", "Ei vahausta; kerro syy ja kirjaa se, kuten tunnilla siitä, milloin ei hoideta"),
+        ],
+        answer: 2,
+        why: l3(
+          "Isotretinoin làm da rất dễ tổn thương; không wax trong lúc uống thuốc và khoảng sáu tháng sau khi ngừng.",
+          "Isotretinoin makes the skin very fragile; no waxing while taking it and for about six months after stopping.",
+          "Isotretinoiini tekee ihosta hyvin hauraan; ei vahausta hoidon aikana eikä noin puoleen vuoteen sen jälkeen."
+        ),
+      },
+      {
+        q: l3("Bạn thấy một vùng da sưng đỏ, đau trên má khách. Nói gì là đúng?", "You see a swollen, red, painful area on the client's cheek. What is the right thing to say?", "Näet asiakkaan poskessa turvonneen, punaisen ja kipeän alueen. Mitä on oikein sanoa?"),
+        options: [
+          l3("“Em thấy chỗ này sưng đỏ, em sẽ không làm ở đây, chị nên hỏi bác sĩ.”", "“I can see this area is swollen and red, so I won't treat it — please ask a doctor.”", "”Näen, että tämä kohta on turvonnut ja punainen, joten en hoida sitä — kysy lääkäriltä.”"),
+          l3("“Chị bị nhiễm trùng rồi.”", "“You have an infection.”", "”Sinulla on tulehdus.”"),
+          l3("Không nói gì và làm như bình thường", "Say nothing and carry on as usual", "Älä sano mitään ja jatka tavalliseen tapaan"),
+        ],
+        answer: 0,
+        why: l3(
+          "Người làm da không chẩn đoán: tả điều mình thấy, không làm trên vùng đó, và khuyên khách đi khám.",
+          "A therapist does not diagnose: describe what you see, don't treat that area, and suggest a doctor.",
+          "Ihonhoitaja ei diagnosoi: kerro mitä näet, älä hoida aluetta ja ohjaa lääkäriin."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "spa-soi-da",
+    course: "p-spa",
+    style: "practice",
+    title: l3("Soi da và tư vấn: thực hành từng bước", "Skin analysis and consultation: step by step", "Ihoanalyysi ja konsultaatio: vaihe vaiheelta"),
+    summary: l3(
+      "Đón khách, phiếu tư vấn, khi nào không làm, làm sạch để thấy da thật, soi từng vùng dưới đèn lúp (trán, vùng chữ T, má, hàm và cằm, cổ), thử bằng giấy thấm dầu và đầu ngón tay, ghi lại, chọn liệu trình và giải thích, chăm sóc tại nhà và hẹn lần sau.",
+      "Welcoming the client, the consultation card, when not to treat, cleansing to see the bare skin, zone-by-zone analysis under the magnifier lamp (forehead, T-zone, cheeks, jaw and chin, neck), blotting-paper and fingertip tests, notes, choosing and explaining the treatment, home care and the next visit.",
+      "Asiakkaan vastaanotto, asiakaskortti, milloin ei hoideta, puhdistus paljaan ihon näkemiseksi, alue kerrallaan suurennuslampun alla (otsa, T-alue, posket, leukalinja ja leuka, kaula), imupaperi- ja sormenpäätesti, kirjaukset, hoidon valinta ja selittäminen, kotihoito ja seuraava käynti."
+    ),
+    video: video("spa-soi-da", 272, "2026-11-19"),
+    notice: l3(
+      "Người làm da không chẩn đoán: thấy điều đáng lo thì không làm trên vùng đó và khuyên khách hỏi bác sĩ. Đeo găng hay không khi chạm da là theo quy định của tiệm và nơi bạn làm việc. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "A skin therapist does not diagnose: if something worries you, don't treat that area and suggest a doctor. Whether to wear gloves when touching the skin follows your salon's and your local rules. This lesson is a training aid, not a licence.",
+      "Ihonhoitaja ei tee diagnooseja: jos jokin huolestuttaa, älä hoida aluetta ja ohjaa lääkäriin. Käsineiden käyttö ihoa kosketettaessa määräytyy yrityksesi ja paikallisten ohjeiden mukaan. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Đón khách, mời nước, mời thay áo choàng ở chỗ kín đáo; đeo băng đô giữ tóc khỏi mặt. Rửa tay bằng xà phòng và lau khô trước khi chạm vào khách (xem bài Rửa tay và găng tay).",
+        "Welcome the client, offer water and a private place to change into a robe; put on a headband to keep the hair off the face. Wash and dry your hands before you touch the client (see the hand-washing and gloves lesson).",
+        "Toivota asiakas tervetulleeksi, tarjoa vettä ja rauhallinen paikka vaihtaa aamutakki; laita otsapanta pitämään hiukset poissa kasvoilta. Pese ja kuivaa kätesi ennen kuin kosket asiakkaaseen (katso käsienpesun ja käsineiden tunti)."
+      ),
+      l3(
+        "Phiếu tư vấn, hỏi từ tốn, ngang tầm mắt: dị ứng, phản ứng trước đây, thuốc, sản phẩm đang bôi (retinoid, axit), isotretinoin, liệu trình gần đây, nắng; mang thai thì hỏi thêm và theo hướng dẫn của hãng; mong muốn của khách. Khách quen cũng hỏi lại.",
+        "The consultation card, asked calmly at eye level: allergies, earlier reactions, medicines, products in use (retinoids, acids), isotretinoin, recent treatments, sun; with pregnancy ask more and follow the brand's guidance; the client's wishes. Ask regulars again too.",
+        "Asiakaskortti rauhassa ja samalla silmien tasolla: allergiat, aiemmat reaktiot, lääkkeet, käytössä olevat tuotteet (retinoidit, hapot), isotretinoiini, viimeaikaiset hoidot, aurinko; raskauden kohdalla kysy lisää ja noudata valmistajan ohjeita; asiakkaan toiveet. Kysy myös vakioasiakkailta uudelleen."
+      ),
+      l3(
+        "Cháy nắng, trầy xước, mụn rộp, vùng sưng đỏ, đau: không làm trên vùng đó; nói nhẹ nhàng, tả điều mình thấy, khuyên hỏi bác sĩ (xem bài Khi nào không làm cho khách).",
+        "Sunburn, broken skin, cold sores, swollen, red, painful areas: don't treat there; speak gently, describe what you see, suggest a doctor (see the lesson on when not to treat).",
+        "Auringon polttama tai rikkinäinen iho, huuliherpes, turvonnut, punainen, kipeä alue: älä hoida sitä; puhu lempeästi, kerro mitä näet ja ohjaa lääkäriin (katso tunti siitä, milloin ei hoideta)."
+      ),
+      l3(
+        "Khách nằm, đắp khăn và chăn, chỉ lộ mặt, cổ và vai. Tẩy trang mắt, môi rồi rửa mặt: soi da khi còn trang điểm hay kem là đọc sai từ đầu (cách làm sạch: bài Chăm sóc da mặt cơ bản).",
+        "The client lies down under a towel and blanket, only face, neck and shoulders showing. Remove eye and lip make-up, then cleanse: analysing skin with make-up or cream on misreads it from the start (cleansing: see the basic facial lesson).",
+        "Asiakas makaa pyyhkeen ja peiton alla, näkyvillä vain kasvot, kaula ja hartiat. Poista silmä- ja huulimeikki ja puhdista iho: meikin tai voiteen läpi arvioitu iho tulkitaan väärin alusta asti (puhdistus: peruskasvohoidon tunti)."
+      ),
+      l3(
+        "Che mắt khách bằng bông, kéo đèn lúp lại gần, soi theo một thứ tự: trán (dầu, lỗ chân lông, nếp nhăn ngang), vùng chữ T (dầu, mụn đầu đen), má (đỏ, mạch máu nhỏ, đốm nâu, độ khô), hàm và cằm (mụn nhỏ, mụn ẩn), cổ.",
+        "Cover the client's eyes with cotton pads, bring the magnifier lamp close and work in one order: forehead (oil, pores, horizontal lines), T-zone (oil, blackheads), cheeks (redness, small capillaries, brown spots, dryness), jaw and chin (small spots, closed comedones), neck.",
+        "Peitä asiakkaan silmät pumpulilapuilla, tuo suurennuslamppu lähelle ja etene aina samassa järjestyksessä: otsa (rasva, huokoset, vaakajuonteet), T-alue (rasva, mustapäät), posket (punoitus, pienet verisuonet, ruskeat läiskät, kuivuus), leukalinja ja leuka (pienet näpyt, umpikomedot), kaula."
+      ),
+      l3(
+        "Thử bằng tay sạch hoặc găng theo quy định của tiệm: giấy thấm dầu ấn lên trán, mũi, má (giấy trong lên là nhiều dầu); lướt nhẹ đầu ngón tay để cảm nhận da mịn, ráp hay căng; chỗ vừa chạm đã ửng đỏ thì ghi lại là da nhạy cảm.",
+        "Test with clean hands or gloves, as your salon requires: press blotting paper on the forehead, nose and cheeks (where it turns translucent, there is more oil); glide a fingertip lightly to feel smooth, rough or tight skin; note any spot that flushes at a light touch as sensitive.",
+        "Testaa puhtain käsin tai käsinein yrityksesi ohjeen mukaan: paina imupaperia otsalle, nenälle ja poskille (läpikuultava kohta = enemmän rasvaa); liu'uta sormenpäätä kevyesti tunnustellen, onko iho sileä, karhea vai kireä; kirjaa kevyestä kosketuksesta punoittava kohta herkäksi."
+      ),
+      l3(
+        "Ghi lại loại da, tình trạng từng vùng, lời khách kể, việc đã quyết định không làm và lý do. Ghi điều mình thấy, không ghi tên bệnh; chỉ ghi khi khách đồng ý.",
+        "Record the skin type, the condition of each zone, what the client told you, anything you decided not to do and why. Write what you saw, never the name of a disease; record only with the client's consent.",
+        "Kirjaa ihotyyppi, kunkin alueen tila, asiakkaan kertomat asiat sekä se, mitä päätit jättää tekemättä ja miksi. Kirjaa näkemäsi, älä sairauden nimeä; kirjaa vain asiakkaan suostumuksella."
+      ),
+      l3(
+        "Chọn liệu trình và giải thích: ví dụ da hỗn hợp hơi thiếu nước, vài mụn đầu đen ở mũi → làm sạch dịu, tẩy da chết nhẹ, mặt nạ hợp da, lấy nhân mụn chỉ khi đã được học và tiệm cho phép. Nói rõ sẽ làm gì, cảm giác ra sao và kết quả thật sự.",
+        "Choose the treatment and explain it: e.g. combination skin, a little dehydrated, a few blackheads on the nose → gentle cleansing, mild exfoliation, a suitable mask, extraction only if trained and allowed. Say what you'll do, how it feels and the real result.",
+        "Valitse hoito ja selitä se: esim. hieman kuivunut seka-iho ja muutama mustapää nenässä → hellävarainen puhdistus, mieto kuorinta, sopiva naamio, ekstraktio vain koulutettuna ja luvan kanssa. Kerro, mitä teet, miltä se tuntuu ja mikä on todellinen tulos."
+      ),
+      l3(
+        "Kế hoạch tại nhà ngắn gọn: rửa mặt dịu nhẹ sáng tối, dưỡng ẩm hợp loại da, kem chống nắng mỗi sáng. Đặt lịch lần sau ngay tại quầy.",
+        "A short home-care plan: gentle cleansing morning and evening, a moisturiser for the skin type, sunscreen every morning. Book the next visit right at the desk.",
+        "Lyhyt kotihoito-ohjelma: hellävarainen puhdistus aamuin illoin, ihotyypille sopiva kosteusvoide, aurinkosuoja joka aamu. Varaa seuraava käynti heti tiskillä."
+      ),
+      l3(
+        "Khách về: thay khăn, thay ga, lau giường và đèn lúp, rửa tay.",
+        "After the client leaves: change the towels and linen, wipe the bed and the magnifier lamp, wash your hands.",
+        "Asiakkaan lähdettyä: vaihda pyyhkeet ja liinat, pyyhi hoitopöytä ja suurennuslamppu, pese kädet."
+      ),
+    ],
+    tips: [
+      l3(
+        "Soi da luôn trên da sạch và luôn theo cùng một thứ tự; nhờ vậy lần sau dễ so sánh và không bỏ sót.",
+        "Always analyse clean skin and always in the same order; that makes it easy to compare next time and nothing gets missed.",
+        "Arvioi aina puhdas iho ja aina samassa järjestyksessä; silloin vertailu seuraavalla kerralla on helppoa eikä mitään jää huomaamatta."
+      ),
+      l3(
+        "Trong VaraaAi, ghi kết quả soi da vào ghi chú nội bộ trong hồ sơ khách (chỉ tiệm mới thấy) và đặt lịch hẹn kế tiếp ngay khi khách còn ở quầy.",
+        "In VaraaAi, save the analysis in the client's internal notes (visible to the salon only) and book the next appointment while the client is still at the desk.",
+        "Tallenna VaraaAi:ssa ihoanalyysi asiakkaan sisäisiin muistiinpanoihin (näkyvät vain yritykselle) ja varaa seuraava aika, kun asiakas on vielä tiskillä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Vì sao phải làm sạch da trước khi soi?", "Why cleanse the skin before analysing it?", "Miksi iho puhdistetaan ennen arviointia?"),
+        options: [
+          l3("Để khách thấy thơm", "So the client smells nice", "Jotta asiakas tuoksuu hyvältä"),
+          l3("Vì trang điểm và kem che mất da thật, làm đọc sai", "Because make-up and cream hide the real skin and lead to a wrong reading", "Koska meikki ja voide peittävät todellisen ihon ja johtavat väärään tulkintaan"),
+          l3("Vì đèn lúp chỉ bật được khi da ướt", "Because the magnifier lamp only works on wet skin", "Koska suurennuslamppu toimii vain märällä iholla"),
+        ],
+        answer: 1,
+        why: l3(
+          "Soi da khi còn trang điểm hay kem là đọc sai ngay từ đầu.",
+          "Analysing skin with make-up or cream on misreads it from the very start.",
+          "Meikin tai voiteen läpi arvioitu iho tulkitaan väärin alusta asti."
+        ),
+      },
+      {
+        q: l3("Trước khi bật đèn lúp, việc đầu tiên là gì?", "Before switching on the magnifier lamp, what comes first?", "Mitä tehdään ensin ennen suurennuslampun sytyttämistä?"),
+        options: [
+          l3("Đặt bông che mắt khách", "Put cotton pads over the client's eyes", "Laita pumpulilaput asiakkaan silmille"),
+          l3("Thoa mặt nạ", "Apply a mask", "Levitä naamio"),
+          l3("Lấy nhân mụn", "Do the extractions", "Tee ekstraktiot"),
+        ],
+        answer: 0,
+        why: l3("Đèn lúp rất sáng; che mắt cho khách dễ chịu và an toàn.", "The lamp is very bright; covering the eyes keeps the client comfortable and safe.", "Lamppu on hyvin kirkas; silmien peittäminen pitää asiakkaan mukavana ja turvassa."),
+      },
+      {
+        q: l3("Ghi gì vào hồ sơ khách là đúng?", "What is right to write in the client's record?", "Mitä asiakastietoihin on oikein kirjata?"),
+        options: [
+          l3("Tên bệnh mà mình đoán", "The name of the disease you suspect", "Epäilemäsi sairauden nimi"),
+          l3("Không ghi gì, cho nhanh", "Nothing, to save time", "Ei mitään, aikaa säästääkseen"),
+          l3("Điều mình thấy, lời khách kể, việc không làm và lý do — khi khách đồng ý", "What you saw, what the client said, what you didn't do and why — with the client's consent", "Mitä näit, mitä asiakas kertoi, mitä jätit tekemättä ja miksi — asiakkaan suostumuksella"),
+        ],
+        answer: 2,
+        why: l3("Người làm da không chẩn đoán; hồ sơ ghi điều quan sát được, và là thông tin riêng tư.", "Therapists don't diagnose; the record holds what was observed, and it is private information.", "Ihonhoitaja ei diagnosoi; kirjaus sisältää havainnot, ja se on luottamuksellista tietoa."),
+      },
+    ],
+  },
+  {
+    slug: "spa-facial-hieu-dung",
+    course: "p-spa",
+    style: "theory",
+    title: l3("Chăm sóc da mặt cơ bản: hiểu đúng để da sạch và khỏe", "A basic facial: understand it for clean, healthy skin", "Peruskasvohoito: ymmärrä se, niin iho on puhdas ja terve"),
+    summary: l3(
+      "Thứ tự một buổi chăm sóc da mặt và lý do của từng bước: làm sạch hai lần, tẩy da chết theo loại da (và tác hại của tẩy quá tay), khăn ấm và xông hơi, lấy nhân mụn an toàn với dụng cụ đã tiệt trùng, mặt nạ, massage, nước cân bằng, dưỡng ẩm, chống nắng, thử sản phẩm trên vùng da nhỏ, vệ sinh, và xử lý khi da phản ứng.",
+      "The order of a facial and the reason for each step: double cleansing, exfoliation chosen by skin type (and the harm of over-exfoliating), warm towels and steam, safe extraction with sterilised tools, mask, massage, toner, moisturiser, sunscreen, patch-testing products, hygiene, and what to do if the skin reacts.",
+      "Kasvohoidon järjestys ja kunkin vaiheen syy: kaksoispuhdistus, ihotyypin mukaan valittu kuorinta (ja liiallisen kuorinnan haitat), lämpimät pyyhkeet ja höyry, turvallinen ekstraktio steriloiduilla välineillä, naamio, hieronta, kasvovesi, kosteusvoide, aurinkosuoja, tuotteiden testaus pienelle ihoalueelle, hygienia ja toiminta ihoreaktiossa."
+    ),
+    video: video("spa-facial-hieu-dung", 278, "2026-11-19"),
+    notice: l3(
+      "Thời gian và cách dùng của mỗi sản phẩm luôn theo hướng dẫn của hãng. Lấy nhân mụn chỉ khi đã được đào tạo và khi quy định nơi bạn làm việc cho phép; quy định khác nhau theo từng nước. Phản ứng nặng như sưng mặt, sưng môi, khó thở: gọi 112 (hoặc số cấp cứu nơi bạn ở). Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Product times and use always follow the brand's instructions. Do extractions only if you are trained and local rules allow it; rules differ by country. A severe reaction such as a swollen face or lips or difficulty breathing: call 112 (or your local emergency number). This lesson is a training aid, not a licence.",
+      "Tuotteiden vaikutusajat ja käyttö noudattavat aina valmistajan ohjeita. Tee ekstraktioita vain koulutettuna ja jos paikalliset määräykset sallivat; määräykset vaihtelevat maittain. Vakava reaktio, kuten kasvojen tai huulten turvotus tai hengitysvaikeus: soita 112 (tai paikalliseen hätänumeroon). Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    sources: [HELSINKI_HYGIENE],
+    related: ["dich-vu", "khach-hang", "lich-hen"],
+    steps: [
+      l3(
+        "Thứ tự cơ bản: làm sạch, tẩy da chết, làm ấm (khăn ấm hay xông hơi), lấy nhân mụn nếu cần, mặt nạ và massage (có tiệm massage trước mặt nạ, có tiệm sau), nước cân bằng, dưỡng ẩm, chống nắng nếu là ban ngày. Đi từ sạch, đến thông thoáng, rồi nuôi dưỡng và bảo vệ.",
+        "The basic order: cleanse, exfoliate, warm (towels or steam), extractions if needed, mask and massage (some salons massage before the mask, some after), toner, moisturiser, sunscreen in the daytime. From clean, to clear, then nourish and protect.",
+        "Perusjärjestys: puhdistus, kuorinta, lämmitys (pyyhkeet tai höyry), tarvittaessa ekstraktio, naamio ja hieronta (osa hieroo ennen naamiota, osa jälkeen), kasvovesi, kosteusvoide, päivällä aurinkosuoja. Puhtaasta selkeään, sitten ravitseminen ja suojaus."
+      ),
+      l3(
+        "Khách có trang điểm thì làm sạch hai lần: tẩy trang (trang điểm, kem chống nắng), rồi sữa rửa mặt hợp loại da. Mắt và môi: đặt bông ướt vài giây cho mascara mềm, lau nhẹ, không chà, không để sản phẩm vào mắt.",
+        "With make-up, cleanse twice: first remove make-up and sunscreen, then a cleanser for the skin type. Eyes and lips: hold a soaked pad for a few seconds to soften mascara, wipe gently, never rub, keep product out of the eyes.",
+        "Meikatulle iholle tehdään kaksoispuhdistus: ensin meikin ja aurinkosuojan poisto, sitten ihotyypille sopiva puhdistusaine. Silmät ja huulet: pidä kostutettua lappua muutama sekunti, jotta ripsiväri pehmenee, pyyhi kevyesti, älä hankaa, äläkä päästä tuotetta silmiin."
+      ),
+      l3(
+        "Tẩy da chết theo da: men enzyme dịu cho da nhạy cảm, da mỏng; axit nhẹ cho da dày, nhiều dầu; hạt phải thật mịn và chà thật nhẹ. Để đúng thời gian của hãng, không lâu hơn.",
+        "Exfoliate by skin: a gentle enzyme for sensitive or thin skin; a mild acid for thicker, oily skin; any scrub must be very fine and used very lightly. Keep to the brand's time, never longer.",
+        "Kuori ihon mukaan: mieto entsyymi herkälle tai ohuelle iholle; mieto happo paksummalle, rasvaiselle iholle; rakeiden on oltava hyvin hienoja ja käytön hyvin kevyttä. Noudata valmistajan aikaa, älä pidennä sitä."
+      ),
+      l3(
+        "Tẩy quá tay, nhất là chồng lên axit hay retinoid khách dùng ở nhà, làm tổn thương hàng rào da: vài ngày sau đỏ, rát, châm chích, bong mảng, và da cần thời gian, có khi vài tuần, để hồi lại. Luôn hỏi trước khách đang bôi gì.",
+        "Over-exfoliating, especially on top of acids or retinoids used at home, damages the skin barrier: a few days later redness, burning, stinging and peeling, and the skin needs time — sometimes weeks — to recover. Always ask what the client uses at home.",
+        "Liiallinen kuorinta, etenkin kotona käytettyjen happojen tai retinoidien päälle, vaurioittaa ihon suojamuuria: muutaman päivän kuluttua punoitusta, kirvelyä, pistelyä ja hilseilyä, ja iho tarvitsee aikaa, joskus viikkoja, toipuakseen. Kysy aina, mitä asiakas käyttää kotona."
+      ),
+      l3(
+        "Khăn ấm hay xông hơi để khách dễ chịu và da mềm hơn: khăn ấm, không nóng (thử trên cổ tay mình), máy xông đặt đủ xa, không xông lâu. Da rất nhạy cảm, đang đỏ, mạch máu nhỏ hiện rõ: bỏ qua, hoặc dùng khăn mát ẩm.",
+        "Warm towels or steam are for comfort and softer skin: warm, not hot (test on your own wrist), the steamer far enough away, not for long. Very sensitive or red skin, or visible small capillaries: skip it, or use a cool damp towel.",
+        "Lämpimät pyyhkeet tai höyry ovat mukavuutta ja ihon pehmentämistä varten: lämmin, ei kuuma (kokeile omaan ranteeseen), höyrystin riittävän kaukana, ei pitkään. Hyvin herkkä tai punoittava iho tai näkyvät pienet verisuonet: jätä väliin tai käytä viileää kosteaa pyyhettä."
+      ),
+      l3(
+        "Lấy nhân mụn chỉ khi đã được đào tạo và quy định cho phép: luôn đeo găng, quấn khăn giấy quanh đầu ngón tay, ấn thật nhẹ hai bên; không dùng móng tay, không nặn mạnh, không ra thì để đó, làm ngắn.",
+        "Extract only if trained and allowed: always gloves, tissue around the fingertips, very gentle pressure on both sides; never fingernails, never squeezing hard — if it doesn't come, leave it — and keep it brief.",
+        "Ekstraktio vain koulutettuna ja luvan kanssa: aina käsineet, paperi sormenpäiden ympärillä, hyvin kevyt painallus molemmin puolin; ei kynsiä eikä kovaa puristamista — jos ei irtoa, jätä — ja pidä se lyhyenä."
+      ),
+      l3(
+        "Dụng cụ nặn mụn và mọi thứ có thể làm trầy da phải được làm sạch, tiệt trùng sau mỗi khách và cất trong túi kín; hướng dẫn vệ sinh của thành phố Helsinki ghi rõ dụng cụ nặn mụn phải được tiệt trùng. Kim chích chỉ dùng một lần và chỉ khi quy định cho phép (xem bài Xử lý dụng cụ sau mỗi khách).",
+        "Comedone extractors and anything that can break the skin must be cleaned, sterilised after every client and stored in sealed pouches; the City of Helsinki hygiene guidance states that blackhead extractors must be sterilised. Lancets are single-use and only where local rules allow (see the lesson on tools after every client).",
+        "Komedonipuristimet ja kaikki ihon rikkovat välineet puhdistetaan, steriloidaan jokaisen asiakkaan jälkeen ja säilytetään suljetuissa pusseissa; Helsingin kaupungin hygieniaohjeen mukaan mustapääpuristimet on steriloitava. Lansetit ovat kertakäyttöisiä ja vain, jos paikalliset määräykset sallivat (katso tunti välineistä jokaisen asiakkaan jälkeen)."
+      ),
+      l3(
+        "Mặt nạ theo da: đất sét cho da dầu, bít tắc; kem hay gel cho da khô, thiếu nước, nhạy cảm. Thoa bằng cọ, tránh mắt, lỗ mũi và môi; đúng thời gian của hãng. Rồi nước cân bằng, dưỡng ẩm, và kem chống nắng nếu là ban ngày.",
+        "Mask by skin: clay for oily or congested skin; cream or gel for dry, dehydrated or sensitive skin. Apply with a brush, avoiding eyes, nostrils and lips; keep to the brand's time. Then toner, moisturiser, and sunscreen in the daytime.",
+        "Naamio ihon mukaan: savi rasvaiselle tai tukkoiselle iholle; voide- tai geelinaamio kuivalle, kuivuneelle tai herkälle iholle. Levitä siveltimellä, vältä silmiä, sieraimia ja huulia; noudata valmistajan aikaa. Sitten kasvovesi, kosteusvoide ja päivällä aurinkosuoja."
+      ),
+      l3(
+        "Sản phẩm mới, nhất là cho da nhạy cảm hay khách từng dị ứng: thử trước trên một vùng da nhỏ theo hướng dẫn của hãng. Thử không phải bảo đảm tuyệt đối (xem bài Dị ứng và hóa chất).",
+        "New products, especially for sensitive skin or clients with allergies: test on a small area of skin first, as the brand says. A test is no guarantee (see the allergy and chemicals lesson).",
+        "Uudet tuotteet, etenkin herkälle iholle tai allergisille asiakkaille: testaa ensin pienelle ihoalueelle valmistajan ohjeen mukaan. Testi ei ole tae (katso allergia- ja kemikaalitunti)."
+      ),
+      l3(
+        "Vệ sinh: rửa tay trước mỗi khách; lấy kem bằng que sạch, không thò ngón tay vào hũ; cọ, bát, dụng cụ dùng một lần hoặc làm sạch và khử khuẩn sau mỗi khách; khăn, băng đô, ga thay mới cho từng khách. Da phản ứng: dừng sản phẩm, rửa nước mát, đắp khăn mát, không thoa thêm gì, ghi sản phẩm và số lô (xem bài Xử lý sự cố).",
+        "Hygiene: wash hands before every client; take cream out with a clean spatula, never fingers in the jar; brushes, bowls and tools single-use or cleaned and disinfected after every client; fresh towels, headband and linen for each client. If the skin reacts: stop the product, rinse with cool water, cool compress, apply nothing else, note the product and batch (see the incidents lesson).",
+        "Hygienia: pese kädet ennen jokaista asiakasta; ota voide puhtaalla lastalla, älä koskaan sormin purkista; siveltimet, kulhot ja välineet kertakäyttöisiä tai puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen; puhtaat pyyhkeet, otsapanta ja liinat jokaiselle asiakkaalle. Jos iho reagoi: lopeta tuotteen käyttö, huuhtele viileällä vedellä, viileä kääre, älä levitä muuta, kirjaa tuote ja eränumero (katso tunti häiriötilanteista)."
+      ),
+    ],
+    tips: [
+      l3(
+        "Hũ kem dùng chung cho nhiều khách: chỉ một lần thò ngón tay là cả hũ nhiễm bẩn. Luôn để sẵn que sạch trên xe đẩy.",
+        "A jar shared by many clients is contaminated by a single finger. Always keep clean spatulas ready on the trolley.",
+        "Monen asiakkaan yhteinen purkki saastuu yhdestäkin sormesta. Pidä aina puhtaita lastoja valmiina hoitovaunulla."
+      ),
+      l3(
+        "Trong VaraaAi, ghi vào ghi chú nội bộ của khách những sản phẩm đã dùng, phản ứng nếu có và số lô, để lần sau tránh được.",
+        "In VaraaAi, note in the client's internal notes which products you used, any reaction and the batch number, so it can be avoided next time.",
+        "Merkitse VaraaAi:ssa asiakkaan sisäisiin muistiinpanoihin käytetyt tuotteet, mahdollinen reaktio ja eränumero, jotta se voidaan välttää ensi kerralla."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khách có trang điểm. Làm sạch thế nào là đúng?", "The client wears make-up. How do you cleanse?", "Asiakkaalla on meikki. Miten puhdistat?"),
+        options: [
+          l3("Tẩy trang trước, rồi rửa mặt lần hai bằng sữa rửa mặt hợp da", "Remove make-up first, then cleanse again with a cleanser for the skin type", "Poista ensin meikki ja puhdista sitten uudelleen ihotyypille sopivalla aineella"),
+          l3("Chỉ cần tẩy da chết thật kỹ", "Just exfoliate thoroughly", "Riittää kuoria perusteellisesti"),
+          l3("Đắp mặt nạ đất sét để hút sạch trang điểm", "Use a clay mask to draw out the make-up", "Käytä savinaamiota meikin poistamiseen"),
+        ],
+        answer: 0,
+        why: l3("Lần đầu lấy đi trang điểm và kem chống nắng; lần hai làm sạch chính làn da.", "The first cleanse removes make-up and sunscreen; the second cleans the skin itself.", "Ensimmäinen puhdistus poistaa meikin ja aurinkosuojan; toinen puhdistaa itse ihon."),
+      },
+      {
+        q: l3("Khách có da đỏ, mạch máu nhỏ hiện rõ. Bước xông hơi thì sao?", "The client has red skin with visible small capillaries. What about steam?", "Asiakkaan iho punoittaa ja pienet verisuonet näkyvät. Entä höyry?"),
+        options: [
+          l3("Xông thật lâu cho da mềm", "Steam for a long time to soften the skin", "Höyrytä pitkään ihon pehmentämiseksi"),
+          l3("Đặt máy thật gần mặt", "Put the steamer very close to the face", "Tuo höyrystin aivan kasvojen lähelle"),
+          l3("Bỏ qua, hoặc chỉ dùng khăn mát, ẩm", "Skip it, or use only a cool damp towel", "Jätä väliin tai käytä vain viileää kosteaa pyyhettä"),
+        ],
+        answer: 2,
+        why: l3("Hơi nóng làm da nhạy cảm, đang đỏ càng đỏ thêm.", "Heat makes sensitive, red skin redder.", "Lämpö lisää herkän, punoittavan ihon punoitusta."),
+      },
+      {
+        q: l3("Điều nào đúng về dụng cụ nặn mụn bằng kim loại?", "Which is right about a metal comedone extractor?", "Mikä pitää paikkansa metallisesta komedonipuristimesta?"),
+        options: [
+          l3("Lau cồn là đủ", "Wiping it with alcohol is enough", "Alkoholilla pyyhkiminen riittää"),
+          l3("Làm sạch và tiệt trùng sau mỗi khách, cất trong túi kín", "Clean and sterilise it after every client and store it in a sealed pouch", "Puhdista ja steriloi jokaisen asiakkaan jälkeen ja säilytä suljetussa pussissa"),
+          l3("Dùng chung cho cả ngày rồi rửa một lần", "Use it all day and wash it once", "Käytä koko päivä ja pese kerran"),
+        ],
+        answer: 1,
+        why: l3("Dụng cụ có thể làm trầy da phải được tiệt trùng; hướng dẫn của Helsinki ghi rõ dụng cụ nặn mụn phải được tiệt trùng.", "Tools that can break the skin must be sterilised; the Helsinki guidance states that blackhead extractors must be sterilised.", "Ihon rikkovat välineet on steriloitava; Helsingin ohjeen mukaan mustapääpuristimet on steriloitava."),
+      },
+    ],
+  },
+  {
+    slug: "spa-facial",
+    course: "p-spa",
+    style: "practice",
+    title: l3("Chăm sóc da mặt cơ bản: thực hành từng bước", "A basic facial: step by step", "Peruskasvohoito: vaihe vaiheelta"),
+    summary: l3(
+      "Một buổi chăm sóc da mặt cơ bản từ đầu đến cuối: chuẩn bị giường và dụng cụ, mời khách nằm, rửa tay, tẩy trang mắt và môi, rửa mặt lần hai, soi da nhanh, tẩy da chết, khăn ấm hoặc xông hơi, lấy nhân mụn (chỉ khi đã được đào tạo), mặt nạ, nước cân bằng, dưỡng ẩm, chống nắng, lời dặn, đặt lịch và dọn dẹp.",
+      "A basic facial from start to finish: preparing the bed and tools, settling the client, washing hands, removing eye and lip make-up, a second cleanse, a quick skin check, exfoliation, a warm towel or steam, extractions (only if trained), mask, toner, moisturiser, sunscreen, aftercare advice, rebooking and cleaning up.",
+      "Peruskasvohoito alusta loppuun: hoitopöydän ja välineiden valmistelu, asiakkaan asettuminen, käsienpesu, silmä- ja huulimeikin poisto, toinen puhdistus, nopea ihon arvio, kuorinta, lämmin pyyhe tai höyry, ekstraktio (vain koulutettuna), naamio, kasvovesi, kosteusvoide, aurinkosuoja, jälkihoito-ohjeet, uusi varaus ja siivous."
+    ),
+    video: video("spa-facial", 268, "2026-11-19"),
+    notice: l3(
+      "Thời gian của từng sản phẩm luôn theo hướng dẫn của hãng. Lấy nhân mụn chỉ khi đã được đào tạo và khi quy định nơi bạn làm việc cho phép; dụng cụ nặn mụn phải được tiệt trùng. Quy định khác nhau theo từng nước. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Product times always follow the brand's instructions. Do extractions only if you are trained and local rules allow it; extractors must be sterilised. Rules differ by country. This lesson is a training aid, not a licence.",
+      "Tuotteiden vaikutusajat noudattavat aina valmistajan ohjeita. Tee ekstraktioita vain koulutettuna ja jos paikalliset määräykset sallivat; puristimet on steriloitava. Määräykset vaihtelevat maittain. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    sources: [HELSINKI_HYGIENE],
+    related: ["lich-hen", "khach-hang", "dich-vu"],
+    steps: [
+      l3(
+        "Chuẩn bị: lau và khử khuẩn mặt giường; ga, khăn, băng đô sạch cho khách mới; xếp sẵn bông, khăn, bát, cọ, que lấy kem và sản phẩm đã chọn sau khi soi da.",
+        "Prepare: wipe and disinfect the bed; fresh linen, towels and headband for the new client; lay out cotton pads, towels, bowls, brushes, spatulas and the products chosen after the skin analysis.",
+        "Valmistelu: pyyhi ja desinfioi hoitopöytä; puhtaat liinat, pyyhkeet ja otsapanta uudelle asiakkaalle; asettele valmiiksi pumpulilaput, pyyhkeet, kulhot, siveltimet, lastat ja ihoanalyysin perusteella valitut tuotteet."
+      ),
+      l3(
+        "Khách nằm ngửa, đắp khăn và chăn, chỉ lộ mặt, cổ và vai; đeo băng đô; hỏi khách có ấm, gối có vừa không. Rửa tay bằng xà phòng và lau khô (xem bài Rửa tay và găng tay).",
+        "The client lies on her back under a towel and blanket, only face, neck and shoulders showing; headband on; ask whether she is warm and comfortable. Wash and dry your hands (see the hand-washing and gloves lesson).",
+        "Asiakas makaa selällään pyyhkeen ja peiton alla, näkyvillä vain kasvot, kaula ja hartiat; otsapanta päähän; kysy, onko lämmin ja mukava. Pese ja kuivaa kädet (katso käsienpesun ja käsineiden tunti)."
+      ),
+      l3(
+        "Tẩy trang: đặt bông thấm nước tẩy trang lên mắt đang nhắm vài giây cho mascara mềm, lau nhẹ xuống, không chà, không kéo da, không để sản phẩm vào mắt; lau môi thật nhẹ; rồi tẩy trang cả mặt.",
+        "Make-up removal: hold a soaked pad on the closed eye for a few seconds to soften the mascara, wipe gently downwards, never rub or pull, keep product out of the eye; wipe the lips gently; then the whole face.",
+        "Meikinpoisto: pidä kostutettua lappua suljetulla silmällä muutama sekunti, jotta ripsiväri pehmenee, pyyhi kevyesti alaspäin, älä hankaa tai venytä, älä päästä tuotetta silmään; pyyhi huulet kevyesti; sitten koko kasvot."
+      ),
+      l3(
+        "Rửa mặt lần hai: sữa rửa mặt xoa ấm trong tay, thoa bằng vòng tròn nhỏ, nhẹ, từ cằm lên má rồi trán, tránh mắt; lau sạch bằng mút ấm. Soi da nhanh dưới đèn lúp và so với phiếu tư vấn; thấy điều đáng lo thì dừng (xem bài Khi nào không làm cho khách).",
+        "Second cleanse: warm the cleanser in your hands and apply in small, gentle circles from the chin to the cheeks and forehead, avoiding the eyes; remove with warm sponges. Check the skin quickly under the magnifier lamp against the consultation card; if something worries you, stop (see the lesson on when not to treat).",
+        "Toinen puhdistus: lämmitä puhdistusaine käsissä ja levitä pienin, kevein ympyröin leuasta poskille ja otsalle silmiä välttäen; poista lämpimillä sienillä. Arvioi iho nopeasti suurennuslampun alla ja vertaa asiakaskorttiin; jos jokin huolestuttaa, keskeytä (katso tunti siitä, milloin ei hoideta)."
+      ),
+      l3(
+        "Tẩy da chết: che mắt bằng bông, dùng cọ thoa lớp mỏng, tránh mắt và môi; đúng thời gian của hãng và luôn quan sát; khách rát hay da đỏ nhanh thì lau đi ngay; lau sạch bằng mút ấm.",
+        "Exfoliation: eye pads on, a thin layer applied with a brush, avoiding eyes and lips; keep to the brand's time and keep watching; if it stings or the skin reddens quickly, remove it at once; rinse with warm sponges.",
+        "Kuorinta: pumpulilaput silmille, ohut kerros siveltimellä silmiä ja huulia välttäen; noudata valmistajan aikaa ja tarkkaile koko ajan; jos kirvelee tai iho punoittaa nopeasti, poista heti; puhdista lämpimillä sienillä."
+      ),
+      l3(
+        "Làm ấm: thử khăn trên cổ tay mình; khăn ấm đắp lên mặt, chừa mũi và miệng, trong chốc lát; hoặc xông hơi với máy đặt đủ xa, thời gian ngắn. Da nhạy cảm hay đang đỏ: bỏ qua.",
+        "Warmth: test the towel on your own wrist; lay the warm towel on the face, nose and mouth free, for a short while; or steam with the steamer far enough away, briefly. Sensitive or red skin: skip it.",
+        "Lämmitys: kokeile pyyhettä omaan ranteeseen; aseta lämmin pyyhe kasvoille nenä ja suu vapaana hetkeksi; tai höyry lyhyesti, höyrystin riittävän kaukana. Herkkä tai punoittava iho: jätä väliin."
+      ),
+      l3(
+        "Lấy nhân mụn chỉ khi đã được đào tạo và tiệm cho phép: đeo găng, quấn khăn giấy quanh đầu ngón tay, ấn thật nhẹ hai bên; không ra thì để đó; không móng tay, không nặn mạnh, làm ngắn. Dụng cụ phải đã tiệt trùng, lấy từ túi kín. Chưa được học: bỏ qua và ghi vào hồ sơ.",
+        "Extractions only if you are trained and the salon allows it: gloves, tissue around the fingertips, very gentle pressure on both sides; if it doesn't come, leave it; never nails, never hard squeezing, keep it brief. Tools must be sterilised and taken from a sealed pouch. Not trained: skip it and note it in the record.",
+        "Ekstraktio vain koulutettuna ja yrityksen luvalla: käsineet, paperi sormenpäiden ympärillä, hyvin kevyt painallus molemmin puolin; jos ei irtoa, jätä; ei kynsiä, ei kovaa puristusta, lyhyesti. Välineiden on oltava steriloituja ja otettu suljetusta pussista. Ei koulutusta: jätä väliin ja kirjaa se."
+      ),
+      l3(
+        "Mặt nạ hợp với da, thoa đều bằng cọ từ cổ lên cằm, má, mũi, trán; chừa mắt, lỗ mũi và môi; đúng thời gian của hãng. Gỡ bằng mút ấm, nhẹ từng vùng, kiểm tra chân tóc, dưới cằm, cánh mũi.",
+        "A mask that suits the skin, brushed on evenly from the neck to the chin, cheeks, nose and forehead; leave the eyes, nostrils and lips clear; keep to the brand's time. Remove gently with warm sponges, zone by zone, checking the hairline, under the chin and beside the nose.",
+        "Iholle sopiva naamio levitetään tasaisesti siveltimellä kaulalta leualle, poskille, nenälle ja otsalle; silmät, sieraimet ja huulet jätetään vapaiksi; valmistajan aika. Poista lämpimillä sienillä hellästi alue kerrallaan ja tarkista hiusraja, leuan alus ja nenän sivut."
+      ),
+      l3(
+        "Nước cân bằng lau nhẹ bằng bông; lấy kem bằng que sạch ra mu bàn tay, không thò tay vào hũ; thoa bằng đường vuốt nhẹ hướng lên và ra ngoài; ban ngày thì kem chống nắng ở bước cuối.",
+        "Toner wiped on gently with a cotton pad; take cream out with a clean spatula onto the back of your hand, never fingers in the jar; apply with light strokes upwards and outwards; in the daytime, sunscreen last.",
+        "Kasvovesi kevyesti pumpulilapulla; ota voide puhtaalla lastalla kämmenselälle, ei koskaan sormin purkista; levitä kevein sivelyin ylös- ja ulospäin; päivällä viimeiseksi aurinkosuoja."
+      ),
+      l3(
+        "Mời khách ngồi dậy từ từ; dặn vài ngày không tẩy da chết ở nhà, tránh nắng, chống nắng mỗi sáng, da đỏ rát kéo dài hay ngứa thì báo tiệm; đặt lịch lần sau. Dọn dẹp: đeo găng, khăn và ga vào giỏ giặt có nắp, đồ dùng một lần vào thùng rác có nắp, cọ và bát rửa rồi khử khuẩn, dụng cụ nặn mụn làm sạch và tiệt trùng (xem bài Xử lý dụng cụ sau mỗi khách).",
+        "Help the client sit up slowly; advise no exfoliating at home for a few days, avoiding the sun, sunscreen every morning, and to contact the salon if redness, burning or itching lasts; book the next visit. Clean-up: gloves on, towels and linen into a lidded laundry hamper, disposables into a lidded bin, brushes and bowls washed and disinfected, extractors cleaned and sterilised (see the lesson on tools after every client).",
+        "Auta asiakas istumaan hitaasti; neuvo välttämään kotikuorintaa muutaman päivän ajan ja aurinkoa, käyttämään aurinkosuojaa joka aamu ja ottamaan yhteyttä, jos punoitus, kirvely tai kutina jatkuu; varaa seuraava käynti. Siivous: käsineet käteen, pyyhkeet ja liinat kannelliseen pyykkikoriin, kertakäyttötuotteet kannelliseen roska-astiaan, siveltimet ja kulhot pestään ja desinfioidaan, puristimet puhdistetaan ja steriloidaan (katso tunti välineistä jokaisen asiakkaan jälkeen)."
+      ),
+    ],
+    tips: [
+      l3(
+        "Xếp đủ mọi thứ lên xe đẩy trước khi khách nằm, theo đúng thứ tự sẽ dùng: khách không phải nằm chờ, và tay bạn không phải chạm vào tủ, ngăn kéo giữa chừng.",
+        "Lay everything out on the trolley before the client lies down, in the order you'll use it: the client never waits, and your hands don't touch cupboards or drawers mid-treatment.",
+        "Asettele kaikki hoitovaunulle ennen kuin asiakas käy makuulle, käyttöjärjestyksessä: asiakas ei joudu odottamaan, eivätkä kätesi koske kaappeihin tai laatikoihin kesken hoidon."
+      ),
+      l3(
+        "Trong VaraaAi, đặt lịch lần sau khi khách còn ở quầy và ghi sản phẩm đã dùng vào ghi chú nội bộ của khách.",
+        "In VaraaAi, book the next visit while the client is still at the desk and note the products used in the client's internal notes.",
+        "Varaa VaraaAi:ssa seuraava käynti asiakkaan ollessa vielä tiskillä ja kirjaa käytetyt tuotteet asiakkaan sisäisiin muistiinpanoihin."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Tẩy trang mắt thế nào là đúng?", "How do you remove eye make-up correctly?", "Miten silmämeikki poistetaan oikein?"),
+        options: [
+          l3("Chà mạnh qua lại cho nhanh sạch", "Rub hard back and forth to get it off fast", "Hankaa voimakkaasti edestakaisin, niin se lähtee nopeasti"),
+          l3("Đặt bông ướt lên mắt nhắm vài giây, rồi lau nhẹ, không chà, không để sản phẩm vào mắt", "Hold a soaked pad on the closed eye for a few seconds, then wipe gently, never rub, keep product out of the eye", "Pidä kostutettua lappua suljetulla silmällä muutama sekunti ja pyyhi sitten kevyesti hankaamatta, tuotetta silmään päästämättä"),
+          l3("Nhỏ nước tẩy trang thẳng vào mắt", "Drip remover straight into the eye", "Tiputa puhdistusainetta suoraan silmään"),
+        ],
+        answer: 1,
+        why: l3("Da quanh mắt rất mỏng; để sản phẩm làm mềm mascara rồi lau nhẹ.", "The skin around the eyes is very thin; let the product soften the mascara, then wipe gently.", "Silmänympärysiho on hyvin ohutta; anna tuotteen pehmentää ripsiväri ja pyyhi sitten kevyesti."),
+      },
+      {
+        q: l3("Bạn chưa được đào tạo lấy nhân mụn, mà khách có vài mụn đầu đen. Làm gì?", "You are not trained in extractions and the client has a few blackheads. What do you do?", "Sinulla ei ole ekstraktiokoulutusta, ja asiakkaalla on muutama mustapää. Mitä teet?"),
+        options: [
+          l3("Bỏ qua bước này và ghi vào hồ sơ để người có chuyên môn làm", "Skip this step and note it so a trained colleague can do it", "Jätä vaihe väliin ja kirjaa se, jotta koulutettu kollega voi tehdä sen"),
+          l3("Nặn bằng móng tay cho nhanh", "Squeeze them out with your fingernails", "Purista ne kynsillä"),
+          l3("Nặn mạnh đến khi ra hết", "Squeeze hard until everything is out", "Purista kovaa, kunnes kaikki irtoaa"),
+        ],
+        answer: 0,
+        why: l3("Lấy nhân mụn sai cách gây tổn thương và để lại vết; chỉ người đã được đào tạo mới làm.", "Wrong extraction damages the skin and can leave marks; only trained people do it.", "Väärin tehty ekstraktio vaurioittaa ihoa ja voi jättää jälkiä; sen tekevät vain koulutetut."),
+      },
+      {
+        q: l3("Lấy kem dưỡng ra khỏi hũ thế nào?", "How do you take moisturiser out of a jar?", "Miten kosteusvoide otetaan purkista?"),
+        options: [
+          l3("Dùng ngón tay sạch là được", "A clean finger is fine", "Puhdas sormi riittää"),
+          l3("Đổ thẳng lên mặt khách", "Pour it straight onto the client's face", "Kaada suoraan asiakkaan kasvoille"),
+          l3("Dùng que sạch, đặt kem lên mu bàn tay", "Use a clean spatula and put the cream on the back of your hand", "Käytä puhdasta lastaa ja ota voide kämmenselälle"),
+        ],
+        answer: 2,
+        why: l3("Thò tay vào hũ làm cả hũ nhiễm bẩn cho những khách sau.", "Fingers in the jar contaminate it for every client after.", "Sormet purkissa saastuttavat sen kaikille seuraaville asiakkaille."),
+      },
+    ],
+  },
   soon("spa-massage-mat", "p-spa", ["Massage mặt", "Facial massage", "Kasvohieronta"], [
     "Các động tác vuốt, miết, nhấn huyệt và hướng đi tay nâng cơ.",
     "Effleurage, kneading and pressure points, and the lifting direction of every stroke.",
@@ -5770,7 +6237,7 @@ const ALL_LESSONS: Lesson[] = [
 
 /** Trades the owner set aside for later (2026-11-16: hygiene, nails and lashes first). Their courses
  * and planned lessons stay in this file but are not shown; remove an id here to bring a trade back. */
-const LATER = new Set(["p-spa"]);
+const LATER = new Set<string>([]);
 
 export const CRAFT_COURSES = ALL_COURSES.filter((c) => !LATER.has(c.id));
 export const CRAFT_LESSONS = ALL_LESSONS.filter((l) => !LATER.has(l.course));
