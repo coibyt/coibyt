@@ -7165,16 +7165,452 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("spa-waxing", "p-spa", ["Waxing", "Waxing", "Vahaus"], [
-    "Nhiệt độ sáp, hướng thoa và giật, không nhúng que hai lần, chăm sóc sau wax.",
-    "Wax temperature, direction of application and removal, no double-dipping, and aftercare.",
-    "Vahan lämpötila, levitys- ja vetosuunta, ei kaksoiskastamista ja jälkihoito.",
-  ]),
-  soon("spa-tay-chan", "p-spa", ["Chăm sóc tay chân kiểu spa", "Spa hand and foot treatments", "Spa-käsi- ja jalkahoidot"], [
-    "Tẩy da chết, ủ paraffin, massage tay chân và vệ sinh bồn ngâm.",
-    "Scrub, paraffin, hand and foot massage, and keeping the foot basin hygienic.",
-    "Kuorinta, parafiini, käsi- ja jalkahieronta sekä jalkakylpyaltaan hygienia.",
-  ]),
+  {
+    slug: "spa-waxing-hieu-dung",
+    course: "p-spa",
+    style: "theory",
+    title: l3("Waxing: hiểu đúng để khách ít đau, da an toàn", "Waxing: understand it for less pain and safe skin", "Vahaus: ymmärrä se, niin kipu vähenee ja iho pysyy turvassa"),
+    summary: l3(
+      "Lý thuyết wax: sáp mềm và sáp cứng, thử nhiệt độ trên cổ tay mình rồi trên da khách, độ dài lông và da sạch khô, thuốc trị mụn và kem retinoid, khi nào không wax, thử dị ứng, hướng thoa và hướng giật, giữ căng da, không nhúng que hai lần, che kín cho khách, chăm sóc sau wax, lông mọc ngược và xử lý bỏng.",
+      "Waxing theory: soft and hard wax, testing the temperature on your own wrist and then on the client's skin, hair length and clean dry skin, acne medicine and retinoid creams, when not to wax, patch testing, the direction of application and removal, holding the skin taut, no double-dipping, keeping the client covered, aftercare, ingrown hairs and burns.",
+      "Vahauksen teoria: pehmeä ja kova vaha, lämpötilan testaus omaan ranteeseen ja sitten asiakkaan ihoon, karvojen pituus ja puhdas kuiva iho, aknelääkkeet ja retinoidivoiteet, milloin ei vahata, allergiatesti, levitys- ja vetosuunta, ihon pitäminen kireänä, ei kaksoiskastamista, asiakkaan peittely, jälkihoito, sisäänkasvaneet karvat ja palovammat."
+    ),
+    video: video("spa-waxing-hieu-dung", 303, "2026-11-19"),
+    notice: l3(
+      "Nhiệt độ, thời gian và cách dùng luôn theo hướng dẫn của hãng sáp. Khách đang dùng isotretinoin thì không wax; mới ngừng thuốc thì hỏi bác sĩ khi nào được wax lại. Bài này không nói về wax vùng kín. Quy định khác nhau theo từng nước; bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Temperature, timing and use always follow the wax manufacturer's instructions. No waxing for someone taking isotretinoin; after stopping, the client should ask their doctor when waxing is safe again. Intimate waxing is not covered here. Rules differ by country; this lesson is a training aid, not a licence.",
+      "Lämpötila, ajat ja käyttö noudattavat aina vahan valmistajan ohjeita. Isotretinoiinia käyttävää ei vahata; lopettamisen jälkeen asiakas kysyy lääkäriltä, milloin vahaus on taas turvallista. Intiimialueiden vahausta tämä tunti ei käsittele. Määräykset vaihtelevat maittain; tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    sources: [
+      { label: "NHS — Common questions about isotretinoin capsules (no waxing during treatment)", url: "https://www.nhs.uk/medicines/isotretinoin-capsules/common-questions-about-isotretinoin-capsules/" },
+      { label: "NHS — Burns and scalds: treatment", url: "https://www.nhs.uk/conditions/burns-and-scalds/treatment/" },
+    ],
+    related: ["dich-vu", "khach-hang", "lich-hen"],
+    steps: [
+      l3(
+        "Hai loại sáp: sáp mềm (dùng giấy) thoa thật mỏng, đặt giấy rồi giật, hợp vùng rộng như chân, tay; sáp cứng không cần giấy, thoa dày hơn, đợi se lại rồi cầm mép giật, ôm sợi lông và ít bám da, hợp nách, chân mày, môi trên. Luôn đọc hướng dẫn của hãng.",
+        "Two kinds of wax: soft (strip) wax goes on very thin, a strip on top, then off — good for large areas like legs and arms; hard wax needs no strip, goes on thicker, sets, and is lifted by its edge — it grips the hair rather than the skin, good for underarms, brows and the upper lip. Always read the manufacturer's instructions.",
+        "Kaksi vahatyyppiä: pehmeä (nauha)vaha levitetään hyvin ohuesti, nauha päälle ja veto — sopii laajoille alueille kuten sääriin ja käsivarsiin; kova vaha ei tarvitse nauhaa, levitetään paksummin, annetaan jähmettyä ja vedetään reunasta — se tarttuu karvaan eikä niinkään ihoon, sopii kainaloihin, kulmiin ja ylähuuleen. Lue aina valmistajan ohjeet."
+      ),
+      l3(
+        "Nhiệt độ: theo hãng. Trước mỗi khách, thử một chút sáp lên cổ tay trong của mình, rồi một điểm nhỏ trên da khách và hỏi khách. Sáp ấm, chảy đều như mật ong; quá nóng thì bỏng, quá nguội thì kéo da.",
+        "Temperature: as the manufacturer says. Before every client, test a little wax on the inside of your own wrist, then a small spot on the client's skin, and ask. Wax should be warm and flow like honey; too hot burns, too cool drags the skin.",
+        "Lämpötila: valmistajan ohjeen mukaan. Testaa ennen jokaista asiakasta vähän vahaa oman ranteesi sisäpuolelle, sitten pieneen kohtaan asiakkaan iholla, ja kysy. Vahan pitää olla lämmintä ja valua kuin hunaja; liian kuuma polttaa, liian viileä repii ihoa."
+      ),
+      l3(
+        "Lông thường cần dài khoảng nửa xăng ti mét; khách mới cạo thì hẹn lại sau vài tuần, lông quá dài thì tỉa bớt. Da phải sạch và khô: không kem, dầu hay mồ hôi.",
+        "Hair usually needs to be about half a centimetre long; after shaving, rebook in a few weeks, and trim very long hair first. Skin must be clean and dry: no cream, oil or sweat.",
+        "Karvojen pitää yleensä olla noin puolen sentin mittaisia; ajelun jälkeen uusi aika muutaman viikon päähän, ja hyvin pitkät karvat lyhennetään ensin. Ihon on oltava puhdas ja kuiva: ei voidetta, öljyä eikä hikeä."
+      ),
+      l3(
+        "Luôn hỏi về thuốc: đang uống isotretinoin thì không wax; mới ngừng thì thường phải chờ khoảng sáu tháng, khách hỏi bác sĩ. Kem retinoid, axit tẩy da: không wax vùng đang bôi, theo hướng dẫn của hãng và bác sĩ.",
+        "Always ask about medicines: no waxing while taking isotretinoin; after stopping, the wait is usually about six months — the client should ask their doctor. Retinoid creams and exfoliating acids: don't wax the treated area; follow the manufacturer's and the prescriber's advice.",
+        "Kysy aina lääkkeistä: isotretinoiinihoidon aikana ei vahata; lopettamisen jälkeen odotus on yleensä noin puoli vuotta — asiakas kysyy lääkäriltään. Retinoidivoiteet ja kuorivat hapot: hoidettua aluetta ei vahata; noudata valmistajan ja lääkkeen määränneen lääkärin ohjeita."
+      ),
+      l3(
+        "Không wax trên: da mới lột, mới làm laser, cháy nắng, trầy xước, mụn rộp, phát ban, tĩnh mạch giãn. Tiểu đường, tuần hoàn kém, da mỏng dễ bầm, thuốc chống đông: rất cẩn thận, khuyên hỏi bác sĩ trước. Không chẩn đoán; phân vân thì không làm.",
+        "Don't wax over: a recent peel or laser treatment, sunburn, broken skin, cold sores, rashes, varicose veins. Diabetes, poor circulation, thin skin that bruises easily, blood thinners: take great care and suggest asking a doctor first. Don't diagnose; when in doubt, don't.",
+        "Älä vahaa: tuoreen kuorinnan tai laserhoidon jälkeen, auringon polttamaa, rikkinäistä ihoa, huuliherpestä, ihottumaa, suonikohjuja. Diabetes, huono verenkierto, ohut helposti mustelmille menevä iho, verenohennuslääkkeet: erityistä varovaisuutta ja kehotus kysyä ensin lääkäriltä. Älä diagnosoi; jos epäröit, älä tee."
+      ),
+      l3(
+        "Khách lần đầu, da nhạy cảm, từng dị ứng: thử một miếng nhỏ trước, thường trước một ngày hoặc theo hãng. Nhiều loại sáp có nhựa thông. Thử không đỏ cũng chưa phải bảo đảm.",
+        "First-time clients, sensitive skin, past allergies: patch test a small area first, usually the day before or as the manufacturer says. Many waxes contain rosin (colophony). A clear test is still no guarantee.",
+        "Ensikertalaiset, herkkä iho, aiemmat allergiat: tee ensin pieni testi, yleensä edellisenä päivänä tai valmistajan ohjeen mukaan. Monissa vahoissa on hartsia (kolofonia). Oireeton testi ei silti ole tae."
+      ),
+      l3(
+        "Sáp mềm thoa theo chiều lông mọc, giật ngược chiều lông mọc: nhanh, dứt khoát, sát và gần song song với da, không giật thẳng lên. Tay kia giữ căng da; giật xong ấn lòng bàn tay lên ngay. Cùng một chỗ không quá hai lần, lông sót dùng nhíp. Ở nách, chia vùng nhỏ theo hướng lông.",
+        "Soft wax goes on in the direction of hair growth and comes off against it: fast, decisive, low and almost parallel to the skin — never straight up. The other hand holds the skin taut; press your palm on the area right after. No more than two passes on one spot; tweeze the strays. Underarms: small sections, each following its own growth.",
+        "Pehmeä vaha levitetään karvojen kasvusuuntaan ja vedetään vastakarvaan: nopeasti, päättäväisesti, matalalla ja lähes ihon suuntaisesti — ei koskaan suoraan ylös. Toinen käsi pitää ihon kireänä; paina kämmen alueelle heti vedon jälkeen. Samaan kohtaan enintään kaksi kertaa, jäljelle jääneet karvat pinseteillä. Kainalo: pienet alueet kunkin kasvusuunnan mukaan."
+      ),
+      l3(
+        "Vệ sinh: không nhúng que hai lần — que đã chạm da khách không quay lại nồi, mỗi lần lấy sáp một que mới; sáp đã lấy ra không đổ lại nồi. Găng tay, giấy lót giường mới, giấy wax dùng một lần.",
+        "Hygiene: no double-dipping — a spatula that has touched the client never goes back into the pot; every dip is a fresh spatula, and wax taken out never goes back in. Gloves, a fresh couch roll, single-use strips.",
+        "Hygienia: ei kaksoiskastamista — asiakkaan ihoon koskenut lasta ei palaa vahapurkkiin; jokainen kastaminen uudella lastalla, eikä otettua vahaa palauteta purkkiin. Käsineet, uusi suojapaperi, kertakäyttöiset nauhat."
+      ),
+      l3(
+        "Khách luôn được che kín, chỉ mở vùng đang làm. Chân mày, mặt: sáp cứng, lượng nhỏ, cách xa mắt. Wax vùng kín cần đào tạo riêng.",
+        "The client stays covered except the area being waxed. Brows and face: hard wax, a tiny amount, well away from the eye. Intimate waxing needs its own training.",
+        "Asiakas on peitettynä vahattavaa aluetta lukuun ottamatta. Kulmat ja kasvot: kova vaha, pieni määrä, kaukana silmästä. Intiimivahaus vaatii oman koulutuksensa."
+      ),
+      l3(
+        "Sau wax: hơi đỏ, chấm nhỏ ở chân lông là bình thường. Khoảng một ngày đầu tránh tắm nắng, xông hơi, nước thật nóng, sản phẩm có hương thơm (cả lăn khử mùi), hoặc theo lời dặn của hãng. Lông mọc ngược: vài ngày sau tẩy da chết nhẹ, dưỡng ẩm, không nặn. Bỏng: làm mát dưới vòi nước mát khoảng hai mươi phút.",
+        "After waxing: mild redness and little bumps at the follicles are normal. For about the first day avoid sunbathing, sauna, very hot baths and fragranced products (deodorant too), or follow the manufacturer's advice. Ingrown hairs: gentle exfoliation after a few days, moisturise, don't squeeze. A burn: cool it under cool running water for about twenty minutes.",
+        "Vahauksen jälkeen: lievä punoitus ja pienet näppylät karvatupissa ovat normaaleja. Noin ensimmäisen vuorokauden ajan vältetään auringonottoa, saunaa, kuumia kylpyjä ja hajustettuja tuotteita (myös deodoranttia), tai noudatetaan valmistajan ohjetta. Sisäänkasvaneet karvat: kevyt kuorinta muutaman päivän päästä, kosteutus, ei puristelua. Palovamma: viilennä viileän juoksevan veden alla noin kaksikymmentä minuuttia."
+      ),
+    ],
+    tips: [
+      l3(
+        "Trong VaraaAi, ghi vào ghi chú nội bộ của khách loại sáp đã dùng, vùng đã wax và da phản ứng thế nào, để lần sau ai làm cũng biết.",
+        "In VaraaAi, note in the client's internal notes the wax you used, the areas waxed and how the skin reacted, so whoever does the next visit knows.",
+        "Merkitse VaraaAi:ssa asiakkaan sisäisiin muistiinpanoihin käytetty vaha, vahatut alueet ja ihon reaktio, niin seuraava tekijä tietää."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Giật miếng giấy sáp mềm thế nào là đúng?", "How should a soft-wax strip come off?", "Miten pehmeän vahan nauha vedetään oikein?"),
+        options: [
+          l3("Chậm rãi, thẳng lên trên", "Slowly, straight up", "Hitaasti, suoraan ylös"),
+          l3("Nhanh, ngược chiều lông mọc, sát và gần song song với da, tay kia giữ căng da", "Fast, against the hair growth, low and almost parallel to the skin, the other hand holding the skin taut", "Nopeasti, vastakarvaan, matalalla ja lähes ihon suuntaisesti, toinen käsi pitää ihon kireänä"),
+          l3("Theo chiều lông mọc, cho đỡ đau", "In the direction of growth, to hurt less", "Karvojen kasvusuuntaan, jotta sattuu vähemmän"),
+        ],
+        answer: 1,
+        why: l3("Giật thẳng lên kéo da theo, dễ bầm, trầy và làm gãy lông.", "Pulling straight up lifts the skin, causing bruising and grazes, and breaks the hair.", "Suoraan ylös vetäminen nostaa ihoa, aiheuttaa mustelmia ja hiertymiä ja katkaisee karvoja."),
+      },
+      {
+        q: l3("Que gỗ vừa thoa sáp lên da khách. Lấy thêm sáp thế nào?", "A spatula has just spread wax on the client's skin. How do you take more wax?", "Lastalla on juuri levitetty vahaa asiakkaan iholle. Miten otat lisää vahaa?"),
+        options: [
+          l3("Nhúng lại que đó, vì sáp nóng đã diệt khuẩn", "Dip the same spatula again — hot wax kills germs", "Kastan saman lastan uudelleen — kuuma vaha tappaa bakteerit"),
+          l3("Lau que bằng khăn giấy rồi nhúng lại", "Wipe it with a tissue and dip again", "Pyyhin lastan paperiin ja kastan uudelleen"),
+          l3("Bỏ que đó, lấy một que mới", "Throw it away and take a fresh spatula", "Heitän sen pois ja otan uuden lastan"),
+        ],
+        answer: 2,
+        why: l3("Không nhúng que hai lần: que đã chạm da không quay lại nồi sáp.", "No double-dipping: a spatula that has touched skin never goes back into the pot.", "Ei kaksoiskastamista: ihoon koskenut lasta ei palaa purkkiin."),
+      },
+      {
+        q: l3("Khách cho biết đang uống thuốc trị mụn isotretinoin. Bạn làm gì?", "The client says she is taking isotretinoin for acne. What do you do?", "Asiakas kertoo käyttävänsä isotretinoiinia aknen hoitoon. Mitä teet?"),
+        options: [
+          l3("Không wax; mời khách hỏi bác sĩ khi nào có thể wax lại", "Don't wax; suggest she asks her doctor when waxing is possible again", "En vahaa; ehdotan, että hän kysyy lääkäriltä, milloin vahaus on taas mahdollista"),
+          l3("Wax bằng sáp cứng cho nhẹ", "Use hard wax to be gentler", "Käytän kovaa vahaa, joka on hellävaraisempi"),
+          l3("Thử một miếng nhỏ, không đỏ thì wax", "Test a small patch and wax if there's no redness", "Testaan pienen alueen ja vahaan, jos punoitusta ei tule"),
+        ],
+        answer: 0,
+        why: l3("Thuốc làm da mỏng và yếu, wax có thể làm tróc da; NHS khuyên không wax khi đang dùng thuốc.", "The medicine makes the skin thin and fragile, and waxing can tear it; the NHS says not to wax while taking it.", "Lääke ohentaa ja haurastuttaa ihoa, ja vahaus voi repiä sen; NHS:n mukaan vahausta ei käytetä hoidon aikana."),
+      },
+    ],
+  },
+  {
+    slug: "spa-waxing",
+    course: "p-spa",
+    style: "practice",
+    title: l3("Waxing: thực hành từng bước", "Waxing: step by step", "Vahaus: vaihe vaiheelta"),
+    summary: l3(
+      "Wax từng bước: chuẩn bị nồi sáp và dụng cụ, tư vấn, che khăn cho khách, nhìn chiều lông và làm sạch da, thử nhiệt, lấy sáp bằng que mới, thoa sáp mềm và giật giấy ở cẳng chân, wax nách bằng sáp cứng, tỉa gọn chân mày, chăm sóc sau wax, ghi chú và dọn dẹp.",
+      "Waxing step by step: preparing the heater and tools, consultation, draping the client, checking hair growth and cleansing, testing the temperature, taking wax with a fresh spatula, soft wax and strips on the lower leg, the underarm with hard wax, tidying the brows, aftercare, notes and tidying up.",
+      "Vahaus vaihe vaiheelta: vahanlämmittimen ja välineiden valmistelu, haastattelu, asiakkaan peittely, karvojen kasvusuunta ja ihon puhdistus, lämpötilan testaus, vahan otto uudella lastalla, pehmeä vaha ja nauhat säärissä, kainalot kovalla vahalla, kulmien siistiminen, jälkihoito, muistiinpanot ja siivous."
+    ),
+    video: video("spa-waxing", 285, "2026-11-19"),
+    notice: l3(
+      "Nhiệt độ, thời gian và sản phẩm theo hướng dẫn của hãng sáp và quy trình của tiệm. Khách đang dùng isotretinoin thì không wax. Bài này không nói về wax vùng kín. Quy định khác nhau theo từng nước; bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Temperature, timing and products follow the wax manufacturer's instructions and your salon's procedure. No waxing for someone taking isotretinoin. Intimate waxing is not covered here. Rules differ by country; this lesson is a training aid, not a licence.",
+      "Lämpötila, ajat ja tuotteet noudattavat vahan valmistajan ohjeita ja hoitolan käytäntöä. Isotretinoiinia käyttävää ei vahata. Intiimialueiden vahausta tämä tunti ei käsittele. Määräykset vaihtelevat maittain; tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    sources: [{ label: "NHS — Common questions about isotretinoin capsules (no waxing during treatment)", url: "https://www.nhs.uk/medicines/isotretinoin-capsules/common-questions-about-isotretinoin-capsules/" }],
+    related: ["dich-vu", "khach-hang", "lich-hen"],
+    steps: [
+      l3(
+        "Chuẩn bị: bật nồi sáp trước; lau khử khuẩn giường, giấy lót mới; que gỗ sạch trong hũ, giấy wax, găng, dung dịch làm sạch, dầu lau sáp, kem dịu da, nhíp, kéo nhỏ, thùng rác có nắp.",
+        "Preparation: switch the heater on early; disinfect the couch and lay a fresh roll; clean spatulas in a jar, strips, gloves, pre-wax cleanser, after-wax oil, soothing lotion, tweezers, small scissors and a lidded bin.",
+        "Valmistelu: kytke lämmitin päälle ajoissa; desinfioi hoitopöytä ja vaihda suojapaperi; puhtaat lastat purkissa, nauhat, käsineet, esipuhdistusaine, jälkiöljy, rauhoittava voide, pinsetit, pienet sakset ja kannellinen roska-astia."
+      ),
+      l3(
+        "Tư vấn, kể cả khách quen: thuốc trị mụn, kem retinoid, lột da, laser, đi nắng, dị ứng, lần wax trước. Nhìn da: trầy xước, cháy nắng, tĩnh mạch giãn thì tránh vùng đó. Nói trước với khách sẽ hơi rát.",
+        "Consultation, regulars too: acne medicine, retinoid creams, peels, laser, sun, allergies, the last wax. Look at the skin: avoid broken skin, sunburn and varicose veins. Tell the client it will sting a little.",
+        "Haastattelu myös vakioasiakkaille: aknelääkkeet, retinoidivoiteet, kuorinnat, laser, aurinko, allergiat, edellinen vahaus. Katso iho: vältä rikkinäistä ihoa, auringon polttamaa ja suonikohjuja. Kerro, että hieman kirvelee."
+      ),
+      l3(
+        "Khách thay đồ riêng tư, đắp khăn lớn; chỉ mở vùng sẽ wax. Rửa tay, đeo găng.",
+        "The client changes in private and is covered by a large sheet; uncover only the area to be waxed. Wash your hands and put on gloves.",
+        "Asiakas vaihtaa vaatteet rauhassa ja peitetään isolla lakanalla; paljasta vain vahattava alue. Pese kädet ja pue käsineet."
+      ),
+      l3(
+        "Nhìn chiều lông mọc (cẳng chân: thường xuôi về cổ chân), tỉa lông quá dài. Lau sạch bằng dung dịch trước wax, đợi da khô; phấn hay dầu mỏng theo hướng dẫn của hãng.",
+        "Check the direction of growth (lower leg: usually down towards the ankle) and trim very long hair. Cleanse with pre-wax cleanser and let the skin dry; powder or a thin oil as the manufacturer says.",
+        "Tarkista kasvusuunta (sääressä yleensä alas nilkkaa kohti) ja lyhennä hyvin pitkät karvat. Puhdista esipuhdistusaineella ja anna ihon kuivua; puuteri tai ohut öljy valmistajan ohjeen mukaan."
+      ),
+      l3(
+        "Thử nhiệt bằng que mới lên cổ tay trong của mình, rồi một điểm nhỏ trên da khách, và hỏi khách.",
+        "Test the temperature with a fresh spatula on the inside of your own wrist, then a small spot on the client's skin, and ask.",
+        "Testaa lämpötila uudella lastalla oman ranteesi sisäpuolelle, sitten pieneen kohtaan asiakkaan iholla, ja kysy."
+      ),
+      l3(
+        "Lấy sáp: gạt mặt dưới que vào mép nồi, chỉ còn lớp mỏng. Que đã chạm da khách không nhúng lại; mỗi lần một que mới.",
+        "Taking wax: scrape the underside of the spatula on the rim so only a thin coat remains. A spatula that has touched skin never goes back in; every dip is a fresh spatula.",
+        "Vahan otto: kaavi lastan alapinta purkin reunaan, niin että jäljelle jää ohut kerros. Ihoon koskenut lasta ei palaa purkkiin; jokainen kastaminen uudella lastalla."
+      ),
+      l3(
+        "Sáp mềm ở cẳng chân: que nghiêng thấp, thoa thật mỏng theo chiều lông mọc, một dải dài khoảng một bàn tay; đặt giấy, chừa mép, miết theo chiều lông mọc.",
+        "Soft wax on the lower leg: spatula held low, a very thin layer in the direction of growth, a strip about a hand long; lay the strip, leave a tab, rub it down in the direction of growth.",
+        "Pehmeä vaha sääressä: lasta matalassa kulmassa, hyvin ohut kerros kasvusuuntaan, noin kämmenen mittainen kaista; nauha päälle, pää vapaaksi, hiero nauha kasvusuuntaan."
+      ),
+      l3(
+        "Giật: tay kia giữ căng da sát miếng giấy, giật nhanh ngược chiều lông mọc, sát và gần song song với da, không giật thẳng lên; ấn tay lên ngay. Cùng một chỗ không quá hai lần, lông sót dùng nhíp; đầu gối, mắt cá dùng dải nhỏ.",
+        "Removal: the other hand holds the skin taut right by the strip; pull fast against the growth, low and almost parallel to the skin, never straight up; press your palm on at once. No more than two passes on one spot, tweeze strays; small strips around knees and ankles.",
+        "Veto: toinen käsi pitää ihon kireänä aivan nauhan vieressä; vedä nopeasti vastakarvaan, matalalla ja lähes ihon suuntaisesti, ei koskaan suoraan ylös; paina kämmen heti päälle. Samaan kohtaan enintään kaksi kertaa, jäljelle jääneet karvat pinseteillä; polvien ja nilkkojen ympärillä pienet kaistat."
+      ),
+      l3(
+        "Nách bằng sáp cứng: khách đưa tay lên, ngực vẫn che kín, da thật khô; chia vùng nhỏ theo hướng lông; thoa theo chiều lông mọc, dày hơn một chút, chừa mép dày; đợi se lại, giữ căng da, giật nhanh ngược chiều, sát da, ấn tay lên.",
+        "Underarm with hard wax: the client raises her arm, the chest stays covered, the skin very dry; small sections following the hair; apply with the growth, a little thicker, with a thick lip; let it set, hold the skin taut, flick it off fast against the growth, low, and press.",
+        "Kainalo kovalla vahalla: asiakas nostaa käden, rintakehä pysyy peitettynä, iho hyvin kuiva; pienet alueet karvojen suunnan mukaan; levitä kasvusuuntaan hieman paksummin ja jätä paksu reuna; anna jähmettyä, pidä iho kireänä, vedä nopeasti vastakarvaan matalalla ja paina."
+      ),
+      l3(
+        "Chân mày: thống nhất dáng trước; sáp cứng lượng thật nhỏ ở lông thừa dưới mày, xa mắt, khách nhắm mắt; phần còn lại tỉa bằng nhíp. Sau wax: dầu lau sáp, kem dịu da, lời dặn khoảng một ngày đầu (nắng, xông hơi, nước thật nóng, hương thơm), ghi chú, rồi dọn dẹp và rửa tay.",
+        "Brows: agree on the shape first; a tiny amount of hard wax on the strays under the brow, away from the eye, eyes closed; tweeze the rest. After waxing: after-wax oil, soothing lotion, advice for about the first day (sun, sauna, very hot water, fragrance), notes, then tidy up and wash your hands.",
+        "Kulmat: sovi muoto ensin; pieni määrä kovaa vahaa kulman alapuolen hajakarvoihin kaukana silmästä, silmät kiinni; loput pinseteillä. Vahauksen jälkeen: jälkiöljy, rauhoittava voide, ohjeet noin ensimmäiselle vuorokaudelle (aurinko, sauna, hyvin kuuma vesi, hajusteet), muistiinpanot, sitten siivous ja käsienpesu."
+      ),
+    ],
+    tips: [
+      l3(
+        "Trong VaraaAi, ghi vào ghi chú nội bộ của khách loại sáp, vùng đã wax và da phản ứng thế nào.",
+        "In VaraaAi, note in the client's internal notes the wax used, the areas waxed and how the skin reacted.",
+        "Merkitse VaraaAi:ssa asiakkaan sisäisiin muistiinpanoihin käytetty vaha, vahatut alueet ja ihon reaktio."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Ở cẳng chân, lông mọc xuôi về phía cổ chân. Thoa sáp mềm theo hướng nào?", "On the lower leg the hair grows down towards the ankle. Which way does soft wax go on?", "Säären karvat kasvavat alas nilkkaa kohti. Mihin suuntaan pehmeä vaha levitetään?"),
+        options: [
+          l3("Từ cổ chân lên gối", "From the ankle up to the knee", "Nilkasta ylös polveen"),
+          l3("Hướng nào cũng được", "Any direction", "Mihin suuntaan tahansa"),
+          l3("Từ gối xuống cổ chân, theo chiều lông mọc", "From the knee down to the ankle, with the growth", "Polvesta alas nilkkaan, kasvusuuntaan"),
+        ],
+        answer: 2,
+        why: l3("Sáp mềm thoa theo chiều lông mọc, giật ngược lại.", "Soft wax goes on with the growth and comes off against it.", "Pehmeä vaha levitetään kasvusuuntaan ja vedetään vastakarvaan."),
+      },
+      {
+        q: l3("Khi nào giật sáp cứng?", "When do you remove hard wax?", "Milloin kova vaha poistetaan?"),
+        options: [
+          l3("Khi sáp đã se lại, hết dính tay nhưng còn dẻo", "When it has set — no longer tacky but still flexible", "Kun se on jähmettynyt — ei enää tahmea mutta vielä joustava"),
+          l3("Ngay khi vừa thoa xong, còn nóng chảy", "Straight after applying, while still runny", "Heti levityksen jälkeen, kun se on vielä juoksevaa"),
+          l3("Khi sáp đã cứng giòn, nứt ra", "When it is hard, brittle and cracking", "Kun se on kova, hauras ja halkeileva"),
+        ],
+        answer: 0,
+        why: l3("Sáp cứng cần se lại để ôm sợi lông; để quá cứng thì giòn, gãy, khó lấy.", "Hard wax needs to set to grip the hair; left too long it turns brittle and breaks.", "Kovan vahan pitää jähmettyä tarttuakseen karvaan; liian pitkään jätettynä se haurastuu ja murtuu."),
+      },
+      {
+        q: l3("Sau wax nách, dặn khách điều gì?", "What do you tell the client after an underarm wax?", "Mitä neuvot asiakkaalle kainalovahauksen jälkeen?"),
+        options: [
+          l3("Xông hơi ngay để lỗ chân lông se lại", "Go straight to the sauna to close the pores", "Heti saunaan, jotta huokoset sulkeutuvat"),
+          l3("Khoảng một ngày đầu tránh lăn khử mùi có hương thơm, nắng, xông hơi, nước thật nóng", "For about the first day avoid fragranced deodorant, sun, sauna and very hot water", "Noin ensimmäisen vuorokauden ajan vältä hajustettua deodoranttia, aurinkoa, saunaa ja hyvin kuumaa vettä"),
+          l3("Tẩy da chết thật mạnh ngay tối đó", "Scrub hard the same evening", "Kuori iho voimakkaasti samana iltana"),
+        ],
+        answer: 1,
+        why: l3("Da vừa wax dễ kích ứng; tẩy da chết nhẹ chỉ sau vài ngày. Làm theo lời dặn của hãng sáp.", "Freshly waxed skin irritates easily; gentle exfoliation only after a few days. Follow the wax manufacturer's advice.", "Juuri vahattu iho ärtyy helposti; kevyt kuorinta vasta muutaman päivän päästä. Noudata vahan valmistajan ohjeita."),
+      },
+    ],
+  },
+  {
+    slug: "spa-tay-chan-hieu-dung",
+    course: "p-spa",
+    style: "theory",
+    title: l3("Chăm sóc tay chân kiểu spa: hiểu đúng để sạch và an toàn", "Spa hand and foot treatments: understand them to stay clean and safe", "Spa-käsi- ja jalkahoidot: ymmärrä ne, niin hoito on puhdas ja turvallinen"),
+    summary: l3(
+      "Lý thuyết chăm sóc tay chân kiểu spa, không vẽ móng: vì sao bồn ngâm chân là chỗ dễ lây nấm và nhiễm trùng, túi lót và làm sạch rồi khử khuẩn sau mỗi khách, dụng cụ chân luôn tiệt trùng, khi nào không làm, khách tiểu đường, ngâm, tẩy da chết, da quanh móng, gót chân chai, massage, mặt nạ và paraffin.",
+      "Spa hand and foot treatment theory, no nail art: why the foot bath is where fungus and infection spread, basin liners and cleaning then disinfecting after every client, pedicure tools always sterilised, when not to treat, clients with diabetes, soaking, exfoliation, cuticles, hard skin on the heels, massage, masks and paraffin.",
+      "Spa-käsi- ja jalkahoitojen teoria ilman kynsitaidetta: miksi jalkakylpy levittää sieni-infektioita ja tulehduksia, allaspussit sekä puhdistus ja desinfiointi jokaisen asiakkaan jälkeen, jalkahoitovälineet aina steriloituina, milloin ei hoideta, diabetesta sairastavat asiakkaat, liotus, kuorinta, kynsinauhat, kantapäiden kovettumat, hieronta, naamiot ja parafiini."
+    ),
+    video: video("spa-tay-chan-hieu-dung", 275, "2026-11-19"),
+    notice: l3(
+      "Quy tắc vệ sinh trong bài lấy ví dụ từ hướng dẫn của thành phố Helsinki; quy định khác nhau theo từng nước. Người thợ không chẩn đoán: khi thấy dấu hiệu bất thường ở da hay móng, không làm vùng đó và khuyên khách đi khám. Dao bào gót chỉ dành cho người được đào tạo và được phép theo quy định nơi làm việc. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "The hygiene rules here use the City of Helsinki guidance as an example; rules differ by country. A beauty professional does not diagnose: when skin or nails look abnormal, don't treat that area and suggest a doctor. Callus blades are only for those trained and allowed to use them where they work. This lesson is a training aid, not a licence.",
+      "Hygieniasäännöt ovat esimerkkinä Helsingin kaupungin ohjeesta; määräykset vaihtelevat maittain. Kauneudenhoitaja ei tee diagnooseja: jos iho tai kynnet näyttävät poikkeavilta, aluetta ei hoideta ja asiakas ohjataan lääkäriin. Kovettumaterät kuuluvat vain niille, joilla on koulutus ja lupa käyttää niitä. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    sources: [
+      HELSINKI_HYGIENE,
+      { label: "Diabetes UK — Taking care of your feet", url: "https://www.diabetes.org.uk/about-diabetes/complications/feet/taking-care-of-your-feet" },
+    ],
+    related: ["dich-vu", "khach-hang", "lich-hen"],
+    steps: [
+      l3(
+        "Chăm sóc tay chân kiểu spa là ngâm, tẩy da chết, chăm da quanh móng, làm mịn gót chân, massage, mặt nạ hay paraffin — không vẽ móng, không sơn gel.",
+        "A spa hand and foot treatment means soaking, exfoliation, cuticle care, smoothing the heels, massage and a mask or paraffin — no nail art, no gel polish.",
+        "Spa-käsi- ja jalkahoito tarkoittaa liotusta, kuorintaa, kynsinauhojen hoitoa, kantapäiden tasoittamista, hierontaa sekä naamiota tai parafiinia — ei kynsitaidetta eikä geelilakkaa."
+      ),
+      l3(
+        "Ví dụ Helsinki: bồn ngâm chân phải dùng túi lót; dụng cụ làm chân luôn tiệt trùng (nồi hấp hoặc tủ sấy nóng) và cất riêng với dụng cụ khác. Quy định mỗi nước một khác.",
+        "The Helsinki example: foot basins must use basin liners; pedicure tools are always sterilised (autoclave or hot-air steriliser) and stored separately from other tools. Rules differ by country.",
+        "Helsingin esimerkki: jalkakylpyaltaissa on käytettävä allaspusseja; jalkahoitovälineet steriloidaan aina (autoklaavi tai kuumailmasterilointi) ja säilytetään erillään muista välineistä. Määräykset vaihtelevat maittain."
+      ),
+      l3(
+        "Túi lót không thay cho việc làm sạch: sau mỗi khách bỏ túi, làm sạch bồn bằng xà phòng và bàn chải, xả sạch, rồi khử khuẩn đủ thời gian ghi trên chai. Làm sạch đi trước vì chất bẩn làm thuốc khử khuẩn kém tác dụng. Bồn sục có đường ống: thêm theo hướng dẫn của nhà sản xuất.",
+        "A liner does not replace cleaning: after every client remove it, clean the basin with soap and a brush, rinse, then disinfect for the full contact time on the label. Cleaning comes first because dirt weakens disinfectants. Whirlpool basins with pipes: follow the manufacturer's extra steps.",
+        "Allaspussi ei korvaa puhdistusta: poista se jokaisen asiakkaan jälkeen, pese allas saippualla ja harjalla, huuhtele ja desinfioi sitten etiketin vaikutusajan mukaan. Puhdistus ensin, koska lika heikentää desinfiointiaineen tehoa. Poreammeet putkistoineen: valmistajan lisäohjeiden mukaan."
+      ),
+      l3(
+        "Nhìn trước khi ngâm, cả kẽ ngón: da kẽ chân trắng, bong, nứt, ngứa; móng dày, đổi màu; mụn cóc; vết thương hở; sưng đỏ, nóng, đau — không làm vùng đó, khuyên đi khám. Không chẩn đoán.",
+        "Look before soaking, between the toes too: white, peeling, cracked or itchy skin between the toes; thick, discoloured nails; warts; open wounds; red, hot, painful swelling — don't treat that area, suggest a doctor. Don't diagnose.",
+        "Katso ennen liotusta, myös varpaanvälit: valkoinen, hilseilevä, halkeillut tai kutiseva iho varpaiden välissä; paksut, värjäytyneet kynnet; syylät; avohaavat; punainen, kuuma, kipeä turvotus — aluetta ei hoideta, asiakas ohjataan lääkäriin. Ei diagnooseja."
+      ),
+      l3(
+        "Khách tiểu đường hay tuần hoàn kém: chân có thể giảm cảm giác, vết xước lâu lành. Nước chỉ ấm vừa và tự thử trước, ngâm ngắn, không dao, không cắt da, không đắp paraffin nóng; có vết loét hay vết thương thì không làm, khuyên gặp bác sĩ hoặc chuyên viên chăm sóc bàn chân.",
+        "Clients with diabetes or poor circulation: their feet may have less feeling and small cuts heal slowly. Lukewarm water tested by you first, a short soak, no blades, no cutting, no hot paraffin; with an ulcer or wound, don't treat and suggest a doctor or podiatrist.",
+        "Diabetesta tai huonoa verenkiertoa sairastavat: jalkojen tunto voi olla heikentynyt ja pienet haavat paranevat hitaasti. Kädenlämpöinen vesi, jonka testaat itse ensin, lyhyt liotus, ei teriä, ei leikkaamista, ei kuumaa parafiinia; haavauman tai haavan kohdalla ei hoideta, vaan ohjataan lääkärille tai jalkaterapeutille."
+      ),
+      l3(
+        "Ngâm: nước ấm, không nóng, thử bằng cổ tay mình; thường khoảng năm đến mười phút theo liệu trình. Ngâm quá lâu da mềm nhũn, dễ chà quá tay. Muối, tinh dầu: loại dành cho chân, đúng liều của hãng.",
+        "Soaking: warm, not hot, tested on your own wrist; usually about five to ten minutes, as the treatment says. Soak too long and the skin goes soggy and is easily over-filed. Salts and oils: products made for feet, at the manufacturer's dose.",
+        "Liotus: lämmin, ei kuuma vesi, testattuna omaan ranteeseen; yleensä noin viidestä kymmeneen minuuttia hoito-ohjelman mukaan. Liian pitkä liotus pehmentää ihon liikaa, ja sitä on helppo raspata liikaa. Suolat ja öljyt: jaloille tarkoitetut tuotteet valmistajan annostuksella."
+      ),
+      l3(
+        "Tẩy da chết: hạt mịn, xoa vòng nhẹ; chân kỹ hơn ở gót, tay nhẹ hơn hẳn vì da mỏng; không tẩy trên vết xước, vết nứt hay da đang kích ứng.",
+        "Exfoliation: a fine scrub in gentle circles; more attention on the heels, much lighter on the hands, whose skin is thinner; never over scratches, cracks or irritated skin.",
+        "Kuorinta: hienojakoinen kuorinta kevyin pyörivin liikkein; kantapäät huolellisemmin, kädet paljon kevyemmin ohuemman ihon vuoksi; ei koskaan naarmujen, halkeamien tai ärtyneen ihon päälle."
+      ),
+      l3(
+        "Da quanh móng: kem làm mềm, đẩy nhẹ; da sống quanh móng không cắt; chỉ cắt mẩu da khô thừa nếu được đào tạo, bằng kềm đã tiệt trùng (xem bài chăm sóc móng cơ bản).",
+        "Cuticles: softener, then push gently; the living skin around the nail is never cut; trim only loose dry bits if you are trained, with sterilised nippers (see the basic nail care lesson).",
+        "Kynsinauhat: pehmennin ja sitten kevyt työntö; elävää ihoa kynnen ympäriltä ei leikata; vain irtonaiset kuivat palat, jos olet saanut koulutuksen, steriloiduilla leikkureilla (katso kynsien perushoidon tunti)."
+      ),
+      l3(
+        "Gót chân chai: mục tiêu là mịn, không lấy sạch — lớp chai bảo vệ bàn chân. Bàn chà chân, nhẹ và đều tay. Không dao bào trừ khi quy định và đào tạo cho phép; gót nứt sâu, chảy máu hay đau: khuyên đi khám.",
+        "Hard skin on the heels: aim for smooth, not gone — callus protects the foot. A foot file, light and even. No blades unless local rules and your training allow it; deep, bleeding or painful cracks: suggest a doctor.",
+        "Kantapäiden kovettumat: tavoite on sileä, ei poistettu — kovettuma suojaa jalkaa. Jalkaraspi kevyesti ja tasaisesti. Ei teriä, elleivät paikalliset määräykset ja koulutuksesi salli; syvät, vuotavat tai kipeät halkeamat: ohjaa lääkäriin."
+      ),
+      l3(
+        "Massage: lực vừa và hỏi khách, vuốt về phía tim, không ấn lên tĩnh mạch giãn, khách tiểu đường thật nhẹ, không hứa chữa bệnh. Paraffin: nhiệt độ theo hãng, thử trên cổ tay mình, chỉ trên da lành; không nhúng tay chân khách vào nồi dùng chung — bát riêng và cọ, hoặc loại đóng gói cho từng khách; paraffin đã dùng thì bỏ.",
+        "Massage: moderate pressure and ask, strokes towards the heart, no pressure on varicose veins, very gentle for clients with diabetes, no healing promises. Paraffin: temperature as the manufacturer says, tested on your own wrist, on intact skin only; never dip a client's hands or feet into a shared heater — a separate bowl and brush, or single-client packs; used paraffin is thrown away.",
+        "Hieronta: kohtuullinen paine ja kysy, sivelyt sydäntä kohti, ei painetta suonikohjuihin, diabeetikoille hyvin kevyesti, ei parantamislupauksia. Parafiini: lämpötila valmistajan ohjeen mukaan, testi omaan ranteeseen, vain ehjälle iholle; asiakkaan käsiä tai jalkoja ei kasteta yhteiseen lämmittimeen — erillinen kulho ja sivellin tai asiakaskohtaiset pakkaukset; käytetty parafiini heitetään pois."
+      ),
+    ],
+    tips: [
+      l3(
+        "Trong VaraaAi, ghi vào ghi chú nội bộ của khách da thế nào, đã làm gì và khách thích lực tay ra sao.",
+        "In VaraaAi, note in the client's internal notes how the skin looked, what you did and the pressure they like.",
+        "Merkitse VaraaAi:ssa asiakkaan sisäisiin muistiinpanoihin ihon kunto, tehdyt hoidot ja mieluisa paine."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Sau mỗi khách, xử lý bồn ngâm chân thế nào?", "What do you do with the foot basin after each client?", "Mitä jalkakylpyaltaalle tehdään jokaisen asiakkaan jälkeen?"),
+        options: [
+          l3("Xả nước, tráng qua là đủ vì đã có túi lót", "Empty and rinse it — the liner is enough", "Tyhjennän ja huuhtelen — pussi riittää"),
+          l3("Bỏ túi lót, làm sạch bằng xà phòng và bàn chải, xả sạch, rồi khử khuẩn đủ thời gian", "Remove the liner, clean with soap and a brush, rinse, then disinfect for the full contact time", "Poistan pussin, pesen saippualla ja harjalla, huuhtelen ja desinfioin koko vaikutusajan"),
+          l3("Chỉ xịt thuốc khử khuẩn, không cần làm sạch trước", "Just spray disinfectant, no need to clean first", "Suihkutan vain desinfiointiainetta, puhdistusta ei tarvita"),
+        ],
+        answer: 1,
+        why: l3("Chất bẩn làm thuốc khử khuẩn kém tác dụng, nên luôn làm sạch trước.", "Dirt weakens disinfectants, so always clean first.", "Lika heikentää desinfiointiaineen tehoa, joten puhdistetaan aina ensin."),
+      },
+      {
+        q: l3("Khách có bệnh tiểu đường đặt lịch chăm sóc chân. Điều nào đúng?", "A client with diabetes books a foot treatment. Which is right?", "Diabetesta sairastava asiakas varaa jalkahoidon. Mikä on oikein?"),
+        options: [
+          l3("Ngâm nước nóng lâu cho mềm chai, rồi bào gót", "A long hot soak to soften the hard skin, then a blade", "Pitkä kuuma liotus kovettumien pehmentämiseksi ja sitten terä"),
+          l3("Đắp paraffin thật nóng cho máu lưu thông", "Very hot paraffin to boost circulation", "Hyvin kuuma parafiini verenkierron vilkastamiseksi"),
+          l3("Nước ấm vừa tự thử trước, ngâm ngắn, không dao, không cắt da", "Lukewarm water you test first, a short soak, no blades, no cutting", "Kädenlämpöinen, itse testattu vesi, lyhyt liotus, ei teriä, ei leikkaamista"),
+        ],
+        answer: 2,
+        why: l3("Bàn chân có thể giảm cảm giác và vết xước lâu lành; có vết loét thì không làm, khuyên đi khám.", "The feet may have less feeling and small cuts heal slowly; with an ulcer, don't treat and suggest a doctor.", "Jalkojen tunto voi olla heikentynyt ja haavat paranevat hitaasti; haavauman kohdalla ei hoideta, vaan ohjataan lääkäriin."),
+      },
+      {
+        q: l3("Dùng paraffin thế nào cho vệ sinh?", "How do you use paraffin hygienically?", "Miten parafiinia käytetään hygieenisesti?"),
+        options: [
+          l3("Lấy ra bát riêng, quét bằng cọ hoặc dùng loại đóng gói cho từng khách, dùng xong bỏ", "Take it into a separate bowl and brush it on, or use single-client packs; throw it away after", "Otan sitä erilliseen kulhoon ja sivellän tai käytän asiakaskohtaisia pakkauksia; käytetty heitetään pois"),
+          l3("Nhúng tay khách vào nồi chung, nhiệt độ cao đã diệt khuẩn", "Dip the client's hand in the shared heater — the heat kills germs", "Kastan asiakkaan käden yhteiseen lämmittimeen — lämpö tappaa bakteerit"),
+          l3("Đổ paraffin đã dùng lại vào nồi cho đỡ phí", "Pour used paraffin back into the heater to save it", "Kaadan käytetyn parafiinin takaisin lämmittimeen säästääkseni"),
+        ],
+        answer: 0,
+        why: l3("Paraffin ấm không đủ nóng để diệt khuẩn; dùng chung là đưa vi khuẩn từ khách này sang khách khác.", "Warm paraffin is not hot enough to kill germs; sharing it passes them from one client to the next.", "Lämmin parafiini ei ole tarpeeksi kuumaa tappamaan bakteereja; yhteiskäytössä ne siirtyvät asiakkaalta toiselle."),
+      },
+    ],
+  },
+  {
+    slug: "spa-tay-chan",
+    course: "p-spa",
+    style: "practice",
+    title: l3("Chăm sóc tay chân kiểu spa: thực hành từng bước", "Spa hand and foot treatments: step by step", "Spa-käsi- ja jalkahoidot: vaihe vaiheelta"),
+    summary: l3(
+      "Một lượt chăm sóc chân rồi chăm sóc tay kiểu spa, không sơn móng: chuẩn bị bồn ngâm có túi lót và dụng cụ đã tiệt trùng, hỏi sức khỏe, thử nước, nhìn kỹ bàn chân, ngâm, tẩy da chết, da quanh móng, làm mịn gót, massage chân, mặt nạ, ngâm và massage tay, paraffin, lời dặn, ghi chú và dọn dẹp bồn.",
+      "A spa foot treatment and then a hand treatment, no polish: preparing a lined basin and sterilised tools, health questions, testing the water, checking the feet, soaking, exfoliation, cuticles, smoothing the heels, foot massage, a mask, hand soak and massage, paraffin, aftercare advice, notes and cleaning the basin.",
+      "Spa-jalkahoito ja sen jälkeen käsihoito ilman lakkausta: allaspussilla varustettu allas ja steriloidut välineet, terveyskysymykset, veden testaus, jalkojen tarkastus, liotus, kuorinta, kynsinauhat, kantapäiden tasoitus, jalkahieronta, naamio, käsien liotus ja hieronta, parafiini, kotiohjeet, muistiinpanot ja altaan puhdistus."
+    ),
+    video: video("spa-tay-chan", 276, "2026-11-19"),
+    notice: l3(
+      "Thời gian và sản phẩm theo liệu trình của tiệm và hướng dẫn của hãng. Quy tắc vệ sinh lấy ví dụ từ hướng dẫn của thành phố Helsinki; quy định khác nhau theo từng nước. Không dùng dao bào nếu chưa được đào tạo và được phép. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Timing and products follow your salon's treatment and the manufacturer's instructions. The hygiene rules use the City of Helsinki guidance as an example; rules differ by country. No blades unless you are trained and allowed to use them. This lesson is a training aid, not a licence.",
+      "Ajat ja tuotteet noudattavat hoitolan hoito-ohjelmaa ja valmistajan ohjeita. Hygieniasäännöt ovat esimerkkinä Helsingin kaupungin ohjeesta; määräykset vaihtelevat maittain. Ei teriä ilman koulutusta ja lupaa. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    sources: [HELSINKI_HYGIENE],
+    related: ["dich-vu", "khach-hang", "lich-hen"],
+    steps: [
+      l3(
+        "Chuẩn bị: lau khử khuẩn ghế, bàn, gối kê; lót túi mới vào bồn ngâm; dụng cụ kim loại cho chân đã tiệt trùng, còn trong túi kín, mở trước mặt khách; miếng chà, dũa giấy dùng một lần cho mỗi khách.",
+        "Preparation: disinfect the chair, table and cushions; a fresh liner in the foot basin; metal pedicure tools sterilised and still sealed in their pouch, opened in front of the client; a new single-use file and buffer for each client.",
+        "Valmistelu: desinfioi tuoli, pöytä ja tyynyt; uusi allaspussi jalkakylpyyn; metalliset jalkahoitovälineet steriloituina ja suljetussa pussissa, joka avataan asiakkaan edessä; uusi kertakäyttöinen viila ja raspi jokaiselle asiakkaalle."
+      ),
+      l3(
+        "Hỏi về tiểu đường, tuần hoàn máu, dị ứng, vết thương. Pha nước ấm vào bồn đã lót túi, thử bằng cổ tay mình: ấm, không nóng.",
+        "Ask about diabetes, circulation, allergies and wounds. Fill the lined basin with warm water and test it on your own wrist: warm, not hot.",
+        "Kysy diabeteksesta, verenkierrosta, allergioista ja haavoista. Täytä pussitettu allas lämpimällä vedellä ja testaa omaan ranteeseen: lämmin, ei kuuma."
+      ),
+      l3(
+        "Rửa tay, đeo găng, nhìn kỹ bàn chân cả lòng bàn chân và kẽ ngón; có dấu hiệu bất thường thì không làm vùng đó và khuyên đi khám. Ngâm khoảng năm đến mười phút theo liệu trình.",
+        "Wash your hands, put on gloves and check the feet, soles and between the toes too; if something looks abnormal, don't treat that area and suggest a doctor. Soak about five to ten minutes, as the treatment says.",
+        "Pese kädet, pue käsineet ja tarkista jalat, myös jalkapohjat ja varpaanvälit; jos jokin näyttää poikkeavalta, aluetta ei hoideta ja asiakas ohjataan lääkäriin. Liota noin viidestä kymmeneen minuuttia hoito-ohjelman mukaan."
+      ),
+      l3(
+        "Tẩy da chết từng chân: xoa vòng nhẹ từ ngón lên mu bàn chân, cổ chân, kỹ hơn ở gót; tránh da trầy; xả sạch, lau khô cả kẽ ngón.",
+        "Exfoliate one foot at a time: gentle circles from the toes over the top of the foot to the ankle, more on the heel; avoid broken skin; rinse and dry, between the toes too.",
+        "Kuori jalka kerrallaan: kevyin pyörivin liikkein varpaista jalkapöydän yli nilkkaan, kantapää huolellisemmin; vältä rikkinäistä ihoa; huuhtele ja kuivaa myös varpaanvälit."
+      ),
+      l3(
+        "Da quanh móng: kem làm mềm theo hãng, đẩy nhẹ bằng cây đẩy đã tiệt trùng, không cắt da sống. Móng dài: cắt thẳng ngang, dũa nhẹ góc.",
+        "Cuticles: softener as the manufacturer says, push gently with a sterilised pusher, never cut living skin. Long nails: cut straight across and soften the corners lightly.",
+        "Kynsinauhat: pehmennin valmistajan ohjeen mukaan, kevyt työntö steriloidulla työntimellä, elävää ihoa ei leikata. Pitkät kynnet: suoraan poikki ja kulmat kevyesti viilaten."
+      ),
+      l3(
+        "Gót chân: bàn chà chân, nhẹ và đều tay, theo hướng dẫn của loại bàn chà; mịn là đủ, không lấy sạch lớp chai, không dao bào; khách thấy rát là quá tay.",
+        "Heels: a foot file, light and even, used as its maker says; smooth is enough, don't remove all the callus, no blades; if the client feels it sting, you have gone too far.",
+        "Kantapäät: jalkaraspi kevyesti ja tasaisesti valmistajan ohjeen mukaan; sileä riittää, kaikkea kovettumaa ei poisteta, ei teriä; jos asiakasta kirvelee, raspaus on mennyt liian pitkälle."
+      ),
+      l3(
+        "Massage chân: vuốt dài từ ngón lên cổ chân, bắp chân, về phía tim; ngón cái xoa vòng dọc lòng bàn chân; hỏi lực tay; không ấn lên tĩnh mạch giãn. Mặt nạ chân nếu có: bọc màng mỏng, quấn khăn ấm, khoảng mười phút theo hãng.",
+        "Foot massage: long strokes from the toes to the ankle and calf, towards the heart; thumb circles along the sole; ask about pressure; no pressure on varicose veins. A foot mask if included: thin wrap and a warm towel, about ten minutes as the manufacturer says.",
+        "Jalkahieronta: pitkät sivelyt varpaista nilkkaan ja pohkeeseen sydäntä kohti; peukaloympyrät jalkapohjaa pitkin; kysy paineesta; ei painetta suonikohjuihin. Jalkanaamio, jos kuuluu hoitoon: ohut kääre ja lämmin pyyhe noin kymmenen minuuttia valmistajan ohjeen mukaan."
+      ),
+      l3(
+        "Tay: ngâm đầu ngón vài phút, lau khô, tẩy da chết nhẹ hơn ở chân, đẩy nhẹ da quanh móng. Massage: hai ngón cái vuốt trên mu bàn tay về phía cổ tay, xoa vòng lòng bàn tay, vuốt dọc từng ngón; chậm và đều.",
+        "Hands: soak the fingertips a few minutes, dry, exfoliate more lightly than the feet, push the cuticles gently. Massage: both thumbs stroke the back of the hand towards the wrist, circles in the palm, along each finger; slow and even.",
+        "Kädet: liota sormenpäitä muutama minuutti, kuivaa, kuori kevyemmin kuin jalat ja työnnä kynsinauhoja varovasti. Hieronta: molemmat peukalot sivelevät kämmenselkää ranteen suuntaan, ympyrät kämmenessä, sively sormi kerrallaan; hitaasti ja tasaisesti."
+      ),
+      l3(
+        "Paraffin: nhiệt độ theo hãng, thử trên cổ tay mình, chỉ trên da lành; lấy ra bát riêng, quét bằng cọ vài lớp, không nhúng tay khách vào nồi chung; bọc túi mỏng, đeo bao tay bông, ủ khoảng mười phút theo hãng; bóc ra một lượt, bỏ đi, thoa kem dưỡng.",
+        "Paraffin: temperature as the manufacturer says, tested on your own wrist, intact skin only; take some into a separate bowl and brush on a few layers — never dip the client's hand into the shared heater; thin plastic and terry mitts, about ten minutes as the manufacturer says; peel off in one piece, throw it away, apply cream.",
+        "Parafiini: lämpötila valmistajan ohjeen mukaan, testi omaan ranteeseen, vain ehjälle iholle; ota erilliseen kulhoon ja sivele muutama kerros — asiakkaan kättä ei kasteta yhteiseen lämmittimeen; ohut muovi ja froteelapaset noin kymmenen minuuttia valmistajan ohjeen mukaan; irrota yhtenä kappaleena, heitä pois ja levitä voide."
+      ),
+      l3(
+        "Lời dặn: dưỡng ẩm tay chân mỗi ngày; gót nứt sâu, đau hay móng mọc quặp thì gặp chuyên viên chăm sóc bàn chân. Dọn dẹp: bỏ túi lót, làm sạch bồn bằng xà phòng và bàn chải, xả sạch, khử khuẩn đủ thời gian; dụng cụ kim loại làm sạch rồi tiệt trùng; khăn vào giỏ có nắp; rửa tay.",
+        "Advice: moisturise hands and feet daily; deep or painful heel cracks or an ingrown toenail need a podiatrist. Tidying: remove the liner, clean the basin with soap and a brush, rinse, disinfect for the full contact time; metal tools cleaned, then sterilised; towels into a lidded basket; wash your hands.",
+        "Kotiohjeet: käsien ja jalkojen päivittäinen rasvaus; syvät tai kipeät kantapäähalkeamat tai sisäänkasvanut kynsi kuuluvat jalkaterapeutille. Siivous: poista allaspussi, pese allas saippualla ja harjalla, huuhtele ja desinfioi koko vaikutusajan; metallivälineet puhdistetaan ja steriloidaan; pyyhkeet kannelliseen koriin; pese kädet."
+      ),
+    ],
+    tips: [
+      l3(
+        "Trong VaraaAi, ghi vào ghi chú nội bộ của khách da thế nào, lực tay khách thích và sản phẩm đã dùng.",
+        "In VaraaAi, note in the client's internal notes how the skin looked, the pressure they like and the products used.",
+        "Merkitse VaraaAi:ssa asiakkaan sisäisiin muistiinpanoihin ihon kunto, mieluisa paine ja käytetyt tuotteet."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Làm gót chân chai thế nào là đúng?", "What is the right way to treat hard skin on the heels?", "Miten kantapäiden kovettumaa hoidetaan oikein?"),
+        options: [
+          l3("Bào thật sạch bằng dao cho khách hài lòng", "Shave it all off with a blade to please the client", "Höylään kaiken terällä asiakkaan iloksi"),
+          l3("Chà nhẹ, đều tay bằng bàn chà chân cho đến khi mịn, không lấy sạch", "File lightly and evenly with a foot file until smooth, not all away", "Raspaan kevyesti ja tasaisesti jalkaraspilla sileäksi, en kaikkea pois"),
+          l3("Ngâm thật lâu rồi chà mạnh", "Soak for a long time, then file hard", "Liotan pitkään ja raspaan sitten voimakkaasti"),
+        ],
+        answer: 1,
+        why: l3("Lớp chai bảo vệ bàn chân; dao bào chỉ dành cho người được đào tạo và được phép.", "Callus protects the foot; blades are only for those trained and allowed to use them.", "Kovettuma suojaa jalkaa; terät kuuluvat vain koulutetuille, joilla on siihen lupa."),
+      },
+      {
+        q: l3("Kẽ chân khách trắng, bong và nứt. Bạn làm gì?", "The skin between the client's toes is white, peeling and cracked. What do you do?", "Asiakkaan varpaanvälien iho on valkoinen, hilseilevä ja halkeillut. Mitä teet?"),
+        options: [
+          l3("Không làm vùng đó, nói điều mình thấy và khuyên khách đi khám", "Don't treat that area; say what you see and suggest a doctor", "En hoida aluetta; kerron, mitä näen, ja ehdotan lääkäriä"),
+          l3("Ngâm lâu hơn cho sạch", "Soak longer to clean it", "Liotan pidempään, jotta se puhdistuu"),
+          l3("Nói với khách: chị bị nấm rồi", "Tell the client: you have a fungal infection", "Sanon asiakkaalle: sinulla on sieni-infektio"),
+        ],
+        answer: 0,
+        why: l3("Người thợ không chẩn đoán; dụng cụ và bồn dùng cho vùng đó có thể lây cho khách khác.", "We don't diagnose; tools and basins used there could spread it to other clients.", "Emme tee diagnooseja; välineet ja allas voivat levittää tartunnan muille asiakkaille."),
+      },
+      {
+        q: l3("Dụng cụ kim loại làm chân sau khi dùng thì sao?", "What happens to metal pedicure tools after use?", "Mitä metallisille jalkahoitovälineille tehdään käytön jälkeen?"),
+        options: [
+          l3("Lau bằng cồn là đủ", "A wipe with alcohol is enough", "Alkoholipyyhintä riittää"),
+          l3("Ngâm vào bồn ngâm chân của khách sau", "Put them in the next client's foot bath", "Laitan ne seuraavan asiakkaan jalkakylpyyn"),
+          l3("Làm sạch, rồi tiệt trùng, ví dụ bằng nồi hấp, và cất riêng", "Clean them, then sterilise them, for example in an autoclave, and store them separately", "Puhdistan ja steriloin ne, esimerkiksi autoklaavissa, ja säilytän erillään"),
+        ],
+        answer: 2,
+        why: l3("Theo ví dụ Helsinki, dụng cụ làm chân luôn phải được tiệt trùng và cất riêng.", "In the Helsinki example, pedicure tools must always be sterilised and stored separately.", "Helsingin esimerkissä jalkahoitovälineet on aina steriloitava ja säilytettävä erillään."),
+      },
+    ],
+  },
 ];
 
 /** Trades the owner set aside for later (2026-11-16: hygiene, nails and lashes first). Their courses
