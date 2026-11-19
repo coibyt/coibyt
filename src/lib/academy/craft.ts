@@ -6208,16 +6208,510 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("cat-nu-bang", "p-hair", ["Cắt tóc nữ: cắt bằng và bob", "Women's cuts: one-length and bob", "Naisten leikkaukset: tasapituinen ja polkka"], [
-    "Góc nâng 0°, lực căng tóc, đường chuẩn và kiểm tra cân hai bên.",
-    "Zero elevation, tension, the guide line and checking the balance.",
-    "Nollakohotus, kireys, ohjauslinja ja tasapainon tarkistus.",
-  ]),
-  soon("cat-nu-tang", "p-hair", ["Cắt tóc nữ: cắt tầng (layers)", "Women's cuts: layers", "Naisten leikkaukset: kerrokset"], [
-    "Góc nâng 90° và 180°, tầng quanh mặt, giữ độ dài.",
-    "90° and 180° elevation, face-framing layers and keeping the length.",
-    "90 ja 180 asteen kohotus, kasvoja kehystävät kerrokset ja pituuden säilyttäminen.",
-  ]),
+  {
+    slug: "cat-nu-bang-hieu-dung",
+    course: "p-hair",
+    style: "theory",
+    title: l3("Cắt tóc nữ bằng và bob: hiểu đúng để đường cắt thẳng và cân", "One-length cuts and bobs: understand them for a straight, balanced line", "Tasapituinen leikkaus ja polkka: ymmärrä ne, niin linja on suora ja tasapainoinen"),
+    summary: l3(
+      "Cắt bằng là gì; bob bằng, bob chữ A và bob xếp tầng; thống nhất độ dài bằng điểm chạm; đọc cổ, xoáy ở gáy và vai; đường rơi tự nhiên, góc nâng 0°, lực căng, tóc ướt và khô, tóc xoăn co lên; chia vùng và đường chuẩn cố định ở gáy; tư thế đầu khi cắt gáy và hai bên; vành tai; kiểm tra chéo và cân hai bên; kiểm tra khi khô, tỉa mũi kéo; an toàn và vệ sinh.",
+      "What one-length means; the one-length, A-line and graduated bob; agreeing the length with a touch point; reading the neck, nape whorls and shoulders; natural fall, zero elevation, tension, wet versus dry and curl shrinkage; sections and the stationary guideline at the nape; head position for the nape and the sides; the ears; cross-checking and balance; the dry check and point cutting; safety and hygiene.",
+      "Mitä tasapituinen tarkoittaa; tasapituinen polkka, A-linjainen polkka ja porrastettu polkka; pituudesta sopiminen kosketuskohdan avulla; kaulan, niskan pyörteiden ja hartioiden lukeminen; luonnollinen lasku, nollakohotus, kireys, märkä ja kuiva hius sekä kiharoiden kutistuminen; jakaminen ja kiinteä ohjauslinja niskassa; pään asento niskaa ja sivuja leikattaessa; korvat; ristiintarkistus ja tasapaino; tarkistus kuivana ja pistoleikkaus; turvallisuus ja hygienia."
+    ),
+    video: video("cat-nu-bang-hieu-dung", 278, "2026-11-19"),
+    notice: l3(
+      "Tên gọi và cách dạy khác nhau giữa các trường và các nước; đây là tài liệu luyện tập, không thay cho bằng nghề. Luôn thống nhất độ dài với khách trước khi cắt. Ngón tay luôn nằm giữa lưỡi kéo và da khách. Kéo, lược, kẹp làm sạch và khử khuẩn sau mỗi khách theo hướng dẫn sản phẩm; dải giấy cổ dùng một lần (bài “Xử lý dụng cụ sau mỗi khách”). Quy định khác nhau theo từng nước.",
+      "Names and teaching methods differ between schools and countries; this is a training aid, not a licence. Always agree the length with the customer before cutting. Your fingers always stay between the blades and the customer's skin. Scissors, combs and clips are cleaned and disinfected after every customer as the product instructs; neck strips are single-use (lesson “Tools after every customer”). Rules differ by country.",
+      "Nimitykset ja opetustavat vaihtelevat kouluittain ja maittain; tämä on harjoitusmateriaali, ei ammattipätevyys. Sovi pituus aina asiakkaan kanssa ennen leikkausta. Sormet ovat aina terien ja asiakkaan ihon välissä. Sakset, kammat ja klipsit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen tuotteen ohjeen mukaan; kaulapaperit ovat kertakäyttöisiä (tunti ”Välineet jokaisen asiakkaan jälkeen”). Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Cắt bằng: mọi sợi tóc, khi rơi tự nhiên, dừng ở cùng một đường. Ngắn tới quanh cằm thường gọi là bob. Từ sau nhìn thẳng ngang, nhìn nghiêng song song với sàn.",
+        "One-length: every hair, falling naturally, stops at the same line. Around the chin it is usually called a bob. From behind it is straight across; from the side it is parallel to the floor.",
+        "Tasapituinen: jokainen hius pysähtyy luonnollisesti pudotessaan samaan linjaan. Leuan tasolla sitä kutsutaan yleensä polkaksi. Takaa linja on vaakasuora, sivulta lattian suuntainen."
+      ),
+      l3(
+        "Bob bằng: đường cắt ngang. Bob chữ A: sau ngắn, dài dần ra trước mặt. Bob xếp tầng: gáy cắt với góc nâng nhỏ, tạo độ phồng phía sau. Tên gọi mỗi nơi một khác.",
+        "One-length bob: a level line. A-line bob: shorter at the back, longer towards the face. Graduated (stacked) bob: the nape is cut with a little elevation for volume at the back. Names vary from place to place.",
+        "Tasapituinen polkka: vaakasuora linja. A-linjainen polkka: takaa lyhyempi, kasvoja kohti pitenevä. Porrastettu polkka: niska leikataan pienellä kohotuksella, jolloin taakse syntyy volyymia. Nimitykset vaihtelevat."
+      ),
+      l3(
+        "Thống nhất độ dài bằng điểm chạm (ngang cằm, chạm vai…), không bằng chữ “ít” hay “ngắn”. Hỏi khách có hay buộc tóc, vén tóc sau tai không.",
+        "Agree the length with a touch point (at the chin, touching the shoulder…), not with words like “a little” or “short”. Ask whether the customer ties her hair up or tucks it behind her ears.",
+        "Sovi pituus kosketuskohdalla (leuan tasolle, olkapäähän…), ei sanoilla ”vähän” tai ”lyhyt”. Kysy, sitooko asiakas hiuksensa tai laittaako ne korvien taakse."
+      ),
+      l3(
+        "Đọc cổ và gáy: xoáy ở gáy làm đường bob quá ngắn dễ vểnh. Tóc dừng ngay trên vai sẽ chạm vai và bật ra — chọn cao hơn vai hoặc dài hẳn qua vai.",
+        "Read the neck and nape: a nape whorl makes a very short bob line kick up. Hair that stops right on the shoulders hits them and flicks out — choose above the shoulders or clearly below.",
+        "Lue kaula ja niska: niskapyörre saa liian lyhyen polkkalinjan törröttämään. Juuri olkapäille päättyvä hius osuu niihin ja kääntyy ulos — valitse olkapäiden yläpuolelta tai selvästi alempaa."
+      ),
+      l3(
+        "Cắt theo đường rơi tự nhiên, góc nâng 0°, lực căng nhẹ và đều. Kéo căng tóc ướt thì khô rồi co lên, ngắn hơn và lệch.",
+        "Cut in natural fall, at zero elevation, with light, even tension. Wet hair pulled tight shrinks up when dry, shorter and uneven.",
+        "Leikkaa luonnollisessa laskussa, nollakohotuksella, kevyellä ja tasaisella kireydellä. Kireälle vedetty märkä hius nousee kuivuessaan lyhyemmäksi ja epätasaiseksi."
+      ),
+      l3(
+        "Tóc thẳng khô cũng co lên chút ít; tóc gợn sóng và xoăn co nhiều hơn hẳn. Với tóc xoăn: để dài hơn ý định, hoặc cắt khô theo kỹ thuật đã học.",
+        "Straight hair shrinks a little when dry; wavy and curly hair much more. For curls: leave it longer than intended, or cut dry with a technique you have learned.",
+        "Suorakin hius lyhenee hieman kuivuessaan; laineikas ja kihara paljon enemmän. Kiharoille: jätä aiottua pidemmäksi tai leikkaa kuivana oppimallasi tekniikalla."
+      ),
+      l3(
+        "Bắt đầu bằng một lọn ngang thật mỏng ở gáy: đường chuẩn. Các lớp sau chải thẳng xuống và cắt đúng bằng nó (đường chuẩn cố định). Lọn mỏng thì thấy rõ đường chuẩn.",
+        "Start with a very thin horizontal section at the nape: the guideline. Each following layer is combed straight down and cut exactly to it (a stationary guide). Thin sections let you see the guide.",
+        "Aloita hyvin ohuella vaakasuoralla jakaumalla niskassa: ohjauslinja. Seuraavat kerrokset kammataan suoraan alas ja leikataan täsmälleen siihen (kiinteä ohjauslinja). Ohuista jakaumista ohjauslinja näkyy."
+      ),
+      l3(
+        "Cắt gáy: khách cúi đầu nhẹ, cằm hơi hạ, giữ nguyên tới hết phần sau. Trước khi cắt hai bên, khách ngẩng thẳng đầu, ngồi thẳng, không bắt chéo chân.",
+        "For the nape: the customer's chin slightly down, kept the same until the back is done. Before the sides: head upright, sitting straight, legs not crossed.",
+        "Niskaa leikatessa asiakkaan leuka hieman alas, sama asento koko takaosan ajan. Ennen sivuja: pää suoraan, istuu suorassa, jalat eivät ristissä."
+      ),
+      l3(
+        "Vành tai đẩy tóc ra: kéo căng tóc qua tai rồi cắt, thả ra sẽ hụt một chỗ trên tai. Ở chỗ tai, để tóc rơi tự nhiên, giữ thật nhẹ tay.",
+        "The ear pushes hair out: pull it tight over the ear and cut, and once released it leaves a gap above the ear. At the ear, let the hair fall naturally and hold it very lightly.",
+        "Korva työntää hiuksia ulospäin: jos hius vedetään kireälle korvan yli ja leikataan, siihen jää vapautettaessa lovi korvan yläpuolelle. Anna hiuksen pudota korvan kohdalla luonnollisesti ja pidä kevyesti."
+      ),
+      l3(
+        "Kiểm tra suốt buổi: so hai đuôi tóc trước mặt ở cùng độ cao, đầu khách thẳng; nhìn từ sau và nhìn nghiêng. Sấy khô rồi kiểm tra lại; tỉa mũi kéo nếu khách muốn đuôi mềm hơn.",
+        "Check throughout: compare both front ends at the same height with the head straight; look from behind and from the side. Check again once dry; point cut only if the customer wants a softer edge.",
+        "Tarkista koko ajan: vertaa etupään latvoja samalla korkeudella pää suorassa; katso takaa ja sivulta. Tarkista uudelleen kuivana; pistoleikkaa vain, jos asiakas haluaa pehmeämmän reunan."
+      ),
+    ],
+    tips: [
+      l3(
+        "Đầu khách nghiêng một chút là hai bên trông lệch dù mình cắt đúng — luôn chỉnh đầu khách thẳng trước khi so.",
+        "A slightly tilted head makes the sides look uneven even when they are right — always straighten the head before comparing.",
+        "Hieman kallistunut pää saa puolet näyttämään epätasaisilta, vaikka ne olisivat oikein — suorista pää aina ennen vertailua."
+      ),
+      l3(
+        "Trong VaraaAi, ghi độ dài đã cắt và điểm chạm vào ghi chú khách, để lần sau ai làm cũng cắt đúng.",
+        "In VaraaAi, note the length and touch point in the customer notes, so whoever cuts next time gets it right.",
+        "Kirjaa VaraaAi:hin leikattu pituus ja kosketuskohta asiakkaan muistiinpanoihin, jotta seuraava leikkaaja osuu oikeaan."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Cắt bob bằng, tóc được nâng lên góc bao nhiêu?", "At what elevation is a one-length bob cut?", "Millä kohotuksella tasapituinen polkka leikataan?"),
+        options: [
+          l3("90°, vuông góc với da đầu", "90°, at right angles to the head", "90°, kohtisuoraan päänahkaa vasten"),
+          l3("0°, tóc rơi thẳng xuống", "0°, the hair falling straight down", "0°, hius putoaa suoraan alas"),
+          l3("45°, để tóc chồng lên nhau", "45°, so the hair stacks", "45°, jotta hius porrastuu"),
+        ],
+        answer: 1,
+        why: l3(
+          "Cắt bằng là góc nâng 0°: tóc chải thẳng xuống theo đường rơi tự nhiên. Nâng lên dù một chút là đường cắt thành tầng.",
+          "One-length means zero elevation: the hair is combed straight down in natural fall. Lifting it even a little turns the line into layers.",
+          "Tasapituinen tarkoittaa nollakohotusta: hius kammataan suoraan alas luonnolliseen laskuun. Pienikin nosto tekee linjasta porrastetun."
+        ),
+      },
+      {
+        q: l3("Vì sao không kéo căng tóc qua vành tai khi cắt?", "Why not pull the hair tight over the ear when cutting?", "Miksi hiusta ei vedetä kireälle korvan yli leikattaessa?"),
+        options: [
+          l3("Vì thả ra, vành tai đẩy tóc lên, thành chỗ hụt trên tai", "Because once released, the ear pushes it up and leaves a gap", "Koska vapautettuna korva nostaa hiusta ja siihen jää lovi"),
+          l3("Vì kéo căng làm tóc mọc chậm", "Because tension slows hair growth", "Koska kireys hidastaa hiusten kasvua"),
+          l3("Vì như vậy khó chải tóc", "Because it makes combing harder", "Koska silloin kampaaminen on vaikeampaa"),
+        ],
+        answer: 0,
+        why: l3(
+          "Tai nhô ra; tóc bị kéo căng qua tai sẽ ngắn hơn khi thả. Ở chỗ tai, để tóc rơi tự nhiên và giữ thật nhẹ tay.",
+          "The ear sticks out; hair stretched over it ends up shorter once released. At the ear, let it fall naturally and hold it lightly.",
+          "Korva työntyy esiin; sen yli venytetty hius jää vapautettuna lyhyemmäksi. Anna hiuksen pudota korvan kohdalla luonnollisesti ja pidä kevyesti."
+        ),
+      },
+      {
+        q: l3("Khách muốn tóc dừng đúng ngay trên vai. Nên nói gì?", "The customer wants the hair to stop right on her shoulders. What do you say?", "Asiakas haluaa hiusten päättyvän juuri olkapäille. Mitä sanot?"),
+        options: [
+          l3("Không cần nói gì, cứ cắt", "Nothing, just cut", "Ei mitään, leikkaa vain"),
+          l3("Cắt thật căng để tóc không bật", "Cut with strong tension so it won't flick", "Leikkaa kireästi, ettei hius käänny"),
+          l3("Tóc chạm vai sẽ bật ra; gợi ý cao hơn vai hoặc dài hẳn qua vai", "Hair touching the shoulders flicks out; suggest above or clearly below", "Olkapäihin osuva hius kääntyy ulos; ehdota yläpuolta tai selvästi alempaa"),
+        ],
+        answer: 2,
+        why: l3(
+          "Đuôi tóc chạm vai mỗi khi khách cử động và bật ra ngoài. Nói trước, để khách chọn độ dài phù hợp.",
+          "The ends hit the shoulders with every movement and flick outwards. Say so first, so she can choose a length that works.",
+          "Latvat osuvat olkapäihin joka liikkeellä ja kääntyvät ulos. Kerro tästä etukäteen, jotta asiakas voi valita toimivan pituuden."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "cat-nu-bang",
+    course: "p-hair",
+    style: "practice",
+    title: l3("Cắt tóc nữ bằng và bob: thực hành từng bước", "One-length cuts and bobs: step-by-step practice", "Tasapituinen leikkaus ja polkka: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Cắt một mái tóc dài thành bob bằng ngang cằm từng bước: chuẩn bị và giấy cổ, tư vấn và điểm chạm, gội và giữ tóc ẩm, cắt bớt phần đuôi dài, chia vùng, đường chuẩn ở gáy với góc nâng 0°, các lớp phía sau, hai bên và vành tai, kiểm tra hai bên và phía sau, sấy và kiểm tra khi khô, ba lỗi hay gặp, hoàn thiện, ghi hồ sơ và dọn dẹp.",
+      "Cutting long hair into a chin-length one-length bob step by step: preparation and neck strip, consultation and touch point, shampoo and keeping the hair damp, removing the extra length, sectioning, the nape guideline at zero elevation, the back layers, the sides and the ears, checking both sides and the back, blow-drying and the dry check, three common mistakes, finishing, notes and clean-up.",
+      "Pitkät hiukset leikataan leuan mittaiseksi tasapituiseksi polkaksi vaihe vaiheelta: valmistelu ja kaulapaperi, konsultaatio ja kosketuskohta, pesu ja hiusten pitäminen kosteina, ylimääräisen pituuden poisto, jakaminen, niskan ohjauslinja nollakohotuksella, takaosan kerrokset, sivut ja korvat, puolten ja takaosan tarkistus, föönaus ja tarkistus kuivana, kolme yleistä virhettä, viimeistely, muistiinpanot ja siivous."
+    ),
+    video: video("cat-nu-bang", 275, "2026-11-19"),
+    notice: l3(
+      "Tên gọi và cách dạy khác nhau giữa các trường và các nước; đây là tài liệu luyện tập, không thay cho bằng nghề. Chỉ cắt tới độ dài đã thống nhất với khách. Ngón tay luôn nằm giữa lưỡi kéo và da khách. Kéo, lược, kẹp làm sạch và khử khuẩn sau mỗi khách theo hướng dẫn sản phẩm; dải giấy cổ dùng một lần (bài “Xử lý dụng cụ sau mỗi khách”). Quy định khác nhau theo từng nước.",
+      "Names and teaching methods differ between schools and countries; this is a training aid, not a licence. Cut only to the length agreed with the customer. Your fingers always stay between the blades and the customer's skin. Scissors, combs and clips are cleaned and disinfected after every customer as the product instructs; neck strips are single-use (lesson “Tools after every customer”). Rules differ by country.",
+      "Nimitykset ja opetustavat vaihtelevat kouluittain ja maittain; tämä on harjoitusmateriaali, ei ammattipätevyys. Leikkaa vain asiakkaan kanssa sovittuun pituuteen. Sormet ovat aina terien ja asiakkaan ihon välissä. Sakset, kammat ja klipsit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen tuotteen ohjeen mukaan; kaulapaperit ovat kertakäyttöisiä (tunti ”Välineet jokaisen asiakkaan jälkeen”). Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Rửa tay; kéo, lược, kẹp đã làm sạch và khử khuẩn. Dải giấy cổ dùng một lần, rồi mới cài áo choàng.",
+        "Wash your hands; scissors, combs and clips cleaned and disinfected. A single-use neck strip first, then the cape.",
+        "Pese kädet; sakset, kammat ja klipsit puhdistettu ja desinfioitu. Ensin kertakäyttöinen kaulapaperi, sitten suojaviitta."
+      ),
+      l3(
+        "Tư vấn khi tóc khô: ảnh mẫu, thói quen buộc tóc; thống nhất độ dài bằng điểm chạm ngang cằm; tìm xoáy ở gáy, nhìn cổ và vai; tóc xoăn thì để dài hơn.",
+        "Consult on dry hair: reference photo, how she wears it; agree the length with a touch point at the chin; find nape whorls, look at the neck and shoulders; leave curly hair longer.",
+        "Konsultoi kuivista hiuksista: mallikuva, tavat; sovi pituus kosketuskohdalla leuan tasolle; etsi niskapyörteet, katso kaula ja hartiat; jätä kihara pidemmäksi."
+      ),
+      l3(
+        "Gội, thấm khăn, gỡ rối từ ngọn lên; giữ tóc ẩm đều. Có thể cắt bớt phần đuôi dài trước, để dài hơn đường bob vài phân. Khách muốn giữ tóc: buộc đuôi và cắt khi còn khô, trước khi gội.",
+        "Shampoo, blot, detangle from the ends; keep the hair evenly damp. You may first remove the extra length, leaving a few centimetres below the bob line. If she wants to keep the hair: ponytail it and cut it dry, before the shampoo.",
+        "Pese, kuivaa pyyhkeellä painellen, selvitä latvoista alkaen; pidä hius tasaisen kosteana. Ylimääräisen pituuden voi poistaa ensin, muutama sentti polkkalinjan alapuolelle. Jos asiakas haluaa hiukset talteen: ponnari ja leikkaus kuivana ennen pesua."
+      ),
+      l3(
+        "Rẽ ngôi giữa, chia vùng, kẹp phẳng. Thả một lọn ngang thật mỏng ở gáy, phần còn lại kẹp lên.",
+        "Centre parting, sections, clipped flat. Release one very thin horizontal section at the nape; clip the rest up.",
+        "Keskijakaus, jakaumat, klipsit tasaisesti. Vapauta niskasta yksi hyvin ohut vaakasuora jakauma; muut ylös klipseihin."
+      ),
+      l3(
+        "Đường chuẩn: khách cúi nhẹ, cằm hơi hạ. Chải thẳng xuống, 0°, lực căng thật nhẹ; cắt thẳng ngang ngay dưới ngón tay, giữa trước rồi hai bên; kiểm tra song song với sàn.",
+        "The guideline: chin slightly down. Comb straight down, 0°, very light tension; cut straight across just below the fingers, centre first, then the sides; check it is parallel to the floor.",
+        "Ohjauslinja: leuka hieman alas. Kampaa suoraan alas, 0°, hyvin kevyt kireys; leikkaa vaakasuoraan heti sormien alta, ensin keskeltä, sitten sivuille; tarkista lattian suuntaisuus."
+      ),
+      l3(
+        "Các lớp sau: từng lọn ngang mỏng chải xuống phủ lên đường chuẩn, cắt đúng bằng nó, lên tới đỉnh đầu. Ở xương chẩm, chải thật thẳng xuống, không nâng.",
+        "The back layers: each thin horizontal section combed down over the guide and cut exactly to it, up to the crown. At the occipital bone, comb straight down without lifting.",
+        "Takaosan kerrokset: jokainen ohut vaakajakauma kammataan alas ohjauslinjan päälle ja leikataan täsmälleen siihen, päälakeen asti. Takaraivon kohdalla kampaa suoraan alas nostamatta."
+      ),
+      l3(
+        "Hai bên: khách ngẩng thẳng đầu. Lấy kèm chút tóc phía sau làm chuẩn, nối ra trước ngang cằm. Ở chỗ tai, không kéo căng; làm từng lớp, rồi bên kia y như vậy.",
+        "The sides: head upright. Take a little of the cut back hair as the guide and connect forwards to the chin. At the ear, no tension; work layer by layer, then the other side the same.",
+        "Sivut: pää suoraan. Ota ohjaukseksi hieman leikattua takahiusta ja jatka linja eteen leuan tasolle. Korvan kohdalla ei kireyttä; kerros kerrallaan, sitten toinen puoli samoin."
+      ),
+      l3(
+        "Kiểm tra: đầu thẳng, so hai đuôi tóc ở hai bên cằm, tỉa bên dài từng chút; nhìn từ sau, nhìn nghiêng; làm liền góc nhỏ ngay sau tai.",
+        "Check: head straight, compare the ends at both sides of the chin and trim the longer side bit by bit; look from behind and from the side; blend the little corner behind the ear.",
+        "Tarkista: pää suorassa, vertaa latvoja leuan molemmin puolin ja tasaa pidempää puolta vähitellen; katso takaa ja sivulta; pyöristä pieni kulma korvan takana."
+      ),
+      l3(
+        "Sấy theo chiều tóc rơi, cuộn nhẹ đuôi vào trong; khô rồi kiểm tra lại, tỉa sợi lòi ra; tỉa mũi kéo chỉ khi khách muốn đuôi mềm.",
+        "Blow-dry in the direction of fall, turning the ends slightly under; check again once dry and snip stray hairs; point cut only if she wants a softer edge.",
+        "Föönaa laskun suuntaan ja käännä latvoja hieman sisään; tarkista kuivana uudelleen ja leikkaa harhailevat hiukset; pistoleikkaa vain, jos asiakas haluaa pehmeämmän reunan."
+      ),
+      l3(
+        "Hoàn thiện: gương tay, chỉnh ngay nếu khách muốn, chỉ cách sấy ở nhà, ghi độ dài vào hồ sơ khách. Nhiều khách tỉa lại sau khoảng 6–8 tuần (thói quen, không phải quy định). Dọn và khử khuẩn dụng cụ.",
+        "Finish: hand mirror, adjust right away if she wants, show how to blow-dry at home, record the length in the customer file. Many customers come back for a trim after about 6–8 weeks (a habit, not a rule). Clean and disinfect the tools.",
+        "Viimeistely: käsipeili, korjaa heti, jos asiakas haluaa, näytä föönaus kotona, kirjaa pituus asiakastietoihin. Moni asiakas palaa tasaukseen noin 6–8 viikon päästä (tapa, ei sääntö). Puhdista ja desinfioi välineet."
+      ),
+    ],
+    tips: [
+      l3(
+        "Ba lỗi hay gặp: vô tình nâng tóc ở xương chẩm, kéo căng tóc qua tai, và đầu khách nghiêng hay khách bắt chéo chân.",
+        "Three common mistakes: lifting the hair at the occipital without noticing, pulling hair tight over the ear, and a tilted head or crossed legs.",
+        "Kolme yleistä virhettä: hiuksen huomaamaton nosto takaraivolla, hiuksen vetäminen kireälle korvan yli sekä kallistunut pää tai ristissä olevat jalat."
+      ),
+      l3(
+        "Trong VaraaAi, gợi ý khách đặt lịch tỉa lại ngay khi thanh toán, và ghi độ dài vào ghi chú khách.",
+        "In VaraaAi, suggest booking the next trim right at checkout and note the length in the customer notes.",
+        "Ehdota VaraaAi:ssa seuraavaa tasausta heti maksun yhteydessä ja kirjaa pituus asiakkaan muistiinpanoihin."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Cắt xong phía sau, trước khi sang hai bên cần làm gì?", "The back is done. What do you do before the sides?", "Takaosa on valmis. Mitä teet ennen sivuja?"),
+        options: [
+          l3("Cho khách cúi đầu thấp hơn nữa", "Ask her to lower her head even more", "Pyydä asiakasta laskemaan päätä vielä enemmän"),
+          l3("Cho khách ngẩng thẳng đầu, ngồi thẳng, không bắt chéo chân", "Head upright, sitting straight, legs not crossed", "Pää suoraan, istuu suorassa, jalat eivät ristissä"),
+          l3("Làm ướt lại toàn bộ tóc thật nhiều", "Soak all the hair again", "Kastele kaikki hiukset uudelleen kunnolla"),
+        ],
+        answer: 1,
+        why: l3(
+          "Hai bên được cắt với đầu thẳng; đầu nghiêng hay vai lệch thì đường cắt hai bên lệch theo.",
+          "The sides are cut with the head upright; a tilted head or uneven shoulders make the side lines uneven.",
+          "Sivut leikataan pää suorassa; kallistunut pää tai vinot hartiat tekevät sivulinjoista epätasaiset."
+        ),
+      },
+      {
+        q: l3("Lọn tiếp theo ở phía sau được cắt thế nào?", "How is the next section at the back cut?", "Miten seuraava takajakauma leikataan?"),
+        options: [
+          l3("Nâng lên 90° rồi cắt", "Lifted to 90° and cut", "Nostetaan 90°:een ja leikataan"),
+          l3("Cắt ngắn hơn đường chuẩn một chút", "A little shorter than the guide", "Hieman ohjauslinjaa lyhyemmäksi"),
+          l3("Chải thẳng xuống, phủ lên đường chuẩn, cắt đúng bằng nó", "Combed straight down over the guide and cut exactly to it", "Kammataan suoraan alas ohjauslinjan päälle ja leikataan täsmälleen siihen"),
+        ],
+        answer: 2,
+        why: l3(
+          "Đường chuẩn cố định: mọi lớp đi tới nó với góc 0°, nên tất cả dừng ở cùng một đường.",
+          "A stationary guide: every layer comes down to it at 0°, so they all stop at the same line.",
+          "Kiinteä ohjauslinja: jokainen kerros tuodaan siihen 0°:ssa, joten kaikki päättyvät samaan linjaan."
+        ),
+      },
+      {
+        q: l3("Vì sao kiểm tra lại khi tóc đã khô?", "Why check again once the hair is dry?", "Miksi tarkistetaan uudelleen kuivana?"),
+        options: [
+          l3("Vì lúc đó tóc nằm đúng như khách sẽ thấy ở nhà", "Because then it sits as she will see it at home", "Koska silloin hius asettuu niin kuin asiakas näkee sen kotona"),
+          l3("Vì tóc khô thì dài ra", "Because dry hair gets longer", "Koska kuiva hius pitenee"),
+          l3("Không cần, đã kiểm tra khi ướt rồi", "No need, it was checked wet", "Ei tarvitse, tarkistettiin märkänä"),
+        ],
+        answer: 0,
+        why: l3(
+          "Tóc co lên khi khô và nằm theo đường rơi thật của nó; những sợi lòi ra chỉ thấy rõ lúc này.",
+          "Hair shrinks as it dries and settles into its real fall; stray hairs only show clearly now.",
+          "Hius lyhenee kuivuessaan ja asettuu todelliseen laskuunsa; harhailevat hiukset näkyvät selvästi vasta nyt."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "cat-nu-tang-hieu-dung",
+    course: "p-hair",
+    style: "theory",
+    title: l3("Cắt tóc nữ tầng: hiểu đúng để bồng nhẹ mà vẫn giữ độ dài", "Layered cuts: understand them for lightness and movement without losing length", "Kerrosleikkaus: ymmärrä se, niin saat keveyttä menettämättä pituutta"),
+    summary: l3(
+      "Tầng làm gì và lấy đi gì; đọc mái tóc trước khi cắt tầng (dày, mảnh, xoăn, xoáy); góc nâng 0°, 45°, 90°, 180° (tên gọi thông dụng); đường chuẩn di động và cố định; kéo lệch để giữ độ dài phía trước hay để tầng ôm mặt; cắt đường viền trước; tầng quanh mặt và cách khách để tóc ở nhà; lực căng, tóc ẩm đều, đứng đúng chỗ; kiểm tra chéo và cân hai bên; bốn lỗi hay gặp.",
+      "What layers do and what they take away; reading the hair before layering (thick, fine, curly, whorls); elevation at 0°, 45°, 90° and 180° (common names); travelling and stationary guides; over-direction to keep the front long or to frame the face; the perimeter first; face-framing layers and how the customer wears her hair at home; tension, evenly damp hair and body position; cross-checking and balance; four common mistakes.",
+      "Mitä kerrokset tekevät ja mitä ne vievät; hiusten lukeminen ennen kerrostusta (paksu, ohut, kihara, pyörteet); kohotus 0°, 45°, 90° ja 180° (yleiset nimitykset); liikkuva ja kiinteä ohjauslinja; ylisuuntaus etupituuden säilyttämiseksi tai kasvojen kehystämiseksi; ensin ulkolinja; kasvoja kehystävät kerrokset ja asiakkaan kotityyli; kireys, tasainen kosteus ja työasento; ristiintarkistus ja tasapaino; neljä yleistä virhettä."
+    ),
+    video: video("cat-nu-tang-hieu-dung", 277, "2026-11-19"),
+    notice: l3(
+      "Góc nâng 0°, 45°, 90°, 180° là tên gọi thông dụng; mỗi trường đo và gọi hơi khác nhau, và cách dạy khác nhau giữa các nước. Đây là tài liệu luyện tập, không thay cho bằng nghề. Khi cắt quanh mặt, mũi kéo hướng ra xa mặt khách. Kéo, lược, kẹp làm sạch và khử khuẩn sau mỗi khách theo hướng dẫn sản phẩm (bài “Xử lý dụng cụ sau mỗi khách”). Quy định khác nhau theo từng nước.",
+      "0°, 45°, 90° and 180° elevation are common names; schools measure and name them a little differently, and teaching differs between countries. This is a training aid, not a licence. Around the face, the scissor tips point away from the customer's face. Scissors, combs and clips are cleaned and disinfected after every customer as the product instructs (lesson “Tools after every customer”). Rules differ by country.",
+      "Kohotukset 0°, 45°, 90° ja 180° ovat yleisiä nimityksiä; koulut mittaavat ja nimeävät ne hieman eri tavoin, ja opetus vaihtelee maittain. Tämä on harjoitusmateriaali, ei ammattipätevyys. Kasvojen ympärillä saksien kärjet osoittavat poispäin asiakkaan kasvoista. Sakset, kammat ja klipsit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen tuotteen ohjeen mukaan (tunti ”Välineet jokaisen asiakkaan jälkeen”). Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Cắt tầng: tóc trên ngắn hơn tóc dưới, chồng lên nhau. Tóc nhẹ hơn, có độ phồng và chuyển động — nhưng tầng lấy đi trọng lượng ở đuôi.",
+        "Layers: the upper hair is shorter than the hair below and overlaps it. The hair gets lighter, with volume and movement — but layers take weight away from the ends.",
+        "Kerrokset: ylemmät hiukset ovat alempia lyhyempiä ja limittyvät niiden päälle. Hius kevenee ja saa volyymia ja liikettä — mutta kerrokset vievät painoa latvoista."
+      ),
+      l3(
+        "Đọc tóc trước: tóc dày, nặng thì tầng giúp nhẹ đi; tóc mảnh, thưa thì ít tầng, tầng dài; tóc xoăn co nhiều khi khô; chỗ xoáy đừng cắt tầng quá ngắn.",
+        "Read the hair first: thick, heavy hair gets lighter with layers; fine, thin hair needs few, long layers; curls shrink a lot when dry; don't cut layers too short at a whorl.",
+        "Lue hius ensin: paksu, raskas hius kevenee kerroksilla; ohut hius tarvitsee vähän ja pitkiä kerroksia; kiharat kutistuvat kuivuessaan paljon; älä leikkaa kerroksia liian lyhyiksi pyörteen kohdalta."
+      ),
+      l3(
+        "0°: tóc rơi thẳng xuống, đường bằng. 45°: tóc chồng ở phần dưới, giữ độ dày (tầng thấp).",
+        "0°: hair falls straight down, a one-length line. 45°: the hair stacks low down and keeps weight (graduation).",
+        "0°: hius putoaa suoraan alas, tasapituinen linja. 45°: hius porrastuu alaosassa ja säilyttää painon (porrastus)."
+      ),
+      l3(
+        "90°: vuông góc với da đầu ở chỗ đang cắt, tầng đều theo dáng đầu — hợp tóc ngắn và vừa; với tóc dài sẽ mất độ dài. 180°: nâng thẳng lên đỉnh, trên ngắn nhất, xuống dưới dài dần — tầng dài, giữ độ dài.",
+        "90°: at right angles to the head where you cut, uniform layers following the head — suits short and medium hair; on long hair it removes length. 180°: straight up to the top, shortest on top and longer below — long layers that keep the length.",
+        "90°: kohtisuoraan päänahkaan leikkauskohdassa, tasaiset kerrokset pään muodon mukaan — sopii lyhyisiin ja keskipitkiin; pitkissä hiuksissa pituus katoaa. 180°: suoraan ylös päälaelle, ylhäällä lyhin ja alaspäin pitenevä — pitkät kerrokset, pituus säilyy."
+      ),
+      l3(
+        "Đường chuẩn di động: mỗi lọn mới lấy kèm chút tóc vừa cắt → tầng đều. Đường chuẩn cố định: mọi lọn kéo về một chỗ → tóc càng xa chỗ ấy càng dài.",
+        "Travelling guide: each new section includes a little of the one just cut → uniform layers. Stationary guide: every section is brought to one place → the further from it, the longer the hair.",
+        "Liikkuva ohjauslinja: jokaiseen uuteen jakaumaan otetaan hieman juuri leikattua → tasaiset kerrokset. Kiinteä ohjauslinja: jokainen jakauma tuodaan yhteen kohtaan → mitä kauempana siitä, sitä pidempi hius."
+      ),
+      l3(
+        "Kéo lệch: kéo tóc phía trước ra sau để giữ độ dài phía trước; kéo về phía trước để tầng ôm mặt, tóc phía sau dài dần. Luôn để ý mình đang kéo tóc về hướng nào.",
+        "Over-direction: pull the front hair back to keep length at the front; pull it forward to frame the face, with the hair behind getting longer. Always notice which way you are pulling.",
+        "Ylisuuntaus: vedä etuhiukset taakse, niin etupituus säilyy; vedä eteen, niin kerrokset kehystävät kasvoja ja takana hius pitenee. Huomaa aina, mihin suuntaan vedät."
+      ),
+      l3(
+        "Thường cắt đường viền ngoài trước, 0°, đúng độ dài đã thống nhất; tầng phải nối mềm vào đường viền, không cắt vào nó.",
+        "Usually the perimeter comes first, at 0°, to the agreed length; the layers must blend softly into it, never cut into it.",
+        "Yleensä ensin ulkolinja 0°:ssa sovittuun pituuteen; kerrosten pitää liittyä siihen pehmeästi, ei leikata siihen."
+      ),
+      l3(
+        "Tầng ôm mặt: thống nhất chỗ bắt đầu (gò má, cằm, xương quai xanh), bắt đầu dài hơn ý định. Nghĩ tới cách khách để tóc: buộc tóc, để tự khô, hay sấy.",
+        "Face framing: agree where it starts (cheekbone, chin, collarbone) and start longer than intended. Think of how she wears it: tied up, air-dried or blow-dried.",
+        "Kasvojen kehystys: sovi aloituskohta (poskipää, leuka, solisluu) ja aloita aiottua pidempänä. Mieti asiakkaan tapoja: sidotut hiukset, ilmakuivaus vai föönaus."
+      ),
+      l3(
+        "Lực căng nhẹ, đều; tóc ẩm đều; đứng ngay trước lọn đang cắt — đứng lệch thì góc nâng đổi mà mình không biết.",
+        "Light, even tension; evenly damp hair; stand right in front of the section you cut — standing off to one side changes the elevation without you noticing.",
+        "Kevyt, tasainen kireys; tasaisen kostea hius; seiso suoraan leikattavan jakauman edessä — sivussa seisominen muuttaa kohotusta huomaamatta."
+      ),
+      l3(
+        "Kiểm tra chéo (lọn dọc thì kiểm tra bằng lọn ngang); so hai lọn ngắn nhất ở hai bên mặt; sấy xong nhìn lại độ bồng và chỗ hổng.",
+        "Cross-check (vertical sections are checked with horizontal ones); compare the two shortest face pieces; after blow-drying, look again for even volume and holes.",
+        "Ristiintarkista (pystyjakaumat tarkistetaan vaakajakaumilla); vertaa kasvojen kahta lyhintä osaa; föönauksen jälkeen katso volyymin tasaisuus ja aukot."
+      ),
+    ],
+    tips: [
+      l3(
+        "Bốn lỗi hay gặp: tầng đỉnh quá ngắn và dựng lên, đuôi tóc mỏng dính, hai bên mặt không cân, mất độ dài phía trước vì kéo lệch sai hướng.",
+        "Four common mistakes: top layers so short they stand up, thin see-through ends, uneven face pieces, and lost front length from over-directing the wrong way.",
+        "Neljä yleistä virhettä: liian lyhyet ja pystyyn nousevat päälaen kerrokset, ohuet läpikuultavat latvat, epätasaiset kasvojen sivut ja kadonnut etupituus väärään suuntaan ylisuuntaamisen vuoksi."
+      ),
+      l3(
+        "Trong VaraaAi, ghi vào ghi chú khách độ dài và chỗ tầng ôm mặt bắt đầu, để lần sau làm lại đúng như vậy.",
+        "In VaraaAi, note the length and where the face framing starts in the customer notes, so it can be repeated next time.",
+        "Kirjaa VaraaAi:hin asiakkaan muistiinpanoihin pituus ja kasvojen kehystyksen aloituskohta, jotta sama onnistuu ensi kerralla."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khách tóc dài muốn có tầng mà vẫn giữ độ dài. Góc nâng nào hợp nhất ở phần đỉnh?", "A long-haired customer wants layers but to keep her length. Which elevation suits the top best?", "Pitkähiuksinen asiakas haluaa kerroksia mutta säilyttää pituuden. Mikä kohotus sopii päälaelle parhaiten?"),
+        options: [
+          l3("90° khắp đầu", "90° all over", "90° koko päähän"),
+          l3("0° ở phần đỉnh", "0° on top", "0° päälaella"),
+          l3("180°, nâng thẳng lên đỉnh", "180°, straight up to the top", "180°, suoraan ylös päälaelle"),
+        ],
+        answer: 2,
+        why: l3(
+          "180° cho tóc trên ngắn nhất, xuống dưới dài dần, nên độ dài được giữ; 90° khắp đầu sẽ cắt mất độ dài của tóc dài.",
+          "180° makes the top shortest and the hair below gradually longer, so the length stays; 90° all over would cut away long hair's length.",
+          "180° tekee päälaesta lyhimmän ja alemmista vähitellen pidempiä, joten pituus säilyy; 90° koko päähän leikkaisi pitkien hiusten pituuden pois."
+        ),
+      },
+      {
+        q: l3("Muốn tóc phía trước mặt dài hơn, nên kéo lệch thế nào?", "To keep the front longer, which way do you over-direct?", "Mihin suuntaan ylisuunnataan, jotta edessä hius jää pidemmäksi?"),
+        options: [
+          l3("Kéo tóc phía trước ra sau, về đường chuẩn phía sau", "Pull the front hair back to a guide behind", "Etuhiukset taakse takana olevaan ohjauslinjaan"),
+          l3("Kéo tóc phía trước ra trước mặt", "Pull the front hair forward", "Etuhiukset eteen"),
+          l3("Không kéo lệch, cắt tại chỗ", "No over-direction, cut where it falls", "Ei ylisuuntausta, leikataan paikallaan"),
+        ],
+        answer: 0,
+        why: l3(
+          "Tóc càng xa đường chuẩn cố định càng dài: kéo ra sau thì tóc phía trước giữ được độ dài.",
+          "The further hair is from a stationary guide, the longer it stays: pulled back, the front keeps its length.",
+          "Mitä kauempana hius on kiinteästä ohjauslinjasta, sitä pidemmäksi se jää: taakse vedettynä etupituus säilyy."
+        ),
+      },
+      {
+        q: l3("Khách tóc mảnh, thưa xin cắt thật nhiều tầng. Điều gì dễ xảy ra?", "A customer with fine, thin hair asks for lots of layers. What is likely to happen?", "Ohuthiuksinen asiakas pyytää paljon kerroksia. Mitä todennäköisesti käy?"),
+        options: [
+          l3("Tóc dày lên rõ rệt", "The hair looks much thicker", "Hius näyttää paljon paksummalta"),
+          l3("Đuôi tóc mỏng dính, trông xơ xác", "The ends look thin and see-through", "Latvat näyttävät ohuilta ja läpikuultavilta"),
+          l3("Không có gì thay đổi", "Nothing changes", "Mikään ei muutu"),
+        ],
+        answer: 1,
+        why: l3(
+          "Tầng lấy đi trọng lượng ở đuôi; với tóc mảnh, nên ít tầng và tầng dài để giữ độ dày.",
+          "Layers remove weight from the ends; on fine hair use few, long layers to keep the thickness.",
+          "Kerrokset vievät latvoista painoa; ohuissa hiuksissa käytä vähän ja pitkiä kerroksia, jotta tuuheus säilyy."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "cat-nu-tang",
+    course: "p-hair",
+    style: "practice",
+    title: l3("Cắt tóc nữ tầng: thực hành từng bước", "Layered cuts: step-by-step practice", "Kerrosleikkaus: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Một kiểu tóc tầng dài có tầng ôm mặt từng bước, giữ gần như trọn độ dài: chuẩn bị, tư vấn và điểm chạm, gội, rẽ ngôi và chia vùng, đường viền ngoài ở 0°, tầng dài ở đỉnh với 180° và đường chuẩn cố định, hai bên kéo lệch ra sau để giữ độ dài phía trước, tầng ôm mặt kéo về phía trước, kiểm tra chéo và cân hai bên, sấy, đứng đúng chỗ và giữ góc nâng, hoàn thiện, ghi hồ sơ và dọn dẹp.",
+      "Long layers with face framing step by step, keeping almost all the length: preparation, consultation and touch points, shampoo, parting and sectioning, the perimeter at 0°, long layers on top at 180° to a stationary guide, the sides over-directed back to keep the front long, face framing over-directed forward, cross-checking and balance, blow-drying, body position and keeping the elevation, finishing, notes and clean-up.",
+      "Pitkät kerrokset ja kasvojen kehystys vaihe vaiheelta lähes koko pituus säilyttäen: valmistelu, konsultaatio ja kosketuskohdat, pesu, jakaus ja jakaminen, ulkolinja 0°:ssa, päälaen pitkät kerrokset 180°:ssa kiinteään ohjauslinjaan, sivut ylisuunnattuina taakse etupituuden säilyttämiseksi, kasvojen kehystys eteen ylisuunnaten, ristiintarkistus ja tasapaino, föönaus, työasento ja kohotuksen pitäminen, viimeistely, muistiinpanot ja siivous."
+    ),
+    video: video("cat-nu-tang", 276, "2026-11-19"),
+    notice: l3(
+      "Tên gọi góc nâng và cách dạy khác nhau giữa các trường và các nước; đây là tài liệu luyện tập, không thay cho bằng nghề. Chỉ cắt tới độ dài đã thống nhất; bắt đầu dài, ngắn thêm sau. Khi cắt quanh mặt, mời khách nhắm mắt và hướng mũi kéo ra xa mặt. Kéo, lược, kẹp làm sạch và khử khuẩn sau mỗi khách theo hướng dẫn sản phẩm; dải giấy cổ dùng một lần (bài “Xử lý dụng cụ sau mỗi khách”). Quy định khác nhau theo từng nước.",
+      "Elevation names and teaching methods differ between schools and countries; this is a training aid, not a licence. Cut only to the agreed length; start long and go shorter later. Around the face, ask the customer to close her eyes and point the scissor tips away from her face. Scissors, combs and clips are cleaned and disinfected after every customer as the product instructs; neck strips are single-use (lesson “Tools after every customer”). Rules differ by country.",
+      "Kohotusten nimitykset ja opetustavat vaihtelevat kouluittain ja maittain; tämä on harjoitusmateriaali, ei ammattipätevyys. Leikkaa vain sovittuun pituuteen; aloita pitkänä ja lyhennä myöhemmin. Kasvojen ympärillä pyydä asiakasta sulkemaan silmät ja osoita saksien kärjet poispäin kasvoista. Sakset, kammat ja klipsit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen tuotteen ohjeen mukaan; kaulapaperit ovat kertakäyttöisiä (tunti ”Välineet jokaisen asiakkaan jälkeen”). Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Rửa tay; dụng cụ đã làm sạch và khử khuẩn; dải giấy cổ rồi mới áo choàng.",
+        "Wash your hands; tools cleaned and disinfected; neck strip first, then the cape.",
+        "Pese kädet; välineet puhdistettu ja desinfioitu; ensin kaulapaperi, sitten suojaviitta."
+      ),
+      l3(
+        "Tư vấn khi tóc khô: đuôi tỉa bao nhiêu, tầng ôm mặt bắt đầu ở đâu (điểm chạm), khách có sấy, có hay buộc tóc không; lần trước có gì không thích. Tóc mảnh thì ít tầng.",
+        "Consult on dry hair: how much off the ends, where the face framing starts (touch point), whether she blow-dries or ties her hair up; what she disliked last time. Fine hair: fewer layers.",
+        "Konsultoi kuivista hiuksista: paljonko latvoista, mistä kehystys alkaa (kosketuskohta), föönaako tai sitooko asiakas hiuksensa; mistä hän ei pitänyt viimeksi. Ohut hius: vähemmän kerroksia."
+      ),
+      l3(
+        "Gội, thấm khăn, gỡ rối; rẽ ngôi theo kiểu khách sẽ để; chia vùng; giữ tóc ẩm đều.",
+        "Shampoo, blot, detangle; part the hair where she will wear it; section; keep it evenly damp.",
+        "Pese, kuivaa painellen, selvitä; jakaus siihen, missä asiakas sitä pitää; jaa osiin; pidä tasaisen kosteana."
+      ),
+      l3(
+        "Đường viền ngoài: đầu thẳng, chải thẳng xuống, 0°, cắt thẳng ngang dưới ngón tay, giữa trước rồi hai bên. Đường viền U hay V phải thống nhất trước. Các tầng sau không cắt vào đường viền.",
+        "The perimeter: head straight, combed straight down, 0°, cut straight across below the fingers, centre first then the sides. A U or V outline must be agreed first. The layers never cut into the perimeter.",
+        "Ulkolinja: pää suorassa, kammattu suoraan alas, 0°, leikkaus vaakasuoraan sormien alta, ensin keskeltä ja sitten sivuille. U- tai V-muoto sovitaan etukäteen. Kerrokset eivät leikkaa ulkolinjaan."
+      ),
+      l3(
+        "Tầng dài ở đỉnh: chia vùng đỉnh, chải thẳng lên 180°, gom về một điểm trên đỉnh đầu (đường chuẩn cố định), cắt thẳng ngang. Cắt ít trước, thả xuống xem; chỗ xoáy đừng quá ngắn.",
+        "Long layers on top: section the top, comb it straight up to 180°, gather it to one point above the head (stationary guide) and cut straight across. Take a little first, let it down and look; not too short at a whorl.",
+        "Päälaen pitkät kerrokset: erota päälaki, kampaa suoraan ylös 180°:een, kokoa yhteen kohtaan pään yläpuolelle (kiinteä ohjauslinja) ja leikkaa suoraan poikki. Ota ensin vähän, laske alas ja katso; ei liian lyhyeksi pyörteen kohdalta."
+      ),
+      l3(
+        "Hai bên: lọn dọc sau tai làm đường chuẩn cố định, nối với tầng đỉnh; lọn trước tai kéo lệch ra sau tới đó, chỉ cắt phần thừa — phía trước giữ được độ dài. Bên kia y như vậy.",
+        "The sides: a vertical section behind the ear is the stationary guide, connected to the top layers; sections in front of the ear are over-directed back to it and only the excess is cut — the front keeps its length. The other side the same.",
+        "Sivut: korvan takana oleva pystyjakauma on kiinteä ohjauslinja, joka liitetään päälaen kerroksiin; korvan edessä olevat jakaumat ylisuunnataan taakse siihen ja vain ylimääräinen leikataan — etupituus säilyy. Toinen puoli samoin."
+      ),
+      l3(
+        "Tầng ôm mặt: lọn tam giác phía trước chải ra trước mặt, khách nhắm mắt; cắt theo đường chéo bắt đầu ở điểm đã thống nhất, mũi kéo xa mặt. Các lọn sau kéo về trước tới lọn đầu → dài dần ra sau.",
+        "Face framing: a triangular front section combed forward, eyes closed; cut along a diagonal starting at the agreed point, scissor tips away from the face. Sections behind are brought forward to the first one → longer towards the back.",
+        "Kasvojen kehystys: kolmion muotoinen etujakauma kammataan eteen, silmät kiinni; leikkaa vinosti sovitusta kohdasta alkaen, kärjet poispäin kasvoista. Takana olevat jakaumat tuodaan eteen ensimmäiseen → pitenevät taaksepäin."
+      ),
+      l3(
+        "Kiểm tra chéo bằng lọn ngang; trong gương so hai lọn ngắn nhất hai bên mặt, tỉa bên dài từng chút.",
+        "Cross-check with horizontal sections; in the mirror compare the two shortest face pieces and trim the longer one bit by bit.",
+        "Ristiintarkista vaakajakaumilla; vertaa peilissä kasvojen kahta lyhintä osaa ja tasaa pidempää vähitellen."
+      ),
+      l3(
+        "Sấy với lược tròn, nâng chân tóc ở đỉnh, cuộn tầng ôm mặt ra xa mặt; khô rồi kiểm tra độ cân, độ bồng, đuôi còn dày không.",
+        "Blow-dry with a round brush, lifting the roots on top and turning the face pieces away from the face; once dry, check balance, volume and that the ends are still full.",
+        "Föönaa pyöreällä harjalla, nosta juuria päälaella ja käännä kehystävät osat poispäin kasvoista; kuivana tarkista tasapaino, volyymi ja latvojen tuuheus."
+      ),
+      l3(
+        "Suốt buổi: đứng ngay trước lọn đang cắt, giữ góc nâng khi tay mỏi, luôn bắt đầu dài. Cuối buổi: gương tay, chỉ cách sấy, ghi hồ sơ; nhiều khách tỉa lại sau khoảng 2–3 tháng (thói quen, không phải quy định).",
+        "Throughout: stand right in front of the section, keep the elevation when your arm tires, always start long. At the end: hand mirror, show how to style, notes; many customers come back after about 2–3 months (a habit, not a rule).",
+        "Koko ajan: seiso suoraan jakauman edessä, pidä kohotus käden väsyessä, aloita aina pitkänä. Lopuksi: käsipeili, muotoiluohjeet, muistiinpanot; moni asiakas palaa noin 2–3 kuukauden päästä (tapa, ei sääntö)."
+      ),
+    ],
+    tips: [
+      l3(
+        "Tay mỏi thì hạ dần xuống mà không biết — góc nâng đổi, tầng cũng đổi. Dừng lại, đứng đúng chỗ, rồi cắt tiếp.",
+        "A tired arm drops without you noticing — the elevation changes and so do the layers. Pause, reposition, then go on.",
+        "Väsynyt käsi laskee huomaamatta — kohotus muuttuu ja kerrokset sen mukana. Pysähdy, siirry oikeaan kohtaan ja jatka."
+      ),
+      l3(
+        "Trong VaraaAi, ghi độ dài và chỗ tầng ôm mặt bắt đầu vào ghi chú khách, và gợi ý lịch hẹn lần sau khi thanh toán.",
+        "In VaraaAi, note the length and where the face framing starts in the customer notes, and suggest the next appointment at checkout.",
+        "Kirjaa VaraaAi:hin pituus ja kehystyksen aloituskohta asiakkaan muistiinpanoihin ja ehdota seuraavaa aikaa maksun yhteydessä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Bước nào thường làm trước khi cắt tầng bên trong?", "Which step usually comes before the interior layers?", "Mikä vaihe tehdään yleensä ennen sisäkerroksia?"),
+        options: [
+          l3("Sấy tạo kiểu", "Blow-drying", "Föönaus"),
+          l3("Cắt đường viền ngoài ở 0° đúng độ dài đã thống nhất", "Cutting the perimeter at 0° to the agreed length", "Ulkolinjan leikkaus 0°:ssa sovittuun pituuteen"),
+          l3("Tỉa mũi kéo toàn bộ đuôi tóc", "Point cutting all the ends", "Kaikkien latvojen pistoleikkaus"),
+        ],
+        answer: 1,
+        why: l3(
+          "Đường viền là độ dài của cả mái tóc; tầng nối mềm vào nó và không được cắt vào nó.",
+          "The perimeter is the length of the whole haircut; the layers blend into it and must not cut into it.",
+          "Ulkolinja on koko leikkauksen pituus; kerrokset liittyvät siihen pehmeästi eivätkä saa leikata siihen."
+        ),
+      },
+      {
+        q: l3("Cắt tầng ở đỉnh với 180°: muốn tầng ngắn hơn thì sao?", "Top layers at 180°: how do you make them shorter?", "Päälaen kerrokset 180°:ssa: miten niistä saa lyhyemmät?"),
+        options: [
+          l3("Cắt thấp hơn, từng chút, rồi thả xuống xem", "Cut lower, a little at a time, and let it down to look", "Leikkaa alempaa vähän kerrallaan ja laske alas katsomaan"),
+          l3("Kéo tóc căng hơn thật mạnh", "Pull the hair much tighter", "Vedä hius paljon kireämmälle"),
+          l3("Hạ góc nâng xuống 0°", "Drop the elevation to 0°", "Laske kohotus 0°:een"),
+        ],
+        answer: 0,
+        why: l3(
+          "Cắt càng thấp, tầng càng ngắn. Bắt đầu dài và cắt thêm từng chút; kéo căng mạnh làm tóc co lên không đều.",
+          "The lower you cut, the shorter the layers. Start long and take a little more at a time; strong tension makes the hair shrink unevenly.",
+          "Mitä alempaa leikkaat, sitä lyhyemmät kerrokset. Aloita pitkänä ja ota lisää vähän kerrallaan; kova kireys saa hiuksen kutistumaan epätasaisesti."
+        ),
+      },
+      {
+        q: l3("Khi cắt tầng ôm mặt, điều gì là đúng?", "When cutting the face-framing layers, what is right?", "Mikä on oikein kasvoja kehystäviä kerroksia leikattaessa?"),
+        options: [
+          l3("Khách mở mắt để xem cho rõ", "Eyes open so she can see", "Silmät auki, jotta asiakas näkee"),
+          l3("Cắt ngắn trước, dài ra sau", "Cut short first, it grows later", "Leikkaa ensin lyhyeksi, kyllä se kasvaa"),
+          l3("Khách nhắm mắt, mũi kéo hướng ra xa mặt", "Eyes closed, scissor tips pointing away from the face", "Silmät kiinni, saksien kärjet poispäin kasvoista"),
+        ],
+        answer: 2,
+        why: l3(
+          "Nhắm mắt giữ tóc vụn khỏi mắt; mũi kéo hướng ra xa mặt để an toàn. Bắt đầu dài hơn điểm đã thống nhất một chút.",
+          "Closed eyes keep clippings out; the tips point away from the face for safety. Start a little longer than the agreed point.",
+          "Suljetut silmät estävät hiussilppua pääsemästä silmiin; kärjet osoittavat turvallisuuden vuoksi poispäin kasvoista. Aloita hieman sovittua kohtaa pidempänä."
+        ),
+      },
+    ],
+  },
   soon("cat-mai", "p-hair", ["Cắt mái và tỉa quanh mặt", "Fringes and face framing", "Otsatukka ja kasvojen kehystys"], [
     "Mái thưa, mái bay, curtain bangs và cách tránh cắt quá ngắn.",
     "Wispy fringes, curtain bangs, and how not to cut too short.",
