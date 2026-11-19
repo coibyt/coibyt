@@ -6213,16 +6213,464 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("spa-massage-mat", "p-spa", ["Massage mặt", "Facial massage", "Kasvohieronta"], [
-    "Các động tác vuốt, miết, nhấn huyệt và hướng đi tay nâng cơ.",
-    "Effleurage, kneading and pressure points, and the lifting direction of every stroke.",
-    "Sivelyt, hieronta ja painelupisteet sekä kohottava liikesuunta.",
-  ]),
-  soon("spa-massage-body", "p-spa", ["Massage body kiểu Thuỵ Điển cơ bản", "Swedish body massage basics", "Klassisen hieronnan perusteet"], [
-    "Tư thế đứng, lực tay, trình tự lưng – vai – chân và chống chỉ định.",
-    "Posture, pressure, the back–shoulders–legs sequence and contraindications.",
-    "Työasento, paine, selkä–hartiat–jalat-järjestys ja vasta-aiheet.",
-  ]),
+  {
+    slug: "spa-massage-mat-hieu-dung",
+    course: "p-spa",
+    style: "theory",
+    title: l3("Massage mặt: hiểu đúng để khách thư giãn và an toàn", "Facial massage: understand it so clients relax safely", "Kasvohieronta: ymmärrä se, niin asiakas rentoutuu turvallisesti"),
+    summary: l3(
+      "Lý thuyết massage mặt: khi nào không massage, chọn dầu và hỏi dị ứng, massage theo từng làn da, các động tác cơ bản (vuốt, xoa vòng, ấn giữ, vỗ nhẹ), hướng tay lên trên và ra ngoài, vùng mắt và vùng cổ, ấn giữ để thư giãn chứ không chữa bệnh, hỏi lực tay, nhịp tay, tư thế người thợ và vệ sinh.",
+      "Facial massage theory: when not to massage, choosing the oil and asking about allergies, adapting to each skin, the basic movements (effleurage, small circles, press-and-hold, light tapping), strokes upwards and outwards, the eye area and the neck, pressure points for relaxation rather than treatment, asking about pressure, rhythm, the therapist's posture and hygiene.",
+      "Kasvohieronnan teoria: milloin ei hierota, öljyn valinta ja allergioista kysyminen, hieronta ihon mukaan, perusotteet (sively, pienet ympyrät, painelu, kevyt taputus), liikkeet ylös ja ulospäin, silmänympärys ja kaula, painelupisteet rentoutukseen eikä hoitoon, paineesta kysyminen, rytmi, hoitajan työasento ja hygienia."
+    ),
+    video: video("spa-massage-mat-hieu-dung", 293, "2026-11-19"),
+    notice: l3(
+      "Quy định và danh xưng của nghề massage khác nhau theo từng nước. Massage mặt trong spa là để thư giãn, không phải để chữa bệnh. Khách có bệnh chưa ổn định, hay vừa làm thủ thuật thẩm mỹ, thì hỏi bác sĩ hoặc người đã làm cho khách trước. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Rules and titles for massage differ by country. Facial massage in a spa is for relaxation, not treatment. Clients with an uncontrolled condition, or who have just had a cosmetic procedure, should check with their doctor or the practitioner first. This lesson is a training aid, not a licence.",
+      "Hieronnan säännöt ja ammattinimikkeet vaihtelevat maittain. Kylpylän kasvohieronta on rentoutusta, ei hoitoa. Jos asiakkaalla on hoitamaton sairaus tai hänelle on juuri tehty kauneustoimenpide, hänen kannattaa ensin kysyä lääkäriltä tai toimenpiteen tekijältä. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    related: ["dich-vu", "khach-hang", "lich-hen"],
+    steps: [
+      l3(
+        "Massage tốt là khi khách thả lỏng được. Ấn quá mạnh, kéo da qua lại, ấn quanh mắt làm khách đau, da đỏ hôm sau, và khách không quay lại.",
+        "A good massage lets the client let go. Pressing too hard, dragging the skin or pressing around the eyes hurts, leaves the skin red the next day, and the client doesn't come back.",
+        "Hyvä hieronta antaa asiakkaan rentoutua. Liian kova paine, ihon venyttäminen tai silmien ympärille painaminen sattuu, jättää ihon punoittamaan seuraavana päivänä, eikä asiakas palaa."
+      ),
+      l3(
+        "Không massage khi khách sốt, cảm cúm, không khỏe. Mụn rộp, nhiễm trùng, mụn viêm có mủ, vết trầy, cháy nắng: không làm trên vùng đó. Mới lột da, laser, tiêm làm đẹp, phẫu thuật vùng mặt: hỏi người đã làm cho khách bao lâu sau mới được massage. Cục u lạ, sưng không rõ lý do: không làm, khuyên đi khám; không chẩn đoán.",
+        "No massage if the client has a fever, a cold or feels unwell. Cold sores, infections, inflamed spots with pus, broken skin, sunburn: not on that area. After a peel, laser, injectables or facial surgery: ask the practitioner how long to wait. An unknown lump or unexplained swelling: don't massage, suggest a doctor; never diagnose.",
+        "Ei hierontaa, jos asiakkaalla on kuumetta, flunssa tai hän voi huonosti. Huuliherpes, tulehdukset, märkivät näppylät, rikkinäinen iho, auringonpolttama: ei sille alueelle. Kuorinnan, laserin, täyteaineiden tai kasvoleikkauksen jälkeen: kysy toimenpiteen tekijältä, kuinka kauan odottaa. Tuntematon kyhmy tai selittämätön turvotus: ei hierontaa, ohjaa lääkäriin; älä diagnosoi."
+      ),
+      l3(
+        "Bệnh chưa ổn định (huyết áp cao chưa kiểm soát, bệnh tim, đang điều trị bệnh nặng): khuyên khách hỏi bác sĩ trước. Da đỏ, nhạy cảm, mạch máu nhỏ hiện rõ: thật nhẹ, ít động tác, hoặc bỏ qua.",
+        "Uncontrolled conditions (high blood pressure, heart disease, treatment for a serious illness): the client should ask their doctor first. Red, sensitive skin with visible capillaries: very light, few movements, or skip it.",
+        "Hoitamattomat sairaudet (korkea verenpaine, sydänsairaus, vakavan sairauden hoito): asiakkaan kannattaa kysyä ensin lääkäriltä. Punoittava, herkkä iho ja näkyvät pienet verisuonet: hyvin kevyesti, vähän otteita tai jätä väliin."
+      ),
+      l3(
+        "Dầu hay kem cần đủ trơn để không kéo da. Hỏi dị ứng: nhiều dầu làm từ hạt (như hạnh nhân), mùi hương, tinh dầu. Tinh dầu chỉ dùng loại hãng pha sẵn cho da mặt; khách nhạy cảm thì thử trước trên vùng da nhỏ. Lấy dầu bằng vòi bơm, không chấm tay vào chai.",
+        "Oil or cream needs enough slip not to drag the skin. Ask about allergies: many oils come from nuts (such as almond), fragrance, essential oils. Use only essential oils the brand has pre-blended for the face; patch-test sensitive clients. Dispense with a pump, never dip fingers into the bottle.",
+        "Öljyssä tai voiteessa on oltava tarpeeksi liukkautta, ettei iho veny. Kysy allergioista: monet öljyt ovat pähkinäpohjaisia (kuten manteli), hajusteet, eteeriset öljyt. Käytä vain valmistajan kasvoille valmiiksi laimentamia eteerisiä öljyjä; testaa herkillä asiakkailla ensin pienelle alueelle. Annostele pumpulla, älä koskaan kasta sormia pulloon."
+      ),
+      l3(
+        "Theo làn da: da khô, thiếu nước dùng đủ dầu, động tác chậm, dài; da dầu, da mụn dùng ít dầu, bỏ qua chỗ mụn viêm; da nhạy cảm ít động tác, lực nhẹ nhất, không vỗ; da mỏng, lớn tuổi thì càng không kéo da.",
+        "By skin: dry or dehydrated skin gets enough oil and slow, long strokes; oily or acne-prone skin little oil, skipping inflamed spots; sensitive skin few movements, the lightest touch, no tapping; thin, mature skin must never be dragged.",
+        "Ihon mukaan: kuivalle tai kuivuneelle iholle riittävästi öljyä ja hitaita, pitkiä sivelyjä; rasvaiselle tai aknealttiille iholle vähän öljyä ja tulehtuneet kohdat ohitetaan; herkälle iholle vähän otteita, kevyin kosketus, ei taputusta; ohutta, ikääntyvää ihoa ei saa koskaan venyttää."
+      ),
+      l3(
+        "Động tác cơ bản: vuốt bằng cả lòng bàn tay (mở đầu, kết thúc, nối động tác); xoa vòng nhỏ bằng đầu ngón giữa và áp út; ấn giữ (ấn từ từ, giữ vài giây, nhả từ từ); vỗ nhẹ bằng đầu ngón như mưa rơi, bỏ qua với da nhạy cảm.",
+        "Basic movements: effleurage with the whole palm (to open, close and link movements); small circles with the middle and ring fingertips; press-and-hold (press slowly, hold a few seconds, release slowly); light fingertip tapping like raindrops, skipped on sensitive skin.",
+        "Perusotteet: sively koko kämmenellä (aloitus, lopetus ja otteiden yhdistäminen); pienet ympyrät keski- ja nimettömän sormen päillä; painelu (paina hitaasti, pidä muutama sekunti, vapauta hitaasti); kevyt sormenpäätaputus kuin sadepisarat, ei herkälle iholle."
+      ),
+      l3(
+        "Trên mặt, đường vuốt đi lên trên và ra ngoài (cằm lên tai, cánh mũi lên thái dương, chân mày lên chân tóc), không kéo da xuống, không chà qua lại. Không hứa làm thon mặt hay xóa nếp nhăn: massage giúp thư giãn, da trông tươi hơn.",
+        "On the face, strokes go upwards and outwards (chin to ears, nose to temples, brows to hairline); never drag the skin down or rub back and forth. Don't promise a slimmer face or fewer wrinkles: massage relaxes and makes the skin look fresher.",
+        "Kasvoilla sivelyt kulkevat ylös ja ulospäin (leuasta korviin, nenänpielistä ohimoille, kulmista hiusrajaan); älä vedä ihoa alas äläkä hankaa edestakaisin. Älä lupaa kapeampia kasvoja tai vähemmän ryppyjä: hieronta rentouttaa ja saa ihon näyttämään raikkaammalta."
+      ),
+      l3(
+        "Vùng mắt: chỉ dùng ngón áp út, lướt theo xương quanh hốc mắt, không ấn lên mí mắt. Vùng cổ: chỉ vuốt nhẹ hai bên cổ, đi xuống về xương quai xanh; không ấn vào giữa cổ họng, không ấn sâu hai bên cổ.",
+        "Eye area: ring finger only, gliding along the bone around the eye socket, never pressing on the eyelids. Neck: only light strokes down the sides towards the collarbones; never press on the front of the throat or deep into the sides of the neck.",
+        "Silmänympärys: vain nimetön sormi, liu'uta silmäkuopan luuta pitkin, älä koskaan paina silmäluomia. Kaula: vain kevyet sivelyt kaulan sivuilla alas kohti solisluita; älä paina kurkun etupuolta tai syvälle kaulan sivuille."
+      ),
+      l3(
+        "Ấn giữ ở thái dương, dưới gò má, giữa hai chân mày (nhiều nơi gọi là nhấn huyệt) là để thư giãn, không phải chữa bệnh; đừng hứa chữa đau đầu hay bệnh gì.",
+        "Press-and-hold at the temples, under the cheekbones and between the brows (often called pressure points) is for relaxation, not treatment; don't promise to cure headaches or anything else.",
+        "Painelu ohimoilla, poskiluiden alla ja kulmien välissä (usein puhutaan painelupisteistä) on rentoutusta, ei hoitoa; älä lupaa parantaa päänsärkyä tai mitään muuta."
+      ),
+      l3(
+        "Hỏi lực tay trước khi bắt đầu, sau vài động tác đầu và khi chuyển vùng; nhìn dấu hiệu (nhíu mày, nín thở, gồng vai). Nhịp chậm, đều, luôn giữ một tay trên khách. Ngồi ghế đầu giường, lưng thẳng, vai thả, cổ tay thẳng. Rửa tay trước và sau, khăn, băng đô, ga mới cho từng khách.",
+        "Ask about pressure before starting, after the first movements and when changing areas; watch for frowning, held breath, raised shoulders. Keep a slow, even rhythm and always one hand on the client. Sit at the head of the bed with a straight back, relaxed shoulders and straight wrists. Wash hands before and after; fresh towels, headband and linen for each client.",
+        "Kysy paineesta ennen aloitusta, ensimmäisten otteiden jälkeen ja aluetta vaihtaessa; seuraa merkkejä (kulmien rypistys, hengityksen pidätys, nousevat hartiat). Pidä rytmi hitaana ja tasaisena ja aina toinen käsi asiakkaassa. Istu sängyn päädyssä selkä suorana, hartiat rentoina ja ranteet suorina. Pese kädet ennen ja jälkeen; puhtaat pyyhkeet, otsapanta ja liinat jokaiselle asiakkaalle."
+      ),
+    ],
+    tips: [
+      l3(
+        "Khách im lặng chưa chắc là khách thấy dễ chịu. Một câu hỏi ngắn sau vài động tác đầu giúp khách dám nói thật về lực tay.",
+        "A silent client is not necessarily a comfortable one. A short question after the first few movements helps the client speak up about pressure.",
+        "Hiljainen asiakas ei välttämättä viihdy. Lyhyt kysymys ensimmäisten otteiden jälkeen rohkaisee kertomaan paineesta."
+      ),
+      l3(
+        "Trong VaraaAi, ghi vào ghi chú nội bộ của khách loại dầu đã dùng, lực tay khách thích và vùng cần tránh.",
+        "In VaraaAi, note in the client's internal notes the oil you used, the pressure they like and any areas to avoid.",
+        "Merkitse VaraaAi:ssa asiakkaan sisäisiin muistiinpanoihin käytetty öljy, mieluisa paine ja vältettävät alueet."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Massage vùng quanh mắt thế nào là đúng?", "How do you massage around the eyes?", "Miten silmien ympärystä hierotaan?"),
+        options: [
+          l3("Ấn bằng ngón cái lên mí mắt cho thư giãn", "Press on the eyelids with the thumbs to relax them", "Paina silmäluomia peukaloilla rentoutukseksi"),
+          l3("Dùng ngón áp út, lướt nhẹ theo xương quanh hốc mắt", "Use the ring finger and glide lightly along the bone around the eye socket", "Käytä nimetöntä sormea ja liu'uta kevyesti silmäkuopan luuta pitkin"),
+          l3("Xoa vòng mạnh dưới mắt để giảm bọng", "Rub firm circles under the eyes to reduce puffiness", "Hiero voimakkaita ympyröitä silmien alle turvotuksen vähentämiseksi"),
+        ],
+        answer: 1,
+        why: l3("Ngón áp út có lực nhẹ nhất; da quanh mắt rất mỏng, và không bao giờ ấn lên mí mắt.", "The ring finger has the lightest touch; the skin around the eyes is very thin, and the eyelids are never pressed.", "Nimettömällä sormella kosketus on kevyin; silmänympärysiho on hyvin ohut, eikä silmäluomia koskaan paineta."),
+      },
+      {
+        q: l3("Khách mới tiêm làm đẹp vùng má tuần trước. Nên làm gì?", "The client had cosmetic injections in the cheeks last week. What do you do?", "Asiakkaalle tehtiin viime viikolla poskiin täyteainehoito. Mitä teet?"),
+        options: [
+          l3("Massage thật kỹ vùng má cho đều", "Massage the cheeks thoroughly to even it out", "Hiero posket perusteellisesti tasaiseksi"),
+          l3("Massage như bình thường, không cần hỏi", "Massage as usual, no need to ask", "Hiero normaalisti, ei tarvitse kysyä"),
+          l3("Tránh vùng đó, làm theo lời dặn của người đã tiêm", "Avoid that area and follow the practitioner's advice", "Vältä aluetta ja noudata toimenpiteen tekijän ohjeita"),
+        ],
+        answer: 2,
+        why: l3("Sau thủ thuật thẩm mỹ, người đã làm cho khách mới biết bao lâu sau được massage vùng đó.", "After a cosmetic procedure, only the practitioner knows how long to wait before massaging the area.", "Kauneustoimenpiteen jälkeen vain sen tekijä tietää, kuinka kauan aluetta ei saa hieroa."),
+      },
+      {
+        q: l3("Điều nào đúng về động tác ấn giữ trong spa?", "Which is true about press-and-hold in a spa?", "Mikä pitää paikkansa painelusta kylpylässä?"),
+        options: [
+          l3("Đó là động tác để thư giãn, không hứa chữa bệnh", "It is for relaxation; don't promise to cure anything", "Se on rentoutusta; älä lupaa parantaa mitään"),
+          l3("Ấn càng mạnh càng chữa được đau đầu", "The harder you press, the better it cures headaches", "Mitä kovemmin painat, sitä paremmin päänsärky paranee"),
+          l3("Ấn rồi nhả thật nhanh cho khách tỉnh táo", "Press and release quickly to wake the client up", "Paina ja vapauta nopeasti, jotta asiakas virkistyy"),
+        ],
+        answer: 0,
+        why: l3("Massage trong spa là thư giãn; ấn từ từ, giữ vài giây, nhả từ từ.", "Spa massage is relaxation; press slowly, hold a few seconds, release slowly.", "Kylpylähieronta on rentoutusta; paina hitaasti, pidä muutama sekunti, vapauta hitaasti."),
+      },
+    ],
+  },
+  {
+    slug: "spa-massage-mat",
+    course: "p-spa",
+    style: "practice",
+    title: l3("Massage mặt: thực hành từng bước", "Facial massage: step by step", "Kasvohieronta: vaihe vaiheelta"),
+    summary: l3(
+      "Một lượt massage mặt từng bước: hỏi dị ứng và thủ thuật gần đây, tư thế của khách và người thợ, lấy dầu, cái chạm đầu tiên, cổ và vai, hàm và má, xoa vòng, quanh miệng, trán, quanh mắt, ấn giữ, kết thúc, những lỗi hay gặp, rồi ghi chú và dọn dẹp.",
+      "A facial massage step by step: asking about allergies and recent procedures, client and therapist posture, the oil, the first touch, neck and shoulders, jaw and cheeks, small circles, around the mouth, forehead, around the eyes, press-and-hold, finishing, common mistakes, then notes and tidying up.",
+      "Kasvohieronta vaihe vaiheelta: kysy allergioista ja tuoreista toimenpiteistä, asiakkaan ja hoitajan asento, öljy, ensimmäinen kosketus, kaula ja hartiat, leukalinja ja posket, pienet ympyrät, suun ympärys, otsa, silmien ympärys, painelu, lopetus, yleiset virheet sekä muistiinpanot ja siivous."
+    ),
+    video: video("spa-massage-mat", 286, "2026-11-19"),
+    notice: l3(
+      "Thời gian massage theo liệu trình của tiệm; dầu và kem dùng theo hướng dẫn của hãng. Quy định và danh xưng của nghề massage khác nhau theo từng nước. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Massage time follows your salon's treatment; oils and creams follow the brand's instructions. Rules and titles for massage differ by country. This lesson is a training aid, not a licence.",
+      "Hieronnan kesto noudattaa hoitolan hoito-ohjelmaa; öljyt ja voiteet valmistajan ohjeita. Hieronnan säännöt ja ammattinimikkeet vaihtelevat maittain. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    related: ["dich-vu", "khach-hang", "lich-hen"],
+    steps: [
+      l3(
+        "Trước khi bắt đầu: xem phiếu tư vấn, hỏi dị ứng dầu, hạt, mùi hương; hỏi về tiêm làm đẹp, laser, lột da gần đây (làm theo lời dặn của người đã làm); tránh vùng có mụn rộp, trầy, cháy nắng. Kính áp tròng tháo ra, da sạch. Tháo nhẫn, đồng hồ, rửa tay, xoa ấm tay.",
+        "Before you start: read the consultation card, ask about oil, nut and fragrance allergies; ask about recent injectables, laser or peels (follow the practitioner's advice); avoid cold sores, broken skin and sunburn. Contact lenses out, skin clean. Remove rings and watch, wash and warm your hands.",
+        "Ennen aloitusta: lue asiakaskortti, kysy öljy-, pähkinä- ja hajusteallergioista; kysy tuoreista täyteainehoidoista, laserista tai kuorinnoista (noudata tekijän ohjeita); vältä huuliherpestä, rikkinäistä ihoa ja auringonpolttamaa. Piilolinssit pois, iho puhdas. Riisu sormukset ja kello, pese ja lämmitä kädet."
+      ),
+      l3(
+        "Khách nằm ngửa, che kín, chỉ lộ mặt, cổ, vai. Người thợ ngồi ghế đầu giường, lưng thẳng, vai thả, cổ tay thẳng. Nói trước: lực mạnh hay nhẹ quá cứ nói.",
+        "The client lies on her back, covered, only face, neck and shoulders showing. Sit at the head of the bed with a straight back, relaxed shoulders, straight wrists. Say upfront: tell me if the pressure is too firm or too light.",
+        "Asiakas makaa selällään peiteltynä, vain kasvot, kaula ja hartiat näkyvissä. Istu sängyn päädyssä selkä suorana, hartiat rentoina, ranteet suorina. Sano heti alussa: kerro, jos paine on liian kova tai kevyt."
+      ),
+      l3(
+        "Thứ tự: vai và cổ, hàm và má, quanh miệng, trán, quanh mắt, ấn giữ, kết thúc. Từ dưới lên, từ vùng ít nhạy cảm đến vùng mắt; giữ cùng một thứ tự mỗi lần.",
+        "Order: shoulders and neck, jaw and cheeks, around the mouth, forehead, around the eyes, press-and-hold, finish. From the bottom up, from the least sensitive areas to the eyes; keep the same order every time.",
+        "Järjestys: hartiat ja kaula, leukalinja ja posket, suun ympärys, otsa, silmien ympärys, painelu, lopetus. Alhaalta ylös, vähiten herkistä alueista silmiin; pidä sama järjestys joka kerta."
+      ),
+      l3(
+        "Bơm một lượng dầu nhỏ, xoa ấm giữa hai bàn tay; thấy kéo da thì thêm một chút. Cái chạm đầu tiên: hai bàn tay đặt lên vai, giữ yên vài nhịp thở, rồi ấn nhẹ xuống.",
+        "Pump a small amount of oil and warm it between your palms; add a little if the skin drags. The first touch: both hands on the shoulders, still for a few breaths, then a gentle press down.",
+        "Pumppaa vähän öljyä ja lämmitä se kämmenten välissä; lisää hieman, jos iho venyy. Ensimmäinen kosketus: kädet hartioille, paikallaan muutaman hengityksen ajan, sitten kevyt painallus alas."
+      ),
+      l3(
+        "Cổ và vai: lòng bàn tay vuốt nhẹ hai bên cổ, đi xuống xương quai xanh, ra vai; không chạm giữa cổ họng, không ấn sâu hai bên cổ.",
+        "Neck and shoulders: palms glide lightly down the sides of the neck to the collarbones and out to the shoulders; never touch the front of the throat or press deep into the sides of the neck.",
+        "Kaula ja hartiat: kämmenet liukuvat kevyesti kaulan sivuilla alas solisluille ja ulos hartioille; älä koske kurkun etupuoleen äläkä paina syvälle kaulan sivuille."
+      ),
+      l3(
+        "Hàm và má: vuốt từ giữa cằm theo đường hàm lên trước tai, từ cánh mũi theo dưới gò má lên thái dương, hai tay đối xứng; luôn lên trên và ra ngoài. Rồi xoa vòng nhỏ bằng đầu ngón giữa và áp út, nhích dần từ cằm lên thái dương.",
+        "Jaw and cheeks: stroke from the middle of the chin along the jaw to in front of the ears, and from the side of the nose under the cheekbones to the temples, both hands symmetrical; always upwards and outwards. Then small circles with the middle and ring fingertips, moving gradually from chin to temples.",
+        "Leukalinja ja posket: sivele leuan keskeltä leukalinjaa pitkin korvien eteen ja nenänpielistä poskiluiden alta ohimoille, kädet symmetrisesti; aina ylös ja ulospäin. Sitten pieniä ympyröitä keski- ja nimettömän sormen päillä leuasta vähitellen ohimoille."
+      ),
+      l3(
+        "Quanh miệng: đầu ngón giữa vuốt vòng quanh môi lên cánh mũi, rồi từ khóe miệng ra tai; không kéo khóe miệng, không để dầu lên môi. Mỗi động tác khoảng ba đến sáu lần.",
+        "Around the mouth: the middle fingertips circle around the lips up to the sides of the nose, then from the corners of the mouth out towards the ears; don't pull the corners or get oil on the lips. Each movement about three to six times.",
+        "Suun ympärys: keskisormen päät kiertävät huulten ympäri nenänpieliin ja suupielistä korvia kohti; älä vedä suupieliä äläkä levitä öljyä huulille. Jokainen liike noin kolmesta kuuteen kertaa."
+      ),
+      l3(
+        "Trán: lòng bàn tay vuốt từ chân mày lên chân tóc, tay này nối tay kia, rồi vuốt ngang ra thái dương; chậm hơn ở đây. Quanh mắt: chỉ ngón áp út, dọc chân mày ra thái dương, vòng nhẹ theo xương dưới mắt về sống mũi, không ấn lên mí, không để dầu vào mắt.",
+        "Forehead: palms stroke from the brows up to the hairline, one hand after the other, then across to the temples; slower here. Around the eyes: ring fingers only, along the brows to the temples and lightly back along the bone under the eye towards the nose; never press the eyelids or let oil into the eyes.",
+        "Otsa: kämmenet sivelevät kulmista hiusrajaan käsi toisensa perään, sitten sivuille ohimoille; täällä hitaammin. Silmien ympärys: vain nimettömät sormet, kulmia pitkin ohimoille ja kevyesti silmän alta luuta pitkin nenänvartta kohti; älä paina silmäluomia äläkä päästä öljyä silmiin."
+      ),
+      l3(
+        "Ấn giữ ở giữa hai chân mày, dưới gò má, thái dương: ấn từ từ, giữ vài giây, nhả từ từ, hỏi lực. Vỗ nhẹ như mưa rơi chỉ khi da không nhạy cảm. Kết thúc: vuốt dài cả mặt, chậm dần, ấn giữ thái dương, nhấc tay thật từ từ; làm tiếp mặt nạ thì lau dầu thừa bằng mút ấm.",
+        "Press-and-hold between the brows, under the cheekbones and at the temples: press slowly, hold a few seconds, release slowly, ask about pressure. Light raindrop tapping only if the skin is not sensitive. Finish: long strokes over the whole face, slowing down, a hold at the temples, then lift the hands away very slowly; if a mask follows, remove excess oil with a warm sponge.",
+        "Painelu kulmien välissä, poskiluiden alla ja ohimoilla: paina hitaasti, pidä muutama sekunti, vapauta hitaasti, kysy paineesta. Kevyt sadepisarataputus vain, jos iho ei ole herkkä. Lopetus: pitkät sivelyt koko kasvoille hidastaen, painelu ohimoilla ja kädet irti hyvin hitaasti; jos vuorossa on naamio, poista ylimääräinen öljy lämpimällä sienellä."
+      ),
+      l3(
+        "Lỗi hay gặp: nhấc cả hai tay rồi đặt lại đột ngột, móng tay chạm da, nói chuyện liên tục, quên nhìn da. Da đỏ rát, ngứa: dừng, lau nhẹ, đắp khăn mát (xem bài Xử lý sự cố). Sau massage: hỏi khách cảm thấy thế nào, ghi chú, khăn và băng đô vào giỏ có nắp, lau giường, rửa tay.",
+        "Common mistakes: lifting both hands and putting them back abruptly, nails touching the skin, constant chatting, not watching the skin. Burning, itching redness: stop, wipe gently, cool compress (see the incidents lesson). Afterwards: ask how the client feels, take notes, towels and headband into a lidded hamper, wipe the bed, wash your hands.",
+        "Yleiset virheet: molempien käsien nostaminen ja äkillinen palauttaminen, kynnet iholla, jatkuva puhuminen, ihon tarkkailun unohtaminen. Kirvelevä, kutiava punoitus: lopeta, pyyhi kevyesti, viileä kääre (katso tunti häiriötilanteista). Lopuksi: kysy asiakkaan vointia, tee muistiinpanot, pyyhkeet ja otsapanta kannelliseen pyykkikoriin, pyyhi sänky, pese kädet."
+      ),
+    ],
+    tips: [
+      l3(
+        "Luôn giữ một tay trên khách khi chuyển động tác: khách không bị giật mình và thả lỏng sâu hơn.",
+        "Always keep one hand on the client when changing movements: no startle, deeper relaxation.",
+        "Pidä aina toinen käsi asiakkaassa otetta vaihtaessasi: asiakas ei säpsähdä ja rentoutuu syvemmin."
+      ),
+      l3(
+        "Trong VaraaAi, ghi vào ghi chú nội bộ của khách loại dầu, lực tay khách thích và vùng cần tránh, để lần sau ai làm cũng biết.",
+        "In VaraaAi, note in the client's internal notes the oil, the pressure they like and areas to avoid, so whoever does the next treatment knows.",
+        "Merkitse VaraaAi:ssa asiakkaan sisäisiin muistiinpanoihin öljy, mieluisa paine ja vältettävät alueet, jotta seuraava hoitaja tietää."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Vuốt ở vùng cổ thế nào là đúng?", "How do you stroke the neck?", "Miten kaulaa sivellään?"),
+        options: [
+          l3("Nhẹ ở hai bên cổ, đi xuống về xương quai xanh", "Lightly down the sides of the neck towards the collarbones", "Kevyesti kaulan sivuilla alas kohti solisluita"),
+          l3("Ấn mạnh vào giữa cổ họng", "Press firmly on the front of the throat", "Paina lujasti kurkun etupuolta"),
+          l3("Ấn sâu vào hai bên cổ chỗ mạch đập", "Press deep into the sides of the neck where the pulse is", "Paina syvälle kaulan sivuille sykkeen kohdalle"),
+        ],
+        answer: 0,
+        why: l3("Phía trước và hai bên cổ có mạch máu, khí quản: chỉ vuốt nhẹ hai bên, không ấn.", "The front and sides of the neck carry blood vessels and the windpipe: only light strokes on the sides, no pressure.", "Kaulan etu- ja sivuosissa kulkevat verisuonet ja henkitorvi: vain kevyet sivelyt sivuilla, ei painamista."),
+      },
+      {
+        q: l3("Đường vuốt trên má đi theo hướng nào?", "Which direction do cheek strokes go?", "Mihin suuntaan posken sivelyt kulkevat?"),
+        options: [
+          l3("Từ thái dương kéo xuống cằm", "From the temples down to the chin", "Ohimoilta alas leukaan"),
+          l3("Chà qua chà lại cho nhanh", "Back and forth to be quick", "Edestakaisin nopeasti"),
+          l3("Lên trên và ra ngoài, từ cằm lên tai, từ cánh mũi lên thái dương", "Upwards and outwards, chin to ears, nose to temples", "Ylös ja ulospäin, leuasta korviin, nenänpielistä ohimoille"),
+        ],
+        answer: 2,
+        why: l3("Đi lên và ra ngoài, không kéo da xuống, để da không bị kéo giãn và đỏ.", "Upwards and outwards, never dragging the skin down, so it isn't stretched or reddened.", "Ylös ja ulospäin, ihoa ei vedetä alas, jottei se veny tai punoita."),
+      },
+      {
+        q: l3("Khách da nhạy cảm, đỏ. Động tác nào nên bỏ qua?", "The client has red, sensitive skin. Which movement do you skip?", "Asiakkaan iho on herkkä ja punoittava. Minkä otteen jätät pois?"),
+        options: [
+          l3("Cái chạm đầu tiên lên vai", "The first touch on the shoulders", "Ensimmäinen kosketus hartioille"),
+          l3("Vỗ nhẹ bằng đầu ngón", "Fingertip tapping", "Sormenpäätaputus"),
+          l3("Hỏi khách về lực tay", "Asking about pressure", "Paineesta kysyminen"),
+        ],
+        answer: 1,
+        why: l3("Da nhạy cảm: ít động tác, lực nhẹ nhất, không vỗ.", "Sensitive skin: few movements, the lightest touch, no tapping.", "Herkkä iho: vähän otteita, kevyin kosketus, ei taputusta."),
+      },
+    ],
+  },
+  {
+    slug: "spa-massage-body-hieu-dung",
+    course: "p-spa",
+    style: "theory",
+    title: l3("Massage body cơ bản: hiểu đúng để khách an tâm", "Body massage basics: understand it so clients feel safe", "Vartalohieronnan perusteet: ymmärrä se, niin asiakas tuntee olonsa turvalliseksi"),
+    summary: l3(
+      "Lý thuyết massage body cổ điển (kiểu Thụy Điển): quy định khác nhau theo từng nước, dấu hiệu nghi cục máu đông ở chân, khi nào không làm, phiếu tư vấn và dị ứng dầu, khăn phủ và phẩm giá của khách, các động tác chính, hướng tay và vùng cần tránh, lực tay, tư thế người thợ, trình tự, vệ sinh và lời dặn sau massage.",
+      "Classic (Swedish) body massage theory: rules differ by country, signs of a possible blood clot in the leg, when not to massage, consultation and oil allergies, draping and the client's dignity, the main strokes, direction and areas to avoid, pressure, the therapist's posture, the sequence, hygiene and aftercare.",
+      "Klassisen hieronnan teoria: säännöt vaihtelevat maittain, mahdollisen jalan veritulpan merkit, milloin ei hierota, asiakaskortti ja öljyallergiat, peittely ja asiakkaan arvokkuus, pääotteet, liikesuunta ja vältettävät alueet, paine, hoitajan työasento, järjestys, hygienia ja jälkiohjeet."
+    ),
+    video: video("spa-massage-body-hieu-dung", 284, "2026-11-19"),
+    notice: l3(
+      "Quy định và danh xưng của nghề massage khác nhau theo từng nước; có nơi danh xưng thợ massage được pháp luật bảo vệ. Bài này nói về massage thư giãn trong spa, không phải trị liệu chấn thương. Nghi cục máu đông (một bên chân sưng, đau, nóng, đỏ): không massage, khuyên đi khám ngay; khó thở hay đau ngực: gọi 112 (hoặc số cấp cứu nơi bạn ở). Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Rules and titles for massage differ by country; in some places the masseur's title is protected by law. This lesson covers relaxation massage in a spa, not treating injuries. A possible blood clot (one leg swollen, painful, warm, red): don't massage, the client should see a doctor straight away; shortness of breath or chest pain: call 112 (or your local emergency number). This lesson is a training aid, not a licence.",
+      "Hieronnan säännöt ja ammattinimikkeet vaihtelevat maittain; joissakin maissa hierojan nimike on lailla suojattu. Tunti käsittelee kylpylän rentouttavaa hierontaa, ei vammojen hoitoa. Mahdollinen veritulppa (toinen jalka turvonnut, kipeä, lämmin, punoittava): ei hierontaa, asiakas lääkäriin heti; hengenahdistus tai rintakipu: soita 112 (tai paikalliseen hätänumeroon). Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    sources: [{ label: "NHS — Deep vein thrombosis (DVT): symptoms and when to get help", url: "https://www.nhs.uk/conditions/deep-vein-thrombosis-dvt/" }],
+    related: ["dich-vu", "khach-hang", "lich-hen"],
+    steps: [
+      l3(
+        "Massage cổ điển gồm vuốt dài, nhào, xoa vòng, vỗ nhẹ, để thư giãn. Người thợ giỏi giữ khách an toàn, giữ sự riêng tư, và chọn lực tay vừa đúng. Quy định và danh xưng nghề massage khác nhau theo nước: tìm hiểu quy định nơi bạn làm.",
+        "Classic massage uses long strokes, kneading, small circles and light tapping to relax. A good therapist keeps the client safe and private and chooses the right pressure. Rules and titles differ by country: check the rules where you work.",
+        "Klassinen hieronta koostuu pitkistä sivelyistä, vaivaamisesta, pienistä ympyröistä ja kevyestä taputuksesta rentoutumiseksi. Hyvä hoitaja pitää asiakkaan turvassa, suojaa yksityisyyden ja valitsee oikean paineen. Säännöt ja nimikkeet vaihtelevat maittain: selvitä työpaikkasi säännöt."
+      ),
+      l3(
+        "Một bên bắp chân hay đùi sưng, đau, nóng, đỏ hoặc sẫm màu có thể là cục máu đông trong tĩnh mạch: tuyệt đối không massage, khuyên khách đi khám ngay trong ngày. Khó thở hay đau ngực: gọi cấp cứu 112.",
+        "One calf or thigh swollen, painful, warm, red or darkened can be a blood clot in a vein: never massage it; the client should see a doctor the same day. Shortness of breath or chest pain: call 112.",
+        "Toisen pohkeen tai reiden turvotus, kipu, lämpö, punoitus tai tummuus voi olla laskimotukos: älä koskaan hiero; asiakkaan on mentävä lääkäriin samana päivänä. Hengenahdistus tai rintakipu: soita 112."
+      ),
+      l3(
+        "Hẹn lại khi khách sốt, cảm cúm, mệt hay đã uống rượu. Không làm trên vùng có bệnh da lây, nhiễm trùng, vết thương hở, cháy nắng. Chấn thương mới, bầm, sưng: tránh hẳn vùng đó. Mới phẫu thuật: chờ bác sĩ cho phép. Tĩnh mạch giãn: không bao giờ ấn lên.",
+        "Reschedule if the client has a fever, a cold, feels unwell or has been drinking. Never work over contagious skin conditions, infections, open wounds or sunburn. Fresh injuries, bruises, swelling: avoid the area completely. Recent surgery: wait for the doctor's OK. Varicose veins: never press on them.",
+        "Siirrä aikaa, jos asiakkaalla on kuumetta, flunssa, huono olo tai hän on juonut alkoholia. Älä hiero tarttuvien ihosairauksien, tulehdusten, avohaavojen tai auringonpolttaman kohdalta. Tuoreet vammat, mustelmat, turvotus: vältä aluetta kokonaan. Tuore leikkaus: odota lääkärin lupaa. Suonikohjut: älä koskaan paina niitä."
+      ),
+      l3(
+        "Bệnh chưa ổn định (huyết áp cao, bệnh tim, tiểu đường có tê bì, đang điều trị ung thư): hỏi bác sĩ trước. Thuốc chống đông: rất dễ bầm, lực thật nhẹ, hỏi bác sĩ. Mang thai: cần người được đào tạo riêng; ở mức cơ bản thì không làm. Không chẩn đoán: tả điều mình thấy, khuyên đi khám.",
+        "Uncontrolled conditions (high blood pressure, heart disease, diabetes with numbness, cancer treatment): ask the doctor first. Blood thinners: bruises easily, very light pressure, ask the doctor. Pregnancy: needs a specially trained therapist; not at this basic level. Never diagnose: describe what you see and suggest a doctor.",
+        "Hoitamattomat sairaudet (korkea verenpaine, sydänsairaus, diabetes ja tunnottomuus, syöpähoidot): kysy ensin lääkäriltä. Verenohennuslääkkeet: mustelmat syntyvät helposti, hyvin kevyt paine, kysy lääkäriltä. Raskaus: vaatii erikseen koulutetun hoitajan; ei tällä perustasolla. Älä diagnosoi: kuvaa näkemäsi ja ohjaa lääkäriin."
+      ),
+      l3(
+        "Phiếu tư vấn hỏi dị ứng dầu (nhiều dầu làm từ hạt như hạnh nhân), mùi hương, tinh dầu, và vùng khách không muốn được massage. Khách có quyền nói không với bất kỳ vùng nào và dừng bất cứ lúc nào.",
+        "The consultation asks about oil allergies (many oils come from nuts such as almond), fragrance, essential oils, and areas the client doesn't want massaged. The client may refuse any area and stop at any time.",
+        "Asiakaskortissa kysytään öljyallergioista (monet öljyt ovat pähkinäpohjaisia, kuten manteli), hajusteista, eteerisistä öljyistä ja alueista, joita asiakas ei halua hierottavan. Asiakas voi kieltäytyä mistä tahansa alueesta ja keskeyttää milloin tahansa."
+      ),
+      l3(
+        "Khăn phủ: khách thay đồ một mình, thợ gõ cửa trước khi vào, khách có thể giữ đồ lót. Chỉ mở đúng vùng đang làm, phủ lại ngay khi xong, mép khăn chèn chắc. Không bao giờ để lộ hay chạm ngực, vùng kín, vùng mông. Trở mình: giữ khăn che kín. Báo trước khi chuyển vùng.",
+        "Draping: the client undresses alone, you knock before entering, underwear may stay on. Uncover only the area being worked, cover it again as soon as you finish, tuck the edges securely. Never expose or touch the breasts, genitals or buttocks. Turning over: keep the sheet covering the client. Say before you move to a new area.",
+        "Peittely: asiakas riisuu yksin, koputa ennen sisään tuloa, alusvaatteet saavat jäädä. Paljasta vain hoidettava alue, peitä se heti, kun olet valmis, ja taita reunat tukevasti. Älä koskaan paljasta tai kosketa rintoja, intiimialuetta tai pakaroita. Kääntyessä lakana peittää asiakkaan koko ajan. Kerro ennen kuin siirryt uudelle alueelle."
+      ),
+      l3(
+        "Động tác chính: vuốt dài bằng lòng bàn tay (mở đầu, làm ấm, nối động tác); nhào ở chỗ cơ dày như vai, bắp chân; xoa vòng nhỏ bằng ngón cái ở chỗ cơ căng; vỗ nhẹ, nhanh bằng cạnh bàn tay hay lòng bàn tay khum để kết thúc một vùng.",
+        "Main strokes: long effleurage with the palms (to open, warm and link); kneading on thick muscles like the shoulders and calves; small thumb circles on tight spots; light, quick tapping with the side of the hand or a cupped palm to finish an area.",
+        "Pääotteet: pitkä sively kämmenillä (aloitus, lämmitys, otteiden yhdistäminen); vaivaaminen paksuissa lihaksissa kuten hartioissa ja pohkeissa; pienet peukaloympyrät jännittyneisiin kohtiin; kevyt, nopea taputus kämmenen syrjällä tai kupitetulla kämmenellä alueen lopuksi."
+      ),
+      l3(
+        "Tay chân: vuốt dài về phía tim (cổ chân lên gối, cổ tay lên khuỷu). Không ấn lên xương sống, chỉ hai bên; thắt lưng vùng thận làm nhẹ. Tránh hõm sau gối, nách, phía trước cổ, bẹn.",
+        "Arms and legs: long strokes towards the heart (ankle to knee, wrist to elbow). Never press on the spine, only beside it; go lightly over the kidney area of the lower back. Avoid the back of the knee, the armpit, the front of the neck and the groin.",
+        "Raajat: pitkät sivelyt sydäntä kohti (nilkasta polveen, ranteesta kyynärpäähän). Älä paina selkärankaa, vain sen vierestä; munuaisten kohta alaselässä kevyesti. Vältä polvitaivetta, kainaloa, kaulan etuosaa ja nivustaa."
+      ),
+      l3(
+        "Lực tay: dễ chịu, có thể hơi căng tức, không đau; không có chuyện đau mới hiệu quả. Hỏi lúc đầu, sau vài phút, khi chuyển vùng; khách gồng, nín thở, co chân là lực quá. Cơ càng căng càng đi chậm.",
+        "Pressure: comfortable, maybe a little tension, never pain; 'no pain, no gain' doesn't apply. Ask at the start, after a few minutes and when changing areas; tensing, held breath or pulled-up legs mean too much. The tighter the muscle, the slower you go.",
+        "Paine: miellyttävä, ehkä hieman kireä tunne, ei kipua; kipu ei ole tehokkuuden merkki. Kysy alussa, muutaman minuutin päästä ja aluetta vaihtaessa; jännittäminen, hengityksen pidätys tai jalkojen nostaminen kertovat liian kovasta paineesta. Mitä kireämpi lihas, sitä hitaammin edetään."
+      ),
+      l3(
+        "Tư thế: chỉnh giường để không cúi gập lưng; một chân trước một chân sau, gối hơi chùng, lưng thẳng; lực từ sức nặng cơ thể, đẩy từ chân; bước lại gần thay vì rướn người. Trình tự thường gặp: lưng, vai, cổ, mặt sau chân; trở mình; mặt trước chân, tay, vai và cổ. Sau massage: ngồi dậy từ từ, mời nước, không hứa thải độc; hôm sau có thể hơi ê nhẹ.",
+        "Posture: set the bed so you don't bend over; one foot forward, one back, knees soft, back straight; pressure from body weight, driven from the legs; step closer instead of reaching. A common sequence: back, shoulders, neck, backs of the legs; turn over; fronts of the legs, arms, shoulders and neck. Afterwards: sit up slowly, offer water, no detox promises; mild soreness the next day can happen.",
+        "Työasento: säädä sänky niin, ettet joudu kumartumaan; toinen jalka edessä, toinen takana, polvet joustavina, selkä suorana; paine kehon painosta jaloista työntäen; astu lähemmäs kurottamisen sijaan. Tavallinen järjestys: selkä, hartiat, niska, jalkojen takaosat; kääntyminen; jalkojen etuosat, kädet, hartiat ja niska. Lopuksi: nousu hitaasti, vettä tarjolle, ei lupauksia kuona-aineista; seuraavana päivänä voi tuntua lievää arkuutta."
+      ),
+    ],
+    tips: [
+      l3(
+        "Một câu ngắn trước khi chuyển vùng (\"bây giờ em làm chân nhé\") giúp khách không bị bất ngờ và luôn thấy được tôn trọng.",
+        "A short sentence before moving to a new area (\"I'll do your legs now\") means the client is never surprised and always feels respected.",
+        "Lyhyt lause ennen uuteen alueeseen siirtymistä (\"nyt hieron jalkoja\") estää yllätykset ja saa asiakkaan tuntemaan olonsa kunnioitetuksi."
+      ),
+      l3(
+        "Trong VaraaAi, ghi vào ghi chú nội bộ của khách lực tay khách thích, vùng cần tránh và loại dầu đã dùng.",
+        "In VaraaAi, note in the client's internal notes the pressure they like, areas to avoid and the oil you used.",
+        "Merkitse VaraaAi:ssa asiakkaan sisäisiin muistiinpanoihin mieluisa paine, vältettävät alueet ja käytetty öljy."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khách có một bên bắp chân sưng, đỏ, nóng, và nhờ bóp mạnh. Bạn làm gì?", "One of the client's calves is swollen, red and warm, and she asks for firm massage. What do you do?", "Asiakkaan toinen pohje on turvonnut, punainen ja lämmin, ja hän pyytää lujaa hierontaa. Mitä teet?"),
+        options: [
+          l3("Bóp thật mạnh cho tan", "Massage it hard to break it up", "Hieron lujasti, jotta se hajoaa"),
+          l3("Không massage, khuyên khách đi khám ngay trong ngày", "Don't massage it; advise a doctor the same day", "En hiero; neuvon lääkäriin samana päivänä"),
+          l3("Đắp khăn nóng rồi massage nhẹ", "Apply a hot towel, then massage lightly", "Lämmin pyyhe ja sitten kevyt hieronta"),
+        ],
+        answer: 1,
+        why: l3("Đó có thể là cục máu đông trong tĩnh mạch; khó thở hay đau ngực thì gọi cấp cứu.", "It could be a blood clot in a vein; shortness of breath or chest pain means calling the emergency number.", "Kyse voi olla laskimotukoksesta; hengenahdistuksessa tai rintakivussa soitetaan hätänumeroon."),
+      },
+      {
+        q: l3("Khăn phủ thế nào là đúng?", "What is correct draping?", "Mikä on oikea peittely?"),
+        options: [
+          l3("Mở rộng khăn cho dễ làm", "Uncover a wide area to make it easier", "Paljastan laajan alueen, jotta on helpompi työskennellä"),
+          l3("Không cần khăn nếu khách quen", "No sheet needed for regular clients", "Vakioasiakkaalle ei tarvita lakanaa"),
+          l3("Chỉ mở vùng đang làm, chèn mép khăn chắc, phủ lại ngay khi xong", "Uncover only the area being worked, tuck the edges securely, cover again when done", "Paljastan vain hoidettavan alueen, taitan reunat tukevasti ja peitän heti valmistuttuani"),
+        ],
+        answer: 2,
+        why: l3("Khách luôn được che kín, trừ vùng đang làm; vùng nhạy cảm không bao giờ để lộ hay chạm.", "The client stays covered except the area being worked; sensitive areas are never exposed or touched.", "Asiakas pysyy peitettynä hoidettavaa aluetta lukuun ottamatta; intiimejä alueita ei koskaan paljasteta eikä kosketa."),
+      },
+      {
+        q: l3("Ở tay và chân, đường vuốt dài đi về hướng nào?", "Which way do long strokes go on the arms and legs?", "Mihin suuntaan pitkät sivelyt kulkevat käsissä ja jaloissa?"),
+        options: [
+          l3("Về phía tim: cổ chân lên gối, cổ tay lên khuỷu", "Towards the heart: ankle to knee, wrist to elbow", "Sydäntä kohti: nilkasta polveen, ranteesta kyynärpäähän"),
+          l3("Ra xa tim: gối xuống cổ chân", "Away from the heart: knee down to ankle", "Sydämestä poispäin: polvesta nilkkaan"),
+          l3("Hướng nào cũng được", "Any direction", "Mihin suuntaan tahansa"),
+        ],
+        answer: 0,
+        why: l3("Vuốt về phía tim là cách làm chuẩn trong massage cổ điển; và tránh hõm sau gối.", "Strokes towards the heart are standard in classic massage; and avoid the back of the knee.", "Sively sydäntä kohti on klassisen hieronnan perusta; ja polvitaive vältetään."),
+      },
+    ],
+  },
+  {
+    slug: "spa-massage-body",
+    course: "p-spa",
+    style: "practice",
+    title: l3("Massage body cơ bản: thực hành từng bước", "Body massage basics: step by step", "Vartalohieronnan perusteet: vaihe vaiheelta"),
+    summary: l3(
+      "Một buổi massage thư giãn lưng, vai và chân từng bước: chuẩn bị phòng và giường, tư vấn, khách thay đồ riêng tư, khăn phủ, dầu và cái chạm đầu tiên, vuốt lưng, nhào vai, gáy, xoa vòng quanh xương bả vai, mặt sau chân, trở mình, tay và vai, kết thúc, lời dặn, những lỗi hay gặp và dọn dẹp.",
+      "A relaxing back, shoulder and leg massage step by step: preparing the room and bed, consultation, private undressing, draping, oil and the first touch, back strokes, shoulder kneading, the back of the neck, thumb circles around the shoulder blade, the backs of the legs, turning over, arms and shoulders, finishing, aftercare, common mistakes and tidying up.",
+      "Rentouttava selän, hartioiden ja jalkojen hieronta vaihe vaiheelta: huoneen ja sängyn valmistelu, haastattelu, yksityinen riisuutuminen, peittely, öljy ja ensimmäinen kosketus, selän sivelyt, hartioiden vaivaaminen, niska, peukaloympyrät lapaluun ympärillä, jalkojen takaosat, kääntyminen, kädet ja hartiat, lopetus, jälkiohjeet, yleiset virheet ja siivous."
+    ),
+    video: video("spa-massage-body", 289, "2026-11-19"),
+    notice: l3(
+      "Thời gian và trình tự theo liệu trình của tiệm. Quy định và danh xưng của nghề massage khác nhau theo từng nước. Một bên chân sưng, đau, nóng, đỏ: không massage, khuyên đi khám ngay; khó thở hay đau ngực: gọi 112 (hoặc số cấp cứu nơi bạn ở). Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Time and sequence follow your salon's treatment. Rules and titles for massage differ by country. One leg swollen, painful, warm, red: don't massage, the client should see a doctor straight away; shortness of breath or chest pain: call 112 (or your local emergency number). This lesson is a training aid, not a licence.",
+      "Kesto ja järjestys noudattavat hoitolan hoito-ohjelmaa. Hieronnan säännöt ja ammattinimikkeet vaihtelevat maittain. Toinen jalka turvonnut, kipeä, lämmin, punoittava: ei hierontaa, asiakas lääkäriin heti; hengenahdistus tai rintakipu: soita 112 (tai paikalliseen hätänumeroon). Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    sources: [{ label: "NHS — Deep vein thrombosis (DVT): symptoms and when to get help", url: "https://www.nhs.uk/conditions/deep-vein-thrombosis-dvt/" }],
+    related: ["dich-vu", "khach-hang", "lich-hen"],
+    steps: [
+      l3(
+        "Chuẩn bị: phòng ấm, yên tĩnh; lau khử khuẩn giường và gối mặt; ga sạch, bọc gối mặt mới, khăn lớn, gối kê; dầu trong chai có vòi bơm; chỉnh độ cao giường để không phải cúi gập lưng.",
+        "Preparation: a warm, quiet room; disinfect the bed and face cradle; clean sheets, a fresh face-cradle cover, a large sheet, a bolster; oil in a pump bottle; set the bed height so you don't have to bend over.",
+        "Valmistelu: lämmin, rauhallinen huone; desinfioi sänky ja kasvotuki; puhtaat lakanat, uusi kasvotuen suojus, iso lakana, tukityyny; öljy pumppupullossa; säädä sängyn korkeus niin, ettei tarvitse kumartua."
+      ),
+      l3(
+        "Tư vấn: sức khỏe, thuốc, dị ứng dầu và hạt, chấn thương hay phẫu thuật gần đây, vùng không muốn massage. Tĩnh mạch giãn: không ấn lên. Một bên bắp chân sưng, đỏ, nóng: không làm, khuyên đi khám ngay. Giải thích khăn phủ, lực tay, và khách có thể dừng bất cứ lúc nào.",
+        "Consultation: health, medicines, oil and nut allergies, recent injuries or surgery, areas not to massage. Varicose veins: no pressure on them. One calf swollen, red and warm: don't massage, advise a doctor straight away. Explain draping and pressure, and that the client can stop at any time.",
+        "Haastattelu: terveys, lääkkeet, öljy- ja pähkinäallergiat, tuoreet vammat tai leikkaukset, alueet joita ei hierota. Suonikohjut: ei painetta niihin. Toinen pohje turvonnut, punainen ja lämmin: ei hierontaa, ohjaa lääkäriin heti. Kerro peittelystä ja paineesta sekä siitä, että asiakas voi keskeyttää milloin tahansa."
+      ),
+      l3(
+        "Khách thay đồ một mình, có thể giữ đồ lót, nằm sấp, mặt vào gối mặt, đắp khăn lớn đến vai. Gõ cửa, đợi trả lời mới vào. Rửa tay, xoa ấm tay.",
+        "The client undresses alone (underwear may stay on), lies face down with the face in the cradle and a large sheet up to the shoulders. Knock and wait for an answer before entering. Wash and warm your hands.",
+        "Asiakas riisuu yksin (alusvaatteet saavat jäädä), käy vatsalleen kasvot kasvotukeen ja iso lakana hartioille asti. Koputa ja odota vastausta ennen sisään tuloa. Pese ja lämmitä kädet."
+      ),
+      l3(
+        "Khăn phủ: gấp mép khăn xuống ngang eo, chỉ mở lưng, chèn chắc hai bên; gối nhỏ dưới cổ chân nếu khách muốn; hỏi khách có ấm không.",
+        "Draping: fold the sheet down to the waist, uncovering only the back, tuck it in firmly on both sides; a small bolster under the ankles if the client likes; ask if she is warm enough.",
+        "Peittely: taita lakana vyötärölle niin, että vain selkä paljastuu, ja taita reunat tukevasti molemmin puolin; pieni tyyny nilkkojen alle, jos asiakas haluaa; kysy, onko hänellä lämmin."
+      ),
+      l3(
+        "Dầu ra lòng bàn tay, xoa ấm, không đổ thẳng lên lưng. Đặt hai tay lên lưng thật nhẹ, giữ yên; từ đó luôn giữ một tay trên khách.",
+        "Oil into your palms, warm it, never pour it straight onto the back. Rest both hands lightly on the back and hold still; from then on, always keep one hand on the client.",
+        "Öljy kämmeniin ja lämpimäksi, älä koskaan kaada sitä suoraan selkään. Aseta kädet kevyesti selälle ja pidä paikallaan; siitä eteenpäin toinen käsi on aina asiakkaassa."
+      ),
+      l3(
+        "Vuốt lưng: hai lòng bàn tay từ thắt lưng lên hai bên cột sống, đến vai, vòng ra hai bên và vuốt nhẹ xuống; khoảng ba đến năm lần, lực tăng dần. Một chân trước một chân sau, dùng sức nặng cơ thể, lưng thẳng. Hỏi về lực.",
+        "Back strokes: both palms from the lower back up either side of the spine to the shoulders, round to the sides and lightly back down; about three to five times, building pressure. One foot forward, one back, use your body weight, back straight. Ask about pressure.",
+        "Selän sively: molemmat kämmenet alaselästä selkärangan molemmin puolin hartioille, kaari sivuille ja kevyesti takaisin alas; noin kolmesta viiteen kertaa paineen kasvaessa. Toinen jalka edessä, toinen takana, kehon paino käyttöön, selkä suorana. Kysy paineesta."
+      ),
+      l3(
+        "Nhào vai: nâng nhẹ cơ trên vai giữa ngón cái và các ngón, chậm, đều; không bóp mạnh, không véo. Gáy: đầu ngón vuốt nhẹ từ chân tóc xuống vai, lực nhẹ hơn lưng; không ấn phía trước cổ, không xoay hay bẻ cổ.",
+        "Shoulder kneading: gently lift the muscle on top of the shoulder between thumb and fingers, slowly and evenly; no hard squeezing or pinching. Back of the neck: fingertips stroke lightly from the hairline down to the shoulders, lighter than on the back; no pressure on the front of the neck, no twisting or cracking.",
+        "Hartioiden vaivaaminen: nosta hartian päällistä lihasta kevyesti peukalon ja sormien välissä hitaasti ja tasaisesti; ei kovaa puristusta eikä nipistelyä. Niska: sormenpäät sivelevät kevyesti hiusrajasta hartioille, selkää kevyemmin; ei painetta kaulan etuosaan, ei kiertämistä eikä naksauttamista."
+      ),
+      l3(
+        "Xoa vòng ngón cái quanh xương bả vai và dọc hai bên cột sống, không bao giờ lên xương sống; thắt lưng vùng thận chỉ vuốt nhẹ. Chỗ căng: chậm lại, không ấn mạnh hơn. Vỗ nhẹ nếu khách thích, vuốt dài kết thúc, phủ khăn lại.",
+        "Thumb circles around the shoulder blade and along both sides of the spine, never on the spine itself; only light strokes over the kidney area of the lower back. Tight spots: slow down, don't press harder. Light tapping if the client likes, long strokes to finish, cover the back again.",
+        "Peukaloympyrät lapaluun ympärillä ja selkärangan molemmin puolin, ei koskaan itse rangan päällä; alaselän munuaisalueella vain kevyitä sivelyjä. Kireät kohdat: hidasta, älä paina kovempaa. Kevyt taputus, jos asiakas pitää siitä, pitkät sivelyt lopuksi ja selkä taas peittoon."
+      ),
+      l3(
+        "Mặt sau chân: chỉ mở một chân từ cổ chân đến trên gối, chèn khăn chắc; vuốt từ cổ chân lên gối (về phía tim), nhào nhẹ bắp chân; tránh hõm sau gối và tĩnh mạch nổi; phủ lại rồi mới làm chân kia. Trở mình: nâng khăn, giữ một bên vào giường, khách xoay bên dưới, luôn che kín.",
+        "Backs of the legs: uncover one leg only, from ankle to just above the knee, sheet tucked firmly; stroke from ankle to knee (towards the heart), knead the calf gently; avoid the back of the knee and visible veins; cover again before the other leg. Turning over: lift the sheet, hold one side against the bed, the client turns beneath it, always covered.",
+        "Jalkojen takaosat: paljasta vain toinen jalka nilkasta hieman polven yläpuolelle, lakana tukevasti taitettuna; sivele nilkasta polveen (sydäntä kohti), vaivaa pohjetta kevyesti; vältä polvitaivetta ja näkyviä suonia; peitä ennen toista jalkaa. Kääntyminen: nosta lakanaa, pidä toinen reuna sänkyä vasten, asiakas kääntyy sen alla aina peitettynä."
+      ),
+      l3(
+        "Tay: một tay giữ cổ tay, tay kia vuốt từ cổ tay lên khuỷu, tránh nách; vai ấn nhẹ xuống vài nhịp thở. Kết thúc: báo khách đã xong, ra ngoài cho khách ngồi dậy từ từ, mời nước, dặn hôm sau có thể hơi ê nhẹ, đau nhiều hay bầm thì báo tiệm. Ghi chú, rồi đồ giặt vào giỏ có nắp, lau khử khuẩn giường và gối mặt, rửa tay.",
+        "Arms: one hand holds the wrist, the other strokes from wrist to elbow, avoiding the armpit; press the shoulders gently down for a few breaths. Finish: tell the client you're done, step out so she can sit up slowly, offer water, mention mild soreness the next day is possible and to tell the salon about real pain or bruising. Take notes, then laundry into a lidded hamper, disinfect the bed and face cradle, wash your hands.",
+        "Kädet: toinen käsi pitää ranteesta, toinen sivelee ranteesta kyynärpäähän kainaloa välttäen; paina hartioita kevyesti alas muutaman hengityksen ajan. Lopetus: kerro, että olet valmis, poistu, jotta asiakas voi nousta hitaasti, tarjoa vettä, kerro, että lievää arkuutta voi tuntua seuraavana päivänä ja että kovasta kivusta tai mustelmista kerrotaan hoitolaan. Tee muistiinpanot, pyykit kannelliseen koriin, desinfioi sänky ja kasvotuki, pese kädet."
+      ),
+    ],
+    tips: [
+      l3(
+        "Những lỗi khách nhớ lâu nhất: dầu lạnh đổ thẳng lên lưng, nhấc tay đột ngột, mở khăn rộng hơn vùng đang làm, ấn lên xương sống, nói chuyện liên tục, quên hỏi lực tay.",
+        "The mistakes clients remember longest: cold oil poured onto the back, hands lifted abruptly, uncovering more than the area being worked, pressing on the spine, constant chatting, forgetting to ask about pressure.",
+        "Virheet, jotka asiakas muistaa pisimpään: kylmä öljy suoraan selkään, kädet irti äkillisesti, laajempi paljastus kuin hoidettava alue, painaminen selkärangalle, jatkuva puhuminen, paineesta kysymisen unohtaminen."
+      ),
+      l3(
+        "Trong VaraaAi, ghi vào ghi chú nội bộ của khách lực tay khách thích, vùng cần tránh và loại dầu đã dùng.",
+        "In VaraaAi, note in the client's internal notes the pressure they like, areas to avoid and the oil you used.",
+        "Merkitse VaraaAi:ssa asiakkaan sisäisiin muistiinpanoihin mieluisa paine, vältettävät alueet ja käytetty öljy."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Lấy dầu cho massage lưng thế nào là đúng?", "How do you apply oil for a back massage?", "Miten öljy levitetään selkähierontaan?"),
+        options: [
+          l3("Đổ thẳng dầu lên lưng khách cho nhanh", "Pour it straight onto the client's back to save time", "Kaadan sen suoraan asiakkaan selkään ajan säästämiseksi"),
+          l3("Bơm ra lòng bàn tay, xoa ấm rồi mới đặt lên lưng", "Pump it into your palms, warm it, then place your hands on the back", "Pumppaan kämmeniin, lämmitän ja asetan sitten kädet selälle"),
+          l3("Nhúng tay vào bát dầu chung", "Dip your hands into a shared bowl of oil", "Kastan kädet yhteiseen öljykulhoon"),
+        ],
+        answer: 1,
+        why: l3("Dầu lạnh làm khách giật mình; vòi bơm giữ dầu sạch cho những khách sau.", "Cold oil startles the client; a pump keeps the oil clean for the next clients.", "Kylmä öljy säikäyttää asiakkaan; pumppu pitää öljyn puhtaana seuraaville asiakkaille."),
+      },
+      {
+        q: l3("Khi xoa vòng bằng ngón cái ở lưng, tránh chỗ nào?", "Doing thumb circles on the back, what do you avoid?", "Mitä vältät tehdessäsi peukaloympyröitä selkään?"),
+        options: [
+          l3("Cơ quanh xương bả vai", "The muscles around the shoulder blade", "Lapaluun ympäryslihaksia"),
+          l3("Hai bên cột sống", "The sides of the spine", "Selkärangan sivuja"),
+          l3("Chính xương sống", "The spine itself", "Itse selkärankaa"),
+        ],
+        answer: 2,
+        why: l3("Chỉ làm ở hai bên cột sống, không bao giờ ấn lên xương sống.", "Work only beside the spine, never press on the spine itself.", "Työskentele vain selkärangan vieressä, älä koskaan paina itse rankaa."),
+      },
+      {
+        q: l3("Khách cần trở mình từ nằm sấp sang nằm ngửa. Làm thế nào?", "The client needs to turn from face down to face up. How?", "Asiakkaan pitää kääntyä vatsaltaan selälleen. Miten?"),
+        options: [
+          l3("Nâng khăn, giữ một bên vào giường, khách xoay bên dưới, luôn che kín", "Lift the sheet, hold one side against the bed, the client turns beneath it, always covered", "Nostan lakanaa, pidän toisen reunan sänkyä vasten, asiakas kääntyy sen alla aina peitettynä"),
+          l3("Lấy khăn ra cho khách dễ xoay", "Take the sheet away so she can turn easily", "Otan lakanan pois, jotta kääntyminen on helppoa"),
+          l3("Ra ngoài, để khách tự xoay không có khăn", "Step out and let her turn without the sheet", "Poistun ja annan hänen kääntyä ilman lakanaa"),
+        ],
+        answer: 0,
+        why: l3("Khách luôn được che kín; người thợ nhìn về phía mặt khách.", "The client is covered the whole time; the therapist looks towards the client's face.", "Asiakas on koko ajan peitettynä; hoitaja katsoo asiakkaan kasvoja kohti."),
+      },
+    ],
+  },
   soon("spa-waxing", "p-spa", ["Waxing", "Waxing", "Vahaus"], [
     "Nhiệt độ sáp, hướng thoa và giật, không nhúng que hai lần, chăm sóc sau wax.",
     "Wax temperature, direction of application and removal, no double-dipping, and aftercare.",
