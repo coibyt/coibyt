@@ -5704,16 +5704,510 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("cat-nam-fade", "p-hair", ["Fade: low, mid, high", "Fades: low, mid, high", "Fade: matala, keski, korkea"], [
-    "Đặt đường guideline, mở – đóng cần gạt, xoá đường và hoàn thiện viền.",
-    "Setting guidelines, lever open and closed, erasing lines and finishing the edges.",
-    "Ohjauslinjat, vivun asennot, rajojen häivytys ja reunojen viimeistely.",
-  ]),
-  soon("cat-nam-tao-kieu", "p-hair", ["Cắt nam tạo kiểu: side part, crop", "Men's styles: side part, crop", "Miesten tyylit: sivujakaus, crop"], [
-    "Cắt phần trên theo kiểu, tạo texture và vuốt sáp.",
-    "Cutting the top to the style, adding texture and finishing with product.",
-    "Päällishiusten leikkaus tyyliin, tekstuuri ja muotoilutuotteet.",
-  ]),
+  {
+    slug: "cat-nam-fade-hieu-dung",
+    course: "p-hair",
+    style: "theory",
+    title: l3("Fade: hiểu đúng để chuyển màu mượt không vệt", "Fades: understand them for a smooth blend without lines", "Häivytys (fade): ymmärrä se, niin siirtymä on tasainen ilman raitoja"),
+    summary: l3(
+      "Fade là gì và vì sao trông như màu tóc tự chuyển; fade thấp, trung bình, cao và chỗ mỗi loại bắt đầu; skin fade và taper; đọc dáng đầu (đường vòng đầu, xương chẩm, chỗ phẳng, sẹo, xoáy); cần gạt và cữ nửa số; làm từng dải, động tác hất ra, xoá vạch tại chỗ; ánh sáng và nhìn nhiều phía; máy cạo lưới, dao cạo lưỡi dùng một lần và da nhạy cảm; hẹn khách giữ fade.",
+      "What a fade is and why it reads as a smooth change of shade; low, mid and high fades and where each starts; skin fade versus taper; reading the head (parietal ridge, occipital bone, flat spots, scars, whorls); the clipper lever and half guards; working in bands, the flick-out, erasing lines where they are; light and checking from every side; foil shaver, single-use razor blades and sensitive skin; rebooking to keep a fade.",
+      "Mikä häivytys on ja miksi se näyttää tasaiselta sävynmuutokselta; matala, keskikorkea ja korkea häivytys ja mistä kukin alkaa; skin fade ja taper; pään muodon lukeminen (päälaen reuna, takaraivon kyhmy, litteät kohdat, arvet, pyörteet); koneen säätövipu ja puolikkaat ohjauskammat; vyöhykkeittäin työskentely, ulospäin kaartuva veto, raitojen poisto paikallaan; valo ja tarkistus joka suunnasta; folioparranajokone, kertakäyttöiset partaterät ja herkkä iho; uusintakäynnit häivytyksen ylläpitoon."
+    ),
+    video: video("cat-nam-fade-hieu-dung", 292, "2026-11-19"),
+    notice: l3(
+      "Độ cao fade chỉ là mốc tham khảo, mỗi tiệm gọi hơi khác: luôn chỉ thẳng lên đầu khách để thống nhất. Số cữ và hướng gạt cần khác nhau theo hãng. Dao cạo chỉ dùng lưỡi dùng một lần, mỗi khách một lưỡi mới; tông đơ, cữ, lược, máy cạo làm sạch và khử khuẩn sau mỗi khách theo hướng dẫn sản phẩm (bài “Xử lý dụng cụ sau mỗi khách”). Da đầu có vết thương, viêm hay mụn mủ thì không cạo (bài “Khi nào không làm cho khách”). Quy định khác nhau theo từng nước.",
+      "Fade heights are guidance only and shops name them a little differently: always point at the customer's head to agree. Guard numbers and the lever direction differ by brand. Razors use single-use blades only, a fresh blade for every customer; clippers, guards, combs and shavers are cleaned and disinfected after every customer as the product instructs (lesson “Tools after every customer”). Wounds, inflammation or pustules on the scalp: no shaving (lesson “When not to treat a customer”). Rules differ by country.",
+      "Häivytyksen korkeudet ovat vain suuntaa antavia, ja liikkeet nimeävät ne hieman eri tavoin: osoita aina asiakkaan päästä, mistä sovitaan. Ohjauskampojen numerot ja vivun suunta vaihtelevat valmistajittain. Partaveitsessä vain kertakäyttöiset terät, jokaiselle asiakkaalle uusi; koneet, ohjauskammat, kammat ja parranajokoneet puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen tuotteen ohjeen mukaan (tunti ”Välineet jokaisen asiakkaan jälkeen”). Haavat, tulehdus tai märkänäppylät hiuspohjassa: ei ajeta (tunti ”Milloin asiakasta ei hoideta”). Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "lich-hen", "the-khach-quen"],
+    steps: [
+      l3(
+        "Fade là tóc ngắn dần từ dưới lên: dưới cùng rất ngắn, có khi sát da, lên trên dài dần tới phần đỉnh. Chỗ chuyển phải liền, không vạch, không bậc.",
+        "A fade is hair graduating from very short at the bottom, sometimes to the skin, to longer towards the top. The change must be seamless: no lines, no steps.",
+        "Häivytyksessä hiukset pitenevät alhaalta ylöspäin: alhaalla hyvin lyhyet, joskus ihoon asti, ylöspäin vähitellen pidemmät. Siirtymän pitää olla saumaton: ei raitoja, ei portaita."
+      ),
+      l3(
+        "Mốc tham khảo: fade thấp bắt đầu ngay trên tai; trung bình quanh ngang thái dương; cao tới gần hay qua đường vòng đầu. Khách lần đầu: gợi ý thấp hơn — nâng lên lần sau thì dễ.",
+        "As guidance: a low fade starts just above the ear; a mid fade around the temple line; a high fade near or above the parietal ridge. A first-timer: suggest lower — going higher next time is easy.",
+        "Suuntaa antavasti: matala häivytys alkaa heti korvan yläpuolelta, keskikorkea ohimon tasolta, korkea päälaen reunan lähellä tai sen yläpuolella. Ensikertalaiselle ehdota matalampaa — ensi kerralla korkeammaksi on helppo."
+      ),
+      l3(
+        "Skin fade: phần dưới cùng sát da. Taper: chỉ chân tóc ở tóc mai và gáy ngắn dần, hai bên vẫn giữ tóc. Hỏi khách có muốn thấy da không.",
+        "Skin fade: the bottom goes down to the skin. Taper: only the hairline at the sideburns and nape graduates, the sides keep their hair. Ask if the customer wants to see skin.",
+        "Skin fade: alaosa ajetaan ihoon asti. Taper: vain pulisonkien ja niskan hiusraja lyhenee asteittain, sivuille jää hiusta. Kysy, haluaako asiakas ihon näkyvän."
+      ),
+      l3(
+        "Đọc dáng đầu bằng tay: đường vòng đầu, xương chẩm. Sau đầu phẳng: đừng đẩy fade quá cao, giữ độ dài trên xương chẩm. Có sẹo: hỏi trước. Xoáy: dễ loang, đi nhiều hướng.",
+        "Read the head with your hands: parietal ridge, occipital bone. A flat back: don't push the fade too high, keep length above the occipital. Scars: ask first. Whorls: patchy easily, work in several directions.",
+        "Lue pään muoto käsin: päälaen reuna, takaraivon kyhmy. Litteä takaraivo: älä nosta häivytystä liian ylös, jätä pituutta kyhmyn yläpuolelle. Arvet: kysy ensin. Pyörteet: laikukkuus uhkaa, aja useasta suunnasta."
+      ),
+      l3(
+        "Cần gạt: mở là dài hơn, đóng là ngắn hơn (hướng gạt tuỳ máy). Cần gạt và cữ nửa số tạo những độ dài nằm giữa hai cữ — fade đẹp nhờ nhiều bước nhỏ.",
+        "The lever: open is longer, closed is shorter (the direction depends on the clipper). The lever and half guards make the lengths between two guards — a good fade is many small steps.",
+        "Säätövipu: auki on pidempi, kiinni lyhyempi (suunta riippuu koneesta). Vipu ja puolikkaat ohjauskammat tuottavat pituudet kahden kamman välille — hyvä häivytys syntyy monesta pienestä askeleesta."
+      ),
+      l3(
+        "Cách làm: đường chuẩn vòng quanh đầu bằng một cữ; phía dưới chia dải, dải dưới ngắn nhất; ở mỗi chỗ dừng lật cổ tay hất ra như múc, không kéo thẳng ra.",
+        "The method: a guideline all the way round with one guard; below it, bands with the shortest at the bottom; at every stop flick the wrist out in a scooping motion instead of pulling straight off.",
+        "Työtapa: ohjauslinja koko pään ympäri yhdellä ohjauskammalla; sen alle vyöhykkeet, alin lyhin; jokaisessa pysähdyksessä ranne kääntyy ulos kauhaisten, ei suoraan irti vetäen."
+      ),
+      l3(
+        "Xoá vạch bằng độ dài nằm giữa (mở cần nửa chừng, cữ nửa số), chỉ đi đúng trên vạch. Đừng đẩy cả đường fade lên cao hơn điều đã hứa.",
+        "Erase a line with the in-between length (lever half open, a half guard), only right on the line. Don't push the whole fade higher than you promised.",
+        "Poista raita välipituudella (vipu puoliksi auki, puolikas kampa) vain raidan kohdalta. Älä nosta koko häivytystä luvattua korkeammalle."
+      ),
+      l3(
+        "Kiểm tra ở chỗ sáng: nghiêng đầu khách, nhìn trái, phải, ngang tầm mắt và phía sau; so hai bên cùng độ cao.",
+        "Check in good light: tilt the head, look from the left, right, at eye level and from behind; compare both sides for height.",
+        "Tarkista hyvässä valossa: kallista päätä, katso vasemmalta, oikealta, silmien tasolta ja takaa; vertaa puolten korkeutta."
+      ),
+      l3(
+        "Phần sát da: máy cạo lưới nhẹ với da hơn; dao cạo chỉ lưỡi mới, dùng một lần. Da nhạy cảm: căng da, đi xuôi, không đi lại nhiều lần; hay kích ứng thì dừng ở độ ngắn nhất của tông đơ.",
+        "The skin part: a foil shaver is gentler on skin; a razor only with a fresh single-use blade. Sensitive skin: stretch it, go with the grain, don't repeat passes; prone to irritation — stop at the clipper's shortest setting.",
+        "Ihoon asti: folioparranajokone on iholle hellävaraisempi; partaveitsessä vain uusi kertakäyttöinen terä. Herkkä iho: kiristä ihoa, aja karvan suuntaan, älä toista vetoja; ärtyvä iho — jää koneen lyhimpään pituuteen."
+      ),
+      l3(
+        "Fade đẹp nhất một, hai tuần đầu; nhiều khách quay lại sau khoảng 2–3 tuần (thói quen, không phải quy định). Ghi độ cao, cữ, cần gạt vào hồ sơ khách.",
+        "A fade looks its best for the first week or two; many customers come back after about 2–3 weeks (a habit, not a rule). Record the height, guards and lever in the customer file.",
+        "Häivytys on parhaimmillaan ensimmäiset viikon tai kaksi; moni asiakas palaa noin 2–3 viikon päästä (tapa, ei sääntö). Kirjaa korkeus, ohjauskammat ja vipu asiakastietoihin."
+      ),
+    ],
+    tips: [
+      l3(
+        "Vạch hiện rõ nhất dưới đèn chiếu từ trên xuống — đừng chỉ nhìn dưới ánh đèn mờ.",
+        "Lines show up best under light from above — don't judge under dim light.",
+        "Raidat näkyvät parhaiten ylhäältä tulevassa valossa — älä arvioi hämärässä."
+      ),
+      l3(
+        "Trong VaraaAi, ghi độ cao fade và các cữ vào ghi chú khách, và gợi ý khách đặt lịch lần sau ngay khi thanh toán.",
+        "In VaraaAi, note the fade height and guards in the customer notes, and suggest booking the next visit right at checkout.",
+        "Kirjaa VaraaAi:hin häivytyksen korkeus ja ohjauskammat asiakkaan muistiinpanoihin ja ehdota seuraavaa varausta heti maksun yhteydessä."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Mở cần gạt trên tông đơ thì tóc thế nào?", "What happens to the length when you open the clipper lever?", "Mitä pituudelle tapahtuu, kun koneen säätövipu avataan?"),
+        options: [
+          l3("Dài hơn một chút", "A little longer", "Hieman pidempi"),
+          l3("Ngắn hơn một chút", "A little shorter", "Hieman lyhyempi"),
+          l3("Không thay đổi gì", "Nothing changes", "Ei muutu"),
+        ],
+        answer: 0,
+        why: l3(
+          "Mở cần, lưỡi lùi ra, tóc dài hơn; đóng cần thì ngắn hơn — nhờ vậy có những độ dài nằm giữa hai cữ.",
+          "Open, the blade moves back and the hair stays longer; closed is shorter — that gives the lengths between two guards.",
+          "Auki terä siirtyy taaksepäin ja hiukset jäävät pidemmiksi; kiinni lyhyemmiksi — näin saadaan pituudet kahden kamman välille."
+        ),
+      },
+      {
+        q: l3("Giữa hai dải còn một vạch mờ. Nên làm gì?", "A faint line remains between two bands. What do you do?", "Kahden vyöhykkeen väliin jää haalea raita. Mitä teet?"),
+        options: [
+          l3("Đi lên cao hơn cho tới khi hết vạch", "Keep going higher until it's gone", "Jatka ylemmäs, kunnes se katoaa"),
+          l3("Dùng độ dài nằm giữa, chỉ đi đúng trên vạch rồi hất ra", "Use the in-between length right on the line and flick out", "Käytä välipituutta vain raidan kohdalla ja käännä ulos"),
+          l3("Cạo sát toàn bộ hai bên", "Shave both sides to the skin", "Aja molemmat sivut ihoon asti"),
+        ],
+        answer: 1,
+        why: l3(
+          "Xoá vạch tại chỗ giữ đúng độ cao đã hứa; đi lên mãi sẽ đẩy fade cao hơn ý khách.",
+          "Erasing the line where it is keeps the promised height; going higher and higher pushes the fade above what the customer wanted.",
+          "Raidan poisto paikallaan pitää luvatun korkeuden; ylemmäs jatkaminen nostaa häivytyksen yli asiakkaan toiveen."
+        ),
+      },
+      {
+        q: l3("Phía sau đầu khách khá phẳng. Điều gì nên tránh?", "The back of the customer's head is quite flat. What should you avoid?", "Asiakkaan takaraivo on melko litteä. Mitä kannattaa välttää?"),
+        options: [
+          l3("Giữ độ dài phía trên xương chẩm", "Keeping length above the occipital bone", "Pituuden jättämistä takaraivon kyhmyn yläpuolelle"),
+          l3("Sờ dáng đầu trước khi cắt", "Feeling the head shape before cutting", "Pään muodon tunnustelua ennen leikkausta"),
+          l3("Đẩy fade quá cao làm lộ chỗ phẳng", "Pushing the fade so high that the flat spot shows", "Häivytyksen nostamista niin ylös, että litteä kohta paljastuu"),
+        ],
+        answer: 2,
+        why: l3(
+          "Fade quá cao làm lộ chỗ phẳng, đầu trông móp; giữ độ dài trên xương chẩm giúp đầu tròn hơn.",
+          "Too high a fade exposes the flat area and the head looks dented; keeping length above the occipital rounds it out.",
+          "Liian korkea häivytys paljastaa litteän kohdan ja pää näyttää lommoiselta; pituus kyhmyn yläpuolella pyöristää muotoa."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "cat-nam-fade",
+    course: "p-hair",
+    style: "practice",
+    title: l3("Cắt fade: thực hành từng bước", "Cutting a fade: step-by-step practice", "Häivytysleikkaus: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Một đường fade trung bình, dưới cùng sát da, từng bước: chuẩn bị và lưỡi dao mới, tư vấn và chỉ độ cao trên đầu khách, kẻ đường chuẩn vòng quanh đầu, phần dưới đường chuẩn, nối từng dải bằng cần gạt và cữ nửa số, xoá vạch còn sót, phần sát da và đường viền, kiểm tra hai bên và phía sau dưới đèn, nối với phần đỉnh, hoàn thiện, ghi hồ sơ và dọn dẹp.",
+      "A mid skin fade step by step: preparation and a fresh blade, consultation and showing the height on the customer's head, the guideline all the way round, the area below it, blending each band with the lever and half guards, erasing leftover lines, the skin part and the outline, checking both sides and the back in good light, connecting to the top, finishing, notes and clean-up.",
+      "Keskikorkea skin fade vaihe vaiheelta: valmistelu ja uusi terä, konsultaatio ja korkeuden näyttäminen asiakkaan päästä, ohjauslinja koko pään ympäri, sen alapuoli, vyöhykkeiden häivytys vivulla ja puolikkailla kammoilla, jäljelle jääneiden raitojen poisto, ihoon ajettava osa ja rajaus, puolten ja takaosan tarkistus hyvässä valossa, liitos päälakeen, viimeistely, muistiinpanot ja siivous."
+    ),
+    video: video("cat-nam-fade", 285, "2026-11-19"),
+    notice: l3(
+      "Độ cao fade là điều thống nhất với khách, không phải quy chuẩn. Số cữ và hướng gạt cần khác nhau theo hãng. Dao cạo chỉ dùng lưỡi dùng một lần, mỗi khách một lưỡi mới, bỏ vào hộp vật sắc; tông đơ, cữ, lược, máy cạo làm sạch và khử khuẩn sau mỗi khách theo hướng dẫn sản phẩm (bài “Xử lý dụng cụ sau mỗi khách”). Da đầu có vết thương hay viêm thì không cạo sát (bài “Khi nào không làm cho khách”). Quy định khác nhau theo từng nước.",
+      "The fade height is what you agree with the customer, not a standard. Guard numbers and the lever direction differ by brand. Razors use single-use blades only, a fresh one for every customer, disposed of in a sharps box; clippers, guards, combs and shavers are cleaned and disinfected after every customer as the product instructs (lesson “Tools after every customer”). Wounds or inflammation on the scalp: no close shave (lesson “When not to treat a customer”). Rules differ by country.",
+      "Häivytyksen korkeus on asiakkaan kanssa sovittu asia, ei standardi. Ohjauskampojen numerot ja vivun suunta vaihtelevat valmistajittain. Partaveitsessä vain kertakäyttöiset terät, jokaiselle asiakkaalle uusi, käytetty terä viiltävien jätteiden astiaan; koneet, ohjauskammat, kammat ja parranajokoneet puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen tuotteen ohjeen mukaan (tunti ”Välineet jokaisen asiakkaan jälkeen”). Haavat tai tulehdus hiuspohjassa: ei ajeta ihoon asti (tunti ”Milloin asiakasta ei hoideta”). Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "lich-hen", "the-khach-quen"],
+    steps: [
+      l3(
+        "Rửa tay; tông đơ, cữ, lược đã làm sạch, khử khuẩn; dao cạo lắp lưỡi mới. Dải giấy cổ dùng một lần rồi mới cài áo choàng.",
+        "Wash your hands; clipper, guards and combs cleaned and disinfected; a fresh blade in the razor. A single-use neck strip, then the cape.",
+        "Pese kädet; kone, ohjauskammat ja kammat puhdistettu ja desinfioitu; partaveitseen uusi terä. Kertakäyttöinen kaulapaperi, sitten suojaviitta."
+      ),
+      l3(
+        "Tư vấn: thấp, trung bình hay cao, có muốn thấy da không; chỉ thẳng lên đầu khách trong gương chỗ fade bắt đầu. Sờ dáng đầu, tìm chỗ phẳng, sẹo, xoáy. Khách lần đầu: gợi ý thấp hơn.",
+        "Consult: low, mid or high, skin or not; point at the customer's head in the mirror where the fade will start. Feel the head shape, look for flat spots, scars and whorls. A first-timer: suggest lower.",
+        "Konsultaatio: matala, keski vai korkea, ihoon asti vai ei; osoita peilissä asiakkaan päästä, mistä häivytys alkaa. Tunnustele pään muoto, etsi litteät kohdat, arvet ja pyörteet. Ensikertalaiselle ehdota matalampaa."
+      ),
+      l3(
+        "Đường chuẩn: tóc khô, sạch, chải xuống; cữ áp phẳng ở chân tóc, đi lên ngược chiều mọc, tới độ cao đã chọn thì lật cổ tay hất ra; đi vòng quanh đầu cùng một độ cao. Sau đầu phẳng: hạ đường chuẩn ở đó một chút.",
+        "Guideline: clean dry hair combed down; guard flat at the hairline, up against the growth, flicking the wrist out at the agreed height; all the way round at the same height. A flat back: lower the guideline there a little.",
+        "Ohjauslinja: puhtaat kuivat hiukset kammattuna alas; ohjauskampa tasaisesti hiusrajasta ylös kasvusuuntaa vastaan, sovitulla korkeudella ranne kääntyy ulos; koko pään ympäri samalla korkeudella. Litteä takaraivo: laske linjaa siellä hieman."
+      ),
+      l3(
+        "Dưới đường chuẩn: chia hai, ba dải; dải dưới cùng đóng cần hay cữ ngắn hơn, đi một đoạn ngắn hơn, cũng hất ra. Chân tóc quanh tai và gáy đi thật nhẹ.",
+        "Below the guideline: two or three bands; the lowest with the lever closed or a shorter guard, a shorter stroke, also flicking out. Go very gently at the hairline around the ears and nape.",
+        "Ohjauslinjan alla: kaksi tai kolme vyöhykettä; alin vipu kiinni tai lyhyemmällä kammalla, lyhyempi veto, myös ulos kääntäen. Korvien ja niskan hiusrajassa hyvin kevyesti."
+      ),
+      l3(
+        "Nối từ dưới lên: ở mỗi vạch dùng độ dài nằm giữa (mở cần một nửa, rồi thêm; hay cữ nửa số), đi đúng trên vạch, múc ra ngắn và nhẹ. Phủi tóc vụn giữa các lượt để thấy vạch.",
+        "Blend from the bottom up: at each line use the in-between length (lever half open, then more; or a half guard), right on the line, short light scoops. Brush off loose hair between passes so you can see the lines.",
+        "Häivytä alhaalta ylös: jokaisella raidalla välipituus (vipu puoliksi auki, sitten enemmän; tai puolikas kampa) tarkalleen raidan kohdalla, lyhyet kevyet kauhaisut. Harjaa irtohiukset pois välillä, jotta raidat näkyvät."
+      ),
+      l3(
+        "Xoá vạch còn sót dưới đèn, chỉ đúng chỗ ấy — không đẩy cả đường fade lên. Xoáy ở gáy đi nhiều hướng. Phía sau: đi ra sau lưng khách, cúi xuống mà nhìn.",
+        "Erase remaining lines under the light, only on that spot — don't push the whole fade up. Nape whorls: several directions. The back: walk behind the customer and look at eye level.",
+        "Poista jäljelle jääneet raidat valossa vain siitä kohdasta — älä nosta koko häivytystä. Niskan pyörteet: useasta suunnasta. Takaosa: mene asiakkaan taakse ja katso silmien tasolta."
+      ),
+      l3(
+        "Phần sát da: căng da, máy cạo lưới; dao cạo chỉ lưỡi mới, đi xuôi, một lần. Da đỏ hay rát thì dừng. Rồi viền tai, tóc mai, gáy như bài Cắt tóc nam cơ bản.",
+        "The skin part: stretch the skin, use a foil shaver; a razor only with a fresh blade, with the grain, one pass. Redness or stinging: stop. Then outline ears, sideburns and nape as in Men's haircut basics.",
+        "Ihoon asti: kiristä ihoa, folioparranajokone; partaveitsessä vain uusi terä, karvan suuntaan, yksi veto. Punoitus tai kirvely: lopeta. Sitten korvien, pulisonkien ja niskan rajaus kuten tunnilla Miesten perusleikkaus."
+      ),
+      l3(
+        "Kiểm tra ở chỗ sáng: so hai bên cùng độ cao, tóc mai bằng nhau; nhìn trái, phải, ngang tầm mắt, phía sau. Một bên cao hơn: chỉ có thể nâng bên thấp lên — cẩn thận từ đường chuẩn.",
+        "Check in good light: both sides at the same height, level sideburns; look from left, right, eye level and behind. One side higher: the only fix is raising the lower side — take care from the guideline on.",
+        "Tarkista hyvässä valossa: puolet samalla korkeudella, pulisongit tasan; katso vasemmalta, oikealta, silmien tasolta ja takaa. Toinen puoli korkeammalla: ainoa korjaus on nostaa matalampaa — ole tarkka jo ohjauslinjassa."
+      ),
+      l3(
+        "Nối với phần đỉnh: cắt phần đỉnh theo đường chuẩn, rồi kéo trên lược hay tông đơ trên lược cho tới khi vuốt lên không còn gờ. Đỉnh càng ngắn, chỗ nối càng phải mượt.",
+        "Connect to the top: cut the top from a guideline, then scissor- or clipper-over-comb until no ridge is felt. The shorter the top, the smoother the connection must be.",
+        "Liitos päälakeen: leikkaa päälaki ohjauslinjasta, sitten sakset tai kone kamman päällä, kunnes reunaa ei tunnu. Mitä lyhyempi päälaki, sitä tasaisempi liitoksen on oltava."
+      ),
+      l3(
+        "Hoàn thiện: phủi tóc vụn; kem dịu da không mùi nếu da nhạy cảm và khách đồng ý; tạo kiểu và chỉ cách làm ở nhà; gương tay. Ghi độ cao, cữ, cần gạt; hẹn lần sau (nhiều khách 2–3 tuần). Làm sạch, khử khuẩn, tra dầu; lưỡi dao vào hộp vật sắc.",
+        "Finish: brush off loose hair; a fragrance-free soothing cream for sensitive skin if the customer agrees; style and show how at home; the hand mirror. Record height, guards and lever; book the next visit (many customers 2–3 weeks). Clean, disinfect, oil; the blade into the sharps box.",
+        "Viimeistely: harjaa irtohiukset; hajusteeton rauhoittava voide herkälle iholle asiakkaan luvalla; muotoile ja näytä kotikäyttö; käsipeili. Kirjaa korkeus, kammat ja vipu; varaa seuraava käynti (moni 2–3 viikon päähän). Puhdista, desinfioi, öljyä; terä viiltävien jätteiden astiaan."
+      ),
+    ],
+    tips: [
+      l3(
+        "Cú hất ra đến từ cổ tay, không phải từ cả cánh tay — cổ tay thả lỏng thì chỗ dừng không thành vạch.",
+        "The flick-out comes from the wrist, not the whole arm — a relaxed wrist keeps the stopping point from leaving a line.",
+        "Ulospäin kääntö tulee ranteesta, ei koko kädestä — rento ranne estää pysähdyskohtaa jättämästä raitaa."
+      ),
+      l3(
+        "Trong VaraaAi, ghi “fade trung bình, các cữ, cần gạt” vào ghi chú khách; lần sau ai cắt cũng làm lại đúng như vậy.",
+        "In VaraaAi, note “mid fade, guards, lever” in the customer notes; next time anyone can repeat it exactly.",
+        "Kirjaa VaraaAi:hin ”keskikorkea häivytys, kammat, vipu” asiakkaan muistiinpanoihin; ensi kerralla kuka tahansa voi toistaa sen tarkasti."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khi kẻ đường chuẩn, tới độ cao đã chọn thì làm gì?", "When setting the guideline, what do you do at the agreed height?", "Mitä teet ohjauslinjaa ajaessasi sovitulla korkeudella?"),
+        options: [
+          l3("Dừng lại và kéo tông đơ thẳng ra", "Stop and pull the clipper straight off", "Pysähdyt ja vedät koneen suoraan irti"),
+          l3("Ấn mạnh tông đơ cho đường rõ hơn", "Press the clipper harder for a clearer line", "Painat konetta kovemmin selvemmän linjan saamiseksi"),
+          l3("Lật cổ tay, hất tông đơ ra ngoài thành đường cong nhỏ", "Turn the wrist and flick the clipper out in a small curve", "Käännät rannetta ja kaarrat koneen ulos pienellä kaarella"),
+        ],
+        answer: 2,
+        why: l3(
+          "Hất ra như múc làm chỗ dừng mờ dần; kéo thẳng ra hay ấn mạnh để lại vạch và lỗ.",
+          "The scooping flick fades the stopping point; pulling straight off or pressing leaves lines and holes.",
+          "Kauhaiseva kääntö häivyttää pysähdyskohdan; suora irtiveto tai painaminen jättää raitoja ja kuoppia."
+        ),
+      },
+      {
+        q: l3("Sau khi so, một bên fade cao hơn bên kia. Cách sửa?", "After comparing, one side of the fade is higher. How do you fix it?", "Vertailun jälkeen häivytys on toisella puolella korkeammalla. Miten korjaat?"),
+        options: [
+          l3("Nâng bên thấp lên cho bằng", "Raise the lower side to match", "Nostat matalamman puolen samalle tasolle"),
+          l3("Hạ bên cao xuống", "Lower the higher side", "Lasket korkeamman puolen alemmas"),
+          l3("Để vậy, khách không thấy", "Leave it, the customer won't notice", "Jätät sen, asiakas ei huomaa"),
+        ],
+        answer: 0,
+        why: l3(
+          "Tóc đã ngắn thì không hạ xuống được; chỉ có thể nâng bên thấp — nên cẩn thận ngay từ đường chuẩn.",
+          "Hair already cut short can't be brought down; you can only raise the lower side — so be careful from the guideline on.",
+          "Lyhyeksi leikattua ei saa alemmas; vain matalampaa voi nostaa — siksi tarkkuus jo ohjauslinjassa."
+        ),
+      },
+      {
+        q: l3("Vì sao phủi tóc vụn giữa các lượt?", "Why brush off loose hair between passes?", "Miksi irtohiukset harjataan pois vetojen välillä?"),
+        options: [
+          l3("Để khách thấy dễ chịu hơn, không liên quan tới đường cắt", "Only for the customer's comfort, unrelated to the cut", "Vain asiakkaan mukavuuden vuoksi, ei liity leikkaukseen"),
+          l3("Tóc vụn che mất vạch, mình tưởng đã mượt", "Loose hair hides the lines, so it looks smooth when it isn't", "Irtohiukset peittävät raidat, ja tulos näyttää tasaiselta vaikkei ole"),
+          l3("Để tông đơ chạy nhanh hơn", "So the clipper runs faster", "Jotta kone kulkee nopeammin"),
+        ],
+        answer: 1,
+        why: l3(
+          "Chỉ khi đầu sạch tóc vụn mới thấy rõ vạch và mảng loang để xoá đúng chỗ.",
+          "Only with the loose hair gone can you see the lines and patches and erase them in the right place.",
+          "Vain kun irtohiukset on poistettu, raidat ja laikut näkyvät ja ne voi poistaa oikeasta kohdasta."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "cat-nam-tao-kieu-hieu-dung",
+    course: "p-hair",
+    style: "theory",
+    title: l3("Tóc nam tạo kiểu: hiểu đúng để hợp khuôn mặt", "Men's styles: understand them to suit the face", "Miesten tyylit: ymmärrä ne, niin tyyli sopii kasvoille"),
+    summary: l3(
+      "Hai kiểu được hỏi nhiều: rẽ ngôi lệch cổ điển và crop (French crop); ngôi mềm và ngôi cứng; phần đỉnh và hai bên phải cân nhau; chọn kiểu theo khuôn mặt, mật độ tóc, xoáy, chất tóc và cuộc sống của khách; cắt tỉa đầu kéo và tỉa mỏng; tìm ngôi tự nhiên; sáp lì, pomade, xịt muối biển và tóc mảnh; dạy khách tự làm ở nhà.",
+      "Two much-requested styles: the classic side part and the textured (French) crop; soft and hard partings; balancing the top and the sides; choosing by face shape, hair density, whorls, texture and the customer's lifestyle; point cutting and texturising; finding the natural parting; matte paste or clay, pomade, sea-salt spray and fine hair; teaching the customer to style at home.",
+      "Kaksi kysyttyä tyyliä: klassinen sivujakaus ja teksturoitu (French) crop; pehmeä ja ajettu jakaus; päälaen ja sivujen tasapaino; valinta kasvojen muodon, hiusten tiheyden, pyörteiden, laadun ja asiakkaan elämäntavan mukaan; pistoleikkaus ja teksturointi; luonnollisen jakauksen löytäminen; mattavaha tai -savi, pomade, merisuolasuihke ja ohuet hiukset; asiakkaan opastaminen kotimuotoiluun."
+    ),
+    video: video("cat-nam-tao-kieu-hieu-dung", 273, "2026-11-19"),
+    notice: l3(
+      "Gợi ý theo khuôn mặt là kinh nghiệm chung của nghề, không phải luật: cuối cùng là điều khách thích. Sản phẩm tạo kiểu dùng theo hướng dẫn của nhà sản xuất; hỏi khách về da đầu nhạy cảm hay dị ứng. Đường ngôi cứng cạo bằng dao cạo lưỡi dùng một lần (bài “Xử lý dụng cụ sau mỗi khách”). Quy định khác nhau theo từng nước.",
+      "Face-shape suggestions are shared trade experience, not rules: in the end it's what the customer likes. Use styling products as the manufacturer instructs; ask about a sensitive scalp or allergies. A hard part is shaved with a single-use razor blade (lesson “Tools after every customer”). Rules differ by country.",
+      "Kasvonmuotoon perustuvat ehdotukset ovat alan yhteistä kokemusta, eivät sääntöjä: lopulta ratkaisee asiakkaan toive. Käytä muotoilutuotteita valmistajan ohjeen mukaan; kysy herkästä hiuspohjasta ja allergioista. Ajettu jakaus tehdään kertakäyttöisellä partaterällä (tunti ”Välineet jokaisen asiakkaan jälkeen”). Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "dich-vu", "san-pham-don-hang"],
+    steps: [
+      l3(
+        "Rẽ ngôi lệch: phần đỉnh dài hơn, phía trước dài nhất, chải sang một bên, đường ngôi rõ; hai bên taper hay fade. Lịch sự, nhưng cần sấy và chút sản phẩm mỗi sáng.",
+        "Side part: a longer top, longest at the front, swept to one side with a defined parting; tapered or faded sides. Smart, but it needs a blow-dry and a little product every morning.",
+        "Sivujakaus: pidempi päälaki, pisin edessä, kammattu sivulle selvällä jakauksella; sivut taper tai häivytys. Tyylikäs, mutta vaatii föönauksen ja hieman tuotetta joka aamu."
+      ),
+      l3(
+        "Ngôi mềm là chỗ tóc tự tách ra; ngôi cứng là một đường cạo mảnh — sắc nét, nhưng mọc lại thì lởm chởm và không đổi bên được nữa.",
+        "A soft part is where the hair naturally splits; a hard part is a thin shaved line — sharp, but it grows back stubbly and can't be moved to the other side.",
+        "Pehmeä jakaus on kohta, jossa hiukset luonnostaan jakautuvat; ajettu jakaus on ohut ajettu viiva — terävä, mutta kasvaa takaisin sänkenä eikä sitä voi siirtää toiselle puolelle."
+      ),
+      l3(
+        "Crop: phần đỉnh ngắn có kết cấu, đẩy về trước, mái ngắn trên trán, hai bên thường là fade. Rất dễ chăm: thấm khô, vò chút sáp lì.",
+        "Crop: a short textured top pushed forward with a short fringe, usually faded sides. Very low-maintenance: towel-dry and work in a little matte product.",
+        "Crop: lyhyt teksturoitu päälaki eteen suunnattuna ja lyhyt otsatukka, sivuilla yleensä häivytys. Helppohoitoinen: pyyhekuivaus ja hieman mattatuotetta."
+      ),
+      l3(
+        "Phần đỉnh và hai bên phải cân: rẽ ngôi mà hai bên quá ngắn trông như mũ úp; crop mà hai bên dày, đầu tròn và nặng. Tư vấn cả hai phần cùng lúc.",
+        "Balance the top and the sides: a side part over very short sides looks like a cap; a crop with heavy sides makes the head round and heavy. Discuss both parts together.",
+        "Tasapainota päälaki ja sivut: sivujakaus hyvin lyhyiden sivujen päällä näyttää lakilta; crop paksuilla sivuilla tekee päästä pyöreän ja raskaan. Sovi molemmat osat yhdessä."
+      ),
+      l3(
+        "Khuôn mặt (gợi ý, không phải luật): mặt tròn thêm chiều cao ở đỉnh; mặt dài đừng dựng quá cao, mái ngắn giúp mặt ngắn lại; mặt vuông, trái xoan hợp đa số kiểu. Tai to, vểnh: hai bên đừng quá ngắn.",
+        "Face shape (guidance, not rules): a round face gains from height on top; a long face shouldn't go too high, a short fringe shortens it; square and oval faces suit most styles. Large or protruding ears: don't take the sides too short.",
+        "Kasvonmuoto (ohje, ei sääntö): pyöreät kasvot hyötyvät korkeudesta päälaella; pitkillä kasvoilla ei liikaa korkeutta, lyhyt otsatukka lyhentää; kulmikkaat ja soikeat kasvot sopivat useimpiin tyyleihin. Isot tai ulkonevat korvat: sivuja ei liian lyhyiksi."
+      ),
+      l3(
+        "Mái tóc: tóc thưa ở trước — crop che tốt hơn rẽ ngôi; xoáy ở chân tóc trán làm mái dựng, đừng cắt mái quá ngắn; tóc dày, sợi to giữ crop tốt; tóc gợn sóng hợp rẽ ngôi có chuyển động.",
+        "The hair: thinning at the front — a crop hides it better than a side part; a front cowlick lifts the fringe, don't cut it too short; thick coarse hair holds a crop well; wavy hair gives a side part nice movement.",
+        "Hiukset: ohenevat edestä — crop peittää paremmin kuin sivujakaus; etupyörre nostaa otsatukkaa, älä leikkaa sitä liian lyhyeksi; paksut karkeat hiukset pitävät cropin hyvin; laineikkaat hiukset antavat sivujakaukselle liikettä."
+      ),
+      l3(
+        "Hỏi về cuộc sống: mỗi sáng mấy phút, có sấy không, có đội mũ không. Gợi ý kiểu khách thật sự tự làm được.",
+        "Ask about lifestyle: how many minutes each morning, a hairdryer or not, helmets or caps. Suggest a style the customer can really do.",
+        "Kysy elämäntavasta: montako minuuttia aamuisin, föönaako, käyttääkö kypärää tai lakkia. Ehdota tyyliä, jonka asiakas oikeasti osaa tehdä."
+      ),
+      l3(
+        "Cắt tỉa đầu kéo: mũi kéo vào ngọn, cắt khía nhỏ để ngọn mềm, có chuyển động. Tỉa mỏng bớt độ nặng, nhưng tóc mảnh tỉa ít; không tỉa sát chân tóc ở đường ngôi hay xoáy.",
+        "Point cutting: scissor tips into the ends, small notches for soft, moving ends. Texturising removes weight, but go lightly on fine hair; don't thin close to the roots at the parting or a whorl.",
+        "Pistoleikkaus: saksien kärjet latvoihin, pienet lovet pehmeiksi ja liikkuviksi latvoiksi. Teksturointi keventää, mutta ohuisiin hiuksiin varoen; älä ohenna tyven läheltä jakauksen tai pyörteen kohdalta."
+      ),
+      l3(
+        "Tìm ngôi tự nhiên: làm ướt, chải ra sau, lòng bàn tay đẩy phần đỉnh về trước — tóc tách ra ở đâu là ngôi ở đó. Khách quen một bên nhiều năm: hỏi khách.",
+        "Find the natural parting: wet the hair, comb it back, push the top forward with your palm — where it splits is the parting. A customer used to one side for years: ask.",
+        "Löydä luonnollinen jakaus: kastele, kampaa taakse, työnnä päälakea kämmenellä eteen — mihin hiukset jakautuvat, siinä on jakaus. Asiakas on vuosia jakanut yhdelle puolelle: kysy."
+      ),
+      l3(
+        "Sản phẩm (nói chung): sáp lì hay đất sét cho kết cấu, không bóng (crop); pomade cho bóng, gọn (rẽ ngôi), loại gốc nước dễ gội; xịt muối biển trước khi sấy cho độ phồng; tóc mảnh dùng loại giữ nếp nhẹ. Dùng ít; dạy khách tự làm và điều nên tránh.",
+        "Products (in general): matte paste or clay for texture without shine (crop); pomade for shine and a neat finish (side part), water-based washes out easily; sea-salt spray before blow-drying for volume; light hold for fine hair. Use little; teach the customer to do it and what to avoid.",
+        "Tuotteet (yleisesti): mattavaha tai -savi tekstuuriin ilman kiiltoa (crop); pomade kiiltoon ja siisteyteen (sivujakaus), vesipohjainen pesty helposti; merisuolasuihke ennen föönausta tuuheuteen; ohuille hiuksille kevyt pito. Käytä vähän; opeta asiakas tekemään itse ja kerro, mitä välttää."
+      ),
+    ],
+    tips: [
+      l3(
+        "Đưa máy sấy hay sáp cho khách tự thử một lần ngay trên ghế — khách tự làm được thì sẽ thích kiểu tóc cả tháng.",
+        "Hand the customer the dryer or the paste to try once in the chair — if they can do it, they'll love the style all month.",
+        "Anna asiakkaan kokeilla föönia tai vahaa kerran tuolissa — kun hän osaa itse, tyyli ilahduttaa koko kuukauden."
+      ),
+      l3(
+        "Trong VaraaAi, ghi kiểu, bên ngôi và sản phẩm khách dùng vào ghi chú khách; sản phẩm bán tại tiệm có thể quản lý trong mục sản phẩm.",
+        "In VaraaAi, note the style, parting side and the product used in the customer notes; products sold in the salon can be managed under products.",
+        "Kirjaa VaraaAi:hin tyyli, jakauksen puoli ja käytetty tuote asiakkaan muistiinpanoihin; liikkeessä myytäviä tuotteita voi hallita tuoteosiossa."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khách tóc thưa ở phía trước, muốn kiểu dễ chăm. Gợi ý nào hợp hơn?", "A customer with thinning at the front wants an easy style. Which suits better?", "Asiakkaan hiukset ohenevat edestä ja hän haluaa helpon tyylin. Kumpi sopii paremmin?"),
+        options: [
+          l3("Rẽ ngôi lệch dài, ngôi cứng", "A long side part with a hard part", "Pitkä sivujakaus ajetulla jakauksella"),
+          l3("Crop, tóc đẩy về trước", "A crop, pushed forward", "Crop, eteen suunnattuna"),
+          l3("Để thật dài ở đỉnh, không tỉa", "Very long on top, no texturising", "Hyvin pitkä päälaki ilman teksturointia"),
+        ],
+        answer: 1,
+        why: l3(
+          "Crop đẩy tóc về trước che chỗ thưa và chỉ cần vò chút sáp; rẽ ngôi có thể làm lộ da đầu ở đường ngôi.",
+          "A crop pushed forward covers the thin area and needs only a little paste; a side part can show scalp along the parting.",
+          "Eteen suunnattu crop peittää ohuen kohdan ja vaatii vain vähän vahaa; sivujakaus voi paljastaa hiuspohjaa jakauksen kohdalta."
+        ),
+      },
+      {
+        q: l3("Tìm đường ngôi tự nhiên thế nào?", "How do you find the natural parting?", "Miten löydät luonnollisen jakauksen?"),
+        options: [
+          l3("Làm ướt, chải ra sau, đẩy phần đỉnh về trước, xem tóc tách ở đâu", "Wet it, comb back, push the top forward and see where it splits", "Kastele, kampaa taakse, työnnä päälakea eteen ja katso, mihin hiukset jakautuvat"),
+          l3("Luôn rẽ ở bên trái", "Always part on the left", "Jaa aina vasemmalle"),
+          l3("Rẽ đúng giữa đầu", "Part exactly in the middle", "Jaa tarkalleen keskeltä"),
+        ],
+        answer: 0,
+        why: l3(
+          "Ngôi tự nhiên theo hướng tóc mọc, nên tóc nằm ngoan và khách dễ làm lại ở nhà.",
+          "The natural parting follows the growth, so the hair lies well and the customer can redo it at home.",
+          "Luonnollinen jakaus seuraa kasvusuuntaa, joten hiukset asettuvat hyvin ja asiakas toistaa sen kotona."
+        ),
+      },
+      {
+        q: l3("Khách tóc mảnh muốn tóc trông dày hơn. Sản phẩm nào hợp?", "A customer with fine hair wants it to look thicker. Which product fits?", "Ohuthiuksinen asiakas haluaa hiusten näyttävän tuuheammilta. Mikä tuote sopii?"),
+        options: [
+          l3("Thật nhiều pomade bóng", "Lots of shiny pomade", "Runsaasti kiiltävää pomadea"),
+          l3("Sáp nặng, lấy nhiều", "A heavy wax, plenty of it", "Raskasta vahaa runsaasti"),
+          l3("Xịt muối biển trước khi sấy và sản phẩm giữ nếp nhẹ", "Sea-salt spray before blow-drying and a light-hold product", "Merisuolasuihke ennen föönausta ja kevyen pidon tuote"),
+        ],
+        answer: 2,
+        why: l3(
+          "Sản phẩm nặng làm tóc mảnh xẹp xuống; muối biển và giữ nếp nhẹ cho độ phồng.",
+          "Heavy products weigh fine hair down; sea salt and a light hold give volume.",
+          "Raskaat tuotteet painavat ohuet hiukset; merisuola ja kevyt pito antavat tuuheutta."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "cat-nam-tao-kieu",
+    course: "p-hair",
+    style: "practice",
+    title: l3("Tóc nam tạo kiểu: thực hành từng bước", "Men's styles: step-by-step practice", "Miesten tyylit: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Hai kiểu từng bước. Rẽ ngôi lệch: tư vấn chọn kiểu, tìm ngôi tự nhiên, hai bên taper hay fade, phần đỉnh với đường chuẩn và dài dần ra trước, cắt tỉa đầu kéo, ngôi cứng chỉ khi khách muốn, sấy theo hướng ngôi, sản phẩm. Crop: hai bên fade, phần đỉnh ngắn có kết cấu, đường mái ngắn, tạo kiểu với sáp lì; ghi hồ sơ và dọn dẹp.",
+      "Two styles step by step. Side part: choosing the style, finding the natural parting, tapered or faded sides, the top from a guideline growing longer to the front, point cutting, a hard part only on request, blow-drying in the parting's direction, product. Crop: faded sides, a short textured top, a short fringe line, styling with matte paste; notes and clean-up.",
+      "Kaksi tyyliä vaihe vaiheelta. Sivujakaus: tyylin valinta, luonnollinen jakaus, sivut taper tai häivytys, päälaki ohjauslinjasta eteen pidentyen, pistoleikkaus, ajettu jakaus vain pyynnöstä, föönaus jakauksen suuntaan, tuote. Crop: häivytetyt sivut, lyhyt teksturoitu päälaki, lyhyt otsatukan linja, muotoilu mattavahalla; muistiinpanot ja siivous."
+    ),
+    video: video("cat-nam-tao-kieu", 264, "2026-11-19"),
+    notice: l3(
+      "Đường ngôi cứng chỉ làm khi khách muốn và đã hiểu nó không đổi bên được; dao cạo chỉ dùng lưỡi dùng một lần, mỗi khách một lưỡi mới, bỏ vào hộp vật sắc. Khi cắt mái, cho khách nhắm mắt, lưỡi kéo luôn ở dưới ngón tay. Dụng cụ làm sạch, khử khuẩn sau mỗi khách theo hướng dẫn sản phẩm (bài “Xử lý dụng cụ sau mỗi khách”). Quy định khác nhau theo từng nước.",
+      "A hard part only when the customer wants it and understands it can't be moved; razors use single-use blades only, a fresh one for every customer, into the sharps box afterwards. When cutting a fringe, the customer closes their eyes and the blades stay under your fingers. Tools are cleaned and disinfected after every customer as the product instructs (lesson “Tools after every customer”). Rules differ by country.",
+      "Ajettu jakaus vain, kun asiakas haluaa sen ja ymmärtää, ettei sitä voi siirtää; partaveitsessä vain kertakäyttöiset terät, jokaiselle asiakkaalle uusi, käytetty viiltävien jätteiden astiaan. Otsatukkaa leikatessa asiakas sulkee silmät ja terät pysyvät sormien alla. Välineet puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen tuotteen ohjeen mukaan (tunti ”Välineet jokaisen asiakkaan jälkeen”). Määräykset vaihtelevat maittain."
+    ),
+    related: ["khach-hang", "dich-vu", "san-pham-don-hang"],
+    steps: [
+      l3(
+        "Tư vấn khi tóc khô: ảnh mẫu, khuôn mặt, mật độ tóc phía trước, xoáy ở chân tóc trán, mấy phút mỗi sáng. Thống nhất cả hai bên lẫn phần đỉnh.",
+        "Consult on dry hair: a reference photo, face shape, density at the front, a front cowlick, minutes each morning. Agree on both the sides and the top.",
+        "Konsultaatio kuiviin hiuksiin: mallikuva, kasvonmuoto, tiheys edessä, etupyörre, aamun minuutit. Sovi sekä sivut että päälaki."
+      ),
+      l3(
+        "Ngôi tự nhiên: làm ướt đều, chải ra sau, lòng bàn tay đẩy phần đỉnh về trước, tóc tách ở đâu thì kẻ lại ở đó. Khách muốn ngôi bên kia: nói trước là cần sấy kỹ hơn.",
+        "Natural parting: wet evenly, comb back, push the top forward with your palm and redraw the parting where it splits. If the customer wants the other side: warn that it needs more blow-drying.",
+        "Luonnollinen jakaus: kastele tasaisesti, kampaa taakse, työnnä päälakea kämmenellä eteen ja piirrä jakaus siihen, mihin hiukset jakautuvat. Jos asiakas haluaa toisen puolen: kerro, että se vaatii enemmän föönausta."
+      ),
+      l3(
+        "Hai bên: taper (nhẹ nhàng, công sở) hay fade (trẻ, rõ nét) như bài Cắt fade và Cắt tóc nam cơ bản; bên phía ngôi đừng cắt quá cao.",
+        "Sides: a taper (soft, office-friendly) or a fade (younger, sharper) as in the Fade and Men's basics lessons; don't go too high on the parting side.",
+        "Sivut: taper (pehmeä, toimistoon) tai häivytys (nuorekas, terävä) kuten tunneilla Häivytys ja Miesten perusleikkaus; älä nosta liian ylös jakauksen puolella."
+      ),
+      l3(
+        "Phần đỉnh: lọn đầu ở đỉnh đầu là đường chuẩn; đi về trán, kéo các lọn về sau để tóc dài dần ra trước; phía trước dài nhất. Chải thử theo ngôi, nhìn hai bên trán có cân không.",
+        "The top: the first section at the crown is the guideline; working to the front, over-direct sections back so the length grows towards the front; longest at the front. Comb it over along the parting and check the balance at the temples.",
+        "Päälaki: ensimmäinen osio päälaella on ohjauslinja; edetessä eteen osiot vedetään taakse, jolloin pituus kasvaa eteenpäin; pisin edessä. Kampaa jakauksen mukaan ja tarkista ohimoiden tasapaino."
+      ),
+      l3(
+        "Cắt tỉa đầu kéo cho ngọn mềm: tóc mảnh nhẹ tay, tóc dày sâu hơn; không tỉa sát chân tóc ở đường ngôi. Kiểm tra chéo, nối đỉnh với hai bên bằng kéo trên lược.",
+        "Point cut for soft ends: lightly on fine hair, deeper on thick hair; don't thin near the roots at the parting. Cross-check, then blend the top into the sides with scissor-over-comb.",
+        "Pistoleikkaa pehmeät latvat: ohuisiin kevyesti, paksuihin syvemmin; älä ohenna tyven läheltä jakauksen kohdalta. Ristiintarkista ja häivytä päälaki sivuihin saksilla kamman päällä."
+      ),
+      l3(
+        "Ngôi cứng chỉ khi khách muốn: nói trước là không đổi bên được và mọc lại sẽ lởm chởm; lưỡi dao mới dùng một lần, căng da, lưỡi gần như sát da, một đường mảnh, chậm, không đi sâu vào phần đỉnh.",
+        "A hard part only on request: explain it can't be moved and grows back stubbly; a fresh single-use blade, stretch the skin, blade almost flat, one thin slow line, not deep into the top.",
+        "Ajettu jakaus vain pyynnöstä: kerro, ettei sitä voi siirtää ja että se kasvaa sänkenä; uusi kertakäyttöinen terä, kiristä ihoa, terä lähes ihon suuntainen, yksi ohut hidas viiva, ei syvälle päälakeen."
+      ),
+      l3(
+        "Sấy: chân tóc trước, theo hướng từ ngôi sang bên kia, ngón tay nâng chân tóc phía trước; cuối cùng gió mát để giữ nếp; máy sấy giữ khoảng cách, không thổi mãi một chỗ.",
+        "Blow-dry: roots first, from the parting over to the other side, fingers lifting the front roots; finish with cool air to set; keep the dryer at a distance, never on one spot.",
+        "Föönaus: ensin tyvet jakauksesta toiselle puolelle, sormet nostavat etutyviä; lopuksi viileä ilma kiinnittää; pidä fööni etäällä, ei yhteen kohtaan."
+      ),
+      l3(
+        "Sản phẩm: pomade cho bóng, gọn; sáp lì cho tự nhiên. Một chút, xoa đều tay, vuốt từ sau ra trước rồi chải theo ngôi; chỉ khách làm lại, gương tay.",
+        "Product: pomade for shine and neatness; matte paste for a natural finish. A little, warmed in the palms, from back to front, then combed along the parting; show the customer, hand mirror.",
+        "Tuote: pomade kiiltoon ja siisteyteen; mattavaha luonnolliseen. Vähän, lämmitä kämmenissä, takaa eteen ja kampaa jakauksen mukaan; näytä asiakkaalle, käsipeili."
+      ),
+      l3(
+        "Crop: hai bên fade thấp hay trung bình, nối thật mượt; phần đỉnh ngắn đều từ đỉnh ra trước; tỉa đầu kéo sâu hơn để có kết cấu.",
+        "Crop: a low or mid fade on the sides, blended very smoothly; an even short top from crown to front; deeper point cutting for texture.",
+        "Crop: sivuille matala tai keskikorkea häivytys hyvin tasaisesti; päälaki tasaisen lyhyt päälaelta eteen; syvempi pistoleikkaus tekstuuriin."
+      ),
+      l3(
+        "Mái crop: chải thẳng về trước, khách nhắm mắt, kẹp giữa hai ngón, cắt dưới ngón tay ở độ cao đã thống nhất; kiểm tra cân hai bên; xoáy mạnh ở trán thì để mái dài hơn. Tạo kiểu: muối biển cho tóc mảnh, sấy về trước, vò sáp lì, không chải lược. Ghi hồ sơ, hẹn lần sau, dọn dẹp.",
+        "The crop fringe: combed straight forward, eyes closed, held between two fingers and cut below them at the agreed height; check it's even; a strong front cowlick — leave it longer. Styling: sea salt for fine hair, dry it forward, work in matte paste, no comb. Notes, rebook, clean up.",
+        "Cropin otsatukka: kammattu suoraan eteen, silmät kiinni, kahden sormen väliin ja leikkaus sormien alta sovitulle korkeudelle; tarkista tasaisuus; vahva etupyörre — jätä pidemmäksi. Muotoilu: merisuola ohuille hiuksille, föönaa eteen, mattavaha sormin, ei kampaa. Muistiinpanot, uusi varaus, siivous."
+      ),
+    ],
+    tips: [
+      l3(
+        "Kiểu rẽ ngôi: dài thì cắt thêm được, ngắn rồi thì không — giữ phía trước dài hơn ý định một chút, rồi chỉnh khi đã sấy.",
+        "Side part: long can be cut shorter, short can't be undone — leave the front a little longer than planned and refine after blow-drying.",
+        "Sivujakaus: pitkää voi lyhentää, lyhyttä ei pidentää — jätä etuosa hieman suunniteltua pidemmäksi ja viimeistele föönauksen jälkeen."
+      ),
+      l3(
+        "Trong VaraaAi, ghi kiểu, bên ngôi, độ dài và sản phẩm vào ghi chú khách; gợi ý sản phẩm khách đã dùng khi khách quay lại.",
+        "In VaraaAi, note the style, parting side, lengths and product in the customer notes; suggest the same product when the customer returns.",
+        "Kirjaa VaraaAi:hin tyyli, jakauksen puoli, pituudet ja tuote asiakkaan muistiinpanoihin; ehdota samaa tuotetta, kun asiakas palaa."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Muốn tóc dài dần ra phía trước khi cắt phần đỉnh kiểu rẽ ngôi, làm thế nào?", "To make the side-part top grow longer towards the front, what do you do?", "Miten sivujakauksen päälaki saadaan pidentymään eteenpäin?"),
+        options: [
+          l3("Cắt mỗi lọn tại chỗ, vuông góc", "Cut each section where it falls, at 90°", "Leikkaat jokaisen osion paikallaan 90°:ssa"),
+          l3("Kéo các lọn về sau, về phía đường chuẩn ở đỉnh", "Over-direct the sections back to the guideline at the crown", "Vedät osiot taakse kohti päälaen ohjauslinjaa"),
+          l3("Cắt phía trước trước tiên, ngắn nhất", "Cut the front first and shortest", "Leikkaat etuosan ensin ja lyhimmäksi"),
+        ],
+        answer: 1,
+        why: l3(
+          "Kéo lệch về phía đường chuẩn thì tóc dài dần ra phía ngược lại — ở đây là phía trán.",
+          "Over-directing towards the guideline leaves the hair progressively longer on the opposite side — here the front.",
+          "Kun osiot vedetään kohti ohjauslinjaa, pituus kasvaa vastakkaiseen suuntaan — tässä eteen."
+        ),
+      },
+      {
+        q: l3("Điều gì đúng về đường ngôi cứng?", "What is true about a hard part?", "Mikä pitää paikkansa ajetusta jakauksesta?"),
+        options: [
+          l3("Chỉ làm khi khách muốn; dùng lưỡi dao mới, dùng một lần", "Only on request; with a fresh single-use blade", "Vain pyynnöstä; uudella kertakäyttöisellä terällä"),
+          l3("Nên làm cho mọi kiểu rẽ ngôi", "Do it on every side part", "Tee se jokaiseen sivujakaukseen"),
+          l3("Đổi bên dễ dàng vào lần sau", "It's easy to switch sides next time", "Puolta on helppo vaihtaa ensi kerralla"),
+        ],
+        answer: 0,
+        why: l3(
+          "Ngôi cứng không đổi bên được và mọc lại lởm chởm, nên phải hỏi khách; lưỡi dao luôn mới, dùng một lần.",
+          "A hard part can't be moved and grows back stubbly, so ask first; the blade is always fresh and single-use.",
+          "Ajettua jakausta ei voi siirtää ja se kasvaa sänkenä, joten kysy ensin; terä on aina uusi ja kertakäyttöinen."
+        ),
+      },
+      {
+        q: l3("Cắt mái crop an toàn thế nào?", "How do you cut a crop fringe safely?", "Miten cropin otsatukka leikataan turvallisesti?"),
+        options: [
+          l3("Cắt ở trên ngón tay, sát da trán", "Cut above your fingers, close to the forehead", "Leikkaat sormien yläpuolelta lähellä otsaa"),
+          l3("Để khách mở mắt nhìn gương", "Have the customer watch in the mirror with eyes open", "Asiakas katsoo peiliin silmät auki"),
+          l3("Khách nhắm mắt, lưỡi kéo ở dưới ngón tay, không chạm da", "Eyes closed, blades below your fingers, never touching the skin", "Silmät kiinni, terät sormien alla, eivät koske ihoon"),
+        ],
+        answer: 2,
+        why: l3(
+          "Nhắm mắt để tóc vụn không rơi vào mắt; ngón tay che giữa lưỡi kéo và da.",
+          "Closed eyes keep clippings out; your fingers sit between the blades and the skin.",
+          "Suljetut silmät estävät hiussilppua pääsemästä silmiin; sormet ovat terien ja ihon välissä."
+        ),
+      },
+    ],
+  },
   soon("cat-nu-bang", "p-hair", ["Cắt tóc nữ: cắt bằng và bob", "Women's cuts: one-length and bob", "Naisten leikkaukset: tasapituinen ja polkka"], [
     "Góc nâng 0°, lực căng tóc, đường chuẩn và kiểm tra cân hai bên.",
     "Zero elevation, tension, the guide line and checking the balance.",
