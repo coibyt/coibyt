@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { rateLimit } from "@/lib/rate-limit";
 import { cleanState, mergeStates, EMPTY } from "@/lib/academy/progress";
+import { ensureAcademyTables } from "@/lib/academy/setup";
 
 /** The learner's Academy progress saved to their account (GET), and saving
  * the browser's copy into it (PUT: merged, so nothing learnt anywhere is lost). */
@@ -19,12 +20,14 @@ async function saved(userId: string) {
 }
 
 export async function GET() {
+  if (!(await ensureAcademyTables())) return NextResponse.json({ error: "SETUP" }, { status: 503 });
   const userId = await signedInUser();
   if (!userId) return NextResponse.json({ signedIn: false }, { status: 401 });
   return NextResponse.json({ signedIn: true, state: await saved(userId) });
 }
 
 export async function PUT(req: Request) {
+  if (!(await ensureAcademyTables())) return NextResponse.json({ error: "SETUP" }, { status: 503 });
   const userId = await signedInUser();
   if (!userId) return NextResponse.json({ signedIn: false }, { status: 401 });
   if (!rateLimit(`academy-progress:${userId}`, 60, 60_000)) return NextResponse.json({ error: "RATE_LIMIT" }, { status: 429 });

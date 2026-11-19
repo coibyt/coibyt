@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { liveLessons, pageCourse } from "@/lib/academy";
 import { AcademyReviewToggle } from "@/components/admin/academy-review-toggle";
 import { pick } from "@/lib/academy/types";
+import { ensureAcademyTables } from "@/lib/academy/setup";
 
 /** Admin › Học viện: how many people study, how often they come back and how
  * long they watch (owner, 2026-11-19). Data comes from /api/academy/track:
@@ -39,15 +40,17 @@ export default async function AdminAcademyPage({ params }: { params: Promise<{ l
     }),
   ]);
   // Accounts, ratings and "new lessons" follows (owner, 2026-11-19).
+  // If the tables can't be created (database rights), the rest of the page still shows.
+  const tablesOk = await ensureAcademyTables();
   const [accounts, followers, reviewAgg, reviews] = await Promise.all([
-    prisma.academyProgress.count(),
-    prisma.academyFollow.count(),
-    prisma.academyReview.aggregate({ where: { status: "APPROVED" }, _avg: { rating: true }, _count: { _all: true } }),
-    prisma.academyReview.findMany({
+    tablesOk ? prisma.academyProgress.count() : 0,
+    tablesOk ? prisma.academyFollow.count() : 0,
+    tablesOk ? prisma.academyReview.aggregate({ where: { status: "APPROVED" }, _avg: { rating: true }, _count: { _all: true } }) : { _avg: { rating: null }, _count: { _all: 0 } },
+    tablesOk ? prisma.academyReview.findMany({
       orderBy: { updatedAt: "desc" },
       take: 100,
       select: { id: true, courseId: true, rating: true, comment: true, status: true, updatedAt: true, user: { select: { name: true, email: true } } },
-    }),
+    }) : [],
   ]);
   const doneByVisitor = new Map(
     (

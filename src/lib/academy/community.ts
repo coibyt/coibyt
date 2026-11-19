@@ -4,6 +4,7 @@ import { createHmac, timingSafeEqual } from "crypto";
 import { prisma } from "@/lib/prisma";
 import { cleanState } from "@/lib/academy/progress";
 import { lessonsOfCourse } from "@/lib/academy";
+import { ensureAcademyTables } from "@/lib/academy/setup";
 
 export interface ReviewItem {
   id: string;
@@ -26,6 +27,7 @@ const EMPTY_SUMMARY: ReviewSummary = { average: 0, count: 0, stars: [0, 0, 0, 0,
  * page is still shown (without reviews) if the database can't be reached. */
 export async function courseReviews(courseId: string, take = 6): Promise<{ summary: ReviewSummary; reviews: ReviewItem[] }> {
   try {
+    if (!(await ensureAcademyTables())) return { summary: EMPTY_SUMMARY, reviews: [] };
     const where = { courseId, status: "APPROVED" as const };
     const [groups, rows] = await Promise.all([
       prisma.academyReview.groupBy({ by: ["rating"], where, _count: { _all: true } }),
@@ -63,6 +65,7 @@ export async function courseReviews(courseId: string, take = 6): Promise<{ summa
 /** Has the learner finished at least one lesson of the course (per the
  * progress saved to their account)? Only they may rate it. */
 export async function finishedALesson(userId: string, courseId: string) {
+  if (!(await ensureAcademyTables())) return false;
   const row = await prisma.academyProgress.findUnique({ where: { userId }, select: { data: true } });
   if (!row) return false;
   const state = cleanState(row.data);

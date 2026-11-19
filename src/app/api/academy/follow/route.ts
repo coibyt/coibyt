@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { rateLimit } from "@/lib/rate-limit";
 import { pageCourse } from "@/lib/academy";
 import { todayUtc } from "@/lib/academy/community";
+import { ensureAcademyTables } from "@/lib/academy/setup";
 
 /** "Email me new lessons" for one Academy course: GET ?course= tells whether
  * the signed-in learner follows it, POST follows, DELETE stops. */
@@ -19,6 +20,7 @@ async function body(req: Request) {
 }
 
 export async function GET(req: Request) {
+  if (!(await ensureAcademyTables())) return NextResponse.json({ error: "SETUP" }, { status: 503 });
   const courseId = new URL(req.url).searchParams.get("course") ?? "";
   const userId = (await auth())?.user?.id;
   if (!userId || !pageCourse(courseId)) return NextResponse.json({ signedIn: !!userId, following: false }, { headers: { "Cache-Control": "no-store" } });
@@ -27,6 +29,7 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
+  if (!(await ensureAcademyTables())) return NextResponse.json({ error: "SETUP" }, { status: 503 });
   const userId = (await auth())?.user?.id;
   if (!userId) return NextResponse.json({ error: "SIGN_IN" }, { status: 401 });
   if (!rateLimit(`academy-follow:${userId}`, 30, 60_000)) return NextResponse.json({ error: "RATE_LIMIT" }, { status: 429 });
@@ -44,6 +47,7 @@ export async function POST(req: Request) {
 }
 
 export async function DELETE(req: Request) {
+  if (!(await ensureAcademyTables())) return NextResponse.json({ error: "SETUP" }, { status: 503 });
   const userId = (await auth())?.user?.id;
   if (!userId) return NextResponse.json({ error: "SIGN_IN" }, { status: 401 });
   const b = await body(req);

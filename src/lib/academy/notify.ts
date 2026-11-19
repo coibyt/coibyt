@@ -8,6 +8,7 @@ import { lessonsOfCourse, pageCourse } from "@/lib/academy";
 import { courseSeoById } from "@/lib/academy/course-pages";
 import { pick } from "@/lib/academy/types";
 import { todayUtc, unfollowToken } from "@/lib/academy/community";
+import { ensureAcademyTables } from "@/lib/academy/setup";
 
 const T = {
   vi: {
@@ -48,6 +49,7 @@ const T = {
 const sitePath = (locale: string, path: string) => `${SITE_URL}${locale === "vi" ? "" : `/${locale}`}${path}`;
 
 export async function sendAcademyUpdates(max = 100) {
+  if (!(await ensureAcademyTables())) return 0;
   // A lesson is announced from the day after its publish date, so the deploy
   // that brings it to the site has surely finished.
   const today = todayUtc();

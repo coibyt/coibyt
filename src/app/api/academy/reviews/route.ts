@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { rateLimit } from "@/lib/rate-limit";
 import { pageCourse } from "@/lib/academy";
 import { courseReviews, finishedALesson } from "@/lib/academy/community";
+import { ensureAcademyTables } from "@/lib/academy/setup";
 
 /** Ratings of an Academy course: the list (GET, fresh, no cache) and the
  * signed-in learner's own rating (POST creates or updates it). */
@@ -11,6 +12,7 @@ import { courseReviews, finishedALesson } from "@/lib/academy/community";
 const LOCALES = new Set(["vi", "en", "fi"]);
 
 export async function GET(req: Request) {
+  if (!(await ensureAcademyTables())) return NextResponse.json({ error: "SETUP" }, { status: 503 });
   const courseId = new URL(req.url).searchParams.get("course") ?? "";
   if (!pageCourse(courseId)) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   const userId = (await auth())?.user?.id ?? null;
@@ -26,6 +28,7 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
+  if (!(await ensureAcademyTables())) return NextResponse.json({ error: "SETUP" }, { status: 503 });
   const userId = (await auth())?.user?.id;
   if (!userId) return NextResponse.json({ error: "SIGN_IN" }, { status: 401 });
   if (!rateLimit(`academy-review:${userId}`, 10, 60 * 60_000)) return NextResponse.json({ error: "RATE_LIMIT" }, { status: 429 });
