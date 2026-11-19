@@ -48,6 +48,10 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "the-thanh-vien": { seconds: 58, published: "2026-11-17" },
     // Craft lessons in English (voice "Dean", same pictures as the Vietnamese lesson).
     "son-gel": { seconds: 358, published: "2026-11-19" },
+    "ve-sinh-dung-cu": { seconds: 301, published: "2026-11-19" },
+    "rua-tay-gang-tay": { seconds: 404, published: "2026-11-19" },
+    "mi-chuan-bi-hieu-dung": { seconds: 339, published: "2026-11-19" },
+    "toc-tu-van-chia-vung-hieu-dung": { seconds: 385, published: "2026-11-19" },
   },
   // Craft lessons in Finnish (voice "Jarmo").
   fi: {
