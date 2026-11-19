@@ -8,7 +8,18 @@ export const courseImage = (slug: string) => `/academy/khoa-hoc/${slug}.jpg`;
 export const courseOgImage = (slug: string, locale: string) => `/og/khoa-hoc/${slug}-${locale === "vi" || locale === "fi" ? locale : "en"}.jpg`;
 
 /** Course id → its intro video (filled in as the videos are made). */
-export const COURSE_INTROS: Record<string, { seconds: number; published: string }> = {};
+export const COURSE_INTROS: Record<string, { seconds: number; published: string }> = {
+  "p-hair": { seconds: 73, published: "2026-11-19" },
+  "p-spa": { seconds: 69, published: "2026-11-19" },
+  "p-safety": { seconds: 71, published: "2026-11-19" },
+  "o-start": { seconds: 60, published: "2026-11-19" },
+  "o-reach": { seconds: 56, published: "2026-11-19" },
+  "o-daily": { seconds: 61, published: "2026-11-19" },
+  "o-grow": { seconds: 58, published: "2026-11-19" },
+  "c-start": { seconds: 55, published: "2026-11-19" },
+  "c-bookings": { seconds: 56, published: "2026-11-19" },
+  "c-perks": { seconds: 57, published: "2026-11-19" },
+};
 
 export function courseIntro(id: string, slug: string) {
   const v = COURSE_INTROS[id];
