@@ -17,6 +17,7 @@ export const COURSE_INTROS: Record<string, { seconds: number; published: string 
   "o-start": { seconds: 60, published: "2026-11-19" },
   "o-reach": { seconds: 56, published: "2026-11-19" },
   "o-daily": { seconds: 61, published: "2026-11-19" },
+  "o-retain": { seconds: 57, published: "2026-11-19" },
   "o-grow": { seconds: 58, published: "2026-11-19" },
   "c-start": { seconds: 55, published: "2026-11-19" },
   "c-bookings": { seconds: 56, published: "2026-11-19" },
