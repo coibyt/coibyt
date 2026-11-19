@@ -80,18 +80,19 @@ export default async function CoursePage({ params }: { params: Params }) {
   const faq = seo.faq.map((f) => [pick(f.q, locale), pick(f.a, locale)] as const);
   const langLabel = d.langs.includes("en") ? (locale === "vi" ? "Tiếng Việt · English" : "Vietnamese · English") : s.languageVi;
 
+  // The course is narrated in Vietnamese; pages in other languages play the English recording when there is one.
+  const courseLang = locale !== "vi" && d.langs.includes("en") ? "en" : "vi";
   const courseLd = {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: headline,
+    name: pick(seo.metaTitle, locale),
     description: pick(seo.metaDescription, locale),
     url: localizedUrl(locale, path),
     image: [absoluteUrl(d.image)],
-    inLanguage: d.langs,
+    inLanguage: courseLang,
     isAccessibleForFree: true,
     educationalLevel: pick(seo.level, locale),
     keywords: seo.keywords.join(", "),
-    numberOfCredits: undefined,
     provider: { "@type": "Organization", name: "VaraaAi Academy", url: SITE, sameAs: SITE },
     offers: [{ "@type": "Offer", category: "Free", price: 0, priceCurrency: "EUR", availability: "https://schema.org/InStock", url: localizedUrl(locale, path) }],
     hasCourseInstance: [
@@ -99,7 +100,7 @@ export default async function CoursePage({ params }: { params: Params }) {
         "@type": "CourseInstance",
         courseMode: "Online",
         courseWorkload: isoDuration(d.seconds),
-        inLanguage: d.langs[0],
+        inLanguage: courseLang,
       },
     ],
     syllabusSections: d.topics.map((t) => ({ "@type": "Syllabus", name: t.title, description: t.lessons.map((l) => l.title).join(" · ") })),
@@ -432,7 +433,7 @@ export default async function CoursePage({ params }: { params: Params }) {
                     </span>
                     <span className="block p-4">
                       <span className="text-xs font-bold uppercase tracking-wider text-[#b08a3e]">{trackName[c.audience]}</span>
-                      <span className="mt-1 line-clamp-2 block font-extrabold text-ink-900">{c.headline}</span>
+                      <span className="mt-1 line-clamp-2 block font-extrabold text-ink-900">{c.name}</span>
                       <span className="mt-2 flex items-center justify-between text-xs font-semibold text-ink-400">
                         <span>
                           {s.lessons(c.live)} · {longDuration(c.seconds, locale)}

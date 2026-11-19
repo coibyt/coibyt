@@ -1618,6 +1618,488 @@ export const COURSE_SEO: CourseSeo[] = [
       "báo cáo tổng quan salon",
     ],
   },
+  /* ================= customers: getting started ================= */
+  {
+    id: "c-start",
+    slug: "huong-dan-dat-lich-lam-dep",
+    metaTitle: l3(
+      "Hướng dẫn đặt lịch làm đẹp online: nail, mi, tóc, spa",
+      "How to Book Beauty Appointments Online: Step-by-Step",
+      "Kauneushoidon ajanvaraus verkossa: ohjeet vaihe vaiheelta"
+    ),
+    metaDescription: l3(
+      "Video miễn phí hướng dẫn đặt lịch làm nail, mi, tóc, spa online: tìm salon gần bạn, chọn nhân viên và giờ trống, tạo tài khoản và cài app VaraaAi.",
+      "Free videos on booking nail, lash, hair and spa appointments online: find a salon near you, pick a stylist and a free time, sign up and install the app.",
+      "Ilmaiset videot kauneushoidon varaamiseen verkossa: löydä salonki läheltä, valitse tekijä ja vapaa aika, luo tili ja asenna VaraaAi-sovellus puhelimeen."
+    ),
+    headline: l3(
+      "Hướng dẫn đặt lịch làm đẹp online: tìm salon, chọn giờ và xác nhận trong khoảng một phút",
+      "How to book a beauty appointment online: find a salon, pick a time and confirm in about a minute",
+      "Näin varaat kauneushoidon verkossa: löydä salonki, valitse aika ja vahvista noin minuutissa"
+    ),
+    tagline: l3(
+      "Ba video ngắn quay trên trang thật: lần đặt lịch đầu tiên, tài khoản của bạn và app VaraaAi trên điện thoại.",
+      "Three short videos filmed on the real site: your first booking, your account and the VaraaAi app on your phone.",
+      "Kolme lyhyttä videota oikealla sivustolla: ensimmäinen varaus, oma tili ja VaraaAi-sovellus puhelimeen."
+    ),
+    level: l3("Cho khách hàng, người mới bắt đầu", "For customers, beginner friendly", "Asiakkaille, aloittelijoille"),
+    outcomes: [
+      l3(
+        "Tìm salon theo dịch vụ và khu vực, hoặc bấm “Gần tôi” để xem salon quanh bạn.",
+        "Find a salon by service and area, or press “Near me” to see the salons around you.",
+        "Löydät salongin palvelun ja alueen mukaan tai painat ”Lähelläni” ja näet lähimmät salongit."
+      ),
+      l3(
+        "Chọn một hay nhiều dịch vụ, nhân viên bạn thích, rồi chọn ngày và giờ còn trống.",
+        "Choose one or more services and the person you like, then a date and a free time.",
+        "Valitset yhden tai useamman palvelun ja mieluisan tekijän sekä päivän ja vapaan ajan."
+      ),
+      l3(
+        "Nhập mã giảm giá hoặc mã thẻ quà tặng ngay khi đặt lịch, đọc chính sách huỷ rồi xác nhận.",
+        "Enter a discount or gift-card code while booking, read the cancellation policy and confirm.",
+        "Syötät alennus- tai lahjakorttikoodin varatessasi, luet peruutusehdot ja vahvistat varauksen."
+      ),
+      l3(
+        "Tạo tài khoản VaraaAi miễn phí, đăng nhập và lấy lại mật khẩu khi quên.",
+        "Create a free VaraaAi account, sign in and reset your password if you forget it.",
+        "Luot ilmaisen VaraaAi-tilin, kirjaudut sisään ja vaihdat unohtuneen salasanan."
+      ),
+      l3(
+        "Biết các mục trong tài khoản: lịch hẹn, thẻ tích điểm, hộp thư và bảng tin.",
+        "Know your way around your account: bookings, loyalty cards, inbox and feed.",
+        "Tunnet tilisi osiot: varaukset, kanta-asiakaskortit, viestit ja syötteen."
+      ),
+      l3(
+        "Cài app VaraaAi lên Android, iPhone hoặc máy tính mà không cần CH Play hay App Store.",
+        "Install the VaraaAi app on Android, iPhone or a computer without Google Play or the App Store.",
+        "Asennat VaraaAi-sovelluksen Androidiin, iPhoneen tai tietokoneelle ilman sovelluskauppaa."
+      ),
+    ],
+    intro: [
+      l3(
+        "Muốn làm móng, nối mi hay cắt tóc mà không phải gọi điện hay chờ salon trả lời tin nhắn? Khóa học Bắt đầu đặt lịch của Học viện VaraaAi hướng dẫn bạn đặt lịch làm đẹp online trên VaraaAi, nền tảng đặt lịch cho tiệm nail, mi, tóc và spa. Khóa học chỉ có ba video ngắn, miễn phí, xem ngay trên điện thoại và không cần đăng nhập. Xem xong, bạn tự đặt được lịch hẹn vào lúc nào tiện cho mình, kể cả buổi tối khi salon đã đóng cửa.",
+        "Want a manicure, lash extensions or a haircut without phoning the salon or waiting for a reply to your message? The Getting started course at VaraaAi Academy shows you how to book beauty appointments online on VaraaAi, the booking platform for nail, lash, hair and spa salons. It is just three short free videos that you can watch on your phone with no sign-in. Afterwards you can book whenever it suits you, even in the evening when the salon is closed.",
+        "Haluatko kynsihoidon, ripsienpidennykset tai hiustenleikkauksen soittamatta salonkiin tai odottamatta vastausta viestiin? VaraaAi-akatemian Alkuun pääseminen -kurssi näyttää, miten kauneushoito varataan verkossa VaraaAissa, kynsi-, ripsi-, hius- ja spa-salonkien ajanvarausalustalla. Kurssissa on vain kolme lyhyttä ilmaista videota, jotka voit katsoa puhelimella ilman kirjautumista. Sen jälkeen varaat ajan silloin kun sinulle sopii, myös iltaisin, kun salonki on jo kiinni."
+      ),
+      l3(
+        "Bài đầu tiên đi trọn một lần đặt lịch. Bạn gõ dịch vụ vào ô “Dịch vụ hoặc salon”, gõ thành phố vào ô “Khu vực” hoặc bấm “Gần tôi”, rồi xem kết quả dạng danh sách hay trên bản đồ. Trên trang salon, bạn chọn một hoặc nhiều dịch vụ, chọn nhân viên mình thích hoặc “Bất kỳ ai còn trống”, rồi chọn ngày và giờ còn trống. Video cũng chỉ chỗ nhập mã giảm giá hay mã thẻ quà tặng, cách chọn thanh toán tại salon, và nhắc bạn đọc chính sách huỷ trước khi bấm “Xác nhận đặt lịch”.",
+        "The first lesson goes through a whole booking. You type a service under “Service or salon”, a city under “Area” or press “Near me”, and see the results as a list or on a map. On the salon's page you choose one or more services, the person you like or “Anyone available”, and then a date and a free time. The video also shows where to enter a discount or gift-card code, how to choose to pay at the salon, and reminds you to read the cancellation policy before you press “Confirm booking”.",
+        "Ensimmäinen oppitunti käy läpi kokonaisen varauksen. Kirjoitat palvelun ja kaupungin hakukenttiin tai painat ”Lähelläni” ja näet tulokset luettelona tai kartalla. Salongin sivulla valitset yhden tai useamman palvelun, mieluisan tekijän tai ”Kuka tahansa vapaa” ja sitten päivän ja vapaan ajan. Video näyttää myös, mihin alennus- tai lahjakorttikoodi syötetään ja miten valitaan maksu salongissa, ja muistuttaa lukemaan peruutusehdot ennen kuin painat ”Vahvista varaus”."
+      ),
+      l3(
+        "Bài thứ hai là tài khoản. Đăng ký VaraaAi miễn phí, chỉ cần họ tên, email, số điện thoại và mật khẩu; bạn tự chọn có nhận tin khuyến mãi qua email hay tin nhắn hay không. Video chỉ cách đăng nhập, lấy lại mật khẩu khi quên, và giới thiệu các mục trong tài khoản: Hồ sơ của tôi, Lịch hẹn của tôi, Thẻ tích điểm, Hộp thư, Đang theo dõi và Bảng tin. Đây là nơi bạn quay lại mỗi khi cần xem lịch, nhắn salon hay mở thẻ thành viên.",
+        "The second lesson is your account. Signing up for VaraaAi is free and needs only your name, email, phone number and a password, and you decide whether you want offers by email or text message. The video shows how to sign in, how to reset a forgotten password and what is in your account: your profile, bookings, loyalty cards, inbox, the salons you follow and your feed. This is where you come back whenever you want to check a booking, message a salon or open your member card.",
+        "Toinen oppitunti käsittelee omaa tiliä. Rekisteröityminen VaraaAihin on ilmaista, ja tarvitset vain nimen, sähköpostin, puhelinnumeron ja salasanan; voit itse päättää, haluatko tarjouksia sähköpostilla tai tekstiviestillä. Video näyttää, miten kirjaudut, miten vaihdat unohtuneen salasanan ja mitä tilistä löytyy: profiili, varaukset, kanta-asiakaskortit, viestit, seuraamasi salongit ja syöte. Tänne palaat aina, kun haluat tarkistaa varauksen, viestittää salongille tai avata jäsenkorttisi."
+      ),
+      l3(
+        "Bài thứ ba giúp bạn cài app VaraaAi lên điện thoại mà không cần vào CH Play hay App Store. Trên Android và máy tính, bạn mở varaaai.com/app bằng Chrome, Edge hoặc Samsung Internet rồi bấm “Cài đặt ứng dụng”. Trên iPhone và iPad, bạn mở trang bằng Safari, nhấn nút Chia sẻ và chọn “Thêm vào Màn hình chính”. App miễn phí, tự cập nhật, và biểu tượng VaraaAi nằm ngay trên màn hình chính để lần sau đặt lịch chỉ mất vài chạm.",
+        "The third lesson helps you install the VaraaAi app without going to Google Play or the App Store. On Android and computers you open varaaai.com/app in Chrome, Edge or Samsung Internet and press “Install the app”. On iPhone and iPad you open the page in Safari, tap the Share button and choose “Add to Home Screen”. The app is free and updates itself, and the VaraaAi icon sits on your home screen, so your next booking takes only a few taps.",
+        "Kolmas oppitunti auttaa asentamaan VaraaAi-sovelluksen ilman Google Playta tai App Storea. Androidilla ja tietokoneella avaat varaaai.com/app-sivun Chromessa, Edgessä tai Samsung Internetissä ja painat ”Asenna sovellus”. iPhonella ja iPadilla avaat sivun Safarissa, napautat Jaa-painiketta ja valitset ”Lisää Koti-valikkoon”. Sovellus on ilmainen ja päivittyy itse, ja VaraaAi-kuvake on aloitusnäytöllä, joten seuraava varaus vie vain muutaman napautuksen."
+      ),
+      l3(
+        "Mỗi bài có video quay trên trang thật, người hướng dẫn nói từng bước và đánh dấu chỗ cần bấm, kèm các bước bằng chữ và bài kiểm tra nhanh để nhận điểm, huy hiệu. Video thuyết minh bằng tiếng Việt và có bản thu tiếng Anh, còn chữ trên trang học có tiếng Việt, tiếng Anh và tiếng Phần Lan, nên bạn có thể gửi cho người thân hay bạn bè không nói tiếng Việt. Học xong khóa này, bạn học tiếp Quản lý lịch hẹn và Ưu đãi và thẻ; học xong mọi bài dành cho khách hàng, bạn tải được chứng nhận hoàn thành “Sử dụng VaraaAi dành cho khách hàng”.",
+        "Every lesson has a video filmed on the real site, with a guide talking through each step and highlighting what to press, plus written steps and a quick quiz for points and badges. The videos are narrated in Vietnamese and also recorded in English, and the lesson pages are written in Vietnamese, English and Finnish, so you can share them with family and friends who don't speak Vietnamese. After this course, carry on with Managing bookings and Rewards and cards; finish every lesson for customers to download the certificate of completion “Using VaraaAi as a customer”.",
+        "Jokaisessa oppitunnissa on video oikealla sivustolla: opastaja kertoo vaiheet ja korostaa painettavan kohdan, ja lisäksi on kirjalliset vaiheet ja pikavisa pisteineen ja merkkeineen. Videot on äänitetty vietnamiksi ja englanniksi, ja oppituntisivut ovat vietnamiksi, englanniksi ja suomeksi, joten voit jakaa ne myös läheisille, jotka eivät puhu vietnamia. Tämän jälkeen voit jatkaa kursseilla Varausten hallinta sekä Edut ja kortit; kun suoritat kaikki asiakkaiden oppitunnit, voit ladata todistuksen ”VaraaAin käyttö asiakkaana”."
+      ),
+    ],
+    forWho: [
+      l3(
+        "Người muốn đặt lịch làm nail, mi, tóc, spa online thay vì gọi điện.",
+        "Anyone who wants to book nails, lashes, hair or spa online instead of calling.",
+        "Kaikki, jotka haluavat varata kynsi-, ripsi-, hius- tai spa-hoidon verkossa soittamisen sijaan."
+      ),
+      l3(
+        "Người lần đầu dùng VaraaAi và chưa có tài khoản.",
+        "First-time VaraaAi users who don't have an account yet.",
+        "Ensikertalaiset, joilla ei vielä ole VaraaAi-tiliä."
+      ),
+      l3(
+        "Con cháu muốn chỉ bố mẹ, ông bà tự đặt lịch trên điện thoại.",
+        "Anyone who wants to help parents or grandparents book on their own phone.",
+        "Kaikki, jotka haluavat opastaa vanhempiaan tai isovanhempiaan varaamaan omalla puhelimellaan."
+      ),
+      l3(
+        "Người Việt ở Phần Lan, châu Âu muốn được hướng dẫn bằng tiếng Việt.",
+        "Vietnamese speakers in Finland and Europe who want guidance in their language.",
+        "Suomessa ja Euroopassa asuvat vietnaminkieliset, jotka haluavat ohjeet omalla kielellään."
+      ),
+    ],
+    faq: [
+      {
+        q: l3("Đặt lịch làm nail online như thế nào?", "How do I book a nail appointment online?", "Miten varaan kynsihoidon verkossa?"),
+        a: l3(
+          "Trên VaraaAi, bạn tìm salon theo dịch vụ và khu vực, mở trang salon, bấm “Đặt lịch” cạnh dịch vụ, chọn nhân viên, ngày và giờ còn trống, điền thông tin rồi bấm “Xác nhận đặt lịch”. Video đầu tiên của khóa đi trọn các bước này, thường xong trong khoảng một phút.",
+          "On VaraaAi you search for a salon by service and area, open its page, press “Book” next to the service, choose the staff member, date and free time, fill in your details and press “Confirm booking”. The first video in this course goes through every step, which usually takes about a minute.",
+          "VaraaAissa haet salonkia palvelun ja alueen mukaan, avaat sen sivun, painat ”Varaa” palvelun vieressä, valitset tekijän, päivän ja vapaan ajan, täytät tietosi ja painat ”Vahvista varaus”. Kurssin ensimmäinen video käy läpi kaikki vaiheet, joihin menee yleensä noin minuutti."
+        ),
+      },
+      {
+        q: l3("Đặt lịch trên VaraaAi có mất phí không?", "Does booking on VaraaAi cost anything?", "Maksaako varaaminen VaraaAissa jotain?"),
+        a: l3(
+          "Khách hàng dùng VaraaAi miễn phí: tạo tài khoản, đặt lịch và cài app đều không mất phí. Bạn trả tiền dịch vụ cho salon như bình thường. Cách thanh toán do từng salon cài đặt và hiện ở bước thanh toán trước khi bạn xác nhận; thường là thanh toán tại salon bằng tiền mặt hoặc thẻ.",
+          "VaraaAi is free for customers: creating an account, booking and installing the app cost nothing. You pay the salon for the service as usual. Each salon sets its own payment options, which you see at the payment step before you confirm; usually you pay at the salon in cash or by card.",
+          "VaraaAi on asiakkaille ilmainen: tilin luominen, varaaminen ja sovelluksen asentaminen eivät maksa mitään. Palvelusta maksat salongille tavalliseen tapaan. Jokainen salonki asettaa omat maksutapansa, jotka näet maksuvaiheessa ennen vahvistusta; yleensä maksu tapahtuu salongissa käteisellä tai kortilla."
+        ),
+      },
+      {
+        q: l3("Có cần tài khoản để đặt lịch không?", "Do I need an account to book?", "Tarvitsenko tilin varaamiseen?"),
+        a: l3(
+          "Bạn có thể tạo tài khoản ngay trong lần đặt lịch đầu tiên bằng họ tên, số điện thoại, email và mật khẩu. Tài khoản giúp bạn xem lại lịch hẹn, tự huỷ trong thời hạn salon cho phép, nhắn tin với salon và giữ các thẻ tích điểm ở cùng một chỗ.",
+          "You can create one during your first booking with your name, phone number, email and a password. The account lets you see your bookings, cancel within the time the salon allows, message salons and keep all your loyalty cards in one place.",
+          "Voit luoda tilin ensimmäisen varauksen yhteydessä nimellä, puhelinnumerolla, sähköpostilla ja salasanalla. Tilin avulla näet varauksesi, voit perua salongin sallimassa ajassa, viestittää salongeille ja pitää kaikki kanta-asiakaskorttisi yhdessä paikassa."
+        ),
+      },
+      {
+        q: l3("Làm sao cài app VaraaAi trên iPhone?", "How do I install the VaraaAi app on an iPhone?", "Miten asennan VaraaAi-sovelluksen iPhoneen?"),
+        a: l3(
+          "Mở varaaai.com/app bằng Safari, nhấn nút Chia sẻ (hình vuông có mũi tên lên) ở cuối màn hình, chọn “Thêm vào Màn hình chính” rồi bấm “Thêm”. App cài thẳng từ trình duyệt, miễn phí và tự cập nhật, không cần App Store. Trên Android, mở trang bằng Chrome và bấm “Cài đặt ứng dụng”.",
+          "Open varaaai.com/app in Safari, tap the Share button (a square with an arrow pointing up) at the bottom of the screen, choose “Add to Home Screen” and tap “Add”. The app installs straight from the browser, is free and updates itself, with no App Store needed. On Android, open the page in Chrome and press “Install the app”.",
+          "Avaa varaaai.com/app Safarissa, napauta alareunan Jaa-painiketta (neliö, jossa nuoli ylöspäin), valitse ”Lisää Koti-valikkoon” ja napauta ”Lisää”. Sovellus asentuu suoraan selaimesta, on ilmainen ja päivittyy itse, eikä App Storea tarvita. Androidilla avaa sivu Chromessa ja paina ”Asenna sovellus”."
+        ),
+      },
+      {
+        q: l3("Video có tiếng Anh hay tiếng Phần Lan không?", "Are the videos available in English or Finnish?", "Onko videoita englanniksi tai suomeksi?"),
+        a: l3(
+          "Video gốc thuyết minh bằng tiếng Việt và có bản thu tiếng Anh, quay lại cả màn hình lẫn giọng nói. Trang học có chữ tiếng Việt, tiếng Anh và tiếng Phần Lan; ở trang tiếng Phần Lan, video phát bản tiếng Anh. Nhờ vậy bạn có thể gửi link cho người thân, bạn bè không nói tiếng Việt.",
+          "The original videos are narrated in Vietnamese, and there are English recordings with both the screen walkthrough and the voice redone. Lesson pages are written in Vietnamese, English and Finnish; on the Finnish pages the English video plays. So you can share the link with family and friends who don't speak Vietnamese.",
+          "Alkuperäiset videot on kerrottu vietnamiksi, ja niistä on englanninkieliset versiot, joissa sekä näyttötallenne että ääni on tehty uudelleen. Oppituntisivut ovat vietnamiksi, englanniksi ja suomeksi; suomenkielisillä sivuilla toistetaan englanninkielinen video. Voit siis jakaa linkin myös läheisille, jotka eivät puhu vietnamia."
+        ),
+      },
+    ],
+    keywords: [
+      "cách đặt lịch làm nail online",
+      "đặt lịch làm đẹp online",
+      "app đặt lịch làm nail",
+      "đặt lịch nối mi online",
+      "đặt lịch cắt tóc online",
+      "tìm tiệm nail gần đây",
+      "hướng dẫn dùng VaraaAi",
+      "cài app VaraaAi",
+    ],
+  },
+  /* ================= customers: bookings ================= */
+  {
+    id: "c-bookings",
+    slug: "quan-ly-lich-hen-lam-dep",
+    metaTitle: l3(
+      "Quản lý lịch hẹn làm đẹp: xem, huỷ lịch, chat, đánh giá",
+      "Manage Beauty Bookings: View, Cancel, Chat and Review",
+      "Kauneusvarausten hallinta: katso, peru, viestitä, arvioi"
+    ),
+    metaDescription: l3(
+      "Video miễn phí: xem lại và tự huỷ lịch hẹn làm đẹp đúng hạn, chat với salon kèm ảnh mẫu, viết đánh giá sau khi làm xong. Ngắn, dễ hiểu, xem trên điện thoại.",
+      "Free videos: check and cancel your beauty bookings in time, chat with the salon and send a photo of the look you want, then leave a review after your visit.",
+      "Ilmaiset videot: tarkista ja peru kauneusvaraukset ajoissa, viestitä salongille ja lähetä mallikuva, ja kirjoita arvostelu käynnin jälkeen. Lyhyet ja selkeät."
+    ),
+    headline: l3(
+      "Quản lý lịch hẹn làm đẹp trên VaraaAi: xem lại, huỷ đúng hạn, nhắn salon và viết đánh giá",
+      "Manage your beauty bookings on VaraaAi: check them, cancel in time, message the salon and leave a review",
+      "Hallitse kauneusvarauksiasi VaraaAissa: tarkista, peru ajoissa, viestitä salongille ja arvostele"
+    ),
+    tagline: l3(
+      "Ba video ngắn cho mọi việc sau khi đặt lịch: xem lịch, huỷ lịch, hỏi salon và chia sẻ cảm nhận.",
+      "Three short videos for everything after you book: check, cancel, ask the salon and share how it went.",
+      "Kolme lyhyttä videota kaikkeen varauksen jälkeen: tarkista, peru, kysy salongilta ja kerro kokemuksesi."
+    ),
+    level: l3("Cho khách hàng đã đặt lịch", "For customers who have booked", "Asiakkaille, jotka ovat varanneet"),
+    outcomes: [
+      l3(
+        "Mở “Lịch hẹn của tôi” và đọc nhanh salon, dịch vụ, giờ hẹn, số tiền và trạng thái.",
+        "Open “My bookings” and read the salon, service, time, amount and status at a glance.",
+        "Avaat ”Varaukseni” ja näet yhdellä silmäyksellä salongin, palvelun, ajan, summan ja tilan."
+      ),
+      l3(
+        "Xem nhân viên, địa chỉ và số điện thoại salon trong thông tin đặt chỗ.",
+        "Find the staff member, address and the salon's phone number in the booking details.",
+        "Löydät varauksen tiedoista tekijän, osoitteen ja salongin puhelinnumeron."
+      ),
+      l3(
+        "Tự huỷ lịch hẹn trong thời hạn salon cho phép, sau khi đọc chính sách huỷ.",
+        "Cancel a booking yourself within the time the salon allows, after reading its policy.",
+        "Perut varauksen itse salongin sallimassa ajassa luettuasi peruutusehdot."
+      ),
+      l3(
+        "Biết phải làm gì khi đã quá hạn tự huỷ hoặc cần salon giúp dời lịch.",
+        "Know what to do when it is too late to cancel online or you need the salon to move it.",
+        "Tiedät, mitä tehdä, kun itse perumisen aika on ohi tai tarvitset salongin apua ajan siirtoon."
+      ),
+      l3(
+        "Chat với salon ngay trên trang, gửi kèm ảnh mẫu và xem lại mọi tin nhắn trong Hộp thư.",
+        "Chat with the salon on its page, attach a photo and find every message again in your inbox.",
+        "Viestität salongille sen sivulla, liität mallikuvan ja löydät kaikki viestit myöhemmin."
+      ),
+      l3(
+        "Chấm sao và viết đánh giá từ email mời hoặc từ lịch hẹn đã hoàn thành.",
+        "Rate and review your visit from the invitation email or from a completed booking.",
+        "Annat tähdet ja kirjoitat arvostelun kutsusähköpostista tai valmiista varauksesta."
+      ),
+    ],
+    intro: [
+      l3(
+        "Đặt lịch xong mới chỉ là bắt đầu. Có hôm bạn cần xem lại giờ hẹn, có hôm bận đột xuất phải huỷ, có lúc muốn hỏi salon trước khi đến, và sau buổi làm đẹp bạn muốn chia sẻ cảm nhận. Khóa học Quản lý lịch hẹn của Học viện VaraaAi hướng dẫn tất cả những việc đó qua ba video ngắn, miễn phí, xem ngay trên điện thoại mà không cần đăng nhập.",
+        "Booking is only the beginning. Some days you need to check the time, some days something comes up and you have to cancel, sometimes you want to ask the salon a question first, and after your visit you want to share how it went. The Managing bookings course at VaraaAi Academy covers all of this in three short free videos you can watch on your phone without signing in.",
+        "Varaus on vasta alku. Joskus haluat tarkistaa ajan, joskus tulee este ja varaus pitää perua, joskus haluat kysyä salongilta jotain etukäteen, ja käynnin jälkeen haluat kertoa kokemuksestasi. VaraaAi-akatemian Varausten hallinta -kurssi käy kaiken tämän läpi kolmessa lyhyessä ilmaisessa videossa, jotka voit katsoa puhelimella ilman kirjautumista."
+      ),
+      l3(
+        "Bài đầu tiên mở “Lịch hẹn của tôi”, nơi mỗi lịch hẹn ghi salon, dịch vụ, ngày giờ, số tiền và trạng thái như “Đã xác nhận”. Bấm “Xem thông tin đặt chỗ”, bạn thấy nhân viên làm cho mình, giờ hẹn, địa chỉ và số điện thoại salon. Khi cần huỷ, bạn bấm “Huỷ lịch hẹn”, đọc chính sách huỷ của salon, ví dụ được tự huỷ đến 24 giờ trước giờ hẹn, rồi bấm “Xác nhận hủy”. Lịch chuyển sang “Đã huỷ” và salon có thể nhận khách khác vào giờ đó. Nếu đã quá hạn tự huỷ, video nhắc bạn liên hệ trực tiếp với salon.",
+        "The first lesson opens “My bookings”, where each booking shows the salon, service, date and time, amount and a status such as “Confirmed”. Press “View booking details” to see who will do your treatment, the time, the address and the salon's phone number. To cancel, press “Cancel booking”, read the salon's cancellation policy, for example that you can cancel yourself up to 24 hours before, and press “Confirm cancellation”. The booking turns to “Cancelled” and the salon can give that time to someone else. If it is too late to cancel online, the video reminds you to contact the salon directly.",
+        "Ensimmäinen oppitunti avaa ”Varaukseni”-sivun, jossa jokaisessa varauksessa näkyvät salonki, palvelu, aika, summa ja tila, esimerkiksi ”Vahvistettu”. ”Näytä varauksen tiedot” kertoo, kuka hoidon tekee, sekä ajan, osoitteen ja salongin puhelinnumeron. Peruaksesi painat ”Peru varaus”, luet salongin peruutusehdot, esimerkiksi että voit perua itse 24 tuntia ennen, ja vahvistat. Varauksen tilaksi tulee ”Peruttu”, ja salonki voi antaa ajan toiselle asiakkaalle. Jos itse perumisen aika on jo ohi, video muistuttaa ottamaan yhteyttä suoraan salonkiin."
+      ),
+      l3(
+        "Bài thứ hai là chat với salon. Nút “Chat với Salon” nằm ngay cạnh nút “Đặt lịch” trên trang của mỗi salon. Bạn có thể hỏi giá, hỏi mẫu hay hỏi thời gian làm, và gửi kèm ảnh mẫu mình thích để salon tư vấn và báo giá chính xác hơn. Câu trả lời hiện ngay trong khung chat, và mọi cuộc trò chuyện được giữ trong Hộp thư của tài khoản để bạn xem lại khi cần.",
+        "The second lesson is chatting with the salon. The “Chat with the salon” button sits right next to “Book” on every salon's page. You can ask about prices, styles or how long a treatment takes, and attach a photo of the look you like so the salon can advise you and quote more accurately. The reply appears in the same chat window, and every conversation is kept in your account's inbox so you can read it again later.",
+        "Toinen oppitunti käsittelee viestittelyä salongin kanssa. ”Chat salongin kanssa” -painike on jokaisen salongin sivulla Varaa-painikkeen vieressä. Voit kysyä hinnoista, malleista tai hoidon kestosta ja liittää kuvan haluamastasi tyylistä, jotta salonki voi neuvoa ja hinnoitella tarkemmin. Vastaus näkyy samassa ikkunassa, ja kaikki keskustelut säilyvät tilisi viesteissä, joten voit lukea ne myöhemmin uudelleen."
+      ),
+      l3(
+        "Bài thứ ba chỉ cách viết đánh giá sau khi làm đẹp. Bạn bấm “Đánh giá dịch vụ” trong email mời đánh giá, hoặc vào “Lịch hẹn của tôi”, tìm lịch đã “Hoàn thành” và bấm “Đánh giá”. Chọn từ 1 đến 5 sao cho chất lượng dịch vụ, viết vài câu về trải nghiệm rồi bấm “Gửi đánh giá”. Chỉ khách đã đặt lịch mới viết được đánh giá, và salon xem trước khi đăng lên trang của họ, nên đánh giá trên VaraaAi đến từ người đã thật sự làm dịch vụ. Vài dòng chia sẻ của bạn giúp người khác chọn salon và giúp salon biết mình cần làm tốt hơn ở đâu.",
+        "The third lesson shows how to leave a review after your visit. Press “Review the service” in the invitation email, or open “My bookings”, find the completed booking and press “Review”. Choose 1 to 5 stars for service quality, write a few words about your experience and press “Submit review”. Only customers who booked can write a review, and the salon reads it before publishing it on its page, so reviews on VaraaAi come from people who really had the treatment. A few honest lines help others choose a salon and show the salon where it can do better.",
+        "Kolmas oppitunti näyttää, miten arvostelu kirjoitetaan käynnin jälkeen. Paina kutsusähköpostin arvostelupainiketta tai avaa ”Varaukseni”, etsi valmis varaus ja paina ”Arvostele”. Valitse palvelun laadulle 1–5 tähteä, kirjoita muutama sana kokemuksestasi ja lähetä. Vain varanneet asiakkaat voivat arvostella, ja salonki lukee arvostelun ennen kuin julkaisee sen sivullaan, joten VaraaAin arvostelut tulevat ihmisiltä, jotka ovat oikeasti käyneet hoidossa. Muutama rehellinen lause auttaa muita valitsemaan salongin ja kertoo salongille, missä se voi parantaa."
+      ),
+      l3(
+        "Mỗi bài là video quay trên trang thật, người hướng dẫn nói từng bước và đánh dấu chỗ cần bấm, kèm các bước bằng chữ và bài kiểm tra nhanh để nhận điểm, huy hiệu; tiến độ được lưu trong trình duyệt. Video thuyết minh bằng tiếng Việt và có bản thu tiếng Anh. Nếu chưa từng đặt lịch, bạn nên xem khóa Bắt đầu đặt lịch trước; sau khóa này, khóa Ưu đãi và thẻ chỉ cách tích vé, mời bạn bè và dùng thẻ quà tặng.",
+        "Each lesson is a video filmed on the real site, with a guide talking through every step and highlighting what to press, plus written steps and a quick quiz for points and badges; your progress is saved in your browser. The videos are narrated in Vietnamese and also recorded in English. If you have never booked before, start with the Getting started course; after this one, Rewards and cards shows you how to collect stamps, invite friends and use gift cards.",
+        "Jokainen oppitunti on video oikealla sivustolla: opastaja kertoo vaiheet ja korostaa painettavan kohdan, ja lisäksi on kirjalliset vaiheet ja pikavisa pisteineen ja merkkeineen; edistymisesi tallentuu selaimeen. Videot on äänitetty vietnamiksi ja englanniksi. Jos et ole vielä koskaan varannut, aloita Alkuun pääseminen -kurssista; tämän jälkeen Edut ja kortit -kurssi näyttää, miten keräät leimoja, kutsut ystäviä ja käytät lahjakortteja."
+      ),
+    ],
+    forWho: [
+      l3(
+        "Khách đã đặt lịch và muốn xem lại hoặc tự huỷ lịch hẹn.",
+        "Customers who have booked and want to check or cancel a booking themselves.",
+        "Asiakkaat, jotka ovat varanneet ja haluavat tarkistaa tai perua varauksen itse."
+      ),
+      l3(
+        "Người muốn hỏi salon về giá, mẫu hay thời gian trước khi đến.",
+        "Anyone who wants to ask a salon about prices, styles or timing before the visit.",
+        "Kaikki, jotka haluavat kysyä salongilta hinnoista, malleista tai ajoista ennen käyntiä."
+      ),
+      l3(
+        "Khách muốn chia sẻ cảm nhận để giúp người khác chọn salon.",
+        "Customers who want to share their experience and help others choose a salon.",
+        "Asiakkaat, jotka haluavat kertoa kokemuksestaan ja auttaa muita valitsemaan salongin."
+      ),
+      l3(
+        "Người Việt ở Phần Lan, châu Âu muốn được hướng dẫn bằng tiếng Việt.",
+        "Vietnamese speakers in Finland and Europe who want guidance in their language.",
+        "Suomessa ja Euroopassa asuvat vietnaminkieliset, jotka haluavat ohjeet omalla kielellään."
+      ),
+    ],
+    faq: [
+      {
+        q: l3("Làm sao huỷ lịch hẹn làm nail đã đặt online?", "How do I cancel a nail appointment I booked online?", "Miten perun verkossa varaamani kynsihoidon?"),
+        a: l3(
+          "Đăng nhập, bấm vào tên bạn ở góc trên và chọn “Lịch hẹn của tôi”, mở lịch hẹn rồi bấm “Huỷ lịch hẹn”. Màn hình hiện chính sách huỷ của salon; đọc xong, bấm “Xác nhận hủy” và lịch chuyển sang “Đã huỷ”. Bạn tự huỷ được khi còn trong thời hạn salon cho phép.",
+          "Sign in, tap your name at the top and choose “My bookings”, open the booking and press “Cancel booking”. The salon's cancellation policy appears; once you have read it, press “Confirm cancellation” and the booking turns to “Cancelled”. You can cancel yourself as long as you are within the time the salon allows.",
+          "Kirjaudu, napauta nimeäsi ylhäällä ja valitse ”Varaukseni”, avaa varaus ja paina ”Peru varaus”. Näkyviin tulevat salongin peruutusehdot; kun olet lukenut ne, vahvista peruutus, ja varauksen tilaksi tulee ”Peruttu”. Voit perua itse niin kauan kuin olet salongin sallimassa ajassa."
+        ),
+      },
+      {
+        q: l3("Quá hạn tự huỷ lịch thì phải làm sao?", "What if it is too late to cancel online?", "Entä jos itse perumisen aika on jo ohi?"),
+        a: l3(
+          "Khi đã quá thời hạn tự huỷ, hãy liên hệ trực tiếp với salon qua số điện thoại trong thông tin đặt chỗ hoặc bằng nút “Chat với Salon”. Salon có thể huỷ hoặc dời lịch giúp bạn. Báo càng sớm càng tốt cũng là cách lịch sự để salon kịp nhận khách khác vào giờ đó.",
+          "When the online cancellation window has passed, contact the salon directly using the phone number in the booking details or the “Chat with the salon” button. The salon can cancel or move the booking for you. Letting them know as early as possible is also the polite way, so they can offer the time to someone else.",
+          "Kun itse perumisen aika on ohi, ota yhteyttä suoraan salonkiin varauksen tiedoissa olevaan puhelinnumeroon tai chat-painikkeella. Salonki voi perua tai siirtää varauksen puolestasi. Ilmoita mahdollisimman aikaisin, niin salonki ehtii tarjota ajan toiselle asiakkaalle."
+        ),
+      },
+      {
+        q: l3("Gửi ảnh mẫu cho salon qua chat được không?", "Can I send the salon a photo in the chat?", "Voinko lähettää salongille kuvan chatissa?"),
+        a: l3(
+          "Được. Trong khung chat, nút đính kèm ảnh nằm bên trái ô nhập tin nhắn. Gửi ảnh mẫu móng, mi hay kiểu tóc bạn thích giúp salon tư vấn và báo giá chính xác hơn. Mọi tin nhắn được lưu trong Hộp thư: bấm vào tên bạn ở góc trên và chọn “Hộp thư” để xem lại.",
+          "Yes. In the chat window, the attach-photo button is to the left of the message box. Sending a photo of the nails, lashes or hairstyle you like helps the salon advise you and quote more accurately. All messages are kept in your inbox: tap your name at the top and choose “Inbox” to read them again.",
+          "Kyllä. Chat-ikkunassa kuvan liittämispainike on viestikentän vasemmalla puolella. Kuva haluamistasi kynsistä, ripsistä tai kampauksesta auttaa salonkia neuvomaan ja hinnoittelemaan tarkemmin. Kaikki viestit säilyvät tililläsi: napauta nimeäsi ylhäällä ja valitse ”Viestit”, niin näet ne uudelleen."
+        ),
+      },
+      {
+        q: l3("Ai được viết đánh giá salon trên VaraaAi?", "Who can review a salon on VaraaAi?", "Kuka voi arvostella salongin VaraaAissa?"),
+        a: l3(
+          "Chỉ khách đã đặt lịch ở salon đó mới viết được đánh giá, từ email mời đánh giá hoặc từ lịch hẹn đã hoàn thành trong “Lịch hẹn của tôi”. Salon xem đánh giá trước khi đăng lên trang của họ. Nhờ vậy, đánh giá trên VaraaAi đến từ những người đã thật sự làm dịch vụ.",
+          "Only customers who booked at that salon can write a review, from the invitation email or from a completed booking in “My bookings”. The salon reads the review before publishing it on its page. That way, reviews on VaraaAi come from people who really had the treatment.",
+          "Vain salonkiin varanneet asiakkaat voivat kirjoittaa arvostelun, joko kutsusähköpostista tai valmiista varauksesta ”Varaukseni”-sivulla. Salonki lukee arvostelun ennen kuin julkaisee sen sivullaan. Näin VaraaAin arvostelut tulevat ihmisiltä, jotka ovat oikeasti käyneet hoidossa."
+        ),
+      },
+      {
+        q: l3("Học các video này có mất phí không?", "Do the videos cost anything?", "Maksavatko videot jotain?"),
+        a: l3(
+          "Không. Mọi video trong Học viện VaraaAi đều miễn phí và không cần đăng nhập để xem. Video thuyết minh tiếng Việt và có bản thu tiếng Anh; trang học có chữ tiếng Việt, tiếng Anh và tiếng Phần Lan. Tiến độ, điểm và huy hiệu được lưu trong trình duyệt bạn đang dùng.",
+          "No. Every video in VaraaAi Academy is free and needs no sign-in. The videos are narrated in Vietnamese and also recorded in English, and the lesson pages are in Vietnamese, English and Finnish. Your progress, points and badges are saved in the browser you are using.",
+          "Eivät. Kaikki VaraaAi-akatemian videot ovat ilmaisia eivätkä vaadi kirjautumista. Videot on äänitetty vietnamiksi ja englanniksi, ja oppituntisivut ovat vietnamiksi, englanniksi ja suomeksi. Edistyminen, pisteet ja merkit tallentuvat käyttämääsi selaimeen."
+        ),
+      },
+    ],
+    keywords: [
+      "cách huỷ lịch hẹn online",
+      "huỷ lịch làm nail",
+      "xem lịch hẹn làm đẹp",
+      "nhắn tin cho tiệm nail",
+      "viết đánh giá salon",
+      "đánh giá tiệm nail",
+      "chính sách huỷ lịch salon",
+      "quản lý lịch hẹn làm đẹp",
+    ],
+  },
+  /* ================= customers: rewards ================= */
+  {
+    id: "c-perks",
+    slug: "the-thanh-vien-the-qua-tang",
+    metaTitle: l3(
+      "Thẻ thành viên, thẻ quà tặng salon: tích vé, nhận ưu đãi",
+      "Salon Member Cards and Gift Cards: Collect Stamps, Save",
+      "Salongin jäsen- ja lahjakortit: kerää leimoja ja säästä"
+    ),
+    metaDescription: l3(
+      "Video miễn phí: tích vé bằng thẻ thành viên QR, mời bạn bè để nhận thêm 2 vé, mua thẻ quà tặng của salon, theo dõi salon và xem hoá đơn trên điện thoại.",
+      "Free videos: collect stamps on a QR member card, invite friends for 2 extra stamps, buy a salon gift card, follow salons and open your invoice on your phone.",
+      "Ilmaiset videot: kerää leimoja QR-jäsenkorttiin, kutsu ystäviä ja saa 2 lisäleimaa, osta salongin lahjakortti, seuraa salonkeja ja avaa lasku puhelimella."
+    ),
+    headline: l3(
+      "Thẻ thành viên và thẻ quà tặng: tích vé, mời bạn bè và nhận ưu đãi từ salon bạn yêu thích",
+      "Member cards and gift cards: collect stamps, invite friends and get rewards from your favourite salon",
+      "Jäsen- ja lahjakortit: kerää leimoja, kutsu ystäviä ja saa etuja lempisalongistasi"
+    ),
+    tagline: l3(
+      "Bốn video ngắn: thẻ tích điểm QR, thẻ quà tặng, theo dõi salon và mua sản phẩm, hoá đơn bằng mã QR.",
+      "Four short videos: the QR loyalty card, gift cards, following salons and their shop, and QR invoices.",
+      "Neljä lyhyttä videota: QR-kanta-asiakaskortti, lahjakortit, salonkien seuraaminen ja kauppa sekä QR-laskut."
+    ),
+    level: l3("Cho khách hàng", "For customers", "Asiakkaille"),
+    outcomes: [
+      l3(
+        "Mở thẻ tích điểm trong tài khoản và đưa mã QR để được cộng vé mỗi lần đến.",
+        "Open your loyalty card in your account and show the QR code to get a stamp at every visit.",
+        "Avaat kanta-asiakaskortin tililtäsi ja näytät QR-koodin, niin saat leiman joka käynnillä."
+      ),
+      l3(
+        "Gửi link mời bạn bè và nhận thêm 2 vé khi họ đến salon lần đầu.",
+        "Send friends your invite link and get 2 extra stamps when they visit for the first time.",
+        "Lähetät ystäville kutsulinkin ja saat 2 lisäleimaa, kun he käyvät ensimmäistä kertaa."
+      ),
+      l3(
+        "Theo dõi vòng tiến độ, biết khi nào đủ vé để nhận giảm giá và nhớ báo nhân viên.",
+        "Follow your progress ring, know when the card is full and remember to tell the staff.",
+        "Seuraat edistymistäsi, tiedät milloin kortti on täynnä ja muistat kertoa siitä henkilökunnalle."
+      ),
+      l3(
+        "Mua thẻ quà tặng trên website salon, nhận mã qua email và tặng lại người thân.",
+        "Buy a gift card on the salon's website, get the code by email and pass it on as a gift.",
+        "Ostat lahjakortin salongin verkkosivuilta, saat koodin sähköpostiin ja annat sen lahjaksi."
+      ),
+      l3(
+        "Theo dõi salon để thấy bài viết mới trong Bảng tin, đặt mua sản phẩm và nhận tại salon.",
+        "Follow salons to see their new posts in your feed, and order products to collect at the salon.",
+        "Seuraat salonkeja ja näet niiden julkaisut syötteessä sekä tilaat tuotteita noudettavaksi salongista."
+      ),
+      l3(
+        "Quét mã QR tại quầy hoặc mở email để xem lại hoá đơn trên điện thoại.",
+        "Scan the QR code at the counter or open the email to see your invoice on your phone.",
+        "Skannaat QR-koodin kassalla tai avaat sähköpostin ja näet laskun puhelimellasi."
+      ),
+    ],
+    intro: [
+      l3(
+        "Bạn hay làm móng, nối mi hay chăm sóc da ở một salon quen? Khóa học Ưu đãi và thẻ của Học viện VaraaAi giúp bạn dùng hết những ưu đãi salon dành cho khách quen: thẻ thành viên tích vé, phần thưởng khi giới thiệu bạn bè, thẻ quà tặng cho người thân, bảng tin của salon và hoá đơn ngay trên điện thoại. Khóa học gồm bốn video ngắn, miễn phí, xem trên điện thoại mà không cần đăng nhập.",
+        "Do you go to the same salon for your nails, lashes or facials? The Rewards and cards course at VaraaAi Academy helps you make the most of what salons offer their regulars: a member card that collects stamps, a reward for recommending friends, gift cards for the people you love, the salon's news feed and your invoice right on your phone. The course is four short free videos you can watch on your phone without signing in.",
+        "Käytkö kynsi-, ripsi- tai kasvohoidoissa aina samassa salongissa? VaraaAi-akatemian Edut ja kortit -kurssi auttaa hyödyntämään kaiken, mitä salongit tarjoavat kanta-asiakkailleen: leimoja keräävän jäsenkortin, palkinnon ystävien suosittelemisesta, lahjakortit läheisille, salongin uutissyötteen ja laskun suoraan puhelimeen. Kurssissa on neljä lyhyttä ilmaista videota, jotka voit katsoa puhelimella ilman kirjautumista."
+      ),
+      l3(
+        "Bài đầu tiên là thẻ thành viên. Salon kích hoạt thẻ và gửi cho bạn qua email; trong tài khoản, bạn bấm vào tên mình ở góc trên và chọn “Thẻ tích điểm” để mở thẻ. Mỗi lần đến salon, bạn đưa mã QR trên thẻ cho nhân viên quét để được cộng 1 vé, và xem vòng tròn tiến độ cùng lịch sử vé bất cứ lúc nào. Đủ số vé salon đặt ra, bạn được giảm giá ở lần làm tiếp theo; nhớ báo với nhân viên khi đến.",
+        "The first lesson is the member card. The salon activates your card and emails it to you; in your account, tap your name at the top and open your loyalty cards. At every visit you show the QR code on the card to the staff to get 1 stamp, and you can check your progress ring and stamp history at any time. When you reach the number of stamps the salon has set, you get a discount on your next visit; just remember to tell the staff.",
+        "Ensimmäinen oppitunti käsittelee jäsenkorttia. Salonki aktivoi korttisi ja lähettää sen sähköpostiisi; tililläsi napautat nimeäsi ylhäällä ja avaat kanta-asiakaskortit. Jokaisella käynnillä näytät kortin QR-koodin henkilökunnalle ja saat yhden leiman, ja voit milloin tahansa katsoa edistymisesi ja leimahistoriasi. Kun salongin asettama leimamäärä täyttyy, saat alennuksen seuraavasta käynnistä; muista vain kertoa siitä henkilökunnalle."
+      ),
+      l3(
+        "Mỗi thẻ có phần “Mời bạn bè” với link mời riêng của bạn. Bạn sao chép link và gửi cho bạn bè; khi người bạn đặt lịch qua link và đến salon lần đầu, bạn được cộng thêm 2 vé. Vé thưởng chỉ được cộng khi bạn bè thật sự đến salon, không phải lúc bạn gửi link, nên chương trình công bằng cho cả bạn lẫn salon.",
+        "Every card has an “Invite friends” section with your own invite link. Copy the link and send it to friends; when a friend books through it and visits the salon for the first time, you get 2 extra stamps. The bonus is only added when the friend actually comes to the salon, not when you send the link, so it is fair to you and to the salon.",
+        "Jokaisessa kortissa on ”Kutsu ystäviä” -osio ja oma kutsulinkkisi. Kopioi linkki ja lähetä se ystäville; kun ystävä varaa sen kautta ja käy salongissa ensimmäistä kertaa, saat 2 lisäleimaa. Lisäleimat tulevat vasta, kun ystävä todella käy salongissa, eivät linkin lähettämisestä, joten järjestely on reilu sekä sinulle että salongille."
+      ),
+      l3(
+        "Bài thẻ quà tặng chỉ cách mua thẻ trên website của salon, nơi mỗi thẻ ghi rõ dịch vụ, mức giảm giá, thời hạn và giá bán. Bạn bấm “Mua thẻ này”, điền họ tên và email, rồi nhận mã thẻ cùng mã QR qua email; thẻ được kích hoạt sau khi salon xác nhận bạn đã thanh toán. Muốn tặng ai, bạn chỉ cần chuyển tiếp email đó. Khi đến salon, bạn đưa mã QR hoặc đọc mã thẻ, nhân viên kiểm tra và trừ một lần dùng. Mã thẻ quà tặng cũng nhập được vào ô “Mã giảm giá” khi đặt lịch online.",
+        "The gift card lesson shows how to buy a card on the salon's website, where each card lists the service, the discount, how long it is valid and the price. Press “Buy this card”, fill in your name and email, and the card code and a QR code arrive by email; the card is activated once the salon confirms your payment. To give it to someone, simply forward that email. At the salon, show the QR code or read out the card code, and the staff check it and count one use. A gift-card code also works in the “Discount code” box when you book online.",
+        "Lahjakorttioppitunti näyttää, miten kortti ostetaan salongin verkkosivuilta, joilla jokaisessa kortissa näkyvät palvelu, alennus, voimassaolo ja hinta. Valitse kortti, täytä nimi ja sähköposti, niin kortin koodi ja QR-koodi tulevat sähköpostiisi; kortti aktivoituu, kun salonki vahvistaa maksun. Jos haluat antaa sen lahjaksi, välitä viesti eteenpäin. Salongissa näytät QR-koodin tai kerrot koodin, ja henkilökunta tarkistaa sen ja kirjaa yhden käyttökerran. Lahjakorttikoodin voi syöttää myös alennuskoodikenttään verkkovarauksen yhteydessä."
+      ),
+      l3(
+        "Hai bài cuối giúp bạn gần salon hơn. Bấm “Theo dõi” trên trang salon để bài viết mới, ưu đãi và mẫu mới hiện trong Bảng tin của bạn; trong mục “Sản phẩm”, bạn đặt mua sản phẩm rồi nhận tại salon, chọn thanh toán tại salon, chuyển khoản hoặc trao đổi với salon. Khi thanh toán ở quầy, bạn nhờ nhân viên bấm “Hiện mã QR” và quét bằng camera để mở hoá đơn ngay trong trình duyệt, có tên salon, số hoá đơn, dịch vụ, thuế, tổng tiền và cách thanh toán. Không ở quầy thì nhờ salon gửi hoá đơn qua email.",
+        "The last two lessons bring you closer to the salon. Press “Follow” on the salon's page so new posts, offers and new styles show up in your feed; under “Products” you can order products to collect at the salon, paying at the salon, by bank transfer or as agreed with the salon. When you pay at the counter, ask the staff to show the QR code and scan it with your camera to open the invoice in your browser, with the salon's name, invoice number, services, tax, total and payment method. Not at the counter? Ask the salon to email the invoice.",
+        "Kaksi viimeistä oppituntia tuovat sinut lähemmäs salonkia. Paina salongin sivulla ”Seuraa”, niin uudet julkaisut, tarjoukset ja mallit näkyvät syötteessäsi; ”Tuotteet”-kohdasta voit tilata tuotteita noudettavaksi salongista ja maksaa salongissa, tilisiirrolla tai salongin kanssa sopien. Kun maksat kassalla, pyydä henkilökuntaa näyttämään QR-koodi ja skannaa se kameralla, niin lasku aukeaa selaimeen salongin nimen, laskun numeron, palvelujen, veron, summan ja maksutavan kera. Etkö ole kassalla? Pyydä lasku sähköpostiin."
+      ),
+      l3(
+        "Như mọi khóa của Học viện, mỗi bài có video quay trên trang thật với người hướng dẫn nói từng bước, các bước bằng chữ và bài kiểm tra nhanh để nhận điểm, huy hiệu. Video thuyết minh tiếng Việt và có bản thu tiếng Anh. Học xong mọi bài dành cho khách hàng, bạn tải được chứng nhận hoàn thành “Sử dụng VaraaAi dành cho khách hàng” mang tên mình.",
+        "Like every Academy course, each lesson has a video filmed on the real site with a guide talking through each step, written steps and a quick quiz for points and badges. The videos are narrated in Vietnamese and also recorded in English. Finish every lesson for customers to download the certificate of completion “Using VaraaAi as a customer” with your name on it.",
+        "Kuten kaikilla akatemian kursseilla, jokaisessa oppitunnissa on video oikealla sivustolla, jossa opastaja kertoo vaiheet, sekä kirjalliset vaiheet ja pikavisa pisteineen ja merkkeineen. Videot on äänitetty vietnamiksi ja englanniksi. Kun suoritat kaikki asiakkaiden oppitunnit, voit ladata nimelläsi varustetun todistuksen ”VaraaAin käyttö asiakkaana”."
+      ),
+    ],
+    forWho: [
+      l3(
+        "Khách quen của một salon muốn tích vé và nhận giảm giá.",
+        "Regulars at a salon who want to collect stamps and get discounts.",
+        "Salongin kanta-asiakkaat, jotka haluavat kerätä leimoja ja saada alennuksia."
+      ),
+      l3(
+        "Người muốn giới thiệu salon mình thích cho bạn bè và được thưởng.",
+        "Anyone who wants to recommend a favourite salon to friends and be rewarded.",
+        "Kaikki, jotka haluavat suositella lempisalonkiaan ystäville ja saada siitä palkinnon."
+      ),
+      l3(
+        "Người đang tìm quà sinh nhật, quà lễ là một buổi làm đẹp cho người thân.",
+        "Anyone looking for a birthday or holiday gift of a beauty treatment for someone they love.",
+        "Kaikki, jotka etsivät läheiselle syntymäpäivä- tai juhlalahjaksi kauneushoitoa."
+      ),
+      l3(
+        "Người Việt ở Phần Lan, châu Âu muốn được hướng dẫn bằng tiếng Việt.",
+        "Vietnamese speakers in Finland and Europe who want guidance in their language.",
+        "Suomessa ja Euroopassa asuvat vietnaminkieliset, jotka haluavat ohjeet omalla kielellään."
+      ),
+    ],
+    faq: [
+      {
+        q: l3("Thẻ thành viên salon trên VaraaAi hoạt động thế nào?", "How does a salon member card on VaraaAi work?", "Miten salongin jäsenkortti toimii VaraaAissa?"),
+        a: l3(
+          "Salon kích hoạt thẻ cho bạn và gửi qua email. Mỗi lần đến, bạn đưa mã QR trên thẻ cho nhân viên quét để được cộng 1 vé. Đủ số vé salon đặt ra, bạn được giảm giá ở lần làm tiếp theo. Để mở thẻ, bấm vào tên mình ở góc trên và chọn “Thẻ tích điểm”.",
+          "The salon activates the card for you and emails it to you. At each visit you show the QR code on the card to the staff and get 1 stamp. When you reach the number of stamps the salon has set, you get a discount on your next visit. To open the card, tap your name at the top and choose your loyalty cards.",
+          "Salonki aktivoi kortin ja lähettää sen sähköpostiisi. Jokaisella käynnillä näytät kortin QR-koodin henkilökunnalle ja saat yhden leiman. Kun salongin asettama leimamäärä täyttyy, saat alennuksen seuraavasta käynnistä. Kortin löydät napauttamalla nimeäsi ylhäällä ja valitsemalla kanta-asiakaskortit."
+        ),
+      },
+      {
+        q: l3("Mời bạn bè đến salon thì được thưởng gì?", "What do I get for inviting friends?", "Mitä saan ystävien kutsumisesta?"),
+        a: l3(
+          "Mỗi thẻ có link mời riêng trong phần “Mời bạn bè”. Khi người bạn đặt lịch qua link và đến salon lần đầu, bạn được cộng thêm 2 vé một cách tự động. Vé thưởng chỉ được cộng khi bạn bè thật sự đến salon, không phải lúc bạn gửi link.",
+          "Every card has its own invite link under “Invite friends”. When a friend books through the link and visits the salon for the first time, you automatically get 2 extra stamps. The bonus is only added when the friend actually comes to the salon, not when you send the link.",
+          "Jokaisessa kortissa on oma kutsulinkki ”Kutsu ystäviä” -kohdassa. Kun ystävä varaa linkin kautta ja käy salongissa ensimmäistä kertaa, saat automaattisesti 2 lisäleimaa. Lisäleimat tulevat vasta, kun ystävä todella käy salongissa, eivät linkin lähettämisestä."
+        ),
+      },
+      {
+        q: l3("Mua thẻ quà tặng làm đẹp cho người thân ở đâu?", "Where can I buy a beauty gift card for someone?", "Mistä ostan kauneushoitolan lahjakortin läheiselle?"),
+        a: l3(
+          "Trên website của salon, ở phần “Thẻ quà tặng”. Chọn thẻ, bấm “Mua thẻ này” và điền họ tên, email. Mã thẻ và mã QR đến email ngay, nhưng chỉ dùng được sau khi salon xác nhận thanh toán. Để tặng, bạn chuyển tiếp email cho người nhận. Nhớ xem kỹ thời hạn và số lần dùng trước khi mua.",
+          "On the salon's website, in its gift card section. Choose a card, press “Buy this card” and fill in your name and email. The card code and QR code arrive by email straight away, but the card works only after the salon confirms the payment. To give it, forward the email. Check the validity and number of uses before you buy.",
+          "Salongin verkkosivuilta, lahjakorttiosiosta. Valitse kortti, paina ostopainiketta ja täytä nimi ja sähköposti. Koodi ja QR-koodi tulevat heti sähköpostiin, mutta kortti toimii vasta, kun salonki on vahvistanut maksun. Lahjaksi antaessasi välitä viesti eteenpäin. Tarkista voimassaolo ja käyttökerrat ennen ostoa."
+        ),
+      },
+      {
+        q: l3("Làm sao xem lại hoá đơn sau khi làm đẹp?", "How do I get my invoice after a treatment?", "Miten saan laskun hoidon jälkeen?"),
+        a: l3(
+          "Khi thanh toán ở quầy, nhờ nhân viên bấm “Hiện mã QR” rồi quét bằng camera điện thoại; hoá đơn mở ngay trong trình duyệt với tên salon, số hoá đơn, dịch vụ, thuế, tổng tiền và cách thanh toán. Không ở quầy thì nhờ salon gửi hoá đơn qua email và bấm vào đường link trong email.",
+          "When you pay at the counter, ask the staff to show the QR code and scan it with your phone's camera; the invoice opens in your browser with the salon's name, invoice number, services, tax, total and payment method. If you are not at the counter, ask the salon to email the invoice and tap the link in the email.",
+          "Kun maksat kassalla, pyydä henkilökuntaa näyttämään QR-koodi ja skannaa se puhelimen kameralla; lasku aukeaa selaimeen salongin nimen, laskun numeron, palvelujen, veron, summan ja maksutavan kera. Jos et ole kassalla, pyydä lasku sähköpostiin ja napauta viestin linkkiä."
+        ),
+      },
+      {
+        q: l3("Học các video này có mất phí, có chứng nhận không?", "Are the videos free, and is there a certificate?", "Ovatko videot ilmaisia, ja saako todistuksen?"),
+        a: l3(
+          "Miễn phí và không cần đăng nhập để xem. Tiến độ được lưu trong trình duyệt; học xong mọi bài dành cho khách hàng, bạn điền tên và tải chứng nhận hoàn thành “Sử dụng VaraaAi dành cho khách hàng”. Đây là chứng nhận của Học viện, không phải bằng cấp chính thức.",
+          "They are free and need no sign-in. Your progress is saved in your browser; when you finish every lesson for customers, you enter your name and download the certificate of completion “Using VaraaAi as a customer”. It comes from the Academy and is not an official qualification.",
+          "Ne ovat ilmaisia eivätkä vaadi kirjautumista. Edistyminen tallentuu selaimeen; kun suoritat kaikki asiakkaiden oppitunnit, kirjoitat nimesi ja lataat todistuksen ”VaraaAin käyttö asiakkaana”. Todistus on akatemian oma, ei virallinen tutkinto."
+        ),
+      },
+    ],
+    keywords: [
+      "thẻ thành viên tiệm nail",
+      "thẻ tích điểm salon",
+      "thẻ quà tặng làm đẹp",
+      "voucher spa tặng người thân",
+      "mời bạn bè nhận ưu đãi",
+      "ưu đãi khách quen tiệm nail",
+      "mua thẻ quà tặng làm nail",
+      "xem hoá đơn bằng mã QR",
+    ],
+  },
 ];
 
 export const courseSeoById = (id: string) => COURSE_SEO.find((c) => c.id === id) ?? null;

@@ -37,7 +37,7 @@ export function AcademyCatalogue({ courses, locale, lessons, seconds }: { course
     return courses.filter((c) => {
       if (lang === "en" && !c.langs.includes("en")) return false;
       if (!words.length) return true;
-      const hay = fold(`${c.title} ${c.headline} ${c.tagline} ${track[c.audience]}`);
+      const hay = fold(`${c.title} ${c.name} ${c.headline} ${c.tagline} ${track[c.audience]}`);
       return words.every((w) => hay.includes(w));
     });
   }, [courses, q, lang, track]);
@@ -161,9 +161,10 @@ export function AcademyCatalogue({ courses, locale, lessons, seconds }: { course
               <section key={g.id} id={g.id} className="scroll-mt-24">
                 <h2 className="text-2xl font-extrabold tracking-tight text-ink-900 sm:text-3xl">{g.title}</h2>
                 <p className="mt-1 text-sm text-ink-400 sm:text-base">{g.body}</p>
-                <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {/* phones: a swipeable shelf; larger screens: a grid */}
+                <ul className="-mx-4 mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-4 pb-3 [scrollbar-width:none] sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3 xl:grid-cols-4 [&::-webkit-scrollbar]:hidden">
                   {g.list.map((c) => (
-                    <li key={g.id + c.id}>
+                    <li key={g.id + c.id} className="w-[80%] max-w-[320px] shrink-0 snap-start sm:w-auto sm:max-w-none">
                       <CourseCardView c={c} locale={locale} trackName={track[c.audience]} english={!!g.enLink} />
                     </li>
                   ))}
@@ -198,7 +199,7 @@ function CourseCardView({ c, locale, trackName, english }: { c: CatalogueCourse;
         </span>
       </span>
       <span className="flex flex-1 flex-col p-4">
-        <span className="line-clamp-2 text-[15px] font-extrabold leading-snug text-ink-900 sm:text-base">{english ? c.headlineEn : c.headline}</span>
+        <span className="line-clamp-2 text-[15px] font-extrabold leading-snug text-ink-900 sm:text-base">{english ? c.nameEn : c.name}</span>
         <span className="mt-1 text-xs font-semibold text-ink-400">{s.catBy}</span>
         <span className="mt-2 flex flex-wrap items-center gap-1.5 text-xs font-semibold text-ink-500">
           <span className="inline-flex items-center gap-1">

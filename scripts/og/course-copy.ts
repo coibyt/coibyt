@@ -28,7 +28,8 @@ for (const seo of COURSE_SEO) {
     out[seo.slug][locale] = {
       eyebrow: `${s.academy} · ${track}`,
       title: title.trim(),
-      accent: rest.length ? c.title : "",
+      // The course name as the gold second line, unless the title already says it.
+      accent: rest.length && !title.toLowerCase().includes(c.title.toLowerCase()) ? c.title : "",
       chips: [s.free, s.lessons(c.live), hours(c.seconds, locale), s.certificate.split(" ")[0] === "Chứng" ? "Có chứng nhận" : locale === "fi" ? "Todistus" : "Certificate"],
       cta: s.start,
     };

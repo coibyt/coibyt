@@ -52,18 +52,26 @@ export function LocaleSwitcher() {
     if (isValidLocale(next)) router.replace(pathname, { locale: next });
   }
 
+  // Phones show the short code (VI ▾) so the header never overflows; the
+  // transparent select on top still opens the native picker.
   return (
-    <select
-      value={locale}
-      onChange={(e) => onChange(e.target.value)}
-      aria-label="Switch language"
-      className="btn-ghost cursor-pointer !px-2 bg-transparent text-xs font-bold uppercase"
-    >
-      {routing.locales.map((l) => (
-        <option key={l} value={l}>
-          {LOCALE_LABELS[l] ?? l.toUpperCase()}
-        </option>
-      ))}
-    </select>
+    <span className="relative inline-flex items-center">
+      <span aria-hidden className="btn-ghost pointer-events-none !gap-1 !px-2 text-xs font-bold uppercase sm:hidden">
+        {locale}
+        <svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="currentColor"><path d="M5.3 7.3a1 1 0 0 1 1.4 0L10 10.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 0-1.4Z" /></svg>
+      </span>
+      <select
+        value={locale}
+        onChange={(e) => onChange(e.target.value)}
+        aria-label="Switch language"
+        className="btn-ghost absolute inset-0 h-full w-full cursor-pointer bg-transparent !px-2 text-xs font-bold uppercase opacity-0 sm:static sm:h-auto sm:w-auto sm:opacity-100"
+      >
+        {routing.locales.map((l) => (
+          <option key={l} value={l}>
+            {LOCALE_LABELS[l] ?? l.toUpperCase()}
+          </option>
+        ))}
+      </select>
+    </span>
   );
 }

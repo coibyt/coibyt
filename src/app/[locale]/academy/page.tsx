@@ -61,7 +61,7 @@ export default async function AcademyPage({ params }: { params: Params }) {
 
       {/* The learning path with progress, badges and the certificate. */}
       <div id="lo-trinh" className="scroll-mt-20 border-t border-ink-100 bg-white">
-        <div className="container pt-12 text-center">
+        <div className="container pb-14 pt-12 text-center sm:pb-16">
           <h2 className="text-2xl font-extrabold tracking-tight text-ink-900 sm:text-3xl">{cs.catPathTitle}</h2>
           <p className="mt-1 text-sm text-ink-400 sm:text-base">{cs.catPathBody}</p>
         </div>

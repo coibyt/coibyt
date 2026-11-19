@@ -1,0 +1,496 @@
+{
+  "hoc-nail-online": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Học nghề",
+      "title": "Học nail online miễn phí",
+      "accent": "Nghề Nail",
+      "chips": [
+        "Miễn phí",
+        "18 bài video",
+        "1 giờ 28 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Trade skills",
+      "title": "Learn nails online for free",
+      "accent": "",
+      "chips": [
+        "Free",
+        "18 video lessons",
+        "1 h 28 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Ammattitaidot",
+      "title": "Opi kynsiala verkossa ilmaiseksi",
+      "accent": "Kynnet",
+      "chips": [
+        "Maksuton",
+        "18 videotuntia",
+        "1 h 28 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "hoc-noi-mi-online": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Học nghề",
+      "title": "Học nối mi online miễn phí",
+      "accent": "Nghề Mi",
+      "chips": [
+        "Miễn phí",
+        "16 bài video",
+        "1 giờ 16 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Trade skills",
+      "title": "Learn lash extensions online for free",
+      "accent": "Lashes",
+      "chips": [
+        "Free",
+        "16 video lessons",
+        "1 h 16 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Ammattitaidot",
+      "title": "Opi ripsienpidennykset verkossa ilmaiseksi",
+      "accent": "Ripset",
+      "chips": [
+        "Maksuton",
+        "16 videotuntia",
+        "1 h 16 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "hoc-cat-toc-online": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Học nghề",
+      "title": "Học cắt tóc online miễn phí",
+      "accent": "Nghề Tóc",
+      "chips": [
+        "Miễn phí",
+        "4 bài video",
+        "19 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Trade skills",
+      "title": "Learn hair cutting online for free",
+      "accent": "",
+      "chips": [
+        "Free",
+        "4 video lessons",
+        "19 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Ammattitaidot",
+      "title": "Opi hiustenleikkuu verkossa ilmaiseksi",
+      "accent": "Hiukset",
+      "chips": [
+        "Maksuton",
+        "4 videotuntia",
+        "19 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "hoc-spa-cham-soc-da": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Học nghề",
+      "title": "Học spa và chăm sóc da online miễn phí",
+      "accent": "Spa & chăm sóc da",
+      "chips": [
+        "Miễn phí",
+        "4 bài video",
+        "18 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Trade skills",
+      "title": "Learn spa and skin care online for free",
+      "accent": "Spa & skin care",
+      "chips": [
+        "Free",
+        "4 video lessons",
+        "18 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Ammattitaidot",
+      "title": "Opi spa- ja ihonhoito verkossa ilmaiseksi",
+      "accent": "Spa ja ihonhoito",
+      "chips": [
+        "Maksuton",
+        "4 videotuntia",
+        "18 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "ve-sinh-an-toan-salon": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Học nghề",
+      "title": "Vệ sinh và an toàn trong salon",
+      "accent": "Vệ sinh & an toàn",
+      "chips": [
+        "Miễn phí",
+        "6 bài video",
+        "31 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Trade skills",
+      "title": "Salon hygiene and safety",
+      "accent": "Hygiene & safety",
+      "chips": [
+        "Free",
+        "6 video lessons",
+        "31 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Ammattitaidot",
+      "title": "Salongin hygienia ja turvallisuus",
+      "accent": "",
+      "chips": [
+        "Maksuton",
+        "6 videotuntia",
+        "31 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "mo-salon-dat-lich-online": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Chủ salon",
+      "title": "Mở salon nhận đặt lịch online với VaraaAi",
+      "accent": "Khởi động salon",
+      "chips": [
+        "Miễn phí",
+        "6 bài video",
+        "6 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Salon owners",
+      "title": "Set up online booking for your salon with VaraaAi",
+      "accent": "Launch your salon",
+      "chips": [
+        "Free",
+        "6 video lessons",
+        "6 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Salongin omistajat",
+      "title": "Ota salongin verkkoajanvaraus käyttöön VaraaAilla",
+      "accent": "Salongin käyttöönotto",
+      "chips": [
+        "Maksuton",
+        "6 videotuntia",
+        "6 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "thu-hut-khach-cho-salon": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Chủ salon",
+      "title": "Thu hút khách cho salon",
+      "accent": "Nhận khách ở mọi nơi",
+      "chips": [
+        "Miễn phí",
+        "6 bài video",
+        "8 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Salon owners",
+      "title": "Get more bookings for your salon",
+      "accent": "Get booked everywhere",
+      "chips": [
+        "Free",
+        "6 video lessons",
+        "8 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Salongin omistajat",
+      "title": "Lisää varauksia salongillesi",
+      "accent": "Varauksia joka kanavasta",
+      "chips": [
+        "Maksuton",
+        "6 videotuntia",
+        "8 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "quan-ly-salon-hang-ngay": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Chủ salon",
+      "title": "Quản lý salon hằng ngày nhẹ nhàng hơn",
+      "accent": "Vận hành hằng ngày",
+      "chips": [
+        "Miễn phí",
+        "8 bài video",
+        "8 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Salon owners",
+      "title": "Run your salon day to day with less stress",
+      "accent": "Day-to-day",
+      "chips": [
+        "Free",
+        "8 video lessons",
+        "8 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Salongin omistajat",
+      "title": "Salongin arki helpommaksi",
+      "accent": "Päivittäinen työ",
+      "chips": [
+        "Maksuton",
+        "8 videotuntia",
+        "8 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "giu-chan-khach-hang-salon": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Chủ salon",
+      "title": "Giữ chân khách hàng và tăng doanh thu cho salon",
+      "accent": "Giữ khách & tăng doanh thu",
+      "chips": [
+        "Miễn phí",
+        "6 bài video",
+        "7 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Salon owners",
+      "title": "Keep clients and grow revenue",
+      "accent": "Keep customers & grow revenue",
+      "chips": [
+        "Free",
+        "6 video lessons",
+        "7 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Salongin omistajat",
+      "title": "Pidä asiakkaat ja kasvata myyntiä",
+      "accent": "",
+      "chips": [
+        "Maksuton",
+        "6 videotuntia",
+        "7 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "mo-rong-chuoi-salon": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Chủ salon",
+      "title": "Mở rộng chuỗi salon",
+      "accent": "Mở rộng & công cụ",
+      "chips": [
+        "Miễn phí",
+        "5 bài video",
+        "5 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Salon owners",
+      "title": "Grow your salon into a chain",
+      "accent": "Grow & tools",
+      "chips": [
+        "Free",
+        "5 video lessons",
+        "5 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Salongin omistajat",
+      "title": "Kasvata salongista ketju",
+      "accent": "Kasvu ja työkalut",
+      "chips": [
+        "Maksuton",
+        "5 videotuntia",
+        "5 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "huong-dan-dat-lich-lam-dep": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Khách hàng",
+      "title": "Hướng dẫn đặt lịch làm đẹp online",
+      "accent": "Bắt đầu đặt lịch",
+      "chips": [
+        "Miễn phí",
+        "3 bài video",
+        "5 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Customers",
+      "title": "How to book a beauty appointment online",
+      "accent": "Getting started",
+      "chips": [
+        "Free",
+        "3 video lessons",
+        "5 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Asiakkaat",
+      "title": "Näin varaat kauneushoidon verkossa",
+      "accent": "Alkuun pääseminen",
+      "chips": [
+        "Maksuton",
+        "3 videotuntia",
+        "5 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "quan-ly-lich-hen-lam-dep": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Khách hàng",
+      "title": "Quản lý lịch hẹn làm đẹp trên VaraaAi",
+      "accent": "",
+      "chips": [
+        "Miễn phí",
+        "3 bài video",
+        "2 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Customers",
+      "title": "Manage your beauty bookings on VaraaAi",
+      "accent": "Managing bookings",
+      "chips": [
+        "Free",
+        "3 video lessons",
+        "2 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Asiakkaat",
+      "title": "Hallitse kauneusvarauksiasi VaraaAissa",
+      "accent": "Varausten hallinta",
+      "chips": [
+        "Maksuton",
+        "3 videotuntia",
+        "2 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
+  "the-thanh-vien-the-qua-tang": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Khách hàng",
+      "title": "Thẻ thành viên và thẻ quà tặng",
+      "accent": "Ưu đãi và thẻ",
+      "chips": [
+        "Miễn phí",
+        "4 bài video",
+        "4 phút",
+        "Có chứng nhận"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Customers",
+      "title": "Member cards and gift cards",
+      "accent": "Rewards and cards",
+      "chips": [
+        "Free",
+        "4 video lessons",
+        "4 min",
+        "Certificate"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Asiakkaat",
+      "title": "Jäsen- ja lahjakortit",
+      "accent": "Edut ja kortit",
+      "chips": [
+        "Maksuton",
+        "4 videotuntia",
+        "4 min",
+        "Todistus"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  }
+}

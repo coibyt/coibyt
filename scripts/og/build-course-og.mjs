@@ -33,7 +33,7 @@ body{position:relative;font-family:'Be Vietnam Pro',sans-serif;color:#fff;backgr
 .brand .dom{font-size:13px;font-weight:600;letter-spacing:.24em;color:#e8d3a6;margin-top:2px}
 .eyebrow{font-size:17px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#e8d3a6;display:inline-flex;align-items:center;gap:14px;white-space:nowrap}
 .eyebrow:before{content:"";width:40px;height:2px;flex:none;background:linear-gradient(90deg,#e8d3a6,#c99a3f)}
-h1{font-size:62px;line-height:1.08;font-weight:700;margin-top:20px}
+h1{font-size:62px;line-height:1.08;font-weight:700;margin-top:20px;text-wrap:balance}
 h1 em{font-style:italic;background:linear-gradient(90deg,#f3e2bb,#d9b25c);-webkit-background-clip:text;color:transparent;padding-right:6px}
 .chips{display:flex;gap:10px;margin-top:28px;flex-wrap:nowrap}
 .chip{padding:9px 17px;border-radius:999px;font-size:18px;font-weight:600;white-space:nowrap;background:rgba(255,255,255,.1);border:1px solid rgba(232,211,166,.4)}
@@ -65,7 +65,20 @@ const out = path.join(repo, "public/og/khoa-hoc");
 fs.mkdirSync(out, { recursive: true });
 const PORT = 9700 + Math.floor(Math.random() * 90);
 const profile = path.join(here, ".chrome");
-const chrome = spawn("C:/Program Files/Google/Chrome/Application/chrome.exe", ["--headless=new", "--disable-gpu", "--hide-scrollbars", "--allow-file-access-from-files", `--remote-debugging-port=${PORT}`, `--user-data-dir=${profile}`, "about:blank"]);
+// Chrome: $CHROME_PATH, else the usual Windows install, else a Linux Chrome/Chromium
+// (the cloud's pre-installed one is /opt/pw-browsers/chromium).
+const win = process.platform === "win32";
+const CHROMES = [
+  process.env.CHROME_PATH,
+  ...(win
+    ? ["C:/Program Files/Google/Chrome/Application/chrome.exe", "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"]
+    : ["/opt/pw-browsers/chromium", "/usr/bin/google-chrome", "/usr/bin/chromium", "/usr/bin/chromium-browser", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"]),
+].filter(Boolean);
+const chromePath = CHROMES.find((p) => fs.existsSync(p));
+if (!chromePath) throw new Error(`Chrome not found; set CHROME_PATH. Tried: ${CHROMES.join(", ")}`);
+const flags = ["--headless=new", "--disable-gpu", "--hide-scrollbars", "--allow-file-access-from-files", `--remote-debugging-port=${PORT}`, `--user-data-dir=${profile}`];
+if (!win && process.getuid?.() === 0) flags.push("--no-sandbox"); // Chrome refuses to run as root with the sandbox on
+const chrome = spawn(chromePath, [...flags, "about:blank"]);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let target;
 for (let i = 0; i < 60 && !target; i++) { await sleep(300); try { target = (await fetch(`http://127.0.0.1:${PORT}/json`).then((r) => r.json())).find((t) => t.type === "page"); } catch {} }
@@ -100,6 +113,7 @@ try {
   }
 } finally {
   ws.close();
-  spawnSync("taskkill", ["/F", "/T", "/PID", String(chrome.pid)]);
+  if (win) spawnSync("taskkill", ["/F", "/T", "/PID", String(chrome.pid)]);
+  else chrome.kill("SIGKILL");
 }
 process.exit(0);

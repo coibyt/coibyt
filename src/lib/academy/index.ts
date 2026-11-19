@@ -148,6 +148,9 @@ export interface CatalogueCourse {
   headline: string;
   /** English headline, for the "courses in English" shelf. */
   headlineEn: string;
+  /** Short course name for the cards (the page's title tag, ≤ ~60 characters). */
+  name: string;
+  nameEn: string;
   tagline: string;
   image: string;
   live: number;
@@ -175,6 +178,8 @@ export function catalogue(locale: string): CatalogueCourse[] {
         title: pick(c.title, locale),
         headline: pick(seo.headline, locale),
         headlineEn: seo.headline.en,
+        name: pick(seo.metaTitle, locale),
+        nameEn: seo.metaTitle.en,
         tagline: pick(seo.tagline, locale),
         image: courseImage(seo.slug),
         live: live.length,
@@ -204,15 +209,19 @@ export function coursePageData(slug: string, locale: string) {
   const { no } = numbers();
   const lessons = LESSONS.filter((l) => l.course === course.id);
   const cards = lessons.map((l) => card(l, locale, no.get(l.slug) ?? 0));
-  // Craft topics pair "<x>-hieu-dung" (theory) with "<x>" (practice); software courses are one list.
+  // Craft topics pair a theory video with the practice video right after it
+  // (gel-hieu-dung → son-gel); software courses are one list.
   const topics: CourseTopic[] = [];
   if (course.audience === "pro") {
-    const byKey = new Map<string, LessonCard[]>();
-    for (const c of cards) {
-      const k = c.slug.replace(/-hieu-dung$/, "");
-      byKey.set(k, [...(byKey.get(k) ?? []), c]);
-    }
-    for (const group of byKey.values()) {
+    const groups: { lessons: LessonCard[]; open: boolean }[] = [];
+    lessons.forEach((l, i) => {
+      const last = groups[groups.length - 1];
+      if (l.style === "practice" && last?.open) {
+        last.lessons.push(cards[i]);
+        last.open = false;
+      } else groups.push({ lessons: [cards[i]], open: l.style === "theory" });
+    });
+    for (const { lessons: group } of groups) {
       const first = group[0].title;
       topics.push({ title: group.length > 1 ? first.split(":")[0].trim() : first, lessons: group });
     }
