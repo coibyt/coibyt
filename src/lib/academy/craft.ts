@@ -6712,16 +6712,500 @@ const ALL_LESSONS: Lesson[] = [
       },
     ],
   },
-  soon("cat-mai", "p-hair", ["Cắt mái và tỉa quanh mặt", "Fringes and face framing", "Otsatukka ja kasvojen kehystys"], [
-    "Mái thưa, mái bay, curtain bangs và cách tránh cắt quá ngắn.",
-    "Wispy fringes, curtain bangs, and how not to cut too short.",
-    "Kevyt otsatukka, verho-otsatukka ja miten vältetään liian lyhyt leikkaus.",
-  ]),
-  soon("say-tao-kieu", "p-hair", ["Sấy tạo kiểu", "Blow-drying and styling", "Föönaus ja muotoilu"], [
-    "Sấy phồng chân tóc, sấy cụp, sấy xoăn bằng lược tròn và bảo vệ tóc khỏi nhiệt.",
-    "Root lift, smooth ends, round-brush curls and heat protection.",
-    "Tyvikohotus, sileät latvat, pyöröharjakiharat ja lämpösuoja.",
-  ]),
+  {
+    slug: "cat-mai-hieu-dung",
+    course: "p-hair",
+    style: "theory",
+    title: l3("Cắt mái và tỉa quanh mặt: hiểu đúng để không cắt quá ngắn", "Fringes and face framing: understand them so you never cut too short", "Otsatukka ja kasvojen kehystys: ymmärrä ne, niin et leikkaa liian lyhyeksi"),
+    summary: l3(
+      "Vì sao tóc mái là phần dễ thấy nhất của kiểu tóc, mái bằng, mái thưa và mái bay, tư vấn (khuôn mặt, vầng trán, thói quen, công sấy mỗi sáng, tỉa lại), xoáy ở chân tóc trán, thống nhất độ dài khi khô và cắt dài trước, chia vùng tam giác, tóc ướt co lên và cắt gần như không căng, tỉa bằng mũi kéo, mái bay và tóc ôm quanh mặt, kiểm tra cân khi đầu thẳng, và an toàn quanh mắt.",
+      "Why the fringe is the most visible part of a haircut, blunt, wispy and curtain fringes, the consultation (face, forehead, lifestyle, daily styling, trims), cowlicks at the front hairline, agreeing the length dry and cutting longer first, the triangle section, wet hair shrinking and cutting with almost no tension, point cutting, curtain fringes and face framing, checking symmetry with the head straight, and safety around the eyes.",
+      "Miksi otsatukka on leikkauksen näkyvin osa, suora, kevyt ja verho-otsatukka, konsultaatio (kasvot, otsa, elämäntapa, päivittäinen muotoilu, tasoitukset), pyörteet otsan hiusrajassa, pituudesta sopiminen kuivana ja leikkaaminen ensin pidemmäksi, kolmiojako, märkien hiusten kutistuminen ja leikkaaminen lähes ilman kireyttä, pistoleikkaus, verho-otsatukka ja kasvojen kehystys, symmetrian tarkistus pää suorassa sekä turvallisuus silmien lähellä."
+    ),
+    video: video("cat-mai-hieu-dung", 290, "2026-11-19"),
+    notice: l3(
+      "Nhờ khách nhắm mắt khi cắt mái; ngón tay nằm giữa lưỡi kéo và da, mũi kéo không bao giờ chĩa về phía mắt. Lược, kéo, kẹp làm sạch và khử khuẩn sau mỗi khách (bài “Xử lý dụng cụ sau mỗi khách”). Tên gọi các kiểu mái và cách cắt khác nhau giữa các trường và các nước. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Ask the customer to close their eyes while you cut a fringe; keep your fingers between the blades and the skin, and never point the scissor tips at the eyes. Combs, scissors and clips are cleaned and disinfected after every customer (lesson “Tools after every customer”). Names of fringe styles and cutting methods differ between schools and countries. This lesson is a training aid, not a licence.",
+      "Pyydä asiakasta sulkemaan silmät otsatukkaa leikatessa; pidä sormet terien ja ihon välissä äläkä koskaan osoita saksien kärjillä silmiä kohti. Kammat, sakset ja klipsit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen (tunti ”Välineet jokaisen asiakkaan jälkeen”). Otsatukkien nimet ja leikkaustavat vaihtelevat koulujen ja maiden välillä. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Mái nằm ngay trên mắt: lệch hay ngắn vài li là khách thấy. Tóc mọc chỉ khoảng một phân mỗi tháng, nên một cái mái cắt hụt khách phải sống với nó rất lâu.",
+        "The fringe sits right above the eyes: a few millimetres crooked or short and the customer sees it. Hair grows only about a centimetre a month, so a fringe cut too short stays with the customer for a long time.",
+        "Otsatukka on aivan silmien yläpuolella: muutaman millin vinous tai lyhyys näkyy heti. Hiukset kasvavat vain noin sentin kuukaudessa, joten liian lyhyt otsatukka on asiakkaan seurana pitkään."
+      ),
+      l3(
+        "Mái bằng: dày, một đường thẳng, cần tóc đủ dày và tỉa thường xuyên. Mái thưa: ít tóc, đầu mềm, thấy được trán. Mái bay (mái rèm): rẽ giữa, ngắn nhất ở giữa, dài dần ra gò má, dễ để dài nhất.",
+        "Blunt fringe: thick, one straight line, needs enough hair and frequent trims. Wispy fringe: little hair, soft ends, the forehead shows through. Curtain fringe: centre-parted, shortest in the middle, longer towards the cheekbones, the easiest to grow out.",
+        "Suora otsatukka: tuuhea, yksi suora linja, vaatii riittävästi hiusta ja usein tasoitusta. Kevyt otsatukka: vähän hiusta, pehmeät latvat, otsa kuultaa läpi. Verho-otsatukka: keskijakaus, lyhyin keskellä, pitenee poskipäitä kohti, helpoin kasvattaa pois."
+      ),
+      l3(
+        "Tư vấn kỹ: vầng trán và khuôn mặt, khách có thời gian sấy mỗi sáng không, đeo kính, chơi thể thao, hay buộc tóc. Nói trước rằng mái cần tỉa lại sau vài tuần.",
+        "Consult carefully: forehead and face shape, whether the customer has time to style it every morning, glasses, sport, wearing the hair up. Say up front that a fringe needs a trim every few weeks.",
+        "Konsultoi huolella: otsa ja kasvojen muoto, onko asiakkaalla aikaa muotoilla joka aamu, silmälasit, urheilu, hiusten kiinnittäminen. Kerro etukäteen, että otsatukka kaipaa tasoitusta muutaman viikon välein."
+      ),
+      l3(
+        "Vén tóc lên tìm xoáy ở chân tóc trán. Xoáy mạnh: để mái dài và dày hơn, chọn mái bay rẽ theo hướng mọc — hoặc khuyên khách đừng cắt mái.",
+        "Lift the hair and look for a cowlick at the front hairline. A strong one: leave the fringe longer and heavier, choose a curtain fringe that follows the growth — or advise against a fringe.",
+        "Nosta hiukset ja etsi pyörre otsan hiusrajasta. Voimakas pyörre: jätä otsatukka pidemmäksi ja tuuheammaksi, valitse kasvusuuntaa seuraava verho-otsatukka — tai neuvo jättämään otsatukka leikkaamatta."
+      ),
+      l3(
+        "Thống nhất độ dài khi tóc khô, ngay trên mặt khách (chạm lông mày, dưới lông mày, ngang gò má). Lần cắt đầu tiên dài tới đầu mũi hay môi, rồi mới ngắn dần.",
+        "Agree the length on dry hair, right on the face (touching the brows, below the brows, at the cheekbones). Make the first cut long, at the tip of the nose or the lips, then shorten gradually.",
+        "Sovi pituus kuivista hiuksista suoraan kasvoilla (kulmakarvoihin, kulmien alle, poskipäihin). Ensimmäinen leikkaus pitkäksi, nenänpäähän tai huuliin, ja lyhennä sitten vähitellen."
+      ),
+      l3(
+        "Chia vùng tam giác: đỉnh trên đỉnh đầu chỗ đầu bắt đầu cong xuống, hai góc ở hai góc trán trên đuôi lông mày. Tam giác sâu thì mái dày, nông thì mái thưa; đừng lấy rộng ra thái dương.",
+        "Triangle section: the apex on top of the head where it starts to curve down, the two corners at the front corners of the forehead above the outer brows. A deep triangle gives a thick fringe, a shallow one a wispy fringe; don't reach out to the temples.",
+        "Kolmiojako: kärki päälaella kohdassa, jossa pää alkaa kaartua alas, kulmat otsan kulmissa kulmakarvojen ulkopäiden yläpuolella. Syvä kolmio antaa tuuhean, matala kevyen otsatukan; älä ulota jakoa ohimoille."
+      ),
+      l3(
+        "Tóc ướt dài ra, khô rồi co lên, chỗ có xoáy còn bật lên. Cắt mái gần như không có lực căng, ngón tay chỉ đỡ hờ; nhiều thợ cắt lần cuối khi tóc đã khô.",
+        "Wet hair stretches, dry hair shrinks, and over a cowlick it jumps up. Cut a fringe with almost no tension, the fingers barely holding; many stylists make the final cut on dry hair.",
+        "Märät hiukset venyvät, kuivat kutistuvat ja pyörteen kohdalla ne ponnahtavat ylös. Leikkaa otsatukka lähes ilman kireyttä, sormet vain kevyesti tukien; moni kampaaja tekee viimeisen leikkauksen kuiviin hiuksiin."
+      ),
+      l3(
+        "Tỉa bằng mũi kéo cho đầu mái mềm: mũi kéo dựng lên, nhát nhỏ vào đầu tóc. Mái bằng tỉa rất ít; mái thưa, mái bay tỉa nhiều hơn — nhưng đừng tỉa quá sâu.",
+        "Point-cut to soften the ends: scissor tips pointing up, small snips into the ends. Very little on a blunt fringe, more on wispy and curtain fringes — but never too deep.",
+        "Pehmennä latvat pistoleikkauksella: saksien kärjet ylöspäin, pieniä näpsäyksiä latvoihin. Suoraan otsatukkaan hyvin vähän, kevyeen ja verho-otsatukkaan enemmän — mutta ei liian syvälle."
+      ),
+      l3(
+        "Mái bay: rẽ đôi, mỗi nửa cắt chéo từ giữa trán ra gò má; tóc quanh mặt nối tiếp đường chéo xuống cằm hay xương quai xanh, cắt ra ngoài, xa mặt — một đường liền, không gãy.",
+        "Curtain fringe: part it in the centre and cut each half on a diagonal from the middle of the forehead to the cheekbone; face-framing pieces continue that diagonal to the chin or collarbone, cut away from the face — one continuous line.",
+        "Verho-otsatukka: jaa keskeltä ja leikkaa kumpikin puoli viistosti otsan keskeltä poskipäähän; kasvoja kehystävät suortuvat jatkavat viistoa leukaan tai solisluuhun, leikataan kasvoista poispäin — yksi yhtenäinen linja."
+      ),
+      l3(
+        "Kiểm tra cân khi đầu khách thẳng, mắt nhìn thẳng; so hai bên ở cùng một mốc rồi lùi lại nhìn cả khuôn mặt. Khách nhắm mắt khi cắt, dừng tay khi khách cử động, phủi tóc vụn trước khi khách mở mắt.",
+        "Check symmetry with the head straight and the eyes looking ahead; compare both sides at the same landmark, then step back and look at the whole face. Eyes closed while cutting, stop when the customer moves, brush off clippings before they open their eyes.",
+        "Tarkista symmetria pää suorassa ja katse eteenpäin; vertaa puolia samaan maamerkkiin ja katso sitten kasvoja kauempaa kokonaisuutena. Silmät kiinni leikatessa, pysähdy kun asiakas liikkuu, harjaa hiussilppu pois ennen kuin hän avaa silmänsä."
+      ),
+    ],
+    tips: [
+      l3(
+        "Câu cần nhớ nhất với mái: cắt thêm thì lúc nào cũng được, cắt hụt thì không nối lại được. Ướt thì đừng bao giờ cắt tới đúng độ dài đã hẹn.",
+        "The one rule for fringes: you can always cut more, you can never put it back. Never cut wet hair to the exact length you agreed.",
+        "Otsatukan tärkein sääntö: lisää voi aina leikata, takaisin ei voi laittaa. Älä koskaan leikkaa märkiä hiuksia suoraan sovittuun pituuteen."
+      ),
+      l3(
+        "Trong VaraaAi, tạo một dịch vụ ngắn “Tỉa mái” để khách tự đặt lịch giữa hai lần cắt, và ghi độ dài mái, bên có xoáy vào ghi chú khách.",
+        "In VaraaAi, add a short “Fringe trim” service so customers can book between cuts, and note the fringe length and the cowlick side in the customer notes.",
+        "Lisää VaraaAi:hin lyhyt palvelu ”Otsatukan tasoitus”, jotta asiakkaat voivat varata sen leikkausten välillä, ja kirjaa otsatukan pituus ja pyörteen puoli asiakkaan muistiinpanoihin."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Vì sao cắt mái gần như không có lực căng?", "Why is a fringe cut with almost no tension?", "Miksi otsatukka leikataan lähes ilman kireyttä?"),
+        options: [
+          l3("Để cắt nhanh hơn", "To cut faster", "Jotta leikkaus olisi nopeampi"),
+          l3("Kéo căng rồi thả ra, mái co và bật lên, ngắn hơn mình muốn", "Pulled tight and released, the fringe shrinks and jumps up shorter than intended", "Kireältä vapautettuna otsatukka kutistuu ja ponnahtaa ylös lyhyemmäksi kuin oli tarkoitus"),
+          l3("Vì tóc mái mọc nhanh hơn", "Because fringe hair grows faster", "Koska otsatukan hiukset kasvavat nopeammin"),
+        ],
+        answer: 1,
+        why: l3(
+          "Tóc ướt và tóc bị kéo căng đều dài ra; khi khô và được thả, nó co lại, nhất là ở chỗ có xoáy.",
+          "Wet and stretched hair both get longer; once dry and released it shrinks back, especially over a cowlick.",
+          "Märät ja venytetyt hiukset pitenevät; kuivuttuaan ja vapauduttuaan ne kutistuvat, erityisesti pyörteen kohdalla."
+        ),
+      },
+      {
+        q: l3("Khách có xoáy mạnh ở chân tóc trán. Lời khuyên nào hợp lý?", "The customer has a strong cowlick at the front hairline. What is sensible advice?", "Asiakkaalla on voimakas pyörre otsan hiusrajassa. Mikä on järkevä neuvo?"),
+        options: [
+          l3("Để mái dài và dày hơn, hay mái bay theo hướng mọc — hoặc không cắt mái", "A longer, heavier fringe or a curtain fringe that follows the growth — or no fringe", "Pidempi ja tuuheampi otsatukka tai kasvusuuntaa seuraava verho-otsatukka — tai ei otsatukkaa"),
+          l3("Cắt mái thật ngắn cho xoáy không lộ", "Cut the fringe very short so the cowlick doesn't show", "Leikkaa otsatukka hyvin lyhyeksi, ettei pyörre näy"),
+          l3("Kéo thật căng khi cắt để tóc nằm xuống", "Pull it very tight while cutting so it lies flat", "Vedä hiukset leikatessa hyvin kireälle, jotta ne asettuvat"),
+        ],
+        answer: 0,
+        why: l3(
+          "Chỗ có xoáy, tóc ngắn sẽ dựng hoặc tách đôi; sức nặng và đường rẽ theo hướng mọc giúp nó nằm xuống.",
+          "Over a cowlick, short hair stands up or splits; weight and a parting that follows the growth help it lie down.",
+          "Pyörteen kohdalla lyhyet hiukset nousevat pystyyn tai jakautuvat; paino ja kasvusuuntaa seuraava jakaus auttavat niitä asettumaan."
+        ),
+      },
+      {
+        q: l3("Khi nào kiểm tra hai bên mái có cân không?", "When do you check whether the fringe is even?", "Milloin tarkistat, onko otsatukka tasainen?"),
+        options: [
+          l3("Khi khách đang cúi xem điện thoại", "While the customer looks down at their phone", "Kun asiakas katsoo puhelintaan"),
+          l3("Chỉ nhìn từ một bên là đủ", "Looking from one side is enough", "Yhdeltä puolelta katsominen riittää"),
+          l3("Khi đầu khách thẳng, mắt nhìn thẳng, so hai bên ở cùng một mốc", "With the head straight and eyes looking ahead, comparing both sides at the same landmark", "Pää suorassa ja katse eteenpäin, vertaamalla puolia samaan maamerkkiin"),
+        ],
+        answer: 2,
+        why: l3(
+          "Đầu nghiêng hay cúi làm mái trông lệch; ngồi thẳng lên thì đường cắt lệch thật.",
+          "A tilted or lowered head makes the fringe look uneven; once the customer sits up, the line really is uneven.",
+          "Kallistettu tai painettu pää saa otsatukan näyttämään vinolta; kun asiakas suoristautuu, linja on oikeasti vino."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "cat-mai",
+    course: "p-hair",
+    style: "practice",
+    title: l3("Cắt mái bay và tỉa quanh mặt: thực hành từng bước", "Curtain fringe and face framing: step-by-step practice", "Verho-otsatukka ja kasvojen kehystys: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Một cái mái bay rẽ giữa cho khách tóc dài, từng bước: chuẩn bị, tư vấn khi khô và tìm xoáy, chia vùng tam giác, đường cắt đầu tiên thật dài, cắt chéo hai nửa mái, tóc ôm quanh mặt, sấy mái, chỉnh khi khô và tỉa bằng mũi kéo, kiểm tra cân đối, ba lỗi hay gặp, và hoàn thiện.",
+      "A centre-parted curtain fringe on long hair, step by step: preparation, a dry consultation and finding cowlicks, the triangle section, a long first cut, the two diagonal halves, face-framing pieces, drying the fringe, refining dry with point cutting, checking symmetry, three common mistakes, and the finish.",
+      "Keskeltä jaettu verho-otsatukka pitkiin hiuksiin vaihe vaiheelta: valmistelu, konsultaatio kuivana ja pyörteiden etsiminen, kolmiojako, pitkä ensimmäinen leikkaus, kaksi viistoa puolikasta, kasvoja kehystävät suortuvat, otsatukan kuivaus, viimeistely kuivana pistoleikkauksella, symmetrian tarkistus, kolme yleistä virhettä ja viimeistely."
+    ),
+    video: video("cat-mai", 275, "2026-11-19"),
+    notice: l3(
+      "Khách nhắm mắt khi cắt quanh mặt; mũi kéo chĩa sang bên, xuống hay ra ngoài, không bao giờ về phía mắt. Dải giấy cổ dùng một lần; lược, kéo, kẹp làm sạch và khử khuẩn sau mỗi khách (bài “Xử lý dụng cụ sau mỗi khách”). Cách cắt mái khác nhau giữa các trường và các nước. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "The customer keeps their eyes closed while you cut around the face; scissor tips point sideways, down or outwards, never towards the eyes. Neck strips are single-use; combs, scissors and clips are cleaned and disinfected after every customer (lesson “Tools after every customer”). Fringe techniques differ between schools and countries. This lesson is a training aid, not a licence.",
+      "Asiakas pitää silmät kiinni, kun leikkaat kasvojen ympäriltä; saksien kärjet osoittavat sivulle, alas tai ulospäin, eivät koskaan silmiä kohti. Kaulapaperit ovat kertakäyttöisiä; kammat, sakset ja klipsit puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen (tunti ”Välineet jokaisen asiakkaan jälkeen”). Otsatukan leikkaustavat vaihtelevat koulujen ja maiden välillä. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Chuẩn bị: rửa tay, dụng cụ đã làm sạch và khử khuẩn, dải giấy cổ dùng một lần rồi mới cài áo choàng.",
+        "Preparation: wash your hands, tools cleaned and disinfected, a single-use neck strip first, then the cape.",
+        "Valmistelu: pese kädet, välineet puhdistettu ja desinfioitu, ensin kertakäyttöinen kaulapaperi ja sitten suojaviitta."
+      ),
+      l3(
+        "Tư vấn khi tóc khô: đặt tóc xuống trán chỉ chỗ mái dừng (với mái bay, chỗ ngắn nhất thường chạm hay dưới lông mày), hỏi thói quen sấy, kính, buộc tóc; vén tóc tìm xoáy và báo trước với khách.",
+        "Consult on dry hair: lay hair on the forehead to show where the fringe will end (for a curtain fringe the shortest point usually touches or sits below the brows), ask about styling, glasses, wearing it up; lift the hair to find cowlicks and tell the customer.",
+        "Konsultoi kuivista hiuksista: aseta hiuksia otsalle näyttääksesi, mihin otsatukka päättyy (verho-otsatukan lyhyin kohta on yleensä kulmakarvoissa tai niiden alla), kysy muotoilusta, silmälaseista ja hiusten kiinnittämisestä; nosta hiukset, etsi pyörteet ja kerro niistä asiakkaalle."
+      ),
+      l3(
+        "Chia vùng tam giác trên tóc ẩm: hai đường chéo từ góc trán trên đuôi lông mày lên đỉnh tam giác, hai cạnh bằng nhau; tóc còn lại chải ra sau, kẹp gọn. Lấy ít tóc trước — thiếu thì lấy thêm.",
+        "Section a triangle on damp hair: two diagonal partings from the front corners above the outer brows to the apex, both sides equal; comb the rest back and clip it. Take less hair first — you can add more.",
+        "Jaa kolmio kosteisiin hiuksiin: kaksi viistoa jakausta otsan kulmista kulmakarvojen ulkopäiden yläpuolelta kärkeen, molemmat sivut yhtä pitkät; kampaa muut hiukset taakse ja kiinnitä. Ota ensin vähän — lisää voi ottaa."
+      ),
+      l3(
+        "Đường cắt đầu tiên thật dài: khách nhắm mắt, chải mái thẳng xuống không căng, ngón tay đỡ hờ ngang đầu mũi, cắt dưới ngón tay, mũi kéo chĩa sang bên. Tóc ẩm sẽ co lên, nên chưa cắt tới độ dài đã hẹn.",
+        "A long first cut: eyes closed, comb the fringe straight down without tension, fingers barely holding at the tip of the nose, cut below the fingers with the tips pointing sideways. Damp hair shrinks, so don't cut to the agreed length yet.",
+        "Pitkä ensimmäinen leikkaus: silmät kiinni, kampaa otsatukka suoraan alas ilman kireyttä, sormet kevyesti nenänpään korkeudella, leikkaa sormien alta kärjet sivulle. Kosteat hiukset kutistuvat, joten älä vielä leikkaa sovittuun pituuteen."
+      ),
+      l3(
+        "Rẽ mái làm đôi; mỗi nửa chải xuống cạnh mặt, hai ngón tay đặt chéo từ giữa trán ra gò má, cắt theo mép ngoài ngón tay, lưỡi kéo song song với ngón tay, xa mắt. Nửa bên kia cùng góc chéo, so với bên đã cắt.",
+        "Part the fringe in the centre; comb each half down beside the face, fingers on a diagonal from the middle of the forehead to the cheekbone, cut along the outside of the fingers with the blades parallel to them, well away from the eyes. The other half at the same angle, compared with the first.",
+        "Jaa otsatukka keskeltä; kampaa kumpikin puoli kasvojen viereen, sormet viistosti otsan keskeltä poskipäähän, leikkaa sormien ulkoreunaa pitkin terät sormien suuntaisesti, kaukana silmistä. Toinen puoli samassa kulmassa ja verrattuna ensimmäiseen."
+      ),
+      l3(
+        "Tóc ôm quanh mặt: lọn mỏng trước tai, ngón tay chéo nối tiếp đường chéo của mái xuống cằm hay xương quai xanh, cắt dưới ngón tay, kéo chĩa xuống, xa mặt; tóc dài phía sau giữ nguyên độ dày.",
+        "Face framing: a thin section in front of the ear, fingers on a diagonal continuing the fringe line to the chin or collarbone, cut below the fingers, tips down, away from the face; the long hair behind keeps its thickness.",
+        "Kasvojen kehystys: ohut jako korvan edestä, sormet viistosti otsatukan linjan jatkeena leukaan tai solisluuhun, leikkaa sormien alta kärjet alaspäin, kasvoista poispäin; takana olevat pitkät hiukset säilyttävät tuuheutensa."
+      ),
+      l3(
+        "Sấy mái trước tiên: đầu máy chĩa xuống, chải qua trái rồi qua phải vài lần cho chân tóc nằm xuống, rồi lược tròn nhỏ uốn hai nửa mái ra hai bên.",
+        "Dry the fringe first: nozzle pointing down, brush it left and right a few times so the roots lie flat, then a small round brush turns the two halves out to the sides.",
+        "Kuivaa otsatukka ensin: suutin alaspäin, harjaa vasemmalle ja oikealle muutaman kerran, jotta tyvi asettuu, ja käännä sitten puolikkaat pienellä pyöröharjalla sivuille."
+      ),
+      l3(
+        "Chỉnh khi tóc khô: khách nhắm mắt, ngắn dần mỗi lần vài li rồi buông ra nhìn lại; tỉa bằng mũi kéo cho đầu mái mềm, ngón tay nằm giữa kéo và mặt, đừng tỉa quá sâu.",
+        "Refine on dry hair: eyes closed, shorten a few millimetres at a time and let go to look again; point-cut to soften the ends with your fingers between the scissors and the face, never too deep.",
+        "Viimeistele kuivana: silmät kiinni, lyhennä muutama millimetri kerrallaan ja päästä irti katsoaksesi uudelleen; pehmennä latvat pistoleikkauksella sormet saksien ja kasvojen välissä, ei liian syvälle."
+      ),
+      l3(
+        "Kiểm tra cân: khách ngồi thẳng, đầu thẳng, mắt nhìn thẳng; so hai bên ở cùng một mốc ngang gò má, lùi lại nhìn cả khuôn mặt, hỏi khách.",
+        "Check symmetry: customer sitting up, head straight, eyes ahead; compare both sides at the same point by the cheekbones, step back to see the whole face, ask the customer.",
+        "Tarkista symmetria: asiakas istuu suorassa, pää suorassa, katse eteenpäin; vertaa puolia samaan kohtaan poskipäiden vieressä, katso kasvoja kauempaa ja kysy asiakkaalta."
+      ),
+      l3(
+        "Hoàn thiện: phủi tóc vụn trước khi khách mở mắt, để khách tự sấy thử một lần, ghi độ dài mái và bên có xoáy vào hồ sơ, hẹn tỉa lại sau vài tuần; dụng cụ làm sạch và khử khuẩn.",
+        "Finish: brush off clippings before the customer opens their eyes, let them try styling it once, note the fringe length and cowlick side in the record, book a trim in a few weeks; clean and disinfect the tools.",
+        "Viimeistely: harjaa hiussilppu pois ennen kuin asiakas avaa silmänsä, anna hänen kokeilla muotoilua kerran, kirjaa otsatukan pituus ja pyörteen puoli, varaa tasoitus muutaman viikon päähän; puhdista ja desinfioi välineet."
+      ),
+    ],
+    tips: [
+      l3(
+        "Ba lỗi hay gặp: kéo căng mái rồi cắt, cắt khi khách nghiêng hay cúi đầu, và lấy tóc quá rộng ra hai bên thái dương.",
+        "Three common mistakes: pulling the fringe tight before cutting, cutting while the customer tilts or lowers their head, and taking hair too far out towards the temples.",
+        "Kolme yleistä virhettä: otsatukan vetäminen kireälle ennen leikkausta, leikkaaminen asiakkaan kallistaessa tai painaessa päätään ja hiusten ottaminen liian leveältä ohimoita kohti."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Đường cắt đầu tiên của mái nên ở đâu?", "Where should the first cut of the fringe be?", "Mihin otsatukan ensimmäinen leikkaus tehdään?"),
+        options: [
+          l3("Đúng độ dài đã hẹn, ngay từ đầu", "At the agreed length straight away", "Heti sovittuun pituuteen"),
+          l3("Thật dài, ngang đầu mũi hay môi, rồi ngắn dần", "Long, at the tip of the nose or the lips, then shorter step by step", "Pitkäksi, nenänpään tai huulten korkeudelle, ja sitten vähitellen lyhyemmäksi"),
+          l3("Ngắn hơn độ dài đã hẹn một chút", "A little shorter than agreed", "Hieman sovittua lyhyemmäksi"),
+        ],
+        answer: 1,
+        why: l3(
+          "Tóc ẩm co lên khi khô; cắt dài trước rồi chỉnh khi khô thì không bao giờ bị hụt.",
+          "Damp hair shrinks as it dries; cutting long first and refining dry means you never end up too short.",
+          "Kosteat hiukset kutistuvat kuivuessaan; kun leikkaat ensin pitkäksi ja viimeistelet kuivana, otsatukka ei koskaan jää liian lyhyeksi."
+        ),
+      },
+      {
+        q: l3("Mỗi nửa của mái bay được cắt theo đường nào?", "How is each half of a curtain fringe cut?", "Miten verho-otsatukan kumpikin puoli leikataan?"),
+        options: [
+          l3("Đường ngang, bằng với nửa kia ở giữa trán", "A horizontal line level with the other half in the middle", "Vaakasuoraan, samaan tasoon toisen puolen kanssa keskellä"),
+          l3("Chỉ tỉa bằng mũi kéo, không có đường cắt", "Only point-cut, no line at all", "Vain pistoleikkauksella, ilman linjaa"),
+          l3("Đường chéo từ giữa trán dài dần ra gò má", "A diagonal from the middle of the forehead, longer towards the cheekbone", "Viistosti otsan keskeltä poskipäätä kohti pidentyen"),
+        ],
+        answer: 2,
+        why: l3(
+          "Đường chéo cho mái ngắn nhất ở giữa, dài dần ra hai bên, rồi hòa vào tóc ôm quanh mặt.",
+          "The diagonal keeps the fringe shortest in the middle and longer at the sides, blending into the face-framing pieces.",
+          "Viisto linja pitää otsatukan lyhyimpänä keskellä ja pidempänä sivuilla, jolloin se sulautuu kasvoja kehystäviin suortuviin."
+        ),
+      },
+      {
+        q: l3("Khi tỉa mái bằng mũi kéo, điều gì đúng?", "What is right when point-cutting a fringe?", "Mikä pitää paikkansa otsatukan pistoleikkauksessa?"),
+        options: [
+          l3("Khách nhắm mắt, ngón tay nằm giữa kéo và mặt, mũi kéo không chĩa vào mắt", "Eyes closed, fingers between the scissors and the face, tips never towards the eyes", "Silmät kiinni, sormet saksien ja kasvojen välissä, kärjet eivät koskaan silmiä kohti"),
+          l3("Khách mở mắt để nhìn gương cùng", "Eyes open so the customer can watch in the mirror", "Silmät auki, jotta asiakas voi seurata peilistä"),
+          l3("Tỉa càng sâu càng mềm", "The deeper you point-cut, the softer it gets", "Mitä syvemmälle pistoleikkaat, sitä pehmeämpi tulos"),
+        ],
+        answer: 0,
+        why: l3(
+          "Mái là chỗ cắt gần mắt nhất; nhắm mắt cũng giữ tóc vụn khỏi rơi vào mắt. Tỉa quá sâu làm mái lởm chởm và mỏng đi.",
+          "The fringe is the closest you cut to the eyes; closed eyes also keep clippings out. Point-cutting too deep makes it choppy and thin.",
+          "Otsatukka on lähimpänä silmiä; suljetut silmät pitävät myös hiussilpun poissa. Liian syvä pistoleikkaus tekee otsatukasta repaleisen ja ohuen."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "say-tao-kieu-hieu-dung",
+    course: "p-hair",
+    style: "theory",
+    title: l3("Sấy tạo kiểu: hiểu đúng để tóc bóng mượt mà không hại tóc", "Blow-drying: understand it for smooth, shiny hair without damage", "Föönaus: ymmärrä se, niin hiukset kiiltävät vahingoittumatta"),
+    summary: l3(
+      "Vì sao sấy tạo được kiểu (tóc ướt dễ uốn, khô và nguội thì giữ nếp), lớp biểu bì và đầu máy chĩa xuống theo sợi tóc, thấm khăn, gỡ rối và bảo vệ nhiệt theo sản phẩm, sấy sơ trước khi dùng lược, chia vùng, lược tròn và lược dẹt, đầu thu gió và lực căng, nút gió mát, phồng chân tóc, sấy mượt và sấy cụp, tóc xoăn với đầu khuếch tán, nhiệt độ và khoảng cách để bảo vệ tóc và da đầu, tư thế của thợ, và vệ sinh lược, máy sấy.",
+      "Why blow-drying shapes hair (wet hair is easy to reshape, dry and cool hair holds it), the cuticle and a nozzle pointing down the hair shaft, towel-drying, detangling and heat protection as the product says, rough-drying before the brush, sections, round and paddle brushes, the concentrator and tension, the cool shot, root volume, smoothing and turning the ends under, curly hair with a diffuser, heat and distance to protect hair and scalp, the stylist's posture, and cleaning brushes and the dryer.",
+      "Miksi föönaus muotoilee hiuksia (märkiä hiuksia on helppo muotoilla, kuivat ja jäähtyneet pitävät muodon), kutikula ja hiusvarren suuntaisesti alaspäin osoittava suutin, pyyhekuivaus, selvittäminen ja lämpösuoja tuotteen ohjeen mukaan, esikuivaus ennen harjaa, jaot, pyörö- ja melaharja, suutin ja kireys, viileä puhallus, tyvikohotus, sileä föönaus ja latvojen kääntäminen sisään, kiharat hiukset ja diffuuseri, lämpö ja etäisyys hiusten ja hiuspohjan suojaksi, kampaajan työasento sekä harjojen ja föönin puhdistus."
+    ),
+    video: video("say-tao-kieu-hieu-dung", 275, "2026-11-19"),
+    notice: l3(
+      "Lượng và cách dùng sản phẩm bảo vệ nhiệt theo hướng dẫn của sản phẩm; mức nhiệt và cách dùng máy sấy theo hướng dẫn của nhà sản xuất. Không dí đầu máy vào da đầu, không giữ một chỗ quá lâu, hỏi khách có nóng không. Lược làm sạch và khử khuẩn sau mỗi khách (bài “Xử lý dụng cụ sau mỗi khách”). Cách làm khác nhau giữa các trường và các nước. Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Use heat-protection products as their instructions say, and the dryer's heat settings as the manufacturer says. Never press the nozzle against the scalp or hold it in one place too long, and ask the customer whether it is too hot. Brushes are cleaned and disinfected after every customer (lesson “Tools after every customer”). Methods differ between schools and countries. This lesson is a training aid, not a licence.",
+      "Käytä lämpösuojatuotteita niiden ohjeen ja föönin lämpötiloja valmistajan ohjeen mukaan. Älä koskaan paina suutinta hiuspohjaa vasten tai pidä sitä liian kauan yhdessä kohdassa, ja kysy asiakkaalta, onko liian kuuma. Harjat puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen (tunti ”Välineet jokaisen asiakkaan jälkeen”). Tavat vaihtelevat koulujen ja maiden välillä. Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Tóc ướt dễ uốn theo hình mình muốn; khi khô hẳn và nguội xuống, tóc giữ hình mới. Gặp nước hay không khí ẩm, nếp mất dần.",
+        "Wet hair is easy to reshape; once completely dry and cool it holds the new shape. Water or humid air slowly undoes it.",
+        "Märkiä hiuksia on helppo muotoilla; täysin kuivina ja jäähtyneinä ne pitävät uuden muodon. Vesi tai kostea ilma purkaa sen vähitellen."
+      ),
+      l3(
+        "Lớp biểu bì xếp như ngói lợp từ chân xuống ngọn: gió thổi xuôi thì tóc bóng, thổi ngược thì xù. Đầu máy luôn chĩa xuống theo sợi tóc.",
+        "The cuticle lies like roof tiles from root to tip: airflow down the hair makes it shine, airflow upwards makes it frizz. The nozzle always points down the hair shaft.",
+        "Kutikula on kuin kattotiilet tyvestä latvaan: alaspäin puhaltava ilma tekee hiuksista kiiltävät, ylöspäin puhaltava pörröiset. Suutin osoittaa aina hiusvartta pitkin alaspäin."
+      ),
+      l3(
+        "Thấm khăn bằng cách ép, gỡ rối từ ngọn, rồi dùng sản phẩm bảo vệ nhiệt theo hướng dẫn. Sản phẩm giảm hại nhưng không thay được cách sấy đúng.",
+        "Towel-dry by pressing, detangle from the ends, then apply a heat protector as instructed. It reduces damage but never replaces good technique.",
+        "Pyyhekuivaa painelemalla, selvitä latvoista alkaen ja käytä lämpösuojaa ohjeen mukaan. Se vähentää vaurioita mutta ei korvaa oikeaa tekniikkaa."
+      ),
+      l3(
+        "Sấy sơ bằng tay tới khoảng bảy, tám phần khô rồi mới dùng lược — nhanh hơn, ít nhiệt hơn. Chia vùng, bắt đầu từ gáy; mỗi lọn không rộng hơn lược và không quá dày.",
+        "Rough-dry by hand to roughly seventy or eighty percent before using a brush — faster and less heat. Section the hair and start at the nape; each section no wider than the brush and not too thick.",
+        "Esikuivaa käsin noin seitsemän–kahdeksankymmenen prosentin kuivuuteen ennen harjaa — nopeampaa ja vähemmän lämpöä. Jaa hiukset ja aloita niskasta; jokainen jako enintään harjan levyinen eikä liian paksu."
+      ),
+      l3(
+        "Lược dẹt: thẳng, mượt, nhanh. Lược tròn: phồng, cong đuôi, uốn lọn — lược to cong nhẹ, lược nhỏ xoăn hơn. Lõi kim loại hay sứ nóng lên: đừng để sát da đầu.",
+        "Paddle brush: straight, smooth, fast. Round brush: volume, bent ends, curls — a big one gives a soft bend, a small one more curl. Metal or ceramic barrels get hot: keep them off the scalp.",
+        "Melaharja: suora, sileä, nopea. Pyöröharja: kohotus, taivutetut latvat, kiharat — iso antaa pehmeän taipuman, pieni enemmän kiharaa. Metalli- tai keraamirunko kuumenee: pidä se irti hiuspohjasta."
+      ),
+      l3(
+        "Đầu thu gió luôn gắn, song song với lược, cách vài phân, đi theo lược từ chân xuống ngọn. Lực căng đủ để tóc mượt — kéo tóc, không kéo đầu khách.",
+        "Keep the concentrator nozzle on, parallel to the brush and a few centimetres away, following the brush from root to tip. Enough tension for smoothness — pull the hair, not the customer's head.",
+        "Pidä suutin paikallaan, harjan suuntaisena muutaman sentin päässä ja harjaa seuraten tyvestä latvaan. Riittävä kireys sileyteen — vedä hiuksia, älä asiakkaan päätä."
+      ),
+      l3(
+        "Sấy xong một lọn, giữ trên lược, bấm gió mát vài giây cho tóc nguội rồi mới rút lược: nếp giữ lâu hơn.",
+        "After each section, keep it on the brush and use the cool shot for a few seconds before releasing it: the shape lasts longer.",
+        "Jokaisen jaon jälkeen pidä se harjalla ja käytä viileää puhallusta muutama sekunti ennen kuin päästät irti: muoto kestää pidempään."
+      ),
+      l3(
+        "Phồng: nâng lọn tóc lên cao, sấy chân tóc trước. Mượt: kéo xuống sát đầu, sấy xuôi. Sấy cụp: lược đi dưới lọn tóc, tới ngọn xoay vào trong. Tóc xoăn muốn giữ lọn: đầu khuếch tán, gió nhỏ, không chải.",
+        "Volume: lift the section high and dry the roots first. Smooth: direct it down close to the head and dry downwards. Ends under: the brush goes under the section and turns in at the ends. Curls to keep: a diffuser on low, no brushing.",
+        "Kohotus: nosta jako korkealle ja kuivaa tyvi ensin. Sileys: ohjaa alas pään myötäisesti ja kuivaa alaspäin. Latvat sisään: harja jaon alla, latvoissa käännös sisäänpäin. Säilytettävät kiharat: diffuuseri, pieni teho, ei harjausta."
+      ),
+      l3(
+        "Tóc mảnh, yếu, đã nhuộm tẩy: nhiệt vừa phải; tóc dày, sợi to: nhiệt cao hơn được nhưng luôn di chuyển máy. Không dí vào da đầu; vành tai và gáy dễ bỏng; hỏi khách có nóng không.",
+        "Fine, fragile, coloured or bleached hair: moderate heat; thick, coarse hair can take more but keep the dryer moving. Never press it to the scalp; ears and nape burn easily; ask whether it is too hot.",
+        "Ohuet, hauraat, värjätyt tai vaalennetut hiukset: kohtuullinen lämpö; paksut, karkeat hiukset kestävät enemmän, mutta pidä fööni liikkeessä. Älä paina sitä hiuspohjaan; korvat ja niska palavat helposti; kysy, onko liian kuuma."
+      ),
+      l3(
+        "Tư thế: ghế khách vừa tầm để khuỷu tay thấp hơn vai, lưng thẳng, cổ tay thẳng, đổi tay khi có thể, máy nhẹ. Sau mỗi khách gỡ tóc, rửa, khử khuẩn lược; lau lưới lọc máy sấy thường xuyên.",
+        "Posture: the chair at a height that keeps your elbows below your shoulders, back and wrist straight, switch hands when you can, a light dryer. After every customer remove hair from the brushes, wash and disinfect them; clean the dryer's filter regularly.",
+        "Työasento: tuoli sellaiselle korkeudelle, että kyynärpäät pysyvät olkapäiden alapuolella, selkä ja ranne suorina, vaihda kättä kun voit, kevyt fööni. Jokaisen asiakkaan jälkeen poista hiukset harjoista, pese ja desinfioi ne; puhdista föönin suodatin säännöllisesti."
+      ),
+    ],
+    tips: [
+      l3(
+        "Thấy khách ngả đầu theo lược là bạn đang kéo quá mạnh: giảm lực, lấy lọn nhỏ hơn.",
+        "If the customer's head follows the brush, you are pulling too hard: ease off and take smaller sections.",
+        "Jos asiakkaan pää seuraa harjaa, vedät liian kovaa: kevennä otetta ja ota pienempiä jakoja."
+      ),
+      l3(
+        "Trong VaraaAi, đặt thời lượng riêng cho “Cắt + sấy” và “Chỉ sấy”, và ghi vào ghi chú khách loại lược, sản phẩm và kiểu khách thích (phồng hay mượt).",
+        "In VaraaAi, set separate durations for “Cut + blow-dry” and “Blow-dry only”, and note the brush, products and the look the customer likes (volume or sleek) in the customer notes.",
+        "Aseta VaraaAi:ssa omat kestot palveluille ”Leikkaus + föönaus” ja ”Pelkkä föönaus” ja kirjaa asiakkaan muistiinpanoihin harja, tuotteet ja asiakkaan toivoma tyyli (kohottava vai sileä)."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Vì sao đầu máy sấy phải chĩa xuống theo sợi tóc?", "Why should the nozzle point down the hair shaft?", "Miksi suuttimen pitää osoittaa hiusvartta pitkin alaspäin?"),
+        options: [
+          l3("Để tóc khô nhanh hơn ở chân tóc", "So the roots dry faster", "Jotta tyvi kuivuu nopeammin"),
+          l3("Để lớp biểu bì nằm phẳng, tóc mượt và bóng", "So the cuticle lies flat and the hair is smooth and shiny", "Jotta kutikula asettuu sileäksi ja hiukset ovat sileät ja kiiltävät"),
+          l3("Để không làm ồn", "So it makes less noise", "Jotta ääntä tulee vähemmän"),
+        ],
+        answer: 1,
+        why: l3(
+          "Lớp biểu bì xếp như ngói từ chân xuống ngọn; gió thổi ngược làm các lớp lật lên, tóc xù và xỉn.",
+          "The cuticle overlaps like tiles from root to tip; airflow against it lifts the layers and the hair looks frizzy and dull.",
+          "Kutikula limittyy kuin tiilet tyvestä latvaan; vastakkainen ilmavirta nostaa suomuja, ja hiukset näyttävät pörröisiltä ja himmeiltä."
+        ),
+      },
+      {
+        q: l3("Nút gió mát dùng để làm gì?", "What is the cool shot for?", "Mihin viileää puhallusta käytetään?"),
+        options: [
+          l3("Để khách đỡ nóng khi sấy xong", "To cool the customer down at the end", "Asiakkaan viilentämiseen lopuksi"),
+          l3("Thay cho gió nóng ngay từ đầu", "Instead of hot air from the start", "Kuuman ilman sijaan alusta asti"),
+          l3("Làm nguội lọn tóc trên lược để nếp giữ lâu hơn", "To cool the section on the brush so the shape lasts longer", "Harjalla olevan jaon jäähdyttämiseen, jotta muoto kestää pidempään"),
+        ],
+        answer: 2,
+        why: l3(
+          "Tóc giữ hình khi khô và nguội; rút lược khi tóc còn nóng thì lọn tóc dễ duỗi ra, xẹp xuống.",
+          "Hair sets as it dries and cools; releasing it while still hot lets the section relax and drop.",
+          "Hiukset asettuvat kuivuessaan ja jäähtyessään; kuumana irrotettu jako löystyy ja lässähtää."
+        ),
+      },
+      {
+        q: l3("Khách muốn giữ lọn xoăn tự nhiên. Cách sấy nào hợp lý?", "The customer wants to keep natural curls. Which way of drying makes sense?", "Asiakas haluaa säilyttää luonnolliset kiharat. Mikä kuivaustapa on järkevä?"),
+        options: [
+          l3("Đầu khuếch tán, gió nhỏ, nhiệt vừa, ít chạm tay, không chải", "A diffuser, low speed, moderate heat, little touching, no brushing", "Diffuuseri, pieni teho, kohtuullinen lämpö, vähän koskettelua, ei harjausta"),
+          l3("Lược dẹt và nhiệt cao nhất", "A paddle brush on the highest heat", "Melaharja ja kovin lämpö"),
+          l3("Chải liên tục bằng lược tròn nhỏ", "Brush constantly with a small round brush", "Harjaa jatkuvasti pienellä pyöröharjalla"),
+        ],
+        answer: 0,
+        why: l3(
+          "Chải khi tóc xoăn đang khô làm lọn tan ra thành xù; đầu khuếch tán làm khô mà giữ hình lọn.",
+          "Brushing curls while they dry breaks them into frizz; a diffuser dries them while keeping their shape.",
+          "Kiharoiden harjaaminen kuivumisen aikana hajottaa ne pörröksi; diffuuseri kuivaa ne muodon säilyttäen."
+        ),
+      },
+    ],
+  },
+  {
+    slug: "say-tao-kieu",
+    course: "p-hair",
+    style: "practice",
+    title: l3("Sấy tạo kiểu: thực hành từng bước", "Blow-drying and styling: step-by-step practice", "Föönaus ja muotoilu: käytäntö vaihe vaiheelta"),
+    summary: l3(
+      "Sấy một mái tóc dài có tầng cho mượt, bóng, chân tóc phồng nhẹ, đuôi cong mềm: chuẩn bị lược và máy, thấm khăn và gỡ rối, bảo vệ nhiệt, sấy sơ bằng tay, chia vùng từ gáy, lược tròn với đầu thu gió chĩa xuống, gió mát, hai bên và tóc quanh mặt, phồng ở đỉnh đầu, mái, những lỗi hay gặp, và hoàn thiện.",
+      "A smooth, shiny blow-dry on long layered hair with soft root lift and softly bent ends: preparing brushes and dryer, towel-drying and detangling, heat protection, rough-drying by hand, sections from the nape, a round brush with the nozzle pointing down, the cool shot, the sides and face framing, volume at the crown, the fringe, common mistakes, and the finish.",
+      "Sileä ja kiiltävä föönaus pitkiin kerroksellisiin hiuksiin, kevyt tyvikohotus ja pehmeästi taipuvat latvat: harjojen ja föönin valmistelu, pyyhekuivaus ja selvittäminen, lämpösuoja, esikuivaus käsin, jaot niskasta alkaen, pyöröharja ja alaspäin osoittava suutin, viileä puhallus, sivut ja kasvojen kehystys, kohotus päälaelle, otsatukka, yleiset virheet ja viimeistely."
+    ),
+    video: video("say-tao-kieu", 279, "2026-11-19"),
+    notice: l3(
+      "Sản phẩm bảo vệ nhiệt và serum dùng theo hướng dẫn của sản phẩm; máy sấy dùng theo hướng dẫn của nhà sản xuất, kiểm tra dây và lưới lọc trước khi dùng. Không dí đầu máy vào da đầu, che vành tai khi sấy sát tai, hỏi khách có nóng không. Lược làm sạch và khử khuẩn sau mỗi khách (bài “Xử lý dụng cụ sau mỗi khách”). Bài học là tài liệu đào tạo, không phải chứng chỉ hành nghề.",
+      "Use heat protectors and serums as the product says, and the dryer as the manufacturer says; check the cord and the filter before use. Never press the nozzle against the scalp, shield the ear when drying right next to it, and ask whether it is too hot. Brushes are cleaned and disinfected after every customer (lesson “Tools after every customer”). This lesson is a training aid, not a licence.",
+      "Käytä lämpösuojaa ja seerumia tuotteen ohjeen ja fööniä valmistajan ohjeen mukaan; tarkista johto ja suodatin ennen käyttöä. Älä koskaan paina suutinta hiuspohjaa vasten, suojaa korva kuivatessasi aivan sen vierestä ja kysy, onko liian kuuma. Harjat puhdistetaan ja desinfioidaan jokaisen asiakkaan jälkeen (tunti ”Välineet jokaisen asiakkaan jälkeen”). Tunti on koulutusmateriaalia, ei ammattipätevyys."
+    ),
+    related: ["khach-hang", "lich-hen", "dich-vu"],
+    steps: [
+      l3(
+        "Chuẩn bị: lược tròn, lược dẹt, kẹp đã làm sạch; máy sấy có đầu thu gió gắn chắc, lưới lọc sạch, dây không gãy nứt; ghế khách vừa tầm để khuỷu tay thấp hơn vai.",
+        "Preparation: round brush, paddle brush and clips cleaned; the dryer with the nozzle firmly on, a clean filter and an undamaged cord; the chair at a height that keeps your elbows below your shoulders.",
+        "Valmistelu: pyöröharja, melaharja ja klipsit puhdistettu; föönissä suutin tukevasti, puhdas suodatin ja ehjä johto; tuoli sellaisella korkeudella, että kyynärpäät pysyvät olkapäiden alapuolella."
+      ),
+      l3(
+        "Thấm khăn bằng cách ép từ chân xuống ngọn, không chà; gỡ rối bằng lược răng thưa từ ngọn lên, tay giữ tóc phía trên.",
+        "Towel-dry by pressing from roots to ends, no rubbing; detangle with a wide-tooth comb from the ends up, holding the hair above.",
+        "Pyyhekuivaa painelemalla tyvestä latvoihin, ei hankausta; selvitä harvalla kammalla latvoista ylöspäin pitäen hiuksista kiinni yläpuolelta."
+      ),
+      l3(
+        "Bảo vệ nhiệt: xịt đều lên thân và ngọn, lượng theo hướng dẫn, không bỏ sót ngọn, xịt xa mặt khách; chải lại cho đều.",
+        "Heat protection: spray evenly over the lengths and ends as the product says, don't miss the ends, keep it away from the face; comb it through.",
+        "Lämpösuoja: suihkuta tasaisesti pituuksiin ja latvoihin tuotteen ohjeen mukaan, älä unohda latvoja, pidä suihke kaukana kasvoista; kampaa tasaiseksi."
+      ),
+      l3(
+        "Sấy sơ bằng tay, đầu máy chĩa xuống, cách tóc một gang tay, sấy chân tóc trước, luôn di chuyển máy, tới khoảng bảy, tám phần khô; kiểm tra ở gáy và sau tai.",
+        "Rough-dry by hand, nozzle down, a hand's span from the hair, roots first, always moving, to roughly seventy or eighty percent dry; check at the nape and behind the ears.",
+        "Esikuivaa käsin suutin alaspäin kämmenen mitan päästä, tyvi ensin ja fööni aina liikkeessä, noin seitsemän–kahdeksankymmenen prosentin kuivuuteen; tarkista niskasta ja korvien takaa."
+      ),
+      l3(
+        "Chia vùng: kẹp tóc phía trên lên đỉnh đầu, để lại một lớp mỏng ở gáy rộng vừa bằng lược.",
+        "Sections: clip the upper hair up on top, leaving a thin layer at the nape about as wide as the brush.",
+        "Jaot: kiinnitä ylemmät hiukset päälaelle ja jätä niskaan ohut, harjan levyinen kerros."
+      ),
+      l3(
+        "Lớp dưới: lược tròn sát chân tóc, đầu thu gió song song với lược, chĩa xuống, cách vài phân; kéo lược từ từ xuống ngọn, lực căng đều, máy đi theo lược; tới ngọn xoay vào trong. Muốn thẳng hẳn thì dùng lược dẹt.",
+        "Lower layer: round brush close to the roots, the nozzle parallel to the brush, pointing down, a few centimetres away; draw the brush slowly to the ends with even tension, the dryer following; turn in at the ends. For poker-straight hair use a paddle brush.",
+        "Alin kerros: pyöröharja lähelle tyveä, suutin harjan suuntaisesti alaspäin muutaman sentin päässä; vedä harjaa hitaasti latvoihin tasaisella kireydellä föönin seuratessa; latvoissa käännös sisäänpäin. Täysin suoriin hiuksiin melaharja."
+      ),
+      l3(
+        "Gió mát: giữ lọn tóc vừa sấy trên lược, bấm gió mát vài giây, nguội rồi mới rút lược; thả lớp tiếp theo và đi dần lên.",
+        "Cool shot: keep the finished section on the brush, use the cool shot for a few seconds, release only once it is cool; let down the next layer and work upwards.",
+        "Viileä puhallus: pidä valmis jako harjalla, puhalla viileää muutama sekunti ja irrota vasta jäähtyneenä; laske seuraava kerros ja etene ylöspäin."
+      ),
+      l3(
+        "Hai bên và tóc quanh mặt: sấy ra sau, xa mặt, lược ở phía trong lọn quanh mặt rồi xoay ra ngoài; gần tai nhẹ tay, che vành tai, hỏi khách nóng không; so hai bên trong gương.",
+        "Sides and face framing: dry them back, away from the face, the brush inside the face-framing pieces turning outwards; gentle near the ears, shield the ear, ask whether it is too hot; compare both sides in the mirror.",
+        "Sivut ja kasvojen kehystys: kuivaa taaksepäin kasvoista poispäin, harja kehystävien suortuvien sisäpuolella ulospäin kääntäen; varovasti korvien lähellä, suojaa korva, kysy onko liian kuuma; vertaa puolia peilistä."
+      ),
+      l3(
+        "Đỉnh đầu: nâng lọn tóc lên cao, lược sát chân tóc, sấy chân tóc trước, đầu máy vẫn chĩa xuống, kéo ra ngọn, gió mát rồi mới thả; đường ngôi sấy qua trái, qua phải. Khách có mái: sấy mái ngay từ đầu.",
+        "Crown: lift the section high, the brush at the roots, dry the roots first with the nozzle still pointing down, draw out to the ends, cool shot, then release; dry the parting left and right. A fringe is dried first of all.",
+        "Päälaki: nosta jako korkealle, harja tyveen, kuivaa tyvi ensin suutin edelleen alaspäin, vedä latvoihin, viileä puhallus ja irrota; kuivaa jakaus vasemmalle ja oikealle. Otsatukka kuivataan kaikkein ensimmäisenä."
+      ),
+      l3(
+        "Hoàn thiện: kiểm tra tóc khô hẳn ở chân tóc và gáy, chút serum ở ngọn theo hướng dẫn, chỉ cho khách cách tự sấy, cho khách xem và hỏi có muốn chỉnh gì không, ghi lược, sản phẩm, kiểu khách thích vào hồ sơ; dọn dẹp, rút điện máy.",
+        "Finish: check the roots and nape are completely dry, a little serum on the ends as instructed, show the customer how to do it at home, let them look and ask about changes, note the brush, products and preferred look; tidy up and unplug the dryer.",
+        "Viimeistely: varmista tyven ja niskan täydellinen kuivuus, hieman seerumia latvoihin ohjeen mukaan, näytä kotimuotoilu, anna asiakkaan katsoa ja kysy muutostoiveita, kirjaa harja, tuotteet ja toivottu tyyli; siivoa ja irrota fööni verkkovirrasta."
+      ),
+    ],
+    tips: [
+      l3(
+        "Lỗi hay gặp: đầu máy chĩa ngược lên, giữ máy một chỗ quá lâu, lọn tóc quá dày. Tóc bị quấn vào lược tròn thì tắt máy, xoay lược ngược lại từ từ, đừng giật.",
+        "Common mistakes: the nozzle pointing upwards, holding the dryer in one place too long, sections too thick. If hair tangles in the round brush, switch off and unwind it slowly the other way — never yank.",
+        "Yleiset virheet: suutin ylöspäin, fööni liian kauan yhdessä kohdassa, liian paksut jaot. Jos hiukset sotkeutuvat pyöröharjaan, sammuta fööni ja kierrä harjaa hitaasti vastakkaiseen suuntaan — älä koskaan nyi."
+      ),
+    ],
+    quiz: [
+      {
+        q: l3("Khi nào bắt đầu dùng lược tròn?", "When do you start using the round brush?", "Milloin pyöröharja otetaan käyttöön?"),
+        options: [
+          l3("Ngay khi tóc còn ướt sũng", "Straight away, while the hair is soaking wet", "Heti, kun hiukset ovat vielä läpimärät"),
+          l3("Sau khi sấy sơ bằng tay tới khoảng bảy, tám phần khô", "After rough-drying by hand to about seventy or eighty percent dry", "Kun hiukset on esikuivattu käsin noin seitsemän–kahdeksankymmenen prosentin kuivuuteen"),
+          l3("Khi tóc đã khô hoàn toàn", "Only once the hair is completely dry", "Vasta kun hiukset ovat täysin kuivat"),
+        ],
+        answer: 1,
+        why: l3(
+          "Sấy sơ trước nhanh hơn và tóc chịu ít nhiệt hơn; tóc còn hơi ẩm thì lược vẫn tạo được hình.",
+          "Rough-drying first is faster and means less heat on the hair; slightly damp hair can still be shaped by the brush.",
+          "Esikuivaus on nopeampaa ja vähentää hiusten lämpörasitusta; hieman kosteita hiuksia voi vielä muotoilla harjalla."
+        ),
+      },
+      {
+        q: l3("Đầu thu gió nên đặt thế nào khi sấy bằng lược tròn?", "How should the concentrator nozzle sit when you use a round brush?", "Miten suutin pidetään pyöröharjalla föönatessa?"),
+        options: [
+          l3("Dí sát vào da đầu cho chân tóc phồng", "Pressed to the scalp for root volume", "Painettuna hiuspohjaan tyvikohotuksen saamiseksi"),
+          l3("Chĩa từ ngọn ngược lên chân tóc", "Pointing from the ends up towards the roots", "Latvoista ylöspäin tyveä kohti"),
+          l3("Song song với lược, chĩa xuống, cách vài phân, đi theo lược", "Parallel to the brush, pointing down, a few centimetres away, following it", "Harjan suuntaisesti, alaspäin, muutaman sentin päässä harjaa seuraten"),
+        ],
+        answer: 2,
+        why: l3(
+          "Gió xuôi theo sợi tóc làm tóc bóng; giữ khoảng cách và luôn di chuyển để không làm nóng da đầu.",
+          "Airflow along the hair makes it shine; keeping a distance and moving protects the scalp from heat.",
+          "Hiusten suuntainen ilmavirta tekee niistä kiiltävät; etäisyys ja liike suojaavat hiuspohjaa kuumuudelta."
+        ),
+      },
+      {
+        q: l3("Tóc bị quấn rối vào lược tròn. Làm gì?", "Hair is tangled in the round brush. What do you do?", "Hiukset ovat sotkeutuneet pyöröharjaan. Mitä teet?"),
+        options: [
+          l3("Tắt máy, xoay lược ngược lại từ từ, gỡ từng chút", "Switch off, turn the brush back slowly and free it bit by bit", "Sammutat föönin, kierrät harjaa hitaasti takaisin ja irrotat vähitellen"),
+          l3("Giật mạnh cho nhanh", "Yank it out quickly", "Nykäiset sen nopeasti irti"),
+          l3("Sấy nóng thêm cho tóc mềm ra", "Blow more heat on it to soften the hair", "Puhallat lisää kuumaa ilmaa hiusten pehmentämiseksi"),
+        ],
+        answer: 0,
+        why: l3(
+          "Giật làm gãy tóc và đau khách; thêm nhiệt vào chỗ tóc đang bị kéo căng chỉ làm hại thêm.",
+          "Yanking breaks hair and hurts the customer; more heat on hair under tension only adds damage.",
+          "Nykäisy katkoo hiuksia ja sattuu asiakkaaseen; lisälämpö kireällä oleviin hiuksiin vain lisää vaurioita."
+        ),
+      },
+    ],
+  },
 
   /* ================= spa ================= */
   {
