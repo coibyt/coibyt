@@ -3192,7 +3192,12 @@ export function BookingCalendar({
                 rebookReminderSentAt={activeBooking.rebookReminderSentAt ?? null}
                 customerHasEmail={activeBooking.customerHasEmail}
                 canRepeat={activeBooking.status === "CONFIRMED" || activeBooking.status === "COMPLETED"}
-                onChanged={() => reloadBookings()}
+                onChanged={async () => {
+                  await reloadBookings();
+                  // The open panel shows the series / reminder it just got.
+                  const fresh = await fetch(`/api/business/bookings/${activeBooking.id}`).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+                  if (fresh) setActiveBooking((prev) => (prev && prev.id === fresh.id ? { ...prev, ...fresh } : prev));
+                }}
               />
             )}
 
