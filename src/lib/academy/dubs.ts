@@ -85,6 +85,17 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "say-tao-kieu": { seconds: 361, published: "2026-11-20" },
     "cat-mai-hieu-dung": { seconds: 384, published: "2026-11-20" },
     "cat-mai": { seconds: 367, published: "2026-11-20" },
+    "spa-soi-da-hieu-dung": { seconds: 367, published: "2026-11-20" },
+    "spa-soi-da": { seconds: 346, published: "2026-11-20" },
+    "spa-facial-hieu-dung": { seconds: 347, published: "2026-11-20" },
+    "spa-facial": { seconds: 344, published: "2026-11-20" },
+    "spa-massage-mat-hieu-dung": { seconds: 378, published: "2026-11-20" },
+    "spa-massage-body-hieu-dung": { seconds: 379, published: "2026-11-20" },
+    "spa-massage-body": { seconds: 376, published: "2026-11-20" },
+    "spa-tay-chan-hieu-dung": { seconds: 349, published: "2026-11-20" },
+    "spa-tay-chan": { seconds: 355, published: "2026-11-20" },
+    "spa-waxing-hieu-dung": { seconds: 398, published: "2026-11-20" },
+    "spa-waxing": { seconds: 387, published: "2026-11-20" },
   },
   // Craft lessons in Finnish (voice "Jarmo").
   fi: {
