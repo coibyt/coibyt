@@ -177,11 +177,13 @@
       "CONFIRMED": "Đã xác nhận",
       "COMPLETED": "Hoàn thành",
       "CANCELLED": "Đã huỷ",
-      "NO_SHOW": "Không đến"
+      "NO_SHOW": "Không đến",
+      "PENDING_APPROVAL": "Chờ salon duyệt"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Khách hủy",
-      "CANCELLED_BY_SALON": "Salon hủy"
+      "CANCELLED_BY_SALON": "Salon hủy",
+      "AUTO_UNCONFIRMED": "Tự hủy vì chưa xác nhận"
     },
     "cancel": "Huỷ lịch hẹn",
     "leaveReview": "Đánh giá",

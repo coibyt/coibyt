@@ -137,11 +137,13 @@
       "CONFIRMED": "पुष्टि की गई",
       "COMPLETED": "पूर्ण",
       "CANCELLED": "रद्द",
-      "NO_SHOW": "नहीं आए"
+      "NO_SHOW": "नहीं आए",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "ग्राहक द्वारा रद्द",
-      "CANCELLED_BY_SALON": "सैलून द्वारा रद्द"
+      "CANCELLED_BY_SALON": "सैलून द्वारा रद्द",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "बुकिंग रद्द करें",
     "leaveReview": "समीक्षा छोड़ें",

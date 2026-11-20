@@ -46,6 +46,8 @@ export interface CustomerRow {
   visits: number;
   bookings: number;
   noShows: number;
+  /** Cancelled by the customer inside the salon's self-cancel window. */
+  lateCancels: number;
   spentCents: number;
   currency: string;
   firstVisit: string | null;
@@ -436,6 +438,9 @@ export function CustomersManager({
                         </span>
                         <span className="w-24 shrink-0 text-right">
                           <span className="block text-sm font-bold tabular-nums text-ink-900">{formatMoney(c.spentCents, c.currency, locale)}</span>
+                          {c.lateCancels > 0 ? (
+                            <span className="text-[10px] font-bold text-amber-600">{fill(S.lateCancels, { n: c.lateCancels })}</span>
+                          ) : null}
                           {c.noShows > 0 ? (
                             <span className="text-[10px] font-bold text-berry-500">{fill(S.noShows, { n: c.noShows })}</span>
                           ) : (

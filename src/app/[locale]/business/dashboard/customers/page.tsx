@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { redirect } from "@/i18n/navigation";
 import { CustomersManager, type CustomerRow } from "@/components/customers-manager";
 import { siteSerif } from "@/lib/site-fonts";
+import { isLateCancel } from "@/lib/booking-protect";
 
 export default async function BusinessCustomersPage({
   params,
@@ -26,6 +27,9 @@ export default async function BusinessCustomersPage({
         priceCents: true,
         currency: true,
         status: true,
+        cancelReason: true,
+        cancelledAt: true,
+        updatedAt: true,
         customer: { select: { id: true, name: true, email: true, phone: true } },
       },
       orderBy: { startsAt: "desc" },
@@ -39,6 +43,7 @@ export default async function BusinessCustomersPage({
   const showContactFor = (customerId: string) => access.canViewCustomerContactInfo && (!todayOnly || todayOnly.has(customerId));
 
   const now = Date.now();
+  const lateWindowMs = access.business.cancellationWindowHours * 3_600_000;
   const byCustomer = new Map<string, CustomerRow>();
   for (const b of bookings) {
     let c = byCustomer.get(b.customer.id);
@@ -52,6 +57,7 @@ export default async function BusinessCustomersPage({
         visits: 0,
         bookings: 0,
         noShows: 0,
+        lateCancels: 0,
         spentCents: 0,
         currency: b.currency,
         firstVisit: null,
@@ -65,6 +71,7 @@ export default async function BusinessCustomersPage({
     const t = b.startsAt.getTime();
     const iso = b.startsAt.toISOString();
     if (b.status === "NO_SHOW") c.noShows++;
+    if (isLateCancel(b, lateWindowMs)) c.lateCancels++;
     if (b.status === "COMPLETED") {
       c.visits++;
       c.spentCents += b.priceCents;

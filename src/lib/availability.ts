@@ -123,7 +123,7 @@ async function loadStaffDaySchedule(params: {
     prisma.booking.findMany({
       where: {
         staffId: { in: allIds },
-        status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
+        status: { in: ["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"] },
         startsAt: { lt: new Date(dayEndUtc.getTime() + maxTravel) },
         endsAt: { gt: new Date(dayStartUtc.getTime() - maxTravel) },
       },
@@ -134,7 +134,7 @@ async function loadStaffDaySchedule(params: {
         staffId: { in: allIds },
         startsAt: { lt: new Date(dayEndUtc.getTime() + maxTravel) },
         endsAt: { gt: new Date(dayStartUtc.getTime() - maxTravel) },
-        booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED"] } },
+        booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"] } },
       },
       select: { id: true, staffId: true, startsAt: true, endsAt: true },
     }),

@@ -137,11 +137,13 @@
       "CONFIRMED": "Потвърдена",
       "COMPLETED": "Завършена",
       "CANCELLED": "Отказана",
-      "NO_SHOW": "Неявяване"
+      "NO_SHOW": "Неявяване",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Отказана от клиента",
-      "CANCELLED_BY_SALON": "Отказана от салона"
+      "CANCELLED_BY_SALON": "Отказана от салона",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Откажи резервацията",
     "leaveReview": "Остави отзив",

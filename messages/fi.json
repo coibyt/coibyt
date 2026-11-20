@@ -137,11 +137,13 @@
       "CONFIRMED": "Vahvistettu",
       "COMPLETED": "Suoritettu",
       "CANCELLED": "Peruttu",
-      "NO_SHOW": "Ei saapunut"
+      "NO_SHOW": "Ei saapunut",
+      "PENDING_APPROVAL": "Odottaa hyväksyntää"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Asiakas peruutti",
-      "CANCELLED_BY_SALON": "Salonki peruutti"
+      "CANCELLED_BY_SALON": "Salonki peruutti",
+      "AUTO_UNCONFIRMED": "Peruttu automaattisesti (ei vahvistettu)"
     },
     "cancel": "Peru varaus",
     "leaveReview": "Jätä arvostelu",

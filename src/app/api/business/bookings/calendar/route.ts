@@ -6,6 +6,7 @@ import { addDays } from "date-fns";
 import { serviceSlots } from "@/lib/booking-slots";
 import { isRealCustomerEmail } from "@/lib/booking-service";
 import { seesBookingContact } from "@/lib/contact-visibility";
+import { isLateCancel } from "@/lib/booking-protect";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -30,7 +31,7 @@ export async function GET(req: Request) {
 
   const business = await prisma.business.findUnique({
     where: { id: businessId },
-    select: { timezone: true },
+    select: { timezone: true, cancellationWindowHours: true },
   });
   if (!business) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
@@ -80,6 +81,8 @@ export async function GET(req: Request) {
       customerNote: true,
       source: true,
       createdAt: true,
+      confirmedAt: true,
+      confirmRequestedAt: true,
       service: { select: { name: true } },
       staff: { select: { name: true } },
       customer: { select: { name: true, phone: true, email: true } },
@@ -101,6 +104,24 @@ export async function GET(req: Request) {
     },
     orderBy: { startsAt: "asc" },
   });
+
+  // How reliable each customer on this screen has been here (no-shows and
+  // late cancellations), for the detail panel and the approval prompt.
+  const customerIds = Array.from(new Set(bookings.map((b) => b.customerId)));
+  const past = customerIds.length
+    ? await prisma.booking.findMany({
+        where: { businessId, customerId: { in: customerIds }, status: { in: ["NO_SHOW", "CANCELLED"] } },
+        select: { customerId: true, status: true, startsAt: true, cancelReason: true, cancelledAt: true, updatedAt: true },
+      })
+    : [];
+  const reliability = new Map<string, { noShows: number; lateCancels: number }>();
+  const windowMs = business.cancellationWindowHours * 3_600_000;
+  for (const p of past) {
+    const r = reliability.get(p.customerId) ?? { noShows: 0, lateCancels: 0 };
+    if (p.status === "NO_SHOW") r.noShows++;
+    else if (isLateCancel(p, windowMs)) r.lateCancels++;
+    reliability.set(p.customerId, r);
+  }
 
   // Staff who can see everyone's calendar still only see the contact details
   // of their own customers — and, when the owner says so, only on the day.
@@ -132,6 +153,10 @@ export async function GET(req: Request) {
       customerReviewStatus: b.customerReview?.status ?? null,
       source: b.source,
       createdAt: b.createdAt.toISOString(),
+      confirmedAt: b.confirmedAt?.toISOString() ?? null,
+      confirmRequestedAt: b.confirmRequestedAt?.toISOString() ?? null,
+      noShows: reliability.get(b.customerId)?.noShows ?? 0,
+      lateCancels: reliability.get(b.customerId)?.lateCancels ?? 0,
       slots: serviceSlots(b).map((sl) => ({
         ...sl,
         startsAt: sl.startsAt.toISOString(),

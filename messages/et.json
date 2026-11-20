@@ -137,11 +137,13 @@
       "CONFIRMED": "Kinnitatud",
       "COMPLETED": "Lõpetatud",
       "CANCELLED": "Tühistatud",
-      "NO_SHOW": "Ei ilmunud kohale"
+      "NO_SHOW": "Ei ilmunud kohale",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Kliendi poolt tühistatud",
-      "CANCELLED_BY_SALON": "Salongi poolt tühistatud"
+      "CANCELLED_BY_SALON": "Salongi poolt tühistatud",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Tühista broneering",
     "leaveReview": "Jäta arvustus",

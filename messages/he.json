@@ -137,11 +137,13 @@
       "CONFIRMED": "מאושר",
       "COMPLETED": "הושלם",
       "CANCELLED": "בוטל",
-      "NO_SHOW": "לא הגיע"
+      "NO_SHOW": "לא הגיע",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "בוטל על ידי הלקוח",
-      "CANCELLED_BY_SALON": "בוטל על ידי המספרה"
+      "CANCELLED_BY_SALON": "בוטל על ידי המספרה",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "ביטול הזמנה",
     "leaveReview": "השארת ביקורת",

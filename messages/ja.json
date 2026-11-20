@@ -137,11 +137,13 @@
       "CONFIRMED": "確定済み",
       "COMPLETED": "完了",
       "CANCELLED": "キャンセル済み",
-      "NO_SHOW": "無断キャンセル"
+      "NO_SHOW": "無断キャンセル",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "お客様都合によるキャンセル",
-      "CANCELLED_BY_SALON": "サロン都合によるキャンセル"
+      "CANCELLED_BY_SALON": "サロン都合によるキャンセル",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "予約をキャンセル",
     "leaveReview": "レビューを書く",

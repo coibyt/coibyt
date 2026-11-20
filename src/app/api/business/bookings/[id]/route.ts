@@ -14,6 +14,7 @@ import { sendBookingRescheduledEmail } from "@/lib/booking-service";
 import { seesBookingContact } from "@/lib/contact-visibility";
 import { emailStaffAboutBooking } from "@/lib/staff-booking-email";
 import { serviceSlots } from "@/lib/booking-slots";
+import { approveBooking, awardOnTimePoints, customerReliability, declineBooking } from "@/lib/booking-protect";
 
 /** One booking by id, for jumping straight from a customer's visit history
  * (on the customers page, or the "Chi tiết khách hàng" panel on this page)
@@ -53,7 +54,9 @@ export async function GET(
       customerNote: true,
       source: true,
       createdAt: true,
-      business: { select: { name: true, timezone: true } },
+      confirmedAt: true,
+      confirmRequestedAt: true,
+      business: { select: { name: true, timezone: true, cancellationWindowHours: true } },
       service: { select: { name: true } },
       staff: { select: { name: true } },
       customer: { select: { name: true, phone: true, email: true } },
@@ -107,6 +110,9 @@ export async function GET(
     customerReviewStatus: booking.customerReview?.status ?? null,
     source: booking.source,
     createdAt: booking.createdAt.toISOString(),
+    confirmedAt: booking.confirmedAt?.toISOString() ?? null,
+    confirmRequestedAt: booking.confirmRequestedAt?.toISOString() ?? null,
+    ...(await customerReliability(booking.businessId, booking.customerId, booking.business.cancellationWindowHours)),
     slots: serviceSlots(booking).map((sl) => ({
       ...sl,
       startsAt: sl.startsAt.toISOString(),
@@ -121,6 +127,11 @@ export async function GET(
 const patchSchema = z.object({
   status: z.enum(["CONFIRMED", "COMPLETED", "CANCELLED", "NO_SHOW"]).optional(),
   cancelReason: z.enum(["CANCELLED_BY_CUSTOMER", "CANCELLED_BY_SALON"]).optional(),
+  // No-show protection (src/lib/booking-protect.ts): the salon approves or
+  // declines a booking awaiting approval, or notes that the customer
+  // confirmed by phone.
+  approval: z.enum(["approve", "decline"]).optional(),
+  customerConfirmed: z.literal(true).optional(),
   // Editable booking details — all optional, and independent of a status
   // change, so the dashboard's "edit booking" form can send only what the
   // salon actually changed.
@@ -171,14 +182,34 @@ export async function PATCH(
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
 
+  if (data.approval) {
+    if (booking.status !== "PENDING_APPROVAL") return NextResponse.json({ error: "NOT_PENDING" }, { status: 409 });
+    if (data.approval === "approve") await approveBooking(id);
+    else await declineBooking(id);
+    return NextResponse.json({ booking: await prisma.booking.findUnique({ where: { id } }) });
+  }
+
+  if (data.customerConfirmed) {
+    const updated = await prisma.booking.update({ where: { id }, data: { confirmedAt: new Date() } });
+    return NextResponse.json({ booking: updated });
+  }
+
   if (data.status) {
+    const now = new Date();
     const updated = await prisma.booking.update({
       where: { id },
-      data: { status: data.status, cancelReason: data.cancelReason },
+      data: {
+        status: data.status,
+        cancelReason: data.cancelReason,
+        ...(data.status === "NO_SHOW" ? { noShowAt: now } : {}),
+        ...(data.status === "CANCELLED" ? { cancelledAt: now } : {}),
+      },
     });
     if (data.status === "CANCELLED" && booking.status !== "CANCELLED") {
       await emailStaffAboutBooking(id, "cancelled", { actorStaffId: access.staffId });
     }
+    // The salon's own reward for turning up (Settings → Booking), once.
+    if (data.status === "COMPLETED") await awardOnTimePoints(id).catch((err) => console.error("[on-time points]", err));
     return NextResponse.json({ booking: updated });
   }
 
@@ -273,7 +304,7 @@ export async function PATCH(
           where: {
             id: { not: id },
             staffId,
-            status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
+            status: { in: ["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"] },
             startsAt: { lt: endsAt },
             endsAt: { gt: startsAt },
           },

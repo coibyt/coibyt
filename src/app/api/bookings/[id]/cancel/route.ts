@@ -27,7 +27,7 @@ export async function POST(
     },
   });
   if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
-  if (!["PENDING_PAYMENT", "CONFIRMED"].includes(booking.status)) {
+  if (!["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"].includes(booking.status)) {
     return NextResponse.json({ error: "CANNOT_CANCEL" }, { status: 409 });
   }
 
@@ -38,7 +38,7 @@ export async function POST(
 
   const updated = await prisma.booking.update({
     where: { id },
-    data: { status: "CANCELLED", cancelReason: "CANCELLED_BY_CUSTOMER" },
+    data: { status: "CANCELLED", cancelReason: "CANCELLED_BY_CUSTOMER", cancelledAt: new Date() },
   });
 
   if (booking.notificationEmailsEnabled) {

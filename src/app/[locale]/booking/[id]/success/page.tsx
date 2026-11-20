@@ -8,16 +8,17 @@ import { CancellationPolicyLink } from "@/components/cancellation-policy-link";
 import { FollowButton } from "@/components/follow-button";
 import { BusinessChatButton } from "@/components/business-chat-button";
 import { auth } from "@/auth";
+import { bookingProtectStrings } from "@/lib/booking-protect-strings";
 
 export default async function BookingSuccessPage({
   params,
   searchParams,
 }: {
   params: Promise<{ locale: string; id: string }>;
-  searchParams: Promise<{ provider?: string }>;
+  searchParams: Promise<{ provider?: string; pending?: string }>;
 }) {
   const { locale, id } = await params;
-  const { provider } = await searchParams;
+  const { provider, pending } = await searchParams;
   const isCash = provider === "cash";
   const isBankTransfer = provider === "bank_transfer";
   const t = await getTranslations("payment");
@@ -46,12 +47,19 @@ export default async function BookingSuccessPage({
     <div className="container flex max-w-lg flex-col items-center gap-4 py-20 text-center">
       <CheckCircle2 className="h-14 w-14 text-sage-500" />
       <h1 className="text-2xl font-bold text-ink-900">
-        {isCash || isBankTransfer
-          ? locale === "vi"
-            ? "Đặt lịch thành công!"
-            : "Booking confirmed!"
-          : t("success")}
+        {pending
+          ? bookingProtectStrings(locale).pendingTitle
+          : isCash || isBankTransfer
+            ? locale === "vi"
+              ? "Đặt lịch thành công!"
+              : "Booking confirmed!"
+            : t("success")}
       </h1>
+      {pending && (
+        <p className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          {bookingProtectStrings(locale).pendingNote}
+        </p>
+      )}
       <div className="card w-full space-y-2 p-5 text-left">
         <p className="font-semibold text-ink-900">{booking.service.name}</p>
         <p className="text-sm text-ink-400">{booking.business.name}</p>

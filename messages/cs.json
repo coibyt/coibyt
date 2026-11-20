@@ -137,11 +137,13 @@
       "CONFIRMED": "Potvrzeno",
       "COMPLETED": "Dokončeno",
       "CANCELLED": "Zrušeno",
-      "NO_SHOW": "Nedostavení se"
+      "NO_SHOW": "Nedostavení se",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Zrušeno zákazníkem",
-      "CANCELLED_BY_SALON": "Zrušeno salonem"
+      "CANCELLED_BY_SALON": "Zrušeno salonem",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Zrušit rezervaci",
     "leaveReview": "Napsat recenzi",

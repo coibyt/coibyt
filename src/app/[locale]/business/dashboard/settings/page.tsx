@@ -10,6 +10,7 @@ import { BankInfoCard } from "@/components/bank-info-card";
 import { InvoiceInfoCard } from "@/components/invoice-info-card";
 import { ContactLinksCard } from "@/components/contact-links-card";
 import { PreferencesCard } from "@/components/preferences-card";
+import { BookingProtectionCard } from "@/components/booking-protection-card";
 import { BusinessProfileCard } from "@/components/business-profile-card";
 import { AccountSettingsCard } from "@/components/account-settings-card";
 import { AppearanceCard } from "@/components/appearance-card";
@@ -109,6 +110,15 @@ export default async function BusinessSettingsPage({
                 defaultCurrency: business.defaultCurrency,
                 cancellationWindowHours: business.cancellationWindowHours,
                 cancellationPolicy: business.cancellationPolicy ?? "",
+              }}
+            />
+            <BookingProtectionCard
+              locale={locale}
+              initial={{
+                noShowApprovalOn: business.noShowApprovalOn,
+                noShowApprovalCount: business.noShowApprovalCount,
+                autoCancelUnconfirmedHours: business.autoCancelUnconfirmedHours,
+                onTimePoints: business.onTimePoints,
               }}
             />
           </SettingsSection>

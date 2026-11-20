@@ -137,11 +137,13 @@
       "CONFIRMED": "Nakumpirma",
       "COMPLETED": "Nakumpleto",
       "CANCELLED": "Kinansela",
-      "NO_SHOW": "Hindi dumating"
+      "NO_SHOW": "Hindi dumating",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Kinansela ng customer",
-      "CANCELLED_BY_SALON": "Kinansela ng salon"
+      "CANCELLED_BY_SALON": "Kinansela ng salon",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Kanselahin ang booking",
     "leaveReview": "Mag-iwan ng review",

@@ -71,7 +71,7 @@ export async function PATCH(
     },
   });
   if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
-  if (!["PENDING_PAYMENT", "CONFIRMED"].includes(booking.status)) {
+  if (!["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"].includes(booking.status)) {
     return NextResponse.json({ error: "CANNOT_RESCHEDULE" }, { status: 409 });
   }
 
@@ -99,7 +99,7 @@ export async function PATCH(
         businessId,
         id: { not: id },
         staffId: newStaffId,
-        status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
+        status: { in: ["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"] },
         startsAt: { lt: newEnd },
         endsAt: { gt: newStart },
       },
@@ -110,7 +110,7 @@ export async function PATCH(
         staffId: newStaffId,
         startsAt: { lt: newEnd },
         endsAt: { gt: newStart },
-        booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED"] }, businessId },
+        booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"] }, businessId },
         ...(key === "primary" ? {} : { id: { not: key } }),
       },
       select: { id: true },

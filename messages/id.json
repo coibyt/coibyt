@@ -137,11 +137,13 @@
       "CONFIRMED": "Dikonfirmasi",
       "COMPLETED": "Selesai",
       "CANCELLED": "Dibatalkan",
-      "NO_SHOW": "Tidak hadir"
+      "NO_SHOW": "Tidak hadir",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Dibatalkan oleh pelanggan",
-      "CANCELLED_BY_SALON": "Dibatalkan oleh salon"
+      "CANCELLED_BY_SALON": "Dibatalkan oleh salon",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Batalkan pesanan",
     "leaveReview": "Tinggalkan ulasan",

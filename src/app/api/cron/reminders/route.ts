@@ -7,6 +7,8 @@ import { sendDueCampaigns } from "@/lib/marketing-send";
 import { settleReferrals } from "@/lib/loyalty-referral";
 import { sendTelegramIncomeReminders } from "@/lib/telegram";
 import { sendIncomeReminders } from "@/lib/income-reminders";
+import { autoCancelUnconfirmed, confirmLinks, ensureConfirmToken, pushConfirmRequest } from "@/lib/booking-protect";
+import { bookingProtectStrings } from "@/lib/booking-protect-strings";
 
 const HOUR_MS = 60 * 60 * 1000;
 const MIN_MS = 60 * 1000;
@@ -55,12 +57,18 @@ export async function GET(req: Request) {
     include,
   });
   for (const b of due24h) {
+    // The 24h reminder doubles as the confirm request (src/lib/booking-protect.ts):
+    // Confirm / Cancel buttons in the email, plus a push on the customer's phone.
+    const locale = localeForCountry(b.business.country);
+    const S = bookingProtectStrings(locale);
+    const token = await ensureConfirmToken(b.id, b.confirmToken);
+    const links = confirmLinks(locale, token);
     const email = appointmentReminderEmail({
       customerName: b.customer.name,
       businessName: b.business.name,
       serviceName: b.service.name,
       startsAt: b.startsAt,
-      locale: localeForCountry(b.business.country),
+      locale,
       businessTimezone: b.business.timezone,
       staffName: b.staff?.name,
       businessAddress: b.business.addressLine,
@@ -71,11 +79,24 @@ export async function GET(req: Request) {
       bookingId: b.id,
       businessLogoUrl: b.business.logoUrl,
       salonUrl: `${siteUrl}/b/${b.business.slug}`,
+      confirm: b.confirmedAt
+        ? null
+        : { title: S.confirmTitle, text: S.confirmText, yesLabel: S.confirmYes, yesUrl: links.yesUrl, noLabel: S.confirmNo, noUrl: links.noUrl },
     });
     await sendMail({ to: b.customer.email, ...email });
-    await prisma.booking.update({ where: { id: b.id }, data: { reminder24hSentAt: now } });
+    await prisma.booking.update({
+      where: { id: b.id },
+      data: { reminder24hSentAt: now, ...(b.confirmedAt ? {} : { confirmRequestedAt: now }) },
+    });
+    if (!b.confirmedAt) await pushConfirmRequest({ ...b, confirmToken: token }).catch((err) => console.error("[cron] confirm push", err));
     reminder24h++;
   }
+
+  // Salons that cancel bookings nobody confirmed (Settings → Booking).
+  const autoCancelled = await autoCancelUnconfirmed(now).catch((err) => {
+    console.error("[cron] autoCancelUnconfirmed", err);
+    return 0;
+  });
 
   const due2h = await prisma.booking.findMany({
     where: {
@@ -197,5 +218,5 @@ export async function GET(req: Request) {
     return 0;
   });
 
-  return NextResponse.json({ ok: true, reminder24h, reminder2h, reminder15min, reviewRequests, campaigns, referrals, incomeReminders, telegramReminders });
+  return NextResponse.json({ ok: true, reminder24h, autoCancelled, reminder2h, reminder15min, reviewRequests, campaigns, referrals, incomeReminders, telegramReminders });
 }

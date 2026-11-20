@@ -137,11 +137,13 @@
       "CONFIRMED": "Подтверждено",
       "COMPLETED": "Завершено",
       "CANCELLED": "Отменено",
-      "NO_SHOW": "Неявка"
+      "NO_SHOW": "Неявка",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Отменено клиентом",
-      "CANCELLED_BY_SALON": "Отменено салоном"
+      "CANCELLED_BY_SALON": "Отменено салоном",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Отменить бронирование",
     "leaveReview": "Оставить отзыв",

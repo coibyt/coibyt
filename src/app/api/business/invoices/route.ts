@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { awardOnTimePoints } from "@/lib/booking-protect";
 import { z } from "zod";
 import { bookingActionScope, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
@@ -119,6 +120,9 @@ export async function POST(req: Request) {
         ? [prisma.booking.update({ where: { id: booking.id }, data: { status: "COMPLETED" as const } })]
         : []),
     ]);
+
+    // Paid at the counter = the visit happened: the on-time points, if the salon gives any.
+    if (booking.status !== "COMPLETED") await awardOnTimePoints(booking.id).catch((err) => console.error("[on-time points]", err));
 
     const qr = await invoiceQrPng(invoice.token, business.defaultLocale);
     return NextResponse.json({

@@ -137,11 +137,13 @@
       "CONFIRMED": "Bevestigd",
       "COMPLETED": "Voltooid",
       "CANCELLED": "Geannuleerd",
-      "NO_SHOW": "Niet verschenen"
+      "NO_SHOW": "Niet verschenen",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Geannuleerd door klant",
-      "CANCELLED_BY_SALON": "Geannuleerd door salon"
+      "CANCELLED_BY_SALON": "Geannuleerd door salon",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Boeking annuleren",
     "leaveReview": "Beoordeling achterlaten",

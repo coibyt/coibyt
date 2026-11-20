@@ -137,11 +137,13 @@
       "CONFIRMED": "Confermato",
       "COMPLETED": "Completato",
       "CANCELLED": "Annullato",
-      "NO_SHOW": "Non presentato"
+      "NO_SHOW": "Non presentato",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Annullato dal cliente",
-      "CANCELLED_BY_SALON": "Annullato dal salone"
+      "CANCELLED_BY_SALON": "Annullato dal salone",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Annulla prenotazione",
     "leaveReview": "Lascia una recensione",

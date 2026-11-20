@@ -137,11 +137,13 @@
       "CONFIRMED": "Megerősítve",
       "COMPLETED": "Teljesítve",
       "CANCELLED": "Lemondva",
-      "NO_SHOW": "Meg nem jelenés"
+      "NO_SHOW": "Meg nem jelenés",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Ügyfél mondta le",
-      "CANCELLED_BY_SALON": "Szalon mondta le"
+      "CANCELLED_BY_SALON": "Szalon mondta le",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Foglalás lemondása",
     "leaveReview": "Vélemény írása",

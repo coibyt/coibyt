@@ -137,11 +137,13 @@
       "CONFIRMED": "已确认",
       "COMPLETED": "已完成",
       "CANCELLED": "已取消",
-      "NO_SHOW": "爽约"
+      "NO_SHOW": "爽约",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "客户取消",
-      "CANCELLED_BY_SALON": "门店取消"
+      "CANCELLED_BY_SALON": "门店取消",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "取消预约",
     "leaveReview": "发表评价",

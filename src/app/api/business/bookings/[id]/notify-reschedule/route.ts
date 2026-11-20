@@ -16,7 +16,7 @@ export async function POST(_req: Request, { params }: { params: Promise<{ id: st
     where: {
       id,
       businessId: access.business.id,
-      status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
+      status: { in: ["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"] },
       ...(scopeStaffId ? { staffId: scopeStaffId } : {}),
     },
     select: { id: true },

@@ -300,6 +300,17 @@ model Business {
   // only drives the self-cancel cutoff, not what's actually printed.
   cancellationPolicy      String? @db.Text
 
+  // No-show protection (src/lib/booking-protect.ts), all off by default:
+  // a customer with noShowApprovalCount or more no-shows / late
+  // cancellations here must have each new online booking approved by the
+  // salon; an online booking still unconfirmed this many hours before its
+  // time is cancelled by the cron (null = never); points a customer earns
+  // for a completed visit (0 = none).
+  noShowApprovalOn           Boolean @default(false)
+  noShowApprovalCount        Int     @default(2)
+  autoCancelUnconfirmedHours Int?
+  onTimePoints               Int     @default(0)
+
   // Owner-controlled — turned on for when they're away, so the chat widget
   // auto-replies to customers using the salon's own active services/products
   // (see src/lib/chat-ai.ts). Off by default: an unconfigured ANTHROPIC_API_KEY
@@ -934,6 +945,9 @@ enum BookingStatus {
   COMPLETED
   CANCELLED
   NO_SHOW
+  // A customer who missed too many appointments (Business.noShowApprovalOn):
+  // the salon approves or declines from the calendar before it is confirmed.
+  PENDING_APPROVAL
 }
 
 model Booking {
@@ -980,6 +994,22 @@ model Booking {
   reminder2hSentAt    DateTime?
   reminder15minSentAt DateTime?
   reviewRequestSentAt DateTime?
+
+  // No-show protection (src/lib/booking-protect.ts). The 24h reminder asks
+  // the customer to confirm: confirmToken is the secret in its Confirm /
+  // Cancel links, confirmRequestedAt when it went out, confirmedAt when the
+  // customer (or the salon, after a phone call) confirmed. An unconfirmed
+  // booking shows in its own colour on the calendar, and is auto-cancelled
+  // when the salon has set Business.autoCancelUnconfirmedHours.
+  confirmedAt        DateTime?
+  confirmToken       String?   @unique @db.VarChar(64)
+  confirmRequestedAt DateTime?
+  // When the salon marked the customer a no-show / when the booking was
+  // cancelled — the customer's reliability counts come from these.
+  noShowAt    DateTime?
+  cancelledAt DateTime?
+  // Set once the on-time VaraPoints were credited, so they never are twice.
+  onTimePointsAt DateTime?
 
   // Set when this booking came in through an affiliate's referral link (see
   // Affiliate below). commissionCents is a snapshot of the affiliate's
@@ -1082,6 +1112,8 @@ enum VaraPointReason {
   EMAIL_SENT
   EMAIL_SENT_COOLDOWN_BYPASS
   ADMIN_ADJUST
+  // The salon's own reward for turning up on time (Business.onTimePoints).
+  ON_TIME_VISIT
 }
 
 // Full ledger behind User.varaPoints — every earn and spend is one row here,

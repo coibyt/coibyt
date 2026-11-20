@@ -137,11 +137,13 @@
       "CONFIRMED": "Bestätigt",
       "COMPLETED": "Abgeschlossen",
       "CANCELLED": "Storniert",
-      "NO_SHOW": "Nicht erschienen"
+      "NO_SHOW": "Nicht erschienen",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Vom Kunden storniert",
-      "CANCELLED_BY_SALON": "Vom Salon storniert"
+      "CANCELLED_BY_SALON": "Vom Salon storniert",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Buchung stornieren",
     "leaveReview": "Bewertung abgeben",

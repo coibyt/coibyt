@@ -137,11 +137,13 @@
       "CONFIRMED": "Пацверджана",
       "COMPLETED": "Завершана",
       "CANCELLED": "Скасавана",
-      "NO_SHOW": "Няяўка"
+      "NO_SHOW": "Няяўка",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Скасавана кліентам",
-      "CANCELLED_BY_SALON": "Скасавана салонам"
+      "CANCELLED_BY_SALON": "Скасавана салонам",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Скасаваць браніраванне",
     "leaveReview": "Пакінуць водгук",

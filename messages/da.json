@@ -137,11 +137,13 @@
       "CONFIRMED": "Bekræftet",
       "COMPLETED": "Fuldført",
       "CANCELLED": "Annulleret",
-      "NO_SHOW": "Udeblivelse"
+      "NO_SHOW": "Udeblivelse",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Annulleret af kunde",
-      "CANCELLED_BY_SALON": "Annulleret af salon"
+      "CANCELLED_BY_SALON": "Annulleret af salon",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Annuller booking",
     "leaveReview": "Skriv en anmeldelse",

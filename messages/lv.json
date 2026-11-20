@@ -137,11 +137,13 @@
       "CONFIRMED": "Apstiprināta",
       "COMPLETED": "Pabeigta",
       "CANCELLED": "Atcelta",
-      "NO_SHOW": "Neieradās"
+      "NO_SHOW": "Neieradās",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Atcēla klients",
-      "CANCELLED_BY_SALON": "Atcēla salons"
+      "CANCELLED_BY_SALON": "Atcēla salons",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Atcelt rezervāciju",
     "leaveReview": "Atstāt atsauksmi",

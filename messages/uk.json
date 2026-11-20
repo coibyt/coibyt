@@ -137,11 +137,13 @@
       "CONFIRMED": "Підтверджено",
       "COMPLETED": "Завершено",
       "CANCELLED": "Скасовано",
-      "NO_SHOW": "Неявка"
+      "NO_SHOW": "Неявка",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Скасовано клієнтом",
-      "CANCELLED_BY_SALON": "Скасовано салоном"
+      "CANCELLED_BY_SALON": "Скасовано салоном",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Скасувати бронювання",
     "leaveReview": "Залишити відгук",

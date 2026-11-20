@@ -137,11 +137,13 @@
       "CONFIRMED": "Onaylandı",
       "COMPLETED": "Tamamlandı",
       "CANCELLED": "İptal edildi",
-      "NO_SHOW": "Gelmedi"
+      "NO_SHOW": "Gelmedi",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Müşteri tarafından iptal edildi",
-      "CANCELLED_BY_SALON": "Salon tarafından iptal edildi"
+      "CANCELLED_BY_SALON": "Salon tarafından iptal edildi",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Rezervasyonu iptal et",
     "leaveReview": "Değerlendirme bırak",

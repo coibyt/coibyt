@@ -56,7 +56,7 @@ export async function busyAtOtherBranch(staffId: string, start: Date, end: Date)
   // Anything near enough to reach in, then each checked with its own margins.
   const reach = Math.max(travel, ADJUST_REACH);
   const window = { startsAt: { lt: new Date(end.getTime() + reach) }, endsAt: { gt: new Date(start.getTime() - reach) } };
-  const live = { in: ["PENDING_PAYMENT" as const, "CONFIRMED" as const] };
+  const live = { in: ["PENDING_PAYMENT" as const, "CONFIRMED" as const, "PENDING_APPROVAL" as const] };
   const [b, x, t, adjusts] = await Promise.all([
     prisma.booking.findMany({ where: { staffId: ids, status: live, ...window }, select: { id: true, startsAt: true, endsAt: true } }),
     prisma.bookingExtraService.findMany({ where: { staffId: ids, ...window, booking: { status: live } }, select: { id: true, startsAt: true, endsAt: true } }),

@@ -137,11 +137,13 @@
       "CONFIRMED": "Bekreftet",
       "COMPLETED": "Fullført",
       "CANCELLED": "Kansellert",
-      "NO_SHOW": "Ikke møtt"
+      "NO_SHOW": "Ikke møtt",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Kansellert av kunde",
-      "CANCELLED_BY_SALON": "Kansellert av salong"
+      "CANCELLED_BY_SALON": "Kansellert av salong",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Kanseller bestilling",
     "leaveReview": "Legg igjen en anmeldelse",

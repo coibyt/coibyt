@@ -137,11 +137,13 @@
       "CONFIRMED": "مؤكد",
       "COMPLETED": "مكتمل",
       "CANCELLED": "ملغى",
-      "NO_SHOW": "لم يحضر"
+      "NO_SHOW": "لم يحضر",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "ألغي من قبل العميل",
-      "CANCELLED_BY_SALON": "ألغي من قبل الصالون"
+      "CANCELLED_BY_SALON": "ألغي من قبل الصالون",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "إلغاء الحجز",
     "leaveReview": "اترك تقييمًا",

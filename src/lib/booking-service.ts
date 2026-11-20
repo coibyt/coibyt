@@ -17,6 +17,7 @@ import { emailStaffAboutBooking } from "@/lib/staff-booking-email";
 import { toZonedTime } from "date-fns-tz";
 import type { ComboAssignment } from "@/lib/availability";
 import type { PaymentProvider } from "@prisma/client";
+import { bookingNeedsApproval, pushApprovalRequest, sendPendingApprovalEmail } from "@/lib/booking-protect";
 
 export class SlotUnavailableError extends Error {
   constructor() {
@@ -188,6 +189,12 @@ export async function createBookingAndPayment(params: {
 
   const isOffline = params.provider === "CASH" || params.provider === "BANK_TRANSFER";
 
+  // A repeat no-show booking online waits for the salon's decision instead
+  // of being confirmed on the spot (Settings → Booking; never for the
+  // salon's own manual bookings, and never when the customer pays online).
+  const needsApproval =
+    isOffline && (params.source ?? "WEBSITE") === "WEBSITE" && (await bookingNeedsApproval(service.business, params.customerId));
+
   const booking = await prisma.$transaction(async (tx) => {
     // A combo booking occupies several staff members at once, each for
     // their own window — check every one of them, not just the primary's,
@@ -202,7 +209,7 @@ export async function createBookingAndPayment(params: {
       const conflict = await tx.booking.findFirst({
         where: {
           staffId: w.staffId,
-          status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
+          status: { in: ["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"] },
           startsAt: { lt: w.endsAt },
           endsAt: { gt: w.startsAt },
         },
@@ -215,7 +222,7 @@ export async function createBookingAndPayment(params: {
           staffId: w.staffId,
           startsAt: { lt: w.endsAt },
           endsAt: { gt: w.startsAt },
-          booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED"] } },
+          booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"] } },
         },
         select: { id: true },
       });
@@ -252,7 +259,7 @@ export async function createBookingAndPayment(params: {
         // Cash and bank transfer have nothing online to wait on, so they're
         // confirmed right away; online gateways stay PENDING_PAYMENT until
         // their callback fires.
-        status: isOffline ? "CONFIRMED" : "PENDING_PAYMENT",
+        status: needsApproval ? "PENDING_APPROVAL" : isOffline ? "CONFIRMED" : "PENDING_PAYMENT",
         source: params.source ?? "WEBSITE",
         notificationEmailsEnabled: params.sendNotificationEmails ?? true,
       },
@@ -307,6 +314,37 @@ export async function createBookingAndPayment(params: {
         where: { id: params.customerId },
         select: { phone: true, isGuest: true },
       });
+      if (needsApproval) {
+        // "The salon will confirm shortly" to the customer; the owner gets the
+        // usual new-booking email plus a push asking for a decision.
+        await sendPendingApprovalEmail(booking.id).catch((err) => console.error("[pending approval email]", err));
+        await notifyOwnerOfNewBooking({
+          ownerId: service.business.owner.id,
+          ownerName: service.business.owner.name,
+          ownerEmail: service.business.owner.email,
+          customerName: params.customerName,
+          customerEmail: params.customerEmail,
+          customerPhone: customer?.phone,
+          customerNote: params.customerNote,
+          serviceName: visitServiceName(service.name, extraServices, addOns),
+          staffName: staff?.name,
+          staffUserId: await staffLoginUserId(staff?.id),
+          priceCents: booking.priceCents,
+          currency: booking.currency,
+          bookingId: booking.id,
+          startsAt: booking.startsAt,
+          endsAt: booking.endsAt,
+          businessCountry: service.business.country,
+          businessTimezone: service.business.timezone,
+          businessName: service.business.name,
+          siteUrl: params.siteUrl,
+        });
+        await pushApprovalRequest(booking.id).catch(() => {});
+        return {
+          booking,
+          redirectUrl: `${params.siteUrl}/booking/${booking.id}/success?provider=${params.provider === "CASH" ? "cash" : "bank_transfer"}&pending=1`,
+        };
+      }
       const email = bookingConfirmationEmail({
         customerName: params.customerName,
         businessName: service.business.name,

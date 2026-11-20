@@ -137,11 +137,13 @@
       "CONFIRMED": "확정됨",
       "COMPLETED": "완료됨",
       "CANCELLED": "취소됨",
-      "NO_SHOW": "노쇼"
+      "NO_SHOW": "노쇼",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "고객에 의한 취소",
-      "CANCELLED_BY_SALON": "살롱에 의한 취소"
+      "CANCELLED_BY_SALON": "살롱에 의한 취소",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "예약 취소",
     "leaveReview": "리뷰 남기기",

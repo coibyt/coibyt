@@ -137,11 +137,13 @@
       "CONFIRMED": "Bekräftad",
       "COMPLETED": "Genomförd",
       "CANCELLED": "Avbokad",
-      "NO_SHOW": "Uteblivet besök"
+      "NO_SHOW": "Uteblivet besök",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Avbokad av kund",
-      "CANCELLED_BY_SALON": "Avbokad av salong"
+      "CANCELLED_BY_SALON": "Avbokad av salong",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Avboka",
     "leaveReview": "Lämna recension",

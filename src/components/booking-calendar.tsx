@@ -24,7 +24,8 @@ import {
 } from "date-fns";
 import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
-import { CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Globe, Loader2, Lock, Mail, Pencil, Star, Trash2, UserPen, X } from "lucide-react";
+import { AlertTriangle, CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Globe, Loader2, Lock, Mail, Pencil, ShieldCheck, Star, Trash2, UserPen, X } from "lucide-react";
+import { bookingProtectStrings } from "@/lib/booking-protect-strings";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { CUSTOMER_REVIEW_EVENT, type CustomerReviewEventDetail } from "@/components/pending-customer-reviews";
@@ -96,7 +97,17 @@ interface CalendarBooking {
   addOnNames: string[];
   addOns: { name: string; priceCents: number }[];
   addOnIds: string[];
+  /** No-show protection (src/lib/booking-protect.ts): when the customer
+   * confirmed, when they were asked to, and how reliable they have been here. */
+  confirmedAt?: string | null;
+  confirmRequestedAt?: string | null;
+  noShows?: number;
+  lateCancels?: number;
 }
+
+/** Asked to confirm after the 24h reminder and silent since — worth a call. */
+const isUnconfirmed = (b: { status: string; confirmedAt?: string | null; confirmRequestedAt?: string | null }) =>
+  b.status === "CONFIRMED" && !!b.confirmRequestedAt && !b.confirmedAt;
 
 /** A customer email that reaches someone — not a walk-in's stand-in. */
 const isRealEmail = (email: string | null | undefined) => !!email && !email.endsWith("@walkin.varaaai.com");
@@ -245,6 +256,7 @@ const STATUS_BG: Record<string, string> = {
   CONFIRMED: "bg-primary-50 border-primary-500 text-primary-800",
   COMPLETED: "bg-teal-50 border-teal-400 text-teal-700",
   NO_SHOW: "bg-berry-50 border-berry-400 text-berry-600",
+  PENDING_APPROVAL: "bg-amber-50 border-amber-500 text-amber-800",
 };
 
 // Shaded, hatched "outside working hours" area of a staff column.
@@ -544,6 +556,7 @@ export function BookingCalendar({
   const hd = HOURS_DIALOG[locale] ?? HOURS_DIALOG.en;
   const tStatus = useTranslations("booking.status");
   const tCancelReason = useTranslations("booking.cancelReason");
+  const P = bookingProtectStrings(locale);
   const dfLocale = locale === "vi" ? vi : undefined;
   const viewerTimezone = useViewerTimezone();
   const [view, setView] = useState<ViewMode>("day");
@@ -1036,6 +1049,32 @@ export function BookingCalendar({
     setUpdating(false);
     setActiveBooking(null);
     setShowCancelPicker(false);
+  }
+
+  // No-show protection: the salon's decision on a booking awaiting approval,
+  // or noting that the customer confirmed by phone.
+  async function decideApproval(id: string, approval: "approve" | "decline") {
+    setUpdating(true);
+    await fetch(`/api/business/bookings/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ approval }),
+    });
+    setUpdating(false);
+    setActiveBooking(null);
+    await reloadBookings();
+  }
+  async function markCustomerConfirmed(id: string) {
+    setUpdating(true);
+    await fetch(`/api/business/bookings/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ customerConfirmed: true }),
+    });
+    setUpdating(false);
+    const at = new Date().toISOString();
+    setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, confirmedAt: at } : b)));
+    setActiveBooking((prev) => (prev && prev.id === id ? { ...prev, confirmedAt: at } : prev));
   }
 
   // Rating a customer never depends on the booking's status — only on its
@@ -1929,7 +1968,7 @@ export function BookingCalendar({
     return (
       <button
         key={b.id}
-        draggable={["PENDING_PAYMENT", "CONFIRMED"].includes(b.status) && canActOn(b.staffId)}
+        draggable={["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"].includes(b.status) && canActOn(b.staffId)}
         onDragStart={() => (draggingId.current = `${b.id}|${b.slotKey}`)}
         onClick={(e) => {
           e.stopPropagation();
@@ -1947,8 +1986,8 @@ export function BookingCalendar({
               : b.source === "MANUAL"
                 ? "bg-violet-50 border-violet-500 text-violet-800"
                 : STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
-        }`}
-        title={online ? sourceLabels.online : sourceLabels.manual}
+        } ${isUnconfirmed(b) ? "!border-dashed !border-amber-500 !ring-amber-300" : ""}`}
+        title={isUnconfirmed(b) ? P.unconfirmedHint : b.status === "PENDING_APPROVAL" ? P.pendingApproval : online ? sourceLabels.online : sourceLabels.manual}
         style={
           lane
             ? {
@@ -1963,7 +2002,12 @@ export function BookingCalendar({
       >
         <p className="truncate font-medium leading-tight opacity-70">{timeLabel}</p>
         <p className="flex items-center gap-1 truncate text-xs font-bold leading-tight">
-          {online && <Globe aria-label={sourceLabels.online} className={`h-3 w-3 shrink-0 ${own ? "" : "text-emerald-600"}`} />}
+          {(isUnconfirmed(b) || b.status === "PENDING_APPROVAL") && (
+            <AlertTriangle aria-label={isUnconfirmed(b) ? P.unconfirmed : P.pendingApproval} className="h-3 w-3 shrink-0 text-amber-600" />
+          )}
+          {online && !isUnconfirmed(b) && b.status !== "PENDING_APPROVAL" && (
+            <Globe aria-label={sourceLabels.online} className={`h-3 w-3 shrink-0 ${own ? "" : "text-emerald-600"}`} />
+          )}
           <span className="truncate">{b.customerName}</span>
         </p>
         {!compact && (
@@ -2158,6 +2202,20 @@ export function BookingCalendar({
             <span className="sm:hidden">{sourceLabels.manualShort}</span>
             <span className="hidden sm:inline">{sourceLabels.manual}</span>
           </span>
+          <span className="flex items-center gap-1.5" title={P.unconfirmedHint}>
+            <span className="flex h-4 w-6 items-center justify-center rounded-md border-l-[3px] border-dashed border-amber-500 bg-amber-50 text-amber-600 ring-1 ring-amber-300">
+              <AlertTriangle className="h-2.5 w-2.5" />
+            </span>
+            {P.legendUnconfirmed}
+          </span>
+          {bookings.some((b) => b.status === "PENDING_APPROVAL") && (
+            <span className="flex items-center gap-1.5" title={P.pendingApproval}>
+              <span className="flex h-4 w-6 items-center justify-center rounded-md border-l-[3px] border-amber-500 bg-amber-50 text-amber-800 ring-1 ring-black/5">
+                <ShieldCheck className="h-2.5 w-2.5" />
+              </span>
+              {P.legendPending}
+            </span>
+          )}
         </div>
       )}
 
@@ -2800,6 +2858,47 @@ export function BookingCalendar({
                 </p>
               )}
               <BookingStatusBadge status={activeBooking.status} />
+              {/* No-show protection: the confirm request's answer, and the customer's record here. */}
+              {activeBooking.status === "PENDING_APPROVAL" && (
+                <div className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2.5 text-xs text-amber-900">
+                  <p className="flex items-start gap-1.5 font-semibold">
+                    <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                    {P.pendingApprovalHint((activeBooking.noShows ?? 0) + (activeBooking.lateCancels ?? 0))}
+                  </p>
+                  {canActOn(activeBooking.staffId) && (
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      <button disabled={updating} onClick={() => decideApproval(activeBooking.id, "approve")} className="btn-primary !px-3 !py-1.5 text-xs">
+                        {P.approve}
+                      </button>
+                      <button disabled={updating} onClick={() => decideApproval(activeBooking.id, "decline")} className="btn-outline !border-berry-400 !px-3 !py-1.5 text-xs !text-berry-500">
+                        {P.decline}
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+              {isUnconfirmed(activeBooking) && (
+                <div className="rounded-xl border border-dashed border-amber-400 bg-amber-50 px-3 py-2.5 text-xs text-amber-900">
+                  <p className="flex items-start gap-1.5">
+                    <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                    <span><span className="font-semibold">{P.unconfirmed}.</span> {P.unconfirmedHint}</span>
+                  </p>
+                  {canActOn(activeBooking.staffId) && (
+                    <button disabled={updating} onClick={() => markCustomerConfirmed(activeBooking.id)} className="btn-outline mt-2 !border-amber-500 !px-3 !py-1.5 text-xs !text-amber-800">
+                      <Check className="h-3.5 w-3.5" /> {P.markConfirmed}
+                    </button>
+                  )}
+                </div>
+              )}
+              {activeBooking.status === "CONFIRMED" && activeBooking.confirmedAt && (
+                <p className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
+                  <Check className="h-3.5 w-3.5" />
+                  {activeBooking.confirmRequestedAt && activeBooking.confirmedAt >= activeBooking.confirmRequestedAt ? P.confirmedByCustomer : P.confirmedBySalon}
+                </p>
+              )}
+              {((activeBooking.noShows ?? 0) > 0 || (activeBooking.lateCancels ?? 0) > 0) && (
+                <p className="text-xs font-semibold text-berry-500">{P.reliability(activeBooking.noShows ?? 0, activeBooking.lateCancels ?? 0)}</p>
+              )}
               {!canActOn(activeBooking.staffId) && (
                 <p className="flex items-start gap-1.5 rounded-lg bg-mist-50 px-3 py-2 text-xs text-ink-700">
                   <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-400" />

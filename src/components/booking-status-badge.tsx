@@ -8,6 +8,7 @@ const COLORS: Record<string, string> = {
   COMPLETED: "bg-sage-50 text-sage-500",
   CANCELLED: "bg-mist-100 text-ink-400",
   NO_SHOW: "bg-berry-50 text-berry-500",
+  PENDING_APPROVAL: "bg-amber-50 text-amber-700",
 };
 
 export function BookingStatusBadge({ status }: { status: string }) {

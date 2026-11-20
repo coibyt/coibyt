@@ -137,11 +137,13 @@
       "CONFIRMED": "បានបញ្ជាក់",
       "COMPLETED": "បានបញ្ចប់",
       "CANCELLED": "បានលុបចោល",
-      "NO_SHOW": "មិនបានមក"
+      "NO_SHOW": "មិនបានមក",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "បោះបង់ដោយអតិថិជន",
-      "CANCELLED_BY_SALON": "បោះបង់ដោយសាឡុង"
+      "CANCELLED_BY_SALON": "បោះបង់ដោយសាឡុង",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "លុបចោលការកក់",
     "leaveReview": "ផ្តល់ការវាយតម្លៃ",

@@ -31,7 +31,7 @@ export async function PATCH(
     include: { service: true },
   });
   if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
-  if (!["PENDING_PAYMENT", "CONFIRMED"].includes(booking.status)) {
+  if (!["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"].includes(booking.status)) {
     return NextResponse.json({ error: "CANNOT_RESCHEDULE" }, { status: 409 });
   }
 
@@ -58,7 +58,7 @@ export async function PATCH(
         where: {
           id: { not: id },
           staffId: parsed.data.staffId,
-          status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
+          status: { in: ["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"] },
           startsAt: { lt: endsAt },
           endsAt: { gt: startsAt },
         },

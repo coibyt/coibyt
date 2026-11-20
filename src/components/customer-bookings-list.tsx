@@ -175,7 +175,7 @@ export function CustomerBookingsList({
               <BookingStatusBadge status={detailFor.status} />
             </div>
 
-            {["PENDING_PAYMENT", "CONFIRMED"].includes(detailFor.status) && (
+            {["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"].includes(detailFor.status) && (
               <div className="mt-4 border-t border-ink-100 pt-4">
                 {!confirmingCancel ? (
                   <button

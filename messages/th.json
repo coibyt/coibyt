@@ -137,11 +137,13 @@
       "CONFIRMED": "ยืนยันแล้ว",
       "COMPLETED": "เสร็จสมบูรณ์",
       "CANCELLED": "ยกเลิกแล้ว",
-      "NO_SHOW": "ไม่มาตามนัด"
+      "NO_SHOW": "ไม่มาตามนัด",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "ลูกค้ายกเลิก",
-      "CANCELLED_BY_SALON": "ร้านยกเลิก"
+      "CANCELLED_BY_SALON": "ร้านยกเลิก",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "ยกเลิกการจอง",
     "leaveReview": "เขียนรีวิว",

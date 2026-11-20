@@ -93,7 +93,7 @@ function sitePath(locale: string, path: string) {
 
 const plain = (html: string) => html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 
-function salonBrand(name: string, logoUrl?: string | null, city?: string | null): EmailBrand {
+export function salonBrand(name: string, logoUrl?: string | null, city?: string | null): EmailBrand {
   return { name, logoUrl, subline: city || null };
 }
 
@@ -108,7 +108,7 @@ function telLink(phone?: string | null) {
 }
 
 /** "Where" block: salon name, address, phone, directions/call buttons. */
-function locationBlock(locale: string, p: { businessName: string; address: string; phone?: string | null; mapsUrl?: string | null }) {
+export function locationBlock(locale: string, p: { businessName: string; address: string; phone?: string | null; mapsUrl?: string | null }) {
   if (!p.address && !p.phone && !p.mapsUrl) return "";
   const c = chromeStrings(locale);
   const maps = mapsLink(p.businessName, p.address, p.mapsUrl);
@@ -124,7 +124,7 @@ function locationBlock(locale: string, p: { businessName: string; address: strin
   return sectionTitle(c.where) + panel(inner);
 }
 
-function salonFooter(businessName: string, address: string, phone?: string | null) {
+export function salonFooter(businessName: string, address: string, phone?: string | null) {
   return [`<strong>${esc(businessName)}</strong>`, esc(address), esc(phone ?? "")].filter(Boolean).join(" · ");
 }
 
@@ -661,7 +661,11 @@ export function bookingRescheduledEmail(params: BookingCore & {
  * fire later than its nominal threshold (e.g. the cron catching up after a
  * gap), so a hardcoded duration would sometimes be wrong; the accurate
  * scheduled date/time is shown instead. */
-export function appointmentReminderEmail(params: BookingCore) {
+export function appointmentReminderEmail(params: BookingCore & {
+  /** The 24h reminder doubles as the confirm request (src/lib/booking-protect.ts):
+   * two buttons right under the appointment card. */
+  confirm?: { title: string; text: string; yesLabel: string; yesUrl: string; noLabel: string; noUrl: string } | null;
+}) {
   const s = bookingEmailStrings(params.locale);
   const x = customerExtra(params.locale);
   const c = chromeStrings(params.locale);
@@ -673,6 +677,17 @@ export function appointmentReminderEmail(params: BookingCore) {
     greeting(s.hi, params.customerName),
     para(intro),
     appointmentCard(params, c.when, { accent: C.teal }),
+    params.confirm
+      ? notice(
+          esc(params.confirm.title),
+          `${esc(params.confirm.text)}<div style="height:14px;line-height:14px;font-size:1px">&nbsp;</div>${buttonRow([
+            { href: params.confirm.yesUrl, label: esc(params.confirm.yesLabel), variant: "primary" },
+            { href: params.confirm.noUrl, label: esc(params.confirm.noLabel), variant: "light" },
+          ])}`,
+          "gold",
+          20
+        )
+      : "",
     locationBlock(params.locale, {
       businessName: params.businessName,
       address,

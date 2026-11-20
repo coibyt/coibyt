@@ -137,11 +137,13 @@
       "CONFIRMED": "Confirmată",
       "COMPLETED": "Finalizată",
       "CANCELLED": "Anulată",
-      "NO_SHOW": "Neprezentare"
+      "NO_SHOW": "Neprezentare",
+      "PENDING_APPROVAL": "Awaiting approval"
     },
     "cancelReason": {
       "CANCELLED_BY_CUSTOMER": "Anulată de client",
-      "CANCELLED_BY_SALON": "Anulată de salon"
+      "CANCELLED_BY_SALON": "Anulată de salon",
+      "AUTO_UNCONFIRMED": "Auto-cancelled (not confirmed)"
     },
     "cancel": "Anulați rezervarea",
     "leaveReview": "Lăsați o recenzie",
