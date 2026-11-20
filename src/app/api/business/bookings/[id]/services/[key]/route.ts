@@ -12,12 +12,17 @@ const schema = z.object({
   // false: the calendar asks the owner first whether to email the customer
   // (POST …/notify-reschedule).
   notify: z.boolean().optional(),
+  // A multi-service booking: shift every service by the same amount (each
+  // keeps its own staff; the dragged one takes staffId), so the visit stays
+  // back-to-back.
+  moveGroup: z.boolean().optional(),
 });
 
 /** Moves one service inside a booking — the main service ("primary") or one
- * of its extra services — to a new time and staff member. Checks the target
- * staff's other bookings, extra services and time off, so a move can never
- * double-book anyone. */
+ * of its extra services — to a new time and staff member, or (moveGroup)
+ * the whole visit by the same shift. Checks the target staff's other
+ * bookings, extra services and time off, so a move can never double-book
+ * anyone. */
 export async function PATCH(
   req: Request,
   { params }: { params: Promise<{ id: string; key: string }> }
@@ -88,6 +93,10 @@ export async function PATCH(
     where: { id: newStaffId, businessId, active: true },
   });
   if (!staff) return NextResponse.json({ error: "STAFF_NOT_FOUND" }, { status: 404 });
+
+  if (parsed.data.moveGroup && slots.length > 1) {
+    return moveWholeGroup({ id, booking, slots, key, newStart, newStaffId, businessId, isOwner: access.isOwner, notify: parsed.data.notify });
+  }
 
   // Everything that could hold this staff member's time: other bookings'
   // main services, their extra services that have a time, and this booking's
@@ -202,4 +211,78 @@ export async function PATCH(
     startsAt: newStart.toISOString(),
     endsAt: addMinutes(newStart, durationMs / 60_000).toISOString(),
   });
+}
+
+/** Every service of the visit moves by the same shift as the dragged one
+ * (which also takes the dropped column's staff); the others keep their
+ * staff. Each new window is checked against that staff member's other
+ * bookings, extra services and time off; the owner may still double-book. */
+async function moveWholeGroup(p: {
+  id: string;
+  booking: { startsAt: Date; extraServices: { startsAt: Date | null; endsAt: Date | null }[] };
+  slots: ReturnType<typeof serviceSlots>;
+  key: string;
+  newStart: Date;
+  newStaffId: string;
+  businessId: string;
+  isOwner: boolean;
+  notify?: boolean;
+}) {
+  const dragged = p.slots.find((s) => s.key === p.key)!;
+  const deltaMs = p.newStart.getTime() - dragged.startsAt.getTime();
+  const moved = p.slots.map((s) => ({
+    key: s.key,
+    kind: s.kind,
+    startsAt: new Date(s.startsAt.getTime() + deltaMs),
+    endsAt: new Date(s.endsAt.getTime() + deltaMs),
+    staffId: s.key === p.key ? p.newStaffId : s.staffId,
+  }));
+
+  if (!p.isOwner) {
+    for (const m of moved) {
+      if (!m.staffId) continue;
+      const [other, extra, off] = await Promise.all([
+        prisma.booking.findFirst({
+          where: { businessId: p.businessId, id: { not: p.id }, staffId: m.staffId, status: { in: ["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"] }, startsAt: { lt: m.endsAt }, endsAt: { gt: m.startsAt } },
+          select: { id: true },
+        }),
+        prisma.bookingExtraService.findFirst({
+          where: { staffId: m.staffId, startsAt: { lt: m.endsAt }, endsAt: { gt: m.startsAt }, booking: { id: { not: p.id }, status: { in: ["PENDING_PAYMENT", "CONFIRMED", "PENDING_APPROVAL"] }, businessId: p.businessId } },
+          select: { id: true },
+        }),
+        prisma.staffTimeOff.findFirst({ where: { staffId: m.staffId, startsAt: { lt: m.endsAt }, endsAt: { gt: m.startsAt } }, select: { id: true } }),
+      ]);
+      if (other || extra || off) return NextResponse.json({ error: "SLOT_UNAVAILABLE" }, { status: 409 });
+    }
+  }
+
+  const primary = moved.find((m) => m.kind === "primary")!;
+  try {
+    await prisma.$transaction(async (tx) => {
+      await tx.booking.update({
+        where: { id: p.id },
+        data: {
+          startsAt: primary.startsAt,
+          endsAt: primary.endsAt,
+          staffId: primary.staffId,
+          reminder24hSentAt: null,
+          reminder2hSentAt: null,
+          reminder15minSentAt: null,
+        },
+      });
+      for (const m of moved) {
+        if (m.kind !== "extra") continue;
+        await tx.bookingExtraService.update({
+          where: { id: m.key },
+          data: { startsAt: m.startsAt, endsAt: m.endsAt, staffId: m.staffId },
+        });
+      }
+    });
+  } catch {
+    return NextResponse.json({ error: "INTERNAL_ERROR" }, { status: 500 });
+  }
+
+  const timeChanged = deltaMs !== 0;
+  if (timeChanged && p.notify !== false) await sendBookingRescheduledEmail(p.id);
+  return NextResponse.json({ ok: true, timeChanged, movedGroup: true, startsAt: primary.startsAt.toISOString(), endsAt: primary.endsAt.toISOString() });
 }

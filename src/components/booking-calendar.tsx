@@ -24,7 +24,7 @@ import {
 } from "date-fns";
 import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
-import { AlertTriangle, CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Globe, Loader2, Lock, Mail, Pencil, ShieldCheck, Star, Trash2, UserPen, X } from "lucide-react";
+import { AlertTriangle, CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Globe, Link2, Loader2, Lock, Mail, Pencil, ShieldCheck, Star, Trash2, UserPen, X } from "lucide-react";
 import { bookingProtectStrings } from "@/lib/booking-protect-strings";
 import { waitlistStrings } from "@/lib/waitlist-strings";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
@@ -449,6 +449,31 @@ interface PendingReschedule {
   newStaffId: string;
 }
 
+/** Multi-service visits (several blocks of one booking) — vi / en / fi. */
+const GROUP_TEXT: Record<string, { of: (i: number, n: number) => string; title: string; one: string; all: (n: number) => string; hint: (n: number) => string }> = {
+  vi: {
+    of: (i, n) => `${i}/${n}`,
+    title: "Lịch này gồm nhiều dịch vụ",
+    one: "Chỉ dời dịch vụ này",
+    all: (n) => `Dời cả ${n} dịch vụ`,
+    hint: (n) => `Một lần đặt gồm ${n} dịch vụ nối tiếp nhau — hủy là hủy cả nhóm.`,
+  },
+  en: {
+    of: (i, n) => `${i}/${n}`,
+    title: "This booking has several services",
+    one: "Move only this service",
+    all: (n) => `Move all ${n} services`,
+    hint: (n) => `One visit with ${n} services back-to-back — cancelling cancels them all.`,
+  },
+  fi: {
+    of: (i, n) => `${i}/${n}`,
+    title: "Tässä varauksessa on useita palveluja",
+    one: "Siirrä vain tämä palvelu",
+    all: (n) => `Siirrä kaikki ${n} palvelua`,
+    hint: (n) => `Yksi käynti, ${n} palvelua peräkkäin — peruminen peruu kaikki.`,
+  },
+};
+
 interface DayWindow {
   weekday: number;
   openMinute: number;
@@ -559,6 +584,7 @@ export function BookingCalendar({
   const tCancelReason = useTranslations("booking.cancelReason");
   const P = bookingProtectStrings(locale);
   const W = waitlistStrings(locale);
+  const G = GROUP_TEXT[locale] ?? GROUP_TEXT.en;
   // After the salon cancels: "N on the wait list would want that time" (src/lib/waitlist.ts).
   const [waitlistPrompt, setWaitlistPrompt] = useState<{ bookingId: string; count: number; sent?: number; failed?: boolean } | null>(null);
   const [notifyingWaitlist, setNotifyingWaitlist] = useState(false);
@@ -1429,13 +1455,13 @@ export function BookingCalendar({
     reloadBookings();
   }
 
-  async function rescheduleBooking(block: CalendarBlock, newStartsAt: Date, newStaffId: string) {
+  async function rescheduleBooking(block: CalendarBlock, newStartsAt: Date, newStaffId: string, moveGroup = false) {
     setReschedulingBusy(true);
     const res = await fetch(`/api/business/bookings/${block.id}/services/${block.slotKey}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       // The owner is asked first whether to email the customer.
-      body: JSON.stringify({ startsAt: newStartsAt.toISOString(), staffId: newStaffId, notify: false }),
+      body: JSON.stringify({ startsAt: newStartsAt.toISOString(), staffId: newStaffId, notify: false, moveGroup }),
     });
     setReschedulingBusy(false);
     if (!res.ok) {
@@ -1490,12 +1516,13 @@ export function BookingCalendar({
     setPendingReschedule({ booking, newStartsAt, newStaffId: staffId });
   }
 
-  async function confirmPendingReschedule() {
+  async function confirmPendingReschedule(moveGroup = false) {
     if (!pendingReschedule) return;
     await rescheduleBooking(
       pendingReschedule.booking,
       pendingReschedule.newStartsAt,
-      pendingReschedule.newStaffId
+      pendingReschedule.newStaffId,
+      moveGroup
     );
     setPendingReschedule(null);
   }
@@ -2013,7 +2040,9 @@ export function BookingCalendar({
               : b.source === "MANUAL"
                 ? "bg-violet-50 border-violet-500 text-violet-800"
                 : STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
-        } ${isUnconfirmed(b) ? "!border-dashed !border-amber-500 !ring-amber-300" : ""}`}
+        } ${isUnconfirmed(b) ? "!border-dashed !border-amber-500 !ring-amber-300" : ""} ${
+          activeBooking?.id === b.id && b.slots.length > 1 ? "!ring-2 !ring-primary-400" : ""
+        }`}
         title={isUnconfirmed(b) ? P.unconfirmedHint : b.status === "PENDING_APPROVAL" ? P.pendingApproval : online ? sourceLabels.online : sourceLabels.manual}
         style={
           lane
@@ -2027,7 +2056,15 @@ export function BookingCalendar({
             : { ...ownStyle, top, height }
         }
       >
-        <p className="truncate font-medium leading-tight opacity-70">{timeLabel}</p>
+        <p className="flex items-center gap-1 truncate font-medium leading-tight opacity-70">
+          <span className="truncate">{timeLabel}</span>
+          {b.slots.length > 1 && (
+            <span className="ml-auto inline-flex shrink-0 items-center gap-0.5 rounded-full bg-black/5 px-1 text-[9px] font-bold" title={G.hint(b.slots.length)}>
+              <Link2 className="h-2.5 w-2.5" />
+              {G.of(b.slots.findIndex((sl) => sl.key === b.slotKey) + 1, b.slots.length)}
+            </span>
+          )}
+        </p>
         <p className="flex items-center gap-1 truncate text-xs font-bold leading-tight">
           {(isUnconfirmed(b) || b.status === "PENDING_APPROVAL") && (
             <AlertTriangle aria-label={isUnconfirmed(b) ? P.unconfirmed : P.pendingApproval} className="h-3 w-3 shrink-0 text-amber-600" />
@@ -2828,6 +2865,12 @@ export function BookingCalendar({
               </div>
             </div>
             <div className="space-y-1.5 text-sm">
+              {activeBooking.slots.length > 1 && (
+                <p className="flex items-center gap-1.5 rounded-lg bg-primary-50 px-2.5 py-1.5 text-xs font-semibold text-primary-800">
+                  <Link2 className="h-3.5 w-3.5 shrink-0" />
+                  {G.hint(activeBooking.slots.length)}
+                </p>
+              )}
               <ul className="space-y-2">
                 {activeBooking.slots.map((sl) => (
                   <li key={sl.key} className="rounded-lg border border-ink-100 p-2">
@@ -4237,23 +4280,41 @@ export function BookingCalendar({
                 })}
               </span>
             </p>
-            <div className="flex gap-2">
-              <button
-                disabled={reschedulingBusy}
-                onClick={confirmPendingReschedule}
-                className="btn-primary"
-              >
-                {reschedulingBusy && <Loader2 className="h-4 w-4 animate-spin" />}
-                {locale === "vi" ? "Có, chuyển" : "Yes, move it"}
-              </button>
-              <button
-                disabled={reschedulingBusy}
-                onClick={() => setPendingReschedule(null)}
-                className="btn-ghost"
-              >
-                {locale === "vi" ? "Huỷ bỏ" : "Cancel"}
-              </button>
-            </div>
+            {pendingReschedule.booking.slots.length > 1 ? (
+              <div className="flex flex-col gap-2">
+                <p className="flex items-center gap-1.5 text-xs font-semibold text-primary-800">
+                  <Link2 className="h-3.5 w-3.5" /> {G.title}
+                </p>
+                <button disabled={reschedulingBusy} onClick={() => confirmPendingReschedule(true)} className="btn-primary">
+                  {reschedulingBusy && <Loader2 className="h-4 w-4 animate-spin" />}
+                  {G.all(pendingReschedule.booking.slots.length)}
+                </button>
+                <button disabled={reschedulingBusy} onClick={() => confirmPendingReschedule(false)} className="btn-outline">
+                  {G.one}
+                </button>
+                <button disabled={reschedulingBusy} onClick={() => setPendingReschedule(null)} className="btn-ghost">
+                  {locale === "vi" ? "Huỷ bỏ" : locale === "fi" ? "Peruuta" : "Cancel"}
+                </button>
+              </div>
+            ) : (
+              <div className="flex gap-2">
+                <button
+                  disabled={reschedulingBusy}
+                  onClick={() => confirmPendingReschedule(false)}
+                  className="btn-primary"
+                >
+                  {reschedulingBusy && <Loader2 className="h-4 w-4 animate-spin" />}
+                  {locale === "vi" ? "Có, chuyển" : "Yes, move it"}
+                </button>
+                <button
+                  disabled={reschedulingBusy}
+                  onClick={() => setPendingReschedule(null)}
+                  className="btn-ghost"
+                >
+                  {locale === "vi" ? "Huỷ bỏ" : "Cancel"}
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}
