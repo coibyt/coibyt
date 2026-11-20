@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSession, signIn } from "next-auth/react";
+import { WaitlistJoin } from "@/components/waitlist-join";
 import { useTranslations } from "next-intl";
 import {
   addDays,
@@ -146,6 +147,7 @@ export function BookingWidget({
   embedIntro,
   initialDate,
   initialTime,
+  initialStaffId,
 }: {
   businessSlug: string;
   service: ServiceInfo;
@@ -168,6 +170,8 @@ export function BookingWidget({
    * of the bookable range or no longer free — the customer just picks again. */
   initialDate?: string;
   initialTime?: string;
+  /** The staff member a wait-list / rebook link asks for (ignored when unknown). */
+  initialStaffId?: string;
 }) {
   const t = useTranslations("service");
   const tPay = useTranslations("payment");
@@ -201,7 +205,7 @@ export function BookingWidget({
   // that, the customer's own clicks are in charge.
   const pendingInitialTime = useRef(initialDay && initialTime && /^\d{2}:\d{2}$/.test(initialTime) ? initialTime : null);
 
-  const [staffId, setStaffId] = useState<string>("");
+  const [staffId, setStaffId] = useState<string>(initialStaffId && staffOptions.some((s) => s.id === initialStaffId) ? initialStaffId : "");
   const [selectedAddOnIds, setSelectedAddOnIds] = useState<Set<string>>(new Set());
   const [selectedDate, setSelectedDate] = useState(initialDay ?? todayInBusinessTz);
   const [slots, setSlots] = useState<Slot[]>([]);
@@ -575,9 +579,20 @@ export function BookingWidget({
             <Loader2 className="h-4 w-4 animate-spin" /> {L.loadingTimes}
           </p>
         ) : slots.length === 0 ? (
-          <p className="rounded-2xl border border-dashed border-ink-100 px-4 py-6 text-center text-sm text-ink-400">
-            {t("noSlots")}
-          </p>
+          <div>
+            <p className="rounded-2xl border border-dashed border-ink-100 px-4 py-6 text-center text-sm text-ink-400">
+              {t("noSlots")}
+            </p>
+            {/* A full day: the customer can wait for a cancellation (src/lib/waitlist.ts). */}
+            <WaitlistJoin
+              key={`${service.id}-${staffId}`}
+              businessSlug={businessSlug}
+              serviceId={service.id}
+              staffId={staffId}
+              staffName={selectedStaff?.name}
+              locale={locale}
+            />
+          </div>
         ) : (
           <div className="space-y-4">
             {slotGroups.map((g) => (

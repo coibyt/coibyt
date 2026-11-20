@@ -21,10 +21,10 @@ export default async function EmbedBookServicePage({
   searchParams,
 }: {
   params: Promise<{ slug: string; serviceId: string }>;
-  searchParams: Promise<{ locale?: string; extra?: string; chain?: string; date?: string; time?: string }>;
+  searchParams: Promise<{ locale?: string; extra?: string; chain?: string; date?: string; time?: string; staff?: string }>;
 }) {
   const { slug, serviceId } = await params;
-  const { locale: rawLocale, extra, chain, date, time } = await searchParams;
+  const { locale: rawLocale, extra, chain, date, time, staff } = await searchParams;
   const extraServiceIds = extra?.split(",").filter(Boolean) ?? [];
 
   const business = await prisma.business.findUnique({
@@ -162,6 +162,7 @@ export default async function EmbedBookServicePage({
           businessTimezone={business.timezone}
           initialDate={date}
           initialTime={time}
+          initialStaffId={staff}
           embedProgress={{
             step1Href:
               siblings.length > 1

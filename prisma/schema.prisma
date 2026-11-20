@@ -108,6 +108,7 @@ model User {
   teamChatMembers     TeamChatMember[]
   teamMessages        TeamMessage[]
   pushSubscriptions   PushSubscription[]
+  waitlist            WaitlistEntry[]
   postLikes           PostLike[]
   passwordResetTokens PasswordResetToken[]
   avatar              UserAvatar?
@@ -310,6 +311,9 @@ model Business {
   noShowApprovalCount        Int     @default(2)
   autoCancelUnconfirmedHours Int?
   onTimePoints               Int     @default(0)
+  // When the owner last opened the wait list tab — entries newer than this
+  // light the red dot (src/lib/waitlist.ts).
+  waitlistSeenAt             DateTime?
 
   // Owner-controlled — turned on for when they're away, so the chat widget
   // auto-replies to customers using the salon's own active services/products
@@ -393,6 +397,7 @@ model Business {
   staffAnnouncements      StaffAnnouncement[]
   staffTrainings          StaffTraining[]
   telegramGroups          TelegramGroup[]
+  waitlist                WaitlistEntry[]
 
   @@index([ownerId])
   @@index([status])
@@ -717,6 +722,7 @@ model Staff {
   hours                StaffHours[]
   avatar               StaffAvatar?
   bookingExtraServices BookingExtraService[]
+  waitlist             WaitlistEntry[]
 
   @@index([businessId])
   @@index([branchGroup])
@@ -865,6 +871,7 @@ model Service {
   addOns       ServiceAddOnLink[]
   bookingExtra BookingExtraService[]
   giftCards    GiftCard[]
+  waitlist     WaitlistEntry[]
 
   @@index([businessId])
   @@index([categoryId])
@@ -1306,6 +1313,42 @@ model BookingExtraService {
 enum BookingSource {
   WEBSITE
   MANUAL
+}
+
+// A customer waiting for a slot that was full (src/lib/waitlist.ts): the
+// booking page offers it when a day has no free times. serviceId/staffId
+// null = any service / anyone. When a matching booking is cancelled, the
+// salon (or the cron, for auto-cancels) emails + pushes everyone waiting a
+// link to book and a link to leave the list (token). leftAt: left or
+// removed. notifiedAt / notifyCount: the last and how many times told.
+model WaitlistEntry {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  serviceId  String?
+  service    Service? @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+  staffId    String?
+  staff      Staff?   @relation(fields: [staffId], references: [id], onDelete: SetNull)
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  name       String   @db.VarChar(120)
+  phone      String?  @db.VarChar(30)
+  email      String   @db.VarChar(191)
+  // Salon-local calendar dates: waiting for any free time in [fromDate, toDate].
+  fromDate   DateTime @db.Date
+  toDate     DateTime @db.Date
+  // "Afternoons", "not Mondays"… for the salon's eyes.
+  note       String?  @db.VarChar(300)
+  token      String   @unique @db.VarChar(64)
+  createdAt  DateTime @default(now())
+  notifiedAt  DateTime?
+  notifyCount Int       @default(0)
+  leftAt      DateTime?
+
+  @@index([businessId, leftAt, toDate])
+  @@index([userId])
+  @@index([serviceId])
+  @@index([staffId])
 }
 
 // ────────────────────────────────────────────────────────────────────

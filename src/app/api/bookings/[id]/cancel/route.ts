@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { sendMail, ownerBookingCancelledEmail, bookingCancelledEmail } from "@/lib/mailer";
 import { localeForCountry } from "@/lib/countries";
 import { emailStaffAboutBooking } from "@/lib/staff-booking-email";
+import { notifyWaitlistForBooking } from "@/lib/waitlist";
 
 export async function POST(
   _req: Request,
@@ -96,6 +97,8 @@ export async function POST(
   }
 
   await emailStaffAboutBooking(id, "cancelled");
+  // The freed slot goes to whoever is waiting for it (src/lib/waitlist.ts).
+  await notifyWaitlistForBooking(id).catch((err) => console.error("[customer cancel: waitlist]", err));
 
   return NextResponse.json({ booking: updated });
 }

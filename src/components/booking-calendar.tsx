@@ -26,6 +26,7 @@ import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
 import { AlertTriangle, CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Globe, Loader2, Lock, Mail, Pencil, ShieldCheck, Star, Trash2, UserPen, X } from "lucide-react";
 import { bookingProtectStrings } from "@/lib/booking-protect-strings";
+import { waitlistStrings } from "@/lib/waitlist-strings";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { CUSTOMER_REVIEW_EVENT, type CustomerReviewEventDetail } from "@/components/pending-customer-reviews";
@@ -557,6 +558,28 @@ export function BookingCalendar({
   const tStatus = useTranslations("booking.status");
   const tCancelReason = useTranslations("booking.cancelReason");
   const P = bookingProtectStrings(locale);
+  const W = waitlistStrings(locale);
+  // After the salon cancels: "N on the wait list would want that time" (src/lib/waitlist.ts).
+  const [waitlistPrompt, setWaitlistPrompt] = useState<{ bookingId: string; count: number; sent?: number; failed?: boolean } | null>(null);
+  const [notifyingWaitlist, setNotifyingWaitlist] = useState(false);
+
+  async function notifyWaitlist() {
+    if (!waitlistPrompt) return;
+    setNotifyingWaitlist(true);
+    const res = await fetch("/api/business/waitlist/notify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ bookingId: waitlistPrompt.bookingId }),
+    }).catch(() => null);
+    setNotifyingWaitlist(false);
+    if (res?.ok) {
+      const { sent } = (await res.json()) as { sent: number };
+      setWaitlistPrompt((p) => (p ? { ...p, sent } : p));
+      setTimeout(() => setWaitlistPrompt(null), 4000);
+    } else {
+      setWaitlistPrompt((p) => (p ? { ...p, failed: true } : p));
+    }
+  }
   const dfLocale = locale === "vi" ? vi : undefined;
   const viewerTimezone = useViewerTimezone();
   const [view, setView] = useState<ViewMode>("day");
@@ -1033,11 +1056,15 @@ export function BookingCalendar({
 
   async function updateStatus(id: string, status: string, cancelReason?: string) {
     setUpdating(true);
-    await fetch(`/api/business/bookings/${id}`, {
+    const res = await fetch(`/api/business/bookings/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status, cancelReason }),
     });
+    if (status === "CANCELLED" && res.ok) {
+      const { waitlistMatches } = (await res.json().catch(() => ({}))) as { waitlistMatches?: number };
+      if (waitlistMatches) setWaitlistPrompt({ bookingId: id, count: waitlistMatches });
+    }
     // A cancelled or no-show booking should disappear immediately — the
     // calendar API excludes both, so drop it from local state the same way
     // rather than leaving a stale block on the grid.
@@ -2095,6 +2122,22 @@ export function BookingCalendar({
 
       {error && (
         <p className="rounded-lg bg-berry-50 px-3 py-2 text-sm text-berry-500">{error}</p>
+      )}
+
+      {waitlistPrompt && (
+        <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-[#e8d3a6] bg-[#fbf6ec] px-4 py-3 text-sm text-ink-900">
+          <span className="flex-1">
+            {waitlistPrompt.sent !== undefined ? W.notifiedAll(waitlistPrompt.sent) : waitlistPrompt.failed ? W.notifyFailed : W.suggest(waitlistPrompt.count)}
+          </span>
+          {waitlistPrompt.sent === undefined && (
+            <button type="button" disabled={notifyingWaitlist} onClick={notifyWaitlist} className="btn-primary !px-3 !py-1.5 text-xs">
+              {notifyingWaitlist ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : null} {W.notifyAll(waitlistPrompt.count)}
+            </button>
+          )}
+          <button type="button" onClick={() => setWaitlistPrompt(null)} className="text-ink-400" aria-label="×">
+            <X className="h-4 w-4" />
+          </button>
+        </div>
       )}
 
       {/* Staff: bookings over 24 hours old still waiting for an income report. */}

@@ -15,6 +15,7 @@ import { seesBookingContact } from "@/lib/contact-visibility";
 import { emailStaffAboutBooking } from "@/lib/staff-booking-email";
 import { serviceSlots } from "@/lib/booking-slots";
 import { approveBooking, awardOnTimePoints, customerReliability, declineBooking } from "@/lib/booking-protect";
+import { countMatchingForBooking } from "@/lib/waitlist";
 
 /** One booking by id, for jumping straight from a customer's visit history
  * (on the customers page, or the "Chi tiết khách hàng" panel on this page)
@@ -210,7 +211,11 @@ export async function PATCH(
     }
     // The salon's own reward for turning up (Settings → Booking), once.
     if (data.status === "COMPLETED") await awardOnTimePoints(id).catch((err) => console.error("[on-time points]", err));
-    return NextResponse.json({ booking: updated });
+    // A freed slot: how many on the wait list it would suit (the calendar
+    // then offers to tell them — src/lib/waitlist.ts).
+    const waitlistMatches =
+      data.status === "CANCELLED" && booking.startsAt > now ? await countMatchingForBooking(id).catch(() => 0) : 0;
+    return NextResponse.json({ booking: updated, waitlistMatches });
   }
 
   const editsContact = data.customerName !== undefined || data.customerPhone !== undefined || data.customerEmail !== undefined;

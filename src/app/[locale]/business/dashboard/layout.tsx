@@ -18,6 +18,7 @@ import { teamCounts } from "@/lib/team";
 import { teamStrings } from "@/lib/team-strings";
 import { inventoryStrings } from "@/lib/inventory-strings";
 import { profileChecklist } from "@/lib/profile-completeness";
+import { newWaitlistCount } from "@/lib/waitlist";
 
 export default async function BusinessDashboardLayout({
   children,
@@ -102,8 +103,9 @@ export default async function BusinessDashboardLayout({
     ...(canViewReadOnlyPages || permissions.bookings
       ? [{ href: "/business/dashboard/loyalty", label: tDash("loyalty.nav"), locked }]
       : []),
+    // The badge: customers who joined the wait list since the owner last looked.
     ...(isOwner || permissions.bookings
-      ? [{ href: "/business/dashboard/bookings", label: t("bookings") }]
+      ? [{ href: "/business/dashboard/bookings", label: t("bookings"), badge: await newWaitlistCount(business.id, business.waitlistSeenAt) }]
       : []),
     // Income reports: the owner approves everyone's, staff see their own.
     ...(isOwner

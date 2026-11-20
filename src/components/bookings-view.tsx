@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { CalendarDays, List } from "lucide-react";
+import { BellRing, CalendarDays, List } from "lucide-react";
+import { WaitlistPanel } from "@/components/waitlist-panel";
+import { waitlistStrings } from "@/lib/waitlist-strings";
 import { BookingCalendar } from "@/components/booking-calendar";
 import { BookingsManager } from "@/components/bookings-manager";
 import { useSwitcherSlot } from "@/components/dashboard-body";
@@ -35,6 +37,7 @@ export function BookingsView({
   viewerStaffId,
   businessId,
   look,
+  waitlistNew = 0,
 }: {
   title: string;
   initialBookings: BookingRow[];
@@ -62,9 +65,13 @@ export function BookingsView({
   businessId: string;
   /** Settings › Look: a holiday banner and the booking colours. */
   look?: { theme: SeasonalTheme | null; colors: { bg: string; text: string } | null; onlineColors?: { bg: string; text: string } | null };
+  /** Wait-list entries since the owner last opened that tab (the red dot). */
+  waitlistNew?: number;
 }) {
   const t = useTranslations("business");
-  const [view, setView] = useState<"calendar" | "list">("calendar");
+  const W = waitlistStrings(locale);
+  const [view, setView] = useState<"calendar" | "list" | "waitlist">("calendar");
+  const [unseenWaitlist, setUnseenWaitlist] = useState(waitlistNew);
   // The calendar's own timezone note + date/range label are portaled in here
   // (see BookingCalendar's `headerSlot` prop) so they sit on the same row as
   // the title and the Calendar/List toggle on desktop, instead of stacking
@@ -102,6 +109,21 @@ export function BookingsView({
               <List className="h-3.5 w-3.5" />{" "}
               <span className="hidden sm:inline">{t("listView")}</span>
             </button>
+            <button
+              onClick={() => setView("waitlist")}
+              className={`relative flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                view === "waitlist" ? "bg-ink-900 text-white" : "text-ink-700"
+              }`}
+              title={W.tab}
+            >
+              <BellRing className="h-3.5 w-3.5" />{" "}
+              <span className="hidden sm:inline">{W.tab}</span>
+              {unseenWaitlist > 0 && (
+                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-berry-500 px-1 text-[9px] font-bold text-white ring-2 ring-white">
+                  {unseenWaitlist}
+                </span>
+              )}
+            </button>
           </div>
         </div>
         {view === "calendar" && (
@@ -130,6 +152,8 @@ export function BookingsView({
           bookingColors={look?.colors ?? null}
           onlineColors={look?.onlineColors ?? null}
         />
+      ) : view === "waitlist" ? (
+        <WaitlistPanel locale={locale} onSeen={() => setUnseenWaitlist(0)} />
       ) : (
         <BookingsManager
           initialBookings={initialBookings}

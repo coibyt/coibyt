@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { BookingsView } from "@/components/bookings-view";
 import { resolveTheme } from "@/lib/seasonal-themes";
 import { seesBookingContact } from "@/lib/contact-visibility";
+import { newWaitlistCount } from "@/lib/waitlist";
 
 export default async function BusinessBookingsPage({
   params,
@@ -116,6 +117,7 @@ export default async function BusinessBookingsPage({
         isOwner={access.isOwner}
         viewerStaffId={access.staffId ?? null}
         businessId={business.id}
+        waitlistNew={await newWaitlistCount(business.id, business.waitlistSeenAt)}
       />
     </div>
   );

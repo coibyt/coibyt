@@ -13,10 +13,10 @@ export default async function BookServicePage({
   searchParams,
 }: {
   params: Promise<{ locale: string; slug: string; serviceId: string }>;
-  searchParams: Promise<{ extra?: string; date?: string; time?: string }>;
+  searchParams: Promise<{ extra?: string; date?: string; time?: string; staff?: string }>;
 }) {
   const { locale, slug, serviceId } = await params;
-  const { extra, date, time } = await searchParams;
+  const { extra, date, time, staff } = await searchParams;
   const extraServiceIds = extra?.split(",").filter(Boolean) ?? [];
 
   const business = await prisma.business.findUnique({
@@ -139,6 +139,7 @@ export default async function BookServicePage({
         businessTimezone={business.timezone}
         initialDate={date}
         initialTime={time}
+        initialStaffId={staff}
       />
       </div>
     </div>

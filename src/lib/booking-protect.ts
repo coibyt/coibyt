@@ -9,6 +9,7 @@ import { sendMail, salonBrand, salonFooter, ownerBookingCancelledEmail } from "@
 import { emailStaffAboutBooking } from "@/lib/staff-booking-email";
 import { dateParts } from "@/lib/email/calendar";
 import { C, appointmentHeader, button, emailLayout, esc, greeting, hairline, notice, panel, para, rows } from "@/lib/email/ui";
+import { notifyWaitlistForBooking } from "@/lib/waitlist";
 
 /** No-show protection without prepayment — see Business.noShowApprovalOn,
  * autoCancelUnconfirmedHours and onTimePoints, and the confirm* columns on
@@ -162,7 +163,7 @@ export async function cancelByCustomerToken(token: string): Promise<"ok" | "too_
 }
 
 /** Everything that follows a cancellation made outside the dashboard: the
- * owner's email and the staff member's email. */
+ * owner's email, the staff member's email, and the wait list. */
 async function afterCancellation(b: ConfirmPageBooking, by: "customer" | "auto") {
   const locale = localeForCountry(b.business.country);
   if (b.notificationEmailsEnabled) {
@@ -192,6 +193,7 @@ async function afterCancellation(b: ConfirmPageBooking, by: "customer" | "auto")
     }
   }
   await emailStaffAboutBooking(b.id, "cancelled").catch(() => {});
+  await notifyWaitlistForBooking(b.id).catch((err) => console.error("[booking-protect] waitlist", err));
 }
 
 /* ---------- emails ---------- */
