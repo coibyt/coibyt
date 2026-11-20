@@ -24,7 +24,7 @@ import {
 } from "date-fns";
 import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
-import { AlertTriangle, CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Globe, Link2, Loader2, Lock, Mail, Pencil, ShieldCheck, Star, Trash2, UserPen, X } from "lucide-react";
+import { AlertTriangle, CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Globe, Link2, Loader2, Lock, Mail, Pencil, Repeat, ShieldCheck, Star, Trash2, UserPen, X } from "lucide-react";
 import { bookingProtectStrings } from "@/lib/booking-protect-strings";
 import { waitlistStrings } from "@/lib/waitlist-strings";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
@@ -50,6 +50,7 @@ import {
 import { MoveBranchButton } from "@/components/move-branch-button";
 import { IncomeOverdueBanner } from "@/components/income-overdue-banner";
 import { ExternalBusyEditor, type ExternalBusyBlock } from "@/components/external-busy-editor";
+import { BookingRepeatControls } from "@/components/booking-repeat";
 
 interface StaffOption {
   id: string;
@@ -104,6 +105,10 @@ interface CalendarBooking {
   confirmRequestedAt?: string | null;
   noShows?: number;
   lateCancels?: number;
+  /** Repeat bookings and the "book again" reminder (src/lib/recurring.ts). */
+  recurringEveryWeeks?: number | null;
+  rebookReminderAt?: string | null;
+  rebookReminderSentAt?: string | null;
 }
 
 /** Asked to confirm after the 24h reminder and silent since — worth a call. */
@@ -2058,6 +2063,7 @@ export function BookingCalendar({
       >
         <p className="flex items-center gap-1 truncate font-medium leading-tight opacity-70">
           <span className="truncate">{timeLabel}</span>
+          {b.recurringEveryWeeks ? <Repeat className="ml-auto h-2.5 w-2.5 shrink-0 opacity-70" aria-label="↻" /> : null}
           {b.slots.length > 1 && (
             <span className="ml-auto inline-flex shrink-0 items-center gap-0.5 rounded-full bg-black/5 px-1 text-[9px] font-bold" title={G.hint(b.slots.length)}>
               <Link2 className="h-2.5 w-2.5" />
@@ -3173,6 +3179,22 @@ export function BookingCalendar({
                 />
               )}
             </div>
+
+            {/* Repeat every N weeks, and "remind the customer to book again". */}
+            {canActOn(activeBooking.staffId) && activeBooking.status !== "PENDING_APPROVAL" && (
+              <BookingRepeatControls
+                key={`${activeBooking.id}-${activeBooking.recurringEveryWeeks ?? 0}-${activeBooking.rebookReminderAt ?? ""}`}
+                bookingId={activeBooking.id}
+                locale={locale}
+                timezone={businessTimezone}
+                recurringEveryWeeks={activeBooking.recurringEveryWeeks ?? null}
+                rebookReminderAt={activeBooking.rebookReminderAt ?? null}
+                rebookReminderSentAt={activeBooking.rebookReminderSentAt ?? null}
+                customerHasEmail={activeBooking.customerHasEmail}
+                canRepeat={activeBooking.status === "CONFIRMED" || activeBooking.status === "COMPLETED"}
+                onChanged={() => reloadBookings()}
+              />
+            )}
 
             {/* What was collected for this booking — the owner, or the staff
                 member who did it, reports it for the owner to approve. */}

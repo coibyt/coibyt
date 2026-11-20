@@ -9,6 +9,7 @@ import { sendTelegramIncomeReminders } from "@/lib/telegram";
 import { sendIncomeReminders } from "@/lib/income-reminders";
 import { autoCancelUnconfirmed, confirmLinks, ensureConfirmToken, pushConfirmRequest } from "@/lib/booking-protect";
 import { bookingProtectStrings } from "@/lib/booking-protect-strings";
+import { sendRebookReminders } from "@/lib/recurring";
 
 const HOUR_MS = 60 * 60 * 1000;
 const MIN_MS = 60 * 1000;
@@ -190,6 +191,12 @@ export async function GET(req: Request) {
     reviewRequests++;
   }
 
+  // "Book again" nudges the salon asked for (src/lib/recurring.ts).
+  const rebookReminders = await sendRebookReminders(now).catch((err) => {
+    console.error("[cron] sendRebookReminders", err);
+    return 0;
+  });
+
   // Marketing campaigns salons scheduled for later.
   // Loyalty Lite trials that never saved an email.
   await deleteStaleTrials().catch((err) => console.error("[cron] lite trials", err));
@@ -218,5 +225,5 @@ export async function GET(req: Request) {
     return 0;
   });
 
-  return NextResponse.json({ ok: true, reminder24h, autoCancelled, reminder2h, reminder15min, reviewRequests, campaigns, referrals, incomeReminders, telegramReminders });
+  return NextResponse.json({ ok: true, reminder24h, autoCancelled, reminder2h, reminder15min, reviewRequests, rebookReminders, campaigns, referrals, incomeReminders, telegramReminders });
 }

@@ -398,6 +398,7 @@ model Business {
   staffTrainings          StaffTraining[]
   telegramGroups          TelegramGroup[]
   waitlist                WaitlistEntry[]
+  recurringRules          RecurringRule[]
 
   @@index([ownerId])
   @@index([status])
@@ -1018,6 +1019,17 @@ model Booking {
   // Set once the on-time VaraPoints were credited, so they never are twice.
   onTimePointsAt DateTime?
 
+  // Repeat bookings (src/lib/recurring.ts): the series this booking was
+  // created in, and the rule whose first booking this is.
+  recurringRuleId String?
+  recurringRule   RecurringRule? @relation("RecurringBookings", fields: [recurringRuleId], references: [id], onDelete: SetNull)
+  recurringRoot   RecurringRule? @relation("RecurringRoot")
+  // "Book again" reminder: when to email/push the customer a link to book
+  // the same service and staff again, and when that went out. The cron
+  // drops the reminder if the customer has booked again by themselves.
+  rebookReminderAt     DateTime?
+  rebookReminderSentAt DateTime?
+
   // Set when this booking came in through an affiliate's referral link (see
   // Affiliate below). commissionCents is a snapshot of the affiliate's
   // commissionPercent at booking time, in this booking's own currency — so a
@@ -1050,6 +1062,29 @@ model Booking {
   @@index([status])
   @@index([affiliateId])
   @@index([platformAffiliateId])
+  @@index([recurringRuleId])
+  @@index([rebookReminderAt])
+}
+
+// A booking the salon repeats every N weeks (weekly colour, monthly nails):
+// the salon sets it from the calendar, never the customer. The following
+// bookings are created up front (count of them, or until a date) as
+// ordinary bookings carrying recurringRuleId, so each can still be moved or
+// cancelled on its own.
+model RecurringRule {
+  id            String   @id @default(cuid())
+  businessId    String
+  business      Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  rootBookingId String   @unique
+  rootBooking   Booking  @relation("RecurringRoot", fields: [rootBookingId], references: [id], onDelete: Cascade)
+  everyWeeks    Int
+  count         Int?
+  untilDate     DateTime? @db.Date
+  createdAt     DateTime @default(now())
+
+  bookings Booking[] @relation("RecurringBookings")
+
+  @@index([businessId])
 }
 
 // A referral partner (an outside promoter, or a salon's own staff member)
