@@ -58,6 +58,8 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "mi-classic-hieu-dung": { seconds: 386, published: "2026-11-20" },
     "mi-classic": { seconds: 359, published: "2026-11-20" },
     "toc-tu-van-chia-vung": { seconds: 328, published: "2026-11-20" },
+    "xu-ly-su-co": { seconds: 400, published: "2026-11-20" },
+    "ve-sinh-tiem": { seconds: 396, published: "2026-11-20" },
   },
   // Craft lessons in Finnish (voice "Jarmo").
   fi: {
