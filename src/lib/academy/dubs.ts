@@ -60,6 +60,17 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "toc-tu-van-chia-vung": { seconds: 328, published: "2026-11-20" },
     "xu-ly-su-co": { seconds: 400, published: "2026-11-20" },
     "ve-sinh-tiem": { seconds: 396, published: "2026-11-20" },
+    "mi-volume": { seconds: 359, published: "2026-11-20" },
+    "mi-hybrid-hieu-dung": { seconds: 339, published: "2026-11-20" },
+    "mi-hybrid": { seconds: 356, published: "2026-11-20" },
+    "mi-mega-wispy-hieu-dung": { seconds: 365, published: "2026-11-20" },
+    "mi-mega-wispy": { seconds: 361, published: "2026-11-20" },
+    "mi-mapping-hieu-dung": { seconds: 413, published: "2026-11-20" },
+    "mi-mapping": { seconds: 344, published: "2026-11-20" },
+    "mi-dam-thao-hieu-dung": { seconds: 351, published: "2026-11-20" },
+    "mi-dam-thao": { seconds: 357, published: "2026-11-20" },
+    "lash-lift-hieu-dung": { seconds: 342, published: "2026-11-20" },
+    "lash-lift": { seconds: 338, published: "2026-11-20" },
   },
   // Craft lessons in Finnish (voice "Jarmo").
   fi: {
