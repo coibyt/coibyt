@@ -52,6 +52,12 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "rua-tay-gang-tay": { seconds: 404, published: "2026-11-19" },
     "mi-chuan-bi-hieu-dung": { seconds: 339, published: "2026-11-19" },
     "toc-tu-van-chia-vung-hieu-dung": { seconds: 385, published: "2026-11-19" },
+    "di-ung-hoa-chat": { seconds: 395, published: "2026-11-20" },
+    "khi-nao-khong-lam": { seconds: 399, published: "2026-11-20" },
+    "mi-chuan-bi": { seconds: 358, published: "2026-11-20" },
+    "mi-classic-hieu-dung": { seconds: 386, published: "2026-11-20" },
+    "mi-classic": { seconds: 359, published: "2026-11-20" },
+    "toc-tu-van-chia-vung": { seconds: 328, published: "2026-11-20" },
   },
   // Craft lessons in Finnish (voice "Jarmo").
   fi: {
