@@ -117,6 +117,10 @@ model User {
   pwaInstalls         PwaInstall[]
   priceListDrafts     PriceListDraft[]
   customerNotes       CustomerNote[]
+  // Academy: progress saved to the account, course ratings, "email me new lessons".
+  academyProgress     AcademyProgress?
+  academyReviews      AcademyReview[]
+  academyFollows      AcademyFollow[]
 
   @@index([role])
 }
@@ -2587,4 +2591,90 @@ model InventoryMove {
 
   @@index([businessId, createdAt])
   @@index([itemId, createdAt])
+}
+
+/// Academy learning statistics (admin › Học viện). One row per browser: the id
+/// is random and kept in the visitor's localStorage; the IP is stored masked
+/// (last part removed), never in full.
+model AcademyVisitor {
+  id        String              @id @db.VarChar(40)
+  ipMasked  String              @db.VarChar(64)
+  device    String              @db.VarChar(16)
+  locale    String?             @db.VarChar(8)
+  tab       String?             @db.VarChar(16)
+  source    String?             @db.VarChar(120)
+  userId    String?
+  /// Number of different days with activity, and the last of them (YYYY-MM-DD, UTC).
+  visitDays Int                 @default(1)
+  lastDay   String              @db.VarChar(10)
+  /// Video seconds watched in total.
+  seconds   Int                 @default(0)
+  firstSeen DateTime            @default(now())
+  lastSeen  DateTime            @default(now())
+  views     AcademyLessonView[]
+
+  @@index([lastSeen])
+  @@index([firstSeen])
+}
+
+model AcademyLessonView {
+  id        String         @id @default(cuid())
+  visitorId String         @db.VarChar(40)
+  visitor   AcademyVisitor @relation(fields: [visitorId], references: [id], onDelete: Cascade)
+  slug      String         @db.VarChar(80)
+  opens     Int            @default(1)
+  seconds   Int            @default(0)
+  maxPos    Int            @default(0)
+  completed Boolean        @default(false)
+  quizRight Int?
+  quizOf    Int?
+  firstAt   DateTime       @default(now())
+  lastAt    DateTime       @default(now())
+
+  @@unique([visitorId, slug])
+  @@index([slug])
+}
+
+/// Academy progress saved to a learner's account so it follows them across
+/// devices. `data` is the same JSON the browser keeps (src/lib/academy/progress.ts);
+/// the two are merged whenever the learner opens the Academy signed in.
+model AcademyProgress {
+  userId    String   @id
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  data      String   @db.MediumText
+  updatedAt DateTime @updatedAt
+}
+
+/// A learner's rating of an Academy course: one per learner and course, can be
+/// edited. Only learners who finished at least one lesson of the course can
+/// rate it. Shown at once; the admin can hide one (status HIDDEN).
+model AcademyReview {
+  id        String       @id @default(cuid())
+  courseId  String       @db.VarChar(40)
+  userId    String
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rating    Int
+  comment   String?      @db.Text
+  locale    String       @db.VarChar(8)
+  status    ReviewStatus @default(APPROVED)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  @@unique([courseId, userId])
+  @@index([courseId, status])
+}
+
+/// "Email me when new lessons come out" for one course. The reminders cron
+/// emails lessons published after `notifiedThrough` (YYYY-MM-DD).
+model AcademyFollow {
+  id              String   @id @default(cuid())
+  courseId        String   @db.VarChar(40)
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  locale          String   @db.VarChar(8)
+  notifiedThrough String   @db.VarChar(10)
+  createdAt       DateTime @default(now())
+
+  @@unique([userId, courseId])
+  @@index([courseId])
 }

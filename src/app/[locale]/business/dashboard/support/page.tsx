@@ -28,6 +28,7 @@ import { GUIDE_ICONS } from "@/lib/help/guide-icons";
 import { fill } from "@/lib/shop-strings";
 import { siteSerif } from "@/lib/site-fonts";
 import { supportPageStrings, type SupportTab } from "@/lib/support-page-strings";
+import { academyOwnerNavLabel } from "@/lib/academy/strings";
 
 const TABS: { key: SupportTab; icon: LucideIcon }[] = [
   { key: "guides", icon: BookOpen },
@@ -194,10 +195,16 @@ export default async function SupportPage({
               </section>
             );
           })}
-          <Link href="/help/getting-started" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#d9b25c] via-[#c99a3f] to-[#b9852d] px-5 py-3 text-sm font-bold text-white shadow-[0_14px_28px_-14px_rgba(185,133,45,0.95)]">
-            <BookOpen className="h-4 w-4" />
-            {S.allGuides}
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/help/getting-started" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#d9b25c] via-[#c99a3f] to-[#b9852d] px-5 py-3 text-sm font-bold text-white shadow-[0_14px_28px_-14px_rgba(185,133,45,0.95)]">
+              <BookOpen className="h-4 w-4" />
+              {S.allGuides}
+            </Link>
+            <Link href="/academy#owner" className="inline-flex items-center gap-2 rounded-full bg-[#1f182d] px-5 py-3 text-sm font-bold text-white ring-1 ring-[#e8d3a6]/40 transition-transform hover:scale-[1.02]">
+              <PlayCircle className="h-4 w-4 text-[#e8d3a6]" />
+              {academyOwnerNavLabel(locale)}
+            </Link>
+          </div>
         </div>
       )}
 

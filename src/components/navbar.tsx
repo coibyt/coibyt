@@ -11,7 +11,7 @@ export async function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink-100 bg-white/90 backdrop-blur">
-      <div className="container flex h-16 items-center justify-between gap-4">
+      <div className="container flex h-16 items-center justify-between gap-2 sm:gap-4">
         <Link href="/" className="flex shrink-0 items-center gap-2">
           <span className="text-xl font-extrabold tracking-tight text-primary-500">
             Varaa<span className="text-ink-900">Ai</span>
@@ -22,7 +22,7 @@ export async function Navbar() {
           <SearchBarCompact />
         </div>
 
-        <nav className="flex items-center gap-2">
+        <nav className="flex items-center gap-1 sm:gap-2">
           <LocaleSwitcher />
           <InstallAppButton locale={locale} className="btn-ghost hidden sm:inline-flex" />
           {!session?.user && (
@@ -43,10 +43,10 @@ export async function Navbar() {
             />
           ) : (
             <>
-              <Link href="/auth/sign-in" className="btn-ghost">
+              <Link href="/auth/sign-in" className="btn-ghost whitespace-nowrap !px-3 sm:!px-5">
                 {t("signIn")}
               </Link>
-              <Link href="/auth/sign-up" className="btn-primary">
+              <Link href="/auth/sign-up" className="btn-primary whitespace-nowrap !px-4 sm:!px-5">
                 {t("signUp")}
               </Link>
             </>

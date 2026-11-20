@@ -28,6 +28,7 @@ export default async function AdminLayout({
     { href: "/admin/marketing-email", label: locale === "vi" ? "Hộp thư email marketing" : "Marketing mailbox" },
     { href: "/admin/vara-points", label: locale === "vi" ? "Điểm Vara & email" : "Vara points & email" },
     { href: "/admin/loyalty-lite", label: locale === "vi" ? "Thẻ tích điểm miễn phí" : "Free loyalty cards" },
+    { href: "/admin/academy", label: locale === "vi" ? "Học viện: người học" : "Academy learners" },
     {
       href: "/admin/support",
       label: "Hỗ trợ",
