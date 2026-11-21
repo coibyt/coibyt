@@ -379,6 +379,41 @@
       "cta": "Aloita opiskelu"
     }
   },
+  "tositeo-hoa-don-ke-toan-online": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Chủ salon",
+      "title": "Tositeo cho chủ doanh nghiệp",
+      "accent": "Hóa đơn và kế toán online",
+      "chips": [
+        "Miễn phí",
+        "9 bài video",
+        "18 phút"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Salon owners",
+      "title": "Tositeo for business owners",
+      "accent": "Receipts and bookkeeping online",
+      "chips": [
+        "Free",
+        "9 video lessons",
+        "18 min"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Salongin omistajat",
+      "title": "Tositeo yrittäjälle",
+      "accent": "Kuitit ja kirjanpito verkossa",
+      "chips": [
+        "Maksuton",
+        "9 videotuntia",
+        "18 min"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
   "huong-dan-dat-lich-lam-dep": {
     "vi": {
       "eyebrow": "Học viện VaraaAi · Khách hàng",

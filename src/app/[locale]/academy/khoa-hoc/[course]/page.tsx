@@ -159,7 +159,8 @@ export default async function CoursePage({ params }: { params: Params }) {
     [GraduationCap, s.level, pick(seo.level, locale)],
     [Smartphone, s.device, ""],
     [InfinityIcon, s.lifetime, ""],
-    [Award, s.certificate, ""],
+    // A standalone course (Tositeo) is not part of a track certificate.
+    ...(d.course.standalone ? [] : [[Award, s.certificate, ""] as [typeof Clock, string, string]]),
   ];
 
   const startHref = d.first ? `/academy/${d.first}` : "/academy";
@@ -280,10 +281,12 @@ export default async function CoursePage({ params }: { params: Params }) {
                 <Globe className="h-4 w-4 text-[#e8d3a6]" />
                 {langLabel}
               </li>
-              <li className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/15">
-                <Award className="h-4 w-4 text-[#e8d3a6]" />
-                {s.certificate}
-              </li>
+              {!d.course.standalone && (
+                <li className="flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/15">
+                  <Award className="h-4 w-4 text-[#e8d3a6]" />
+                  {s.certificate}
+                </li>
+              )}
             </ul>
             <div className="mt-7 flex flex-wrap gap-3 lg:hidden">
               <Link href={startHref} className={`inline-flex items-center gap-2 rounded-2xl ${GOLD} px-6 py-3 font-extrabold text-primary-900 shadow-card`}>

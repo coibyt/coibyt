@@ -1618,6 +1618,164 @@ export const COURSE_SEO: CourseSeo[] = [
       "báo cáo tổng quan salon",
     ],
   },
+  /* ================= owners: Tositeo (tositeo.ts) ================= */
+  {
+    id: "o-tositeo",
+    slug: "tositeo-hoa-don-ke-toan-online",
+    metaTitle: l3(
+      "Tositeo: quản lý hóa đơn, công tác phí và kế toán online",
+      "Tositeo: Receipts, Travel Claims and Bookkeeping Online",
+      "Tositeo: kuitit, matkalaskut ja kirjanpito verkossa"
+    ),
+    metaDescription: l3(
+      "Video miễn phí bằng tiếng Việt: chụp hóa đơn tự đọc chữ, công tác phí, đối chiếu ngân hàng, hoàn tiền SEPA và gửi kế toán với Tositeo, từng bước một.",
+      "Free step-by-step videos: snap receipts that read themselves, travel claims, bank matching, SEPA reimbursements and working with your accountant in Tositeo.",
+      "Ilmaiset videot vaihe vaiheelta: kuittien kuvaus ja tunnistus, matkalaskut, pankkitäsmäytys, SEPA-kulukorvaukset ja yhteistyö kirjanpitäjän kanssa Tositeossa."
+    ),
+    headline: l3(
+      "Tositeo cho chủ doanh nghiệp: hóa đơn, công tác phí và kế toán gọn trong một chỗ",
+      "Tositeo for business owners: receipts, travel claims and bookkeeping in one place",
+      "Tositeo yrittäjälle: kuitit, matkalaskut ja kirjanpito yhdessä paikassa"
+    ),
+    tagline: l3(
+      "Video quay trên Tositeo bằng giao diện tiếng Việt, có người hướng dẫn nói từng bước và đánh dấu chỗ cần bấm.",
+      "Videos filmed in Tositeo itself, with a guide talking you through every step and highlighting what to press.",
+      "Videot on kuvattu Tositeossa, ja opastaja kertoo jokaisen vaiheen ja korostaa painettavan kohdan."
+    ),
+    level: l3("Cơ bản, không cần biết kế toán", "Beginner, no bookkeeping knowledge needed", "Perusteet, kirjanpitotaitoja ei tarvita"),
+    outcomes: [
+      l3(
+        "Tạo tài khoản, chọn đúng quốc gia để thuế VAT và tiền tệ theo luật nơi bạn kinh doanh.",
+        "Create an account and pick the right country so VAT and currency follow local rules.",
+        "Luot tilin ja valitset oikean maan, jotta ALV ja valuutta noudattavat paikallisia sääntöjä."
+      ),
+      l3(
+        "Chụp hóa đơn bằng điện thoại, kiểm tra thông tin máy đọc được và gửi đi trong một phút.",
+        "Snap a receipt with your phone, check the details read from it and send it in a minute.",
+        "Kuvaat kuitin puhelimella, tarkistat luetut tiedot ja lähetät sen minuutissa."
+      ),
+      l3(
+        "Lập công tác phí có lộ trình, để phụ cấp ngày và tiền đi xe được tính tự động.",
+        "Make travel claims with a route so daily allowances and mileage are worked out for you.",
+        "Teet matkalaskun reitteineen, ja päivärahat ja kilometrikorvaukset lasketaan puolestasi."
+      ),
+      l3(
+        "Mời nhân viên với đúng vai trò, rồi duyệt hoặc trả lại chi phí của cả nhóm một lần.",
+        "Invite staff with the right roles and approve or return the team's expenses in one go.",
+        "Kutsut työntekijät oikeilla rooleilla ja hyväksyt tai palautat tiimin kulut kerralla."
+      ),
+      l3(
+        "Nhập sao kê ngân hàng, tìm ngay khoản thanh toán còn thiếu hóa đơn và nhắc đúng người.",
+        "Import bank statements, spot payments without a receipt and remind the right person.",
+        "Tuot tiliotteet, löydät maksut ilman kuittia ja muistutat oikeaa henkilöä."
+      ),
+      l3(
+        "Hoàn tiền bằng một file SEPA, xuất file ZIP cho kế toán và đóng sổ từng tháng.",
+        "Reimburse with one SEPA file, export a ZIP for your accountant and close each month.",
+        "Maksat kulukorvaukset yhdellä SEPA-tiedostolla, viet ZIP-tiedoston kirjanpitäjälle ja suljet kuukaudet."
+      ),
+    ],
+    intro: [
+      l3(
+        "Hóa đơn giấy nhét trong ví, vé tàu lẫn trong túi áo, sao kê ngân hàng thì kế toán hỏi từng dòng: đó là cuối tháng quen thuộc của rất nhiều chủ tiệm nail, nhà hàng, cửa hàng và công ty dịch vụ ở châu Âu. Tositeo là dịch vụ trực tuyến giúp bạn ghi lại mọi khoản chi ngay khi phát sinh, và gửi thẳng cho kế toán dưới dạng điện tử. Khóa học này hướng dẫn bạn dùng Tositeo từ ngày đầu tiên, qua các video ngắn bằng tiếng Việt, miễn phí, xem được trên điện thoại.",
+        "Paper receipts in your wallet, train tickets in a coat pocket and an accountant asking about every line of the bank statement: that is month end for many nail salons, restaurants, shops and service companies in Europe. Tositeo is an online service that records every expense as it happens and sends it to your accountant electronically. This course shows you how to use Tositeo from day one, in short free videos you can watch on your phone.",
+        "Paperikuitit lompakossa, junaliput takin taskussa ja kirjanpitäjä kyselemässä tiliotteen jokaista riviä: tällainen on kuunvaihde monessa kynsistudiossa, ravintolassa, kaupassa ja palveluyrityksessä. Tositeo on verkkopalvelu, joka tallentaa jokaisen kulun heti sen syntyessä ja toimittaa sen sähköisesti kirjanpitäjälle. Kurssi opastaa Tositeon käyttöön ensimmäisestä päivästä alkaen lyhyillä, maksuttomilla videoilla, joita voi katsoa puhelimella."
+      ),
+      l3(
+        "Bài đầu tiên là đăng ký và cài đặt công ty. Bạn chọn quốc gia hoạt động, vì quốc gia quyết định thuế suất VAT, tiền tệ, kiểu mã số doanh nghiệp và việc có dùng được file thanh toán SEPA hay không. Tositeo có ba mươi ngôn ngữ, trong đó có tiếng Việt, và dùng được ở nhiều nước như Phần Lan, Đức, Thụy Điển, Na Uy, Séc, Pháp. Sau đó là bài chụp hóa đơn: máy tự đọc ngày, người bán, tổng tiền và thuế, còn bạn kiểm tra lại, chọn loại chi phí và gửi đi.",
+        "The first lesson covers signing up and setting up the company. You choose the country you operate in, because it decides the VAT rates, the currency, the business ID format and whether SEPA payment files are available. Tositeo speaks thirty languages, Vietnamese among them, and works in many countries such as Finland, Germany, Sweden, Norway, Czechia and France. Then comes the receipts lesson: the date, merchant, total and VAT are read from the photo, and you check them, choose the expense type and send it.",
+        "Ensimmäinen oppitunti käsittelee rekisteröitymistä ja yrityksen asetuksia. Valitset toimintamaan, koska se määrää ALV-kannat, valuutan, Y-tunnuksen muodon ja SEPA-maksutiedostojen saatavuuden. Tositeo toimii kolmellakymmenellä kielellä, myös vietnamiksi, ja monissa maissa, kuten Suomessa, Saksassa, Ruotsissa, Norjassa, Tšekissä ja Ranskassa. Sitten opetellaan kuittien kuvaaminen: päivä, myyjä, summa ja ALV luetaan kuvasta, ja sinä tarkistat ne, valitset kululajin ja lähetät kuitin."
+      ),
+      l3(
+        "Các bài tiếp theo đi vào những việc tốn thời gian nhất. Công tác phí: bạn nhập giờ đi, giờ về và lộ trình, Tositeo tính phụ cấp ngày và tiền đi xe theo mức chính thức ở Phần Lan, hoặc theo mức công ty tự đặt ở nước khác. Duyệt chi: nhân viên tự nộp hóa đơn của mình, bạn duyệt hoặc trả lại cả loạt chỉ với một lần bấm. Đối chiếu ngân hàng: nhập sao kê, mỗi khoản thanh toán được ghép với hóa đơn của nó, khoản nào còn thiếu thì Tositeo nhắc đúng người.",
+        "The next lessons tackle the jobs that take the most time. Travel claims: you enter the times and the route, and Tositeo works out daily allowances and mileage at Finland's official rates, or at your company's own rates elsewhere. Approvals: staff send their own receipts, and you approve or return a whole batch with one click. Bank matching: import the statement, each payment is matched to its receipt, and Tositeo reminds the right person about anything missing.",
+        "Seuraavat oppitunnit käsittelevät eniten aikaa vieviä töitä. Matkalaskut: syötät ajat ja reitin, ja Tositeo laskee päivärahat ja kilometrikorvaukset Suomen virallisten määrien tai muualla yrityksen omien määrien mukaan. Hyväksynnät: työntekijät lähettävät omat kuittinsa, ja sinä hyväksyt tai palautat koko erän yhdellä painalluksella. Pankkitäsmäytys: tuot tiliotteen, jokainen maksu yhdistetään kuittiinsa, ja Tositeo muistuttaa oikeaa henkilöä puuttuvista."
+      ),
+      l3(
+        "Cuối tháng, bạn trả lại tiền cho những người đã tự ứng bằng một file SEPA tải lên ngân hàng trực tuyến, rồi xuất một file ZIP gồm bảng hạch toán, ảnh hóa đơn và công tác phí cho kế toán, và đóng sổ tháng đó. Nếu kế toán của bạn cũng dùng Tositeo, họ tự vào lấy dữ liệu: bạn chỉ cần mời họ một lần. Khóa học có cả phần dành cho văn phòng kế toán: quản lý nhiều khách hàng, hàng chờ hạch toán và hạch toán nhanh từng hóa đơn.",
+        "At month end you reimburse everyone who paid out of pocket with one SEPA file uploaded to your online bank, export a ZIP with the bookkeeping file, receipt images and travel claims for your accountant, and close the month. If your accountant also uses Tositeo, they fetch the data themselves: you only invite them once. The course also has a part for accounting firms: many clients, the booking queue and quick booking receipt by receipt.",
+        "Kuun lopussa maksat kulukorvaukset yhdellä verkkopankkiin ladattavalla SEPA-tiedostolla, viet kirjanpitäjälle ZIP-tiedoston, jossa ovat kirjausaineisto, kuittien kuvat ja matkalaskut, ja suljet kuukauden. Jos kirjanpitäjäsi käyttää myös Tositeota, hän hakee aineiston itse: kutsut hänet vain kerran. Kurssilla on myös osa tilitoimistoille: monta asiakasta, kirjausjono ja pikakirjaus kuitti kerrallaan."
+      ),
+      l3(
+        "Mọi video được quay trên Tositeo thật bằng giao diện tiếng Việt, với công ty mẫu, không có dữ liệu thật của ai. Người hướng dẫn nói từng bước và đánh dấu chỗ cần bấm; dưới mỗi video có các bước bằng chữ và một bài kiểm tra nhanh. Tositeo miễn phí ba năm cho doanh nghiệp, và luôn miễn phí cho văn phòng kế toán, nên bạn có thể vừa xem vừa làm theo ngay trên tài khoản của mình.",
+        "Every video is filmed in the real Tositeo with demo companies, never anyone's real data. A guide talks through each step and highlights what to press, and under each video you find the written steps and a quick quiz. Tositeo is free for three years for businesses and always free for accounting firms, so you can follow along in your own account as you watch.",
+        "Jokainen video on kuvattu oikeassa Tositeossa esimerkkiyrityksillä, ilman kenenkään oikeita tietoja. Opastaja kertoo jokaisen vaiheen ja korostaa painettavan kohdan, ja videon alta löytyvät kirjalliset vaiheet ja pikavisa. Tositeo on yrityksille maksuton kolme vuotta ja tilitoimistoille aina maksuton, joten voit tehdä samat vaiheet omalla tililläsi katsoessasi."
+      ),
+    ],
+    forWho: [
+      l3(
+        "Chủ tiệm nail, salon, nhà hàng, cửa hàng ở châu Âu muốn bớt giấy tờ cuối tháng.",
+        "Owners of nail salons, restaurants and shops in Europe who want less month-end paperwork.",
+        "Kynsistudioiden, ravintoloiden ja kauppojen omistajat, jotka haluavat vähemmän paperityötä."
+      ),
+      l3(
+        "Doanh nghiệp có nhân viên hay mua hàng, đi công tác bằng tiền riêng.",
+        "Businesses whose staff often buy supplies or travel with their own money.",
+        "Yritykset, joiden työntekijät ostavat tarvikkeita tai matkustavat omilla rahoillaan."
+      ),
+      l3(
+        "Người mới bắt đầu dùng Tositeo, hoặc chuyển sang từ eTasku và dịch vụ khác.",
+        "New Tositeo users, or anyone moving over from eTasku or another service.",
+        "Uudet Tositeon käyttäjät tai eTaskusta tai muusta palvelusta siirtyvät."
+      ),
+      l3(
+        "Kế toán và văn phòng kế toán làm việc với khách hàng người Việt.",
+        "Accountants and accounting firms who work with Vietnamese-speaking clients.",
+        "Kirjanpitäjät ja tilitoimistot, joilla on vietnaminkielisiä asiakkaita."
+      ),
+    ],
+    faq: [
+      {
+        q: l3("Tositeo là gì, có mất phí không?", "What is Tositeo and what does it cost?", "Mikä Tositeo on ja mitä se maksaa?"),
+        a: l3(
+          "Tositeo là dịch vụ trực tuyến để lưu hóa đơn, làm công tác phí, đối chiếu ngân hàng và gửi chứng từ cho kế toán. Doanh nghiệp dùng miễn phí ba năm, không cần thẻ thanh toán; văn phòng kế toán luôn được miễn phí. Các video trong khóa học này cũng miễn phí.",
+          "Tositeo is an online service for storing receipts, making travel claims, matching bank payments and sending documents to your accountant. Businesses use it free for three years with no card needed, and accounting firms always use it free. The videos in this course are free as well.",
+          "Tositeo on verkkopalvelu kuittien tallentamiseen, matkalaskuihin, pankkitäsmäytykseen ja aineiston toimittamiseen kirjanpitäjälle. Yritykset käyttävät sitä maksutta kolme vuotta ilman korttia, ja tilitoimistoille se on aina maksuton. Myös kurssin videot ovat maksuttomia."
+        ),
+      },
+      {
+        q: l3("Tositeo có giao diện tiếng Việt không?", "Does Tositeo come in Vietnamese?", "Onko Tositeo saatavilla vietnamiksi?"),
+        a: l3(
+          "Có. Tositeo có ba mươi ngôn ngữ, trong đó có tiếng Việt; bạn chọn ở menu ngôn ngữ phía trên hoặc trong hồ sơ của mình. Mọi video của khóa học được quay bằng giao diện tiếng Việt, nên tên nút và ô bạn nghe trong video giống hệt những gì bạn thấy trên màn hình.",
+          "Yes. Tositeo has thirty languages, Vietnamese among them; pick it from the language menu at the top or in your profile. Every video in this course is filmed in the Vietnamese interface, so the button names you hear match what you see on the screen.",
+          "Kyllä. Tositeossa on kolmekymmentä kieltä, myös vietnami; kielen voi valita yläreunan valikosta tai profiilista. Kurssin videot on kuvattu vietnaminkielisessä käyttöliittymässä, joten kuulemasi painikkeiden nimet vastaavat näytön tekstejä."
+        ),
+      },
+      {
+        q: l3("Máy đọc hóa đơn có chính xác không?", "How accurate is the receipt reading?", "Kuinka tarkasti kuitit luetaan?"),
+        a: l3(
+          "Tositeo đọc chữ trên ảnh và tự điền ngày, người bán, tổng tiền và thuế, theo ngôn ngữ của nước bạn đã chọn. Phần lớn hóa đơn được đọc đúng, nhưng có lúc nhầm, ví dụ lấy nhầm một dòng làm tên người bán. Vì vậy video hướng dẫn luôn so lại với tờ hóa đơn trước khi gửi.",
+          "Tositeo reads the text on the photo and fills in the date, merchant, total and VAT in the language of your country. Most receipts are read correctly, but it can slip, for example taking an item line as the merchant. That is why the video always shows checking against the receipt before sending.",
+          "Tositeo lukee kuvan tekstin ja täyttää päivän, myyjän, summan ja ALV:n maasi kielellä. Useimmat kuitit luetaan oikein, mutta virheitä sattuu, esimerkiksi tuoterivi luetaan myyjäksi. Siksi videolla tiedot tarkistetaan aina kuittia vasten ennen lähettämistä."
+        ),
+      },
+      {
+        q: l3("Dùng Tositeo ở ngoài Phần Lan được không?", "Can I use Tositeo outside Finland?", "Voiko Tositeota käyttää Suomen ulkopuolella?"),
+        a: l3(
+          "Được. Bạn chọn quốc gia hoạt động, và Tositeo dùng thuế suất, tiền tệ và mã số doanh nghiệp của nước đó. Mức phụ cấp công tác chính thức có sẵn cho Phần Lan; ở nước khác, bạn tự nhập mức theo luật nước mình trong Cài đặt công ty. File thanh toán SEPA dùng được cho công ty tính bằng euro.",
+          "Yes. You choose the country you operate in and Tositeo uses its VAT rates, currency and business ID. Official travel allowance rates are built in for Finland; elsewhere you enter your country's rates in the company settings. SEPA payment files work for companies that use the euro.",
+          "Kyllä. Valitset toimintamaan, ja Tositeo käyttää sen ALV-kantoja, valuuttaa ja yritystunnusta. Viralliset matkakorvaukset ovat valmiina Suomelle; muualla syötät oman maasi määrät yrityksen asetuksiin. SEPA-maksutiedostot toimivat euroa käyttäville yrityksille."
+        ),
+      },
+      {
+        q: l3("Kế toán của tôi làm việc với Tositeo thế nào?", "How does my accountant work with Tositeo?", "Miten kirjanpitäjäni työskentelee Tositeossa?"),
+        a: l3(
+          "Bạn mời kế toán bằng email trong mục Kế toán của bạn. Tài khoản kế toán miễn phí; họ xem được hóa đơn, công tác phí, giao dịch ngân hàng của bạn, hạch toán và tự xuất dữ liệu, nên bạn không phải gửi ảnh qua tin nhắn nữa. Bạn ngừng quyền truy cập của họ bất cứ lúc nào.",
+          "You invite your accountant by e-mail under “Your accountant”. Accountant accounts are free; they see your receipts, travel claims and bank payments, book them and export the data themselves, so no more sending photos by chat. You can end their access at any time.",
+          "Kutsut kirjanpitäjäsi sähköpostilla kohdassa ”Kirjanpitäjä”. Kirjanpitäjän tunnukset ovat maksuttomat; hän näkee kuittisi, matkalaskusi ja pankkitapahtumasi, kirjaa ne ja vie aineiston itse, joten kuvia ei enää tarvitse lähettää viesteillä. Voit lopettaa pääsyn milloin tahansa."
+        ),
+      },
+    ],
+    keywords: [
+      "phần mềm quản lý hóa đơn",
+      "chụp hóa đơn bằng điện thoại",
+      "cách tính công tác phí",
+      "kế toán online cho tiệm nail",
+      "đối chiếu sao kê ngân hàng",
+      "hoàn tiền nhân viên SEPA",
+      "Tositeo hướng dẫn",
+    ],
+  },
   /* ================= customers: getting started ================= */
   {
     id: "c-start",

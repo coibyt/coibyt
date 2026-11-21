@@ -2,15 +2,16 @@
  * shaped for the hub and for a lesson page. */
 import { COURSES as SITE_COURSES, LESSONS as SITE_LESSONS } from "@/lib/academy/curriculum";
 import { CRAFT_BRIDGE, CRAFT_COURSES, CRAFT_LESSONS } from "@/lib/academy/craft";
+import { TOSITEO_COURSES, TOSITEO_LESSONS } from "@/lib/academy/tositeo";
 import { DUBS } from "@/lib/academy/dubs";
 import { localizedUrl } from "@/lib/seo";
 import { COURSE_SEO, courseSeoById, courseSeoBySlug } from "@/lib/academy/course-pages";
 import { courseImage, courseIntro, courseOgImage } from "@/lib/academy/course-media";
 import { pick, type Audience, type CourseCard, type CourseIcon, type Lesson, type LessonCard, type LessonVideo } from "@/lib/academy/types";
 
-/** The software lessons (curriculum.ts) and the craft-skill lessons (craft.ts) form one Academy. */
-const COURSES = [...SITE_COURSES, ...CRAFT_COURSES];
-const LESSONS = [...SITE_LESSONS, ...CRAFT_LESSONS];
+/** The software lessons (curriculum.ts), the craft-skill lessons (craft.ts) and the Tositeo course (tositeo.ts) form one Academy. */
+const COURSES = [...SITE_COURSES, ...TOSITEO_COURSES, ...CRAFT_COURSES];
+const LESSONS = [...SITE_LESSONS, ...TOSITEO_LESSONS, ...CRAFT_LESSONS];
 
 /** The video a visitor in `locale` gets, and the language it is spoken in:
  * the recording in their language, else the English one, else the original. */
@@ -29,15 +30,16 @@ export function videoFor(lesson: Lesson, locale: string): (LessonVideo & { lang:
 
 const audienceOf = (lesson: Lesson): Audience => COURSES.find((c) => c.id === lesson.course)?.audience ?? "customer";
 
-/** Lesson numbers run 1…n within each audience, in curriculum order. */
+/** Lesson numbers run 1…n within each audience, in curriculum order; a standalone course numbers its own lessons 1…n. */
 function numbers() {
   const no = new Map<string, number>();
   const count: Record<Audience, number> = { customer: 0, owner: 0, pro: 0 };
   for (const c of COURSES) {
-    for (const l of LESSONS.filter((x) => x.course === c.id)) {
+    LESSONS.filter((x) => x.course === c.id).forEach((l, i) => {
+      if (c.standalone) return void no.set(l.slug, i + 1);
       count[c.audience] += 1;
       no.set(l.slug, count[c.audience]);
-    }
+    });
   }
   return { no, count };
 }
@@ -68,6 +70,7 @@ export function courseCards(locale: string): CourseCard[] {
     title: pick(c.title, locale),
     body: pick(c.body, locale),
     page: courseSeoById(c.id)?.slug ?? null,
+    standalone: !!c.standalone,
     lessons: LESSONS.filter((l) => l.course === c.id).map((l) => card(l, locale, no.get(l.slug) ?? 0)),
   }));
 }
@@ -92,7 +95,10 @@ export function lessonPageData(slug: string, locale: string) {
   const { no, count } = numbers();
   const audience = audienceOf(lesson);
   const course = COURSES.find((c) => c.id === lesson.course)!;
-  const track = COURSES.filter((c) => c.audience === audience).flatMap((c) => LESSONS.filter((l) => l.course === c.id));
+  // A standalone course is its own path; the track is every other course of the audience.
+  const track = course.standalone
+    ? LESSONS.filter((l) => l.course === course.id)
+    : COURSES.filter((c) => c.audience === audience && !c.standalone).flatMap((c) => LESSONS.filter((l) => l.course === c.id));
   const at = track.findIndex((l) => l.slug === slug);
   // Next lesson with a video — wrapping round, so the last lesson leads back to the first one not on screen.
   const after = [...track.slice(at + 1), ...track.slice(0, at)].find((l) => l.video);
@@ -105,7 +111,7 @@ export function lessonPageData(slug: string, locale: string) {
       audience,
       shareUrl: localizedUrl(locale, `/academy/${slug}`),
       no: no.get(slug) ?? 0,
-      total: count[audience],
+      total: course.standalone ? track.length : count[audience],
       courseTitle: pick(course.title, locale),
       coursePage: courseSeoById(course.id)?.slug ?? null,
       title: pick(lesson.title, locale),
@@ -160,6 +166,8 @@ export interface CatalogueCourse {
   /** Seconds of the English recordings (courses with an English version). */
   secondsEn: number;
   first: string | null;
+  /** Own lesson numbering, not part of a certificate track. */
+  standalone: boolean;
 }
 
 /** Every visible course that has a landing page, in curriculum order. */
@@ -188,6 +196,7 @@ export function catalogue(locale: string): CatalogueCourse[] {
         langs: courseLangs(c.id),
         secondsEn: live.reduce((a, l) => a + (DUBS.en?.[l.slug]?.seconds ?? 0), 0),
         first: live[0]?.slug ?? null,
+        standalone: !!c.standalone,
       },
     ];
   });

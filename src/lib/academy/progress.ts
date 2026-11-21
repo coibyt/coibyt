@@ -112,7 +112,8 @@ export function courseProgress(course: CourseCard, state: AcademyState) {
 }
 
 export function trackProgress(courses: CourseCard[], audience: Audience, state: AcademyState) {
-  const live = courses.filter((c) => c.audience === audience).flatMap((c) => c.lessons.filter((l) => l.live));
+  // Courses about another product (Tositeo) are not part of the track's certificate.
+  const live = courses.filter((c) => c.audience === audience && !c.standalone).flatMap((c) => c.lessons.filter((l) => l.live));
   const done = live.filter((l) => state.lessons[l.slug]?.done).length;
   return { total: live.length, done, complete: live.length > 0 && done === live.length };
 }

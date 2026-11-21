@@ -18,6 +18,7 @@ import {
   Lock,
   Megaphone,
   Play,
+  Receipt,
   Rocket,
   Scissors,
   ShieldCheck,
@@ -62,6 +63,7 @@ const COURSE_ICONS: Record<CourseIcon, typeof Compass> = {
   eye: Eye,
   scissors: Scissors,
   flower: Flower2,
+  receipt: Receipt,
 };
 
 const GOLD = "bg-gradient-to-br from-[#f0d9a0] to-[#b08a3e]";
@@ -136,7 +138,7 @@ export function AcademyHub({
   const track = trackProgress(courses, audience, state);
 
   // What to watch next: the lesson in progress, else the first one not done.
-  const trackLessons = mine.flatMap((c) => c.lessons.filter((l) => l.live));
+  const trackLessons = mine.filter((c) => !c.standalone).flatMap((c) => c.lessons.filter((l) => l.live));
   const lastLesson = trackLessons.find((l) => l.slug === state.last && !state.lessons[l.slug]?.done);
   const nextUp = lastLesson ?? trackLessons.find((l) => !state.lessons[l.slug]?.done);
   const nextPos = nextUp ? state.lessons[nextUp.slug]?.pos ?? 0 : 0;

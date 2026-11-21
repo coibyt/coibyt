@@ -22,7 +22,7 @@ export type LessonStyle = "theory" | "practice";
 
 export type CourseIcon =
   | "compass" | "calendar" | "gift" | "rocket" | "megaphone" | "briefcase" | "heart" | "trending"
-  | "shield" | "sparkles" | "eye" | "scissors" | "flower";
+  | "shield" | "sparkles" | "eye" | "scissors" | "flower" | "receipt";
 
 export interface Course {
   id: string;
@@ -30,6 +30,9 @@ export interface Course {
   icon: CourseIcon;
   title: L3;
   body: L3;
+  /** A course about another product (Tositeo, tositeo.ts): its lessons are numbered 1…n on their own
+   * and do not count toward the track's certificate. */
+  standalone?: boolean;
 }
 
 export interface QuizQuestion {
@@ -102,5 +105,7 @@ export interface CourseCard {
   body: string;
   /** Slug of the course landing page (/academy/khoa-hoc/<slug>), if it has one. */
   page: string | null;
+  /** See Course.standalone. */
+  standalone: boolean;
   lessons: LessonCard[];
 }

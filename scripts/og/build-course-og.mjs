@@ -1,4 +1,4 @@
-// node scripts/og/build-course-og.mjs — renders the link-preview banner of every
+// node scripts/og/build-course-og.mjs [slug…] — renders the link-preview banner of every
 // Academy course page (1200x630) to public/og/khoa-hoc/<slug>-<locale>.jpg.
 // The copy comes from scripts/og/course-copy.json (written by
 // `npx tsx scripts/og/course-copy.ts`); the photo is the course banner in
@@ -91,7 +91,10 @@ await send("Page.enable"); await send("Runtime.enable");
 await send("Emulation.setDeviceMetricsOverride", { width: 1200, height: 630, deviceScaleFactor: 2, mobile: false });
 
 try {
+  // Optional course slugs as arguments render only those banners.
+  const only = process.argv.slice(2);
   for (const [slug, langs] of Object.entries(COPY)) {
+    if (only.length && !only.includes(slug)) continue;
     for (const [locale, t] of Object.entries(langs)) {
       const file = path.join(here, `course-${slug}-${locale}.html`);
       fs.writeFileSync(file, html(slug, t));
