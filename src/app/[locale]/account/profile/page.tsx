@@ -25,7 +25,7 @@ export default async function AccountProfilePage({
   return (
     <div className="container max-w-2xl space-y-6 py-10">
       <h1 className="text-xl font-bold text-ink-900">
-        {locale === "vi" ? "Hồ sơ của tôi" : "My profile"}
+        {locale === "vi" ? "Hồ sơ của tôi" : locale === "fi" ? "Oma profiili" : "My profile"}
       </h1>
       <AccountAvatarCard initialUrl={user.image} />
       <AccountSettingsCard

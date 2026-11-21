@@ -210,7 +210,7 @@ export function StaffBranchesPanel({ staffId, locale, className }: { staffId: st
                 }`}
               >
                 {busy === `travel-${m}` && <Loader2 className="h-3 w-3 animate-spin" />}
-                {m === 0 ? t.none : m < 60 ? `${m} ${locale === "vi" ? "phút" : "min"}` : `${(m / 60).toLocaleString(locale)} ${locale === "vi" ? "tiếng" : "h"}`}
+                {m === 0 ? t.none : m < 60 ? `${m} ${locale === "vi" ? "phút" : locale === "fi" ? "min" : "min"}` : `${(m / 60).toLocaleString(locale)} ${locale === "vi" ? "tiếng" : locale === "fi" ? "h" : "h"}`}
               </button>
             ))}
           </div>

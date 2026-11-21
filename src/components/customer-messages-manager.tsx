@@ -55,7 +55,7 @@ export function CustomerMessagesManager({ locale }: { locale: string }) {
   if (conversations.length === 0) {
     return (
       <p className="text-sm text-ink-400">
-        {locale === "vi" ? "Bạn chưa nhắn tin với salon nào." : "You haven't messaged any salons yet."}
+        {locale === "vi" ? "Bạn chưa nhắn tin với salon nào." : locale === "fi" ? "Et ole vielä lähettänyt viestiä yhdellekään salongille." : "You haven't messaged any salons yet."}
       </p>
     );
   }
@@ -83,8 +83,8 @@ export function CustomerMessagesManager({ locale }: { locale: string }) {
             </div>
             {c.lastMessage && (
               <p className="mt-0.5 truncate text-xs text-ink-400">
-                {c.lastMessage.senderType === "CUSTOMER" ? (locale === "vi" ? "Bạn: " : "You: ") : ""}
-                {c.lastMessage.content ?? (locale === "vi" ? "[Hình ảnh]" : "[Image]")}
+                {c.lastMessage.senderType === "CUSTOMER" ? (locale === "vi" ? "Bạn: " : locale === "fi" ? "Sinä: " : "You: ") : ""}
+                {c.lastMessage.content ?? (locale === "vi" ? "[Hình ảnh]" : locale === "fi" ? "[Kuva]" : "[Image]")}
               </p>
             )}
           </button>
@@ -102,7 +102,7 @@ export function CustomerMessagesManager({ locale }: { locale: string }) {
           />
         ) : (
           <div className="flex h-full items-center justify-center rounded-2xl border border-ink-100 text-sm text-ink-400">
-            {locale === "vi" ? "Chọn một cuộc trò chuyện để xem" : "Select a conversation to view it"}
+            {locale === "vi" ? "Chọn một cuộc trò chuyện để xem" : locale === "fi" ? "Valitse keskustelu nähdäksesi sen" : "Select a conversation to view it"}
           </div>
         )}
       </div>

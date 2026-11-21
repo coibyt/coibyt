@@ -17,7 +17,7 @@ export default async function AccountMessagesPage({
   return (
     <div className="container max-w-3xl py-10">
       <h1 className="mb-6 text-xl font-bold text-ink-900">
-        {locale === "vi" ? "Hộp thư" : "Inbox"}
+        {locale === "vi" ? "Hộp thư" : locale === "fi" ? "Viestit" : "Inbox"}
       </h1>
       <CustomerMessagesManager locale={locale} />
     </div>

@@ -8,7 +8,7 @@ export function ReadOnlyBanner({ locale }: { locale: string }) {
     <div className="mb-4 rounded-xl bg-mist-50 px-4 py-2.5 text-sm text-ink-700">
       {locale === "vi"
         ? "Bạn chỉ có quyền xem trang này — không thể lưu hoặc thay đổi gì."
-        : "You have view-only access to this page — you can't save or change anything here."}
+        : locale === "fi" ? "Sinulla on vain lukuoikeus tähän sivuun – et voi tallentaa tai muuttaa mitään." : "You have view-only access to this page — you can't save or change anything here."}
     </div>
   );
 }

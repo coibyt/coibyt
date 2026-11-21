@@ -31,7 +31,7 @@ export async function Navbar() {
                 {t("forBusiness")}
               </Link>
               <Link href="/salon-check" className="btn-ghost hidden text-primary-600 lg:inline-flex">
-                {locale === "vi" ? "Kiểm tra salon" : "Salon check"}
+                {locale === "vi" ? "Kiểm tra salon" : locale === "fi" ? "Salonkitarkistus" : "Salon check"}
               </Link>
             </>
           )}

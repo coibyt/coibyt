@@ -81,8 +81,8 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {field("phone", tDash("contactLinks.phoneNumber"), "+84 90 123 4567")}
-        {field("email", "Email", "salon@example.com")}
-        {field("website", "Website", "https://...")}
+        {field("email", locale === "fi" ? "Sähköposti" : "Email", "salon@example.com")}
+        {field("website", locale === "fi" ? "Verkkosivu" : "Website", "https://...")}
         {field("whatsapp", "WhatsApp", "+84 90 123 4567")}
         {field("facebookUrl", "Facebook", "https://facebook.com/...")}
         {field("instagramUrl", "Instagram", "https://instagram.com/...")}

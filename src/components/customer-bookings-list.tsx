@@ -69,7 +69,7 @@ export function CustomerBookingsList({
           message:
             locale === "vi"
               ? "Đã quá thời hạn tự hủy lịch hẹn. Vui lòng liên hệ salon để hủy."
-              : "It's too late to cancel this yourself. Please contact the salon directly.",
+              : locale === "fi" ? "On liian myöhäistä perua varausta itse. Ota yhteyttä suoraan salonkiin." : "It's too late to cancel this yourself. Please contact the salon directly.",
         });
       }
       setConfirmingCancel(false);
@@ -81,6 +81,18 @@ export function CustomerBookingsList({
   }
 
   function formatDateTime(iso: string, tz: string) {
+    if (locale === "fi") {
+      // e.g. "ke 25.11.2026 klo 10.30"
+      return new Date(iso).toLocaleString("fi-FI", {
+        weekday: "short",
+        day: "numeric",
+        month: "numeric",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        timeZone: tz,
+      });
+    }
     return new Date(iso).toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
       dateStyle: "medium",
       timeStyle: "short",
@@ -102,7 +114,7 @@ export function CustomerBookingsList({
               {viewerTimezone && viewerTimezone !== b.businessTimezone && (
                 <span>
                   {" · "}
-                  {locale === "vi" ? "giờ của bạn: " : "your time: "}
+                  {locale === "vi" ? "giờ của bạn: " : locale === "fi" ? "oma aikasi: " : "your time: "}
                   {formatDateTime(b.startsAt, viewerTimezone)}
                 </span>
               )}
@@ -118,7 +130,7 @@ export function CustomerBookingsList({
               onClick={() => setDetailFor(b)}
               className="btn-outline !px-3 !py-1.5 text-xs"
             >
-              {locale === "vi" ? "Xem thông tin đặt chỗ" : "View booking details"}
+              {locale === "vi" ? "Xem thông tin đặt chỗ" : locale === "fi" ? "Näytä varauksen tiedot" : "View booking details"}
             </button>
             {b.status !== "CANCELLED" && !b.hasReview && (
               <button
@@ -166,7 +178,7 @@ export function CustomerBookingsList({
                   rel="noopener noreferrer"
                   className="inline-block text-primary-600 hover:underline"
                 >
-                  {locale === "vi" ? "Xem trên Google Maps" : "View on Google Maps"}
+                  {locale === "vi" ? "Xem trên Google Maps" : locale === "fi" ? "Näytä Google Mapsissa" : "View on Google Maps"}
                 </a>
               )}
               <p className="font-semibold text-ink-900">
@@ -187,13 +199,13 @@ export function CustomerBookingsList({
                 ) : (
                   <div className="space-y-2">
                     <p className="text-sm font-medium text-ink-900">
-                      {locale === "vi" ? "Chính sách hủy đặt chỗ" : "Cancellation policy"}
+                      {locale === "vi" ? "Chính sách hủy đặt chỗ" : locale === "fi" ? "Peruutusehdot" : "Cancellation policy"}
                     </p>
                     <p className="whitespace-pre-line rounded-lg bg-mist-50 p-2.5 text-xs text-ink-700">
                       {detailFor.cancellationPolicy ||
                         (locale === "vi"
                           ? `Bạn có thể tự hủy đến ${detailFor.cancellationWindowHours} giờ trước giờ hẹn.`
-                          : `You can cancel yourself up until ${detailFor.cancellationWindowHours} hours before the appointment.`)}
+                          : locale === "fi" ? `Voit perua itse ${detailFor.cancellationWindowHours} tuntiin asti ennen varattua aikaa.` : `You can cancel yourself up until ${detailFor.cancellationWindowHours} hours before the appointment.`)}
                     </p>
                     <div className="flex gap-2">
                       <button
@@ -201,13 +213,13 @@ export function CustomerBookingsList({
                         onClick={() => cancel(detailFor.id)}
                         className="btn-primary !bg-berry-500 !px-3 !py-1.5 text-xs hover:!bg-berry-600"
                       >
-                        {locale === "vi" ? "Xác nhận hủy" : "Confirm cancellation"}
+                        {locale === "vi" ? "Xác nhận hủy" : locale === "fi" ? "Vahvista peruutus" : "Confirm cancellation"}
                       </button>
                       <button
                         onClick={() => setConfirmingCancel(false)}
                         className="btn-ghost !px-3 !py-1.5 text-xs"
                       >
-                        {locale === "vi" ? "Không hủy" : "Keep booking"}
+                        {locale === "vi" ? "Không hủy" : locale === "fi" ? "Pidä varaus" : "Keep booking"}
                       </button>
                     </div>
                     {error?.id === detailFor.id && (

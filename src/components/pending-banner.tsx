@@ -57,7 +57,7 @@ export function PendingBanner({
           : needsVerification
             ? locale === "vi"
               ? "Vui lòng kiểm tra email và nhấp vào liên kết xác minh để kích hoạt salon của bạn — chưa cần VaraaAi duyệt."
-              : "Please check your email and click the verification link to activate your salon — no VaraaAi review needed."
+              : locale === "fi" ? "Tarkista sähköpostisi ja aktivoi salonkisi vahvistuslinkistä – VaraaAi:n hyväksyntää ei tarvita." : "Please check your email and click the verification link to activate your salon — no VaraaAi review needed."
             : t("pendingBanner")}
       </p>
       {needsVerification && (
@@ -74,10 +74,10 @@ export function PendingBanner({
           {sent
             ? locale === "vi"
               ? "Đã gửi lại"
-              : "Sent again"
+              : locale === "fi" ? "Lähetetty uudelleen" : "Sent again"
             : locale === "vi"
               ? "Gửi lại email xác minh"
-              : "Resend verification email"}
+              : locale === "fi" ? "Lähetä vahvistussähköposti uudelleen" : "Resend verification email"}
         </button>
       )}
     </div>

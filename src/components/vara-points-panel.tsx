@@ -22,14 +22,14 @@ interface VaraInfo {
   recentTransactions: VaraTransaction[];
 }
 
-const REASON_LABELS: Record<string, { vi: string; en: string }> = {
-  SIGNUP_BONUS: { vi: "Thưởng đăng ký salon", en: "Salon signup bonus" },
-  DAILY_CHECKIN: { vi: "Điểm danh hàng ngày", en: "Daily check-in" },
-  REFERRAL_CLICK: { vi: "Lượt xem link giới thiệu", en: "Referral link view" },
-  REFERRAL_SIGNUP_BONUS: { vi: "Giới thiệu salon mới thành công", en: "Referred a new salon" },
-  EMAIL_SENT: { vi: "Gửi email marketing", en: "Marketing email sent" },
-  EMAIL_SENT_COOLDOWN_BYPASS: { vi: "Gửi email trước 72 giờ", en: "Early resend (cooldown bypass)" },
-  ADMIN_ADJUST: { vi: "VaraaAi điều chỉnh", en: "Adjusted by VaraaAi" },
+const REASON_LABELS: Record<string, { vi: string; en: string; fi: string }> = {
+  SIGNUP_BONUS: { vi: "Thưởng đăng ký salon", en: "Salon signup bonus", fi: "Salongin rekisteröitymisbonus" },
+  DAILY_CHECKIN: { vi: "Điểm danh hàng ngày", en: "Daily check-in", fi: "Päivittäinen kirjautuminen" },
+  REFERRAL_CLICK: { vi: "Lượt xem link giới thiệu", en: "Referral link view", fi: "Suosituslinkin katselu" },
+  REFERRAL_SIGNUP_BONUS: { vi: "Giới thiệu salon mới thành công", en: "Referred a new salon", fi: "Suosittelit uutta salonkia" },
+  EMAIL_SENT: { vi: "Gửi email marketing", en: "Marketing email sent", fi: "Markkinointisähköposti lähetetty" },
+  EMAIL_SENT_COOLDOWN_BYPASS: { vi: "Gửi email trước 72 giờ", en: "Early resend (cooldown bypass)", fi: "Aikainen uudelleenlähetys (odotusaika ohitettu)" },
+  ADMIN_ADJUST: { vi: "VaraaAi điều chỉnh", en: "Adjusted by VaraaAi", fi: "VaraaAi:n korjaus" },
 };
 
 export function VaraPointsPanel({ locale }: { locale: string }) {
@@ -116,7 +116,7 @@ export function VaraPointsPanel({ locale }: { locale: string }) {
             {info.recentTransactions.map((t) => (
               <li key={t.id} className="flex items-center justify-between gap-3 text-xs text-ink-700">
                 <span className="min-w-0">
-                  {REASON_LABELS[t.reason]?.[locale === "vi" ? "vi" : "en"] ?? t.reason}
+                  {REASON_LABELS[t.reason]?.[locale === "vi" ? "vi" : locale === "fi" ? "fi" : "en"] ?? t.reason}
                   {t.note && <span className="text-ink-400"> · {t.note}</span>}
                 </span>
                 <span className={t.amount >= 0 ? "font-medium text-sage-600" : "font-medium text-berry-500"}>

@@ -87,7 +87,7 @@ function initials(name: string) {
 }
 
 function formatDate(iso: string, locale: string, timeZone: string, withTime = false) {
-  return new Date(iso).toLocaleString(locale === "vi" ? "vi-VN" : "en-GB", {
+  return new Date(iso).toLocaleString(locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-GB", {
     day: "2-digit",
     month: "2-digit",
     year: "numeric",
@@ -194,6 +194,7 @@ export function LoyaltyInsightsPanel({
   onClose: () => void;
 }) {
   const vi = locale === "vi";
+  const fi = locale === "fi";
   const { data, error } = useLoyaltyInsights(cardId, refreshKey);
 
   return (
@@ -208,13 +209,13 @@ export function LoyaltyInsightsPanel({
           <div className="relative flex items-start justify-between gap-3">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white/90 backdrop-blur">
               <Star className="h-3 w-3 fill-current" />
-              {vi ? "Thẻ thành viên" : "Loyalty member"}
+              {vi ? "Thẻ thành viên" : fi ? "Kanta-asiakas" : "Loyalty member"}
             </span>
             <button
               type="button"
               onClick={onClose}
               className="rounded-full p-1.5 text-white/70 transition-colors hover:bg-white/10 hover:text-white"
-              aria-label={vi ? "Đóng" : "Close"}
+              aria-label={vi ? "Đóng" : fi ? "Sulje" : "Close"}
             >
               <X className="h-4 w-4" />
             </button>
@@ -233,7 +234,7 @@ export function LoyaltyInsightsPanel({
 
           {!data ? (
             <div className="relative flex h-32 items-center justify-center text-white/70">
-              {error ? (vi ? "Không tải được dữ liệu khách." : "Couldn't load this customer.") : <Loader2 className="h-6 w-6 animate-spin" />}
+              {error ? (vi ? "Không tải được dữ liệu khách." : fi ? "Asiakkaan tietoja ei voitu ladata." : "Couldn't load this customer.") : <Loader2 className="h-6 w-6 animate-spin" />}
             </div>
           ) : (
             <div className="relative mt-4 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
@@ -245,7 +246,7 @@ export function LoyaltyInsightsPanel({
                   <h3 className="truncate text-2xl font-bold">{data.card.customerName}</h3>
                   <p className="truncate text-sm text-white/70">{data.card.customerEmail}</p>
                   <p className="mt-1 text-xs text-white/60">
-                    {vi ? "Thành viên từ" : "Member since"} {formatDate(data.card.activatedAt, locale, timeZone)}
+                    {vi ? "Thành viên từ" : fi ? "Jäsen alkaen" : "Member since"} {formatDate(data.card.activatedAt, locale, timeZone)}
                   </p>
                 </div>
               </div>
@@ -253,7 +254,7 @@ export function LoyaltyInsightsPanel({
                 <div className="flex items-center gap-4">
                   <PointsRing points={data.card.points} required={data.program.pointsRequired} />
                   <div className="space-y-2">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-white/60">{vi ? "Số vé" : "Tickets"}</p>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-white/60">{vi ? "Số vé" : fi ? "Liput" : "Tickets"}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {Array.from({ length: data.program.pointsRequired }, (_, i) => (
                         <span
@@ -270,10 +271,10 @@ export function LoyaltyInsightsPanel({
                       {data.card.rewardReady
                         ? vi
                           ? `Đủ vé — được giảm ${data.program.discountPercent}%`
-                          : `Reward ready — ${data.program.discountPercent}% off`
+                          : fi ? `Palkinto valmis – ${data.program.discountPercent} % alennus` : `Reward ready — ${data.program.discountPercent}% off`
                         : vi
                           ? `Còn ${Math.max(0, data.program.pointsRequired - data.card.points)} vé nữa để được giảm ${data.program.discountPercent}%`
-                          : `${Math.max(0, data.program.pointsRequired - data.card.points)} more tickets for ${data.program.discountPercent}% off`}
+                          : fi ? `Vielä ${Math.max(0, data.program.pointsRequired - data.card.points)} lippua ${data.program.discountPercent} %:n alennukseen` : `${Math.max(0, data.program.pointsRequired - data.card.points)} more tickets for ${data.program.discountPercent}% off`}
                     </p>
                   </div>
                 </div>
@@ -288,46 +289,46 @@ export function LoyaltyInsightsPanel({
               <StatTile
                 icon={Scissors}
                 tone="teal"
-                label={vi ? "Dịch vụ đã làm" : "Services done"}
+                label={vi ? "Dịch vụ đã làm" : fi ? "Tehdyt palvelut" : "Services done"}
                 value={String(data.stats.servicesDone)}
-                sub={vi ? `${data.stats.visits} lượt đến salon` : `${data.stats.visits} visits`}
+                sub={vi ? `${data.stats.visits} lượt đến salon` : fi ? `${data.stats.visits} käyntiä` : `${data.stats.visits} visits`}
               />
               <StatTile
                 icon={Wallet}
                 tone="primary"
-                label={vi ? "Tổng doanh thu mang lại" : "Total revenue"}
+                label={vi ? "Tổng doanh thu mang lại" : fi ? "Tuotto yhteensä" : "Total revenue"}
                 value={revenueText(data.stats.revenue, locale)}
               />
               <StatTile
                 icon={Star}
                 tone="coral"
-                label={vi ? "Vé hiện có" : "Current tickets"}
+                label={vi ? "Vé hiện có" : fi ? "Nykyiset liput" : "Current tickets"}
                 value={data.program ? `${data.card.points}/${data.program.pointsRequired}` : String(data.card.points)}
               />
               <StatTile
                 icon={ScanLine}
                 tone="sage"
-                label={vi ? "Lượt quét" : "Scans"}
+                label={vi ? "Lượt quét" : fi ? "Skannaukset" : "Scans"}
                 value={String(data.card.totalScans)}
                 sub={
                   data.stats.scansAvailable > 0
                     ? vi
                       ? `Còn ${data.stats.scansAvailable} lượt hẹn chưa quét`
-                      : `${data.stats.scansAvailable} visit(s) not scanned yet`
+                      : fi ? `${data.stats.scansAvailable} käyntiä skannaamatta` : `${data.stats.scansAvailable} visit(s) not scanned yet`
                     : undefined
                 }
               />
               <StatTile
                 icon={Gift}
                 tone="berry"
-                label={vi ? "Đã giảm giá" : "Rewards used"}
+                label={vi ? "Đã giảm giá" : fi ? "Käytetyt edut" : "Rewards used"}
                 value={String(data.card.rewardsEarned)}
-                sub={vi ? "lần nhận ưu đãi" : "times rewarded"}
+                sub={vi ? "lần nhận ưu đãi" : fi ? "kertaa palkittu" : "times rewarded"}
               />
               <StatTile
                 icon={TrendingUp}
                 tone="peach"
-                label={vi ? "Chi tiêu TB / lượt" : "Avg. per visit"}
+                label={vi ? "Chi tiêu TB / lượt" : fi ? "Keskim. / käynti" : "Avg. per visit"}
                 value={data.stats.avgSpend ? formatMoney(data.stats.avgSpend.cents, data.stats.avgSpend.currency, locale) : "—"}
               />
             </div>
@@ -336,19 +337,19 @@ export function LoyaltyInsightsPanel({
               {data.stats.lastVisitAt && (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 ring-1 ring-ink-100">
                   <CalendarDays className="h-3.5 w-3.5 text-primary-500" />
-                  {vi ? "Lần gần nhất" : "Last visit"}: {formatDate(data.stats.lastVisitAt, locale, timeZone)}
+                  {vi ? "Lần gần nhất" : fi ? "Viimeisin käynti" : "Last visit"}: {formatDate(data.stats.lastVisitAt, locale, timeZone)}
                 </span>
               )}
               {data.stats.upcoming > 0 && (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 ring-1 ring-ink-100">
                   <CalendarClock className="h-3.5 w-3.5 text-teal-500" />
-                  {vi ? `${data.stats.upcoming} lịch hẹn sắp tới` : `${data.stats.upcoming} upcoming`}
+                  {vi ? `${data.stats.upcoming} lịch hẹn sắp tới` : fi ? `${data.stats.upcoming} tulossa` : `${data.stats.upcoming} upcoming`}
                 </span>
               )}
               {data.stats.topServices[0] && (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 ring-1 ring-ink-100">
                   <Sparkles className="h-3.5 w-3.5 text-coral-500" />
-                  {vi ? "Hay làm" : "Favourite"}: {data.stats.topServices[0].name}
+                  {vi ? "Hay làm" : fi ? "Suosikki" : "Favourite"}: {data.stats.topServices[0].name}
                 </span>
               )}
             </div>
@@ -356,7 +357,7 @@ export function LoyaltyInsightsPanel({
             <div className="flex flex-col gap-2 sm:flex-row">
               <button type="button" onClick={() => onOpenDetails(cardId)} className="btn-primary flex-1">
                 <UserRound className="h-4 w-4" />
-                {vi ? "Xem chi tiết khách hàng" : "View customer details"}
+                {vi ? "Xem chi tiết khách hàng" : fi ? "Näytä asiakkaan tiedot" : "View customer details"}
               </button>
               {data.card.rewardReady && data.program && onApplyReward && (
                 <button
@@ -366,7 +367,7 @@ export function LoyaltyInsightsPanel({
                   className="btn-primary flex-1 !bg-gradient-to-r !from-coral-500 !to-berry-500"
                 >
                   {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Gift className="h-4 w-4" />}
-                  {vi ? `Áp dụng giảm ${data.program.discountPercent}%` : `Apply ${data.program.discountPercent}% off`}
+                  {vi ? `Áp dụng giảm ${data.program.discountPercent}%` : fi ? `Myönnä ${data.program.discountPercent} % alennus` : `Apply ${data.program.discountPercent}% off`}
                 </button>
               )}
             </div>
@@ -377,13 +378,13 @@ export function LoyaltyInsightsPanel({
   );
 }
 
-const STATUS_STYLES: Record<LoyaltyInsights["history"][number]["status"] | "DONE", { vi: string; en: string; cls: string }> = {
-  DONE: { vi: "Đã làm", en: "Done", cls: "bg-teal-50 text-teal-600" },
-  COMPLETED: { vi: "Hoàn tất", en: "Completed", cls: "bg-teal-50 text-teal-600" },
-  CONFIRMED: { vi: "Sắp tới", en: "Upcoming", cls: "bg-primary-50 text-primary-600" },
-  PENDING_PAYMENT: { vi: "Chờ thanh toán", en: "Awaiting payment", cls: "bg-peach-100 text-coral-600" },
-  CANCELLED: { vi: "Đã hủy", en: "Cancelled", cls: "bg-ink-50 text-ink-400" },
-  NO_SHOW: { vi: "Không đến", en: "No-show", cls: "bg-berry-50 text-berry-500" },
+const STATUS_STYLES: Record<LoyaltyInsights["history"][number]["status"] | "DONE", { vi: string; en: string; fi: string; cls: string }> = {
+  DONE: { vi: "Đã làm", en: "Done", fi: "Tehty", cls: "bg-teal-50 text-teal-600" },
+  COMPLETED: { vi: "Hoàn tất", en: "Completed", fi: "Valmis", cls: "bg-teal-50 text-teal-600" },
+  CONFIRMED: { vi: "Sắp tới", en: "Upcoming", fi: "Tulossa", cls: "bg-primary-50 text-primary-600" },
+  PENDING_PAYMENT: { vi: "Chờ thanh toán", en: "Awaiting payment", fi: "Odottaa maksua", cls: "bg-peach-100 text-coral-600" },
+  CANCELLED: { vi: "Đã hủy", en: "Cancelled", fi: "Peruttu", cls: "bg-ink-50 text-ink-400" },
+  NO_SHOW: { vi: "Không đến", en: "No-show", fi: "Ei saapunut", cls: "bg-berry-50 text-berry-500" },
 };
 
 /** Full history for one cardholder: visits with prices and staff, favourite
@@ -402,6 +403,7 @@ export function LoyaltyDetailsModal({
   onClose: () => void;
 }) {
   const vi = locale === "vi";
+  const fi = locale === "fi";
   const { data, error } = useLoyaltyInsights(cardId, refreshKey);
 
   useEffect(() => {
@@ -441,7 +443,7 @@ export function LoyaltyDetailsModal({
                 {data ? initials(data.card.customerName) : "…"}
               </div>
               <div className="min-w-0">
-                <p className="text-xs font-semibold uppercase tracking-wider text-white/60">{vi ? "Hồ sơ khách hàng" : "Customer profile"}</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-white/60">{vi ? "Hồ sơ khách hàng" : fi ? "Asiakasprofiili" : "Customer profile"}</p>
                 <h3 className="truncate text-xl font-bold">{data?.card.customerName ?? "…"}</h3>
               </div>
             </div>
@@ -449,7 +451,7 @@ export function LoyaltyDetailsModal({
               type="button"
               onClick={onClose}
               className="rounded-full p-1.5 text-white/70 hover:bg-white/10 hover:text-white"
-              aria-label={vi ? "Đóng" : "Close"}
+              aria-label={vi ? "Đóng" : fi ? "Sulje" : "Close"}
             >
               <X className="h-5 w-5" />
             </button>
@@ -473,20 +475,20 @@ export function LoyaltyDetailsModal({
         <div className="flex-1 space-y-6 overflow-y-auto p-4 sm:p-6">
           {!data ? (
             <div className="flex h-40 items-center justify-center text-sm text-ink-400">
-              {error ? (vi ? "Không tải được dữ liệu." : "Couldn't load.") : <Loader2 className="h-6 w-6 animate-spin" />}
+              {error ? (vi ? "Không tải được dữ liệu." : fi ? "Lataus epäonnistui." : "Couldn't load.") : <Loader2 className="h-6 w-6 animate-spin" />}
             </div>
           ) : (
             <>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {[
-                  { label: vi ? "Lượt đến" : "Visits", value: String(data.stats.visits) },
-                  { label: vi ? "Doanh thu" : "Revenue", value: revenueText(data.stats.revenue, locale) },
+                  { label: vi ? "Lượt đến" : fi ? "Käynnit" : "Visits", value: String(data.stats.visits) },
+                  { label: vi ? "Doanh thu" : fi ? "Tuotto" : "Revenue", value: revenueText(data.stats.revenue, locale) },
                   {
-                    label: vi ? "Lần đầu" : "First visit",
+                    label: vi ? "Lần đầu" : fi ? "Ensimmäinen käynti" : "First visit",
                     value: data.stats.firstVisitAt ? formatDate(data.stats.firstVisitAt, locale, timeZone) : "—",
                   },
                   {
-                    label: vi ? "Hủy / không đến" : "Cancelled / no-show",
+                    label: vi ? "Hủy / không đến" : fi ? "Peruttu / ei saapunut" : "Cancelled / no-show",
                     value: `${data.stats.cancelled} / ${data.stats.noShow}`,
                   },
                 ].map((s) => (
@@ -501,7 +503,7 @@ export function LoyaltyDetailsModal({
                 <section className="rounded-2xl bg-white p-4 ring-1 ring-ink-100">
                   <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-ink-900">
                     <Sparkles className="h-4 w-4 text-coral-500" />
-                    {vi ? "Dịch vụ yêu thích" : "Favourite services"}
+                    {vi ? "Dịch vụ yêu thích" : fi ? "Suosikkipalvelut" : "Favourite services"}
                   </h4>
                   <ul className="space-y-2.5">
                     {data.stats.topServices.map((s) => (
@@ -525,14 +527,14 @@ export function LoyaltyDetailsModal({
               <section>
                 <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-ink-900">
                   <CalendarDays className="h-4 w-4 text-primary-500" />
-                  {vi ? "Lịch sử làm dịch vụ" : "Visit history"}
+                  {vi ? "Lịch sử làm dịch vụ" : fi ? "Käyntihistoria" : "Visit history"}
                   <span className="text-xs font-normal text-ink-400">({data.history.length})</span>
                 </h4>
                 {data.history.length === 0 ? (
                   <p className="rounded-2xl bg-white p-4 text-sm text-ink-400 ring-1 ring-ink-100">
                     {vi
                       ? "Chưa có lịch hẹn nào với email này tại salon."
-                      : "No bookings with this email at the salon yet."}
+                      : fi ? "Tällä sähköpostilla ei ole vielä varauksia salongissa." : "No bookings with this email at the salon yet."}
                   </p>
                 ) : (
                   <ol className="relative space-y-3 border-l-2 border-dashed border-primary-200 pl-5">
@@ -554,7 +556,7 @@ export function LoyaltyDetailsModal({
                               <span className="mt-0.5 whitespace-nowrap text-[10px] font-semibold uppercase">
                                 {vi
                                   ? `Th${Number(d.toLocaleString("en-GB", { month: "numeric", timeZone }))}`
-                                  : d.toLocaleString("en-GB", { month: "short", timeZone })}
+                                  : fi ? d.toLocaleString("fi-FI", { month: "short", timeZone }) : d.toLocaleString("en-GB", { month: "short", timeZone })}
                               </span>
                               <span className="text-[9px] text-primary-400">{d.toLocaleString("en-GB", { year: "numeric", timeZone })}</span>
                             </div>
@@ -562,14 +564,14 @@ export function LoyaltyDetailsModal({
                               <div className="flex flex-wrap items-start justify-between gap-2">
                                 <p className="min-w-0 font-semibold text-ink-900">{h.serviceName}</p>
                                 <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${style.cls}`}>
-                                  {vi ? style.vi : style.en}
+                                  {vi ? style.vi : fi ? style.fi : style.en}
                                 </span>
                               </div>
                               {h.extraServiceNames.length > 0 && (
                                 <p className="mt-0.5 text-xs text-ink-400">+ {h.extraServiceNames.join(", ")}</p>
                               )}
                               <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-400">
-                                <span>{d.toLocaleString(vi ? "vi-VN" : "en-GB", { hour: "2-digit", minute: "2-digit", timeZone })}</span>
+                                <span>{d.toLocaleString(vi ? "vi-VN" : fi ? "fi-FI" : "en-GB", { hour: "2-digit", minute: "2-digit", timeZone })}</span>
                                 {h.staffName && <span>· {h.staffName}</span>}
                                 <span className="font-semibold text-ink-700">{formatMoney(h.priceCents, h.currency, locale)}</span>
                               </div>
@@ -586,7 +588,7 @@ export function LoyaltyDetailsModal({
                 <section className="rounded-2xl bg-white p-4 ring-1 ring-ink-100">
                   <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-ink-900">
                     <ScanLine className="h-4 w-4 text-sage-500" />
-                    {vi ? "Lịch sử vé" : "Ticket history"}
+                    {vi ? "Lịch sử vé" : fi ? "Lippuhistoria" : "Ticket history"}
                   </h4>
                   <ul className="space-y-2 text-xs">
                     {timeline.slice(0, 30).map((t, i) => (
@@ -602,10 +604,10 @@ export function LoyaltyDetailsModal({
                         )}
                         <span className="text-ink-700">
                           {t.kind === "scan"
-                            ? vi ? "Cộng 1 vé" : "+1 ticket"
+                            ? vi ? "Cộng 1 vé" : fi ? "+1 lippu" : "+1 ticket"
                             : vi
                               ? `Nhận ưu đãi giảm ${data.program?.discountPercent ?? ""}%`
-                              : `Reward used (${data.program?.discountPercent ?? ""}% off)`}
+                              : fi ? `Etu käytetty (${data.program?.discountPercent ?? ""} % alennus)` : `Reward used (${data.program?.discountPercent ?? ""}% off)`}
                         </span>
                         <span className="ml-auto text-ink-400">{formatDate(t.at, locale, timeZone, true)}</span>
                       </li>

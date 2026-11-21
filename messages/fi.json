@@ -9,13 +9,14 @@
     "signIn": "Kirjaudu sisään",
     "signUp": "Luo tili",
     "dashboard": "Hallintapaneeli",
+    "profile": "Oma profiili",
     "myBookings": "Varaukseni",
     "inbox": "Viestit",
     "following": "Seurataan",
     "feed": "Uutissyöte",
     "signOut": "Kirjaudu ulos",
     "admin": "Ylläpito",
-    "loyalty": "Kanta"
+    "loyalty": "Kanta-asiakaskortit"
   },
   "home": {
     "heroTitle": "Varaa seuraava\najanvarauksesi sekunneissa",
@@ -47,7 +48,18 @@
     "signInInstead": "Kirjaudu sisään",
     "invalidCredentials": "Väärä sähköposti tai salasana.",
     "emailInUse": "Tämä sähköposti on jo käytössä.",
-    "passwordMismatch": "Salasanat eivät täsmää."
+    "passwordMismatch": "Salasanat eivät täsmää.",
+    "forgotPassword": "Unohditko salasanan?",
+    "forgotPasswordTitle": "Vaihda salasana",
+    "forgotPasswordHint": "Anna tilisi sähköpostiosoite, niin lähetämme linkin salasanan vaihtamiseen.",
+    "sendResetLink": "Lähetä vaihtolinkki",
+    "resetLinkSent": "Jos sähköpostille on tili, lähetimme siihen vaihtolinkin. Tarkista saapuneet viestit.",
+    "resetPasswordTitle": "Valitse uusi salasana",
+    "newPassword": "Uusi salasana",
+    "resetPasswordButton": "Vaihda salasana",
+    "resetSuccess": "Salasana vaihdettu – olet kirjautunut sisään.",
+    "invalidOrExpiredToken": "Linkki on virheellinen tai vanhentunut. Pyydä uusi.",
+    "backToSignIn": "Takaisin kirjautumiseen"
   },
   "business": {
     "applyTitle": "Lisää yrityksesi VaraaAi.Comiin",
@@ -67,15 +79,41 @@
     "dashboardTitle": "Yrityksen hallintapaneeli",
     "overview": "Yleiskatsaus",
     "services": "Palvelut",
+    "products": "Tuotteet",
     "staff": "Henkilökunta",
     "bookings": "Varaukset",
     "customers": "Asiakkaat",
     "messages": "Viestit",
-    "fanpage": "Fanpage",
+    "fanpage": "Fanisivu",
     "hours": "Aukioloajat",
     "reviews": "Arvostelut",
     "settings": "Asetukset",
     "addService": "Lisää palvelu",
+    "addProduct": "Lisää tuote",
+    "productsPage": {
+      "empty": "Ei vielä tuotteita.",
+      "addToCart": "Lisää ostoskoriin",
+      "viewDetails": "Näytä tiedot",
+      "cart": "Ostoskori",
+      "cartEmpty": "Ostoskorisi on tyhjä.",
+      "qty": "Määrä",
+      "total": "Yhteensä",
+      "checkout": "Kassalle",
+      "placeOrder": "Tee tilaus",
+      "paymentMethodLabel": "Maksutapa",
+      "orderSuccess": "Tilaus tehty!",
+      "orderSuccessHint": "Salonki ottaa sinuun yhteyttä vahvistaakseen tilauksen.",
+      "writeReview": "Kirjoita arvostelu",
+      "alreadyReviewed": "Olet jo arvostellut tämän tuotteen.",
+      "signInToReview": "Kirjaudu sisään jättääksesi arvostelun.",
+      "signInToOrder": "Kirjaudu sisään tehdäksesi tilauksen.",
+      "noReviewsYet": "Ei vielä arvosteluja.",
+      "views": "{count, plural, one {# katselu} other {# katselua}}",
+      "ratingCount": "{count, plural, one {# arvostelu} other {# arvostelua}}",
+      "watchVideo": "Katso video",
+      "remove": "Poista",
+      "continueShopping": "Jatka selaamista"
+    },
     "addStaff": "Lisää työntekijä",
     "statBookingsToday": "Varaukset tänään",
     "statRevenueMonth": "Liikevaihto tässä kuussa",
@@ -124,8 +162,10 @@
     "cash": "Maksa salongissa",
     "stripe": "Kansainvälinen kortti (Visa/Mastercard)",
     "bankTransfer": "Tilisiirto",
+    "chat": "Keskustele salongin kanssa",
     "cashNotice": "Maksat käteisellä tai kortilla paikan päällä saapuessasi.",
     "bankTransferNotice": "Maksa alla olevilla tiedoilla. Salonki vahvistaa maksun saapumisen jälkeen.",
+    "chatNotice": "Tilauksesi on luotu – avaa keskustelu salongin kanssa ja sovi maksusta.",
     "sandboxNotice": "Testitila — todellista veloitusta ei tehdä.",
     "processing": "Käsitellään maksua...",
     "success": "Maksu onnistui! Varauksesi on vahvistettu.",
@@ -155,7 +195,11 @@
     "ratingLabel": "Palvelun laatu",
     "commentPlaceholder": "Kerro kokemuksestasi...",
     "submit": "Lähetä arvostelu",
-    "thanks": "Kiitos arvostelustasi!"
+    "thanks": "Kiitos arvostelustasi!",
+    "googleRequiredTitle": "Google-kirjautuminen vaaditaan",
+    "googleRequiredBody": "Jotta arvostelut olisivat aitoja, kirjaudu Googlella ennen arvostelun lähettämistä.",
+    "signInWithGoogle": "Kirjaudu Googlella",
+    "genericError": "Jokin meni pieleen, yritä uudelleen."
   },
   "admin": {
     "title": "Järjestelmänvalvoja",
@@ -165,6 +209,11 @@
     "categories": "Kategoriat",
     "allBusinesses": "Kaikki yritykset",
     "noPending": "Ei tarkistusta odottavia yrityksiä.",
+    "businessAnalytics": {
+      "views": "Katselut",
+      "bookings": "Varaukset",
+      "revenue": "Liikevaihto"
+    },
     "platformAffiliatesPage": {
       "title": "Kumppanuusmarkkinointi",
       "hint": "Lisää suosittelija (myyjä, salongin omistaja tai asiakas) markkinoimaan salongin omistajaksi rekisteröitymistä. Kun suosittelun kautta tullut salonki hyväksytään ja sen profiili on täydellinen (osoite, aukioloajat, palvelut), suosittelija ansaitsee provisio-%:n kaikista kyseisen salongin tulevista varauksista. VaraaAi vain seuraa ja laskee provisiot — maksat ne itse järjestelmän ulkopuolella.",
@@ -260,6 +309,8 @@
       "phoneNumber": "Puhelinnumero",
       "youtubeChannel": "YouTube-kanava",
       "introVideo": "Salongin esittelyvideo",
+      "googlePlaceId": "Google Place ID",
+      "googlePlaceIdHint": "Tällä näytetään asiakkaille \"Jaa Googlessa\" -painike, kun he ovat jättäneet arvostelun. Löydät tunnuksen Googlen Place ID Finder -työkalulla.",
       "formatError": "Tarkista linkin/sähköpostin muoto."
     },
     "businessImages": {
@@ -374,8 +425,28 @@
       "subtitle": "Luo ja myy lahjakortteja, tarkista ja käytä kun asiakas tulee"
     },
     "loyalty": {
-      "nav": "Kanta",
-      "subtitle": "Anna asiakkaille kanta, skannaa se joka käynnillä ja myönnä etu"
+      "nav": "Kanta-asiakaskortit",
+      "subtitle": "Anna asiakkaille kanta-asiakaskortti, skannaa se joka käynnillä ja myönnä etu"
+    },
+    "productsForm": {
+      "newProduct": "Uusi tuote",
+      "editProduct": "Muokkaa tuotetta",
+      "productName": "Tuotteen nimi",
+      "images": "Kuvat",
+      "addPhoto": "Lisää kuva",
+      "tooManyImages": "Voit ladata enintään {max} kuvaa tuotetta kohden.",
+      "saveError": "Tallennus ei onnistunut, yritä uudelleen."
+    },
+    "ordersPage": {
+      "nav": "Tilaukset",
+      "empty": "Ei vielä tilauksia.",
+      "note": "Asiakkaan viesti",
+      "total": "Yhteensä",
+      "paymentMethod": {
+        "CASH": "Maksu salongissa",
+        "BANK_TRANSFER": "Tilisiirto",
+        "CHAT": "Sovittu keskustelussa"
+      }
     }
   },
   "common": {
@@ -429,6 +500,8 @@
     "saveInvoiceInfo": "Tallenna laskutustiedot",
     "embedTitle": "Upota varaussivu",
     "embedSubtitle": "Anna asiakkaiden varata suoraan omalta verkkosivustoltasi.",
+    "chatEmbedTitle": "Upota chat-ikkuna",
+    "chatEmbedSubtitle": "Asiakkaat voivat keskustella kanssasi suoraan omilla verkkosivuillasi – he eivät tarvitse tiliä, ja viestit tulevat tähän postilaatikkoon.",
     "viewPage": "Näytä sivu",
     "copyLink": "Kopioi linkki",
     "getEmbedCode": "Hae upotuskoodi",
@@ -450,6 +523,11 @@
     "wrongPassword": "Nykyinen salasana on väärä.",
     "genericErrorShort": "Jokin meni pieleen.",
     "passwordChanged": "Salasana vaihdettu.",
+    "avatarTitle": "Profiilikuva",
+    "avatarSubtitle": "Näkyy nimesi vieressä keskustelussa ja kommenteissasi.",
+    "uploadAvatar": "Lataa kuva",
+    "removeAvatar": "Poista kuva",
+    "avatarError": "Kuvan lataus ei onnistunut, yritä uudelleen.",
     "chainTitle": "Ketjun yhteinen varaussivu (kaikki toimipisteet)",
     "chainSubtitle": "Yksi yhteinen sivu, jolla näkyvät kaikki toimipisteesi — asiakas valitsee toimipisteen ja varaa heti. Voit upottaa sen omalle verkkosivustollesi."
   },

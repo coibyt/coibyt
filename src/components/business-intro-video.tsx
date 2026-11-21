@@ -25,7 +25,7 @@ export function BusinessIntroVideo({
         className="flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:underline"
       >
         <PlayCircle className="h-4 w-4" />
-        {locale === "vi" ? "Xem video giới thiệu" : "Watch intro video"}
+        {locale === "vi" ? "Xem video giới thiệu" : locale === "fi" ? "Katso esittelyvideo" : "Watch intro video"}
       </button>
       {playing && (
         <div className={embedFrameClass(embedUrl, "mt-2 rounded-xl") + (embedUrl.includes("varaclip.com") ? "" : " max-w-md")}>

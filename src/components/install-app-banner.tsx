@@ -56,10 +56,10 @@ export function InstallAppBanner({ locale }: { locale: string }) {
     }
   }
 
-  const title = locale === "vi" ? "Cài đặt ứng dụng VaraaAi" : "Install the VaraaAi app";
+  const title = locale === "vi" ? "Cài đặt ứng dụng VaraaAi" : locale === "fi" ? "Asenna VaraaAi-sovellus" : "Install the VaraaAi app";
   const subtitle =
-    locale === "vi" ? "Đặt lịch nhanh hơn ngay trên màn hình chính" : "Book faster, right from your home screen";
-  const installLabel = locale === "vi" ? "Cài đặt" : "Install";
+    locale === "vi" ? "Đặt lịch nhanh hơn ngay trên màn hình chính" : locale === "fi" ? "Varaa nopeammin suoraan aloitusnäytöltä" : "Book faster, right from your home screen";
+  const installLabel = locale === "vi" ? "Cài đặt" : locale === "fi" ? "Asenna" : "Install";
 
   return (
     <>
@@ -76,7 +76,7 @@ export function InstallAppBanner({ locale }: { locale: string }) {
           </button>
           <button
             onClick={dismiss}
-            aria-label={locale === "vi" ? "Đóng" : "Close"}
+            aria-label={locale === "vi" ? "Đóng" : locale === "fi" ? "Sulje" : "Close"}
             className="shrink-0 text-ink-400 hover:text-ink-700"
           >
             <X className="h-5 w-5" />
@@ -90,7 +90,7 @@ export function InstallAppBanner({ locale }: { locale: string }) {
           <p className="mt-2 text-sm text-ink-700">
             {locale === "vi"
               ? "Nhấn nút Chia sẻ (hình vuông có mũi tên) ở thanh công cụ Safari, sau đó chọn \"Thêm vào Màn hình chính\"."
-              : 'Tap the Share button (square with an arrow) in Safari\'s toolbar, then choose "Add to Home Screen".'}
+              : locale === "fi" ? "Napauta Safarin työkalupalkin Jaa-painiketta (neliö, jossa nuoli) ja valitse \"Lisää Koti-valikkoon\"." : 'Tap the Share button (square with an arrow) in Safari\'s toolbar, then choose "Add to Home Screen".'}
           </p>
         </InstallHintModal>
       )}
@@ -101,7 +101,7 @@ export function InstallAppBanner({ locale }: { locale: string }) {
           <p className="mt-2 text-sm text-ink-700">
             {locale === "vi"
               ? "Mở menu trình duyệt của bạn (thường là biểu tượng ⋮ hoặc ≡) và chọn \"Cài đặt ứng dụng\" hoặc \"Thêm vào màn hình chính\"."
-              : 'Open your browser\'s menu (usually a ⋮ or ≡ icon) and choose "Install app" or "Add to Home Screen".'}
+              : locale === "fi" ? "Avaa selaimen valikko (yleensä ⋮- tai ≡-kuvake) ja valitse \"Asenna sovellus\" tai \"Lisää aloitusnäyttöön\"." : 'Open your browser\'s menu (usually a ⋮ or ≡ icon) and choose "Install app" or "Add to Home Screen".'}
           </p>
         </InstallHintModal>
       )}

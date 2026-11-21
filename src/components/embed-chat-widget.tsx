@@ -23,6 +23,13 @@ const START_LABELS: Record<
     emailPlaceholder: "Your email",
     start: "Start chat",
   },
+  fi: {
+    title: "Keskustele kanssamme",
+    subtitle: "Kerro nimesi ja sähköpostisi, niin pääset alkuun – rekisteröitymistä ei tarvita.",
+    placeholder: "Nimesi",
+    emailPlaceholder: "Sähköpostisi",
+    start: "Aloita keskustelu",
+  },
 };
 
 /** The full content of the /embed/[slug]/chat page — meant to be dropped

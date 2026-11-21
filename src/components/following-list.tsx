@@ -41,7 +41,7 @@ export function FollowingList({ locale }: { locale: string }) {
   if (businesses.length === 0) {
     return (
       <p className="text-sm text-ink-400">
-        {locale === "vi" ? "Bạn chưa theo dõi salon nào." : "You're not following any salons yet."}
+        {locale === "vi" ? "Bạn chưa theo dõi salon nào." : locale === "fi" ? "Et seuraa vielä yhtään salonkia." : "You're not following any salons yet."}
       </p>
     );
   }
@@ -77,7 +77,7 @@ export function FollowingList({ locale }: { locale: string }) {
             className="btn-outline !px-3 !py-1.5 text-xs"
           >
             {unfollowing === b.slug && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
-            {locale === "vi" ? "Bỏ theo dõi" : "Unfollow"}
+            {locale === "vi" ? "Bỏ theo dõi" : locale === "fi" ? "Lopeta seuraaminen" : "Unfollow"}
           </button>
         </div>
       ))}

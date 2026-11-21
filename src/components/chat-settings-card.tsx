@@ -72,12 +72,12 @@ export function ChatSettingsCard({ locale, aiChatEnabled }: { locale: string; ai
       <div>
         <h2 className="mb-1 flex items-center gap-2 font-semibold text-ink-900">
           <Sparkles className="h-4 w-4 text-primary-500" />
-          {locale === "vi" ? "Trợ lý AI khi bạn vắng mặt" : "AI assistant while you're away"}
+          {locale === "vi" ? "Trợ lý AI khi bạn vắng mặt" : locale === "fi" ? "Tekoälyavustaja, kun olet poissa" : "AI assistant while you're away"}
         </h2>
         <p className="mb-3 text-xs text-ink-400">
           {locale === "vi"
             ? "Khi bật, trợ lý AI sẽ tự động trả lời khách dựa trên dịch vụ và sản phẩm hiện có của bạn. Khách có thể bấm \"Nói chuyện với chủ salon\" bất cứ lúc nào để yêu cầu bạn trực tiếp trả lời."
-            : "When on, the AI assistant automatically replies to customers using your current services and products. Customers can tap \"Talk to the owner\" any time to ask for you directly."}
+            : locale === "fi" ? "Kun avustaja on päällä, se vastaa asiakkaille automaattisesti nykyisten palveluidesi ja tuotteidesi perusteella. Asiakas voi milloin tahansa napauttaa \"Puhu omistajan kanssa\" ja pyytää sinua vastaamaan itse." : "When on, the AI assistant automatically replies to customers using your current services and products. Customers can tap \"Talk to the owner\" any time to ask for you directly."}
         </p>
         <label className="flex w-fit cursor-pointer items-center gap-2">
           <input
@@ -88,7 +88,7 @@ export function ChatSettingsCard({ locale, aiChatEnabled }: { locale: string; ai
             className="h-4 w-4"
           />
           <span className="text-sm text-ink-900">
-            {locale === "vi" ? "Bật trợ lý AI" : "Enable AI assistant"}
+            {locale === "vi" ? "Bật trợ lý AI" : locale === "fi" ? "Ota tekoälyavustaja käyttöön" : "Enable AI assistant"}
           </span>
           {savingAi && <Loader2 className="h-3.5 w-3.5 animate-spin text-ink-400" />}
         </label>
@@ -97,31 +97,31 @@ export function ChatSettingsCard({ locale, aiChatEnabled }: { locale: string; ai
       <div className="border-t border-ink-100 pt-4">
         <h2 className="mb-1 flex items-center gap-2 font-semibold text-ink-900">
           <Bell className="h-4 w-4 text-primary-500" />
-          {locale === "vi" ? "Thông báo khi khách muốn nói chuyện trực tiếp" : "Alerts when a customer wants you directly"}
+          {locale === "vi" ? "Thông báo khi khách muốn nói chuyện trực tiếp" : locale === "fi" ? "Ilmoitukset, kun asiakas haluaa puhua kanssasi" : "Alerts when a customer wants you directly"}
         </h2>
         <p className="mb-3 text-xs text-ink-400">
           {locale === "vi"
             ? "Nhận thông báo đẩy ngay trên thiết bị này (ngoài email) khi khách bấm \"Nói chuyện với chủ salon\"."
-            : "Get a push notification right on this device (in addition to email) when a customer taps \"Talk to the owner\"."}
+            : locale === "fi" ? "Saat push-ilmoituksen suoraan tälle laitteelle (sähköpostin lisäksi), kun asiakas napauttaa \"Puhu omistajan kanssa\"." : "Get a push notification right on this device (in addition to email) when a customer taps \"Talk to the owner\"."}
         </p>
         {pushState === "unsupported" ? (
           <p className="text-xs text-ink-400">
-            {locale === "vi" ? "Trình duyệt này không hỗ trợ thông báo đẩy." : "This browser doesn't support push notifications."}
+            {locale === "vi" ? "Trình duyệt này không hỗ trợ thông báo đẩy." : locale === "fi" ? "Tämä selain ei tue push-ilmoituksia." : "This browser doesn't support push notifications."}
           </p>
         ) : pushState === "granted" ? (
           <p className="flex items-center gap-1.5 text-sm text-sage-600">
-            <Check className="h-4 w-4" /> {locale === "vi" ? "Đã bật thông báo trên thiết bị này." : "Notifications are on for this device."}
+            <Check className="h-4 w-4" /> {locale === "vi" ? "Đã bật thông báo trên thiết bị này." : locale === "fi" ? "Ilmoitukset ovat päällä tällä laitteella." : "Notifications are on for this device."}
           </p>
         ) : pushState === "denied" ? (
           <p className="text-xs text-berry-500">
             {locale === "vi"
               ? "Bạn đã chặn thông báo cho trang này — hãy bật lại trong cài đặt trình duyệt."
-              : "You've blocked notifications for this site — re-enable them in your browser settings."}
+              : locale === "fi" ? "Olet estänyt ilmoitukset tältä sivustolta – salli ne uudelleen selaimen asetuksista." : "You've blocked notifications for this site — re-enable them in your browser settings."}
           </p>
         ) : (
           <button onClick={enablePush} disabled={subscribing} className="btn-outline !px-4 !py-2 text-xs">
             {subscribing && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
-            {locale === "vi" ? "Bật thông báo trên thiết bị này" : "Enable notifications on this device"}
+            {locale === "vi" ? "Bật thông báo trên thiết bị này" : locale === "fi" ? "Ota ilmoitukset käyttöön tällä laitteella" : "Enable notifications on this device"}
           </button>
         )}
       </div>

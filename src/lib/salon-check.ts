@@ -202,7 +202,7 @@ export async function generateAiSummary(input: AiSummaryInput): Promise<string |
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) return null;
 
-  const languageName = input.locale === "vi" ? "Vietnamese" : "English";
+  const languageName = input.locale === "vi" ? "Vietnamese" : input.locale === "fi" ? "Finnish" : "English";
   const prompt = `You are writing a short, friendly marketing assessment for a salon owner, based ONLY on the facts below — never invent numbers or claims not listed here. Write 2-3 sentences in ${languageName}, addressed to the owner, summarizing their online presence: what's strong, what's holding them back, in an encouraging but honest tone. Do not use markdown.
 
 Salon: ${input.name}

@@ -44,6 +44,21 @@ const T = {
     errDone: "Income has been reported or the customer rated — it can't be moved.",
     errGeneric: "Couldn't move it, please try again.",
   },
+  fi: {
+    button: "Siirrä toiseen toimipisteeseen",
+    title: "Siirrä varaus toiseen toimipisteeseen",
+    sub: "Sama aika, sama asiakas – työntekijä palvelee uudessa toimipisteessä.",
+    staffThere: "{staff} · {service}",
+    NO_STAFF: "Varauksella ei ole työntekijää.",
+    STAFF_NOT_THERE: "Tämä työntekijä ei vielä työskentele tässä toimipisteessä – lisää toimipiste ensin hänen profiiliinsa.",
+    SERVICE_NOT_THERE: "Tässä toimipisteessä ei ole palvelua “{name}”.",
+    notify: "Lähetä asiakkaalle uusi osoite sähköpostilla",
+    move: "Siirrä: {name}",
+    cancel: "Peruuta",
+    errSlot: "Työntekijällä on jo varaus siihen aikaan siinä toimipisteessä.",
+    errDone: "Tulot on jo kirjattu tai asiakas on arvioitu – varausta ei voi siirtää.",
+    errGeneric: "Siirto epäonnistui, yritä uudelleen.",
+  },
 };
 
 /** For the owner, in a booking's details: move it to another of their
@@ -60,7 +75,7 @@ export function MoveBranchButton({
   customerHasEmail: boolean;
   onMoved: (branchName: string, emailed: boolean) => void;
 }) {
-  const t = locale === "vi" ? T.vi : T.en;
+  const t = locale === "vi" ? T.vi : locale === "fi" ? T.fi : T.en;
   const [options, setOptions] = useState<Option[] | null>(null);
   const [open, setOpen] = useState(false);
   const [pick, setPick] = useState<string | null>(null);

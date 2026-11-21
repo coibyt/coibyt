@@ -17,7 +17,7 @@ export default async function AccountFollowingPage({
   return (
     <div className="container max-w-2xl py-10">
       <h1 className="mb-6 text-xl font-bold text-ink-900">
-        {locale === "vi" ? "Đang theo dõi" : "Following"}
+        {locale === "vi" ? "Đang theo dõi" : locale === "fi" ? "Seuratut" : "Following"}
       </h1>
       <FollowingList locale={locale} />
     </div>

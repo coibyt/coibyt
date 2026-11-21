@@ -66,7 +66,7 @@ const L = {
     closed: "Suljettu",
     closedOn: "Suljettu",
     today: "Tänään",
-    reviewsCount: (n: number) => `${n} arvostelua`,
+    reviewsCount: (n: number) => `${n} ${n === 1 ? "arvostelu" : "arvostelua"}`,
     noReviewsYet: "Ei vielä arvosteluja",
   },
 };

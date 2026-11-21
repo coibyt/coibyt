@@ -39,7 +39,7 @@ export async function POST(
   const noteText =
     locale === "vi"
       ? `${customer?.name ?? "Khách"} đã yêu cầu nói chuyện trực tiếp với chủ salon.`
-      : `${customer?.name ?? "The customer"} asked to talk to the salon owner directly.`;
+      : locale === "fi" ? `${customer?.name ?? "Asiakas"} haluaa puhua suoraan salongin omistajan kanssa.` : `${customer?.name ?? "The customer"} asked to talk to the salon owner directly.`;
 
   await prisma.$transaction([
     prisma.conversation.update({ where: { id }, data: { aiPaused: true } }),
@@ -68,7 +68,7 @@ export async function POST(
   }
   try {
     await sendPushToUser(business.owner.id, {
-      title: locale === "vi" ? "Khách muốn nói chuyện trực tiếp" : "A customer wants to talk directly",
+      title: locale === "vi" ? "Khách muốn nói chuyện trực tiếp" : locale === "fi" ? "Asiakas haluaa puhua suoraan kanssasi" : "A customer wants to talk directly",
       body: noteText,
       url: messagesUrl,
     });

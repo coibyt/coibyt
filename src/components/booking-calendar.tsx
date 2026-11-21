@@ -23,7 +23,7 @@ import {
   startOfWeek,
 } from "date-fns";
 import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
-import { vi } from "date-fns/locale";
+import { fi, vi } from "date-fns/locale";
 import { AlertTriangle, CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Globe, Link2, Loader2, Lock, Mail, Pencil, Repeat, ShieldCheck, Star, Trash2, UserPen, X } from "lucide-react";
 import { bookingProtectStrings } from "@/lib/booking-protect-strings";
 import { waitlistStrings } from "@/lib/waitlist-strings";
@@ -534,13 +534,14 @@ function formatMinuteOfDay(minute: number) {
 
 function OwnShiftBanner({ window, locale }: { window: DayWindow | null; locale: string }) {
   const vi = locale === "vi";
+  const fi = locale === "fi";
   return (
     <div className="rounded-xl border border-teal-200 bg-teal-50 px-4 py-2.5 text-sm font-medium text-teal-700">
       {window
-        ? `${vi ? "Giờ làm việc của bạn hôm nay" : "Your working hours today"}: ${formatMinuteOfDay(window.openMinute)} – ${formatMinuteOfDay(window.closeMinute)}`
+        ? `${vi ? "Giờ làm việc của bạn hôm nay" : fi ? "Työaikasi tänään" : "Your working hours today"}: ${formatMinuteOfDay(window.openMinute)} – ${formatMinuteOfDay(window.closeMinute)}`
         : vi
           ? "Hôm nay bạn không có lịch làm việc."
-          : "You're not scheduled to work today."}
+          : fi ? "Sinulla ei ole työvuoroa tänään." : "You're not scheduled to work today."}
     </div>
   );
 }
@@ -611,7 +612,7 @@ export function BookingCalendar({
       setWaitlistPrompt((p) => (p ? { ...p, failed: true } : p));
     }
   }
-  const dfLocale = locale === "vi" ? vi : undefined;
+  const dfLocale = locale === "vi" ? vi : locale === "fi" ? fi : undefined;
   const viewerTimezone = useViewerTimezone();
   const [view, setView] = useState<ViewMode>("day");
   const [anchorDate, setAnchorDate] = useState(() => toZonedTime(new Date(), businessTimezone));
@@ -672,10 +673,10 @@ export function BookingCalendar({
       res?.ok
         ? locale === "vi"
           ? "Đã gửi email báo giờ mới cho khách"
-          : "The customer has been emailed the new time"
+          : locale === "fi" ? "Asiakkaalle on lähetetty sähköpostilla uusi aika" : "The customer has been emailed the new time"
         : locale === "vi"
           ? "Không gửi được email, thử lại sau"
-          : "Couldn't send the email, please try again"
+          : locale === "fi" ? "Sähköpostin lähetys epäonnistui, yritä myöhemmin uudelleen" : "Couldn't send the email, please try again"
     );
   }
   const [reschedulingBusy, setReschedulingBusy] = useState(false);
@@ -1304,18 +1305,18 @@ export function BookingCalendar({
         data.error === "NEEDS_INVOICE_SETTINGS"
           ? locale === "vi"
             ? "Cần điền thông tin xuất hóa đơn ở trang Cài đặt trước."
-            : "Fill in the invoice details on the Settings page first."
+            : locale === "fi" ? "Täytä ensin laskutustiedot Asetukset-sivulla." : "Fill in the invoice details on the Settings page first."
           : data.error === "GIFT_CARD_CODE_REQUIRED"
             ? locale === "vi"
               ? "Nhập mã thẻ quà tặng."
-              : "Enter the gift card code."
+              : locale === "fi" ? "Syötä lahjakortin koodi." : "Enter the gift card code."
             : typeof data.error === "string" && data.error.startsWith("GIFT_CARD_")
               ? locale === "vi"
                 ? "Thẻ quà tặng không hợp lệ hoặc đã dùng hết."
-                : "That gift card isn't valid or has no uses left."
+                : locale === "fi" ? "Lahjakortti ei kelpaa tai sen käyttökerrat ovat loppuneet." : "That gift card isn't valid or has no uses left."
               : locale === "vi"
                 ? "Có lỗi xảy ra, vui lòng thử lại."
-                : "Something went wrong — please try again."
+                : locale === "fi" ? "Jokin meni pieleen – yritä uudelleen." : "Something went wrong — please try again."
       );
       return;
     }
@@ -1355,10 +1356,10 @@ export function BookingCalendar({
       data?.error === "SEND_FAILED"
         ? locale === "vi"
           ? "Máy chủ gửi email đang gặp sự cố, vui lòng thử lại sau."
-          : "The mail server had a problem — please try again shortly."
+          : locale === "fi" ? "Sähköpostipalvelimessa oli ongelma – yritä hetken kuluttua uudelleen." : "The mail server had a problem — please try again shortly."
         : locale === "vi"
           ? "Không gửi được email, vui lòng thử lại."
-          : "Couldn't send the email — please try again."
+          : locale === "fi" ? "Sähköpostin lähetys epäonnistui – yritä uudelleen." : "Couldn't send the email — please try again."
     );
   }
 
@@ -1439,14 +1440,14 @@ export function BookingCalendar({
         data.error === "SLOT_UNAVAILABLE"
           ? locale === "vi"
             ? "Khung giờ này đã có lịch hẹn khác."
-            : "That time is already booked."
+            : locale === "fi" ? "Tämä aika on jo varattu." : "That time is already booked."
           : data.error === "EMAIL_IN_USE"
             ? locale === "vi"
               ? "Email này đã được dùng cho một tài khoản khác."
-              : "That email is already used by another account."
+              : locale === "fi" ? "Tämä sähköposti on jo toisen tilin käytössä." : "That email is already used by another account."
             : locale === "vi"
               ? "Có lỗi xảy ra, vui lòng thử lại."
-              : "Something went wrong, please try again."
+              : locale === "fi" ? "Jokin meni pieleen, yritä uudelleen." : "Something went wrong, please try again."
       );
       return;
     }
@@ -1473,7 +1474,7 @@ export function BookingCalendar({
       setError(
         locale === "vi"
           ? "Không thể chuyển lịch — trùng giờ với lịch hẹn khác."
-          : "Couldn't move it — that time overlaps another booking."
+          : locale === "fi" ? "Siirto epäonnistui – aika menee päällekkäin toisen varauksen kanssa." : "Couldn't move it — that time overlaps another booking."
       );
       setTimeout(() => setError(null), 4000);
       return;
@@ -1698,7 +1699,7 @@ export function BookingCalendar({
       }).catch(() => null);
       setCreatingBooking(false);
       if (!res?.ok) {
-        setNewBookingError(locale === "vi" ? "Có lỗi xảy ra, vui lòng thử lại." : "Something went wrong, please try again.");
+        setNewBookingError(locale === "vi" ? "Có lỗi xảy ra, vui lòng thử lại." : locale === "fi" ? "Jokin meni pieleen, yritä uudelleen." : "Something went wrong, please try again.");
         return;
       }
       setNewBooking(null);
@@ -1735,10 +1736,10 @@ export function BookingCalendar({
         data.error === "SLOT_UNAVAILABLE"
           ? locale === "vi"
             ? "Khung giờ này đã có lịch hẹn khác."
-            : "That time is already booked."
+            : locale === "fi" ? "Tämä aika on jo varattu." : "That time is already booked."
           : locale === "vi"
             ? "Có lỗi xảy ra, vui lòng thử lại."
-            : "Something went wrong, please try again."
+            : locale === "fi" ? "Jokin meni pieleen, yritä uudelleen." : "Something went wrong, please try again."
       );
       return;
     }
@@ -1990,7 +1991,7 @@ export function BookingCalendar({
     }).catch(() => null);
     setSavingTimeOff(false);
     if (!res?.ok) {
-      setTimeOffError(locale === "vi" ? "Không lưu được, vui lòng thử lại." : "Couldn't save, please try again.");
+      setTimeOffError(locale === "vi" ? "Không lưu được, vui lòng thử lại." : locale === "fi" ? "Tallennus epäonnistui, yritä uudelleen." : "Couldn't save, please try again.");
       return;
     }
     setEditTimeOff(null);
@@ -1999,7 +2000,7 @@ export function BookingCalendar({
 
   async function deleteTimeOff() {
     if (!editTimeOff) return;
-    if (!window.confirm(locale === "vi" ? "Xoá khoảng thời gian cá nhân này? Khách sẽ đặt lịch được vào giờ này." : "Remove this personal time? Customers will be able to book it again.")) return;
+    if (!window.confirm(locale === "vi" ? "Xoá khoảng thời gian cá nhân này? Khách sẽ đặt lịch được vào giờ này." : locale === "fi" ? "Poistetaanko tämä henkilökohtainen aika? Asiakkaat voivat taas varata sen." : "Remove this personal time? Customers will be able to book it again.")) return;
     setSavingTimeOff(true);
     await fetch(`/api/business/time-off/${editTimeOff.id}`, { method: "DELETE" }).catch(() => null);
     setSavingTimeOff(false);
@@ -2115,13 +2116,13 @@ export function BookingCalendar({
           title={
             locale === "vi"
               ? `Lịch hiển thị theo giờ salon (${businessTimezone})`
-              : `Calendar shown in the salon's time (${businessTimezone})`
+              : locale === "fi" ? `Kalenteri näytetään salongin ajassa (${businessTimezone})` : `Calendar shown in the salon's time (${businessTimezone})`
           }
         >
           {locale === "vi"
             ? `Lịch hiển thị theo giờ salon (${businessTimezone}) · giờ của bạn hiện tại: `
-            : `Calendar shown in the salon's time (${businessTimezone}) · your local time now: `}
-          {new Date().toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
+            : locale === "fi" ? `Kalenteri näytetään salongin ajassa (${businessTimezone}) · oma aikasi nyt: ` : `Calendar shown in the salon's time (${businessTimezone}) · your local time now: `}
+          {new Date().toLocaleTimeString(locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-US", {
             hour: "2-digit",
             minute: "2-digit",
             timeZone: viewerTimezone ?? undefined,
@@ -2588,7 +2589,7 @@ export function BookingCalendar({
                       className="flex h-14 flex-col items-center justify-center gap-0.5 border-b border-l border-ink-100 bg-gradient-to-b from-primary-50 to-mist-50 px-2 text-center"
                     >
                       <span className="text-[10px] font-semibold uppercase tracking-wider text-ink-400">
-                        {format(day, "EEE", { locale: dfLocale })}
+                        {format(day, locale === "fi" ? "cccccc" : "EEE", { locale: dfLocale })}
                       </span>
                       <span
                         className={`flex h-7 min-w-7 items-center justify-center rounded-full px-1.5 text-sm font-bold ${
@@ -2681,7 +2682,7 @@ export function BookingCalendar({
           <div className="grid grid-cols-7 bg-gradient-to-b from-primary-50 to-mist-50 text-center text-[10px] font-semibold uppercase tracking-wider text-ink-400">
             {Array.from({ length: 7 }, (_, i) => addDays(gridStart, i)).map((d) => (
               <div key={d.toISOString()} className="border-b border-ink-100 py-2.5">
-                {format(d, "EEE", { locale: dfLocale })}
+                {format(d, locale === "fi" ? "cccccc" : "EEE", { locale: dfLocale })}
               </div>
             ))}
           </div>
@@ -2719,7 +2720,7 @@ export function BookingCalendar({
                       <p className="mt-1.5 inline-flex max-w-full items-center rounded-full bg-primary-50 px-1.5 py-0.5 text-[10px] font-semibold text-primary-700 group-hover:bg-white">
                         <span className="truncate">
                           {dayBookings.length}{" "}
-                          {locale === "vi" ? "lịch" : dayBookings.length === 1 ? "booking" : "bookings"}
+                          {locale === "vi" ? "lịch" : locale === "fi" ? dayBookings.length === 1 ? "varaus" : "varausta" : dayBookings.length === 1 ? "booking" : "bookings"}
                         </span>
                       </p>
                       <div className="mt-1 flex flex-wrap gap-0.5">
@@ -2853,7 +2854,7 @@ export function BookingCalendar({
                   <button
                     onClick={() => startEditBooking(activeBooking)}
                     className="text-ink-400 hover:text-primary-600"
-                    aria-label={locale === "vi" ? "Sửa cuộc hẹn" : "Edit booking"}
+                    aria-label={locale === "vi" ? "Sửa cuộc hẹn" : locale === "fi" ? "Muokkaa varausta" : "Edit booking"}
                   >
                     <Pencil className="h-4 w-4" />
                   </button>
@@ -2907,7 +2908,7 @@ export function BookingCalendar({
               </ul>
               <p className="text-ink-700">
                 {new Date(activeBooking.startsAt).toLocaleString(
-                  locale === "vi" ? "vi-VN" : "en-US",
+                  locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-US",
                   { dateStyle: "medium", timeStyle: "short", timeZone: businessTimezone }
                 )}
               </p>
@@ -2938,7 +2939,7 @@ export function BookingCalendar({
               )}
               <div className="flex items-center justify-between border-t border-ink-100 pt-2">
                 <span className="text-sm font-medium text-ink-700">
-                  {locale === "vi" ? "Tổng cộng (cần thu)" : "Total to collect"}
+                  {locale === "vi" ? "Tổng cộng (cần thu)" : locale === "fi" ? "Yhteensä (perittävä)" : "Total to collect"}
                 </span>
                 <span className="text-lg font-bold text-ink-900">
                   {formatMoney(activeBooking.priceCents, activeBooking.currency, locale)}
@@ -3013,7 +3014,7 @@ export function BookingCalendar({
                 }}
                 className="font-medium text-primary-600 hover:underline"
               >
-                {locale === "vi" ? "Chi tiết khách hàng" : "Customer details"}
+                {locale === "vi" ? "Chi tiết khách hàng" : locale === "fi" ? "Asiakkaan tiedot" : "Customer details"}
               </button>}
               {loadingCustomerDetail && (
                 <p className="flex items-center gap-2 text-ink-400">
@@ -3028,7 +3029,7 @@ export function BookingCalendar({
                   <p className="text-ink-700">
                     {locale === "vi"
                       ? `Đã hoàn thành ${customerDetail.visitCount} lượt tại salon này`
-                      : `${customerDetail.visitCount} completed visit${customerDetail.visitCount === 1 ? "" : "s"} at this salon`}
+                      : locale === "fi" ? `${customerDetail.visitCount} ${customerDetail.visitCount === 1 ? "valmis käynti" : "valmista käyntiä"} tässä salongissa` : `${customerDetail.visitCount} completed visit${customerDetail.visitCount === 1 ? "" : "s"} at this salon`}
                     {customerDetail.visitCount > 0 &&
                       ` · ${formatMoney(customerDetail.totalSpentCents, customerDetail.currency, locale)}`}
                   </p>
@@ -3038,7 +3039,7 @@ export function BookingCalendar({
                         <div className="flex justify-between gap-2">
                           <span className="truncate">
                             {new Date(b.startsAt).toLocaleDateString(
-                              locale === "vi" ? "vi-VN" : "en-US",
+                              locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-US",
                               { dateStyle: "medium" }
                             )}{" "}
                             — {b.serviceName}
@@ -3062,14 +3063,14 @@ export function BookingCalendar({
                               ? "..."
                               : locale === "vi"
                                 ? "Sửa cuộc hẹn này"
-                                : "Edit this booking"}
+                                : locale === "fi" ? "Muokkaa tätä varausta" : "Edit this booking"}
                           </button>
                         </div>
                         {b.loyaltyScans.length > 0 && (
                           <div className="mt-1 flex flex-wrap gap-1">
                             {b.loyaltyScans.map((time, i) => (
                               <span key={i} className="rounded-md bg-sage-50 px-1.5 py-0.5 text-xs font-medium text-sage-700">
-                                {locale === "vi" ? `+1 điểm · ${time}` : `+1 point · ${time}`}
+                                {locale === "vi" ? `+1 điểm · ${time}` : locale === "fi" ? `+1 piste · ${time}` : `+1 point · ${time}`}
                               </span>
                             ))}
                           </div>
@@ -3078,7 +3079,7 @@ export function BookingCalendar({
                           <p className="mt-1 rounded-md bg-berry-50 px-2 py-1 text-xs font-semibold text-berry-500">
                             {locale === "vi"
                               ? `Đã giảm ${customerDetail.loyalty?.discountPercent ?? 0}% do tích đủ ${customerDetail.loyalty?.pointsRequired ?? 0} điểm`
-                              : `${customerDetail.loyalty?.discountPercent ?? 0}% off applied after ${customerDetail.loyalty?.pointsRequired ?? 0} points`}
+                              : locale === "fi" ? `${customerDetail.loyalty?.discountPercent ?? 0} % alennus myönnetty ${customerDetail.loyalty?.pointsRequired ?? 0} pisteen jälkeen` : `${customerDetail.loyalty?.discountPercent ?? 0}% off applied after ${customerDetail.loyalty?.pointsRequired ?? 0} points`}
                           </p>
                         )}
                         {b.customerNote && (
@@ -3089,10 +3090,10 @@ export function BookingCalendar({
                         {b.invoiceId && b.invoiceUrl && (
                           <div className="mt-1 flex flex-wrap items-center gap-2 rounded-md bg-sage-50 px-2 py-1 text-sage-700">
                             <span className="font-medium">
-                              {locale === "vi" ? "Đã xuất hóa đơn" : "Invoice issued"}
+                              {locale === "vi" ? "Đã xuất hóa đơn" : locale === "fi" ? "Lasku laadittu" : "Invoice issued"}
                             </span>
                             <a href={b.invoiceUrl} target="_blank" rel="noreferrer" className="underline">
-                              {locale === "vi" ? "Xem hóa đơn" : "View invoice"}
+                              {locale === "vi" ? "Xem hóa đơn" : locale === "fi" ? "Näytä lasku" : "View invoice"}
                             </a>
                             {!customerDetail.customer.email.includes("@walkin.") && (
                               <button
@@ -3105,7 +3106,7 @@ export function BookingCalendar({
                                   ? "..."
                                   : locale === "vi"
                                     ? "Gửi lại cho khách"
-                                    : "Resend to customer"}
+                                    : locale === "fi" ? "Lähetä asiakkaalle uudelleen" : "Resend to customer"}
                               </button>
                             )}
                             {resendInvoiceResult?.id === b.invoiceId && (
@@ -3113,10 +3114,10 @@ export function BookingCalendar({
                                 {resendInvoiceResult.ok
                                   ? locale === "vi"
                                     ? "Đã gửi"
-                                    : "Sent"
+                                    : locale === "fi" ? "Lähetetty" : "Sent"
                                   : locale === "vi"
                                     ? "Gửi lỗi"
-                                    : "Failed"}
+                                    : locale === "fi" ? "Epäonnistui" : "Failed"}
                               </span>
                             )}
                           </div>
@@ -3135,28 +3136,28 @@ export function BookingCalendar({
                     onClick={() => openCheckout(activeBooking)}
                     className="btn-primary !bg-primary-500 !px-3 !py-1.5 text-xs hover:!bg-primary-600"
                   >
-                    {locale === "vi" ? "Đến quầy thanh toán" : "Pay at the counter"}
+                    {locale === "vi" ? "Đến quầy thanh toán" : locale === "fi" ? "Maksu kassalla" : "Pay at the counter"}
                   </button>
                   <button
                     disabled={updating}
                     onClick={() => updateStatus(activeBooking.id, "COMPLETED")}
                     className="btn-primary !bg-sage-500 !px-3 !py-1.5 text-xs hover:!bg-sage-600"
                   >
-                    {locale === "vi" ? "Hoàn thành" : "Complete"}
+                    {locale === "vi" ? "Hoàn thành" : locale === "fi" ? "Valmis" : "Complete"}
                   </button>
                   <button
                     disabled={updating}
                     onClick={() => updateStatus(activeBooking.id, "NO_SHOW")}
                     className="btn-outline !px-3 !py-1.5 text-xs"
                   >
-                    {locale === "vi" ? "Không đến" : "No-show"}
+                    {locale === "vi" ? "Không đến" : locale === "fi" ? "Ei saapunut" : "No-show"}
                   </button>
                   <button
                     disabled={updating}
                     onClick={() => setShowCancelPicker(true)}
                     className="btn-outline !border-berry-400 !px-3 !py-1.5 text-xs !text-berry-500"
                   >
-                    {locale === "vi" ? "Huỷ" : "Cancel"}
+                    {locale === "vi" ? "Huỷ" : locale === "fi" ? "Peruuta" : "Cancel"}
                   </button>
                 </>
               )}
@@ -3173,7 +3174,7 @@ export function BookingCalendar({
                     setNotice(
                       locale === "vi"
                         ? `Đã chuyển lịch hẹn sang ${name}${emailed ? " và gửi email cho khách" : ""}`
-                        : `Moved to ${name}${emailed ? " and emailed the customer" : ""}`
+                        : locale === "fi" ? `Siirretty toimipisteeseen ${name}${emailed ? " ja asiakkaalle lähetettiin sähköposti" : ""}` : `Moved to ${name}${emailed ? " and emailed the customer" : ""}`
                     );
                   }}
                 />
@@ -3211,7 +3212,7 @@ export function BookingCalendar({
             {activeBooking.status !== "CANCELLED" && canActOn(activeBooking.staffId) && new Date(activeBooking.endsAt) <= new Date() && (
               <div className="mt-4 border-t border-ink-100 pt-4">
                 <p className="mb-1.5 text-xs font-semibold text-ink-900">
-                  {locale === "vi" ? "Đánh giá khách hàng này" : "Rate this customer"}
+                  {locale === "vi" ? "Đánh giá khách hàng này" : locale === "fi" ? "Arvioi tämä asiakas" : "Rate this customer"}
                 </p>
                 {activeBooking.customerReviewRating ? (
                   <>
@@ -3227,7 +3228,7 @@ export function BookingCalendar({
                       {activeBooking.customerReviewStatus === "PENDING" && (
                         <span className="ml-1.5 inline-flex items-center gap-1 rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
                           <Clock className="h-3 w-3" />
-                          {locale === "vi" ? "Chờ chủ salon duyệt" : "Waiting for the owner's approval"}
+                          {locale === "vi" ? "Chờ chủ salon duyệt" : locale === "fi" ? "Odottaa omistajan hyväksyntää" : "Waiting for the owner's approval"}
                         </span>
                       )}
                     </div>
@@ -3241,7 +3242,7 @@ export function BookingCalendar({
                             className="inline-flex items-center gap-1 rounded-full bg-emerald-600 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-emerald-700 disabled:opacity-50"
                           >
                             <Check className="h-3.5 w-3.5" />
-                            {locale === "vi" ? "Duyệt" : "Approve"}
+                            {locale === "vi" ? "Duyệt" : locale === "fi" ? "Hyväksy" : "Approve"}
                           </button>
                           <button
                             type="button"
@@ -3250,14 +3251,14 @@ export function BookingCalendar({
                             className="inline-flex items-center gap-1 rounded-full border border-ink-100 px-3.5 py-1.5 text-xs font-semibold text-ink-700 hover:bg-ink-50 disabled:opacity-50"
                           >
                             <X className="h-3.5 w-3.5" />
-                            {locale === "vi" ? "Không duyệt" : "Decline"}
+                            {locale === "vi" ? "Không duyệt" : locale === "fi" ? "Hylkää" : "Decline"}
                           </button>
                         </div>
                       ) : (
                         <p className="mt-1 text-[11px] text-ink-400">
                           {locale === "vi"
                             ? "Khách chỉ nhận được email báo số sao sau khi chủ salon duyệt."
-                            : "The customer is emailed the star count once the owner approves it."}
+                            : locale === "fi" ? "Asiakas saa sähköpostin tähtimäärästä, kun omistaja hyväksyy sen." : "The customer is emailed the star count once the owner approves it."}
                         </p>
                       ))}
                   </>
@@ -3279,10 +3280,10 @@ export function BookingCalendar({
                       {isOwner
                         ? locale === "vi"
                           ? "Chỉ dùng nội bộ — khách chỉ nhận được email báo số sao, không thấy ghi chú của bạn."
-                          : "Internal only — the customer is emailed the star count, never any note you add."
+                          : locale === "fi" ? "Vain sisäiseen käyttöön – asiakas saa sähköpostilla tähtimäärän, ei koskaan lisäämääsi muistiinpanoa." : "Internal only — the customer is emailed the star count, never any note you add."
                         : locale === "vi"
                           ? "Chỉ dùng nội bộ — chủ salon duyệt xong, khách mới nhận được email báo số sao."
-                          : "Internal only — once the owner approves, the customer is emailed the star count."}
+                          : locale === "fi" ? "Vain sisäiseen käyttöön – kun omistaja hyväksyy, asiakas saa sähköpostilla tähtimäärän." : "Internal only — once the owner approves, the customer is emailed the star count."}
                     </p>
                   </>
                 )}
@@ -3292,7 +3293,7 @@ export function BookingCalendar({
             {showCancelPicker && (
               <div className="mt-4 space-y-2 rounded-xl border border-ink-100 p-3">
                 <p className="text-sm font-medium text-ink-900">
-                  {locale === "vi" ? "Lý do hủy?" : "Reason for cancelling?"}
+                  {locale === "vi" ? "Lý do hủy?" : locale === "fi" ? "Peruutuksen syy?" : "Reason for cancelling?"}
                 </p>
                 <div className="flex flex-col gap-2">
                   <button
@@ -3300,28 +3301,28 @@ export function BookingCalendar({
                     onClick={() => updateStatus(activeBooking.id, "NO_SHOW")}
                     className="btn-outline !justify-start !px-3 !py-2 text-xs"
                   >
-                    {locale === "vi" ? "Khách hàng không đến" : "Customer didn't show up"}
+                    {locale === "vi" ? "Khách hàng không đến" : locale === "fi" ? "Asiakas ei saapunut" : "Customer didn't show up"}
                   </button>
                   <button
                     disabled={updating}
                     onClick={() => updateStatus(activeBooking.id, "CANCELLED", "CANCELLED_BY_CUSTOMER")}
                     className="btn-outline !justify-start !px-3 !py-2 text-xs"
                   >
-                    {locale === "vi" ? "Hủy từ phía khách hàng" : "Cancelled by the customer"}
+                    {locale === "vi" ? "Hủy từ phía khách hàng" : locale === "fi" ? "Asiakas perui" : "Cancelled by the customer"}
                   </button>
                   <button
                     disabled={updating}
                     onClick={() => updateStatus(activeBooking.id, "CANCELLED", "CANCELLED_BY_SALON")}
                     className="btn-outline !justify-start !px-3 !py-2 text-xs"
                   >
-                    {locale === "vi" ? "Hủy từ phía salon" : "Cancelled by the salon"}
+                    {locale === "vi" ? "Hủy từ phía salon" : locale === "fi" ? "Salonki perui" : "Cancelled by the salon"}
                   </button>
                   <button
                     disabled={updating}
                     onClick={() => setShowCancelPicker(false)}
                     className="btn-ghost !px-3 !py-2 text-xs"
                   >
-                    {locale === "vi" ? "Đóng" : "Close"}
+                    {locale === "vi" ? "Đóng" : locale === "fi" ? "Sulje" : "Close"}
                   </button>
                 </div>
               </div>
@@ -3335,7 +3336,7 @@ export function BookingCalendar({
           <div className="card flex w-full max-w-sm animate-slide-up flex-col p-6" style={{ maxHeight: "90vh" }}>
             <div className="mb-4 flex items-start justify-between">
               <p className="font-bold text-ink-900">
-                {locale === "vi" ? "Sửa cuộc hẹn" : "Edit booking"}
+                {locale === "vi" ? "Sửa cuộc hẹn" : locale === "fi" ? "Muokkaa varausta" : "Edit booking"}
               </p>
               <button onClick={() => setEditBooking(null)} className="text-ink-400">
                 <X className="h-5 w-5" />
@@ -3343,7 +3344,7 @@ export function BookingCalendar({
             </div>
             <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
               <div>
-                <label className="label">{locale === "vi" ? "Ngày & giờ" : "Date & time"}</label>
+                <label className="label">{locale === "vi" ? "Ngày & giờ" : locale === "fi" ? "Päivä ja aika" : "Date & time"}</label>
                 <QuarterHourField
                   value={format(toZonedTime(editBooking.startsAt, businessTimezone), "yyyy-MM-dd'T'HH:mm")}
                   onChange={(v) => {
@@ -3362,7 +3363,7 @@ export function BookingCalendar({
                 />
               </div>
               <div>
-                <label className="label">{locale === "vi" ? "Giờ kết thúc" : "End time"}</label>
+                <label className="label">{locale === "vi" ? "Giờ kết thúc" : locale === "fi" ? "Päättymisaika" : "End time"}</label>
                 <input
                   type="time"
                   className="input"
@@ -3379,12 +3380,12 @@ export function BookingCalendar({
                 <p className="mt-1 text-xs text-ink-400">
                   {locale === "vi"
                     ? "Có thể rút ngắn hoặc kéo dài thời lượng cuộc hẹn này."
-                    : "Shorten or extend this one appointment's duration."}
+                    : locale === "fi" ? "Lyhennä tai pidennä tämän yhden varauksen kestoa." : "Shorten or extend this one appointment's duration."}
                 </p>
               </div>
               {staff.length > 0 && (
                 <div>
-                  <label className="label">{locale === "vi" ? "Nhân viên" : "Staff"}</label>
+                  <label className="label">{locale === "vi" ? "Nhân viên" : locale === "fi" ? "Työntekijä" : "Staff"}</label>
                   <select
                     className="input"
                     value={editBooking.staffId}
@@ -3417,12 +3418,12 @@ export function BookingCalendar({
                 </div>
               )}
               <div>
-                <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
+                <label className="label">{locale === "vi" ? "Dịch vụ" : locale === "fi" ? "Palvelu" : "Service"}</label>
                 {servicesForStaff(services, editBooking.staffId).length === 0 ? (
                   <p className="text-sm text-berry-500">
                     {locale === "vi"
                       ? "Nhân viên này chưa được gán dịch vụ nào. Vào mục Nhân viên để thêm."
-                      : "This staff member has no services assigned yet — add some from the Staff page."}
+                      : locale === "fi" ? "Tälle työntekijälle ei ole vielä lisätty palveluita – lisää niitä Henkilökunta-sivulla." : "This staff member has no services assigned yet — add some from the Staff page."}
                   </p>
                 ) : (
                   <select
@@ -3454,7 +3455,7 @@ export function BookingCalendar({
               </div>
               {addOnsForService(addOns, editBooking.serviceId).length > 0 && (
                 <div>
-                  <label className="label">{locale === "vi" ? "Dịch vụ phụ" : "Add-ons"}</label>
+                  <label className="label">{locale === "vi" ? "Dịch vụ phụ" : locale === "fi" ? "Lisäpalvelut" : "Add-ons"}</label>
                   <div className="space-y-1.5">
                     {addOnsForService(addOns, editBooking.serviceId).map((a) => (
                       <label
@@ -3477,7 +3478,7 @@ export function BookingCalendar({
               )}
               <div>
                 <label className="label">
-                  {locale === "vi" ? "Giá" : "Price"} ({editBooking.currency})
+                  {locale === "vi" ? "Giá" : locale === "fi" ? "Hinta" : "Price"} ({editBooking.currency})
                 </label>
                 <input
                   type="number"
@@ -3488,7 +3489,7 @@ export function BookingCalendar({
                 />
               </div>
               <div>
-                <label className="label">{locale === "vi" ? "Tên khách hàng" : "Customer name"}</label>
+                <label className="label">{locale === "vi" ? "Tên khách hàng" : locale === "fi" ? "Asiakkaan nimi" : "Customer name"}</label>
                 <input
                   required
                   className="input"
@@ -3498,7 +3499,7 @@ export function BookingCalendar({
                 />
               </div>
               <div>
-                <label className="label">{locale === "vi" ? "Số điện thoại" : "Phone number"}</label>
+                <label className="label">{locale === "vi" ? "Số điện thoại" : locale === "fi" ? "Puhelinnumero" : "Phone number"}</label>
                 <input
                   className="input"
                   value={editBooking.customerPhone}
@@ -3508,7 +3509,7 @@ export function BookingCalendar({
               </div>
               <div>
                 <label className="label">
-                  Email ({locale === "vi" ? "không bắt buộc" : "optional"})
+                  Email ({locale === "vi" ? "không bắt buộc" : locale === "fi" ? "valinnainen" : "optional"})
                 </label>
                 <input
                   type="email"
@@ -3519,7 +3520,7 @@ export function BookingCalendar({
               </div>
               <div>
                 <label className="label">
-                  {locale === "vi" ? "Ghi chú" : "Note"} ({locale === "vi" ? "không bắt buộc" : "optional"})
+                  {locale === "vi" ? "Ghi chú" : locale === "fi" ? "Muistiinpano" : "Note"} ({locale === "vi" ? "không bắt buộc" : locale === "fi" ? "valinnainen" : "optional"})
                 </label>
                 <textarea
                   rows={2}
@@ -3533,7 +3534,7 @@ export function BookingCalendar({
               <p className="mt-2 text-sm text-berry-500">
                 {locale === "vi"
                   ? "Giờ kết thúc phải sau giờ bắt đầu."
-                  : "End time must be after the start time."}
+                  : locale === "fi" ? "Päättymisajan on oltava alkamisajan jälkeen." : "End time must be after the start time."}
               </p>
             )}
             {editError && <p className="mt-2 text-sm text-berry-500">{editError}</p>}
@@ -3549,10 +3550,10 @@ export function BookingCalendar({
                 className="btn-primary"
               >
                 {savingEdit && <Loader2 className="h-4 w-4 animate-spin" />}
-                {locale === "vi" ? "Lưu" : "Save"}
+                {locale === "vi" ? "Lưu" : locale === "fi" ? "Tallenna" : "Save"}
               </button>
               <button onClick={() => setEditBooking(null)} className="btn-ghost">
-                {locale === "vi" ? "Huỷ" : "Cancel"}
+                {locale === "vi" ? "Huỷ" : locale === "fi" ? "Peruuta" : "Cancel"}
               </button>
             </div>
           </div>
@@ -3564,7 +3565,7 @@ export function BookingCalendar({
           <div className="card flex w-full max-w-sm animate-slide-up flex-col p-6" style={{ maxHeight: "90vh" }}>
             <div className="mb-4 flex items-start justify-between">
               <p className="font-bold text-ink-900">
-                {locale === "vi" ? "Đến quầy thanh toán" : "Pay at the counter"}
+                {locale === "vi" ? "Đến quầy thanh toán" : locale === "fi" ? "Maksu kassalla" : "Pay at the counter"}
               </p>
               <button onClick={() => setCheckout(null)} className="text-ink-400">
                 <X className="h-5 w-5" />
@@ -3592,7 +3593,7 @@ export function BookingCalendar({
                 ))}
               </div>
               <p className="flex justify-between border-t border-ink-100 pt-2 text-sm font-semibold text-ink-900">
-                <span>{locale === "vi" ? "Tổng cộng" : "Total"}</span>
+                <span>{locale === "vi" ? "Tổng cộng" : locale === "fi" ? "Yhteensä" : "Total"}</span>
                 <span>
                   {formatMoney(
                     checkout.lines.reduce(
@@ -3606,7 +3607,7 @@ export function BookingCalendar({
               </p>
               <div>
                 <label className="label">
-                  {locale === "vi" ? "Hình thức thanh toán" : "Payment method"}
+                  {locale === "vi" ? "Hình thức thanh toán" : locale === "fi" ? "Maksutapa" : "Payment method"}
                 </label>
                 <div className="grid grid-cols-3 gap-2">
                   {(["CASH", "BANK_TRANSFER", "GIFT_CARD"] as const).map((m) => (
@@ -3623,21 +3624,21 @@ export function BookingCalendar({
                       {m === "CASH"
                         ? locale === "vi"
                           ? "Tiền mặt"
-                          : "Cash"
+                          : locale === "fi" ? "Käteinen" : "Cash"
                         : m === "BANK_TRANSFER"
                           ? locale === "vi"
                             ? "Qua ngân hàng"
-                            : "Bank transfer"
+                            : locale === "fi" ? "Tilisiirto" : "Bank transfer"
                           : locale === "vi"
                             ? "Thẻ quà tặng"
-                            : "Gift card"}
+                            : locale === "fi" ? "Lahjakortti" : "Gift card"}
                     </button>
                   ))}
                 </div>
               </div>
               {checkout.paymentMethod === "GIFT_CARD" && (
                 <div>
-                  <label className="label">{locale === "vi" ? "Mã thẻ quà tặng" : "Gift card code"}</label>
+                  <label className="label">{locale === "vi" ? "Mã thẻ quà tặng" : locale === "fi" ? "Lahjakortin koodi" : "Gift card code"}</label>
                   <input
                     className="input"
                     value={checkout.giftCardCode}
@@ -3647,7 +3648,7 @@ export function BookingCalendar({
               )}
               <div>
                 <label className="label">
-                  {locale === "vi" ? "Thêm thông tin vào biên lai" : "Add info to the receipt"}
+                  {locale === "vi" ? "Thêm thông tin vào biên lai" : locale === "fi" ? "Lisää tietoja kuittiin" : "Add info to the receipt"}
                 </label>
                 <textarea
                   className="input"
@@ -3665,10 +3666,10 @@ export function BookingCalendar({
                 className="btn-primary"
               >
                 {checkingOut && <Loader2 className="h-4 w-4 animate-spin" />}
-                {locale === "vi" ? "Xác nhận thanh toán" : "Confirm payment"}
+                {locale === "vi" ? "Xác nhận thanh toán" : locale === "fi" ? "Vahvista maksu" : "Confirm payment"}
               </button>
               <button onClick={() => setCheckout(null)} className="btn-ghost">
-                {locale === "vi" ? "Huỷ" : "Cancel"}
+                {locale === "vi" ? "Huỷ" : locale === "fi" ? "Peruuta" : "Cancel"}
               </button>
             </div>
           </div>
@@ -3679,7 +3680,7 @@ export function BookingCalendar({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
           <div className="card w-full max-w-sm animate-slide-up p-6 text-center">
             <p className="mb-1 font-bold text-ink-900">
-              {locale === "vi" ? "Đã xác nhận thanh toán" : "Payment confirmed"}
+              {locale === "vi" ? "Đã xác nhận thanh toán" : locale === "fi" ? "Maksu vahvistettu" : "Payment confirmed"}
             </p>
             <p className="mb-4 text-sm text-ink-400">{checkoutDone.number}</p>
             <p className="mb-4 text-2xl font-bold text-ink-900">
@@ -3691,18 +3692,18 @@ export function BookingCalendar({
               rel="noreferrer"
               className="btn-outline mb-4 inline-flex w-full justify-center !py-2 text-sm"
             >
-              {locale === "vi" ? "Xem / tải hóa đơn" : "View / download invoice"}
+              {locale === "vi" ? "Xem / tải hóa đơn" : locale === "fi" ? "Näytä / lataa lasku" : "View / download invoice"}
             </a>
 
             <div className="mb-3 space-y-2 text-left">
               <label className="label">
-                {locale === "vi" ? "Gửi hóa đơn qua email" : "Email the invoice"}
+                {locale === "vi" ? "Gửi hóa đơn qua email" : locale === "fi" ? "Lähetä lasku sähköpostilla" : "Email the invoice"}
               </label>
               <div className="flex gap-2">
                 <input
                   type="email"
                   className="input"
-                  placeholder={locale === "vi" ? "email@khachhang.com" : "customer@email.com"}
+                  placeholder={locale === "vi" ? "email@khachhang.com" : locale === "fi" ? "asiakas@sahkoposti.fi" : "customer@email.com"}
                   value={invoiceEmailInput}
                   onChange={(e) => {
                     setInvoiceEmailInput(e.target.value);
@@ -3718,7 +3719,7 @@ export function BookingCalendar({
                     <Loader2 className="h-4 w-4 animate-spin" />
                   ) : locale === "vi" ? (
                     "Gửi"
-                  ) : (
+                  ) : locale === "fi" ? "Lähetä" : (
                     "Send"
                   )}
                 </button>
@@ -3728,10 +3729,10 @@ export function BookingCalendar({
                   {invoiceEmailPdfAttached
                     ? locale === "vi"
                       ? "Đã gửi email cho khách."
-                      : "Email sent to the customer."
+                      : locale === "fi" ? "Sähköposti lähetetty asiakkaalle." : "Email sent to the customer."
                     : locale === "vi"
                       ? "Đã gửi email kèm liên kết hóa đơn (không đính kèm được file PDF lần này)."
-                      : "Email sent with a link to the invoice (couldn't attach the PDF this time)."}
+                      : locale === "fi" ? "Sähköposti lähetettiin linkillä laskuun (PDF-tiedostoa ei voitu liittää tällä kertaa)." : "Email sent with a link to the invoice (couldn't attach the PDF this time)."}
                 </p>
               )}
               {invoiceEmailError && <p className="text-xs text-berry-500">{invoiceEmailError}</p>}
@@ -3745,17 +3746,17 @@ export function BookingCalendar({
               {showInvoiceQr
                 ? locale === "vi"
                   ? "Ẩn mã QR"
-                  : "Hide QR code"
+                  : locale === "fi" ? "Piilota QR-koodi" : "Hide QR code"
                 : locale === "vi"
                   ? "Hiện mã QR"
-                  : "Show QR code"}
+                  : locale === "fi" ? "Näytä QR-koodi" : "Show QR code"}
             </button>
             {showInvoiceQr && (
               <div className="mb-3 flex flex-col items-center gap-1">
                 {/* eslint-disable-next-line @next/next/no-img-element -- a base64 data URI, not a remote image next/image can optimize */}
                 <img src={checkoutDone.qrDataUri} alt="QR" width={160} height={160} className="rounded-lg border border-ink-100" />
                 <p className="text-xs text-ink-400">
-                  {locale === "vi" ? "Khách quét mã để tải hóa đơn" : "Customer scans to download the invoice"}
+                  {locale === "vi" ? "Khách quét mã để tải hóa đơn" : locale === "fi" ? "Asiakas skannaa koodin ja lataa laskun" : "Customer scans to download the invoice"}
                 </p>
               </div>
             )}
@@ -3767,7 +3768,7 @@ export function BookingCalendar({
               }}
               className="btn-ghost w-full"
             >
-              {locale === "vi" ? "Đóng" : "Close"}
+              {locale === "vi" ? "Đóng" : locale === "fi" ? "Sulje" : "Close"}
             </button>
           </div>
         </div>
@@ -3800,7 +3801,7 @@ export function BookingCalendar({
             </div>
             <div className="space-y-3">
               <div>
-                <label className="label">{locale === "vi" ? "Loại" : "Type"}</label>
+                <label className="label">{locale === "vi" ? "Loại" : locale === "fi" ? "Tyyppi" : "Type"}</label>
                 <select
                   className="input"
                   value={editTimeOff.kind}
@@ -3815,7 +3816,7 @@ export function BookingCalendar({
               </div>
               {staff.length > 1 && (
                 <div>
-                  <label className="label">{locale === "vi" ? "Nhân viên" : "Staff"}</label>
+                  <label className="label">{locale === "vi" ? "Nhân viên" : locale === "fi" ? "Työntekijä" : "Staff"}</label>
                   <select
                     className="input"
                     value={editTimeOff.staffId}
@@ -3830,7 +3831,7 @@ export function BookingCalendar({
                 </div>
               )}
               <div>
-                <label className="label">{locale === "vi" ? "Bắt đầu" : "Starts"}</label>
+                <label className="label">{locale === "vi" ? "Bắt đầu" : locale === "fi" ? "Alkaa" : "Starts"}</label>
                 <input
                   type="datetime-local"
                   step={900}
@@ -3845,7 +3846,7 @@ export function BookingCalendar({
                 />
               </div>
               <div>
-                <label className="label">{locale === "vi" ? "Kết thúc" : "Ends"}</label>
+                <label className="label">{locale === "vi" ? "Kết thúc" : locale === "fi" ? "Päättyy" : "Ends"}</label>
                 <input
                   type="datetime-local"
                   step={900}
@@ -3859,7 +3860,7 @@ export function BookingCalendar({
               </div>
               <div>
                 <label className="label">
-                  {locale === "vi" ? "Ghi chú" : "Note"} ({locale === "vi" ? "không bắt buộc" : "optional"})
+                  {locale === "vi" ? "Ghi chú" : locale === "fi" ? "Muistiinpano" : "Note"} ({locale === "vi" ? "không bắt buộc" : locale === "fi" ? "valinnainen" : "optional"})
                 </label>
                 <textarea
                   rows={2}
@@ -3872,7 +3873,7 @@ export function BookingCalendar({
             </div>
             {editTimeOff.endsAt <= editTimeOff.startsAt && (
               <p className="mt-2 text-sm text-berry-500">
-                {locale === "vi" ? "Giờ kết thúc phải sau giờ bắt đầu." : "End time must be after the start time."}
+                {locale === "vi" ? "Giờ kết thúc phải sau giờ bắt đầu." : locale === "fi" ? "Päättymisajan on oltava alkamisajan jälkeen." : "End time must be after the start time."}
               </p>
             )}
             {timeOffError && <p className="mt-2 text-sm text-berry-500">{timeOffError}</p>}
@@ -3891,10 +3892,10 @@ export function BookingCalendar({
                 className="btn-primary"
               >
                 {savingTimeOff && <Loader2 className="h-4 w-4 animate-spin" />}
-                {locale === "vi" ? "Lưu" : "Save"}
+                {locale === "vi" ? "Lưu" : locale === "fi" ? "Tallenna" : "Save"}
               </button>
               <button onClick={() => setEditTimeOff(null)} className="btn-ghost">
-                {locale === "vi" ? "Huỷ" : "Cancel"}
+                {locale === "vi" ? "Huỷ" : locale === "fi" ? "Peruuta" : "Cancel"}
               </button>
               <button
                 onClick={deleteTimeOff}
@@ -3902,7 +3903,7 @@ export function BookingCalendar({
                 className="ml-auto flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-semibold text-berry-500 hover:bg-berry-50"
               >
                 <Trash2 className="h-4 w-4" />
-                {locale === "vi" ? "Xoá" : "Delete"}
+                {locale === "vi" ? "Xoá" : locale === "fi" ? "Poista" : "Delete"}
               </button>
             </div>
           </div>
@@ -3918,7 +3919,7 @@ export function BookingCalendar({
                   ? PT.group
                   : locale === "vi"
                     ? "Đặt lịch cho khách"
-                    : "Book for a customer"}
+                    : locale === "fi" ? "Varaa asiakkaalle" : "Book for a customer"}
               </p>
               <button
                 onClick={() => {
@@ -3932,7 +3933,7 @@ export function BookingCalendar({
             </div>
             <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
               <div>
-                <label className="label">{locale === "vi" ? "Ngày & giờ" : "Date & time"}</label>
+                <label className="label">{locale === "vi" ? "Ngày & giờ" : locale === "fi" ? "Päivä ja aika" : "Date & time"}</label>
                 <QuarterHourField
                   value={format(toZonedTime(newBooking.startsAt, businessTimezone), "yyyy-MM-dd'T'HH:mm")}
                   onChange={(v) => {
@@ -3948,7 +3949,7 @@ export function BookingCalendar({
                 />
               </div>
               <div>
-                <label className="label">{locale === "vi" ? "Giờ kết thúc" : "End time"}</label>
+                <label className="label">{locale === "vi" ? "Giờ kết thúc" : locale === "fi" ? "Päättymisaika" : "End time"}</label>
                 <input
                   type="time"
                   className="input"
@@ -3965,12 +3966,12 @@ export function BookingCalendar({
                 <p className="mt-1 text-xs text-ink-400">
                   {locale === "vi"
                     ? "Có thể rút ngắn hoặc kéo dài thời lượng cuộc hẹn này."
-                    : "Shorten or extend this one appointment's duration."}
+                    : locale === "fi" ? "Lyhennä tai pidennä tämän yhden varauksen kestoa." : "Shorten or extend this one appointment's duration."}
                 </p>
               </div>
               {staff.length > 0 && (
                 <div>
-                  <label className="label">{locale === "vi" ? "Nhân viên" : "Staff"}</label>
+                  <label className="label">{locale === "vi" ? "Nhân viên" : locale === "fi" ? "Työntekijä" : "Staff"}</label>
                   <select
                     className="input"
                     value={newBooking.staffId}
@@ -4005,7 +4006,7 @@ export function BookingCalendar({
                 </div>
               )}
               <div>
-                <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
+                <label className="label">{locale === "vi" ? "Dịch vụ" : locale === "fi" ? "Palvelu" : "Service"}</label>
                 <select
                   className="input"
                   value={newBooking.serviceId}
@@ -4028,7 +4029,7 @@ export function BookingCalendar({
                   }}
                 >
                   {servicesForStaff(services, newBooking.staffId).length > 0 && (
-                    <optgroup label={locale === "vi" ? "Dịch vụ" : "Services"}>
+                    <optgroup label={locale === "vi" ? "Dịch vụ" : locale === "fi" ? "Palvelut" : "Services"}>
                       {servicesForStaff(services, newBooking.staffId).map((sv) => (
                         <option key={sv.id} value={sv.id}>
                           {sv.name} — {formatMoney(sv.staffPrices?.[newBooking.staffId] ?? sv.priceCents, sv.currency, locale)}
@@ -4051,13 +4052,13 @@ export function BookingCalendar({
                     <Lock className="h-3.5 w-3.5 shrink-0" />
                     {locale === "vi"
                       ? "Khoá khoảng giờ này của nhân viên — khách không đặt lịch được, và khách không nhìn thấy mục này."
-                      : "Blocks this stretch of the staff member's time — customers can't book it and never see it."}
+                      : locale === "fi" ? "Lukitsee tämän ajan työntekijän kalenterista – asiakkaat eivät voi varata sitä eivätkä näe sitä." : "Blocks this stretch of the staff member's time — customers can't book it and never see it."}
                   </p>
                 ) : servicesForStaff(services, newBooking.staffId).length === 0 ? (
                   <p className="mt-1 text-sm text-berry-500">
                     {locale === "vi"
                       ? "Nhân viên này chưa được gán dịch vụ nào. Vào mục Nhân viên để thêm."
-                      : "This staff member has no services assigned yet — add some from the Staff page."}
+                      : locale === "fi" ? "Tälle työntekijälle ei ole vielä lisätty palveluita – lisää niitä Henkilökunta-sivulla." : "This staff member has no services assigned yet — add some from the Staff page."}
                   </p>
                 ) : null}
               </div>
@@ -4070,7 +4071,7 @@ export function BookingCalendar({
                 const staffName = staff.find((x) => x.id === newBooking.staffId)?.name ?? "";
                 return (
                   <div>
-                    <label className="label">{locale === "vi" ? `Giá dịch vụ (${sv.currency})` : `Service price (${sv.currency})`}</label>
+                    <label className="label">{locale === "vi" ? `Giá dịch vụ (${sv.currency})` : locale === "fi" ? `Palvelun hinta (${sv.currency})` : `Service price (${sv.currency})`}</label>
                     <input
                       type="number"
                       inputMode="decimal"
@@ -4083,7 +4084,7 @@ export function BookingCalendar({
                     {changed && (
                       <>
                         <p className="mt-1 text-xs text-ink-400">
-                          {locale === "vi" ? `Giá thường: ${formatMoney(usual, sv.currency, locale)} — lịch hẹn này dùng giá mới.` : `Usual price: ${formatMoney(usual, sv.currency, locale)} — this booking uses the new one.`}
+                          {locale === "vi" ? `Giá thường: ${formatMoney(usual, sv.currency, locale)} — lịch hẹn này dùng giá mới.` : locale === "fi" ? `Tavallinen hinta: ${formatMoney(usual, sv.currency, locale)} – tässä varauksessa käytetään uutta hintaa.` : `Usual price: ${formatMoney(usual, sv.currency, locale)} — this booking uses the new one.`}
                         </p>
                         <label className="mt-2 flex cursor-pointer items-start gap-2 rounded-xl bg-[#fffaf0] p-2.5 text-sm text-[#6b5221] ring-1 ring-[#ecd9ad]">
                           <input
@@ -4095,7 +4096,7 @@ export function BookingCalendar({
                           <span>
                             {locale === "vi"
                               ? `Áp dụng giá này cho “${sv.name}” của ${staffName} từ nay về sau, ở tất cả chi nhánh`
-                              : `Use this price for “${sv.name}” by ${staffName} from now on, at every branch`}
+                              : locale === "fi" ? `Käytä tätä hintaa palvelulle “${sv.name}” (${staffName}) tästä eteenpäin kaikissa toimipisteissä` : `Use this price for “${sv.name}” by ${staffName} from now on, at every branch`}
                           </span>
                         </label>
                       </>
@@ -4105,7 +4106,7 @@ export function BookingCalendar({
               })()}
               {addOnsForService(addOns, newBooking.serviceId).length > 0 && (
                 <div>
-                  <label className="label">{locale === "vi" ? "Dịch vụ phụ" : "Add-ons"}</label>
+                  <label className="label">{locale === "vi" ? "Dịch vụ phụ" : locale === "fi" ? "Lisäpalvelut" : "Add-ons"}</label>
                   <div className="space-y-1.5">
                     {addOnsForService(addOns, newBooking.serviceId).map((a) => {
                       const sv = services.find((s) => s.id === newBooking.serviceId);
@@ -4140,7 +4141,7 @@ export function BookingCalendar({
                         : (sv.staffPrices?.[newBooking.staffId] ?? sv.priceCents);
                     return (
                       <p className="mt-1.5 text-xs text-ink-400">
-                        {locale === "vi" ? "Tổng cộng" : "Total"}:{" "}
+                        {locale === "vi" ? "Tổng cộng" : locale === "fi" ? "Yhteensä" : "Total"}:{" "}
                         <span className="font-medium text-ink-900">
                           {formatMoney(base + addOnTotal, sv.currency, locale)}
                         </span>
@@ -4152,7 +4153,7 @@ export function BookingCalendar({
               {!personalKindFromOption(newBooking.serviceId) && (
               <>
               <div className="relative">
-                <label className="label">{locale === "vi" ? "Tên khách hàng" : "Customer name"}</label>
+                <label className="label">{locale === "vi" ? "Tên khách hàng" : locale === "fi" ? "Asiakkaan nimi" : "Customer name"}</label>
                 <input
                   required
                   className="input"
@@ -4178,10 +4179,10 @@ export function BookingCalendar({
                 )}
               </div>
               <div className="relative">
-                <label className="label">{locale === "vi" ? "Số điện thoại" : "Phone number"}</label>
+                <label className="label">{locale === "vi" ? "Số điện thoại" : locale === "fi" ? "Puhelinnumero" : "Phone number"}</label>
                 {newBooking.customerId ? (
                   <p className="input flex items-center text-ink-400">
-                    {locale === "vi" ? "Khách cũ · số điện thoại được ẩn" : "Existing customer · phone hidden"}
+                    {locale === "vi" ? "Khách cũ · số điện thoại được ẩn" : locale === "fi" ? "Vanha asiakas · puhelinnumero piilotettu" : "Existing customer · phone hidden"}
                   </p>
                 ) : (
                   <input
@@ -4195,7 +4196,7 @@ export function BookingCalendar({
               </div>
               <div>
                 <label className="label">
-                  Email ({locale === "vi" ? "không bắt buộc" : "optional"})
+                  Email ({locale === "vi" ? "không bắt buộc" : locale === "fi" ? "valinnainen" : "optional"})
                 </label>
                 <input
                   type="email"
@@ -4208,7 +4209,7 @@ export function BookingCalendar({
               )}
               <div>
                 <label className="label">
-                  {locale === "vi" ? "Ghi chú" : "Note"} ({locale === "vi" ? "không bắt buộc" : "optional"})
+                  {locale === "vi" ? "Ghi chú" : locale === "fi" ? "Muistiinpano" : "Note"} ({locale === "vi" ? "không bắt buộc" : locale === "fi" ? "valinnainen" : "optional"})
                 </label>
                 <textarea
                   rows={2}
@@ -4230,11 +4231,11 @@ export function BookingCalendar({
                 <span>
                   {locale === "vi"
                     ? "Gửi email xác nhận và nhắc lịch cho khách hàng"
-                    : "Send the customer a confirmation and reminder emails"}
+                    : locale === "fi" ? "Lähetä asiakkaalle vahvistus- ja muistutussähköpostit" : "Send the customer a confirmation and reminder emails"}
                   <span className="block text-xs text-ink-400">
                     {locale === "vi"
                       ? "Bạn cũng sẽ nhận được email thông báo về lịch hẹn này."
-                      : "You'll also get an email notifying you about this booking."}
+                      : locale === "fi" ? "Saat myös itse sähköposti-ilmoituksen tästä varauksesta." : "You'll also get an email notifying you about this booking."}
                   </span>
                 </span>
               </label>
@@ -4244,7 +4245,7 @@ export function BookingCalendar({
               <p className="mt-2 text-sm text-berry-500">
                 {locale === "vi"
                   ? "Giờ kết thúc phải sau giờ bắt đầu."
-                  : "End time must be after the start time."}
+                  : locale === "fi" ? "Päättymisajan on oltava alkamisajan jälkeen." : "End time must be after the start time."}
               </p>
             )}
             {newBookingError && <p className="mt-2 text-sm text-berry-500">{newBookingError}</p>}
@@ -4269,10 +4270,10 @@ export function BookingCalendar({
                 {personalKindFromOption(newBooking.serviceId)
                   ? locale === "vi"
                     ? "Khoá giờ"
-                    : "Block time"
+                    : locale === "fi" ? "Lukitse aika" : "Block time"
                   : locale === "vi"
                     ? "Đặt lịch"
-                    : "Book"}
+                    : locale === "fi" ? "Varaa" : "Book"}
               </button>
               <button
                 onClick={() => {
@@ -4281,7 +4282,7 @@ export function BookingCalendar({
                 }}
                 className="btn-ghost"
               >
-                {locale === "vi" ? "Huỷ" : "Cancel"}
+                {locale === "vi" ? "Huỷ" : locale === "fi" ? "Peruuta" : "Cancel"}
               </button>
             </div>
           </div>
@@ -4292,15 +4293,15 @@ export function BookingCalendar({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
           <div className="card w-full max-w-sm animate-slide-up p-6">
             <p className="mb-3 text-lg font-bold text-ink-900">
-              {locale === "vi" ? "Chuyển lịch hẹn?" : "Move this booking?"}
+              {locale === "vi" ? "Chuyển lịch hẹn?" : locale === "fi" ? "Siirretäänkö varaus?" : "Move this booking?"}
             </p>
             <p className="mb-3 text-sm text-ink-700">
               {pendingReschedule.booking.customerName}, {pendingReschedule.booking.serviceName}
             </p>
             <p className="mb-4 text-sm text-ink-700">
-              {locale === "vi" ? "Thời gian mới là " : "The new time is "}
+              {locale === "vi" ? "Thời gian mới là " : locale === "fi" ? "Uusi aika on " : "The new time is "}
               <span className="font-semibold text-ink-900">
-                {pendingReschedule.newStartsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
+                {pendingReschedule.newStartsAt.toLocaleString(locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-US", {
                   dateStyle: "full",
                   timeStyle: "short",
                   timeZone: businessTimezone,
@@ -4331,14 +4332,14 @@ export function BookingCalendar({
                   className="btn-primary"
                 >
                   {reschedulingBusy && <Loader2 className="h-4 w-4 animate-spin" />}
-                  {locale === "vi" ? "Có, chuyển" : "Yes, move it"}
+                  {locale === "vi" ? "Có, chuyển" : locale === "fi" ? "Kyllä, siirrä" : "Yes, move it"}
                 </button>
                 <button
                   disabled={reschedulingBusy}
                   onClick={() => setPendingReschedule(null)}
                   className="btn-ghost"
                 >
-                  {locale === "vi" ? "Huỷ bỏ" : "Cancel"}
+                  {locale === "vi" ? "Huỷ bỏ" : locale === "fi" ? "Peruuta" : "Cancel"}
                 </button>
               </div>
             )}
@@ -4353,12 +4354,12 @@ export function BookingCalendar({
               <Mail className="h-5 w-5" />
             </span>
             <p className="mb-2 text-lg font-bold text-ink-900">
-              {locale === "vi" ? "Gửi email báo khách?" : "Email the customer?"}
+              {locale === "vi" ? "Gửi email báo khách?" : locale === "fi" ? "Lähetetäänkö asiakkaalle sähköposti?" : "Email the customer?"}
             </p>
             <p className="mb-5 text-sm text-ink-700">
-              {locale === "vi" ? `Báo cho ${notifyPrompt.customerName} biết thời gian mới: ` : `Let ${notifyPrompt.customerName} know the new time: `}
+              {locale === "vi" ? `Báo cho ${notifyPrompt.customerName} biết thời gian mới: ` : locale === "fi" ? `Kerro asiakkaalle ${notifyPrompt.customerName} uusi aika: ` : `Let ${notifyPrompt.customerName} know the new time: `}
               <span className="font-semibold text-ink-900">
-                {notifyPrompt.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
+                {notifyPrompt.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-US", {
                   dateStyle: "full",
                   timeStyle: "short",
                   timeZone: businessTimezone,
@@ -4368,10 +4369,10 @@ export function BookingCalendar({
             <div className="flex gap-2">
               <button disabled={notifyBusy} onClick={sendRescheduleEmail} className="btn-primary">
                 {notifyBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
-                {locale === "vi" ? "Gửi email" : "Send email"}
+                {locale === "vi" ? "Gửi email" : locale === "fi" ? "Lähetä sähköposti" : "Send email"}
               </button>
               <button disabled={notifyBusy} onClick={() => setNotifyPrompt(null)} className="btn-ghost">
-                {locale === "vi" ? "Không gửi" : "Don't send"}
+                {locale === "vi" ? "Không gửi" : locale === "fi" ? "Älä lähetä" : "Don't send"}
               </button>
             </div>
           </div>

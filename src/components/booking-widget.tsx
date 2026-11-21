@@ -317,7 +317,7 @@ export function BookingWidget({
       const data = await res.json();
       if (!data.valid) {
         setDiscount(null);
-        setDiscountError(locale === "vi" ? "Mã giảm giá không hợp lệ." : "Invalid discount code.");
+        setDiscountError(locale === "vi" ? "Mã giảm giá không hợp lệ." : locale === "fi" ? "Virheellinen alennuskoodi." : "Invalid discount code.");
         return;
       }
       setDiscount({ percent: data.discountPercent, name: data.name });
@@ -376,7 +376,7 @@ export function BookingWidget({
               : data.error === "GUEST_INFO_REQUIRED"
                 ? locale === "vi"
                   ? "Vui lòng điền đầy đủ thông tin của bạn."
-                  : "Please fill in all your details."
+                  : locale === "fi" ? "Täytä kaikki tietosi." : "Please fill in all your details."
                 : tPay("failed")
         );
         return;
@@ -609,7 +609,7 @@ export function BookingWidget({
                           s.assignments
                             ? locale === "vi"
                               ? "Khung giờ này chia cho nhiều nhân viên"
-                              : "This time splits the services across multiple staff"
+                              : locale === "fi" ? "Palvelut jaetaan tähän aikaan usealle työntekijälle" : "This time splits the services across multiple staff"
                             : undefined
                         }
                         className={`relative rounded-xl border py-2.5 text-sm font-semibold tabular-nums transition-colors ${
@@ -642,7 +642,7 @@ export function BookingWidget({
             <p className="mb-1.5 font-semibold text-ink-900">
               {locale === "vi"
                 ? "Lịch hẹn này sẽ do nhiều nhân viên thực hiện, nối tiếp nhau:"
-                : "This appointment will be handled by multiple staff, one after another:"}
+                : locale === "fi" ? "Tämän varauksen hoitaa useampi työntekijä peräkkäin:" : "This appointment will be handled by multiple staff, one after another:"}
             </p>
             <ul className="space-y-1 text-ink-700">
               {selectedSlot.assignments.map((a) => (
@@ -660,7 +660,7 @@ export function BookingWidget({
       </Step>
 
       {selectedSlot && isGuest && (
-        <Step n={nextStep()} title={locale === "vi" ? "Thông tin của bạn" : "Your info"}>
+        <Step n={nextStep()} title={locale === "vi" ? "Thông tin của bạn" : locale === "fi" ? "Tietosi" : "Your info"}>
           {!showSignIn ? (
             <div className="space-y-4">
               <div className="grid gap-3 sm:grid-cols-2">
@@ -705,7 +705,7 @@ export function BookingWidget({
                 <p className="mb-2 text-sm font-medium text-ink-900">
                   {locale === "vi"
                     ? "Bạn muốn nhận tin nhắn và thông báo tiếp thị bằng cách nào?"
-                    : "How would you like to receive marketing messages?"}
+                    : locale === "fi" ? "Miten haluat vastaanottaa markkinointiviestejä?" : "How would you like to receive marketing messages?"}
                 </p>
                 <div className="flex flex-wrap gap-4 text-sm text-ink-700">
                   <label className="flex items-center gap-2">
@@ -715,7 +715,7 @@ export function BookingWidget({
                       checked={emailOptIn}
                       onChange={(e) => setEmailOptIn(e.target.checked)}
                     />
-                    {locale === "vi" ? "Qua email" : "By email"}
+                    {locale === "vi" ? "Qua email" : locale === "fi" ? "Sähköpostilla" : "By email"}
                   </label>
                   <label className="flex items-center gap-2">
                     <input
@@ -724,7 +724,7 @@ export function BookingWidget({
                       checked={smsOptIn}
                       onChange={(e) => setSmsOptIn(e.target.checked)}
                     />
-                    {locale === "vi" ? "Qua tin nhắn văn bản" : "By text message"}
+                    {locale === "vi" ? "Qua tin nhắn văn bản" : locale === "fi" ? "Tekstiviestillä" : "By text message"}
                   </label>
                 </div>
               </div>
@@ -749,7 +749,7 @@ export function BookingWidget({
                   onClick={() => setShowSignIn(false)}
                   className="font-semibold text-primary-600 hover:underline"
                 >
-                  {locale === "vi" ? "Quay lại đặt lịch với thông tin mới" : "Back to booking as a new customer"}
+                  {locale === "vi" ? "Quay lại đặt lịch với thông tin mới" : locale === "fi" ? "Takaisin varaukseen uutena asiakkaana" : "Back to booking as a new customer"}
                 </button>
               </p>
             </div>
@@ -785,19 +785,19 @@ export function BookingWidget({
           <div className="mt-3 space-y-1 rounded-2xl border border-primary-100 bg-primary-50 p-4 text-sm text-ink-900">
             {bankInfo.bankName && (
               <p>
-                <span className="text-ink-400">{locale === "vi" ? "Ngân hàng: " : "Bank: "}</span>
+                <span className="text-ink-400">{locale === "vi" ? "Ngân hàng: " : locale === "fi" ? "Pankki: " : "Bank: "}</span>
                 {bankInfo.bankName}
               </p>
             )}
             {bankInfo.bankAccountNumber && (
               <p>
-                <span className="text-ink-400">{locale === "vi" ? "Số tài khoản: " : "Account number: "}</span>
+                <span className="text-ink-400">{locale === "vi" ? "Số tài khoản: " : locale === "fi" ? "Tilinumero: " : "Account number: "}</span>
                 {bankInfo.bankAccountNumber}
               </p>
             )}
             {bankInfo.bankAccountName && (
               <p>
-                <span className="text-ink-400">{locale === "vi" ? "Chủ tài khoản: " : "Account holder: "}</span>
+                <span className="text-ink-400">{locale === "vi" ? "Chủ tài khoản: " : locale === "fi" ? "Tilinomistaja: " : "Account holder: "}</span>
                 {bankInfo.bankAccountName}
               </p>
             )}
@@ -818,7 +818,7 @@ export function BookingWidget({
             <textarea id="note" value={note} onChange={(e) => setNote(e.target.value)} rows={3} className="input !rounded-2xl" />
           </div>
           <div>
-            <p className="label">{locale === "vi" ? "Mã giảm giá" : "Discount code"}</p>
+            <p className="label">{locale === "vi" ? "Mã giảm giá" : locale === "fi" ? "Alennuskoodi" : "Discount code"}</p>
             <div className="flex gap-2">
               <input
                 className="input flex-1"
@@ -828,7 +828,7 @@ export function BookingWidget({
                   setDiscount(null);
                   setDiscountError(null);
                 }}
-                placeholder={locale === "vi" ? "Nhập mã" : "Enter code"}
+                placeholder={locale === "vi" ? "Nhập mã" : locale === "fi" ? "Syötä koodi" : "Enter code"}
               />
               <button
                 type="button"
@@ -836,14 +836,14 @@ export function BookingWidget({
                 disabled={discountChecking || !discountCode.trim()}
                 className="btn-outline !px-4"
               >
-                {discountChecking ? <Loader2 className="h-4 w-4 animate-spin" /> : locale === "vi" ? "Áp dụng" : "Apply"}
+                {discountChecking ? <Loader2 className="h-4 w-4 animate-spin" /> : locale === "vi" ? "Áp dụng" : locale === "fi" ? "Käytä" : "Apply"}
               </button>
             </div>
             {discount && (
               <p className="mt-1.5 text-xs font-medium text-teal-600">
                 {locale === "vi"
                   ? `Đã áp dụng "${discount.name}" (-${discount.percent}%)`
-                  : `"${discount.name}" applied (-${discount.percent}%)`}
+                  : locale === "fi" ? `"${discount.name}" käytössä (-${discount.percent} %)` : `"${discount.name}" applied (-${discount.percent}%)`}
               </p>
             )}
             {discountError && <p className="mt-1.5 text-xs text-berry-500">{discountError}</p>}
@@ -856,8 +856,8 @@ export function BookingWidget({
           <p className="text-xs font-medium text-primary-100">{L.summary}</p>
           <p className="mt-1 text-lg font-bold">
             {selectedSlot
-              ? `${format(toZonedTime(new Date(selectedSlot.startsAt), businessTimezone), "EEEE d.M.", {
-                  locale: locale === "vi" ? vi : undefined,
+              ? `${format(toZonedTime(new Date(selectedSlot.startsAt), businessTimezone), locale === "fi" ? "cccc d.M." : "EEEE d.M.", {
+                  locale: locale === "vi" ? vi : locale === "fi" ? fi : undefined,
                 })} · ${slotTime(selectedSlot.startsAt, businessTimezone)}`
               : L.pickTime}
           </p>
@@ -921,22 +921,22 @@ export function BookingWidget({
           className="mt-0.5 h-4 w-4 shrink-0 accent-primary-500"
         />
         <span>
-          {locale === "vi" ? "Tôi chấp nhận " : "I accept the "}
+          {locale === "vi" ? "Tôi chấp nhận " : locale === "fi" ? "Hyväksyn " : "I accept the "}
           <button
             type="button"
             onClick={() => setShowCancellationPolicy(true)}
             className="font-semibold text-primary-600 underline hover:no-underline"
           >
-            {locale === "vi" ? "Chính sách hủy bỏ" : "Cancellation Policy"}
+            {locale === "vi" ? "Chính sách hủy bỏ" : locale === "fi" ? "peruutusehdot" : "Cancellation Policy"}
           </button>
-          {locale === "vi" ? " và VaraaAi " : " and VaraaAi "}
+          {locale === "vi" ? " và VaraaAi " : locale === "fi" ? " ja VaraaAi:n " : " and VaraaAi "}
           <Link
             href="/terms"
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-primary-600 underline hover:no-underline"
           >
-            {locale === "vi" ? "Điều khoản sử dụng" : "Terms of Use"}
+            {locale === "vi" ? "Điều khoản sử dụng" : locale === "fi" ? "käyttöehdot" : "Terms of Use"}
           </Link>
           .
         </span>
@@ -962,25 +962,25 @@ export function BookingWidget({
       </div>
 
       <p className="text-center text-xs text-ink-400">
-        {locale === "vi" ? "Bằng việc tiếp tục, tôi đồng ý " : "By continuing, I agree to "}
+        {locale === "vi" ? "Bằng việc tiếp tục, tôi đồng ý " : locale === "fi" ? "Jatkamalla hyväksyn VaraaAi.comin " : "By continuing, I agree to "}
         <Link
           href="/terms"
           target="_blank"
           rel="noopener noreferrer"
           className="font-medium text-primary-600 underline hover:no-underline"
         >
-          {locale === "vi" ? "Điều khoản sử dụng" : "Terms of Use"}
+          {locale === "vi" ? "Điều khoản sử dụng" : locale === "fi" ? "käyttöehdot" : "Terms of Use"}
         </Link>
-        {locale === "vi" ? " và " : " and "}
+        {locale === "vi" ? " và " : locale === "fi" ? " ja " : " and "}
         <Link
           href="/privacy"
           target="_blank"
           rel="noopener noreferrer"
           className="font-medium text-primary-600 underline hover:no-underline"
         >
-          {locale === "vi" ? "Chính sách bảo mật" : "Privacy Policy"}
+          {locale === "vi" ? "Chính sách bảo mật" : locale === "fi" ? "tietosuojakäytännön" : "Privacy Policy"}
         </Link>
-        {locale === "vi" ? " của VaraaAi.com." : " of VaraaAi.com."}
+        {locale === "vi" ? " của VaraaAi.com." : locale === "fi" ? "." : " of VaraaAi.com."}
       </p>
 
       {showCancellationPolicy && (
@@ -988,7 +988,7 @@ export function BookingWidget({
           <div className="card w-full max-w-sm animate-slide-up p-6">
             <div className="mb-3 flex items-start justify-between">
               <p className="text-lg font-bold text-ink-900">
-                {locale === "vi" ? "Chính sách hủy bỏ" : "Cancellation Policy"}
+                {locale === "vi" ? "Chính sách hủy bỏ" : locale === "fi" ? "Peruutusehdot" : "Cancellation Policy"}
               </p>
               <button onClick={() => setShowCancellationPolicy(false)} className="text-ink-400">
                 <X className="h-5 w-5" />
@@ -998,7 +998,7 @@ export function BookingWidget({
               {cancellationPolicy ||
                 (locale === "vi"
                   ? `Bạn có thể tự hủy lịch hẹn trong hồ sơ của mình cho đến ${cancellationWindowHours} giờ trước giờ hẹn.`
-                  : `You can cancel this appointment yourself, up until ${cancellationWindowHours} hours before the appointment.`)}
+                  : locale === "fi" ? `Voit perua varauksen itse ${cancellationWindowHours} tuntiin asti ennen varattua aikaa.` : `You can cancel this appointment yourself, up until ${cancellationWindowHours} hours before the appointment.`)}
             </p>
           </div>
         </div>
@@ -1031,7 +1031,7 @@ function StaffVideos({
             className="flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:underline"
           >
             <PlayCircle className="h-4 w-4" />
-            {locale === "vi" ? `Xem video ${i + 1}` : `Watch video ${i + 1}`}
+            {locale === "vi" ? `Xem video ${i + 1}` : locale === "fi" ? `Katso video ${i + 1}` : `Watch video ${i + 1}`}
           </button>
         ))}
       </div>

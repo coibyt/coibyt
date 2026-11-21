@@ -8,6 +8,7 @@ export default async function MyLoyaltyPage({ params }: { params: Promise<{ loca
   const session = await auth();
   if (!session?.user) redirect({ href: "/auth/sign-in?callbackUrl=/account/loyalty", locale });
   const vi = locale === "vi";
+  const fi = locale === "fi";
 
   const email = session!.user.email?.toLowerCase() ?? "";
   const cards = await prisma.loyaltyCard.findMany({
@@ -27,12 +28,12 @@ export default async function MyLoyaltyPage({ params }: { params: Promise<{ loca
 
   return (
     <div className="container max-w-2xl space-y-6 py-10">
-      <h1 className="text-xl font-bold text-ink-900">{vi ? "Thẻ thành viên của tôi" : "My member cards"}</h1>
+      <h1 className="text-xl font-bold text-ink-900">{vi ? "Thẻ thành viên của tôi" : fi ? "Jäsenkorttini" : "My member cards"}</h1>
       {rendered.length === 0 ? (
         <p className="text-sm text-ink-400">
           {vi
             ? "Bạn chưa có thẻ thành viên nào. Salon sẽ kích hoạt thẻ cho bạn và gửi mã QR qua email."
-            : "You don't have a loyalty card yet. The salon will activate one and email you the QR."}
+            : fi ? "Sinulla ei vielä ole kanta-asiakaskorttia. Salonki aktivoi sen ja lähettää QR-koodin sähköpostiisi." : "You don't have a loyalty card yet. The salon will activate one and email you the QR."}
         </p>
       ) : (
         rendered.map((c) => {
@@ -47,14 +48,14 @@ export default async function MyLoyaltyPage({ params }: { params: Promise<{ loca
                     <p className="text-xs text-ink-400">
                       {vi
                         ? `Đủ ${p.pointsRequired} vé, được giảm ${p.discountPercent}%`
-                        : `Collect ${p.pointsRequired} tickets, get ${p.discountPercent}% off`}
+                        : fi ? `Kerää ${p.pointsRequired} lippua, saat ${p.discountPercent} % alennuksen` : `Collect ${p.pointsRequired} tickets, get ${p.discountPercent}% off`}
                     </p>
                   )}
                 </div>
                 <img src={c.qr} alt="QR" width={140} height={140} className="rounded-lg" />
               </div>
               <p className="text-sm text-ink-700">
-                {vi ? "Số vé" : "Tickets"}: <b>{c.points}</b>
+                {vi ? "Số vé" : fi ? "Liput" : "Tickets"}: <b>{c.points}</b>
                 {p && (
                   <>
                     {" / "}
@@ -66,18 +67,18 @@ export default async function MyLoyaltyPage({ params }: { params: Promise<{ loca
                 <p className="rounded-lg bg-sage-50 p-3 text-sm font-semibold text-sage-700">
                   {vi
                     ? `Bạn đã đủ vé — được giảm ${p?.discountPercent ?? 0}% cho lần làm tiếp theo!`
-                    : `You've reached the goal — ${p?.discountPercent ?? 0}% off your next visit!`}
+                    : fi ? `Tavoite täynnä – saat ${p?.discountPercent ?? 0} % alennuksen seuraavasta käynnistä!` : `You've reached the goal — ${p?.discountPercent ?? 0}% off your next visit!`}
                 </p>
               ) : (
                 <p className="text-sm text-ink-700">
-                  {vi ? `Còn ${left} vé nữa là được giảm giá` : `${left} more ticket(s) to unlock your discount`}
+                  {vi ? `Còn ${left} vé nữa là được giảm giá` : fi ? `Vielä ${left} ${left === 1 ? "lippu" : "lippua"} alennukseen` : `${left} more ticket(s) to unlock your discount`}
                 </p>
               )}
               <p className="text-xs text-ink-400">
-                {vi ? "Mã thẻ" : "Card code"}: <span className="font-mono">{c.token}</span>
+                {vi ? "Mã thẻ" : fi ? "Kortin koodi" : "Card code"}: <span className="font-mono">{c.token}</span>
               </p>
               <Link href={`/loyalty/${c.token}`} className="btn-primary inline-flex">
-                {vi ? "Mở thẻ & mời bạn bè (+2 vé)" : "Open card & invite friends (+2 tickets)"}
+                {vi ? "Mở thẻ & mời bạn bè (+2 vé)" : fi ? "Avaa kortti ja kutsu ystäviä (+2 lippua)" : "Open card & invite friends (+2 tickets)"}
               </Link>
             </section>
           );

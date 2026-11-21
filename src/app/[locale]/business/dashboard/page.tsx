@@ -182,7 +182,7 @@ const TEXT = {
     bookingsMonth: "Varaukset tässä kuussa",
     newCustomers: "Uudet asiakkaat",
     rating: "Keskiarvo",
-    ratingSub: (n: number) => `${n} arvostelua`,
+    ratingSub: (n: number) => `${n} ${n === 1 ? "arvostelu" : "arvostelua"}`,
     noRating: "Ei vielä arvosteluja",
     views: "Sivun katselut (30 pv)",
     vsLast: "vs. sama jakso viime kuussa",

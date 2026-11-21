@@ -209,7 +209,7 @@ export function SiteFooter({
           </p>
           <div className="flex items-center gap-5">
             <a href={`${prefix}/terms`} className="hover:text-lp-deep-ink">
-              {locale === "vi" ? "Điều khoản sử dụng" : "Terms of Use"}
+              {locale === "vi" ? "Điều khoản sử dụng" : locale === "fi" ? "Käyttöehdot" : "Terms of Use"}
             </a>
             <a href={`https://varaaai.com${prefix}`} target="_blank" rel="noopener" className="hover:text-lp-deep-ink">
               {s.poweredBy} <span className="font-semibold text-lp-deep-ink/70">VaraaAi</span>

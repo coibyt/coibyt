@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Loader2, Check } from "lucide-react";
 import { routing } from "@/i18n/routing";
 
@@ -43,6 +43,45 @@ const LOCALE_LABELS: Record<string, string> = {
   pt: "Portuguese",
 };
 
+/** Language names for the Finnish dashboard. */
+const LOCALE_LABELS_FI: Record<string, string> = {
+  vi: "Vietnam",
+  en: "Englanti",
+  fi: "Suomi",
+  pl: "Puola",
+  de: "Saksa",
+  km: "Khmer",
+  th: "Thai",
+  sv: "Ruotsi",
+  fr: "Ranska",
+  ko: "Korea",
+  ja: "Japani",
+  zh: "Kiina",
+  lv: "Latvia",
+  et: "Viro",
+  be: "Valkovenäjä",
+  bg: "Bulgaria",
+  cs: "Tšekki",
+  hu: "Unkari",
+  ro: "Romania",
+  ru: "Venäjä",
+  sk: "Slovakki",
+  uk: "Ukraina",
+  no: "Norja",
+  da: "Tanska",
+  nl: "Hollanti",
+  it: "Italia",
+  es: "Espanja",
+  he: "Heprea",
+  hi: "Hindi",
+  id: "Indonesia",
+  ms: "Malaiji",
+  fil: "Filipino",
+  ar: "Arabia",
+  tr: "Turkki",
+  pt: "Portugali",
+};
+
 const CANCEL_WINDOW_OPTIONS = [12, 24, 48, 72];
 
 export interface BusinessPreferences {
@@ -55,6 +94,7 @@ export interface BusinessPreferences {
 export function PreferencesCard({ preferences }: { preferences: BusinessPreferences }) {
   const t = useTranslations("settingsCards");
   const tCommon = useTranslations("common");
+  const locale = useLocale();
   const [form, setForm] = useState(preferences);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -89,7 +129,7 @@ export function PreferencesCard({ preferences }: { preferences: BusinessPreferen
           >
             {routing.locales.map((l) => (
               <option key={l} value={l}>
-                {LOCALE_LABELS[l] ?? l}
+                {(locale === "fi" ? LOCALE_LABELS_FI[l] : undefined) ?? LOCALE_LABELS[l] ?? l}
               </option>
             ))}
           </select>

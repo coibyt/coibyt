@@ -41,6 +41,7 @@ export default async function AdminPendingPage({
   ]);
   const toolCount = (tool: string, event: string) => toolEvents.find((e) => e.tool === tool && e.event === event)?._count ?? 0;
   const vi = locale === "vi";
+  const fi = locale === "fi";
 
   // Each language's own name, in the admin's language ("Tiếng Anh", …).
   const names = new Intl.DisplayNames([locale], { type: "language" });
@@ -61,29 +62,29 @@ export default async function AdminPendingPage({
       <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
         <StatCard
           icon={Radio}
-          label={locale === "vi" ? "Đang xem trang web" : "Viewing right now"}
+          label={locale === "vi" ? "Đang xem trang web" : locale === "fi" ? "Sivulla juuri nyt" : "Viewing right now"}
           value={String(visitorsOnlineGroups.length)}
         />
         <StatCard
           icon={Users}
-          label={locale === "vi" ? "Khách truy cập hôm nay" : "Visitors today"}
+          label={locale === "vi" ? "Khách truy cập hôm nay" : locale === "fi" ? "Kävijät tänään" : "Visitors today"}
           value={String(visitorsTodayGroups.length)}
         />
         <StatCard
           icon={Download}
-          label={locale === "vi" ? "Tổng lượt cài đặt app" : "Total app installs"}
+          label={locale === "vi" ? "Tổng lượt cài đặt app" : locale === "fi" ? "Sovelluksen asennukset yhteensä" : "Total app installs"}
           value={String(pwaInstallsTotal)}
         />
         <StatCard
           icon={Download}
-          label={locale === "vi" ? "Cài đặt 7 ngày qua" : "Installs in last 7 days"}
+          label={locale === "vi" ? "Cài đặt 7 ngày qua" : locale === "fi" ? "Asennukset 7 päivän aikana" : "Installs in last 7 days"}
           value={String(pwaInstalls7d)}
         />
       </div>
       {(
         [
-          ["price_list", vi ? "Công cụ bảng giá miễn phí — 30 ngày qua" : "Free price-list tool — last 30 days", true],
-          ["qr_poster", vi ? "Công cụ poster QR miễn phí — 30 ngày qua" : "Free QR poster tool — last 30 days", false],
+          ["price_list", vi ? "Công cụ bảng giá miễn phí — 30 ngày qua" : fi ? "Ilmainen hinnastotyökalu – 30 päivää" : "Free price-list tool — last 30 days", true],
+          ["qr_poster", vi ? "Công cụ poster QR miễn phí — 30 ngày qua" : fi ? "Ilmainen QR-julistetyökalu – 30 päivää" : "Free QR poster tool — last 30 days", false],
         ] as const
       ).map(([tool, title, extra]) => (
         <div key={tool} className="mb-4 rounded-2xl border border-ink-100 bg-white p-4 last-of-type:mb-8">
@@ -91,14 +92,14 @@ export default async function AdminPendingPage({
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-6">
             {(
               [
-                ["open", vi ? "Lượt mở" : "Opened"],
-                ["download_pdf", vi ? "Tải PDF" : "PDF downloads"],
-                ["download_png", vi ? "Tải PNG" : "PNG downloads"],
-                ["cta_click", vi ? "Bấm đăng ký" : "Sign-up clicks"],
+                ["open", vi ? "Lượt mở" : fi ? "Avattu" : "Opened"],
+                ["download_pdf", vi ? "Tải PDF" : fi ? "PDF-lataukset" : "PDF downloads"],
+                ["download_png", vi ? "Tải PNG" : fi ? "PNG-lataukset" : "PNG downloads"],
+                ["cta_click", vi ? "Bấm đăng ký" : fi ? "Rekisteröitymisklikkaukset" : "Sign-up clicks"],
                 ...(extra
                   ? ([
-                      ["translate", vi ? "Dịch AI" : "AI translations"],
-                      ["import", vi ? "Nhập từ salon" : "Salon imports"],
+                      ["translate", vi ? "Dịch AI" : fi ? "Tekoälykäännökset" : "AI translations"],
+                      ["import", vi ? "Nhập từ salon" : fi ? "Tuonnit salongeista" : "Salon imports"],
                     ] as const)
                   : []),
               ] as const

@@ -55,6 +55,7 @@ export function LoyaltyManager({
   canEditProgram?: boolean;
 }) {
   const vi = locale === "vi";
+  const fi = locale === "fi";
   const [program, setProgram] = useState<Program>({
     pointsRequired: 5,
     discountPercent: 15,
@@ -151,10 +152,10 @@ export function LoyaltyManager({
       const data = await res.json().catch(() => ({}));
       setMemberError(
         data.error === "ALREADY_ACTIVE"
-          ? vi ? "Email này đã có thẻ tích điểm." : "This email already has a card."
+          ? vi ? "Email này đã có thẻ tích điểm." : fi ? "Tällä sähköpostilla on jo kortti." : "This email already has a card."
           : data.error === "NO_PROGRAM"
-            ? vi ? "Hãy lưu cài đặt chương trình trước." : "Save the program settings first."
-            : vi ? "Không kích hoạt được thẻ." : "Couldn't activate the card."
+            ? vi ? "Hãy lưu cài đặt chương trình trước." : fi ? "Tallenna ensin ohjelman asetukset." : "Save the program settings first."
+            : vi ? "Không kích hoạt được thẻ." : fi ? "Kortin aktivointi epäonnistui." : "Couldn't activate the card."
       );
       return;
     }
@@ -179,10 +180,10 @@ export function LoyaltyManager({
         text: d.rewardReady
           ? vi
             ? `Quét thành công! Đã cộng 1 điểm — khách đủ ${d.pointsRequired} điểm, được giảm ${program.discountPercent}%.`
-            : `Scanned! +1 point — ${d.pointsRequired} reached, ${program.discountPercent}% off unlocked.`
+            : fi ? `Skannattu! +1 piste – ${d.pointsRequired} täynnä, ${program.discountPercent} % alennus avattu.` : `Scanned! +1 point — ${d.pointsRequired} reached, ${program.discountPercent}% off unlocked.`
           : vi
             ? `Quét thành công! Đã cộng 1 điểm (${d.points}/${d.pointsRequired}).`
-            : `Scanned! +1 point (${d.points}/${d.pointsRequired}).`,
+            : fi ? `Skannattu! +1 piste (${d.points}/${d.pointsRequired}).` : `Scanned! +1 point (${d.points}/${d.pointsRequired}).`,
       });
       setScanCode("");
       setActiveCardId(d.cardId ?? null);
@@ -190,16 +191,16 @@ export function LoyaltyManager({
       return;
     }
     const msg: Record<string, string> = {
-      NOT_FOUND: vi ? "Không tìm thấy thẻ này." : "Card not found.",
-      NO_PROGRAM: vi ? "Chưa có chương trình tích điểm." : "No loyalty program yet.",
+      NOT_FOUND: vi ? "Không tìm thấy thẻ này." : fi ? "Korttia ei löytynyt." : "Card not found.",
+      NO_PROGRAM: vi ? "Chưa có chương trình tích điểm." : fi ? "Kanta-asiakasohjelmaa ei ole vielä." : "No loyalty program yet.",
       NO_NEW_VISIT: vi
         ? "Chưa cộng vé: mọi lượt hẹn đã qua của khách đều đã được quét. Chỉ tính lượt hẹn còn trên lịch, không bị hủy hay đánh dấu không đến (tính thêm tối đa 3 lượt trước ngày làm thẻ)."
-        : "No ticket added: every past visit has already been scanned. Only visits still on the calendar and not cancelled or no-show count (plus up to 3 from before the card was made).",
+        : fi ? "Lippua ei lisätty: kaikki asiakkaan menneet käynnit on jo skannattu. Vain kalenterissa yhä olevat käynnit, joita ei ole peruttu tai merkitty saapumatta jääneiksi, lasketaan (sekä enintään 3 käyntiä ennen kortin luontia)." : "No ticket added: every past visit has already been scanned. Only visits still on the calendar and not cancelled or no-show count (plus up to 3 from before the card was made).",
       REWARD_PENDING: vi
         ? "Chưa cộng vé: khách đã đủ vé — hãy áp dụng ưu đãi trước."
-        : "No ticket added: the customer already has a reward — apply it first.",
+        : fi ? "Lippua ei lisätty: asiakkaalla on jo palkinto – myönnä se ensin." : "No ticket added: the customer already has a reward — apply it first.",
     };
-    setScanMsg({ ok: false, text: msg[d.reason] ?? (vi ? "Không quét được." : "Scan failed.") });
+    setScanMsg({ ok: false, text: msg[d.reason] ?? (vi ? "Không quét được." : fi ? "Skannaus epäonnistui." : "Scan failed.") });
     // A refused scan on a real card still opens that customer's summary.
     setActiveCardId(d.cardId ?? null);
   }
@@ -211,7 +212,7 @@ export function LoyaltyManager({
     if (id === activeCardId) {
       setScanMsg({
         ok: true,
-        text: vi ? `Đã áp dụng giảm ${program.discountPercent}% — thẻ bắt đầu chu kỳ mới.` : `${program.discountPercent}% off applied — the card starts a new cycle.`,
+        text: vi ? `Đã áp dụng giảm ${program.discountPercent}% — thẻ bắt đầu chu kỳ mới.` : fi ? `${program.discountPercent} % alennus myönnetty – kortti aloittaa uuden kierroksen.` : `${program.discountPercent}% off applied — the card starts a new cycle.`,
       });
     }
     loadAll();
@@ -225,7 +226,7 @@ export function LoyaltyManager({
 
   const programSummary = vi
     ? `Làm ${program.pointsRequired} lần → giảm ${program.discountPercent}%${program.price > 0 ? ` · thẻ ${program.price} ${program.currency}` : " · thẻ miễn phí"}`
-    : `${program.pointsRequired} visits → ${program.discountPercent}% off${program.price > 0 ? ` · card ${program.price} ${program.currency}` : " · free card"}`;
+    : fi ? `${program.pointsRequired} käyntiä → ${program.discountPercent} % alennus${program.price > 0 ? ` · kortti ${program.price} ${program.currency}` : " · ilmainen kortti"}` : `${program.pointsRequired} visits → ${program.discountPercent}% off${program.price > 0 ? ` · card ${program.price} ${program.currency}` : " · free card"}`;
 
   if (!loaded) {
     return (
@@ -240,10 +241,10 @@ export function LoyaltyManager({
       {hasProgram && (
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
           {[
-            { icon: Users, label: vi ? "Khách có thẻ" : "Cardholders", value: totals.members, cls: "from-primary-500 to-primary-700" },
-            { icon: ScanLine, label: vi ? "Tổng lượt quét" : "Total scans", value: totals.scans, cls: "from-teal-400 to-teal-600" },
-            { icon: Gift, label: vi ? "Ưu đãi đã trao" : "Rewards given", value: totals.rewards, cls: "from-coral-400 to-berry-500" },
-            { icon: Star, label: vi ? "Đang chờ ưu đãi" : "Rewards waiting", value: totals.ready, cls: "from-peach-300 to-coral-500" },
+            { icon: Users, label: vi ? "Khách có thẻ" : fi ? "Kortinhaltijat" : "Cardholders", value: totals.members, cls: "from-primary-500 to-primary-700" },
+            { icon: ScanLine, label: vi ? "Tổng lượt quét" : fi ? "Skannauksia yhteensä" : "Total scans", value: totals.scans, cls: "from-teal-400 to-teal-600" },
+            { icon: Gift, label: vi ? "Ưu đãi đã trao" : fi ? "Myönnetyt edut" : "Rewards given", value: totals.rewards, cls: "from-coral-400 to-berry-500" },
+            { icon: Star, label: vi ? "Đang chờ ưu đãi" : fi ? "Odottavat edut" : "Rewards waiting", value: totals.ready, cls: "from-peach-300 to-coral-500" },
           ].map((t) => (
             <div key={t.label} className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${t.cls} p-4 text-white shadow-md`}>
               <t.icon className="pointer-events-none absolute -bottom-3 -right-3 h-16 w-16 text-white/15" />
@@ -263,11 +264,11 @@ export function LoyaltyManager({
               <QrCode className="h-6 w-6" />
             </div>
             <div>
-              <h2 className="text-lg font-bold">{vi ? "Quét thẻ khi khách đến" : "Scan a card when a customer visits"}</h2>
+              <h2 className="text-lg font-bold">{vi ? "Quét thẻ khi khách đến" : fi ? "Skannaa kortti asiakkaan käydessä" : "Scan a card when a customer visits"}</h2>
               <p className="text-xs text-white/70">
                 {vi
                   ? "Quét mã QR bằng camera điện thoại, hoặc nhập mã in trên thẻ."
-                  : "Scan the QR with your phone camera, or type the code printed on the card."}
+                  : fi ? "Skannaa QR-koodi puhelimen kameralla tai kirjoita kortissa oleva koodi." : "Scan the QR with your phone camera, or type the code printed on the card."}
               </p>
             </div>
           </div>
@@ -276,7 +277,7 @@ export function LoyaltyManager({
               value={scanCode}
               onChange={(e) => setScanCode(e.target.value.toUpperCase())}
               onKeyDown={(e) => e.key === "Enter" && scanCode.trim().length >= 4 && !busy && scan()}
-              placeholder={vi ? "Mã trên thẻ hoặc QR" : "Card code or QR"}
+              placeholder={vi ? "Mã trên thẻ hoặc QR" : fi ? "Kortin koodi tai QR" : "Card code or QR"}
               className="h-12 flex-1 rounded-full border border-white/20 bg-white/10 px-5 font-mono text-base tracking-[0.25em] text-white placeholder:tracking-normal placeholder:text-white/50 focus:border-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"
             />
             <button
@@ -286,7 +287,7 @@ export function LoyaltyManager({
               className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-peach-200 to-coral-400 px-6 font-semibold text-primary-900 shadow-lg transition hover:brightness-105 disabled:opacity-50"
             >
               {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Star className="h-4 w-4 fill-current" />}
-              {vi ? "Cộng 1 vé" : "Add 1 ticket"}
+              {vi ? "Cộng 1 vé" : fi ? "Lisää 1 lippu" : "Add 1 ticket"}
             </button>
           </div>
           {scanMsg && !activeCardId && (
@@ -317,7 +318,7 @@ export function LoyaltyManager({
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="flex items-center gap-2 text-lg font-bold text-ink-900">
               <Users className="h-5 w-5 text-primary-500" />
-              {vi ? "Khách có thẻ" : "Cardholders"}
+              {vi ? "Khách có thẻ" : fi ? "Kortinhaltijat" : "Cardholders"}
             </h2>
             {(cards?.length ?? 0) > 3 && (
               <label className="relative sm:w-72">
@@ -325,7 +326,7 @@ export function LoyaltyManager({
                 <input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder={vi ? "Tìm theo tên hoặc email" : "Search by name or email"}
+                  placeholder={vi ? "Tìm theo tên hoặc email" : fi ? "Hae nimellä tai sähköpostilla" : "Search by name or email"}
                   className="input !pl-10"
                 />
               </label>
@@ -335,7 +336,7 @@ export function LoyaltyManager({
             <Loader2 className="h-5 w-5 animate-spin text-ink-400" />
           ) : filteredCards.length === 0 ? (
             <div className="rounded-2xl border-2 border-dashed border-ink-100 p-8 text-center text-sm text-ink-400">
-              {query ? (vi ? "Không có khách nào khớp." : "No matching customers.") : vi ? "Chưa có khách nào — kích hoạt thẻ đầu tiên bên dưới." : "No cardholders yet — activate the first card below."}
+              {query ? (vi ? "Không có khách nào khớp." : fi ? "Ei sopivia asiakkaita." : "No matching customers.") : vi ? "Chưa có khách nào — kích hoạt thẻ đầu tiên bên dưới." : fi ? "Ei vielä kortinhaltijoita – aktivoi ensimmäinen kortti alla." : "No cardholders yet — activate the first card below."}
             </div>
           ) : (
             <ul className="grid gap-3 md:grid-cols-2">
@@ -350,7 +351,7 @@ export function LoyaltyManager({
                   >
                     {c.rewardReady && (
                       <span className="absolute right-0 top-0 rounded-bl-2xl bg-gradient-to-r from-coral-400 to-berry-500 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
-                        {vi ? "Đủ vé" : "Reward ready"}
+                        {vi ? "Đủ vé" : fi ? "Palkinto valmis" : "Reward ready"}
                       </span>
                     )}
                     <div className="flex items-center gap-3">
@@ -365,7 +366,7 @@ export function LoyaltyManager({
 
                     <div className="mt-4">
                       <div className="mb-1.5 flex items-center justify-between text-xs">
-                        <span className="font-medium text-ink-700">{vi ? "Vé" : "Tickets"}</span>
+                        <span className="font-medium text-ink-700">{vi ? "Vé" : fi ? "Liput" : "Tickets"}</span>
                         <span className="font-bold text-primary-600">
                           {c.points}/{program.pointsRequired}
                         </span>
@@ -381,11 +382,11 @@ export function LoyaltyManager({
                     <div className="mt-3 flex flex-wrap gap-2 text-[11px]">
                       <span className="inline-flex items-center gap-1 rounded-full bg-sage-50 px-2.5 py-1 font-medium text-sage-600">
                         <ScanLine className="h-3 w-3" />
-                        {c.totalScans} {vi ? "lượt quét" : "scans"}
+                        {c.totalScans} {vi ? "lượt quét" : fi ? "skannausta" : "scans"}
                       </span>
                       <span className="inline-flex items-center gap-1 rounded-full bg-berry-50 px-2.5 py-1 font-medium text-berry-500">
                         <Gift className="h-3 w-3" />
-                        {vi ? `đã giảm ${c.rewardsEarned} lần` : `${c.rewardsEarned} rewards`}
+                        {vi ? `đã giảm ${c.rewardsEarned} lần` : fi ? `${c.rewardsEarned} etua` : `${c.rewardsEarned} rewards`}
                       </span>
                     </div>
 
@@ -395,14 +396,14 @@ export function LoyaltyManager({
                         onClick={() => openSummary(c.id)}
                         className="btn-outline flex-1 !py-2 text-xs"
                       >
-                        {vi ? "Thống kê" : "Summary"}
+                        {vi ? "Thống kê" : fi ? "Yhteenveto" : "Summary"}
                       </button>
                       <button
                         type="button"
                         onClick={() => setDetailsCardId(c.id)}
                         className="btn-primary flex-1 !py-2 text-xs"
                       >
-                        {vi ? "Chi tiết" : "Details"}
+                        {vi ? "Chi tiết" : fi ? "Tiedot" : "Details"}
                         <ChevronRight className="h-3.5 w-3.5" />
                       </button>
                     </div>
@@ -414,7 +415,7 @@ export function LoyaltyManager({
                         className="mt-2 inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-coral-500 to-berry-500 py-2 text-xs font-semibold text-white shadow-sm transition hover:brightness-105 disabled:opacity-50"
                       >
                         <Gift className="h-3.5 w-3.5" />
-                        {vi ? `Áp dụng giảm ${program.discountPercent}%` : `Apply ${program.discountPercent}% off`}
+                        {vi ? `Áp dụng giảm ${program.discountPercent}%` : fi ? `Myönnä ${program.discountPercent} % alennus` : `Apply ${program.discountPercent}% off`}
                       </button>
                     )}
                   </li>
@@ -432,27 +433,27 @@ export function LoyaltyManager({
               <UserPlus className="h-5 w-5" />
             </div>
             <div>
-              <h2 className="font-bold text-ink-900">{vi ? "Kích hoạt thẻ cho khách" : "Activate a card for a customer"}</h2>
+              <h2 className="font-bold text-ink-900">{vi ? "Kích hoạt thẻ cho khách" : fi ? "Aktivoi kortti asiakkaalle" : "Activate a card for a customer"}</h2>
               <p className="text-xs text-ink-400">
-                {vi ? "Khách sẽ nhận mã QR thẻ tích điểm qua email." : "The customer gets their loyalty QR by email."}
+                {vi ? "Khách sẽ nhận mã QR thẻ tích điểm qua email." : fi ? "Asiakas saa kanta-asiakaskortin QR-koodin sähköpostilla." : "The customer gets their loyalty QR by email."}
               </p>
             </div>
           </div>
           <form onSubmit={addMember} className="grid gap-3 sm:grid-cols-3">
-            <input required placeholder={vi ? "Họ tên" : "Name"} className="input" value={member.customerName} onChange={(e) => setMember({ ...member, customerName: e.target.value })} />
-            <input required type="email" placeholder="Email" className="input" value={member.customerEmail} onChange={(e) => setMember({ ...member, customerEmail: e.target.value })} />
-            <input placeholder={vi ? "Điện thoại (không bắt buộc)" : "Phone (optional)"} className="input" value={member.customerPhone} onChange={(e) => setMember({ ...member, customerPhone: e.target.value })} />
+            <input required placeholder={vi ? "Họ tên" : fi ? "Nimi" : "Name"} className="input" value={member.customerName} onChange={(e) => setMember({ ...member, customerName: e.target.value })} />
+            <input required type="email" placeholder={fi ? "Sähköposti" : "Email"} className="input" value={member.customerEmail} onChange={(e) => setMember({ ...member, customerEmail: e.target.value })} />
+            <input placeholder={vi ? "Điện thoại (không bắt buộc)" : fi ? "Puhelin (valinnainen)" : "Phone (optional)"} className="input" value={member.customerPhone} onChange={(e) => setMember({ ...member, customerPhone: e.target.value })} />
             {memberError && <p className="text-sm text-berry-500 sm:col-span-3">{memberError}</p>}
             {memberAdded && (
               <p className="flex items-center gap-1.5 text-sm text-teal-600 sm:col-span-3">
                 <CheckCircle2 className="h-4 w-4" />
-                {vi ? "Đã kích hoạt và gửi QR qua email." : "Activated — the QR has been emailed."}
+                {vi ? "Đã kích hoạt và gửi QR qua email." : fi ? "Aktivoitu – QR-koodi on lähetetty sähköpostilla." : "Activated — the QR has been emailed."}
               </p>
             )}
             <div className="sm:col-span-3">
               <button type="submit" disabled={adding} className="btn-primary">
                 {adding ? <Loader2 className="h-4 w-4 animate-spin" /> : <CreditCard className="h-4 w-4" />}
-                {vi ? "Kích hoạt và gửi QR qua email" : "Activate and email the QR"}
+                {vi ? "Kích hoạt và gửi QR qua email" : fi ? "Aktivoi ja lähetä QR-koodi sähköpostilla" : "Activate and email the QR"}
               </button>
             </div>
           </form>
@@ -466,20 +467,20 @@ export function LoyaltyManager({
               <Settings2 className="h-5 w-5" />
             </div>
             <div>
-              <h2 className="font-bold text-ink-900">{vi ? "Cài đặt chương trình" : "Program settings"}</h2>
+              <h2 className="font-bold text-ink-900">{vi ? "Cài đặt chương trình" : fi ? "Ohjelman asetukset" : "Program settings"}</h2>
               {hasProgram && !editingProgram && <p className="text-xs text-ink-400">{programSummary}</p>}
             </div>
           </div>
           {canEditProgram && hasProgram && !editingProgram && (
             <button type="button" onClick={() => setEditingProgram(true)} className="btn-outline !px-4 !py-2 text-xs">
               <Pencil className="h-3.5 w-3.5" />
-              {vi ? "Chỉnh sửa" : "Edit"}
+              {vi ? "Chỉnh sửa" : fi ? "Muokkaa" : "Edit"}
             </button>
           )}
           {programSaved && !editingProgram && (
             <span className="flex items-center gap-1 text-sm text-teal-600">
               <CheckCircle2 className="h-4 w-4" />
-              {vi ? "Đã lưu" : "Saved"}
+              {vi ? "Đã lưu" : fi ? "Tallennettu" : "Saved"}
             </span>
           )}
         </div>
@@ -487,21 +488,21 @@ export function LoyaltyManager({
           <p className="mt-4 rounded-2xl bg-mist-50 px-4 py-3 text-sm text-ink-500">
             {vi
               ? "Chủ salon chưa thiết lập chương trình thẻ tích điểm — sau khi thiết lập, bạn mới cấp được thẻ cho khách."
-              : "The owner hasn't set up the loyalty program yet — once they do, you can issue cards to customers."}
+              : fi ? "Omistaja ei ole vielä ottanut kanta-asiakasohjelmaa käyttöön – kun se on tehty, voit antaa kortteja asiakkaille." : "The owner hasn't set up the loyalty program yet — once they do, you can issue cards to customers."}
           </p>
         )}
         {canEditProgram && (!hasProgram || editingProgram) && (
           <form onSubmit={saveProgram} className="mt-5 grid gap-3 sm:grid-cols-2">
             <label className="text-xs font-medium text-ink-700">
-              {vi ? "Số lần để được giảm giá" : "Visits needed for a discount"}
+              {vi ? "Số lần để được giảm giá" : fi ? "Käyntejä alennukseen" : "Visits needed for a discount"}
               <input type="number" min={1} required className="input mt-1" value={program.pointsRequired} onChange={(e) => setProgram({ ...program, pointsRequired: Number(e.target.value) })} />
             </label>
             <label className="text-xs font-medium text-ink-700">
-              {vi ? "Giảm giá (%)" : "Discount (%)"}
+              {vi ? "Giảm giá (%)" : fi ? "Alennus (%)" : "Discount (%)"}
               <input type="number" min={1} max={100} required className="input mt-1" value={program.discountPercent} onChange={(e) => setProgram({ ...program, discountPercent: Number(e.target.value) })} />
             </label>
             <label className="text-xs font-medium text-ink-700">
-              {vi ? "Giá thẻ (0 = miễn phí)" : "Card price (0 = free)"}
+              {vi ? "Giá thẻ (0 = miễn phí)" : fi ? "Kortin hinta (0 = ilmainen)" : "Card price (0 = free)"}
               <div className="mt-1 flex gap-2">
                 <input type="number" min={0} step="0.01" className="input flex-1" value={program.price} onChange={(e) => setProgram({ ...program, price: Number(e.target.value) })} />
                 <input className="input w-24" maxLength={3} value={program.currency} onChange={(e) => setProgram({ ...program, currency: e.target.value.toUpperCase() })} />
@@ -510,11 +511,11 @@ export function LoyaltyManager({
             <div className="flex items-end gap-3 sm:col-span-2">
               <button type="submit" disabled={savingProgram} className="btn-primary">
                 {savingProgram && <Loader2 className="h-4 w-4 animate-spin" />}
-                {vi ? "Lưu" : "Save"}
+                {vi ? "Lưu" : fi ? "Tallenna" : "Save"}
               </button>
               {editingProgram && (
                 <button type="button" onClick={() => setEditingProgram(false)} className="btn-ghost text-sm">
-                  {vi ? "Hủy" : "Cancel"}
+                  {vi ? "Hủy" : fi ? "Peruuta" : "Cancel"}
                 </button>
               )}
             </div>

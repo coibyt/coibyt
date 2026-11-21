@@ -15,7 +15,7 @@ export default async function BookingCancelledPage({
       <XCircle className="h-14 w-14 text-berry-500" />
       <h1 className="text-2xl font-bold text-ink-900">{t("failed")}</h1>
       <Link href="/" className="btn-primary">
-        {locale === "vi" ? "Về trang chủ" : "Back to home"}
+        {locale === "vi" ? "Về trang chủ" : locale === "fi" ? "Takaisin etusivulle" : "Back to home"}
       </Link>
     </div>
   );

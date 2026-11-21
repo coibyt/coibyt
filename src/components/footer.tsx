@@ -127,7 +127,7 @@ export async function Footer() {
           links={[
             { href: "/business", label: t("forBusiness") },
             { href: "/loyalty-lite", label: liteStrings(locale).footerLink },
-            { href: "/salon-check", label: locale === "vi" ? "Kiểm tra salon miễn phí" : "Free salon check" },
+            { href: "/salon-check", label: locale === "vi" ? "Kiểm tra salon miễn phí" : locale === "fi" ? "Ilmainen salonkitarkistus" : "Free salon check" },
             { href: "/tools/price-list", label: priceListNavLabel(locale) },
             { href: "/tools/qr-poster", label: posterNavLabel(locale) },
             { href: "/academy#owner", label: academyOwnerNavLabel(locale) },
@@ -145,7 +145,7 @@ export async function Footer() {
             { href: "/", label: "VaraaAi.Com" },
             { href: "/support", label: supportCenterStrings(locale).eyebrow },
             { href: "/terms", label: t("terms") },
-            { href: "/privacy", label: locale === "vi" ? "Chính sách bảo mật" : "Privacy Policy" },
+            { href: "/privacy", label: locale === "vi" ? "Chính sách bảo mật" : locale === "fi" ? "Tietosuojakäytäntö" : "Privacy Policy" },
             { href: "/directory", label: locale === "vi" ? "Sơ đồ trang" : locale === "fi" ? "Sivukartta" : "Sitemap" },
           ]}
         />

@@ -506,18 +506,18 @@ async function notifyOwnerOfNewBooking(params: {
     const todayStr = format(toZonedTime(new Date(), params.businessTimezone), "yyyy-MM-dd");
     const bookingDayStr = format(toZonedTime(params.startsAt, params.businessTimezone), "yyyy-MM-dd");
     if (todayStr === bookingDayStr) {
-      const time = params.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
+      const time = params.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-US", {
         timeStyle: "short",
         timeZone: params.businessTimezone,
       });
       const payload = {
-        title: locale === "vi" ? "🔔 Có lịch hẹn mới hôm nay" : "🔔 New booking today",
+        title: locale === "vi" ? "🔔 Có lịch hẹn mới hôm nay" : locale === "fi" ? "🔔 Uusi varaus tänään" : "🔔 New booking today",
         tag: `booking-${params.bookingId ?? params.startsAt.getTime()}`,
         urgent: true,
         body:
           locale === "vi"
             ? `${params.customerName} vừa đặt "${params.serviceName}" lúc ${time}`
-            : `${params.customerName} just booked "${params.serviceName}" at ${time}`,
+            : locale === "fi" ? `${params.customerName} varasi juuri palvelun "${params.serviceName}" klo ${time}` : `${params.customerName} just booked "${params.serviceName}" at ${time}`,
         url: bookingsUrl,
       };
       // The owner, plus the stylist the customer booked (when they have
@@ -715,14 +715,14 @@ export async function notifyStaffOfManualBooking(bookingId: string, creatorUserI
     if (format(toZonedTime(new Date(), tz), "yyyy-MM-dd") !== format(toZonedTime(b.startsAt, tz), "yyyy-MM-dd")) return;
 
     const locale = localeForCountry(b.business.country);
-    const time = b.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", { timeStyle: "short", timeZone: tz });
+    const time = b.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-US", { timeStyle: "short", timeZone: tz });
     const tone = await getRingtoneSetting("staff");
     await sendPushToUser(staffUserId, {
-      title: locale === "vi" ? "🔔 Bạn có lịch hẹn mới hôm nay" : "🔔 You have a new booking today",
+      title: locale === "vi" ? "🔔 Bạn có lịch hẹn mới hôm nay" : locale === "fi" ? "🔔 Sinulla on uusi varaus tänään" : "🔔 You have a new booking today",
       body:
         locale === "vi"
           ? `${b.customer.name} · "${b.service.name}" lúc ${time}. Hãy chuẩn bị nhé!`
-          : `${b.customer.name} · "${b.service.name}" at ${time}. Get ready!`,
+          : locale === "fi" ? `${b.customer.name} · "${b.service.name}" klo ${time}. Valmistaudu!` : `${b.customer.name} · "${b.service.name}" at ${time}. Get ready!`,
       tag: `booking-${bookingId}`,
       urgent: true,
       url: `${siteUrl}/${locale}/business/dashboard/bookings`,

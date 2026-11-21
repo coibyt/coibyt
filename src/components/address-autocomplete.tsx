@@ -75,7 +75,7 @@ export function AddressAutocomplete({
         }}
         onFocus={() => setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 150)}
-        placeholder={locale === "vi" ? "Bắt đầu nhập địa chỉ..." : "Start typing an address..."}
+        placeholder={locale === "vi" ? "Bắt đầu nhập địa chỉ..." : locale === "fi" ? "Ala kirjoittaa osoitetta..." : "Start typing an address..."}
       />
       {open && suggestions.length > 0 && (
         <div className="absolute left-0 right-0 top-full z-30 mt-1 max-h-64 overflow-auto rounded-xl border border-ink-100 bg-white py-1 shadow-popover">
@@ -101,7 +101,7 @@ export function AddressAutocomplete({
             <p className="mt-1 text-xs text-ink-400">
               {locale === "vi"
                 ? "Kéo ghim để chỉnh vị trí chính xác hơn."
-                : "Drag the pin to fine-tune the exact location."}
+                : locale === "fi" ? "Siirrä nastaa tarkentaaksesi sijaintia." : "Drag the pin to fine-tune the exact location."}
             </p>
           )}
         </div>

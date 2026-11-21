@@ -200,7 +200,7 @@ export function MarketingContacts({
     const blob = new Blob([`﻿${S.templateCsv}`], { type: "text/csv;charset=utf-8" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = locale === "vi" ? "mau-danh-ba-khach.csv" : "contacts-template.csv";
+    a.download = locale === "vi" ? "mau-danh-ba-khach.csv" : locale === "fi" ? "yhteystiedot-malli.csv" : "contacts-template.csv";
     a.click();
     URL.revokeObjectURL(a.href);
   }

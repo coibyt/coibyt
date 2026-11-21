@@ -89,7 +89,7 @@ export function BusinessApplyForm({
     if (!res.ok) {
       setLoading(false);
       const data = await res.json().catch(() => ({}));
-      setError(data.error === "EMAIL_IN_USE" ? tAuth("emailInUse") : locale === "vi" ? "Có lỗi xảy ra, vui lòng thử lại." : "Something went wrong, please try again.");
+      setError(data.error === "EMAIL_IN_USE" ? tAuth("emailInUse") : locale === "vi" ? "Có lỗi xảy ra, vui lòng thử lại." : locale === "fi" ? "Jokin meni pieleen, yritä uudelleen." : "Something went wrong, please try again.");
       return;
     }
     if (!isAuthenticated) {
@@ -110,12 +110,12 @@ export function BusinessApplyForm({
         <>
           <div>
             <p className="mb-1 font-semibold text-ink-900">
-              {locale === "vi" ? "Tạo tài khoản của bạn" : "Create your account"}
+              {locale === "vi" ? "Tạo tài khoản của bạn" : locale === "fi" ? "Luo tilisi" : "Create your account"}
             </p>
             <p className="text-xs text-ink-400">
               {locale === "vi"
                 ? "Tài khoản này sẽ là tài khoản đăng nhập của bạn với vai trò chủ salon, đồng thời cũng là tài khoản khách hàng của bạn trên VaraaAi."
-                : "This becomes your login as the salon owner — and it's also your own VaraaAi customer account."}
+                : locale === "fi" ? "Tästä tulee kirjautumisesi salongin omistajana – ja samalla se on oma VaraaAi-asiakastilisi." : "This becomes your login as the salon owner — and it's also your own VaraaAi customer account."}
             </p>
           </div>
           <div>
@@ -162,7 +162,7 @@ export function BusinessApplyForm({
             <p className="label">
               {locale === "vi"
                 ? "Bạn muốn nhận tin nhắn và thông báo tiếp thị bằng cách nào?"
-                : "How would you like to receive marketing messages?"}
+                : locale === "fi" ? "Miten haluat vastaanottaa markkinointiviestejä?" : "How would you like to receive marketing messages?"}
             </p>
             <div className="flex flex-wrap gap-4 text-sm text-ink-700">
               <label className="flex items-center gap-2">
@@ -171,7 +171,7 @@ export function BusinessApplyForm({
                   checked={emailOptIn}
                   onChange={(e) => setEmailOptIn(e.target.checked)}
                 />
-                {locale === "vi" ? "Qua email" : "By email"}
+                {locale === "vi" ? "Qua email" : locale === "fi" ? "Sähköpostilla" : "By email"}
               </label>
               <label className="flex items-center gap-2">
                 <input
@@ -179,7 +179,7 @@ export function BusinessApplyForm({
                   checked={smsOptIn}
                   onChange={(e) => setSmsOptIn(e.target.checked)}
                 />
-                {locale === "vi" ? "Qua tin nhắn văn bản" : "By text message"}
+                {locale === "vi" ? "Qua tin nhắn văn bản" : locale === "fi" ? "Tekstiviestillä" : "By text message"}
               </label>
             </div>
           </div>
@@ -275,25 +275,25 @@ export function BusinessApplyForm({
         {t("submit")}
       </button>
       <p className="text-center text-xs text-ink-400">
-        {locale === "vi" ? "Bằng việc tiếp tục, tôi đồng ý " : "By continuing, I agree to "}
+        {locale === "vi" ? "Bằng việc tiếp tục, tôi đồng ý " : locale === "fi" ? "Jatkamalla hyväksyn VaraaAi.comin " : "By continuing, I agree to "}
         <Link
           href="/terms"
           target="_blank"
           rel="noopener noreferrer"
           className="font-medium text-primary-600 underline hover:no-underline"
         >
-          {locale === "vi" ? "Điều khoản sử dụng" : "Terms of Use"}
+          {locale === "vi" ? "Điều khoản sử dụng" : locale === "fi" ? "käyttöehdot" : "Terms of Use"}
         </Link>
-        {locale === "vi" ? " và " : " and "}
+        {locale === "vi" ? " và " : locale === "fi" ? " ja " : " and "}
         <Link
           href="/privacy"
           target="_blank"
           rel="noopener noreferrer"
           className="font-medium text-primary-600 underline hover:no-underline"
         >
-          {locale === "vi" ? "Chính sách bảo mật" : "Privacy Policy"}
+          {locale === "vi" ? "Chính sách bảo mật" : locale === "fi" ? "tietosuojakäytännön" : "Privacy Policy"}
         </Link>
-        {locale === "vi" ? " của VaraaAi.com." : " of VaraaAi.com."}
+        {locale === "vi" ? " của VaraaAi.com." : locale === "fi" ? "." : " of VaraaAi.com."}
       </p>
       {!isAuthenticated && (
         <p className="text-center text-xs text-ink-400">

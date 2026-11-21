@@ -24,6 +24,7 @@ export type CustomerReviewEventDetail = { bookingId: string; approved: boolean }
  * booking's popup). Renders nothing when none are waiting. */
 export function PendingCustomerReviews({ locale, timezone }: { locale: string; timezone: string }) {
   const vi = locale === "vi";
+  const fi = locale === "fi";
   const [reviews, setReviews] = useState<PendingReview[]>([]);
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
@@ -77,12 +78,12 @@ export function PendingCustomerReviews({ locale, timezone }: { locale: string; t
           <span className="block text-sm font-semibold text-ink-900">
             {vi
               ? `${reviews.length} đánh giá khách hàng chờ duyệt`
-              : `${reviews.length} customer rating${reviews.length > 1 ? "s" : ""} waiting for approval`}
+              : fi ? `${reviews.length} ${reviews.length === 1 ? "asiakasarvio odottaa" : "asiakasarviota odottaa"} hyväksyntää` : `${reviews.length} customer rating${reviews.length > 1 ? "s" : ""} waiting for approval`}
           </span>
           <span className="block text-xs text-ink-500">
             {vi
               ? "Nhân viên đã chấm sao — khách chỉ nhận email sau khi bạn duyệt."
-              : "Rated by your staff — the customer is emailed only once you approve."}
+              : fi ? "Henkilökuntasi arvioima – asiakas saa sähköpostin vasta, kun hyväksyt." : "Rated by your staff — the customer is emailed only once you approve."}
           </span>
         </span>
         <ChevronDown className={`h-4 w-4 shrink-0 text-ink-400 transition-transform ${open ? "rotate-180" : ""}`} />
@@ -97,7 +98,7 @@ export function PendingCustomerReviews({ locale, timezone }: { locale: string; t
                   <p className="truncate text-sm font-semibold text-ink-900">{r.customerName}</p>
                   <p className="text-xs text-ink-500">
                     {r.serviceName} · {when(r.startsAt)}
-                    {r.staffName ? ` · ${vi ? "Chấm bởi" : "By"} ${r.staffName}` : ""}
+                    {r.staffName ? ` · ${vi ? "Chấm bởi" : fi ? "Arvioinut" : "By"} ${r.staffName}` : ""}
                   </p>
                 </div>
                 <div className="flex items-center gap-0.5">
@@ -118,7 +119,7 @@ export function PendingCustomerReviews({ locale, timezone }: { locale: string; t
                   className="inline-flex items-center gap-1 rounded-full bg-emerald-600 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-emerald-700 disabled:opacity-50"
                 >
                   <Check className="h-3.5 w-3.5" />
-                  {vi ? "Duyệt" : "Approve"}
+                  {vi ? "Duyệt" : fi ? "Hyväksy" : "Approve"}
                 </button>
                 <button
                   type="button"
@@ -127,7 +128,7 @@ export function PendingCustomerReviews({ locale, timezone }: { locale: string; t
                   className="inline-flex items-center gap-1 rounded-full border border-ink-100 bg-white px-3.5 py-1.5 text-xs font-semibold text-ink-700 hover:bg-ink-50 disabled:opacity-50"
                 >
                   <X className="h-3.5 w-3.5" />
-                  {vi ? "Không duyệt" : "Decline"}
+                  {vi ? "Không duyệt" : fi ? "Hylkää" : "Decline"}
                 </button>
               </div>
             </li>

@@ -14,6 +14,7 @@ const TZ = "Europe/Helsinki";
 export default async function AdminAcademyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const vi = locale === "vi";
+  const fi = locale === "fi";
   const L = (a: string, b: string) => (vi ? a : b);
   const now = Date.now();
   const d1 = new Date(now - 864e5);
@@ -78,7 +79,7 @@ export default async function AdminAcademyPage({ params }: { params: Promise<{ l
 
   const hours = ((sum._sum.seconds ?? 0) / 3600).toFixed(1);
   const avgMin = total ? Math.round((sum._sum.seconds ?? 0) / 60 / total) : 0;
-  const fmt = (d: Date) => new Intl.DateTimeFormat(vi ? "vi-VN" : "en-GB", { timeZone: TZ, day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }).format(d);
+  const fmt = (d: Date) => new Intl.DateTimeFormat(vi ? "vi-VN" : fi ? "fi-FI" : "en-GB", { timeZone: TZ, day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }).format(d);
   const tabName = (t: string | null) => (t === "pro" ? L("Học nghề", "Trade") : t === "owner" ? L("Chủ salon", "Owner") : t === "customer" ? L("Khách hàng", "Customer") : L("Không chọn", "None"));
   const devName = (d: string) => (d === "mobile" ? L("Điện thoại", "Phone") : d === "tablet" ? L("Máy tính bảng", "Tablet") : L("Máy tính", "Computer"));
 

@@ -47,7 +47,7 @@ export function BusinessLocationButton({
           className="flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:underline"
         >
           <MapPinned className="h-4 w-4" />
-          {locale === "vi" ? "Xem trên bản đồ" : "View on map"}
+          {locale === "vi" ? "Xem trên bản đồ" : locale === "fi" ? "Näytä kartalla" : "View on map"}
         </button>
         <a
           href={directionsUrl}
@@ -56,7 +56,7 @@ export function BusinessLocationButton({
           className="flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:underline"
         >
           <Navigation className="h-4 w-4" />
-          {locale === "vi" ? "Chỉ đường" : "Get directions"}
+          {locale === "vi" ? "Chỉ đường" : locale === "fi" ? "Reittiohjeet" : "Get directions"}
         </a>
       </div>
       {showMap && (

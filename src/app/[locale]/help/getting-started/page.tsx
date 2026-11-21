@@ -66,9 +66,33 @@ const COPY = {
     helpTitle: "Still can't find what you need?",
     helpBody: "The AI assistant instantly answers anything about using VaraaAi, with a link to the right place. Need a person? The VaraaAi team is always there.",
   },
+  fi: {
+    metaTitle: "Ohjekeskus salongin omistajille — VaraaAi",
+    metaDescription: "Kuvitetut vaihe vaiheelta -ohjeet kaikkiin VaraaAi-toimintoihin: palvelut, henkilökunta, varaukset, kanta-asiakaskortit, lahjakortit, verkkosivu, tekoälyavustaja…",
+    eyebrow: "Ohjekeskus",
+    title: "Opi VaraaAi muutamassa minuutissa",
+    subtitle: "Vaihe vaiheelta -ohjeet, joiden kuvat näyttävät juuri oikean painikkeen – salongin perustamisesta asiakkaiden pitämiseen. Ei arvailua.",
+    dashboard: "Siirry hallintapaneeliin",
+    chat: "Kysy tekoälyavustajalta",
+    videos: "Katso opetusvideot",
+    stats: ["23 ohjetta", "Kuvitetut vaiheet", "Tuki 24/7"],
+    labels: {
+      search: "Hae ohjeita: kanta-asiakaskortit, aukioloajat, upotus…",
+      noResults: "Sopivaa ohjetta ei vielä löydy. Kysy tekoälyavustajalta – se vastaa heti ja antaa linkin.",
+      quickStart: "Aloita kuudella askeleella",
+      quickStartBody: "Etene tässä järjestyksessä, niin salonkisi on valmis ottamaan asiakkaita vastaan.",
+      open: "Avaa tämä sivu",
+      tips: "Vinkit",
+      contents: "Sisältö",
+      stepsLabel: "Vaiheet",
+      askAi: "Kysy tekoälyavustajalta",
+    },
+    helpTitle: "Etkö vieläkään löydä tarvitsemaasi?",
+    helpBody: "Tekoälyavustaja vastaa heti kaikkiin VaraaAi:n käyttöä koskeviin kysymyksiin ja antaa linkin oikeaan paikkaan. Tarvitsetko ihmisen? VaraaAi-tiimi on aina tavoitettavissa.",
+  },
 };
 
-const copy = (locale: string) => (locale === "vi" ? COPY.vi : COPY.en);
+const copy = (locale: string) => (locale === "vi" ? COPY.vi : locale === "fi" ? COPY.fi : COPY.en);
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { locale } = await params;

@@ -188,7 +188,7 @@ export default async function HomePage({
             <Link href="/salon-check" className="text-sm font-medium text-peach-200 underline-offset-4 hover:underline">
               {locale === "vi"
                 ? "Hoặc kiểm tra miễn phí salon của bạn trông thế nào trên mạng"
-                : "Or get a free check of how your salon looks online"}
+                : locale === "fi" ? "Tai tarkista ilmaiseksi, miltä salonkisi näyttää verkossa" : "Or get a free check of how your salon looks online"}
             </Link>
           </div>
         </div>

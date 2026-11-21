@@ -47,7 +47,7 @@ export function InstallAppButton({
     }
   }
 
-  const label = labelOverride ?? (locale === "vi" ? "Cài đặt ứng dụng" : "Install app");
+  const label = labelOverride ?? (locale === "vi" ? "Cài đặt ứng dụng" : locale === "fi" ? "Asenna sovellus" : "Install app");
 
   return (
     <>
@@ -62,7 +62,7 @@ export function InstallAppButton({
           <p className="mt-2 text-sm text-ink-700">
             {locale === "vi"
               ? "Nhấn nút Chia sẻ (hình vuông có mũi tên) ở thanh công cụ Safari, sau đó chọn \"Thêm vào Màn hình chính\"."
-              : 'Tap the Share button (square with an arrow) in Safari\'s toolbar, then choose "Add to Home Screen".'}
+              : locale === "fi" ? "Napauta Safarin työkalupalkin Jaa-painiketta (neliö, jossa nuoli) ja valitse \"Lisää Koti-valikkoon\"." : 'Tap the Share button (square with an arrow) in Safari\'s toolbar, then choose "Add to Home Screen".'}
           </p>
         </InstallHintModal>
       )}
@@ -73,7 +73,7 @@ export function InstallAppButton({
           <p className="mt-2 text-sm text-ink-700">
             {locale === "vi"
               ? "Mở menu trình duyệt của bạn (thường là biểu tượng ⋮ hoặc ≡) và chọn \"Cài đặt ứng dụng\" hoặc \"Thêm vào màn hình chính\"."
-              : 'Open your browser\'s menu (usually a ⋮ or ≡ icon) and choose "Install app" or "Add to Home Screen".'}
+              : locale === "fi" ? "Avaa selaimen valikko (yleensä ⋮- tai ≡-kuvake) ja valitse \"Asenna sovellus\" tai \"Lisää aloitusnäyttöön\"." : 'Open your browser\'s menu (usually a ⋮ or ≡ icon) and choose "Install app" or "Add to Home Screen".'}
           </p>
         </InstallHintModal>
       )}

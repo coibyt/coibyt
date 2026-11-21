@@ -19,7 +19,7 @@ export function ReviewList({
   if (reviews.length === 0) {
     return (
       <p className="rounded-2xl border border-dashed border-ink-100 p-6 text-center text-sm text-ink-400">
-        {locale === "vi" ? "Chưa có đánh giá nào." : "No reviews yet."}
+        {locale === "vi" ? "Chưa có đánh giá nào." : locale === "fi" ? "Ei vielä arvosteluja." : "No reviews yet."}
       </p>
     );
   }
@@ -53,7 +53,7 @@ export function ReviewList({
           {r.ownerReply && (
             <div className="mt-3 rounded-xl border-l-[3px] border-primary-400 bg-primary-50/70 px-4 py-3 text-sm leading-relaxed text-ink-700">
               <span className="mb-0.5 block text-xs font-semibold text-primary-700">
-                {locale === "vi" ? "Phản hồi từ salon" : "Reply from the salon"}
+                {locale === "vi" ? "Phản hồi từ salon" : locale === "fi" ? "Salongin vastaus" : "Reply from the salon"}
               </span>
               {r.ownerReply}
             </div>

@@ -521,7 +521,7 @@ export default async function BusinessSitePage({
       {giftCards.length > 0 && (
         <section className="bg-lp-surface py-20 sm:py-24">
           <div className="container max-w-4xl">
-            <SectionHeading title={locale === "vi" ? "Thẻ quà tặng" : "Gift cards"} />
+            <SectionHeading title={locale === "vi" ? "Thẻ quà tặng" : locale === "fi" ? "Lahjakortit" : "Gift cards"} />
             <div className="text-ink-900">
               <GiftCardSale
                 locale={locale}

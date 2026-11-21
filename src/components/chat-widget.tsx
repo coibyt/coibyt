@@ -152,7 +152,7 @@ export function ChatWidget({
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.size > MAX_IMAGE_BYTES) {
-      setError(locale === "vi" ? "Ảnh quá lớn (tối đa 5MB)." : "Image too large (max 5MB).");
+      setError(locale === "vi" ? "Ảnh quá lớn (tối đa 5MB)." : locale === "fi" ? "Kuva on liian suuri (enintään 5 Mt)." : "Image too large (max 5MB).");
       return;
     }
     setPendingImage(file);
@@ -173,7 +173,7 @@ export function ChatWidget({
     });
     setSending(false);
     if (!res.ok) {
-      setError(locale === "vi" ? "Không gửi được, vui lòng thử lại." : "Couldn't send, please try again.");
+      setError(locale === "vi" ? "Không gửi được, vui lòng thử lại." : locale === "fi" ? "Lähetys epäonnistui, yritä uudelleen." : "Couldn't send, please try again.");
       return;
     }
     const data = await res.json();
@@ -232,10 +232,10 @@ export function ChatWidget({
             {paused
               ? locale === "vi"
                 ? "Đã báo chủ salon — họ sẽ trả lời sớm."
-                : "The owner has been notified — they'll reply soon."
+                : locale === "fi" ? "Omistajalle on ilmoitettu – hän vastaa pian." : "The owner has been notified — they'll reply soon."
               : locale === "vi"
                 ? "Trợ lý AI đang hỗ trợ bạn."
-                : "An AI assistant is helping you."}
+                : locale === "fi" ? "Tekoälyavustaja auttaa sinua." : "An AI assistant is helping you."}
           </span>
           {!paused && (
             <button
@@ -244,7 +244,7 @@ export function ChatWidget({
               disabled={requestingHuman}
               className="shrink-0 whitespace-nowrap font-semibold text-primary-700 underline disabled:opacity-50"
             >
-              {locale === "vi" ? "Nói chuyện với chủ salon" : "Talk to the owner"}
+              {locale === "vi" ? "Nói chuyện với chủ salon" : locale === "fi" ? "Puhu omistajan kanssa" : "Talk to the owner"}
             </button>
           )}
         </div>
@@ -257,7 +257,7 @@ export function ChatWidget({
           </p>
         ) : messages.length === 0 ? (
           <p className="text-center text-sm text-ink-400">
-            {locale === "vi" ? "Chưa có tin nhắn nào." : "No messages yet."}
+            {locale === "vi" ? "Chưa có tin nhắn nào." : locale === "fi" ? "Ei vielä viestejä." : "No messages yet."}
           </p>
         ) : (
           messages.map((m) => {
@@ -287,7 +287,7 @@ export function ChatWidget({
                   {m.senderType === "AI" && (
                     <span className="mb-0.5 flex items-center gap-1 text-[10px] font-semibold text-primary-500">
                       <Sparkles className="h-2.5 w-2.5" />
-                      {locale === "vi" ? "Trợ lý AI" : "AI Assistant"}
+                      {locale === "vi" ? "Trợ lý AI" : locale === "fi" ? "Tekoälyavustaja" : "AI Assistant"}
                     </span>
                   )}
                   <div
@@ -331,12 +331,12 @@ export function ChatWidget({
                           <CalendarCheck className="h-3.5 w-3.5" />
                           {locale === "vi"
                             ? `Đã gửi khách nút đặt lịch ${offer.date} ${offer.time}`
-                            : `Sent the customer a booking button for ${offer.date} ${offer.time}`}
+                            : locale === "fi" ? `Asiakkaalle lähetettiin varauspainike: ${offer.date} ${offer.time}` : `Sent the customer a booking button for ${offer.date} ${offer.time}`}
                         </p>
                       )
                     )}
                     <p className={`mt-1 text-[10px] ${mine ? "text-white/70" : "text-ink-400"}`}>
-                      {new Date(m.createdAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
+                      {new Date(m.createdAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-US", {
                         hour: "2-digit",
                         minute: "2-digit",
                       })}
@@ -363,7 +363,7 @@ export function ChatWidget({
                       className={`rounded-full p-1 text-ink-400 hover:bg-mist-100 ${
                         myReaction?.emoji === "👍" ? "text-primary-500" : ""
                       }`}
-                      aria-label={locale === "vi" ? "Thích" : "Like"}
+                      aria-label={locale === "vi" ? "Thích" : locale === "fi" ? "Tykkää" : "Like"}
                     >
                       <ThumbsUp className="h-3 w-3" />
                     </button>
@@ -401,13 +401,13 @@ export function ChatWidget({
           type="button"
           onClick={() => fileInputRef.current?.click()}
           className="btn-ghost !p-2 text-ink-700"
-          aria-label={locale === "vi" ? "Đính kèm ảnh" : "Attach image"}
+          aria-label={locale === "vi" ? "Đính kèm ảnh" : locale === "fi" ? "Liitä kuva" : "Attach image"}
         >
           <Paperclip className="h-4 w-4" />
         </button>
         <input
           className="input flex-1"
-          placeholder={locale === "vi" ? "Nhập tin nhắn..." : "Type a message..."}
+          placeholder={locale === "vi" ? "Nhập tin nhắn..." : locale === "fi" ? "Kirjoita viesti..." : "Type a message..."}
           value={text}
           onChange={(e) => setText(e.target.value)}
           onKeyDown={(e) => {
@@ -422,7 +422,7 @@ export function ChatWidget({
           onClick={send}
           disabled={sending || (!text.trim() && !pendingImage)}
           className="btn-primary !p-2.5"
-          aria-label={locale === "vi" ? "Gửi" : "Send"}
+          aria-label={locale === "vi" ? "Gửi" : locale === "fi" ? "Lähetä" : "Send"}
         >
           {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
         </button>

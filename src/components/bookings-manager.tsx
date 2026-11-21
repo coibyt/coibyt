@@ -83,7 +83,7 @@ export function BookingsManager({
               <td className="px-4 py-3">{b.serviceName}</td>
               <td className="px-4 py-3">{b.staffName ?? "—"}</td>
               <td className="px-4 py-3">
-                {new Date(b.startsAt).toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
+                {new Date(b.startsAt).toLocaleString(locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-US", {
                   dateStyle: "medium",
                   timeStyle: "short",
                   timeZone: businessTimezone,

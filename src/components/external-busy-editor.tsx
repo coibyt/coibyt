@@ -52,6 +52,22 @@ const T = {
     TOO_LONG: "At most 4 hours before or after.",
     generic: "Couldn't save, please try again.",
   },
+  fi: {
+    title: "Muuta lukittua aikaa tässä toimipisteessä",
+    booking: "Asiakas toimipisteessä {branch}",
+    busy: "Varattu toimipisteessä {branch}",
+    core: "Aika toimipisteessä {branch}: {time}",
+    from: "Lukittu alkaen",
+    to: "Asti",
+    hint: "Vain tämän toimipisteen kalenteri muuttuu – muut toimipisteet pysyvät ennallaan. Aika toimipisteessä {branch} pysyy aina lukittuna.",
+    travel: "Oletus: {n} min matka-aikaa ennen ja jälkeen.",
+    save: "Tallenna",
+    reset: "Palauta oletus",
+    cancel: "Peruuta",
+    INSIDE_SOURCE: "Ei voi olla lyhyempi kuin aika toimipisteessä {branch} ({time}).",
+    TOO_LONG: "Enintään 4 tuntia ennen tai jälkeen.",
+    generic: "Tallennus epäonnistui, yritä uudelleen.",
+  },
 };
 
 /** The owner opens a locked "at another branch" block and sets how long it
@@ -69,7 +85,7 @@ export function ExternalBusyEditor({
   onClose: () => void;
   onSaved: () => void;
 }) {
-  const t = locale === "vi" ? T.vi : T.en;
+  const t = locale === "vi" ? T.vi : locale === "fi" ? T.fi : T.en;
   const hm = (iso: string) => formatInTimeZone(new Date(iso), timeZone, "HH:mm");
   const day = formatInTimeZone(new Date(block.coreStartsAt), timeZone, "yyyy-MM-dd");
   const [from, setFrom] = useState(hm(block.startsAt));

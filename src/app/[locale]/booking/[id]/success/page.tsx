@@ -52,7 +52,7 @@ export default async function BookingSuccessPage({
           : isCash || isBankTransfer
             ? locale === "vi"
               ? "Đặt lịch thành công!"
-              : "Booking confirmed!"
+              : locale === "fi" ? "Varaus vahvistettu!" : "Booking confirmed!"
             : t("success")}
       </h1>
       {pending && (
@@ -64,7 +64,7 @@ export default async function BookingSuccessPage({
         <p className="font-semibold text-ink-900">{booking.service.name}</p>
         <p className="text-sm text-ink-400">{booking.business.name}</p>
         <p className="text-sm text-ink-700">
-          {booking.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
+          {booking.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-US", {
             dateStyle: "full",
             timeStyle: "short",
             timeZone: booking.business.timezone,
@@ -95,14 +95,14 @@ export default async function BookingSuccessPage({
             <div className="space-y-1 rounded-xl border border-primary-100 bg-primary-50 p-3 text-xs text-ink-900">
               {booking.business.bankName && (
                 <p>
-                  <span className="text-ink-400">{locale === "vi" ? "Ngân hàng: " : "Bank: "}</span>
+                  <span className="text-ink-400">{locale === "vi" ? "Ngân hàng: " : locale === "fi" ? "Pankki: " : "Bank: "}</span>
                   {booking.business.bankName}
                 </p>
               )}
               {booking.business.bankAccountNumber && (
                 <p>
                   <span className="text-ink-400">
-                    {locale === "vi" ? "Số tài khoản: " : "Account number: "}
+                    {locale === "vi" ? "Số tài khoản: " : locale === "fi" ? "Tilinumero: " : "Account number: "}
                   </span>
                   {booking.business.bankAccountNumber}
                 </p>
@@ -110,7 +110,7 @@ export default async function BookingSuccessPage({
               {booking.business.bankAccountName && (
                 <p>
                   <span className="text-ink-400">
-                    {locale === "vi" ? "Chủ tài khoản: " : "Account holder: "}
+                    {locale === "vi" ? "Chủ tài khoản: " : locale === "fi" ? "Tilinomistaja: " : "Account holder: "}
                   </span>
                   {booking.business.bankAccountName}
                 </p>
@@ -126,7 +126,7 @@ export default async function BookingSuccessPage({
         </div>
       )}
       <Link href="/account/bookings" className="btn-primary">
-        {locale === "vi" ? "Xem lịch hẹn của tôi" : "View my bookings"}
+        {locale === "vi" ? "Xem lịch hẹn của tôi" : locale === "fi" ? "Näytä varaukseni" : "View my bookings"}
       </Link>
       <div className="flex flex-wrap items-center justify-center gap-2">
         <FollowButton

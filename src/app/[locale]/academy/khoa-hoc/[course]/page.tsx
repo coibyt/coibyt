@@ -89,7 +89,7 @@ export default async function CoursePage({ params }: { params: Params }) {
   const total = d.lessons.length;
   const time = longDuration(d.seconds, locale);
   const faq = seo.faq.map((f) => [pick(f.q, locale), pick(f.a, locale)] as const);
-  const langLabel = d.langs.includes("en") ? (locale === "vi" ? "Tiếng Việt · English" : "Vietnamese · English") : s.languageVi;
+  const langLabel = d.langs.includes("en") ? (locale === "vi" ? "Tiếng Việt · English" : locale === "fi" ? "Vietnam · englanti" : "Vietnamese · English") : s.languageVi;
 
   // The course is narrated in Vietnamese; pages in other languages play the English recording when there is one.
   const courseLang = locale !== "vi" && d.langs.includes("en") ? "en" : "vi";
