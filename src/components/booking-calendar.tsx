@@ -2838,7 +2838,7 @@ export function BookingCalendar({
 
       {activeBooking && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
-          <div className="card w-full max-w-sm animate-slide-up p-6">
+          <div className="card max-h-[calc(100dvh-2rem)] w-full max-w-sm animate-slide-up overflow-y-auto overscroll-contain p-6">
             <div className="mb-4 flex items-start justify-between">
               <div>
                 <p className="font-bold text-ink-900">{activeBooking.customerName}</p>
@@ -3678,7 +3678,7 @@ export function BookingCalendar({
 
       {checkoutDone && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
-          <div className="card w-full max-w-sm animate-slide-up p-6 text-center">
+          <div className="card max-h-[calc(100dvh-2rem)] w-full max-w-sm animate-slide-up overflow-y-auto overscroll-contain p-6 text-center">
             <p className="mb-1 font-bold text-ink-900">
               {locale === "vi" ? "Đã xác nhận thanh toán" : locale === "fi" ? "Maksu vahvistettu" : "Payment confirmed"}
             </p>
@@ -3789,7 +3789,7 @@ export function BookingCalendar({
 
       {editTimeOff && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4" onClick={() => setEditTimeOff(null)}>
-          <div className="card w-full max-w-sm animate-slide-up p-6" onClick={(e) => e.stopPropagation()}>
+          <div className="card max-h-[calc(100dvh-2rem)] w-full max-w-sm animate-slide-up overflow-y-auto overscroll-contain p-6" onClick={(e) => e.stopPropagation()}>
             <div className="mb-4 flex items-start justify-between">
               <p className="flex items-center gap-2 font-bold text-ink-900">
                 <Lock className="h-4 w-4 text-slate-500" />
@@ -4291,7 +4291,7 @@ export function BookingCalendar({
 
       {pendingReschedule && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
-          <div className="card w-full max-w-sm animate-slide-up p-6">
+          <div className="card max-h-[calc(100dvh-2rem)] w-full max-w-sm animate-slide-up overflow-y-auto overscroll-contain p-6">
             <p className="mb-3 text-lg font-bold text-ink-900">
               {locale === "vi" ? "Chuyển lịch hẹn?" : locale === "fi" ? "Siirretäänkö varaus?" : "Move this booking?"}
             </p>
@@ -4349,7 +4349,7 @@ export function BookingCalendar({
 
       {notifyPrompt && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
-          <div className="card w-full max-w-sm animate-slide-up p-6">
+          <div className="card max-h-[calc(100dvh-2rem)] w-full max-w-sm animate-slide-up overflow-y-auto overscroll-contain p-6">
             <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-primary-50 text-primary-700">
               <Mail className="h-5 w-5" />
             </span>
@@ -4388,7 +4388,7 @@ export function BookingCalendar({
 
       {pendingHoursChange && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
-          <div className="card w-full max-w-sm animate-slide-up p-6">
+          <div className="card max-h-[calc(100dvh-2rem)] w-full max-w-sm animate-slide-up overflow-y-auto overscroll-contain p-6">
             <p className="mb-3 text-lg font-bold text-ink-900">
               {pendingHoursChange.edge === "open" ? hd.confirmStart : hd.confirmEnd}
             </p>

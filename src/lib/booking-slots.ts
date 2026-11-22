@@ -43,7 +43,12 @@ export function serviceSlots(b: SlotSource): ServiceSlot[] {
   const extraTotalMin = b.extraServices.reduce((sum, e) => sum + e.durationMin, 0);
 
   const primaryStart = b.startsAt;
-  const primaryEnd = placed ? b.endsAt : new Date(b.endsAt.getTime() - extraTotalMin * 60_000);
+  // Back-to-back layout: the booking's span holds the primary service and then
+  // the extras. If the salon shortened that span below the extras' total (edit
+  // form → end time), the primary would end before it starts (seen as
+  // "11:00–10:30"); then the primary keeps the whole span and the extras follow it.
+  const backToBackEnd = new Date(b.endsAt.getTime() - extraTotalMin * 60_000);
+  const primaryEnd = placed || backToBackEnd <= primaryStart ? b.endsAt : backToBackEnd;
 
   const slots: ServiceSlot[] = [
     {
