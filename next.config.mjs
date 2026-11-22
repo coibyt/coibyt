@@ -18,6 +18,17 @@ const nextConfig = {
     "/api/tools/price-list/pdf": ["./node_modules/harfbuzzjs/dist/**/*", "./public/fonts/price-list/**/*"],
     "/api/tools/render-pdf": ["./node_modules/harfbuzzjs/dist/**/*", "./public/fonts/price-list/**/*"],
   },
+  // The Academy and social videos are not in git any more: with them the repository passed 3 GB and Hostinger's
+  // 5-minute clone failed (Nov 2026). They live in the static folder public_html/media on the same Hostinger
+  // site (https://varaaai.com/media/…, also media.varaaai.com); the pages link there through src/lib/media.ts.
+  // Old links (/academy/….mp4, /social/….mp4: shared posts, social queues) are sent on to the same file.
+  async redirects() {
+    return ["academy", "social"].map((dir) => ({
+      source: `/${dir}/:file(.*\\.mp4)`,
+      destination: `/media/${dir}/:file`,
+      permanent: false,
+    }));
+  },
   images: {
     // Business owners currently paste a direct image URL for their logo/cover
     // (there's no upload pipeline yet — see README "Giới hạn đã biết"), so we

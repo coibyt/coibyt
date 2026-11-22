@@ -1,7 +1,9 @@
 /** Pictures and intro videos of the Academy course pages (owner, 2026-11-19).
  * Files live in public/academy/khoa-hoc/: <slug>.jpg (wide banner, 1600x900),
- * <slug>-intro.mp4 | -intro.jpg | -intro.vtt (the intro video, Vietnamese).
+ * <slug>-intro.jpg | -intro.vtt and the intro video <slug>-intro.mp4 (served from /media, see lib/media.ts).
  * Link previews: public/og/khoa-hoc/<slug>-<lang>.jpg (1200x630). */
+
+import { videoUrl } from "@/lib/media";
 
 export const courseImage = (slug: string) => `/academy/khoa-hoc/${slug}.jpg`;
 
@@ -28,5 +30,5 @@ export function courseIntro(id: string, slug: string) {
   const v = COURSE_INTROS[id];
   if (!v) return null;
   const base = `/academy/khoa-hoc/${slug}-intro`;
-  return { src: `${base}.mp4`, poster: `${base}.jpg`, captions: `${base}.vtt`, seconds: v.seconds, published: v.published };
+  return { src: videoUrl(`${base}.mp4`), poster: `${base}.jpg`, captions: `${base}.vtt`, seconds: v.seconds, published: v.published };
 }

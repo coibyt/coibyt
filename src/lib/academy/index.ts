@@ -4,6 +4,7 @@ import { COURSES as SITE_COURSES, LESSONS as SITE_LESSONS } from "@/lib/academy/
 import { CRAFT_BRIDGE, CRAFT_COURSES, CRAFT_LESSONS } from "@/lib/academy/craft";
 import { TOSITEO_COURSES, TOSITEO_LESSONS } from "@/lib/academy/tositeo";
 import { DUBS } from "@/lib/academy/dubs";
+import { videoUrl } from "@/lib/media";
 import { localizedUrl } from "@/lib/seo";
 import { COURSE_SEO, courseSeoById, courseSeoBySlug } from "@/lib/academy/course-pages";
 import { courseImage, courseIntro, courseOgImage } from "@/lib/academy/course-media";
@@ -22,7 +23,7 @@ export function videoFor(lesson: Lesson, locale: string): (LessonVideo & { lang:
     const dub = DUBS[lang]?.[lesson.slug];
     if (dub) {
       const base = `/academy/${lang}/${lesson.slug}`;
-      return { src: `${base}.mp4`, poster: `${base}.jpg`, captions: `${base}.vtt`, seconds: dub.seconds, published: dub.published, lang };
+      return { src: videoUrl(`${base}.mp4`), poster: `${base}.jpg`, captions: `${base}.vtt`, seconds: dub.seconds, published: dub.published, lang };
     }
   }
   return { ...lesson.video, lang: "vi" };

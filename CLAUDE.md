@@ -13,6 +13,7 @@ Booking and salon-management site: Next.js 15 App Router, `[locale]` routes via 
 - Check a deploy: the build id is `"b":"…"` in the HTML of https://varaaai.com/fi. The `last-modified` header of `/_next/static/<id>/_ssgManifest.js` shows when it was built.
 - Before committing, run `npx tsc --noEmit -p .` and `npx eslint <changed files>`.
 - Commit only the files of the current task. Never commit unrelated work-in-progress files.
+- Videos (`.mp4` under `public/academy` and `public/social`) are NOT in git (with them the repo passed 3 GB and Hostinger's 5-minute clone failed, Nov 2026). Keep them in `public/…` locally as before (git ignores them), upload with `bash scripts/upload-media.sh <files>` (to `public_html/media` on Hostinger, served at https://varaaai.com/media/…), check the URL answers 200/206, then push the code. Pages link to videos through `videoUrl()` in `src/lib/media.ts`. Posters (.jpg) and subtitles (.vtt) stay in git.
 
 ## Database (production — be careful)
 - `.env` `DATABASE_URL` points at the production database. Never use it as a shadow DB, and never run `prisma migrate dev`, `prisma migrate reset` or `prisma db push`.

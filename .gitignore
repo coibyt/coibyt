@@ -45,3 +45,7 @@ next-env.d.ts
 
 # headless Chrome profile used by scripts/og/build-og.mjs
 scripts/og/.chrome/
+
+# Videos are not in git: they live in public_html/media on Hostinger (src/lib/media.ts, scripts/upload-media.sh)
+public/academy/**/*.mp4
+public/social/**/*.mp4

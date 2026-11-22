@@ -20,9 +20,10 @@
  * (C:\Hiep\hoat-hinh-ai\projects\varaaai-nghe): generated photographs with
  * hand-placed markers, the teacher voice, and synthesised sound effects. */
 import { l3, type Course, type Lesson, type LessonVideo } from "@/lib/academy/types";
+import { videoUrl } from "@/lib/media";
 
 const video = (slug: string, seconds: number, published: string): LessonVideo => ({
-  src: `/academy/${slug}.mp4`,
+  src: videoUrl(`/academy/${slug}.mp4`),
   poster: `/academy/${slug}.jpg`,
   captions: `/academy/${slug}.vtt`,
   seconds,

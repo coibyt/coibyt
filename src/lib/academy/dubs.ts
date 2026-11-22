@@ -1,6 +1,6 @@
 /** Lessons recorded again in another language — the screen walkthrough and
  * the voice, not only the page text. Files live in
- * public/academy/<locale>/<slug>.mp4 | .jpg | .vtt.
+ * public/academy/<locale>/<slug>.jpg | .vtt, and the video <slug>.mp4 under /media (see lib/media.ts).
  * A locale without its own recording gets the English one, and a lesson
  * without an English one keeps the original Vietnamese video. */
 export const DUBS: Record<string, Record<string, { seconds: number; published: string }>> = {
