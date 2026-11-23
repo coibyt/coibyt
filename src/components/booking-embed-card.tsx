@@ -1,8 +1,39 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
-import { Code2, ExternalLink, Copy, Check, X } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { Code2, ExternalLink, Copy, Check, X, Link2, Share2 } from "lucide-react";
+import { shortLinkPath } from "@/lib/short-link/path";
+
+const SHORT_TEXT: Record<string, { title: string; hint: string; copy: string; copied: string; share: string; website: string; shareText: string }> = {
+  vi: {
+    title: "Link ngắn gửi khách",
+    hint: "Gửi link này qua tin nhắn, Messenger, Zalo hay WhatsApp — khách bấm vào là đặt lịch được ngay.",
+    copy: "Sao chép link ngắn",
+    copied: "Đã sao chép",
+    share: "Gửi qua…",
+    website: "Link cho website của bạn",
+    shareText: "Đặt lịch với chúng tôi tại đây:",
+  },
+  en: {
+    title: "Short link for customers",
+    hint: "Send this link by text, Messenger or WhatsApp — customers tap it and book straight away.",
+    copy: "Copy short link",
+    copied: "Copied",
+    share: "Send via…",
+    website: "Link for your website",
+    shareText: "Book with us here:",
+  },
+  fi: {
+    title: "Lyhyt linkki asiakkaille",
+    hint: "Lähetä linkki tekstiviestillä, Messengerissä tai WhatsAppissa — asiakas napauttaa ja varaa heti.",
+    copy: "Kopioi lyhyt linkki",
+    copied: "Kopioitu",
+    share: "Lähetä…",
+    website: "Linkki omalle verkkosivullesi",
+    shareText: "Varaa aikasi täältä:",
+  },
+};
 
 export function BookingEmbedCard({
   slug,
@@ -18,14 +49,20 @@ export function BookingEmbedCard({
   defaultLocale: string;
 }) {
   const t = useTranslations("settingsCards");
+  const uiLocale = useLocale();
+  const st = SHORT_TEXT[uiLocale] ?? SHORT_TEXT.en;
   const [showModal, setShowModal] = useState(false);
-  const [copied, setCopied] = useState<"url" | "code" | null>(null);
+  const [copied, setCopied] = useState<"url" | "code" | "short" | null>(null);
+  const [canShare, setCanShare] = useState(false);
+  useEffect(() => setCanShare(typeof navigator !== "undefined" && typeof navigator.share === "function"), []);
 
   // Read after hydration, so the server and first client render agree.
   const [origin, setOrigin] = useState("");
   useEffect(() => setOrigin(window.location.origin), []);
   const isChain = variant === "chain";
   const embedUrl = `${origin}/embed/${isChain ? "chain/" : ""}${slug}?locale=${defaultLocale}`;
+  const shortUrl = `${origin}${shortLinkPath(slug, isChain ? "chain" : "salon")}`;
+  const shortLabel = shortUrl.replace(/^https?:\/\/(www\.)?/, "");
   const iframeId = `varaaai-embed-${isChain ? "chain-" : ""}${slug}`;
   const embedCode = `<iframe id="${iframeId}" src="${embedUrl}" style="width:100%;border:0;"></iframe>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/2.8.3/iframeResizer.min.js"></script>
@@ -33,7 +70,15 @@ export function BookingEmbedCard({
   iFrameResize({ checkOrigin: false }, "#${iframeId}");
 </script>`;
 
-  function copy(text: string, which: "url" | "code") {
+  async function share() {
+    try {
+      await navigator.share({ text: st.shareText, url: shortUrl });
+    } catch {
+      // Closed the share sheet, or the browser refused — nothing to do.
+    }
+  }
+
+  function copy(text: string, which: "url" | "code" | "short") {
     navigator.clipboard.writeText(text);
     setCopied(which);
     setTimeout(() => setCopied(null), 2000);
@@ -48,6 +93,28 @@ export function BookingEmbedCard({
         {isChain ? t("chainSubtitle") : t("embedSubtitle")}
       </p>
 
+      <div className="mb-4 rounded-2xl border border-[#e8d3a6] bg-gradient-to-br from-[#fdf8ee] to-white p-3.5">
+        <p className="flex items-center gap-1.5 text-xs font-semibold text-[#8a6a2c]">
+          <Link2 className="h-3.5 w-3.5" />
+          {st.title}
+        </p>
+        <p className="mt-1.5 select-all break-all text-base font-bold text-ink-900">{origin ? shortLabel : " "}</p>
+        <p className="mt-1 text-xs text-ink-400">{st.hint}</p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <button onClick={() => copy(shortUrl, "short")} className="btn-primary !px-3 !py-1.5 text-xs">
+            {copied === "short" ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+            {copied === "short" ? st.copied : st.copy}
+          </button>
+          {canShare && (
+            <button onClick={share} className="btn-outline !px-3 !py-1.5 text-xs">
+              <Share2 className="h-3.5 w-3.5" />
+              {st.share}
+            </button>
+          )}
+        </div>
+      </div>
+
+      <p className="mb-1.5 text-xs font-medium text-ink-500">{st.website}</p>
       <div className="mb-3 flex items-center gap-2 rounded-xl border border-ink-100 bg-mist-50 px-3 py-2 text-xs text-ink-700">
         <span className="flex-1 truncate">{embedUrl}</span>
       </div>

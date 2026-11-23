@@ -31,6 +31,7 @@ export default function middleware(req: NextRequest) {
 
 export const config = {
   // Skip API routes, Next internals, the chrome-less embed/site pages, the
-  // /q/ short links printed in QR posters, and files with an extension.
-  matcher: ["/((?!api|trpc|_next|_vercel|embed|site|q/|.*\\..*).*)"],
+  // /q/ short links printed in QR posters, the /s/ and /c/ short booking
+  // links salons send in messages, and files with an extension.
+  matcher: ["/((?!api|trpc|_next|_vercel|embed|site|q/|s/|c/|.*\\..*).*)"],
 };
