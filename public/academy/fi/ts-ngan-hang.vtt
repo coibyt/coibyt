@@ -1,0 +1,112 @@
+WEBVTT
+
+00:00:00.614 --> 00:00:01.230
+Hei!
+
+00:00:01.572 --> 00:00:03.870
+Kuun lopussa kirjanpitäjä kysyy usein:
+
+00:00:04.219 --> 00:00:07.550
+mitä tällä korttimaksulla ostettiin, ja missä kuitti on?
+
+00:00:08.278 --> 00:00:09.870
+Tositeo vastaa puolestasi.
+
+00:00:10.504 --> 00:00:14.190
+Tuo tiliote, niin jokainen maksu yhdistetään omaan kuittiinsa.
+
+00:00:14.749 --> 00:00:19.390
+Näet heti, mistä kuitti puuttuu, ja Tositeo muistuttaa oikeaa henkilöä.
+
+00:00:20.060 --> 00:00:22.868
+Mene ensin verkkopankkiin, avaa tiliote,
+
+00:00:22.818 --> 00:00:28.591
+valitse aikaväli ja lataa se CSV-tiedostona tai muussa pankin tarjoamassa muodossa.
+
+00:00:29.138 --> 00:00:30.911
+Minkä tahansa maan pankki käy.
+
+00:00:31.733 --> 00:00:35.231
+Avaa Tositeossa Pankki ja kortti ja napauta Tuo tiliote.
+
+00:00:35.893 --> 00:00:40.591
+Kirjoita tilin tai kortin nimi, valitse ladattu tiedosto ja napauta Tuo.
+
+00:00:41.277 --> 00:00:44.288
+Tositeo kertoo, montako tapahtumaa tuotiin.
+
+00:00:44.893 --> 00:00:48.928
+Jo aiemmin tuodut rivit ohitetaan, joten tuplatuonti ei haittaa.
+
+00:00:49.333 --> 00:00:51.088
+Jokaisella maksulla on tila.
+
+00:00:52.066 --> 00:00:55.408
+Täsmäytetty tarkoittaa, että kuitti on jo olemassa.
+
+00:00:55.894 --> 00:00:59.008
+Kuitti puuttuu tarkoittaa, ettei sitä vielä ole.
+
+00:00:59.706 --> 00:01:04.448
+Saapuvat maksut, kuten asiakkaan maksama lasku, merkitään automaattisesti:
+
+00:01:04.682 --> 00:01:06.048
+Ei tarvitse kuittia.
+
+00:01:06.726 --> 00:01:10.617
+Napauta välilehteä Kuitti puuttuu, niin näet vain puuttuvat.
+
+00:01:11.457 --> 00:01:13.897
+Jokaiselle maksulle on kaksi vaihtoehtoa.
+
+00:01:14.586 --> 00:01:18.617
+Napauta Lisää kuitti, niin kuvaat kuitin juuri tälle maksulle.
+
+00:01:19.111 --> 00:01:20.995
+Tai napauta Ei tarvitse kuittia,
+
+00:01:20.945 --> 00:01:25.177
+esimerkiksi pankkikuluille tai siirroille yrityksen omien tilien välillä.
+
+00:01:25.852 --> 00:01:30.925
+Kun napautat Lisää kuitti, Lisää kuitti -sivu aukeaa, ja siinä kerrotaan,
+
+00:01:30.875 --> 00:01:33.265
+mihin maksuun kuitti täsmäytetään.
+
+00:01:33.856 --> 00:01:37.825
+Päivämäärä, myyjä ja summa on jo täytetty pankin tiedoista.
+
+00:01:38.309 --> 00:01:41.345
+Kuvaa vain kuitti, valitse kululaji ja lähetä.
+
+00:01:41.959 --> 00:01:45.361
+Täsmäytetty-välilehdellä näkyy jokainen maksu kuitteineen.
+
+00:01:45.907 --> 00:01:48.721
+Jos pari on väärä, napauta Pura täsmäytys.
+
+00:01:49.362 --> 00:01:52.321
+Myöhemmin lisätyt kuitit täsmäytetään automaattisesti.
+
+00:01:52.947 --> 00:01:57.601
+Voit myös napauttaa Täsmäytä uudelleen, niin Tositeo käy kaiken läpi alusta.
+
+00:01:58.284 --> 00:02:01.453
+Jos joku maksoi kortilla mutta ei ole lisännyt kuittia,
+
+00:02:01.403 --> 00:02:04.175
+Tositeo lähettää hänelle sähköpostimuistutuksen,
+
+00:02:04.444 --> 00:02:07.535
+kun yrityksen asetuksissa valitsemasi päivät ovat kuluneet.
+
+00:02:08.486 --> 00:02:11.775
+Jos haluat muistuttaa heti, napauta Lähetä muistutus nyt.
+
+00:02:12.666 --> 00:02:18.175
+Kuun lopussa napauta Kuukausikooste CSV, niin saat taulukon kirjanpitäjälle.
+
+00:02:18.656 --> 00:02:20.335
+Tee nyt tietovisa videon alla.
