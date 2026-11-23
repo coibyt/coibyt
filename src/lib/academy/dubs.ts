@@ -139,5 +139,12 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "noi-mong-form": { seconds: 453, published: "2026-11-22" },
     "dap-bot-hieu-dung": { seconds: 493, published: "2026-11-22" },
     "fill-mong-hieu-dung": { seconds: 432, published: "2026-11-22" },
+    "fill-mong": { seconds: 436, published: "2026-11-23" },
+    "lash-lift-hieu-dung": { seconds: 424, published: "2026-11-23" },
+    "gel-hieu-dung": { seconds: 474, published: "2026-11-23" },
+    "noi-mong-form-hieu-dung": { seconds: 417, published: "2026-11-23" },
+    "dua-form-mong-hieu-dung": { seconds: 390, published: "2026-11-23" },
+    "dap-bot-acrylic": { seconds: 456, published: "2026-11-23" },
+    "cham-soc-mong-co-ban": { seconds: 428, published: "2026-11-23" },
   },
 };
