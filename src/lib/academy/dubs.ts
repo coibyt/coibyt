@@ -115,6 +115,16 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "cham-soc-mong-co-ban": { seconds: 376, published: "2026-11-20" },
     "mi-volume-hieu-dung": { seconds: 396, published: "2026-11-20" },
     "spa-massage-mat": { seconds: 376, published: "2026-11-20" },
+    // Tositeo course in English (voice Kai).
+    "ts-bat-dau": { seconds: 175, published: "2026-11-23" },
+    "ts-hoa-don": { seconds: 185, published: "2026-11-23" },
+    "ts-cong-tac-phi": { seconds: 143, published: "2026-11-23" },
+    "ts-duyet-chi": { seconds: 116, published: "2026-11-23" },
+    "ts-ngan-hang": { seconds: 124, published: "2026-11-23" },
+    "ts-hoan-tien-xuat": { seconds: 108, published: "2026-11-23" },
+    "ts-ke-toan-tai-lieu": { seconds: 123, published: "2026-11-23" },
+    "ts-van-phong": { seconds: 120, published: "2026-11-23" },
+    "ts-hach-toan": { seconds: 105, published: "2026-11-23" },
   },
   // Craft lessons in Finnish (voice "Sini").
   fi: {

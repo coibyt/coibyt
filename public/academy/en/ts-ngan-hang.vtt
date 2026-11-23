@@ -1,0 +1,127 @@
+WEBVTT
+
+00:00:00.568 --> 00:00:01.230
+Hi there!
+
+00:00:01.366 --> 00:00:03.550
+At the end of the month, accountants often ask:
+
+00:00:03.792 --> 00:00:06.750
+what was this card payment for, and where's the receipt?
+
+00:00:07.099 --> 00:00:08.510
+Tositeo answers for you.
+
+00:00:09.002 --> 00:00:10.349
+Import your bank statement,
+
+00:00:10.299 --> 00:00:13.230
+and every payment is matched with its receipt automatically.
+
+00:00:13.532 --> 00:00:16.501
+You see right away which payments still have no receipt,
+
+00:00:16.451 --> 00:00:18.430
+and Tositeo reminds the right person.
+
+00:00:18.936 --> 00:00:23.649
+First, go to your online bank, open the account statement, choose the period,
+
+00:00:23.599 --> 00:00:25.466
+and download it as a CSV file,
+
+00:00:25.582 --> 00:00:27.386
+or another format your bank offers.
+
+00:00:27.693 --> 00:00:29.226
+Banks in every country work.
+
+00:00:29.635 --> 00:00:33.466
+In Tositeo, open Bank & card, and click Import a statement.
+
+00:00:33.893 --> 00:00:37.678
+Enter the account or card name, choose the file you just downloaded,
+
+00:00:37.628 --> 00:00:38.666
+then click Import.
+
+00:00:39.206 --> 00:00:42.197
+Tositeo tells you how many transactions were imported.
+
+00:00:42.541 --> 00:00:46.757
+Rows that were already there are skipped, so importing twice does no harm.
+
+00:00:47.256 --> 00:00:48.917
+Every payment has a status.
+
+00:00:49.181 --> 00:00:50.917
+Matched means it has a receipt.
+
+00:00:51.185 --> 00:00:53.077
+Receipt missing means it doesn't yet.
+
+00:00:53.427 --> 00:00:56.096
+Incoming money, like a payment from a customer,
+
+00:00:56.046 --> 00:00:58.437
+is marked No receipt needed automatically.
+
+00:00:59.001 --> 00:01:03.177
+Click the Receipt missing tab to see only the payments still missing a receipt.
+
+00:01:03.526 --> 00:01:05.817
+For each one, you have two choices.
+
+00:01:06.086 --> 00:01:09.817
+Click Add receipt, to snap the receipt for exactly this payment.
+
+00:01:10.073 --> 00:01:13.340
+Or click No receipt needed, for example for bank fees,
+
+00:01:13.290 --> 00:01:16.377
+or transfers between two of the company's accounts.
+
+00:01:17.006 --> 00:01:19.949
+When you click Add receipt, the Add receipt page opens,
+
+00:01:19.899 --> 00:01:23.422
+with a line showing which payment this receipt will be matched to.
+
+00:01:23.890 --> 00:01:27.502
+The date, the merchant and the amount are already filled in from the bank.
+
+00:01:27.851 --> 00:01:31.182
+You just snap the receipt, choose the expense type, and send it.
+
+00:01:31.733 --> 00:01:34.881
+The Matched tab shows each payment together with its receipt.
+
+00:01:35.191 --> 00:01:37.841
+If something was matched wrongly, click Unmatch.
+
+00:01:38.109 --> 00:01:40.481
+Receipts added later are matched automatically.
+
+00:01:40.670 --> 00:01:44.721
+Or click Match again, so Tositeo checks everything again from the start.
+
+00:01:45.395 --> 00:01:48.731
+If someone paid by card and hasn't handed in the receipt,
+
+00:01:48.681 --> 00:01:50.576
+Tositeo e-mails them a reminder,
+
+00:01:50.680 --> 00:01:53.296
+after the number of days you chose in Company settings.
+
+00:01:53.617 --> 00:01:56.656
+To remind them right now, click Send reminder now.
+
+00:01:57.015 --> 00:01:58.343
+At the end of the month,
+
+00:01:58.293 --> 00:02:01.856
+click Monthly summary CSV to download a table for your accountant.
+
+00:02:02.125 --> 00:02:03.616
+Now take the quiz below.
