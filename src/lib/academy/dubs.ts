@@ -146,6 +146,10 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "dua-form-mong-hieu-dung": { seconds: 390, published: "2026-11-23" },
     "dap-bot-acrylic": { seconds: 456, published: "2026-11-23" },
     "cham-soc-mong-co-ban": { seconds: 428, published: "2026-11-23" },
+    "builder-gel": { seconds: 416, published: "2026-11-23" },
+    "cham-soc-mong-co-ban-hieu-dung": { seconds: 390, published: "2026-11-23" },
+    "dua-form-mong": { seconds: 401, published: "2026-11-23" },
+    "toc-tu-van-chia-vung-hieu-dung": { seconds: 459, published: "2026-11-23" },
     // Tositeo course in Finnish (voice Sini).
     "ts-bat-dau": { seconds: 191, published: "2026-11-23" },
     "ts-hoa-don": { seconds: 204, published: "2026-11-23" },
