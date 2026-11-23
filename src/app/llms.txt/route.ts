@@ -39,6 +39,7 @@ export async function GET() {
     `- [Free multilingual price list maker](${SITE}/en/tools/price-list): up to 3 languages side by side, AI translation, booking QR code, printable PDF`,
     `- [Free QR booking poster maker](${SITE}/en/tools/qr-poster)`,
     `- [Free salon check](${SITE}/en/salon-check): scores a salon's website, Google, Facebook and Instagram presence in 60 seconds`,
+    `- [2-minute salon quiz](${SITE}/en/salon-quiz): 12 questions for salon owners, then a plan of what to set up first`,
     `- [Help centre](${SITE}/en/help/getting-started): step-by-step guides to every feature`,
     `- [Support](${SITE}/en/support)`,
     "",

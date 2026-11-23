@@ -131,6 +131,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/app", 0.6, "monthly"),
     entry("/loyalty-lite", 0.7, "monthly"),
     entry("/salon-check", 0.6, "monthly"),
+    entry("/salon-quiz", 0.7, "monthly"),
     entry("/tools/price-list", 0.7, "monthly"),
     entry("/tools/qr-poster", 0.7, "monthly"),
     entry("/help/getting-started", 0.5, "monthly"),

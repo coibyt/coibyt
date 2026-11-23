@@ -8,6 +8,9 @@ const ALLOWED: Record<string, string[]> = {
   qr_poster: ["open", "download_pdf", "download_png", "cta_click"],
   // /loyalty-lite: a page view, and closing the welcome sign-up card.
   loyalty_lite: ["open", "popup_close"],
+  // /salon-quiz: page view, first question, start of part 2, the plan shown,
+  // the sign-up button, and the spoken intro played.
+  salon_quiz: ["open", "start", "halfway", "finish", "cta_click", "audio"],
 };
 
 /** Public — anonymous usage counters for the free marketing tools. */

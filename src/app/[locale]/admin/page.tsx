@@ -87,7 +87,7 @@ export default async function AdminPendingPage({
           ["qr_poster", vi ? "Công cụ poster QR miễn phí — 30 ngày qua" : fi ? "Ilmainen QR-julistetyökalu – 30 päivää" : "Free QR poster tool — last 30 days", false],
         ] as const
       ).map(([tool, title, extra]) => (
-        <div key={tool} className="mb-4 rounded-2xl border border-ink-100 bg-white p-4 last-of-type:mb-8">
+        <div key={tool} className="mb-4 rounded-2xl border border-ink-100 bg-white p-4">
           <h2 className="mb-3 text-sm font-bold text-ink-900">{title}</h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-6">
             {(
@@ -112,6 +112,27 @@ export default async function AdminPendingPage({
           </div>
         </div>
       ))}
+      {/* /salon-quiz, the landing page for ads aimed at salon owners */}
+      <div className="mb-8 rounded-2xl border border-ink-100 bg-white p-4">
+        <h2 className="mb-3 text-sm font-bold text-ink-900">{vi ? "Trắc nghiệm salon (/salon-quiz) — 30 ngày qua" : fi ? "Salonkitesti (/salon-quiz) – 30 päivää" : "Salon quiz (/salon-quiz) — last 30 days"}</h2>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-6">
+          {(
+            [
+              ["open", vi ? "Lượt mở" : fi ? "Avattu" : "Opened"],
+              ["start", vi ? "Bắt đầu làm" : fi ? "Aloitettu" : "Started"],
+              ["halfway", vi ? "Tới phần 2" : fi ? "Osaan 2 asti" : "Reached part 2"],
+              ["finish", vi ? "Xem kết quả" : fi ? "Tulos nähty" : "Saw the plan"],
+              ["cta_click", vi ? "Bấm đăng ký" : fi ? "Rekisteröitymisklikkaukset" : "Sign-up clicks"],
+              ["audio", vi ? "Nghe lời chào" : fi ? "Esittely kuunneltu" : "Played the intro"],
+            ] as const
+          ).map(([ev, label]) => (
+            <div key={ev} className="rounded-xl bg-mist-50 px-3 py-2">
+              <p className="text-lg font-bold text-ink-900">{toolCount("salon_quiz", ev)}</p>
+              <p className="text-xs text-ink-400">{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
       <h1 className="mb-4 text-xl font-bold text-ink-900">{t("pendingBusinesses")}</h1>
       {businesses.length === 0 ? (
         <p className="text-sm text-ink-400">{t("noPending")}</p>
