@@ -375,8 +375,12 @@ export function BookingWidget({
     email: !/\S+@\S+\.\S+/.test(guestEmail),
     password: guestPassword.length < 8,
   };
-  const fieldBad = (k: keyof typeof bad) => showMissing && isGuest && !showSignIn && bad[k];
-  const badInput = "!border-berry-500 !ring-2 !ring-berry-100";
+  // Required fields stay red until they are filled in correctly; the short
+  // messages under them appear only after a tap on "Confirm".
+  const fieldBad = (k: keyof typeof bad) => isGuest && !showSignIn && bad[k];
+  const fieldMsg = (k: keyof typeof bad) => showMissing && fieldBad(k);
+  const badInput = showMissing ? "!border-berry-500 !ring-2 !ring-berry-100" : "!border-berry-400";
+  const req = <span className="ml-0.5 text-berry-500">*</span>;
 
   /** Scroll to the first thing still missing (and focus it), or book if nothing is. */
   function confirmBooking() {
@@ -732,7 +736,7 @@ export function BookingWidget({
             <div className="space-y-4">
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
-                  <label className="label" htmlFor="bw-name">{tAuth("name")}</label>
+                  <label className="label" htmlFor="bw-name">{tAuth("name")}{req}</label>
                   <input
                     id="bw-name"
                     required
@@ -742,10 +746,10 @@ export function BookingWidget({
                     value={guestName}
                     onChange={(e) => setGuestName(e.target.value)}
                   />
-                  {fieldBad("name") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.name}</p>}
+                  {fieldMsg("name") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.name}</p>}
                 </div>
                 <div>
-                  <label className="label" htmlFor="bw-phone">{tAuth("phone")}</label>
+                  <label className="label" htmlFor="bw-phone">{tAuth("phone")}{req}</label>
                   <input
                     id="bw-phone"
                     required
@@ -756,10 +760,10 @@ export function BookingWidget({
                     value={guestPhone}
                     onChange={(e) => setGuestPhone(e.target.value)}
                   />
-                  {fieldBad("phone") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.phone}</p>}
+                  {fieldMsg("phone") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.phone}</p>}
                 </div>
                 <div>
-                  <label className="label" htmlFor="bw-email">{tAuth("email")}</label>
+                  <label className="label" htmlFor="bw-email">{tAuth("email")}{req}</label>
                   <input
                     id="bw-email"
                     required
@@ -770,10 +774,10 @@ export function BookingWidget({
                     value={guestEmail}
                     onChange={(e) => setGuestEmail(e.target.value)}
                   />
-                  {fieldBad("email") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.email}</p>}
+                  {fieldMsg("email") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.email}</p>}
                 </div>
                 <div>
-                  <label className="label" htmlFor="bw-password">{tAuth("password")}</label>
+                  <label className="label" htmlFor="bw-password">{tAuth("password")}{req}</label>
                   <input
                     id="bw-password"
                     required
@@ -785,7 +789,7 @@ export function BookingWidget({
                     value={guestPassword}
                     onChange={(e) => setGuestPassword(e.target.value)}
                   />
-                  {fieldBad("password") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.password}</p>}
+                  {fieldMsg("password") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.password}</p>}
                 </div>
               </div>
 
@@ -1009,7 +1013,7 @@ export function BookingWidget({
       )}
       <label
         className={`flex items-start gap-3 rounded-2xl px-4 py-3 text-sm text-ink-700 transition-colors ${
-          showMissing && !acceptedTerms ? "bg-berry-50 ring-2 ring-berry-500" : "bg-white ring-1 ring-ink-100"
+          !acceptedTerms ? "bg-berry-50 ring-2 ring-berry-500" : "bg-white ring-1 ring-ink-100"
         }`}
       >
         <input
