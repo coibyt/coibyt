@@ -182,6 +182,12 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "spa-facial-hieu-dung": { seconds: 391, published: "2026-11-24" },
     "spa-massage-mat-hieu-dung": { seconds: 424, published: "2026-11-24" },
     "spa-soi-da": { seconds: 380, published: "2026-11-24" },
+    "spa-massage-body": { seconds: 424, published: "2026-11-24" },
+    "spa-massage-body-hieu-dung": { seconds: 433, published: "2026-11-24" },
+    "spa-massage-mat": { seconds: 409, published: "2026-11-24" },
+    "spa-tay-chan-hieu-dung": { seconds: 396, published: "2026-11-24" },
+    "spa-waxing": { seconds: 415, published: "2026-11-24" },
+    "spa-waxing-hieu-dung": { seconds: 436, published: "2026-11-24" },
     // Guide lessons in Finnish (voice Sini, Finnish screens).
     "danh-gia-google": { seconds: 92, published: "2026-11-24" },
     "bang-gia": { seconds: 111, published: "2026-11-24" },
