@@ -162,6 +162,13 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "toc-tu-van-chia-vung-hieu-dung": { seconds: 459, published: "2026-11-23" },
     "french-ombre": { seconds: 412, published: "2026-11-23" },
     "french-ombre-hieu-dung": { seconds: 428, published: "2026-11-23" },
+    "cat-nam-co-ban": { seconds: 379, published: "2026-11-24" },
+    "cat-nam-co-ban-hieu-dung": { seconds: 412, published: "2026-11-24" },
+    "cat-nam-fade": { seconds: 420, published: "2026-11-24" },
+    "cat-nam-fade-hieu-dung": { seconds: 426, published: "2026-11-24" },
+    "cat-nam-tao-kieu": { seconds: 397, published: "2026-11-24" },
+    "cat-nam-tao-kieu-hieu-dung": { seconds: 410, published: "2026-11-24" },
+    "toc-tu-van-chia-vung": { seconds: 387, published: "2026-11-24" },
     // Tositeo course in Finnish (voice Sini).
     "ts-bat-dau": { seconds: 191, published: "2026-11-23" },
     "ts-hoa-don": { seconds: 204, published: "2026-11-23" },
