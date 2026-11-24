@@ -1,0 +1,73 @@
+WEBVTT
+
+00:00:00.618 --> 00:00:01.150
+Hei!
+
+00:00:01.642 --> 00:00:04.510
+Kanta-asiakkaat ovat salongin arvokkain voimavara.
+
+00:00:05.063 --> 00:00:08.030
+VaraaAin kanta-asiakaskortit auttavat pitämään heidät:
+
+00:00:08.528 --> 00:00:12.701
+jokainen käynti tuo asiakkaalle lipun, ja kun lippuja on tarpeeksi,
+
+00:00:12.651 --> 00:00:13.870
+hän saa alennuksen.
+
+00:00:14.548 --> 00:00:16.519
+Napauta Kanta-asiakaskortit.
+
+00:00:16.943 --> 00:00:20.039
+Määritä ensin ohjelma kohdassa Ohjelman asetukset:
+
+00:00:20.211 --> 00:00:25.639
+montako käyntiä asiakas tarvitsee alennukseen, alennusprosentti ja kortin hinta.
+
+00:00:26.332 --> 00:00:29.159
+Jätä hinnaksi nolla, jos kortti on ilmainen.
+
+00:00:29.578 --> 00:00:30.999
+Napauta sitten Tallenna.
+
+00:00:31.661 --> 00:00:36.355
+Kun haluat antaa asiakkaalle kortin, mene kohtaan Aktivoi kortti asiakkaalle.
+
+00:00:36.942 --> 00:00:42.435
+Kirjoita nimi ja sähköposti ja napauta Aktivoi ja lähetä QR-koodi sähköpostilla.
+
+00:00:42.863 --> 00:00:46.195
+Asiakas saa korttinsa QR-koodeineen sähköpostiin heti.
+
+00:00:46.873 --> 00:00:53.724
+Jokaisella käynnillä skannaa asiakkaan kortin QR-koodi puhelimen kameralla tai kirjoita kortissa näkyvä koodi,
+
+00:00:54.067 --> 00:00:55.884
+ja napauta Lisää 1 lippu.
+
+00:00:56.740 --> 00:00:59.964
+Lippu lisätään vain käynnistä, joka on jo toteutunut.
+
+00:01:00.811 --> 00:01:05.564
+Jos asiakkaan kaikki käynnit on jo skannattu, ruutu kertoo sen, kuten tässä.
+
+00:01:06.151 --> 00:01:07.884
+Alla näkyy asiakkaan kortti:
+
+00:01:08.185 --> 00:01:11.964
+montako lippua hänellä on ja montako puuttuu vielä alennuksesta.
+
+00:01:12.629 --> 00:01:17.007
+Kun asiakkaalla on tarpeeksi lippuja, hänen kortissaan näkyy odottava palkinto.
+
+00:01:17.619 --> 00:01:21.567
+Anna hänelle alennus ja jatka lippujen lisäämistä tavalliseen tapaan.
+
+00:01:22.539 --> 00:01:24.248
+Kortinhaltijat-listassa näet,
+
+00:01:24.198 --> 00:01:29.167
+montako lippua kullakin asiakkaalla on ja montako kertaa hänen korttinsa on skannattu.
+
+00:01:29.652 --> 00:01:31.247
+Tee nyt tietovisa videon alla.
