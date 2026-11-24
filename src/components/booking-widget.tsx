@@ -26,7 +26,7 @@ import { formatMoney } from "@/lib/money";
 import { BOOKING_DAYS_AHEAD } from "@/lib/booking-window";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
-import { Landmark, Banknote, Loader2, PlayCircle, X, Check, Users, ChevronLeft, ChevronRight, AlertCircle } from "lucide-react";
+import { Landmark, Banknote, Loader2, PlayCircle, X, Check, Users, ChevronLeft, ChevronRight, AlertCircle, Eye, EyeOff } from "lucide-react";
 
 interface StaffOption {
   id: string;
@@ -336,6 +336,7 @@ export function BookingWidget({
 
   // After a tap on "Confirm" with something missing, the missing parts turn red.
   const [showMissing, setShowMissing] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const M =
     locale === "vi"
       ? {
@@ -347,6 +348,7 @@ export function BookingWidget({
           email: "Vui lòng nhập email đúng dạng, ví dụ ten@gmail.com",
           password: "Mật khẩu cần ít nhất 8 ký tự",
           terms: "Vui lòng tích vào ô này để xác nhận đặt hẹn",
+          showPassword: ["Hiện mật khẩu", "Ẩn mật khẩu"],
         }
       : locale === "fi"
         ? {
@@ -358,6 +360,7 @@ export function BookingWidget({
             email: "Kirjoita toimiva sähköpostiosoite, esim. nimi@gmail.com",
             password: "Salasanassa on oltava vähintään 8 merkkiä",
             terms: "Rastita ruutu vahvistaaksesi varauksen",
+            showPassword: ["Näytä salasana", "Piilota salasana"],
           }
         : {
             time: "Please choose a time",
@@ -368,6 +371,7 @@ export function BookingWidget({
             email: "Please enter a valid email, e.g. name@gmail.com",
             password: "The password needs at least 8 characters",
             terms: "Please tick this box to confirm your booking",
+            showPassword: ["Show password", "Hide password"],
           };
   const bad = {
     name: guestName.trim().length < 2,
@@ -778,17 +782,29 @@ export function BookingWidget({
                 </div>
                 <div>
                   <label className="label" htmlFor="bw-password">{tAuth("password")}{req}</label>
-                  <input
-                    id="bw-password"
-                    required
-                    type="password"
-                    minLength={8}
-                    autoComplete="new-password"
-                    aria-invalid={fieldBad("password") || undefined}
-                    className={`input scroll-mt-24 ${fieldBad("password") ? badInput : ""}`}
-                    value={guestPassword}
-                    onChange={(e) => setGuestPassword(e.target.value)}
-                  />
+                  <div className="relative">
+                    <input
+                      id="bw-password"
+                      required
+                      type={showPassword ? "text" : "password"}
+                      minLength={8}
+                      autoComplete="new-password"
+                      aria-invalid={fieldBad("password") || undefined}
+                      className={`input scroll-mt-24 !pr-12 ${fieldBad("password") ? badInput : ""}`}
+                      value={guestPassword}
+                      onChange={(e) => setGuestPassword(e.target.value)}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword((v) => !v)}
+                      aria-label={M.showPassword[showPassword ? 1 : 0]}
+                      title={M.showPassword[showPassword ? 1 : 0]}
+                      aria-pressed={showPassword}
+                      className="absolute inset-y-0 right-1 flex w-11 items-center justify-center rounded-full text-ink-400 hover:text-primary-600"
+                    >
+                      {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                    </button>
+                  </div>
                   {fieldMsg("password") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.password}</p>}
                 </div>
               </div>
