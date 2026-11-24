@@ -26,7 +26,7 @@ import { formatMoney } from "@/lib/money";
 import { BOOKING_DAYS_AHEAD } from "@/lib/booking-window";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
-import { Landmark, Banknote, Loader2, PlayCircle, X, Check, Users, ChevronLeft, ChevronRight } from "lucide-react";
+import { Landmark, Banknote, Loader2, PlayCircle, X, Check, Users, ChevronLeft, ChevronRight, AlertCircle } from "lucide-react";
 
 interface StaffOption {
   id: string;
@@ -215,7 +215,8 @@ export function BookingWidget({
   const [note, setNote] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  // Ticked by default so customers can book straight away; they can still untick it.
+  const [acceptedTerms, setAcceptedTerms] = useState(true);
   const [showCancellationPolicy, setShowCancellationPolicy] = useState(false);
 
   // Guest checkout — only used while status !== "authenticated". Filling
@@ -332,6 +333,67 @@ export function BookingWidget({
     /\S+@\S+\.\S+/.test(guestEmail) &&
     guestPhone.trim().length >= 6 &&
     guestPassword.length >= 8;
+
+  // After a tap on "Confirm" with something missing, the missing parts turn red.
+  const [showMissing, setShowMissing] = useState(false);
+  const M =
+    locale === "vi"
+      ? {
+          time: "Vui lòng chọn giờ hẹn",
+          info: "Vui lòng điền đủ các ô màu đỏ",
+          signIn: "Vui lòng đăng nhập, hoặc quay lại điền thông tin của bạn",
+          name: "Vui lòng nhập họ tên",
+          phone: "Vui lòng nhập số điện thoại",
+          email: "Vui lòng nhập email đúng dạng, ví dụ ten@gmail.com",
+          password: "Mật khẩu cần ít nhất 8 ký tự",
+          terms: "Vui lòng tích vào ô này để xác nhận đặt hẹn",
+        }
+      : locale === "fi"
+        ? {
+            time: "Valitse aika",
+            info: "Täytä punaisella merkityt kentät",
+            signIn: "Kirjaudu sisään tai palaa täyttämään tietosi",
+            name: "Kirjoita nimesi",
+            phone: "Kirjoita puhelinnumerosi",
+            email: "Kirjoita toimiva sähköpostiosoite, esim. nimi@gmail.com",
+            password: "Salasanassa on oltava vähintään 8 merkkiä",
+            terms: "Rastita ruutu vahvistaaksesi varauksen",
+          }
+        : {
+            time: "Please choose a time",
+            info: "Please fill in the fields marked in red",
+            signIn: "Please sign in, or go back and fill in your details",
+            name: "Please enter your name",
+            phone: "Please enter your phone number",
+            email: "Please enter a valid email, e.g. name@gmail.com",
+            password: "The password needs at least 8 characters",
+            terms: "Please tick this box to confirm your booking",
+          };
+  const bad = {
+    name: guestName.trim().length < 2,
+    phone: guestPhone.trim().length < 6,
+    email: !/\S+@\S+\.\S+/.test(guestEmail),
+    password: guestPassword.length < 8,
+  };
+  const fieldBad = (k: keyof typeof bad) => showMissing && isGuest && !showSignIn && bad[k];
+  const badInput = "!border-berry-500 !ring-2 !ring-berry-100";
+
+  /** Scroll to the first thing still missing (and focus it), or book if nothing is. */
+  function confirmBooking() {
+    let target: string | null = null;
+    if (!selectedSlot) target = "bw-time";
+    else if (isGuest && showSignIn) target = "bw-info";
+    else if (isGuest && !guestFormValid) {
+      const first = (["name", "phone", "email", "password"] as const).find((k) => bad[k]);
+      target = first ? `bw-${first}` : "bw-info";
+    } else if (!acceptedTerms) target = "bw-terms";
+    if (!target) return void handleSubmit();
+    setShowMissing(true);
+    const el = document.getElementById(target);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (el instanceof HTMLInputElement) el.focus({ preventScroll: true });
+  }
 
   async function handleSubmit() {
     if (!selectedSlot) return;
@@ -564,7 +626,7 @@ export function BookingWidget({
         />
       </Step>
 
-      <Step n={nextStep()} title={t("selectTime")}>
+      <Step n={nextStep()} title={t("selectTime")} id="bw-time" alert={showMissing && !selectedSlot ? M.time : null}>
         {showLocalTime && (
           <p className="mb-3 rounded-xl bg-mist-50 px-3 py-2 text-xs text-ink-700">
             {locale === "vi"
@@ -660,44 +722,70 @@ export function BookingWidget({
       </Step>
 
       {selectedSlot && isGuest && (
-        <Step n={nextStep()} title={locale === "vi" ? "Thông tin của bạn" : locale === "fi" ? "Tietosi" : "Your info"}>
+        <Step
+          n={nextStep()}
+          title={locale === "vi" ? "Thông tin của bạn" : locale === "fi" ? "Tietosi" : "Your info"}
+          id="bw-info"
+          alert={showMissing ? (showSignIn ? M.signIn : !guestFormValid ? M.info : null) : null}
+        >
           {!showSignIn ? (
             <div className="space-y-4">
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
-                  <label className="label">{tAuth("name")}</label>
-                  <input required className="input" value={guestName} onChange={(e) => setGuestName(e.target.value)} />
+                  <label className="label" htmlFor="bw-name">{tAuth("name")}</label>
+                  <input
+                    id="bw-name"
+                    required
+                    autoComplete="name"
+                    aria-invalid={fieldBad("name") || undefined}
+                    className={`input scroll-mt-24 ${fieldBad("name") ? badInput : ""}`}
+                    value={guestName}
+                    onChange={(e) => setGuestName(e.target.value)}
+                  />
+                  {fieldBad("name") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.name}</p>}
                 </div>
                 <div>
-                  <label className="label">{tAuth("phone")}</label>
+                  <label className="label" htmlFor="bw-phone">{tAuth("phone")}</label>
                   <input
+                    id="bw-phone"
                     required
                     type="tel"
-                    className="input"
+                    autoComplete="tel"
+                    aria-invalid={fieldBad("phone") || undefined}
+                    className={`input scroll-mt-24 ${fieldBad("phone") ? badInput : ""}`}
                     value={guestPhone}
                     onChange={(e) => setGuestPhone(e.target.value)}
                   />
+                  {fieldBad("phone") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.phone}</p>}
                 </div>
                 <div>
-                  <label className="label">{tAuth("email")}</label>
+                  <label className="label" htmlFor="bw-email">{tAuth("email")}</label>
                   <input
+                    id="bw-email"
                     required
                     type="email"
-                    className="input"
+                    autoComplete="email"
+                    aria-invalid={fieldBad("email") || undefined}
+                    className={`input scroll-mt-24 ${fieldBad("email") ? badInput : ""}`}
                     value={guestEmail}
                     onChange={(e) => setGuestEmail(e.target.value)}
                   />
+                  {fieldBad("email") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.email}</p>}
                 </div>
                 <div>
-                  <label className="label">{tAuth("password")}</label>
+                  <label className="label" htmlFor="bw-password">{tAuth("password")}</label>
                   <input
+                    id="bw-password"
                     required
                     type="password"
                     minLength={8}
-                    className="input"
+                    autoComplete="new-password"
+                    aria-invalid={fieldBad("password") || undefined}
+                    className={`input scroll-mt-24 ${fieldBad("password") ? badInput : ""}`}
                     value={guestPassword}
                     onChange={(e) => setGuestPassword(e.target.value)}
                   />
+                  {fieldBad("password") && <p className="mt-1 text-xs font-semibold text-berry-500">{M.password}</p>}
                 </div>
               </div>
 
@@ -913,8 +1001,19 @@ export function BookingWidget({
 
       {error && <p className="rounded-2xl bg-berry-50 px-4 py-3 text-sm font-medium text-berry-500">{error}</p>}
 
-      <label className="flex items-start gap-3 rounded-2xl bg-white px-4 py-3 text-sm text-ink-700 ring-1 ring-ink-100">
+      {showMissing && !acceptedTerms && (
+        <p role="alert" className="-mb-2 flex items-center gap-2 px-1 text-sm font-semibold text-berry-500">
+          <AlertCircle className="h-4 w-4 shrink-0" />
+          {M.terms}
+        </p>
+      )}
+      <label
+        className={`flex items-start gap-3 rounded-2xl px-4 py-3 text-sm text-ink-700 transition-colors ${
+          showMissing && !acceptedTerms ? "bg-berry-50 ring-2 ring-berry-500" : "bg-white ring-1 ring-ink-100"
+        }`}
+      >
         <input
+          id="bw-terms"
           type="checkbox"
           checked={acceptedTerms}
           onChange={(e) => setAcceptedTerms(e.target.checked)}
@@ -952,8 +1051,8 @@ export function BookingWidget({
           <p className="text-base font-extrabold text-ink-900">{formatMoney(amountDue, service.currency, locale)}</p>
         </div>
         <button
-          onClick={handleSubmit}
-          disabled={!selectedSlot || submitting || !acceptedTerms || (isGuest && !guestFormValid)}
+          onClick={confirmBooking}
+          disabled={submitting}
           className="btn-primary shrink-0 !px-6 !py-3"
         >
           {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
@@ -1050,15 +1149,43 @@ function StaffVideos({
   );
 }
 
-function Step({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
+function Step({
+  n,
+  title,
+  children,
+  id,
+  alert,
+}: {
+  n: number;
+  title: string;
+  children: React.ReactNode;
+  id?: string;
+  /** A red warning: this step still needs something before the booking can be confirmed. */
+  alert?: string | null;
+}) {
   return (
-    <section className="rounded-[24px] border border-ink-100 bg-white p-5 sm:p-6">
+    <section
+      id={id}
+      className={`scroll-mt-4 rounded-[24px] border bg-white p-5 transition-colors sm:p-6 ${
+        alert ? "border-berry-500 ring-4 ring-berry-50" : "border-ink-100"
+      }`}
+    >
       <h2 className="mb-4 flex items-center gap-3 text-base font-bold text-ink-900">
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-100 text-sm font-bold text-primary-700">
+        <span
+          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+            alert ? "bg-berry-500 text-white" : "bg-primary-100 text-primary-700"
+          }`}
+        >
           {n}
         </span>
         {title}
       </h2>
+      {alert && (
+        <p role="alert" className="-mt-2 mb-4 flex items-center gap-2 rounded-xl bg-berry-50 px-3 py-2 text-sm font-semibold text-berry-500">
+          <AlertCircle className="h-4 w-4 shrink-0" />
+          {alert}
+        </p>
+      )}
       {children}
     </section>
   );
