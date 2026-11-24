@@ -22,7 +22,7 @@ export type LessonStyle = "theory" | "practice";
 
 export type CourseIcon =
   | "compass" | "calendar" | "gift" | "rocket" | "megaphone" | "briefcase" | "heart" | "trending"
-  | "shield" | "sparkles" | "eye" | "scissors" | "flower" | "receipt";
+  | "shield" | "sparkles" | "eye" | "scissors" | "flower" | "receipt" | "gamepad";
 
 export interface Course {
   id: string;
@@ -30,7 +30,7 @@ export interface Course {
   icon: CourseIcon;
   title: L3;
   body: L3;
-  /** A course about another product (Tositeo, tositeo.ts): its lessons are numbered 1…n on their own
+  /** A course about another product (Tositeo, tositeo.ts; Babelisa, babelisa.ts): its lessons are numbered 1…n on their own
    * and do not count toward the track's certificate. */
   standalone?: boolean;
 }

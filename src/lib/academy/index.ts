@@ -3,6 +3,7 @@
 import { COURSES as SITE_COURSES, LESSONS as SITE_LESSONS } from "@/lib/academy/curriculum";
 import { CRAFT_BRIDGE, CRAFT_COURSES, CRAFT_LESSONS } from "@/lib/academy/craft";
 import { TOSITEO_COURSES, TOSITEO_LESSONS } from "@/lib/academy/tositeo";
+import { BABELISA_COURSES, BABELISA_LESSONS } from "@/lib/academy/babelisa";
 import { DUBS } from "@/lib/academy/dubs";
 import { videoUrl } from "@/lib/media";
 import { localizedUrl } from "@/lib/seo";
@@ -10,9 +11,9 @@ import { COURSE_SEO, courseSeoById, courseSeoBySlug } from "@/lib/academy/course
 import { courseImage, courseIntro, courseOgImage } from "@/lib/academy/course-media";
 import { pick, type Audience, type CourseCard, type CourseIcon, type Lesson, type LessonCard, type LessonVideo } from "@/lib/academy/types";
 
-/** The software lessons (curriculum.ts), the craft-skill lessons (craft.ts) and the Tositeo course (tositeo.ts) form one Academy. */
-const COURSES = [...SITE_COURSES, ...TOSITEO_COURSES, ...CRAFT_COURSES];
-const LESSONS = [...SITE_LESSONS, ...TOSITEO_LESSONS, ...CRAFT_LESSONS];
+/** The software lessons (curriculum.ts), the craft-skill lessons (craft.ts), the Tositeo course (tositeo.ts) and the Babelisa course (babelisa.ts) form one Academy. */
+const COURSES = [...SITE_COURSES, ...TOSITEO_COURSES, ...BABELISA_COURSES, ...CRAFT_COURSES];
+const LESSONS = [...SITE_LESSONS, ...TOSITEO_LESSONS, ...BABELISA_LESSONS, ...CRAFT_LESSONS];
 
 /** The video a visitor in `locale` gets, and the language it is spoken in:
  * the recording in their language, else the English one, else the original. */

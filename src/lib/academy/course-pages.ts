@@ -1776,6 +1776,171 @@ export const COURSE_SEO: CourseSeo[] = [
       "Tositeo hướng dẫn",
     ],
   },
+  /* ================= customers: Babelisa (babelisa.ts) ================= */
+  {
+    id: "c-babelisa",
+    slug: "babelisa-game-hoc-ngoai-ngu",
+    metaTitle: l3(
+      "Babelisa: game học ngoại ngữ, toán, võ, múa và vẽ",
+      "Babelisa: Games for Languages, Maths, Ballet and More",
+      "Babelisa: pelejä kieliin, matikkaan, balettiin ja muuhun"
+    ),
+    metaDescription: l3(
+      "Mười video ngắn về các trò trên Babelisa: phiêu lưu học 31 thứ tiếng, luyện nói với Lisa, xây thành, võ tự vệ, toán lớp 3, lớp 4, múa ba lê và học vẽ.",
+      "Ten short videos on the Babelisa games: an island adventure in 31 languages, talking with Lisa, city building, self-defence, maths, ballet and drawing.",
+      "Kymmenen lyhyttä videota Babelisan peleistä: saariseikkailu 31 kielellä, puhetta Lisan kanssa, kaupungin rakentaminen, itsepuolustus, matikka ja baletti."
+    ),
+    headline: l3(
+      "Babelisa cho cả nhà: học ngoại ngữ, toán, võ, múa và vẽ bằng trò chơi",
+      "Babelisa for the whole family: learn languages, maths, self-defence, ballet and drawing by playing",
+      "Babelisa koko perheelle: opi kieliä, matematiikkaa, itsepuolustusta, balettia ja piirtämistä pelaamalla"
+    ),
+    tagline: l3(
+      "Mười video ngắn, mỗi video một trò, do một người chơi kể lại: trò đó là gì, chơi thế nào và mẹo để học nhanh hơn.",
+      "Ten short videos, one game each, told by a player: what the game is, how to play it and a tip to learn faster.",
+      "Kymmenen lyhyttä videota, yksi peli kussakin, pelaajan kertomana: mikä peli on, miten sitä pelataan ja vinkki nopeampaan oppimiseen."
+    ),
+    level: l3("Cho người lớn và trẻ em, không cần biết trước", "For adults and children, no prior knowledge needed", "Aikuisille ja lapsille, esitietoja ei tarvita"),
+    outcomes: [
+      l3(
+        "Vào cuộc phiêu lưu trên đảo, chọn một trong 31 thứ tiếng, học theo Lisa.",
+        "Start the island adventure, pick one of 31 languages and learn from Lisa.",
+        "Aloitat saariseikkailun, valitset yhden 31 kielestä ja opit Lisalta."
+      ),
+      l3(
+        "Ôn từ mỗi ngày trong vài phút và luyện nói với Lisa, được chấm từng câu.",
+        "Review words in a few minutes a day and talk with Lisa, with every sentence scored.",
+        "Kertaat sanoja muutaman minuutin päivässä ja puhut Lisan kanssa, ja jokainen lause pisteytetään."
+      ),
+      l3(
+        "Theo khóa 30 ngày dám nói tiếng Anh hoặc Phần Lan, mỗi ngày một chủ đề.",
+        "Follow the 30-day speaking course in English or Finnish, one everyday topic a day.",
+        "Seuraat 30 päivän puhekurssia englanniksi tai suomeksi, yksi arkinen aihe päivässä."
+      ),
+      l3(
+        "Xây thành trong Vương Quốc Ngôn Từ, trả lời đúng để xây nhanh hơn.",
+        "Build a city in the Kingdom of Words and use right answers to build faster.",
+        "Rakennat kaupungin Sanojen valtakunnassa ja nopeutat rakentamista oikeilla vastauksilla."
+      ),
+      l3(
+        "Tập võ tự vệ cùng thầy Alexei, có chạy chậm và chế độ gương.",
+        "Train self-defence with coach Alexei, with slow motion and a mirror mode.",
+        "Harjoittelet itsepuolustusta valmentaja Alexein kanssa hidastuksen ja peilitilan avulla."
+      ),
+      l3(
+        "Cho bé học toán lớp 3, 4, múa ba lê, vẽ, tiếng Anh qua trò chơi.",
+        "Help your child learn Year 3 and 4 maths, ballet, drawing and English through play.",
+        "Autat lasta oppimaan 3. ja 4. luokan matematiikkaa, balettia, piirtämistä ja englantia leikin kautta."
+      ),
+    ],
+    intro: [
+      l3(
+        "Học ngoại ngữ thường bắt đầu bằng sách, danh sách từ và những bài dịch dài. Babelisa đi đường khác: bạn chơi một trò phiêu lưu hoạt hình, và chơi xong thì nói được ngoại ngữ. Trên babelisa.com có cả một loạt trò: phiêu lưu học ngoại ngữ, Vương Quốc Ngôn Từ, luyện nói với Lisa, lớp học võ, và các khóa học cho học sinh. Khóa học này gồm mười video ngắn bằng tiếng Việt, mỗi video giới thiệu một trò, do một người chơi kể lại: trò đó là gì, chơi thế nào, vì sao cuốn, và một mẹo nhỏ để học nhanh hơn.",
+        "Learning a language usually starts with books, word lists and long translations. Babelisa takes another road: you play an animated adventure, and by the end you can speak the language. At babelisa.com there is a whole row of games: the language adventure, the Kingdom of Words, talking with Lisa, a martial arts class and courses for schoolchildren. This course is ten short videos, each introducing one game, told by a player: what the game is, how to play it, why it is so gripping and a small tip to learn faster.",
+        "Kielen opiskelu alkaa yleensä kirjoista, sanalistoista ja pitkistä käännöksistä. Babelisa kulkee toista tietä: pelaat animaatioseikkailua, ja lopulta osaat puhua kieltä. Osoitteessa babelisa.com on kokonainen rivi pelejä: kieliseikkailu, Sanojen valtakunta, puheharjoitus Lisan kanssa, kamppailulajitunti ja kursseja koululaisille. Tämä kurssi on kymmenen lyhyttä videota, joista jokainen esittelee yhden pelin pelaajan kertomana: mikä peli on, miten sitä pelataan, miksi se koukuttaa ja pieni vinkki nopeampaan oppimiseen."
+      ),
+      l3(
+        "Video đầu tiên là trò quan trọng nhất: cuộc phiêu lưu trên đảo. Bạn là chàng trai bị đắm tàu, dạt vào một hòn đảo lạ, và Lisa, cô gái của rừng, dạy bạn bằng hành động: chỉ vào nước, vào cây, vào lửa rồi nói tên của nó. Không có một chữ dịch nào. Bạn chọn một trong ba mươi mốt thứ tiếng, rồi đi qua tám chương, năm mươi lăm ngày, từ bờ biển đến tiệm làm đẹp, nhà hàng, ngân hàng, khách sạn và chợ đầu mối, toàn những tình huống mà người sống ở châu Âu gặp hằng ngày.",
+        "The first video covers the most important game: the island adventure. You are a shipwrecked young man washed up on a strange island, and Lisa, the girl of the forest, teaches you through actions: she points at water, a tree, fire and says the word. There is not a single translation. You pick one of thirty-one languages and go through eight chapters and fifty-five days, from the beach to a beauty salon, a restaurant, a bank, a hotel and a wholesale market, all situations people living in Europe meet every day.",
+        "Ensimmäinen video esittelee tärkeimmän pelin: saariseikkailun. Olet haaksirikkoutunut nuori mies vieraalla saarella, ja metsän tyttö Lisa opettaa sinua tekemällä: hän osoittaa vettä, puuta ja tulta ja sanoo sanan. Yhtään käännöstä ei ole. Valitset yhden kolmestakymmenestäyhdestä kielestä ja etenet kahdeksan lukua ja viisikymmentäviisi päivää rannalta kauneushoitolaan, ravintolaan, pankkiin, hotelliin ja tukkutorille, tilanteisiin, joita Euroopassa asuva kohtaa joka päivä."
+      ),
+      l3(
+        "Hai video tiếp theo dành cho những ai còn ngại nói. Thẻ Ôn hôm nay gom những từ đến hạn ôn trong ba đến năm phút, còn Luyện nói với Lisa là buổi nói chuyện năm phút, mỗi câu được chấm phần trăm và sao. Khóa Ba mươi ngày dám nói có tiếng Anh và tiếng Phần Lan: mỗi ngày một chủ đề đời thường, từ giới thiệu bản thân, gọi cà phê đến nói chuyện với khách ở chỗ làm, và câu đã nói tự quay lại để ôn sau một, ba, bảy và mười bốn ngày.",
+        "The next videos are for anyone still shy about speaking. Today's review gathers the words that are due in three to five minutes, and Talk with Lisa is a five-minute conversation where every sentence gets a percentage and stars. The 30-day speaking course comes in English and Finnish: an everyday topic each day, from introducing yourself and ordering coffee to talking with customers at work, and the phrases you have said come back for review after one, three, seven and fourteen days.",
+        "Seuraavat videot ovat niille, jotka vielä ujostelevat puhumista. Päivän kertaus kokoaa kerrattavat sanat kolmeen–viiteen minuuttiin, ja puheharjoitus Lisan kanssa on viiden minuutin keskustelu, jossa jokainen lause saa prosentit ja tähdet. 30 päivän puhekurssi on englanniksi ja suomeksi: joka päivä arkinen aihe itsensä esittelystä ja kahvin tilaamisesta asiakkaiden kanssa puhumiseen töissä, ja sanomasi fraasit palaavat kerrattaviksi yhden, kolmen, seitsemän ja neljäntoista päivän päästä."
+      ),
+      l3(
+        "Nếu bạn mê game chiến thuật, Vương Quốc Ngôn Từ cho bạn xây thành bằng ngoại ngữ: mỗi câu trả lời đúng ở Học viện rút mười phần trăm thời gian xây còn lại, và từ nào bạn đã thuộc thì đạo quân có thêm lính. Còn Sói Taiga là trại võ tự vệ thực chiến với huấn luyện viên Alexei giảng bằng tiếng Việt: mười lăm bài đi theo thứ tự, có video làm mẫu, chạy chậm và chế độ gương để tập theo.",
+        "If you love strategy games, the Kingdom of Words lets you build a city with a foreign language: every right answer in the Academy cuts ten percent off the remaining build time, and every word you know adds soldiers to your army. Taiga Wolf is a practical self-defence camp with coach Alexei explaining in Vietnamese: fifteen lessons in order, with demo videos, slow motion and a mirror mode to follow along.",
+        "Jos pidät strategiapeleistä, Sanojen valtakunnassa rakennat kaupunkia vieraan kielen avulla: jokainen oikea vastaus akatemiassa lyhentää jäljellä olevaa rakennusaikaa kymmenen prosenttia, ja jokainen osaamasi sana tuo armeijaan lisää sotilaita. Taigan susi taas on käytännön itsepuolustusleiri, jossa valmentaja Alexei opettaa vietnamiksi: viisitoista oppituntia järjestyksessä, mallivideot, hidastus ja peilitila mukana tekemistä varten."
+      ),
+      l3(
+        "Năm video cuối dành cho bố mẹ có con nhỏ. Toán lớp ba cùng cô Mai theo chương trình sách giáo khoa mới, và Toán lớp bốn với phân số, đo lường, hình học, đều có video cô giảng trên bảng, bài tập và đề kiểm tra, miễn phí, không quảng cáo. Studio Sáng Tạo Nhí có cả chục phòng để tô tranh, làm móng, phối đồ, và hết năng lượng thì bé học tiếng Anh để nạp lại. Lớp học Múa Ba Lê có cô Vy dạy mười ba bài, còn Game Học Vẽ có cô Lumi hướng dẫn bốn mươi hai bài, từ quả táo đến chân dung ông bà.",
+        "The last five videos are for parents of young children. Year 3 maths with teacher Mai follows Vietnam's new textbooks, and Year 4 maths covers fractions, measurement and geometry; both have a teacher explaining at the board, exercises and tests, free and without ads. The Kids' Creative Studio has around ten rooms for colouring, nails and fashion, and when the energy runs out your child does a little English to recharge. In the ballet class teacher Vy teaches thirteen lessons, and in the drawing game teacher Lumi guides forty-two lessons, from an apple to a portrait of grandparents.",
+        "Viimeiset viisi videota ovat pienten lasten vanhemmille. 3. luokan matematiikka opettaja Main kanssa seuraa Vietnamin uusia oppikirjoja, ja 4. luokan matematiikassa ovat murtoluvut, mittaaminen ja geometria; kummassakin opettaja selittää taululla, ja mukana on tehtäviä ja kokeita, maksutta ja ilman mainoksia. Lasten luovassa studiossa on kymmenkunta huonetta värittämiseen, kynsiin ja muotiin, ja kun energia loppuu, lapsi opiskelee hetken englantia ladatakseen sen. Balettitunnilla opettaja Vy opettaa kolmetoista oppituntia, ja piirtämispelissä opettaja Lumi opastaa neljäkymmentäkaksi oppituntia omenasta isovanhempien muotokuvaan."
+      ),
+      l3(
+        "Hình trong video là cảnh chơi thật của Babelisa, quay trên một bản thử không có dữ liệu của người chơi nào. Dưới mỗi video có các bước bằng chữ, mẹo và một bài kiểm tra nhanh. Bạn chỉ cần mở babelisa.com trên điện thoại hay máy tính, không cần tải gì, chọn một trò và chơi ngay.",
+        "The videos show real Babelisa gameplay, filmed on a test copy with no player's data. Under each video you find the written steps, tips and a quick quiz. Just open babelisa.com on your phone or computer, with nothing to download, pick a game and play.",
+        "Videoilla näkyy oikeaa Babelisan pelaamista, kuvattuna testikopiolla ilman kenenkään pelaajan tietoja. Jokaisen videon alla ovat kirjalliset vaiheet, vinkit ja pikavisa. Avaa babelisa.com puhelimella tai tietokoneella, mitään ei tarvitse ladata, valitse peli ja pelaa."
+      ),
+    ],
+    forWho: [
+      l3(
+        "Người lớn sống ở châu Âu muốn học tiếng Anh, tiếng Phần Lan hay tiếng khác cho công việc và đời sống.",
+        "Adults living in Europe who want English, Finnish or another language for work and daily life.",
+        "Euroopassa asuvat aikuiset, jotka tarvitsevat englantia, suomea tai muuta kieltä töissä ja arjessa."
+      ),
+      l3(
+        "Người đã học tiếng Anh nhiều năm mà vẫn ngại nói.",
+        "People who have studied English for years but are still shy about speaking.",
+        "Ne, jotka ovat opiskelleet englantia vuosia mutta ujostelevat yhä puhumista."
+      ),
+      l3(
+        "Bạn trẻ mê game chiến thuật xây thành, hoặc muốn học võ tự vệ.",
+        "Young people who love city-building strategy games or want to learn self-defence.",
+        "Nuoret, jotka pitävät kaupunginrakennuspeleistä tai haluavat oppia itsepuolustusta."
+      ),
+      l3(
+        "Bố mẹ muốn con giữ môn toán bằng tiếng Việt khi sống ở nước ngoài, và cho bé vẽ, múa, học tiếng Anh mỗi ngày.",
+        "Parents abroad who want their child to keep up maths in Vietnamese, and to draw, dance and learn English every day.",
+        "Ulkomailla asuvat vanhemmat, jotka haluavat lapsen pysyvän mukana vietnaminkielisessä matematiikassa sekä piirtävän, tanssivan ja oppivan englantia joka päivä."
+      ),
+    ],
+    faq: [
+      {
+        q: l3("Babelisa là gì, có mất tiền không?", "What is Babelisa and does it cost anything?", "Mikä Babelisa on ja maksaako se?"),
+        a: l3(
+          "Babelisa là trang trò chơi học tập ở babelisa.com, với các trò học ngoại ngữ, luyện nói, xây thành, võ tự vệ, toán, múa và vẽ. Cuộc phiêu lưu trên đảo, khóa Ba mươi ngày dám nói và Sói Taiga đều miễn phí; Toán lớp ba và lớp bốn miễn phí, không quảng cáo. Các video của khóa học này cũng miễn phí.",
+          "Babelisa is a learning-game site at babelisa.com, with games for languages, speaking, city building, self-defence, maths, ballet and drawing. The island adventure, the 30-day speaking course and Taiga Wolf are free, and Year 3 and Year 4 maths are free with no ads. The videos in this course are free as well.",
+          "Babelisa on oppimispelien sivusto osoitteessa babelisa.com: pelejä kieliin, puhumiseen, kaupungin rakentamiseen, itsepuolustukseen, matematiikkaan, balettiin ja piirtämiseen. Saariseikkailu, 30 päivän puhekurssi ja Taigan susi ovat maksuttomia, ja 3. ja 4. luokan matematiikka on maksuton ja mainokseton. Myös tämän kurssin videot ovat maksuttomia."
+        ),
+      },
+      {
+        q: l3("Có cần tải app hay tạo tài khoản không?", "Do I need to download an app or create an account?", "Pitääkö ladata sovellus tai luoda tili?"),
+        a: l3(
+          "Không cần tải gì: bạn chơi ngay trên điện thoại hay máy tính ở babelisa.com. Khóa Ba mươi ngày dám nói không cần đăng ký mới học được, và Vương Quốc Ngôn Từ cũng vào chơi được ngay. Chỉ khi muốn xếp hạng, trò chuyện và liên minh với người khác trong Vương Quốc Ngôn Từ thì bạn mới đăng nhập bằng email.",
+          "Nothing to download: you play straight away on your phone or computer at babelisa.com. The 30-day speaking course needs no sign-up, and you can jump right into the Kingdom of Words too. You only sign in with your e-mail if you want rankings, chat and alliances with other players in the Kingdom of Words.",
+          "Mitään ei tarvitse ladata: pelaat heti puhelimella tai tietokoneella osoitteessa babelisa.com. 30 päivän puhekurssi ei vaadi rekisteröitymistä, ja Sanojen valtakuntaan pääsee myös suoraan. Sähköpostilla kirjaudutaan vain, jos haluat Sanojen valtakunnassa ranking-listoille, chattiin ja liittoumiin muiden pelaajien kanssa."
+        ),
+      },
+      {
+        q: l3("Babelisa dạy những thứ tiếng nào?", "Which languages does Babelisa teach?", "Mitä kieliä Babelisa opettaa?"),
+        a: l3(
+          "Cuộc phiêu lưu trên đảo có ba mươi mốt thứ tiếng, như tiếng Anh, Phần Lan, Đức, Pháp, Nhật, Hàn và Trung. Khóa Ba mươi ngày dám nói có tiếng Anh và tiếng Phần Lan. Vương Quốc Ngôn Từ có bảy thứ tiếng để chọn, còn các khóa cho bé thì kèm thêm từ tiếng Anh.",
+          "The island adventure has thirty-one languages, such as English, Finnish, German, French, Japanese, Korean and Chinese. The 30-day speaking course comes in English and Finnish. The Kingdom of Words offers seven languages, and the children's courses add English words along the way.",
+          "Saariseikkailussa on kolmekymmentäyksi kieltä, esimerkiksi englanti, suomi, saksa, ranska, japani, korea ja kiina. 30 päivän puhekurssi on englanniksi ja suomeksi. Sanojen valtakunnassa voi valita seitsemästä kielestä, ja lasten kursseilla opitaan lisäksi englannin sanoja."
+        ),
+      },
+      {
+        q: l3("Trò nào phù hợp với trẻ em?", "Which games suit children?", "Mitkä pelit sopivat lapsille?"),
+        a: l3(
+          "Có Toán lớp ba cùng cô Mai, Toán lớp bốn kèm Đảo Tiếng Anh với vẹt Lulu, Studio Sáng Tạo Nhí với cô Lisa nói tiếng Việt, Lớp học Múa Ba Lê cùng cô Vy và Game Học Vẽ cùng cô Lumi. Bố mẹ nên chơi cùng bé một lúc, rồi hỏi lại bé những từ tiếng Anh vừa học.",
+          "There is Year 3 maths with teacher Mai, Year 4 maths with the English island and Lulu the parrot, the Kids' Creative Studio with Lisa speaking Vietnamese, the ballet class with teacher Vy and the drawing game with teacher Lumi. Play along with your child for a while, then ask them the English words they just learned.",
+          "Tarjolla on 3. luokan matematiikka opettaja Main kanssa, 4. luokan matematiikka ja englannin saari Lulu-papukaijan kanssa, lasten luova studio, jossa Lisa puhuu vietnamia, balettitunti opettaja Vyn kanssa ja piirtämispeli opettaja Lumin kanssa. Leiki lapsen kanssa hetki ja kysy sitten juuri opitut englannin sanat."
+        ),
+      },
+      {
+        q: l3("Mỗi ngày nên chơi bao lâu?", "How long should I play each day?", "Kuinka kauan päivässä kannattaa pelata?"),
+        a: l3(
+          "Không cần lâu, chỉ cần đều. Cuộc phiêu lưu trên đảo chừng mười phút mỗi ngày nhưng đừng bỏ ngày nào, Ôn hôm nay mất ba đến năm phút, buổi nói với Lisa năm phút. Khóa Ba mươi ngày dám nói nên học mỗi sáng một ngày, còn ba lê và toán thì mỗi ngày hoặc mỗi tối một bài là đủ.",
+          "Not long, just regularly. The island adventure needs about ten minutes a day, without skipping days; today's review takes three to five minutes and a talk with Lisa five. Do one day of the 30-day speaking course each morning, and for ballet and maths one lesson a day or each evening is enough.",
+          "Ei kauan, kunhan säännöllisesti. Saariseikkailuun riittää noin kymmenen minuuttia päivässä ilman välipäiviä, päivän kertaus vie kolmesta viiteen minuuttia ja keskustelu Lisan kanssa viisi. 30 päivän puhekurssista tehdään yksi päivä joka aamu, ja baletissa ja matematiikassa riittää yksi oppitunti päivässä tai illassa."
+        ),
+      },
+    ],
+    keywords: [
+      "game học tiếng Anh miễn phí",
+      "học tiếng Phần Lan online",
+      "app luyện nói tiếng Anh",
+      "game học ngoại ngữ cho người lớn",
+      "toán lớp 3 kết nối tri thức",
+      "toán lớp 4 online cho bé",
+      "học múa ba lê cho bé tại nhà",
+      "game học vẽ cho bé",
+      "Babelisa",
+    ],
+  },
   /* ================= customers: getting started ================= */
   {
     id: "c-start",

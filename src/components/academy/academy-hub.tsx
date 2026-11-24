@@ -12,6 +12,7 @@ import {
   Eye,
   Flame,
   Flower2,
+  Gamepad2,
   Gift,
   GraduationCap,
   Heart,
@@ -64,6 +65,7 @@ const COURSE_ICONS: Record<CourseIcon, typeof Compass> = {
   scissors: Scissors,
   flower: Flower2,
   receipt: Receipt,
+  gamepad: Gamepad2,
 };
 
 const GOLD = "bg-gradient-to-br from-[#f0d9a0] to-[#b08a3e]";

@@ -414,6 +414,41 @@
       "cta": "Aloita opiskelu"
     }
   },
+  "babelisa-game-hoc-ngoai-ngu": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Khách hàng",
+      "title": "Babelisa cho cả nhà",
+      "accent": "Babelisa: học mà chơi",
+      "chips": [
+        "Miễn phí",
+        "10 bài video",
+        "13 phút"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Customers",
+      "title": "Babelisa for the whole family",
+      "accent": "Babelisa: learn while you play",
+      "chips": [
+        "Free",
+        "10 video lessons",
+        "13 min"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Asiakkaat",
+      "title": "Babelisa koko perheelle",
+      "accent": "Babelisa: opi pelaamalla",
+      "chips": [
+        "Maksuton",
+        "10 videotuntia",
+        "13 min"
+      ],
+      "cta": "Aloita opiskelu"
+    }
+  },
   "huong-dan-dat-lich-lam-dep": {
     "vi": {
       "eyebrow": "Học viện VaraaAi · Khách hàng",
