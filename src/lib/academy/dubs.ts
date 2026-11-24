@@ -169,6 +169,10 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "cat-nam-tao-kieu": { seconds: 397, published: "2026-11-24" },
     "cat-nam-tao-kieu-hieu-dung": { seconds: 410, published: "2026-11-24" },
     "toc-tu-van-chia-vung": { seconds: 387, published: "2026-11-24" },
+    "cat-nu-bang": { seconds: 405, published: "2026-11-24" },
+    "cat-nu-bang-hieu-dung": { seconds: 412, published: "2026-11-24" },
+    "cat-nu-tang": { seconds: 416, published: "2026-11-24" },
+    "cat-nu-tang-hieu-dung": { seconds: 423, published: "2026-11-24" },
     // Tositeo course in Finnish (voice Sini).
     "ts-bat-dau": { seconds: 191, published: "2026-11-23" },
     "ts-hoa-don": { seconds: 204, published: "2026-11-23" },
