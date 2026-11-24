@@ -174,7 +174,12 @@ export const DUBS: Record<string, Record<string, { seconds: number; published: s
     "cat-nu-tang": { seconds: 416, published: "2026-11-24" },
     "cat-nu-tang-hieu-dung": { seconds: 423, published: "2026-11-24" },
     "cat-mai-hieu-dung": { seconds: 433, published: "2026-11-24" },
+    "cat-mai": { seconds: 417, published: "2026-11-24" },
+    "say-tao-kieu": { seconds: 417, published: "2026-11-24" },
+    "say-tao-kieu-hieu-dung": { seconds: 400, published: "2026-11-24" },
+    "spa-soi-da-hieu-dung": { seconds: 408, published: "2026-11-24" },
     // Guide lessons in Finnish (voice Sini, Finnish screens).
+    "danh-gia-google": { seconds: 92, published: "2026-11-24" },
     "bang-gia": { seconds: 111, published: "2026-11-24" },
     "cai-app": { seconds: 89, published: "2026-11-24" },
     "chat-voi-salon": { seconds: 44, published: "2026-11-24" },
