@@ -17,6 +17,7 @@ import {
   Users,
 } from "lucide-react";
 import { LoyaltyDetailsModal, LoyaltyInsightsPanel } from "@/components/loyalty-customer-insights";
+import { CustomerSuggestInput, type CustomerSuggestion } from "@/components/loyalty-customer-suggest";
 
 interface Program {
   pointsRequired: number;
@@ -137,6 +138,13 @@ export function LoyaltyManager({
     setEditingProgram(false);
   }
 
+  /** A customer picked from the suggestions fills the whole form. */
+  function pickCustomer(c: CustomerSuggestion) {
+    setMember((m) => ({ customerName: c.name, customerEmail: c.email, customerPhone: c.phone ?? m.customerPhone }));
+    setMemberError(null);
+    setMemberAdded(false);
+  }
+
   async function addMember(e: React.FormEvent) {
     e.preventDefault();
     setAdding(true);
@@ -238,6 +246,57 @@ export function LoyaltyManager({
 
   return (
     <div className="space-y-6">
+      {hasProgram && (
+        <section className="rounded-[24px] border border-ink-100 bg-white p-5 shadow-sm sm:p-6">
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-50 to-primary-100 text-teal-500">
+              <UserPlus className="h-5 w-5" />
+            </div>
+            <div>
+              <h2 className="font-bold text-ink-900">{vi ? "Kích hoạt thẻ cho khách" : fi ? "Aktivoi kortti asiakkaalle" : "Activate a card for a customer"}</h2>
+              <p className="text-xs text-ink-400">
+                {vi ? "Khách sẽ nhận mã QR thẻ tích điểm qua email." : fi ? "Asiakas saa kanta-asiakaskortin QR-koodin sähköpostilla." : "The customer gets their loyalty QR by email."}
+              </p>
+            </div>
+          </div>
+          <form onSubmit={addMember} className="grid gap-3 sm:grid-cols-3">
+            <CustomerSuggestInput
+              id="loyalty-new-name"
+              required
+              locale={locale}
+              placeholder={vi ? "Họ tên" : fi ? "Nimi" : "Name"}
+              value={member.customerName}
+              onChange={(v) => setMember({ ...member, customerName: v })}
+              onPick={pickCustomer}
+            />
+            <CustomerSuggestInput
+              id="loyalty-new-email"
+              type="email"
+              required
+              locale={locale}
+              placeholder={fi ? "Sähköposti" : "Email"}
+              value={member.customerEmail}
+              onChange={(v) => setMember({ ...member, customerEmail: v })}
+              onPick={pickCustomer}
+            />
+            <input placeholder={vi ? "Điện thoại (không bắt buộc)" : fi ? "Puhelin (valinnainen)" : "Phone (optional)"} className="input" value={member.customerPhone} onChange={(e) => setMember({ ...member, customerPhone: e.target.value })} />
+            {memberError && <p className="text-sm text-berry-500 sm:col-span-3">{memberError}</p>}
+            {memberAdded && (
+              <p className="flex items-center gap-1.5 text-sm text-teal-600 sm:col-span-3">
+                <CheckCircle2 className="h-4 w-4" />
+                {vi ? "Đã kích hoạt và gửi QR qua email." : fi ? "Aktivoitu – QR-koodi on lähetetty sähköpostilla." : "Activated — the QR has been emailed."}
+              </p>
+            )}
+            <div className="sm:col-span-3">
+              <button type="submit" disabled={adding} className="btn-primary">
+                {adding ? <Loader2 className="h-4 w-4 animate-spin" /> : <CreditCard className="h-4 w-4" />}
+                {vi ? "Kích hoạt và gửi QR qua email" : fi ? "Aktivoi ja lähetä QR-koodi sähköpostilla" : "Activate and email the QR"}
+              </button>
+            </div>
+          </form>
+        </section>
+      )}
+
       {hasProgram && (
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
           {[
@@ -426,39 +485,6 @@ export function LoyaltyManager({
         </section>
       )}
 
-      {hasProgram && (
-        <section className="rounded-[24px] border border-ink-100 bg-white p-5 shadow-sm sm:p-6">
-          <div className="mb-4 flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-50 to-primary-100 text-teal-500">
-              <UserPlus className="h-5 w-5" />
-            </div>
-            <div>
-              <h2 className="font-bold text-ink-900">{vi ? "Kích hoạt thẻ cho khách" : fi ? "Aktivoi kortti asiakkaalle" : "Activate a card for a customer"}</h2>
-              <p className="text-xs text-ink-400">
-                {vi ? "Khách sẽ nhận mã QR thẻ tích điểm qua email." : fi ? "Asiakas saa kanta-asiakaskortin QR-koodin sähköpostilla." : "The customer gets their loyalty QR by email."}
-              </p>
-            </div>
-          </div>
-          <form onSubmit={addMember} className="grid gap-3 sm:grid-cols-3">
-            <input required placeholder={vi ? "Họ tên" : fi ? "Nimi" : "Name"} className="input" value={member.customerName} onChange={(e) => setMember({ ...member, customerName: e.target.value })} />
-            <input required type="email" placeholder={fi ? "Sähköposti" : "Email"} className="input" value={member.customerEmail} onChange={(e) => setMember({ ...member, customerEmail: e.target.value })} />
-            <input placeholder={vi ? "Điện thoại (không bắt buộc)" : fi ? "Puhelin (valinnainen)" : "Phone (optional)"} className="input" value={member.customerPhone} onChange={(e) => setMember({ ...member, customerPhone: e.target.value })} />
-            {memberError && <p className="text-sm text-berry-500 sm:col-span-3">{memberError}</p>}
-            {memberAdded && (
-              <p className="flex items-center gap-1.5 text-sm text-teal-600 sm:col-span-3">
-                <CheckCircle2 className="h-4 w-4" />
-                {vi ? "Đã kích hoạt và gửi QR qua email." : fi ? "Aktivoitu – QR-koodi on lähetetty sähköpostilla." : "Activated — the QR has been emailed."}
-              </p>
-            )}
-            <div className="sm:col-span-3">
-              <button type="submit" disabled={adding} className="btn-primary">
-                {adding ? <Loader2 className="h-4 w-4 animate-spin" /> : <CreditCard className="h-4 w-4" />}
-                {vi ? "Kích hoạt và gửi QR qua email" : fi ? "Aktivoi ja lähetä QR-koodi sähköpostilla" : "Activate and email the QR"}
-              </button>
-            </div>
-          </form>
-        </section>
-      )}
 
       <section className="rounded-[24px] border border-ink-100 bg-white p-5 shadow-sm sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">

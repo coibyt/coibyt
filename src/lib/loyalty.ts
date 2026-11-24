@@ -167,7 +167,7 @@ export async function suggestCardEmails(businessId: string, token: string, query
   );
   const users = await prisma.user.findMany({
     where: {
-      email: { contains: q, not: { endsWith: "@guest.varaaai.com" } },
+      email: { contains: q, not: { endsWith: ".varaaai.com" } }, // not made-up guest/walk-in addresses
       bookings: { some: { businessId } },
     },
     take: 12,
@@ -182,6 +182,48 @@ export async function suggestCardEmails(businessId: string, token: string, query
     .sort((a, b) => Number(!a.email.toLowerCase().startsWith(q)) - Number(!b.email.toLowerCase().startsWith(q)))
     .slice(0, 6)
     .map((u) => ({ email: u.email, name: u.name, lastBooking: u.bookings[0]?.startsAt.toISOString() ?? null }));
+}
+
+/** This salon's customers whose name or email contains `query`, for the
+ * "Activate a card" form, each marked when they already have a card here. */
+export async function suggestNewCardCustomers(businessId: string, query: string) {
+  const q = query.trim();
+  if (q.length < 2) return [];
+  const users = await prisma.user.findMany({
+    where: {
+      bookings: { some: { businessId } },
+      email: { not: { endsWith: ".varaaai.com" } }, // not made-up guest/walk-in addresses
+      OR: [{ name: { contains: q } }, { email: { contains: q.toLowerCase() } }],
+    },
+    take: 40,
+    select: {
+      email: true,
+      name: true,
+      phone: true,
+      bookings: { where: { businessId }, orderBy: { startsAt: "desc" }, take: 1, select: { startsAt: true } },
+    },
+  });
+  if (users.length === 0) return [];
+  const emails = users.map((u) => u.email.toLowerCase());
+  const [cards, linked] = await Promise.all([
+    prisma.loyaltyCard.findMany({ where: { businessId, customerEmail: { in: emails } }, select: { customerEmail: true } }),
+    prisma.loyaltyCardEmail.findMany({ where: { businessId, email: { in: emails } }, select: { email: true } }),
+  ]);
+  const carded = new Set([...cards.map((c) => c.customerEmail), ...linked.map((l) => l.email)].map((e) => e.toLowerCase()));
+  const lower = q.toLowerCase();
+  // Customers without a card first, then names or emails that start with the text.
+  return users
+    .map((u) => ({
+      email: u.email,
+      name: u.name,
+      phone: u.phone,
+      lastBooking: u.bookings[0]?.startsAt.toISOString() ?? null,
+      hasCard: carded.has(u.email.toLowerCase()),
+      starts: u.email.toLowerCase().startsWith(lower) || u.name.toLowerCase().split(/\s+/).some((w) => w.startsWith(lower)),
+    }))
+    .sort((a, b) => Number(a.hasCard) - Number(b.hasCard) || Number(b.starts) - Number(a.starts))
+    .slice(0, 8)
+    .map(({ starts: _starts, ...s }) => s);
 }
 
 /** The salon gives the discount: the card goes back to zero for the next cycle. */
