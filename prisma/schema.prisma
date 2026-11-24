@@ -1835,8 +1835,25 @@ model LoyaltyCard {
   rewards   LoyaltyReward[]
   referrals LoyaltyReferral[]
   views     LoyaltyCardView[]
+  // Other emails the same customer books with; their visits count too.
+  extraEmails LoyaltyCardEmail[]
 
   @@unique([businessId, customerEmail])
+}
+
+// Another email of a cardholder, added by the salon's staff when the customer
+// booked with it (src/lib/loyalty.ts → linkCardEmail). An email belongs to at
+// most one card per salon, so a visit can never earn tickets on two cards.
+model LoyaltyCardEmail {
+  id         String      @id @default(cuid())
+  cardId     String
+  card       LoyaltyCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  businessId String
+  email      String
+  createdAt  DateTime    @default(now())
+
+  @@unique([businessId, email])
+  @@index([cardId])
 }
 
 // A friend who booked this salon through a customer's invite link. When the

@@ -6,6 +6,7 @@ import { Link, useRouter } from "@/i18n/navigation";
 import { fill } from "@/lib/shop-strings";
 import { loyaltyCardStrings, firstName } from "@/lib/loyalty-card-strings";
 import { REFERRAL_TICKETS } from "@/lib/loyalty-referral-constants";
+import { LoyaltyOtherEmail } from "@/components/loyalty-other-email";
 
 export interface MemberCardData {
   token: string;
@@ -95,6 +96,8 @@ export function LoyaltyMemberCard({
   const [toast, setToast] = useState<string | null>(null);
   const [adding, setAdding] = useState(false);
   const [staffMsg, setStaffMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  // The customer booked with another email: the box to link it (staff only).
+  const [showOtherEmail, setShowOtherEmail] = useState(false);
 
   const total = data.program?.pointsRequired ?? 10;
   const pctOff = data.program?.discountPercent ?? 0;
@@ -144,6 +147,7 @@ export function LoyaltyMemberCard({
         ok: false,
         text: d?.reason === "NO_NEW_VISIT" ? S.errNoVisit : d?.reason === "REWARD_PENDING" ? S.errPending : S.errGeneric,
       });
+      if (d?.reason === "NO_NEW_VISIT") setShowOtherEmail(true);
     }
   }
 
@@ -279,6 +283,33 @@ export function LoyaltyMemberCard({
                 {staffMsg.ok && <Check className="mt-0.5 h-4 w-4 shrink-0" />}
                 {staffMsg.text}
               </p>
+            )}
+            {showOtherEmail ? (
+              <LoyaltyOtherEmail
+                token={data.token}
+                locale={locale}
+                S={S}
+                onDone={(result, scan) => {
+                  if (scan.ok) {
+                    const added = scan.rewardReady
+                      ? fill(S.staffReady, { total: scan.pointsRequired ?? total, pct: pctOff })
+                      : fill(S.staffAdded, { n: scan.points ?? 0, total: scan.pointsRequired ?? total });
+                    setStaffMsg({ ok: true, text: `${result.text} ${added}` });
+                    setShowOtherEmail(false);
+                    router.refresh();
+                  } else {
+                    setStaffMsg(result);
+                  }
+                }}
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setShowOtherEmail(true)}
+                className="mt-4 block w-full text-center text-sm font-semibold text-amber-200 underline-offset-4 hover:underline"
+              >
+                {S.otherEmailLink}
+              </button>
             )}
             <Link href="/business/dashboard/loyalty" className="mt-3 block text-center text-xs font-semibold text-white/60 underline-offset-4 hover:underline">
               {S.staffOpen}

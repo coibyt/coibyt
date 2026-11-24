@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { eligibleVisits } from "@/lib/loyalty";
+import { cardEmails, eligibleVisits } from "@/lib/loyalty";
 
 /** Everything the salon knows about one loyalty cardholder: their card, how
  * much they've actually used the salon (matched on the card's email), and
@@ -26,10 +26,11 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   });
   if (!card) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
+  const emails = await cardEmails(card);
   const [program, bookings, scannable] = await Promise.all([
     prisma.loyaltyProgram.findUnique({ where: { businessId }, select: { pointsRequired: true, discountPercent: true } }),
     prisma.booking.findMany({
-      where: { businessId, customer: { email: card.customerEmail } },
+      where: { businessId, customer: { email: { in: emails } } },
       orderBy: { startsAt: "desc" },
       take: 200,
       select: {

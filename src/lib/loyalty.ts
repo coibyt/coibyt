@@ -37,20 +37,27 @@ export const LOYALTY_BACKDATE_VISITS = 3;
 /** Bookings that count as a visit: still on the calendar (not deleted), not
  * cancelled or marked no-show, and whose appointment time has arrived. Owners
  * rarely mark visits "completed" by hand, so CONFIRMED counts too. */
-function visitWhere(card: { businessId: string; customerEmail: string }, now: Date) {
+function visitWhere(businessId: string, emails: string[], now: Date) {
   return {
-    businessId: card.businessId,
+    businessId,
     status: { in: ["CONFIRMED" as const, "COMPLETED" as const] },
     startsAt: { lte: now },
-    customer: { email: card.customerEmail },
+    customer: { email: { in: emails } },
   };
 }
 
+/** The card's own email plus any other emails the salon linked to it. */
+export async function cardEmails(card: { id: string; customerEmail: string }) {
+  const extra = await prisma.loyaltyCardEmail.findMany({ where: { cardId: card.id }, select: { email: true } });
+  return [card.customerEmail, ...extra.map((e) => e.email)];
+}
+
 /** How many scans this card may have had in total: every visit since the card
- * was activated, plus up to LOYALTY_BACKDATE_VISITS visits from before. */
-export async function eligibleVisits(card: { businessId: string; customerEmail: string; activatedAt: Date }) {
+ * was activated, plus up to LOYALTY_BACKDATE_VISITS visits from before. Visits
+ * booked with any of the card's emails count. */
+export async function eligibleVisits(card: { id: string; businessId: string; customerEmail: string; activatedAt: Date }) {
   const now = new Date();
-  const base = visitWhere(card, now);
+  const base = visitWhere(card.businessId, await cardEmails(card), now);
   const [since, before] = await Promise.all([
     prisma.booking.count({ where: { ...base, startsAt: { lte: now, gte: card.activatedAt } } }),
     prisma.booking.count({ where: { ...base, startsAt: { lt: card.activatedAt } } }),
@@ -109,6 +116,72 @@ export async function scanLoyaltyCard(businessId: string, token: string): Promis
     pointsRequired: program.pointsRequired,
     rewardReady: updated.rewardReady,
   };
+}
+
+export type LinkEmailOutcome =
+  | { ok: true }
+  | { ok: false; reason: "NOT_FOUND" | "SAME_EMAIL" | "NO_BOOKINGS" | "OTHER_CARD" };
+
+/** Staff add another email the cardholder booked with, so those bookings earn
+ * tickets on this card. Only an email with bookings at this salon, and not one
+ * that already belongs to another card here (the visit would count twice). */
+export async function linkCardEmail(businessId: string, token: string, rawEmail: string): Promise<LinkEmailOutcome> {
+  const email = rawEmail.trim().toLowerCase();
+  const card = await prisma.loyaltyCard.findFirst({
+    where: { token: token.trim().toUpperCase(), businessId },
+    select: { id: true, customerEmail: true },
+  });
+  if (!card) return { ok: false, reason: "NOT_FOUND" };
+  if (email === card.customerEmail.toLowerCase()) return { ok: false, reason: "SAME_EMAIL" };
+
+  const [hasBooking, ownCard, linked] = await Promise.all([
+    prisma.booking.findFirst({ where: { businessId, customer: { email } }, select: { id: true } }),
+    prisma.loyaltyCard.findUnique({ where: { businessId_customerEmail: { businessId, customerEmail: email } }, select: { id: true } }),
+    prisma.loyaltyCardEmail.findUnique({ where: { businessId_email: { businessId, email } }, select: { cardId: true } }),
+  ]);
+  if (!hasBooking) return { ok: false, reason: "NO_BOOKINGS" };
+  if (ownCard && ownCard.id !== card.id) return { ok: false, reason: "OTHER_CARD" };
+  if (linked) return linked.cardId === card.id ? { ok: true } : { ok: false, reason: "OTHER_CARD" };
+
+  await prisma.loyaltyCardEmail.create({ data: { cardId: card.id, businessId, email } });
+  return { ok: true };
+}
+
+/** Emails of this salon's customers that start with or contain `query`, for
+ * the "booked with another email?" box on the member card (staff only). */
+export async function suggestCardEmails(businessId: string, token: string, query: string) {
+  const q = query.trim().toLowerCase();
+  if (q.length < 2) return [];
+  const card = await prisma.loyaltyCard.findFirst({
+    where: { token: token.trim().toUpperCase(), businessId },
+    select: { id: true, customerEmail: true },
+  });
+  if (!card) return [];
+  // Left out: this card's own emails and emails that belong to another card here.
+  const [cards, linked] = await Promise.all([
+    prisma.loyaltyCard.findMany({ where: { businessId, customerEmail: { contains: q } }, select: { customerEmail: true } }),
+    prisma.loyaltyCardEmail.findMany({ where: { businessId, email: { contains: q } }, select: { email: true } }),
+  ]);
+  const skip = new Set(
+    [card.customerEmail, ...cards.map((c) => c.customerEmail), ...linked.map((l) => l.email)].map((e) => e.toLowerCase())
+  );
+  const users = await prisma.user.findMany({
+    where: {
+      email: { contains: q, not: { endsWith: "@guest.varaaai.com" } },
+      bookings: { some: { businessId } },
+    },
+    take: 12,
+    select: {
+      email: true,
+      name: true,
+      bookings: { where: { businessId }, orderBy: { startsAt: "desc" }, take: 1, select: { startsAt: true } },
+    },
+  });
+  return users
+    .filter((u) => !skip.has(u.email.toLowerCase()))
+    .sort((a, b) => Number(!a.email.toLowerCase().startsWith(q)) - Number(!b.email.toLowerCase().startsWith(q)))
+    .slice(0, 6)
+    .map((u) => ({ email: u.email, name: u.name, lastBooking: u.bookings[0]?.startsAt.toISOString() ?? null }));
 }
 
 /** The salon gives the discount: the card goes back to zero for the next cycle. */
