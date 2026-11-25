@@ -7,6 +7,7 @@ import { useRouter, Link } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { safeCallback } from "@/lib/safe-callback";
+import { PasswordInput } from "@/components/password-input";
 
 export function SignUpForm() {
   const t = useTranslations("auth");
@@ -103,9 +104,8 @@ export function SignUpForm() {
         </div>
         <div>
           <label className="label" htmlFor="password">{t("password")}</label>
-          <input
+          <PasswordInput
             id="password"
-            type="password"
             required
             minLength={8}
             value={form.password}
@@ -115,9 +115,8 @@ export function SignUpForm() {
         </div>
         <div>
           <label className="label" htmlFor="confirmPassword">{t("confirmPassword")}</label>
-          <input
+          <PasswordInput
             id="confirmPassword"
-            type="password"
             required
             value={form.confirmPassword}
             onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })}

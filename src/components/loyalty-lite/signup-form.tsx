@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowRight, KeyRound, Loader2, MailCheck } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
 import type { LiteStrings } from "@/lib/loyalty-lite-strings";
+import { PasswordInput } from "@/components/password-input";
 
 /** Loyalty Lite's card on /loyalty-lite: create a salon (a new one goes
  * straight to its studio; a known email gets a sign-in link instead), or
@@ -165,7 +166,7 @@ export function LiteSignupForm({
           </label>
           <label className={label}>
             {t.password}
-            <input required type="password" maxLength={200} value={password} onChange={(e) => setPassword(e.target.value)} className={field} autoComplete="current-password" />
+            <PasswordInput required maxLength={200} value={password} onChange={(e) => setPassword(e.target.value)} wrapperClassName="mt-1.5" className={field.replace("mt-1.5 ", "")} autoComplete="current-password" />
           </label>
           {error && <p className="rounded-xl bg-berry-50 px-3 py-2 text-xs font-semibold text-berry-600">{error}</p>}
           <button type="submit" disabled={busy} className={submit}>

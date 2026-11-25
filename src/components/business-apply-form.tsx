@@ -7,6 +7,7 @@ import { useRouter, Link } from "@/i18n/navigation";
 import { Loader2 } from "lucide-react";
 import { AddressAutocomplete, type AddressSuggestion } from "@/components/address-autocomplete";
 import { COUNTRIES } from "@/lib/countries";
+import { PasswordInput } from "@/components/password-input";
 
 export function BusinessApplyForm({
   categories,
@@ -139,8 +140,7 @@ export function BusinessApplyForm({
           </div>
           <div>
             <label className="label">{tAuth("password")}</label>
-            <input
-              type="password"
+            <PasswordInput
               required
               minLength={8}
               className="input"
@@ -150,8 +150,7 @@ export function BusinessApplyForm({
           </div>
           <div>
             <label className="label">{tAuth("confirmPassword")}</label>
-            <input
-              type="password"
+            <PasswordInput
               required
               className="input"
               value={account.confirmPassword}

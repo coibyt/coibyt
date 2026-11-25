@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Bot, CheckCircle2, ExternalLink, Loader2, Send, Trash2, TriangleAlert } from "lucide-react";
+import { PasswordInput } from "@/components/password-input";
 
 export interface TelegramBotStatus {
   username: string;
@@ -135,13 +136,12 @@ export function TelegramAdmin({ initial }: { initial: TelegramBotStatus | null }
             <li>BotFather gửi lại một token dạng <code className="rounded bg-mist-50 px-1">123456789:AA…</code> — dán vào ô dưới và bấm Kết nối.</li>
           </ol>
           <div className="flex flex-col gap-2 sm:flex-row">
-            <input
-              type="password"
+            <PasswordInput
               autoComplete="off"
               value={token}
               onChange={(e) => setToken(e.target.value)}
               placeholder="Token của bot"
-              className="input flex-1 font-mono text-sm"
+              wrapperClassName="flex-1" className="input font-mono text-sm"
             />
             <button type="button" disabled={busy || !token.trim()} onClick={connect} className="btn-primary">
               {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />} Kết nối

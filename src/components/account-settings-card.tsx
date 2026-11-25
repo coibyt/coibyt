@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Loader2 } from "lucide-react";
+import { PasswordInput } from "@/components/password-input";
 
 export function AccountSettingsCard({
   currentEmail,
@@ -89,9 +90,8 @@ export function AccountSettingsCard({
           onChange={(e) => setNewEmail(e.target.value)}
         />
         {hasPassword && (
-          <input
+          <PasswordInput
             className="input"
-            type="password"
             placeholder={t("currentPassword")}
             value={emailPassword}
             onChange={(e) => setEmailPassword(e.target.value)}
@@ -117,17 +117,15 @@ export function AccountSettingsCard({
           {hasPassword ? t("changePassword") : t("setPassword")}
         </p>
         {hasPassword && (
-          <input
+          <PasswordInput
             className="input"
-            type="password"
             placeholder={t("currentPassword")}
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
           />
         )}
-        <input
+        <PasswordInput
           className="input"
-          type="password"
           placeholder={t("newPasswordPlaceholder")}
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}

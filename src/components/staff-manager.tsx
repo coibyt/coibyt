@@ -41,6 +41,7 @@ import { StaffBranchesPanel } from "@/components/staff-branches-panel";
 import { VaraClipLink } from "@/components/varaclip-link";
 import { StaffAvatarUpload } from "@/components/staff-avatar-upload";
 import { StaffHoursFields, DEFAULT_STAFF_HOURS, staffHoursPayload, type StaffHoursValue } from "@/components/staff-hours-fields";
+import { PasswordInput } from "@/components/password-input";
 
 interface StaffRow {
   id: string;
@@ -712,8 +713,7 @@ export function StaffManager({
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
                 <input type="email" placeholder="email@example.com" className={FIELD} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-                <input
-                  type="password"
+                <PasswordInput
                   autoComplete="new-password"
                   placeholder={editingId ? S.passwordKeep : S.passwordNew}
                   className={FIELD}

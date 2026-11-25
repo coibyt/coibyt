@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useRouter, Link } from "@/i18n/navigation";
 import { Loader2 } from "lucide-react";
+import { PasswordInput } from "@/components/password-input";
 
 export function ResetPasswordForm() {
   const t = useTranslations("auth");
@@ -53,9 +54,8 @@ export function ResetPasswordForm() {
         <label className="label" htmlFor="password">
           {t("newPassword")}
         </label>
-        <input
+        <PasswordInput
           id="password"
-          type="password"
           required
           minLength={8}
           value={password}
@@ -67,9 +67,8 @@ export function ResetPasswordForm() {
         <label className="label" htmlFor="confirmPassword">
           {t("confirmPassword")}
         </label>
-        <input
+        <PasswordInput
           id="confirmPassword"
-          type="password"
           required
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}

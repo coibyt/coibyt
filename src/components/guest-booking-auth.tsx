@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { Loader2 } from "lucide-react";
+import { PasswordInput } from "@/components/password-input";
 
 /** The "already have an account? sign in" alternate to the inline guest
  * registration fields on the booking widget's final step (see
@@ -42,8 +43,7 @@ export function SignInForm() {
       </div>
       <div>
         <label className="label">{tAuth("password")}</label>
-        <input
-          type="password"
+        <PasswordInput
           required
           className="input"
           value={form.password}

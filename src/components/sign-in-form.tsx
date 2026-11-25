@@ -7,6 +7,7 @@ import { useRouter, Link } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { safeCallback } from "@/lib/safe-callback";
+import { PasswordInput } from "@/components/password-input";
 
 export function SignInForm() {
   const t = useTranslations("auth");
@@ -58,9 +59,8 @@ export function SignInForm() {
               {t("forgotPassword")}
             </Link>
           </div>
-          <input
+          <PasswordInput
             id="password"
-            type="password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}

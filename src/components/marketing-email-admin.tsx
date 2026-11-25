@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AlertCircle, CheckCircle2, Loader2, Mail, Send, ShieldCheck, Trash2 } from "lucide-react";
+import { PasswordInput } from "@/components/password-input";
 
 const SLOTS = 8;
 
@@ -141,8 +142,7 @@ export function MarketingEmailAdmin({ initial }: { initial: Smtp | null }) {
                       placeholder={`support00${i + 1}@varaaai.com`}
                       className="input !h-10 text-sm"
                     />
-                    <input
-                      type="password"
+                    <PasswordInput
                       autoComplete="new-password"
                       value={r.pass}
                       onChange={(e) => setRow(i, { pass: e.target.value })}

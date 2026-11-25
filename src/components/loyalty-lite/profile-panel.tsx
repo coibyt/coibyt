@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Check, KeyRound, Loader2, LogOut, Mail, Pause, Play, ShieldCheck, Trash2, UserPlus, UserRound, Users } from "lucide-react";
 import type { LiteStrings } from "@/lib/loyalty-lite-strings";
+import { PasswordInput } from "@/components/password-input";
 
 interface StaffRow {
   id: string;
@@ -183,11 +184,11 @@ export function LiteProfilePanel({
           <input type="email" value={email} readOnly autoComplete="username" className="hidden" />
           <label className="block text-xs font-bold text-ink-700">
             {t.newPassword}
-            <input type="password" minLength={8} maxLength={200} value={pw} onChange={(e) => setPw(e.target.value)} className={field} autoComplete="new-password" />
+            <PasswordInput minLength={8} maxLength={200} value={pw} onChange={(e) => setPw(e.target.value)} wrapperClassName="mt-1" className={field.replace("mt-1 ", "")} autoComplete="new-password" />
           </label>
           <label className="block text-xs font-bold text-ink-700">
             {t.confirmPassword}
-            <input type="password" minLength={8} maxLength={200} value={pw2} onChange={(e) => setPw2(e.target.value)} className={field} autoComplete="new-password" />
+            <PasswordInput minLength={8} maxLength={200} value={pw2} onChange={(e) => setPw2(e.target.value)} wrapperClassName="mt-1" className={field.replace("mt-1 ", "")} autoComplete="new-password" />
           </label>
           <div className="sm:col-span-2">
             <button type="submit" disabled={!!busy || !pw} className={gold}>
