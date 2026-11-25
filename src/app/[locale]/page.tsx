@@ -7,6 +7,7 @@ import { CategoryCard } from "@/components/category-card";
 import { FeaturedNearby } from "@/components/featured-nearby";
 import { Link } from "@/i18n/navigation";
 import { OfferCountdown } from "@/components/offer-countdown";
+import { AcademyHomeBanner } from "@/components/academy/academy-home-banner";
 import { categoryName } from "@/lib/category-names";
 import { ArrowRight, CalendarCheck, Check, MessageCircle, ShieldCheck, Sparkles, Store } from "lucide-react";
 import { OpenSupportButton, SupportLauncher } from "@/components/support-launcher";
@@ -106,6 +107,9 @@ export default async function HomePage({
           ))}
         </div>
       </section>
+
+      {/* The Academy, right after the categories so people find it (owner, 2026-11-25). */}
+      <AcademyHomeBanner locale={locale} />
 
       <FeaturedNearby locale={locale} title={t("featuredTitle")} />
 
