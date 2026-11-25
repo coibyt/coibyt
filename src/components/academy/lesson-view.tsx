@@ -24,7 +24,7 @@ export interface LessonViewData {
   coursePage: string | null;
   title: string;
   summary: string;
-  video: { src: string; poster: string; captions: string; seconds: number; lang: string };
+  video: { src: string; poster: string; captions: string; seconds: number; lang: string; portrait?: boolean };
   href: string | null;
   hrefLabel: string | null;
   guide: string | null;
@@ -402,7 +402,7 @@ function Player({
           controls={started && !ended}
           playsInline
           preload="metadata"
-          className="block aspect-video w-full bg-black"
+          className={lesson.video.portrait ? "mx-auto block aspect-[9/16] h-[min(80vh,760px)] max-w-full bg-black" : "block aspect-video w-full bg-black"}
           onTimeUpdate={() => {
             save();
             countWatch();

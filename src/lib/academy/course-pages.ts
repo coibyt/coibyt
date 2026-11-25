@@ -1941,6 +1941,166 @@ export const COURSE_SEO: CourseSeo[] = [
       "Babelisa",
     ],
   },
+  /* ================= customers: Moja Beauty (moja.ts) ================= */
+  {
+    id: "c-moja-beauty",
+    slug: "kien-thuc-noi-mi-lam-mong",
+    metaTitle: l3(
+      "Kiến thức nối mi, làm móng, làm mày: 17 video ngắn",
+      "Lashes, Nails and Brows: 17 Short Videos from a Salon",
+      "Ripset, kynnet ja kulmat: 17 lyhyttä videota salongilta"
+    ),
+    metaDescription: l3(
+      "Chọn kiểu nối mi, độ cong mi theo dáng mắt, sơn gel hay BIAB, dáng móng, Brow Lamination, cách chăm mi và móng tại nhà: 17 video ngắn từ tiệm Moja Beauty.",
+      "Lash styles and curls for your eye shape, gel or BIAB, nail shapes, brow lamination and care at home: 17 short videos from the Moja Beauty salon in Helsinki.",
+      "Ripsityylit ja taivutukset silmien muodon mukaan, geeli vai BIAB, kynsien muodot, kulmien laminointi ja kotihoito: 17 lyhyttä videota Moja Beautylta."
+    ),
+    headline: l3(
+      "Nối mi, làm móng, làm mày: hiểu đúng trước khi đến tiệm",
+      "Lashes, nails and brows: know what you are booking before you go",
+      "Ripset, kynnet ja kulmat: tiedä mitä varaat ennen kuin menet"
+    ),
+    tagline: l3(
+      "Mười bảy video ngắn từ tiệm Moja Beauty ở Helsinki: chọn kiểu nào cho hợp, chăm sóc tại nhà thế nào, và những hiểu lầm hay gặp.",
+      "Seventeen short videos from the Moja Beauty salon in Helsinki: which style suits you, how to care for it at home, and common myths.",
+      "Seitsemäntoista lyhyttä videota helsinkiläiseltä Moja Beauty -salongilta: mikä tyyli sopii sinulle, miten hoidat sitä kotona ja yleiset harhaluulot."
+    ),
+    level: l3("Cho khách hàng, không cần biết trước", "For customers, no prior knowledge needed", "Asiakkaille, esitietoja ei tarvita"),
+    outcomes: [
+      l3(
+        "Phân biệt Classic, Hybrid, Volume, Mega và chọn độ cong mi hợp dáng mắt.",
+        "Tell Classic, Hybrid, Volume and Mega apart and pick the curl for your eye shape.",
+        "Erotat klassiset, hybridi-, volyymi- ja megaripset ja valitset silmillesi sopivan taivutuksen."
+      ),
+      l3(
+        "So sánh nối mi và uốn mi theo giá, độ bền và cảm giác trên mắt.",
+        "Compare lash extensions and a lash lift on price, how long they last and how they feel.",
+        "Vertailet ripsienpidennyksiä ja kestotaivutusta hinnan, keston ja tuntuman perusteella."
+      ),
+      l3(
+        "Hiểu sơn gel, BIAB, đắp bột, Gel-X và chọn dáng móng hợp bàn tay.",
+        "Understand gel polish, BIAB, acrylic and Gel-X and choose a nail shape for your hands.",
+        "Ymmärrät geelilakan, BIABin, akryylin ja Gel-X:n ja valitset käsillesi sopivan kynnen muodon."
+      ),
+      l3(
+        "Rửa mi nối đúng cách tại nhà và biết vì sao tránh tẩy trang có dầu.",
+        "Wash lash extensions properly at home and know why to avoid oil-based removers.",
+        "Peset ripsienpidennykset oikein kotona ja tiedät, miksi öljypohjaisia poistoaineita vältetään."
+      ),
+      l3(
+        "Tránh những thói quen làm gel bong sớm và làm móng thật yếu đi.",
+        "Avoid the habits that make gel lift early and weaken your natural nails.",
+        "Vältät tavat, jotka irrottavat geelin aikaisin ja heikentävät omia kynsiäsi."
+      ),
+      l3(
+        "Chọn giữa Brow Lamination, nhuộm mày, phun xăm và giữ nếp mày lâu.",
+        "Choose between brow lamination, tint and permanent make-up, and make the result last.",
+        "Valitset kulmien laminoinnin, värjäyksen ja pysyvän meikin välillä ja saat tuloksen kestämään."
+      ),
+    ],
+    intro: [
+      l3(
+        "Đi làm mi, làm móng mà không biết nên chọn kiểu nào là chuyện rất thường gặp. Nhiều khách chỉ đưa ảnh trên mạng cho thợ, rồi bất ngờ khi kết quả trên mắt mình khác hẳn, hoặc mi, móng nhanh hỏng vì một thói quen nhỏ ở nhà. Khóa học này gồm mười bảy video ngắn từ tiệm Moja Beauty ở Helsinki, có ba tiệm ở Kamppi, Hakaniemi và Sörnäinen. Mỗi video chỉ khoảng một phút, nói thẳng vào một câu hỏi mà khách hay hỏi ở quầy.",
+        "Booking lashes or nails without knowing which style to choose is very common. Many customers just show the technician a photo from the internet, then are surprised when the result on their own eyes looks different, or when lashes and nails wear out early because of a small habit at home. This course is seventeen short videos from Moja Beauty, a salon with three locations in Helsinki: Kamppi, Hakaniemi and Sörnäinen. Each video is about a minute long and answers one question customers often ask at the desk.",
+        "On hyvin tavallista varata ripset tai kynnet tietämättä, minkä tyylin valitsisi. Moni asiakas näyttää kosmetologille vain kuvan netistä ja yllättyy, kun tulos omissa silmissä näyttää erilaiselta, tai kun ripset ja kynnet kuluvat nopeasti jonkin pienen kotitavan takia. Tämä kurssi on seitsemäntoista lyhyttä videota Moja Beautylta, jolla on Helsingissä kolme toimipistettä: Kamppi, Hakaniemi ja Sörnäinen. Jokainen video kestää noin minuutin ja vastaa yhteen kysymykseen, jota asiakkaat usein kysyvät tiskillä."
+      ),
+      l3(
+        "Phần mi đi trước. Bạn xem bốn kiểu nối mi Classic, Hybrid, Volume và Mega trên cùng một gương mặt, để thấy mỗi kiểu dày đến đâu. Sau đó là cách chọn độ cong C, CC, D hay L theo dáng mắt: mắt to tròn, mắt nhỏ, mắt sụp mí hay mắt một mí. Video tiếp theo so sánh nối mi với uốn mi bằng giá thật tại Moja, đã gồm thuế, thời gian giữ được và cảm giác trên mắt, rồi giải thích vì sao nối đúng kỹ thuật, cách chân mi khoảng một milimét, không làm hỏng mi thật.",
+        "Lashes come first. You see the four extension styles, Classic, Hybrid, Volume and Mega, on the same face, so you can tell how full each one is. Next comes choosing a C, CC, D or L curl for your eye shape: big round eyes, small eyes, hooded eyes or monolids. Another video compares extensions with a lash lift using Moja's real prices, VAT included, how long each lasts and how it feels, and then explains why correct work, about one millimetre from the lid, does not ruin your natural lashes.",
+        "Ensin ripset. Näet neljä pidennystyyliä, klassisen, hybridin, volyymin ja megan, samoilla kasvoilla ja huomaat, kuinka tuuhea kukin on. Sitten valitaan C-, CC-, D- tai L-taivutus silmien muodon mukaan: isot pyöreät silmät, pienet silmät, raskaat luomet tai yksiluomiset silmät. Seuraava video vertaa pidennyksiä ja kestotaivutusta Mojan todellisilla hinnoilla, jotka sisältävät arvonlisäveron, sekä kestoa ja tuntumaa, ja kertoo, miksi oikein tehty kiinnitys noin millimetrin päähän luomesta ei pilaa omia ripsiä."
+      ),
+      l3(
+        "Chăm sóc mi tại nhà chiếm nhiều video nhất, vì đây là chỗ khách hay làm sai. Bạn học ba việc không nên làm trước giờ hẹn, ba điều phải nhớ trong những ngày đầu, ba bước rửa mi nối với bọt không dầu, và chu kỳ mọc, rụng của sợi mi: vì sao rụng hai đến năm sợi mỗi ngày là bình thường, và vì sao mi nối rụng theo mi thật. Cuối phần có video về việc đi dặm đúng hẹn thay vì đợi mi rụng sạch mới làm lại.",
+        "Care at home gets the most videos, because that is where customers most often go wrong. You learn three things not to do before an appointment, three things to remember in the first days, three steps for washing extensions with an oil-free foam, and the growth cycle of a lash: why losing two to five lashes a day is normal and why extensions fall out with your own lashes. The part ends with a video on booking refills on time instead of waiting until the lashes have all fallen out.",
+        "Kotihoidolle on eniten videoita, koska siinä asiakkaat useimmin erehtyvät. Opit kolme asiaa, joita ei kannata tehdä ennen käyntiä, kolme muistettavaa ensimmäisille päiville, kolme vaihetta pidennysten pesuun öljyttömällä vaahdolla sekä ripsen kasvusyklin: miksi kahden–viiden ripsen lähteminen päivässä on normaalia ja miksi pidennykset lähtevät omien ripsien mukana. Osan lopuksi video kertoo, miksi huolto kannattaa varata ajallaan eikä odottaa, että ripset ovat kaikki pudonneet."
+      ),
+      l3(
+        "Phần móng giải thích sơn gel thường, Builder Gel BIAB, đắp bột Acrylic và úp móng Gel-X trên cùng một bàn tay, rồi năm dáng móng vuông, tròn, hạnh nhân, ballerina và nhọn. Ba video sau nói về sức khỏe của móng thật: năm thói quen làm gel bong sớm, điều gì xảy ra khi tự cạy gel ở nhà, và sự thật về chuyện móng có cần thở. Phần mày so sánh Brow Lamination, nhuộm mày và phun xăm, kèm cách giữ nếp mày đẹp suốt sáu tuần. Video cuối dành cho mùa đông lạnh và khô ở Phần Lan.",
+        "The nail part explains gel polish, BIAB builder gel, acrylic and Gel-X on the same hand, followed by five nail shapes: square, round, almond, ballerina and stiletto. Three videos then look at the health of your natural nails: five habits that make gel lift early, what peeling off gel at home does, and the truth about nails needing to breathe. The brow part compares brow lamination, tint and permanent make-up and shows how to keep a lamination looking good for six weeks. The last video is for Finland's cold, dry winter.",
+        "Kynsiosio esittelee geelilakan, BIAB-rakennegeelin, akryylin ja Gel-X:n samassa kädessä sekä viisi kynnen muotoa: kantikkaan, pyöreän, mantelin, ballerinan ja stiletton. Kolme videota käsittelee omien kynsien kuntoa: viisi tapaa, jotka irrottavat geelin aikaisin, mitä geelin repiminen kotona tekee ja totuus siitä, tarvitsevatko kynnet hengähdystaukoa. Kulmaosio vertaa laminointia, värjäystä ja pysyvää meikkiä ja näyttää, miten laminointi pysyy kauniina kuusi viikkoa. Viimeinen video on Suomen kylmää ja kuivaa talvea varten."
+      ),
+      l3(
+        "Các video dùng ảnh minh họa tạo bằng máy, có lời đọc và phụ đề tiếng Việt, nhạc nền tự soạn. Giá trong video là giá thật tại Moja trên VaraaAi, đã gồm thuế. Video không thay lời khuyên của bác sĩ: khi mắt, da hay móng có dấu hiệu bất thường, hãy hỏi bác sĩ hoặc dược sĩ. Xem xong, bạn có thể đặt lịch ở Moja Beauty trên VaraaAi chỉ trong vài bước.",
+        "The videos use computer-generated illustrations, with Vietnamese narration and subtitles and self-made music. Prices in the videos are Moja's real prices on VaraaAi, VAT included. The videos do not replace a doctor's advice: if your eyes, skin or nails show anything unusual, ask a doctor or pharmacist. After watching, you can book at Moja Beauty on VaraaAi in a few steps.",
+        "Videoissa on koneella luotuja kuvituskuvia, vietnaminkielinen selostus ja tekstitys sekä itse tehty musiikki. Videoiden hinnat ovat Mojan todellisia hintoja VaraaAissa, arvonlisäveroineen. Videot eivät korvaa lääkärin neuvoja: jos silmissä, iholla tai kynsissä näkyy jotain epätavallista, kysy lääkäriltä tai apteekista. Katsomisen jälkeen voit varata ajan Moja Beautyyn VaraaAissa muutamalla askeleella."
+      ),
+    ],
+    forWho: [
+      l3(
+        "Người lần đầu đi nối mi, uốn mi hay làm móng và chưa biết chọn kiểu nào.",
+        "First-timers booking lash extensions, a lash lift or a manicure who don't know which style to choose.",
+        "Ensikertalaiset, jotka varaavat ripsienpidennykset, kestotaivutuksen tai kynnet eivätkä tiedä, minkä tyylin valita."
+      ),
+      l3(
+        "Khách đang nối mi hoặc làm gel muốn giữ mi, móng đẹp lâu hơn.",
+        "Customers who already wear extensions or gel and want them to last longer.",
+        "Asiakkaat, joilla on jo pidennykset tai geelit ja jotka haluavat niiden kestävän pidempään."
+      ),
+      l3(
+        "Người lo nối mi, làm gel sẽ làm hỏng mi và móng thật.",
+        "Anyone worried that extensions or gel will ruin their natural lashes and nails.",
+        "Kaikki, jotka pelkäävät pidennysten tai geelien pilaavan omat ripset ja kynnet."
+      ),
+      l3(
+        "Người Việt ở Helsinki và Phần Lan muốn tìm hiểu trước khi đặt lịch ở Moja Beauty.",
+        "Vietnamese speakers in Helsinki and Finland who want to know more before booking at Moja Beauty.",
+        "Vietnaminkieliset Helsingissä ja muualla Suomessa, jotka haluavat tietää enemmän ennen varausta Moja Beautyyn."
+      ),
+    ],
+    faq: [
+      {
+        q: l3("Nối mi có làm rụng mi thật không?", "Do lash extensions make your natural lashes fall out?", "Saavatko ripsienpidennykset omat ripset lähtemään?"),
+        a: l3(
+          "Nối đúng kỹ thuật thì không: mi nối gắn lên một sợi mi thật, cách chân mi khoảng một milimét, keo không chạm da, từng sợi tách riêng, nên mi thật vẫn mọc và rụng theo chu kỳ tự nhiên. Mi thật rụng sớm thường do nối sai bết keo, mi nối quá nặng so với mi thật, hoặc tự giật mi nối ra ở nhà.",
+          "Not when the work is done correctly: each extension sits on one natural lash about one millimetre from the lid, the glue does not touch the skin and every lash stays separate, so your lashes keep growing and shedding naturally. Early lash loss usually comes from clumped glue, extensions too heavy for the natural lash, or pulling extensions off at home.",
+          "Eivät, kun työ tehdään oikein: jokainen pidennys kiinnitetään yhteen omaan ripseen noin millimetrin päähän luomesta, liima ei koske ihoon ja ripset pysyvät erillään, joten omat ripset kasvavat ja lähtevät luonnollisesti. Ripsien ennenaikainen lähteminen johtuu yleensä paakkuuntuneesta liimasta, liian raskaista pidennyksistä tai pidennysten repimisestä kotona."
+        ),
+      },
+      {
+        q: l3("Nên chọn nối mi hay uốn mi?", "Should I choose extensions or a lash lift?", "Kumman valitsen, pidennykset vai kestotaivutuksen?"),
+        a: l3(
+          "Muốn tự nhiên, ít chăm sóc thì uốn mi: tại Moja 30 euro, 60 phút, giữ nếp khoảng sáu đến tám tuần. Muốn hàng mi dày, dài rõ rệt thì nối mi: Classic 39 euro, 90 phút, và nên đi dặm sau hai đến ba tuần. Giá đã gồm thuế giá trị gia tăng.",
+          "For a natural look with little upkeep, choose a lift: at Moja it is 30 euros and 60 minutes, and it lasts about six to eight weeks. For clearly fuller, longer lashes, choose extensions: Classic is 39 euros and 90 minutes, with a refill after two to three weeks. Prices include VAT.",
+          "Luonnolliseen ja vähän hoitoa vaativaan lopputulokseen sopii kestotaivutus: Mojalla 30 euroa ja 60 minuuttia, ja se kestää noin kuudesta kahdeksaan viikkoa. Selvästi tuuheampiin ja pidempiin ripsiin sopivat pidennykset: klassiset 39 euroa ja 90 minuuttia, huolto kahden–kolmen viikon välein. Hinnat sisältävät arvonlisäveron."
+        ),
+      },
+      {
+        q: l3("Mi nối nên rửa thế nào?", "How should I wash lash extensions?", "Miten ripsienpidennykset pestään?"),
+        a: l3(
+          "Rửa mỗi ngày bằng bọt rửa mi không dầu: làm ướt nhẹ, lấy một ít bọt, chải nhẹ theo chiều mọc của mi bằng cọ mềm khoảng mười lăm giây mỗi mắt, xả sạch bằng nước mát, thấm khô bằng khăn giấy, sấy mát để xa mặt rồi chải mi lại. Tránh tẩy trang gốc dầu vì dầu làm keo nối mềm ra.",
+          "Every day with an oil-free foam: wet lightly, take a little foam, brush gently in the direction the lashes grow with a soft brush for about fifteen seconds per eye, rinse with cool water, blot dry with a tissue, dry on a cool setting held away from the face, then brush the lashes. Avoid oil-based removers, because oil softens the glue.",
+          "Joka päivä öljyttömällä vaahdolla: kostuta kevyesti, ota vähän vaahtoa, harjaa pehmeällä harjalla kevyesti ripsien kasvusuuntaan noin viisitoista sekuntia silmää kohden, huuhtele viileällä vedellä, taputtele kuivaksi paperilla, kuivaa viileällä puhalluksella kaukaa ja harjaa ripset. Vältä öljypohjaisia meikinpoistoaineita, sillä öljy pehmentää liimaa."
+        ),
+      },
+      {
+        q: l3("Móng có cần nghỉ giữa các lần làm gel không?", "Do nails need a break between gel manicures?", "Tarvitsevatko kynnet taukoa geelien välissä?"),
+        a: l3(
+          "Móng không thở: phần ta thấy là chất sừng, được nuôi từ gốc móng dưới da. Điều làm hại móng là tự cạy gel, dũa mặt móng quá mạnh hoặc tháo sai cách. Nên nghỉ khi móng rất mỏng, đau, đổi màu lạ hoặc nghi bị nấm, và khi đó hãy hỏi bác sĩ hoặc dược sĩ trước khi làm tiếp.",
+          "Nails do not breathe: what you see is keratin, fed from the nail root under the skin. What harms nails is peeling off gel, filing the surface too hard or removing it the wrong way. Take a break when a nail is very thin, sore, oddly coloured or might have a fungal infection, and ask a doctor or pharmacist before the next treatment.",
+          "Kynnet eivät hengitä: näkyvä osa on keratiinia, ja kynsi saa ravintonsa ihon alla olevasta kynnen juuresta. Kynsiä vahingoittaa geelin repiminen, liian voimakas viilaus tai väärä poistotapa. Pidä taukoa, jos kynsi on hyvin ohut, kipeä, oudon värinen tai epäilet sieni-infektiota, ja kysy silloin lääkäriltä tai apteekista ennen seuraavaa hoitoa."
+        ),
+      },
+      {
+        q: l3("Bao lâu thì nên đi dặm mi và dặm móng?", "How often should I get lash and nail refills?", "Kuinka usein ripset ja kynnet huolletaan?"),
+        a: l3(
+          "Mi nối nên dặm sau hai đến ba tuần, khi một phần mi nối đã rụng theo mi thật. Móng gel hoặc đắp gel nên dặm sau ba đến bốn tuần, trước khi phần gel lệch ra đầu móng làm móng nặng đầu, dễ gãy và bong. Dặm đúng hẹn nhanh hơn làm mới và giữ dáng luôn đều. Uốn mi thì làm lại sau sáu đến tám tuần.",
+          "Refill lash extensions after two to three weeks, when some have fallen out with your natural lashes. Refill gel or builder gel nails after three to four weeks, before the gel moves towards the tip and makes the nail top-heavy, fragile and prone to lifting. On-time refills are quicker than a new set and keep the shape even. A lash lift is redone after six to eight weeks.",
+          "Ripsienpidennykset huolletaan kahden–kolmen viikon välein, kun osa on lähtenyt omien ripsien mukana. Geeli- tai rakennekynnet huolletaan kolmen–neljän viikon välein, ennen kuin geeli siirtyy kärkeen ja tekee kynnestä etupainoisen, hauraan ja irtoamisaltiin. Ajallaan tehty huolto on uutta settiä nopeampi ja pitää muodon tasaisena. Kestotaivutus uusitaan kuuden–kahdeksan viikon välein."
+        ),
+      },
+    ],
+    keywords: [
+      "các kiểu nối mi",
+      "độ cong mi C CC D L",
+      "nối mi hay uốn mi",
+      "cách rửa mi nối",
+      "sơn gel và BIAB khác nhau",
+      "dáng móng tay đẹp",
+      "brow lamination là gì",
+      "nối mi có hại mi thật không",
+      "Moja Beauty Helsinki",
+    ],
+  },
   /* ================= customers: getting started ================= */
   {
     id: "c-start",

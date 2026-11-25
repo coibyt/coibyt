@@ -562,5 +562,40 @@
       ],
       "cta": "Aloita opiskelu"
     }
+  },
+  "kien-thuc-noi-mi-lam-mong": {
+    "vi": {
+      "eyebrow": "Học viện VaraaAi · Khách hàng",
+      "title": "Nối mi, làm móng, làm mày",
+      "accent": "Moja Beauty: mi, móng và mày đẹp",
+      "chips": [
+        "Miễn phí",
+        "17 bài video",
+        "17 phút"
+      ],
+      "cta": "Vào học ngay"
+    },
+    "en": {
+      "eyebrow": "VaraaAi Academy · Customers",
+      "title": "Lashes, nails and brows",
+      "accent": "Moja Beauty: lashes, nails and brows",
+      "chips": [
+        "Free",
+        "17 video lessons",
+        "17 min"
+      ],
+      "cta": "Start learning"
+    },
+    "fi": {
+      "eyebrow": "VaraaAi Akatemia · Asiakkaat",
+      "title": "Ripset, kynnet ja kulmat",
+      "accent": "Moja Beauty: ripset, kynnet ja kulmat",
+      "chips": [
+        "Maksuton",
+        "17 videotuntia",
+        "17 min"
+      ],
+      "cta": "Aloita opiskelu"
+    }
   }
 }

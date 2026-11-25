@@ -52,6 +52,9 @@ export interface LessonVideo {
   seconds: number;
   /** ISO date the video was published (for search engines). */
   published: string;
+  /** A vertical 9:16 video (the Moja Beauty course, moja.ts): the player shows it upright with this upright poster;
+   * `poster` stays 16:9 for the lesson cards. */
+  portrait?: { poster: string };
 }
 
 export interface Lesson {

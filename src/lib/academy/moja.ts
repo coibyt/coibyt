@@ -1,0 +1,156 @@
+/** The Moja Beauty course (owner, 2026-11-25): seventeen short vertical videos from the salon Moja Beauty
+ * (Helsinki: Kamppi, Hakaniemi, Sörnäinen) on lashes, nails and brows: which style suits whom, after-care,
+ * myths. Taught in the Academy's "customer" tab as a standalone course, numbered 1…n on its own.
+ *
+ * Videos are made outside this repo (C:\Hiep\hoat-hinh-ai\projects\mojabeauty\remotion, course.py: the narration
+ * there is the source of truth for every claim). They are 1080×1920 (portrait). Prices are Moja's VaraaAi prices,
+ * VAT included. Health questions are sent to a doctor; no medical promises. */
+import { l3, type Course, type Lesson, type LessonVideo } from "@/lib/academy/types";
+import { videoUrl } from "@/lib/media";
+
+const video = (slug: string, seconds: number, published: string): LessonVideo => ({
+  src: videoUrl(`/academy/${slug}.mp4`),
+  poster: `/academy/${slug}.jpg`,
+  captions: `/academy/${slug}.vtt`,
+  seconds,
+  published,
+  portrait: { poster: `/academy/${slug}-v.jpg` },
+});
+
+/** Published videos (slug → [seconds, date]); the owner approved all 17 on 2026-11-25. */
+const VIDEOS: Record<string, [number, string]> = {
+  "4-kieu-noi-mi": [60, "2026-11-25"],
+  "do-cong-theo-mat": [64, "2026-11-25"],
+  "noi-mi-vs-uon-mi": [52, "2026-11-25"],
+  "noi-mi-co-hai-mi-that": [62, "2026-11-25"],
+  "truoc-khi-noi-mi": [61, "2026-11-25"],
+  "cham-soc-sau-lam-mi": [53, "2026-11-25"],
+  "rua-mi-noi-tai-nha": [59, "2026-11-25"],
+  "chu-ky-rung-mi": [64, "2026-11-25"],
+  "gel-biab-bot-gelx": [65, "2026-11-25"],
+  "5-dang-mong": [73, "2026-11-25"],
+  "5-thoi-quen-gel-bong": [65, "2026-11-25"],
+  "tu-cay-son-gel": [59, "2026-11-25"],
+  "mong-co-can-tho": [60, "2026-11-25"],
+  "dam-mi-mong-dung-hen": [59, "2026-11-25"],
+  "brow-lami-tint-phun": [52, "2026-11-25"],
+  "giu-nep-brow-lamination": [62, "2026-11-25"],
+  "mi-mong-mua-dong": [59, "2026-11-25"],
+};
+const v = (slug: string) => (VIDEOS[slug] ? video(slug, ...VIDEOS[slug]) : null);
+
+const BOOK = "https://varaaai.com/b/moja-beauty";
+const BOOK_LABEL = l3("Đặt lịch ở Moja Beauty", "Book at Moja Beauty", "Varaa aika Moja Beautyyn");
+
+export const MOJA_COURSES: Course[] = [
+  {
+    id: "c-moja-beauty",
+    audience: "customer",
+    icon: "sparkles",
+    standalone: true,
+    title: l3("Moja Beauty: mi, móng và mày đẹp", "Moja Beauty: lashes, nails and brows", "Moja Beauty: ripset, kynnet ja kulmat"),
+    body: l3(
+      "Mười bảy video ngắn từ tiệm Moja Beauty ở Helsinki: chọn kiểu mi, dáng móng, cách chăm sóc tại nhà và những hiểu lầm hay gặp.",
+      "Seventeen short videos from the Moja Beauty salon in Helsinki: choosing lash styles and nail shapes, care at home and common myths.",
+      "Seitsemäntoista lyhyttä videota helsinkiläiseltä Moja Beauty -salongilta: ripsityylin ja kynnen muodon valinta, kotihoito ja yleiset harhaluulot."
+    ),
+  },
+];
+
+const L = (slug: string, title: [string, string, string], summary: [string, string, string]): Lesson => ({
+  slug,
+  course: "c-moja-beauty",
+  title: l3(...title),
+  summary: l3(...summary),
+  video: v(slug),
+  href: BOOK,
+  hrefLabel: BOOK_LABEL,
+});
+
+export const MOJA_LESSONS: Lesson[] = [
+  L("4-kieu-noi-mi",
+    ["4 kiểu nối mi Classic, Hybrid, Volume, Mega trên cùng một gương mặt", "4 lash styles: Classic, Hybrid, Volume and Mega on the same face", "4 ripsityyliä: klassinen, hybridi, volyymi ja mega samoilla kasvoilla"],
+    ["Cùng một gương mặt, bốn kiểu nối mi: mỗi kiểu dày đến đâu và hợp với ai.",
+     "One face, four lash styles: how full each one is and who it suits.",
+     "Samat kasvot, neljä ripsityyliä: kuinka tuuhea kukin on ja kenelle se sopii."]),
+  L("do-cong-theo-mat",
+    ["Độ cong mi C, CC, D, L: hợp với dáng mắt nào?", "Lash curls C, CC, D and L: which suits your eye shape?", "Ripsien taivutukset C, CC, D ja L: mikä sopii silmiesi muotoon?"],
+    ["Mắt to tròn, mắt nhỏ, mắt sụp mí và mắt một mí, mỗi dáng mắt hợp một độ cong mi riêng.",
+     "Big round eyes, small eyes, hooded eyes and monolids: each eye shape has a curl that suits it.",
+     "Isot pyöreät silmät, pienet silmät, raskaat luomet ja yksiluomiset silmät: jokaiselle muodolle on oma taivutus."]),
+  L("noi-mi-vs-uon-mi",
+    ["Nối mi hay uốn mi: chi phí, độ bền và cảm giác", "Lash extensions or a lash lift: cost, how long they last and how they feel", "Ripsienpidennykset vai kestotaivutus: hinta, kesto ja tuntuma"],
+    ["So sánh giá tại Moja (uốn mi 30 €, nối mi Classic 39 €), thời gian giữ và cảm giác trên mắt.",
+     "Moja's prices compared (lash lift 30 €, classic extensions 39 €), how long each lasts and how it feels.",
+     "Mojan hinnat rinnakkain (kestotaivutus 30 €, klassiset ripset 39 €), kesto ja tuntuma silmissä."]),
+  L("noi-mi-co-hai-mi-that",
+    ["Nối mi có làm rụng mi thật?", "Do lash extensions ruin your natural lashes?", "Pilaavatko ripsienpidennykset omat ripset?"],
+    ["Nối chuẩn cách chân mi khoảng 1 mm so với nối sai bết keo, mi vừa sức và tháo đúng cách.",
+     "Correct work about 1 mm from the lid versus clumped glue, the right weight, and safe removal.",
+     "Oikea kiinnitys noin 1 mm päähän luomesta vs. paakkuuntunut liima, sopiva paino ja turvallinen poisto."]),
+  L("truoc-khi-noi-mi",
+    ["3 việc không nên làm trước khi đi nối mi", "3 things not to do before a lash appointment", "3 asiaa, joita ei kannata tehdä ennen ripsiaikaa"],
+    ["Mascara, nhiều cà phê và kem mắt có dầu, cùng vài mẹo để buổi nối mi thật thoải mái.",
+     "Mascara, lots of coffee and oily eye cream, plus tips for a relaxed appointment.",
+     "Ripsiväri, paljon kahvia ja öljyinen silmänympärysvoide, sekä vinkit rentoon käyntiin."]),
+  L("cham-soc-sau-lam-mi",
+    ["Chăm sóc mi sau khi nối hoặc uốn", "Lash after-care after extensions or a lift", "Ripsien jälkihoito pidennysten tai taivutuksen jälkeen"],
+    ["Không dụi mắt, 24 giờ đầu giữ mi khô, và bao lâu thì làm lại.",
+     "Don't rub your eyes, keep lashes dry for the first 24 hours, and when to come back.",
+     "Älä hiero silmiä, pidä ripset kuivina ensimmäiset 24 tuntia ja tiedä, milloin tulla uudelleen."]),
+  L("rua-mi-noi-tai-nha",
+    ["Rửa mi nối đúng cách tại nhà", "How to wash lash extensions at home", "Näin peset ripsienpidennykset kotona"],
+    ["Ba bước rửa mi không làm rụng mi, và vì sao tránh tẩy trang gốc dầu.",
+     "Three steps that keep extensions on, and why to avoid oil-based make-up removers.",
+     "Kolme vaihetta, joilla ripset pysyvät, ja miksi öljypohjaisia meikinpoistoaineita kannattaa välttää."]),
+  L("chu-ky-rung-mi",
+    ["Vì sao rụng 2–5 sợi mi mỗi ngày là bình thường?", "Why losing 2–5 lashes a day is normal", "Miksi 2–5 ripsen lähteminen päivässä on normaalia"],
+    ["Ba giai đoạn của sợi mi, và vì sao mi nối rụng theo mi thật.",
+     "The three stages of a lash, and why extensions fall out with your own lashes.",
+     "Ripsen kolme vaihetta ja miksi pidennykset lähtevät omien ripsien mukana."]),
+  L("gel-biab-bot-gelx",
+    ["Sơn gel, BIAB, đắp bột hay Gel-X: khác nhau thế nào?", "Gel polish, BIAB, acrylic or Gel-X: what is the difference?", "Geelilakka, BIAB, akryyli vai Gel-X: mikä ero?"],
+    ["Bốn cách làm móng trên cùng một bàn tay: độ cứng, độ bền và hợp với ai.",
+     "Four nail treatments on the same hand: how hard, how long-lasting, and who they suit.",
+     "Neljä kynsihoitoa samassa kädessä: kovuus, kesto ja kenelle kukin sopii."]),
+  L("5-dang-mong",
+    ["5 dáng móng tay trên cùng một bàn tay", "5 nail shapes on the same hand", "5 kynnen muotoa samassa kädessä"],
+    ["Vuông, tròn, hạnh nhân, ballerina và nhọn: dáng nào chắc nhất, dáng nào hợp với bạn.",
+     "Square, round, almond, ballerina and stiletto: which is the strongest and which suits you.",
+     "Kantikas, pyöreä, manteli, ballerina ja stiletto: mikä on kestävin ja mikä sopii sinulle."]),
+  L("5-thoi-quen-gel-bong",
+    ["5 thói quen làm móng gel nhanh bong", "5 habits that make gel nails lift", "5 tapaa, joiden takia geelikynnet irtoavat"],
+    ["Cạy mép, dùng móng làm dụng cụ, ngâm nước, sauna ngày đầu và dặm muộn: cách sửa từng thói quen.",
+     "Picking, using nails as tools, long soaks, a sauna on day one and late refills, and how to fix each.",
+     "Nyppiminen, kynnet työkaluina, pitkät liotukset, sauna ensimmäisenä päivänä ja myöhäinen huolto, ja miten korjata ne."]),
+  L("tu-cay-son-gel",
+    ["Điều gì xảy ra khi tự cạy sơn gel?", "What peeling off gel polish does to your nails", "Mitä geelilakan repiminen tekee kynsille"],
+    ["Gel bóc theo lớp móng thật, móng mỏng yếu, và cách tháo đúng tại tiệm.",
+     "Gel takes layers of the nail with it, the nail gets thin and weak, and how it is removed properly at the salon.",
+     "Geeli irrottaa kynnen pintakerroksia, kynsi ohenee ja heikkenee, ja näin geeli poistetaan oikein salongissa."]),
+  L("mong-co-can-tho",
+    ["Móng tay có cần “thở” giữa các lần làm gel?", "Do nails need to “breathe” between gel manicures?", "Tarvitsevatko kynnet “hengähdystauon” geelien välissä?"],
+    ["Sự thật về móng, điều thật sự gây hại, và khi nào nên nghỉ.",
+     "The facts about nails, what really damages them, and when to take a break.",
+     "Faktat kynsistä, mikä niitä oikeasti vahingoittaa ja milloin pitää tauko."]),
+  L("dam-mi-mong-dung-hen",
+    ["Vì sao nên đi dặm mi và móng đúng hẹn?", "Why refill lashes and nails on time?", "Miksi ripset ja kynnet kannattaa huoltaa ajallaan?"],
+    ["Mi thưa sau 2–3 tuần, móng mọc dài sau 3–4 tuần: dặm đúng hẹn giúp luôn đẹp mà đỡ tốn công.",
+     "Lashes thin out after 2–3 weeks and nails grow out after 3–4: on-time refills keep them looking good with less work.",
+     "Ripset harvenevat 2–3 viikossa ja kynnet kasvavat 3–4 viikossa: ajallaan tehty huolto pitää ne kauniina vähemmällä vaivalla."]),
+  L("brow-lami-tint-phun",
+    ["Brow Lamination, nhuộm mày hay phun xăm?", "Brow lamination, brow tint or permanent make-up?", "Kulmien laminointi, värjäys vai pysyvä meikki?"],
+    ["Ba cách làm mày đẹp: làm gì, giữ bao lâu, hợp với ai.",
+     "Three ways to better brows: what each does, how long it lasts and who it suits.",
+     "Kolme tapaa kauniisiin kulmiin: mitä kukin tekee, kauanko se kestää ja kenelle se sopii."]),
+  L("giu-nep-brow-lamination",
+    ["Giữ nếp mày Lamination đẹp suốt 6 tuần", "Keep a brow lamination looking good for 6 weeks", "Näin kulmien laminointi pysyy kauniina 6 viikkoa"],
+    ["24 giờ giữ khô, chải nếp mỗi sáng, dưỡng mày mỗi tối và những điều nên tránh.",
+     "Dry for 24 hours, brush every morning, condition every night, and what to avoid.",
+     "Kuivana 24 tuntia, harjaus joka aamu, hoito joka ilta ja mitä välttää."]),
+  L("mi-mong-mua-dong",
+    ["Giữ mi và móng không khô gãy mùa đông", "Keep lashes and nails from drying out in winter", "Ripset ja kynnet kuntoon talven kuivuudessa"],
+    ["Dầu dưỡng, găng tay, chăm mi tránh hơi nóng và độ ẩm trong nhà.",
+     "Cuticle oil, gloves, keeping heat away from lashes and humidity at home.",
+     "Kynsinauhaöljy, hanskat, ripset suojaan kuumuudelta ja kosteutta sisäilmaan."]),
+];
