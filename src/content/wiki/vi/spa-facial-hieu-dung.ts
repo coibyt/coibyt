@@ -163,7 +163,7 @@ const article: WikiArticle = {
         { p: "Vệ sinh trong chăm sóc da rất dễ bị xem nhẹ, vì không có dũa, không có kềm, không thấy bụi. Có bốn việc cố định cho mỗi khách:" },
         {
           ul: [
-            "Rửa tay trước mỗi khách, theo cách trong bài [Rửa tay và găng tay](lesson:rua-tay-gang-tay).",
+            "Rửa tay trước mỗi khách.",
             "Lấy kem ra khỏi hũ bằng que sạch, không bao giờ thò ngón tay vào hũ.",
             "Cọ, bát, dụng cụ: dùng một lần, hoặc làm sạch và khử khuẩn sau mỗi khách.",
             "Khăn, băng đô, ga giường: thay mới cho từng khách.",
@@ -186,7 +186,7 @@ const article: WikiArticle = {
         },
         { img: { src: img("dap-bong-mat-khi-da-mat-bi-do-rat"), alt: "Chuyên viên áp miếng bông ẩm mát lên gò má đang ửng đỏ của khách nằm trên giường spa, tay kia đỡ nhẹ bên mặt" } },
         { note: "Sưng mặt, sưng môi hay khó thở là phản ứng nặng: gọi ngay 112, hoặc số cấp cứu nơi bạn ở. Cách xử lý từng tình huống có trong bài [Xử lý sự cố trong tiệm](lesson:xu-ly-su-co).", kind: "warn", title: "Khi nào gọi cấp cứu" },
-        { p: "Ghi chép là thứ giúp lần hẹn sau an toàn hơn. Trong VaraaAi, bạn ghi vào ghi chú nội bộ trong [sổ khách hàng](lesson:khach-hang) những sản phẩm đã dùng, phản ứng nếu có và số lô, để lần sau tránh được. Dịch vụ chăm sóc da mặt thì [đưa lên trang đặt lịch](lesson:dich-vu) như mọi dịch vụ khác của tiệm." },
+        { p: "Ghi chép là thứ giúp lần hẹn sau an toàn hơn. Trong VaraaAi, bạn ghi vào ghi chú nội bộ trong [sổ khách hàng](lesson:khach-hang) những sản phẩm đã dùng, phản ứng nếu có và số lô, để lần sau tránh được." },
       ],
     },
   ],

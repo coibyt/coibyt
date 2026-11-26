@@ -112,7 +112,7 @@ const article: WikiArticle = {
       title: "Ghi hồ sơ khách: sản phẩm đã dùng và phản ứng của da",
       blocks: [
         { p: "Việc cuối cùng của buổi làm là vài dòng ghi chép: hôm nay dùng sản phẩm gì, da phản ứng thế nào, đã dặn khách điều gì. Lần hẹn sau, bạn hoặc một đồng nghiệp mở ra là biết nên lặp lại gì và tránh gì." },
-        { p: "Trong VaraaAi, những dòng này nằm ở ghi chú nội bộ của từng người trong [sổ khách hàng](lesson:khach-hang), chỉ tiệm đọc được. Phần mềm miễn phí cho chủ salon: [xem VaraaAi cho salon](/business)." },
+        { p: "Trong VaraaAi, những dòng này nằm ở ghi chú nội bộ của từng người trong [sổ khách hàng](lesson:khach-hang)." },
       ],
     },
   ],
@@ -178,7 +178,6 @@ const article: WikiArticle = {
       {
         name: "Lau nước cân bằng",
         text: "Thấm nước cân bằng vào bông và lau nhẹ khắp mặt. Đây là bước ngắn, không cần ấn hay chà.",
-        image: { src: img("lau-nuoc-can-bang-bang-bong"), alt: "Chuyên viên lau nhẹ miếng bông tròn trên má khách nữ đang nhắm mắt, tay kia đỡ bên mặt, phía sau là khay chai thủy tinh" },
       },
       {
         name: "Dưỡng ẩm và chống nắng",

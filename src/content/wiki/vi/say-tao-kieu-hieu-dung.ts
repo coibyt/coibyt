@@ -68,7 +68,7 @@ const article: WikiArticle = {
             ],
           },
         },
-        { p: "Vì vậy đầu máy sấy luôn chĩa xuống, xuôi theo sợi tóc, kể cả khi bạn đang nâng tóc lên để tạo phồng. Người tự sấy ở nhà hay cầm máy thổi từ dưới lên cho nhanh khô, và đó là lý do tóc xù dù không hề hư." },
+        { p: "Vì vậy đầu máy sấy luôn chĩa xuống, xuôi theo sợi tóc, kể cả khi bạn đang nâng tóc lên để tạo phồng. Cầm máy thổi ngược từ ngọn lên thì tóc xù ngay, dù sợi tóc không hề hư." },
       ],
     },
     {
@@ -92,8 +92,8 @@ const article: WikiArticle = {
             head: ["Dụng cụ", "Dùng để", "Lưu ý"],
             rows: [
               ["Lược dẹt, mặt rộng", "Sấy thẳng, sấy mượt, nhanh, ít phồng", "Máy sấy đi phía trên lược, đầu máy chĩa xuống"],
-              ["Lược tròn to", "Tạo phồng, đuôi tóc cong nhẹ", "Lõi kim loại hay sứ nóng lên khi sấy, đừng để sát da đầu"],
-              ["Lược tròn nhỏ", "Lọn tóc xoăn hơn", "Như trên"],
+              ["Lược tròn to", "Tạo phồng, đuôi tóc cong nhẹ", "Nhiều loại có lõi kim loại hay sứ, nóng lên khi sấy. Đừng để sát da đầu"],
+              ["Lược tròn nhỏ", "Lọn tóc xoăn hơn", "Cùng lưu ý về lõi lược nóng"],
               ["Đầu thu gió", "Gom gió vào một dải hẹp, đúng chỗ lược đang làm", "Luôn gắn khi tạo kiểu"],
             ],
           },
