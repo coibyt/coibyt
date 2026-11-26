@@ -10,7 +10,7 @@ const article: WikiArticle = {
   title: "How to do hybrid lashes: 11 steps to mix singles and fans by the natural lashes",
   metaTitle: "How to do hybrid lashes: 11 steps to mix singles and fans",
   metaDescription:
-    "Hybrid lashes step by step: agree the look, read the natural lashes by zone, set two lash trays, singles on weak lashes, fans on strong ones, compare both eyes.",
+    "Hybrid lashes step by step: agree the look, read the natural lashes by zone, set two trays, singles on weak lashes, fans on strong ones, compare both eyes.",
   keyword: "how to do hybrid lashes",
   keywords: [
     "hybrid lash extension steps",
