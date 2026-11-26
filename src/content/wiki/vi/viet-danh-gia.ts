@@ -45,7 +45,7 @@ const article: WikiArticle = {
       blocks: [
         { p: "Người thợ hiếm khi nghe được nhận xét thật. Khách hài lòng thường chỉ nói cảm ơn rồi về, khách chưa hài lòng thì lặng lẽ không quay lại. Vài dòng đánh giá là cách đơn giản nhất để salon biết điều gì đang làm tốt và điều gì cần chỉnh." },
         { p: "Với người đang tìm tiệm, đánh giá là thứ họ đọc đầu tiên. Trang kết quả tìm kiếm của VaraaAi hiện điểm đánh giá của từng salon, và trang của mỗi salon có mục “Đánh giá” riêng. Nhận xét của bạn hôm nay là thứ giúp một người khác quyết định vào tuần sau." },
-        { note: "Trên VaraaAi, chỉ khách đã đặt lịch ở salon mới viết được đánh giá cho salon đó. Người chưa từng đặt lịch không có nút nào để viết. Vì vậy các đánh giá bạn đọc trên trang salon đều đến từ khách thật.", kind: "info", title: "Ai được viết đánh giá" },
+        { note: "Trên VaraaAi, chỉ khách đã đặt lịch ở salon mới viết được đánh giá cho salon đó. Người chưa từng đặt lịch thì không viết được. Vì vậy các đánh giá bạn đọc trên trang salon đều đến từ khách thật.", kind: "info", title: "Ai được viết đánh giá" },
       ],
     },
     {
@@ -75,7 +75,7 @@ const article: WikiArticle = {
       blocks: [
         { p: "Đánh giá không lên trang ngay lúc bạn bấm gửi. Salon xem trước, rồi đăng đánh giá lên trang của họ. Sau khi được đăng, điểm số và số lượt đánh giá nằm ngay dưới tên salon, nơi mọi khách ghé trang đều nhìn thấy." },
         { img: { src: img("diem-danh-gia-hien-tren-trang-salon"), alt: "Trang salon Lumi Beauty Paris trên VaraaAi, ô điểm 5.0 với một đánh giá được khoanh vàng ngay dưới tên salon", caption: "Điểm đánh giá nằm ngay dưới tên salon." } },
-        { p: "Nếu vài hôm sau bạn chưa thấy nhận xét của mình, đó thường là vì salon chưa kịp xem. Bạn không cần gửi lại." },
+        { p: "Nếu chưa thấy nhận xét của mình trên trang, nghĩa là đánh giá còn đang chờ salon xem và đăng. Bạn không cần gửi lại." },
       ],
     },
     {
@@ -115,7 +115,7 @@ const article: WikiArticle = {
       {
         name: "Mở ô đánh giá từ email hoặc từ “Lịch hẹn của tôi”",
         text: "Sau mỗi lần hẹn, VaraaAi gửi cho bạn một email mời đánh giá. Bấm nút “Đánh giá dịch vụ” trong email. Cách thứ hai: đăng nhập, bấm vào tên bạn ở góc trên, chọn “Lịch hẹn của tôi”, tìm lịch hẹn đã “Hoàn thành” rồi bấm “Đánh giá”.",
-        image: { src: img("bam-danh-gia-tren-lich-hen-da-hoan-thanh"), alt: "Danh sách Lịch hẹn của tôi với hai lịch mang nhãn Hoàn thành, lịch phía dưới có nút Đánh giá bên cạnh nút Xem thông tin đặt chỗ" },
+        image: { src: img("bam-danh-gia-tren-lich-hen-da-hoan-thanh"), alt: "Danh sách Lịch hẹn của tôi với hai lịch mang nhãn Hoàn thành, lịch phía dưới có nút Đánh giá ở bên phải" },
       },
       {
         name: "Chọn số sao ở “Chất lượng dịch vụ”",

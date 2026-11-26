@@ -10,7 +10,7 @@ const article: WikiArticle = {
   title: "Dị ứng sơn gel, keo nối mi, thuốc nhuộm: dấu hiệu và 5 quy tắc phòng tránh",
   metaTitle: "Dị ứng sơn gel, keo nối mi, thuốc nhuộm: cách phòng tránh",
   metaDescription:
-    "Dị ứng sơn gel, keo nối mi và thuốc nhuộm tóc: khác kích ứng thế nào, vì sao đến chậm và kéo dài suốt đời, chất nào hay gây dị ứng, 5 quy tắc phòng và cách xử lý.",
+    "Dị ứng sơn gel, keo nối mi và thuốc nhuộm: khác kích ứng thế nào, vì sao đến chậm và kéo dài suốt đời, chất nào hay gây dị ứng, 5 quy tắc phòng và cách xử lý.",
   keyword: "dị ứng sơn gel",
   keywords: [
     "dị ứng keo nối mi",
@@ -26,7 +26,7 @@ const article: WikiArticle = {
   updated: "2026-11-26",
   hero: {
     src: img("tho-lam-dep-xem-chai-hoa-chat-trong-salon"),
-    alt: "Nữ thợ làm đẹp tóc đen búi thấp, đeo găng nitrile đen, giơ một lọ thủy tinh nhỏ lên ngang mắt để xem kỹ trong salon sang trọng",
+    alt: "Nữ thợ làm đẹp tóc đen búi thấp, đeo găng nitrile đen, giơ một lọ thủy tinh nhỏ lên ngang mắt để xem kỹ",
   },
   takeaways: [
     "**Kích ứng** là da bị tổn thương trực tiếp và sẽ lành khi ngừng tiếp xúc. **Dị ứng** là hệ miễn dịch đã ghi nhớ một chất, và thường kéo dài suốt đời.",
@@ -62,7 +62,7 @@ const article: WikiArticle = {
       id: "vi-sao-den-cham",
       title: "Vì sao làm gel nhiều năm không sao rồi vẫn bị dị ứng",
       blocks: [
-        { p: "Dị ứng không báo trước. Một người có thể làm gel năm năm mà không gặp vấn đề gì. Nhưng mỗi lần sản phẩm chưa chín chạm vào da, cơ thể lại ghi nhận thêm một chút, rồi đến một ngày nó vượt ngưỡng. “Tôi làm lâu rồi có sao đâu” vì vậy không phải là bằng chứng an toàn." },
+        { p: "Dị ứng không báo trước. Một người có thể làm gel năm năm mà không gặp vấn đề gì. Nhưng mỗi lần sản phẩm chưa chín chạm vào da, cơ thể lại ghi nhận thêm một chút, rồi đến một ngày nó vượt ngưỡng. Câu “làm lâu rồi có sao đâu” vì vậy không phải là bằng chứng an toàn." },
         { p: "Phản ứng dị ứng cũng thường đến chậm, sau một đến ba ngày, nên nhiều người không nối được nó với nguyên nhân. Nó còn có thể hiện ra ở chỗ khác hẳn nơi tiếp xúc: mí mắt, mặt, cổ. Lý do là bàn tay dính sản phẩm chạm lên những vùng da đó, hoặc bụi và hơi hóa chất bay tới." },
         { img: { src: img("di-ung-gel-sung-do-mi-mat"), alt: "Cận cảnh khuôn mặt một phụ nữ không trang điểm, hai mí mắt trên hơi sưng, đỏ hồng và khô bong nhẹ", caption: "Mí mắt sưng đỏ có thể là dấu hiệu dị ứng với sản phẩm làm móng, dù sản phẩm không hề chạm vào mắt." } },
         { note: "Người thợ làm gel nhiều năm, nay ngứa và nổi mụn nước ở đầu ngón tay, không nên tự nhủ rằng mình làm lâu rồi nên không thể là dị ứng. Đó chính là kiểu dị ứng nghề nghiệp hay gặp, và việc cần làm là đi khám bác sĩ da liễu sớm.", kind: "info", title: "Tình huống trong bài kiểm tra của bài học" },
@@ -87,7 +87,7 @@ const article: WikiArticle = {
         { p: "Acrylate gây dị ứng mạnh khi còn lỏng, chưa chín. Khi đã chín hẳn thì gần như không còn nguy hiểm. Vì vậy thứ cần đề phòng là gel dính da trước khi hơ, gel sót trên cổ chai và cán cọ, và bụi mài từ một lớp gel chưa chín hết." },
         { h3: "Nối mi: hơi keo" },
         { p: "Keo nối mi là cyanoacrylate, cùng họ với keo dán siêu dính. Hơi keo bay lên làm cay mắt, chảy nước mũi và có thể gây dị ứng cho khách. Người thợ cũng chịu rủi ro, vì ngồi cúi sát vào giọt keo nhiều giờ mỗi ngày." },
-        { img: { src: img("giot-keo-noi-mi-tren-da-ngoc"), alt: "Bàn tay đeo găng đen dùng nhíp chấm sợi mi vào giọt keo đen trên đĩa đá ngọc, phía sau là khách nằm nhắm mắt với miếng dán dưới mi", caption: "Giọt keo nối mi nằm rất gần mặt người thợ suốt buổi làm." } },
+        { img: { src: img("giot-keo-noi-mi-tren-da-ngoc"), alt: "Bàn tay đeo găng đen dùng nhíp chấm sợi mi vào giọt keo đen trên đĩa đá ngọc, phía sau là khách nằm nhắm mắt", caption: "Giọt keo nối mi nằm rất gần mặt người thợ suốt buổi làm." } },
         { h3: "Nhuộm và tẩy tóc" },
         { p: "Dị ứng với PPD có thể rất nặng, sưng cả mặt. Một câu nên hỏi trước khi nhuộm: khách đã bao giờ vẽ henna đen chưa, chẳng hạn khi đi du lịch. Henna đen thường pha chính chất này, nên người từng phản ứng với nó có nguy cơ bị nặng khi nhuộm tóc." },
         { p: "Bột tẩy tóc bay lên thành bụi mịn. Người thợ hít vào lâu ngày có thể bị hắt hơi, khò khè, thậm chí hen suyễn. Ngoài những chất trên, hương liệu và găng tay latex cũng là nguồn gây dị ứng trong tiệm." },
@@ -108,10 +108,10 @@ const article: WikiArticle = {
         { p: "Găng bảo vệ da tay của người thợ, nhưng hóa chất ngấm dần qua găng, nên găng dính sản phẩm phải được thay chứ không lau rồi dùng tiếp." },
         { h3: "4. Giữ không khí sạch" },
         { p: "Bật máy hút bụi tại bàn khi dũa và mài. Mở thông gió. Đậy nắp chai ngay sau khi lấy sản phẩm, và dùng thùng rác có nắp. Theo hướng dẫn của thành phố Helsinki, bàn làm móng bột phải có hút khí tại chỗ đủ mạnh. Việc bố trí thông gió cho cả tiệm có trong bài [Vệ sinh tiệm hằng ngày](lesson:ve-sinh-tiem)." },
-        { img: { src: img("day-nap-chai-va-thung-rac-co-nap"), alt: "Bàn tay đeo găng đen vặn nắp một lọ thủy tinh nhỏ ngay sau khi dùng, bên cạnh là ly thủy tinh có nắp, ba hũ nhỏ đã đậy và thùng rác có nắp" } },
+        { img: { src: img("day-nap-chai-va-thung-rac-co-nap"), alt: "Bàn tay đeo găng đen vặn nắp một lọ thủy tinh nhỏ, bên cạnh là ba hũ đã đậy nắp và thùng rác có nắp" } },
         { h3: "5. Biết mình đang dùng gì" },
         { p: "Mua hàng từ nhà cung cấp trong châu Âu, có nhãn và danh sách thành phần. Xin nhà cung cấp bảng dữ liệu an toàn (SDS) của từng sản phẩm: trong đó ghi cần loại găng nào và sơ cứu ra sao." },
-        { img: { src: img("doc-nhan-thanh-phan-chai-gel"), alt: "Nữ thợ nail trẻ mặc áo kem đứng trước kệ sơn gel, cầm một chai nhỏ đưa sát mắt để đọc nhãn, bên cạnh là hộp hàng mới mở" } },
+        { img: { src: img("doc-nhan-thanh-phan-chai-gel"), alt: "Nữ thợ nail trẻ mặc áo kem đứng trước kệ sơn gel, cầm một chai nhỏ đưa sát mắt để đọc nhãn" } },
         { note: "Ở Liên minh châu Âu, sản phẩm làm móng có chất HEMA phải ghi trên nhãn “chỉ dành cho thợ chuyên nghiệp” và “có thể gây dị ứng”. Chất TPO bị cấm hẳn trong sản phẩm làm móng từ ngày 1/9/2025: tiệm không được dùng tiếp, kể cả hàng đã mua từ trước. Quy định về hóa chất khác nhau theo từng nước, nên hãy hỏi lại ở nơi bạn làm việc.", kind: "warn", title: "HEMA và TPO ở châu Âu" },
       ],
     },

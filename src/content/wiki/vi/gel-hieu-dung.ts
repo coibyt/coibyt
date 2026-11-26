@@ -26,7 +26,7 @@ const article: WikiArticle = {
   updated: "2026-11-26",
   hero: {
     src: img("thay-day-nail-giang-ve-son-gel-cho-tho-tre"),
-    alt: "Người thầy dạy nail tóc muối tiêu mặc tạp dề vải ngồi ở bàn đá, vừa uống cà phê vừa giảng giải cho hai nữ thợ trẻ mặc áo kem",
+    alt: "Người thầy dạy nail tóc muối tiêu mặc tạp dề vải ngồi ở bàn đá, giảng giải cho hai nữ thợ trẻ mặc áo kem",
   },
   takeaways: [
     "Gel **không ăn vào móng**, nó chỉ bám trên bề mặt bản móng. Bề mặt đó phải sạch da chết, sạch dầu và khô.",
@@ -45,7 +45,7 @@ const article: WikiArticle = {
       title: "Cấu tạo móng: sơn gel bám vào đâu",
       blocks: [
         { p: "Phần cứng mà thợ sơn lên gọi là **bản móng**. Nó làm từ keratin, xếp thành nhiều lớp mỏng. Móng mọc ra từ **mầm móng**, nằm ẩn dưới da ở gốc móng. Thợ dũa hay ấn quá mạnh ở vùng này thì móng mọc ra có thể bị gợn sóng, có khi là vĩnh viễn." },
-        { img: { src: img("cau-tao-mong-tay-mat-cat-dau-ngon"), alt: "Hình minh họa mặt cắt dọc một đầu ngón tay, thấy bản móng nằm phía trên, gốc móng ẩn dưới nếp da và xương đốt ngón ở giữa", caption: "Bản móng là phần nhìn thấy. Mầm móng, nơi sinh ra móng, nằm khuất dưới nếp da ở gốc." } },
+        { img: { src: img("cau-tao-mong-tay-mat-cat-dau-ngon"), alt: "Hình minh họa mặt cắt dọc một đầu ngón tay: bản móng nằm phía trên, gốc móng ẩn dưới nếp da, xương ở giữa", caption: "Bản móng là phần nhìn thấy. Mầm móng, nơi sinh ra móng, nằm khuất dưới nếp da ở gốc." } },
         { p: "Ở chân móng có hai loại da mà người mới hay nhầm với nhau:" },
         {
           table: {
@@ -78,7 +78,7 @@ const article: WikiArticle = {
         { img: { src: img("den-led-ho-gel-va-den-cu"), alt: "Đèn LED hơ gel hình vòm màu trắng đang phát ánh sáng tím xanh trên bàn đá, phía sau là một chiếc đèn cũ đã ngả vàng", caption: "Đèn cũ đã yếu vẫn sáng, nhưng có thể không còn đủ để gel chín tới lớp dưới." } },
         { h3: "Lớp dày thì nhăn" },
         { p: "Ánh sáng không xuyên hết được một lớp gel dày, nhất là màu đậm. Mặt trên chín trước, co lại và kéo nhăn cả lớp bên dưới còn lỏng. Vì vậy hai lớp mỏng luôn tốt hơn một lớp dày." },
-        { img: { src: img("son-gel-bi-nhan-do-son-qua-day"), alt: "Cận cảnh một móng tay sơn gel đỏ sẫm có bề mặt nhăn nheo, gợn thành nếp, đầu ngón được bàn tay đeo găng đen đỡ bên dưới", caption: "Lỗi do sơn quá dày: mặt gel nhăn lại, bên dưới chưa chín." } },
+        { img: { src: img("son-gel-bi-nhan-do-son-qua-day"), alt: "Cận cảnh một móng tay sơn gel đỏ sẫm có bề mặt nhăn nheo, gợn thành nếp, được bàn tay đeo găng đen đỡ bên dưới", caption: "Lỗi do sơn quá dày: mặt gel nhăn lại, bên dưới chưa chín." } },
         { h3: "Khách thấy nóng rát trong đèn" },
         { p: "Khi gel chín, nó tỏa nhiệt. Khách kêu nóng rát thì đừng bảo khách cố chịu. Cho khách rút tay ra vài giây rồi cho vào lại, và lần sau sơn mỏng hơn." },
         { h3: "Lớp dính sau khi hơ không phải gel hỏng" },
@@ -104,7 +104,7 @@ const article: WikiArticle = {
         { img: { src: img("son-gel-bong-o-chan-mong"), alt: "Cận cảnh một móng sơn gel đỏ, mép gel ở phía chân móng đã hở và vênh lên khỏi mặt móng", caption: "Bong ở chân móng: thường do còn da trên mặt móng." } },
         { img: { src: img("son-gel-bong-o-dau-mong"), alt: "Cận cảnh một móng sơn gel đỏ sẫm bị mẻ mất một mảng ở góc đầu móng, lộ ra phần móng thật bên dưới", caption: "Bong ở đầu móng: chưa bịt đầu móng, hoặc móng bị dùng để cạy." } },
         { note: "Mỗi kiểu bong là một lời nhắc để sửa đúng chỗ. Một người thợ tay sơn rất đẹp vẫn có thể bị khách quay lại liên tục vì bong ở chân móng, đổi hãng gel, đổi đèn mà không hết, cho đến khi xem lại cách xử lý lớp da mỏng ở chân móng.", kind: "tip", title: "Đọc bộ móng trước khi đổi sản phẩm" },
-        { img: { src: img("khach-quay-lai-vi-son-gel-bi-bong"), alt: "Khách nữ mặc áo sơ mi xanh đậm chỉ vào một móng sơn gel đỏ trên bàn tay mình cho nữ thợ nail trẻ xem ở bàn làm móng" } },
+        { img: { src: img("khach-quay-lai-vi-son-gel-bi-bong"), alt: "Khách nữ mặc áo sơ mi xanh đậm chỉ vào một móng sơn gel đỏ trên tay mình cho nữ thợ nail trẻ xem" } },
       ],
     },
     {

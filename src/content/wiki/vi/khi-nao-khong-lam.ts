@@ -10,7 +10,7 @@ const article: WikiArticle = {
   title: "Khi nào không nên làm nail, nối mi, wax cho khách: dấu hiệu phải dừng và cách từ chối",
   metaTitle: "Khi nào không nên làm nail, nối mi, wax cho khách",
   metaDescription:
-    "Khi nào không nên làm nail, nối mi, làm tóc hay wax cho khách: dấu hiệu ở móng, mắt, da đầu và da cần dừng lại, câu hỏi trước dịch vụ và cách từ chối cho khéo.",
+    "Khi nào không nên làm nail, nối mi, làm tóc hay wax cho khách: dấu hiệu ở móng, mắt, da đầu và da cần dừng lại, câu hỏi trước dịch vụ và cách từ chối khéo.",
   keyword: "khi nào không nên làm nail",
   keywords: [
     "móng bị nấm có sơn gel được không",
@@ -26,7 +26,7 @@ const article: WikiArticle = {
   updated: "2026-11-26",
   hero: {
     src: img("tho-lam-dep-xem-tay-khach-truoc-khi-lam"),
-    alt: "Nữ thợ làm đẹp mặc áo kem ngồi ở bàn tư vấn bằng đá, nâng hai bàn tay của khách lên để xem kỹ trước khi làm dịch vụ",
+    alt: "Nữ thợ làm đẹp mặc áo kem ngồi ở bàn tư vấn, nâng hai bàn tay của khách lên xem kỹ trước khi làm",
   },
   takeaways: [
     "Trước mỗi dịch vụ, làm hai việc: **nhìn** dưới ánh sáng tốt khi da và móng còn sạch, và **hỏi** vài câu ngắn về dị ứng, thuốc, bệnh tiểu đường, phẫu thuật hay nhiễm trùng gần đây.",
@@ -94,7 +94,7 @@ const article: WikiArticle = {
             "Chân có vết loét hay vết thương thì không làm. Khuyên khách đến bác sĩ hoặc chuyên viên chăm sóc bàn chân.",
           ],
         },
-        { img: { src: img("kiem-tra-ban-chan-truoc-khi-lam-mong-chan"), alt: "Nữ thợ spa đeo găng đen ngồi trên ghế thấp, nâng bàn chân trần của khách bằng hai tay để xem lòng bàn chân trước khi làm móng chân", caption: "Xem kỹ lòng bàn chân và kẽ ngón trước khi cho chân vào bồn." } },
+        { img: { src: img("kiem-tra-ban-chan-truoc-khi-lam-mong-chan"), alt: "Nữ thợ spa đeo găng đen ngồi trên ghế thấp, nâng bàn chân trần của khách để xem lòng bàn chân trước khi làm", caption: "Xem kỹ lòng bàn chân và kẽ ngón trước khi cho chân vào bồn." } },
       ],
     },
     {
@@ -111,7 +111,7 @@ const article: WikiArticle = {
             "Khách từng phản ứng với keo hay thuốc nhuộm mi: không làm lại bằng sản phẩm đó.",
           ],
         },
-        { img: { src: img("mat-do-co-leo-khong-noi-mi"), alt: "Cận cảnh khuôn mặt một phụ nữ nằm trên giường nối mi, một bên mắt đỏ, hơi chảy nước, mí trên sưng hồng với một nốt nhỏ ở bờ mi" } },
+        { img: { src: img("mat-do-co-leo-khong-noi-mi"), alt: "Cận cảnh khuôn mặt một phụ nữ, một bên mắt đỏ, hơi chảy nước, mí trên sưng hồng với một nốt nhỏ ở bờ mi" } },
         { p: "Chuyện phản ứng với keo và thuốc nhuộm được giải thích kỹ trong bài [Dị ứng sơn gel, keo nối mi, thuốc nhuộm](lesson:di-ung-hoa-chat)." },
         { h3: "Tóc và da đầu" },
         {
@@ -134,7 +134,7 @@ const article: WikiArticle = {
           ],
         },
         { p: "Với wax có một câu bắt buộc phải hỏi: khách có đang dùng thuốc trị mụn hay kem retinoid không. Thuốc uống trị mụn isotretinoin làm da mỏng và yếu đi, wax có thể làm tróc cả lớp da. Khách đang uống, hoặc mới ngừng trong khoảng sáu tháng, thì không wax; nếu phù hợp, bạn có thể gợi ý cách nhẹ hơn như nhíp. Với kem bôi, làm theo hướng dẫn của hãng wax và của bác sĩ kê thuốc." },
-        { img: { src: img("hoi-ve-kem-retinoid-truoc-khi-wax"), alt: "Khách nữ mặc áo choàng kem ngồi ở mép giường spa, đưa một tuýp kem trắng cho nữ thợ xem trước khi wax, phía sau là nồi sáp" } },
+        { img: { src: img("hoi-ve-kem-retinoid-truoc-khi-wax"), alt: "Khách nữ mặc áo choàng kem ngồi ở mép giường spa, đưa một tuýp kem trắng cho nữ thợ xem trước khi wax" } },
       ],
     },
     {
@@ -182,7 +182,7 @@ const article: WikiArticle = {
             ],
           },
         },
-        { img: { src: img("tho-dan-bang-kin-nuoc-len-vet-xuoc-o-tay"), alt: "Nữ thợ làm đẹp mặc áo kem đứng cạnh bồn rửa, dán miếng băng cá nhân lên đầu ngón tay mình, bên cạnh là hộp găng nitrile đen" } },
+        { img: { src: img("tho-dan-bang-kin-nuoc-len-vet-xuoc-o-tay"), alt: "Nữ thợ làm đẹp mặc áo kem dán miếng băng cá nhân lên đầu ngón tay mình, bên cạnh là hộp găng nitrile đen" } },
         { p: "Chủ tiệm nên nói rõ với nhân viên rằng báo bệnh không phải là lỗi. Một người thợ đi làm khi đang ốm có thể lây cho nhiều khách trong một ngày. Cách đeo và thay găng đúng có trong bài [Găng tay, rửa tay và đồ bảo hộ](lesson:rua-tay-gang-tay)." },
         { note: "Quy định về những trường hợp phải từ chối khác nhau theo từng nước. Bài này không thay cho ý kiến của bác sĩ.", kind: "warn", title: "Lưu ý" },
       ],
@@ -210,7 +210,7 @@ const article: WikiArticle = {
       a: "Dừng lại, không hốt hoảng và không nói to. Nói riêng với khách và khuyên khách ra hiệu thuốc. Sau đó giặt khăn, xử lý lược, kéo và áo choàng thật kỹ trước khi dùng cho người khác.",
     },
     {
-      q: "Khách nói “cứ làm đi, tôi chịu trách nhiệm” thì có nên làm không?",
+      q: "Khách năn nỉ “cứ làm đi, chị chịu trách nhiệm” thì có nên làm không?",
       a: "Không. Lời hứa chịu trách nhiệm không làm cho mắt hết đỏ hay vết thương lành lại. Hãy nhắc lại nhẹ nhàng rằng bạn từ chối vì sự an toàn của khách, rồi đề nghị một lối khác: làm phần còn lành, đổi dịch vụ hoặc hẹn lại.",
     },
   ],

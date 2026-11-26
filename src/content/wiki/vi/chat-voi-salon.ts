@@ -25,7 +25,7 @@ const article: WikiArticle = {
   updated: "2026-11-26",
   hero: {
     src: img("khach-nhan-tin-cho-salon-lam-dep-tren-dien-thoai"),
-    alt: "Cô gái tóc dài gợn sóng mặc áo len kem ngồi trên sofa cạnh cửa sổ có chậu cây, mỉm cười nhắn tin trên điện thoại",
+    alt: "Cô gái tóc dài gợn sóng mặc áo len kem ngồi trên sofa cạnh cửa sổ, mỉm cười nhắn tin trên điện thoại",
   },
   takeaways: [
     "Nút **“Chat với Salon”** nằm trên trang của từng salon, ngay cạnh nút “Đặt lịch”.",

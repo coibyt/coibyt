@@ -124,7 +124,7 @@ const article: WikiArticle = {
             ],
           },
         },
-        { img: { src: img("kinh-bao-ho-khau-trang-loc-bui-khi-mai-mong"), alt: "Nữ thợ nail tóc vàng đeo kính bảo hộ trong suốt và khẩu trang lọc bụi, dùng máy mài trên móng khách ngay phía trên miệng hút bụi của bàn" } },
+        { img: { src: img("kinh-bao-ho-khau-trang-loc-bui-khi-mai-mong"), alt: "Nữ thợ nail đeo kính bảo hộ và khẩu trang lọc bụi, dùng máy mài trên móng khách phía trên miệng hút bụi" } },
         { p: "Quần áo làm việc cũng là đồ bảo hộ. Theo hướng dẫn của Helsinki, nên chọn vải trơn, dễ giặt, không dùng loại len dày, xốp, và thay thường xuyên. Với các dịch vụ có thể làm xước da, quần áo làm việc được thay khi cần và ít nhất mỗi ngày một lần. Tóc buộc gọn, tay áo ngắn." },
         { p: "Bụi và hơi hóa chất là chuyện của cả căn phòng chứ không riêng một bàn. Cách bố trí thông gió và dọn dẹp có trong bài [Vệ sinh tiệm hằng ngày](lesson:ve-sinh-tiem)." },
       ],
@@ -184,7 +184,7 @@ const article: WikiArticle = {
       },
       {
         name: "Rửa cổ tay rồi xả sạch",
-        text: "Xoa quanh cổ tay của từng bên, rồi xả dưới vòi cho hết xà phòng. Xà phòng còn sót lại trên da là một nguyên nhân làm da khô và kích ứng.",
+        text: "Xoa quanh cổ tay của từng bên. Sau đó xả thật sạch dưới vòi nước cho hết bọt xà phòng.",
       },
       {
         name: "Lau thật khô và khóa vòi bằng giấy",

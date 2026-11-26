@@ -26,7 +26,7 @@ const article: WikiArticle = {
   updated: "2026-11-26",
   hero: {
     src: img("chu-tiem-lam-dep-trong-salon-sach-buoi-sang"),
-    alt: "Nữ chủ tiệm tóc vàng búi thấp, mặc áo kem, ôm tập hồ sơ đứng giữa salon sáng sủa với dãy bàn làm móng bằng đá trắng và ghế nhung tím",
+    alt: "Nữ chủ tiệm tóc vàng mặc áo kem ôm tập hồ sơ, đứng giữa salon sáng sủa với dãy bàn làm móng bằng đá trắng",
   },
   takeaways: [
     "Viết ra một **kế hoạch lau dọn**: lau cái gì, bao lâu một lần, bằng dụng cụ và chất gì, ai làm.",
@@ -46,7 +46,7 @@ const article: WikiArticle = {
       blocks: [
         { p: "Ở Helsinki, phần lớn tiệm làm đẹp phải gửi thông báo cho thành phố ít nhất 30 ngày trước khi bắt đầu hoạt động. Tiệm tóc chỉ phải thông báo nếu có làm dịch vụ trên da. Quy tắc này áp dụng cả khi bạn làm tại nhà hay làm tự do. Tiệm thay đổi lớn, đổi chủ hay đóng cửa cũng phải báo lại. Sau đó thành phố đến kiểm tra định kỳ và có thu phí." },
         { p: "Phần quan trọng hơn tờ thông báo là **kế hoạch tự kiểm soát**, tiếng Phần Lan gọi là omavalvontasuunnitelma. Tự kiểm soát nghĩa là chủ tiệm tự tìm ra những nguy cơ cho sức khỏe trong tiệm mình và nói được mình đã làm gì để ngăn chúng. Tiệm phải có kế hoạch này và phải làm đúng theo nó; thành phố khuyên viết ra giấy. Tiệm tóc dù không phải thông báo vẫn phải tự kiểm soát." },
-        { img: { src: img("viet-ke-hoach-tu-kiem-soat-cua-tiem"), alt: "Nữ chủ tiệm mặc áo vest kem ngồi ở bàn làm việc, viết bằng bút vàng vào một tập hồ sơ còng mở, bên cạnh là máy tính xách tay và tách cà phê" } },
+        { img: { src: img("viet-ke-hoach-tu-kiem-soat-cua-tiem"), alt: "Nữ chủ tiệm mặc áo vest kem ngồi ở bàn làm việc, viết vào một tập hồ sơ mở, bên cạnh là máy tính xách tay" } },
         { h3: "Kế hoạch tự kiểm soát gồm những gì" },
         {
           table: {
@@ -99,7 +99,7 @@ const article: WikiArticle = {
             "Nhà vệ sinh có bộ dụng cụ lau riêng, dễ phân biệt, ví dụ theo màu.",
           ],
         },
-        { img: { src: img("tu-rieng-cat-dung-cu-lau-don-khan-theo-mau"), alt: "Tủ màu kem mở hai cánh, bên trong cây lau nhà và chổi treo trên móc, các chồng khăn lau xanh, lục, vàng, đỏ xếp trên kệ cùng chai xịt và xô" } },
+        { img: { src: img("tu-rieng-cat-dung-cu-lau-don-khan-theo-mau"), alt: "Tủ kem mở hai cánh, bên trong cây lau nhà và chổi treo trên móc, khăn lau nhiều màu xếp trên kệ cùng chai xịt" } },
       ],
     },
     {
@@ -107,8 +107,8 @@ const article: WikiArticle = {
       title: "Giặt khăn và đồ vải: sạch và bẩn không bao giờ nằm cạnh nhau",
       blocks: [
         { p: "Khăn và đồ vải dùng trong công việc được giặt và sấy bằng máy. Máy giặt không đặt trong nhà vệ sinh. Đồ sạch và đồ bẩn cất riêng: khăn sạch trong tủ đóng cửa, khăn đã dùng trong thùng có nắp." },
-        { img: { src: img("khan-sach-trong-tu-khan-ban-trong-thung-co-nap"), alt: "Phòng sau của salon với tủ kem mở một cánh, bên trong là các chồng khăn trắng gấp gọn, cách đó một quãng là thùng đựng khăn bẩn có nắp đậy" } },
-        { note: "Một lỗi hay gặp: chồng khăn sạch nằm trên kệ mở, ngay cạnh giỏ khăn bẩn. Bụi và hơi ẩm từ giỏ khăn bẩn bám sang khăn sạch trước khi khăn kịp tới tay khách.", kind: "warn", title: "Lỗi hay gặp" },
+        { img: { src: img("khan-sach-trong-tu-khan-ban-trong-thung-co-nap"), alt: "Tủ kem mở một cánh với các chồng khăn trắng gấp gọn bên trong, cách đó một quãng là thùng đựng khăn bẩn có nắp" } },
+        { note: "Một lỗi hay gặp: chồng khăn sạch nằm trên kệ mở, ngay cạnh giỏ khăn bẩn. Khăn sạch để hở như vậy thì không còn chắc là sạch khi tới tay khách.", kind: "warn", title: "Lỗi hay gặp" },
       ],
     },
     {
@@ -117,7 +117,7 @@ const article: WikiArticle = {
       blocks: [
         { h3: "Chỗ rửa cạnh chỗ làm" },
         { p: "Cạnh mỗi chỗ làm, hoặc ngay sát đó, cần có một chỗ rửa riêng để rửa tay và rửa dụng cụ, đi tới dễ dàng mà không phải qua một cánh cửa đóng. Nếu tiệm chỉ có một chỗ rửa thì nên là bồn đôi, hai ngăn. Rửa dụng cụ xong, rửa và khử khuẩn bồn rồi mới dùng lại cho khách. Nhà vệ sinh có chỗ rửa tay riêng, có xà phòng nước và khăn giấy." },
-        { img: { src: img("bon-rua-tay-ngay-canh-ban-lam-mong"), alt: "Bàn làm móng bằng đá trắng có gối kê tay, ngay sát bên là bồn rửa tay sứ trắng với vòi vàng đồng, bình xà phòng và hộp khăn giấy treo tường" } },
+        { img: { src: img("bon-rua-tay-ngay-canh-ban-lam-mong"), alt: "Bàn làm móng bằng đá trắng có gối kê tay, ngay sát bên là bồn rửa tay với vòi vàng đồng, xà phòng và khăn giấy" } },
         { h3: "Thông gió tiệm nail" },
         { p: "Theo hướng dẫn của Helsinki, thông gió cần đạt ít nhất 6 lít không khí mỗi giây cho mỗi người. Tiệm có hơn hai khách cùng lúc, hay dùng hóa chất mùi mạnh, thì nên có thông gió cơ học. Bàn làm móng bột cần hút tại chỗ. Trong kế hoạch, ghi lịch thay lọc, vệ sinh miệng gió và số điện thoại bên quản lý tòa nhà. Vì sao không khí sạch lại quan trọng với người thợ, xem bài [Dị ứng sơn gel, keo nối mi, thuốc nhuộm](lesson:di-ung-hoa-chat)." },
         { img: { src: img("mieng-gio-thong-gio-tren-tran-tiem-nail"), alt: "Trần salon màu kem với một miệng gió tròn màu trắng, phía dưới là dãy bàn làm móng bằng đá và đèn chùm ở cuối phòng" } },
@@ -152,7 +152,7 @@ const article: WikiArticle = {
             ],
           },
         },
-        { img: { src: img("danh-sach-kiem-tra-ve-sinh-luc-mo-cua"), alt: "Nữ thợ làm đẹp mặc áo kem đứng ở quầy lễ tân, cầm bảng kẹp giấy và dùng bút tích vào danh sách các ô kiểm tra trước giờ mở cửa" } },
+        { img: { src: img("danh-sach-kiem-tra-ve-sinh-luc-mo-cua"), alt: "Nữ thợ làm đẹp mặc áo kem đứng ở quầy lễ tân, cầm bảng kẹp giấy và dùng bút tích vào danh sách kiểm tra" } },
         { p: "Ai làm thì tích vào và ký tên. Cuối tuần, chủ tiệm xem lại các tờ danh sách để thấy việc nào hay bị bỏ sót." },
         { note: "Trong VaraaAi, bạn vào “Tiện ích” → “Thông báo” để nhắc cả nhóm danh sách mở và đóng cửa, và dùng phần “Đào tạo” để nhân viên mới đọc kế hoạch tự kiểm soát ngay ngày đầu. Cách dùng có trong bài [Tiện ích nhóm](lesson:tien-ich-nhom).", kind: "tip", title: "Nhắc cả nhóm bằng VaraaAi" },
       ],
@@ -161,7 +161,7 @@ const article: WikiArticle = {
       id: "khi-thanh-tra-den",
       title: "Khi thanh tra đến, và quy định nơi bạn làm việc",
       blocks: [
-        { p: "Người kiểm tra không chỉ nhìn mặt bàn. Họ có thể hỏi tiệm đã nhận ra những nguy cơ nào và đã làm gì với chúng. Một kế hoạch viết rõ ràng, cùng một tiệm làm đúng như kế hoạch, là câu trả lời tốt nhất." },
+        { p: "Người kiểm tra nhìn nhiều hơn một mặt bàn sạch. Họ có thể hỏi tiệm đã nhận ra những nguy cơ nào và đã làm gì với chúng. Một kế hoạch viết rõ ràng, cùng một tiệm làm đúng như kế hoạch, là câu trả lời tốt nhất." },
         { p: "Vệ sinh tiệm vì vậy không phải là một ngày tổng vệ sinh thật lớn, mà là những việc nhỏ mỗi ngày, mỗi người biết phần mình." },
         { note: "Quy định khác nhau theo từng nước và thành phố. Các yêu cầu trong bài là ví dụ từ hướng dẫn của thành phố Helsinki. Hãy hỏi cơ quan y tế nơi bạn làm việc để biết yêu cầu chính xác cho tiệm mình.", kind: "warn", title: "Hỏi cơ quan y tế địa phương" },
       ],

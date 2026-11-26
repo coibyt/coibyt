@@ -26,7 +26,7 @@ const article: WikiArticle = {
   updated: "2026-11-26",
   hero: {
     src: img("tho-lam-dep-mo-hop-so-cuu-trong-salon"),
-    alt: "Nữ thợ làm đẹp tóc vàng búi thấp, mặc áo kem, đứng ở quầy đá trắng và mở một hộp sơ cứu màu trắng có dấu thập xanh",
+    alt: "Nữ thợ làm đẹp tóc vàng mặc áo kem đứng ở quầy đá trắng, mở một hộp sơ cứu trắng có dấu thập xanh",
   },
   takeaways: [
     "Mọi sự cố bắt đầu bằng ba việc: **dừng tay**, **giữ bình tĩnh**, và gọi cấp cứu trước nếu nguy hiểm đến tính mạng (112 ở Liên minh châu Âu).",
@@ -78,14 +78,14 @@ const article: WikiArticle = {
             "Lưỡi dao và kim dùng một lần bỏ vào hộp đựng vật sắc nhọn.",
           ],
         },
-        { img: { src: img("khu-khuan-mat-ban-va-hop-dung-vat-sac-nhon"), alt: "Bàn tay đeo găng đen lau mặt bàn đá bằng khăn khử khuẩn, bên cạnh là khay inox đựng kềm đã dùng và hộp vàng nắp đỏ đựng vật sắc nhọn" } },
+        { img: { src: img("khu-khuan-mat-ban-va-hop-dung-vat-sac-nhon"), alt: "Bàn tay đeo găng đen lau mặt bàn đá bằng khăn khử khuẩn, bên cạnh là khay kềm đã dùng và hộp đựng vật sắc nhọn" } },
       ],
     },
     {
       id: "hoa-chat-vao-mat",
       title: "Keo nối mi, thuốc nhuộm, acetone bắn vào mắt phải làm sao",
       blocks: [
-        { p: "Với keo, thuốc nhuộm, acetone hay dung dịch khử khuẩn bắn vào mắt, điều quan trọng nhất là rửa ngay và rửa lâu. Mỗi giây sản phẩm còn nằm trên mắt là thêm tổn thương." },
+        { p: "Với keo, thuốc nhuộm, acetone hay dung dịch khử khuẩn bắn vào mắt, điều quan trọng nhất là rửa ngay và rửa lâu. Lau bằng bông khô rồi làm tiếp là cách xử lý sai." },
         {
           ol: [
             "Cho nước sạch, không nóng, chảy nhẹ qua con mắt đang mở, liên tục ít nhất 20 phút.",
@@ -173,7 +173,7 @@ const article: WikiArticle = {
         { p: "Kể cho khách chuyện gì đã xảy ra, bạn đã làm gì và khách nên theo dõi điều gì. Xin lỗi chân thành, không đổ lỗi, không giấu." },
         { h3: "Ghi biên bản sự cố ngay trong ngày" },
         { p: "Biên bản gồm: ngày giờ, ai làm, chuyện gì xảy ra, sản phẩm nào và số lô, đã xử lý ra sao, đã khuyên khách điều gì. Sau đó báo cho chủ tiệm. Chủ tiệm xem có phải báo cho bảo hiểm hay cơ quan nào không, theo quy định ở nơi mình làm." },
-        { img: { src: img("ghi-bien-ban-su-co-trong-ngay"), alt: "Một bàn tay cầm bút vàng viết vào cuốn sổ kem mở trên bàn đá, bên cạnh là hộp sơ cứu nhỏ màu trắng và một lọ thủy tinh" } },
+        { img: { src: img("ghi-bien-ban-su-co-trong-ngay"), alt: "Một bàn tay cầm bút vàng viết vào cuốn sổ kem mở trên bàn đá, bên cạnh là hộp sơ cứu nhỏ màu trắng" } },
         { p: "Trong VaraaAi, bạn ghi vào ô “Ghi chú nội bộ” của hồ sơ khách rằng đã có sự cố và đã khuyên khách điều gì; ô này chỉ salon nhìn thấy, xem bài [Sổ khách hàng](lesson:khach-hang). Biên bản đầy đủ thì giữ ở nơi chủ tiệm quy định." },
         { h3: "Túi sơ cứu của tiệm gồm những gì" },
         {
@@ -185,7 +185,7 @@ const article: WikiArticle = {
             "Một tờ hướng dẫn sơ cứu.",
           ],
         },
-        { img: { src: img("tui-so-cuu-cua-tiem-lam-dep"), alt: "Các món trong túi sơ cứu xếp trên mặt đá trắng: băng dán nhiều cỡ, gạc, băng cuộn, băng dính, miếng che mắt, kéo, găng đen và ống nước muối" } },
+        { img: { src: img("tui-so-cuu-cua-tiem-lam-dep"), alt: "Túi sơ cứu bày trên mặt đá: băng dán nhiều cỡ, gạc, băng cuộn, băng dính, miếng che mắt, kéo, găng và ống nước muối" } },
         { p: "Không để thuốc uống trong túi. Đặt túi ở chỗ ai trong tiệm cũng biết, kiểm tra đều đặn xem thứ gì đã hết hay đã quá hạn, và bổ sung ngay sau mỗi lần dùng." },
         { h3: "Phần lớn sự cố tránh được từ trước" },
         {
