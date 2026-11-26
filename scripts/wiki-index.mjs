@@ -31,7 +31,7 @@ for (const f of ["curriculum.ts", "craft.ts", "tositeo.ts", "babelisa.ts", "moja
   if (f === "moja.ts") for (const m of src.matchAll(/^ {2}"([a-z0-9-]+)": \[\d+, "[\d-]+"\],$/gm)) lessons.add(m[1]);
 }
 const chapters = read("src/lib/wiki/categories.ts");
-const sitePaths = /^\/(|business|search|app|academy|academy\/khoa-hoc\/[a-z0-9-]+|loyalty-lite|salon-check|salon-quiz|tools\/price-list|tools\/qr-poster|help\/getting-started(#[a-z0-9-]+)?|support|directory|wiki|b/moja-beauty)$/;
+const sitePaths = /^\/(|business|search|app|academy|academy\/khoa-hoc\/[a-z0-9-]+|loyalty-lite|salon-check|salon-quiz|tools\/price-list|tools\/qr-poster|help\/getting-started(#[a-z0-9-]+)?|support|directory|wiki|b\/moja-beauty)$/;
 
 let problems = 0;
 const tmp = mkdtempSync(join(tmpdir(), "wiki-index-"));
