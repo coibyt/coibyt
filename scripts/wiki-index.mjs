@@ -130,10 +130,14 @@ for (const [locale, name] of Object.entries(NAMES)) {
         seenPics.add(p.src);
       }
       if (pics.length < 4) warn(`only ${pics.length} pictures (use 5–10)`);
-      // Picture files of this article live in public/wiki/<lesson>/ (shared by its translations); none may be left unused.
-      const folder = join(root, "public/wiki", a.lesson);
-      if (existsSync(folder) && locale === "vi")
-        for (const file of readdirSync(folder)) if (!seenPics.has(`/wiki/${a.lesson}/${file}`)) warn(`picture file public/wiki/${a.lesson}/${file} is not used (delete it or use it)`);
+      // Picture files of an article live in public/wiki/<lesson>/ (the Vietnamese ones, which photo-only translations share)
+      // and public/wiki/<lesson>/<locale>/ (screenshots in that language); none may be left unused.
+      const folder = join(root, "public/wiki", a.lesson, locale === "vi" ? "" : locale);
+      const prefix = `/wiki/${a.lesson}/${locale === "vi" ? "" : `${locale}/`}`;
+      if (existsSync(folder))
+        for (const e of readdirSync(folder, { withFileTypes: true }))
+          if (e.isFile() && !seenPics.has(prefix + e.name)) warn(`picture file public${prefix}${e.name} is not used (delete it or use it)`);
+      if (locale !== "vi" && pics.some((p) => !p.src.startsWith(`/wiki/${a.lesson}/`))) warn(`pictures must come from public/wiki/${a.lesson}/ or its ${locale}/ folder`);
       const all = texts.join("\n");
       for (const m of all.matchAll(/\[([^\]]+)\]\(([^)\s]+)\)/g)) {
         const href = m[2];
@@ -152,7 +156,12 @@ for (const [locale, name] of Object.entries(NAMES)) {
       if (/\*\*[^*]*$/m.test(all.replace(/\*\*[^*]+\*\*/g, ""))) warn("an unclosed ** bold mark");
       const words = all.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").split(/\s+/).filter(Boolean).length;
       if (words < (locale === "vi" ? 1100 : 750)) warn(`only ${words} words`);
-      if (a.keyword && !(a.intro?.[0] ?? "").toLowerCase().includes(a.keyword.toLowerCase())) warn("the first paragraph does not contain the main keyword");
+      // Finnish inflects words, so there each word only has to appear with its first five letters.
+      const first = (a.intro?.[0] ?? "").toLowerCase();
+      const kw = (a.keyword ?? "").toLowerCase();
+      const hasKeyword = locale === "fi" ? kw.split(/\s+/).every((w) => first.includes(w.slice(0, Math.min(w.length, 5)))) : first.includes(kw);
+      if (a.keyword && !hasKeyword) warn("the first paragraph does not contain the main keyword");
+      if (locale !== "vi" && /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(all + a.title)) warn("contains Vietnamese letters: translate every quoted button name too");
       if (!say.length && only.length) console.log(`  ok ${locale}/${f}: ${words} words, ${pics.length} pictures, /wiki/${a.slug}`);
     }
     if (say.length) {
