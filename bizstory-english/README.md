@@ -75,6 +75,8 @@ Lệnh khác: `validate`, `import-day`, `due`, `status`, `calibrate` (đo lại 
   Phần 4) dùng lại clip. Bản 0.85× làm bằng ffmpeg `atempo`, không tốn credit.
   `SLOW_MODE=tts` cho 11max đọc chậm thật (tự nhiên hơn, tốn thêm khoảng 1–2%).
 - Luôn chạy `--dry-run` trước để xem `credits_new_est`.
+- **Ngày 1 đo thật:** 91.741 ký tự cần thu, khoảng 45.900 credit cho một ngày đầy đủ, thời lượng thật **121,75 phút**,
+  MP3 58,4 MB, dựng mất 15 phút (6 luồng 11max). Bản `--short-test` khoảng 4 phút, tốn khoảng 2.000 credit.
 
 ## Kiến trúc
 
@@ -106,7 +108,19 @@ phát/dừng, ±15/30 giây, chương trước/sau), tự nhớ vị trí nghe, 
 có tự kiểm tra SRS, chuỗi ngày và số phút nghe. Tiến độ lưu trong trình duyệt. Khi chạy bằng
 `python -m bizstory serve`, kết quả tự kiểm tra được ghi thêm vào SQLite.
 
-## Đưa lên Hostinger
+## Đưa lên Babelisa (đang dùng)
+
+Bản thử đang chạy tại **https://babelisa.com/lab/bizstory-g2dta9/** (không cho Google lập chỉ mục).
+
+```bash
+bash scripts/deploy_babelisa.sh bizstory-g2dta9 ../../babelisa
+```
+
+Sau đó trong repo babelisa: `git add public/lab/bizstory-g2dta9 && git commit -m "..." && git push`. Hostinger tự deploy.
+Mỗi ngày thêm khoảng 58 MB MP3 vào repo babelisa. Khi đã có nhiều ngày, nên chuyển MP3 sang thư mục media riêng trên
+Hostinger (tải bằng FTP/SSH, không qua git) để repo không phình to.
+
+## Đưa lên Hostinger (thư mục tĩnh bất kỳ)
 
 1. Chạy `python -m bizstory export-site` trên máy dựng.
 2. Tải nội dung `site/` lên một thư mục, ví dụ `public_html/bizstory/` hoặc subdomain `bizstory.<tên miền>`.
