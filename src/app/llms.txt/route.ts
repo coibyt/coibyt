@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { SITE } from "@/lib/seo";
+import { wikiLlmsLines } from "@/lib/wiki/sitemap";
 
 // Lists the live salons, so it is built per request (and cached for an hour).
 export const dynamic = "force-dynamic";
@@ -42,7 +43,9 @@ export async function GET() {
     `- [2-minute salon quiz](${SITE}/en/salon-quiz): 12 questions for salon owners, then a plan of what to set up first`,
     `- [Help centre](${SITE}/en/help/getting-started): step-by-step guides to every feature`,
     `- [Support](${SITE}/en/support)`,
+    `- [VaraaAi Academy](${SITE}/en/academy): free video courses for salon owners, beauty professionals and customers`,
     "",
+    ...wikiLlmsLines(),
     "## Salons on VaraaAi",
     ...salons.map((s) => {
       const cats = s.categories.map((c) => c.category.slug).join(", ");

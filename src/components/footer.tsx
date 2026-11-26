@@ -9,6 +9,7 @@ import QRCode from "qrcode";
 import { BellRing, Check, Sparkles } from "lucide-react";
 import { FooterAppDownload } from "@/components/footer-app-download";
 import { academyNavLabel, academyOwnerNavLabel } from "@/lib/academy/strings";
+import { wikiStrings } from "@/lib/wiki/strings";
 
 export async function Footer() {
   const [t, locale] = await Promise.all([getTranslations("footer"), getLocale()]);
@@ -120,6 +121,7 @@ export async function Footer() {
             { href: "/", label: t("forCustomers") },
             { href: "/account/bookings", label: "" },
             { href: "/academy", label: academyNavLabel(locale) },
+            { href: "/wiki", label: wikiStrings(locale).nav },
           ].filter((l) => l.label)}
         />
         <FooterColumn

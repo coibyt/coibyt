@@ -42,6 +42,8 @@ export interface LessonViewData {
   notice: string | null;
   sources: { label: string; url: string }[];
   related: LessonCard[];
+  /** The written article of this lesson in the Wiki (/wiki/…), if there is one. */
+  article?: { href: string; title: string; label: string; body: string } | null;
 }
 
 const GOLD = "bg-gradient-to-br from-[#f0d9a0] to-[#b08a3e]";
@@ -192,6 +194,23 @@ export function LessonView({ lesson, locale }: { lesson: LessonViewData; locale:
                   )}
                 </div>
               </section>
+            )}
+
+            {lesson.article && (
+              <Link
+                href={lesson.article.href}
+                className="group flex items-center gap-4 rounded-3xl bg-white p-5 shadow-card ring-1 ring-[#e8d3a6] transition hover:-translate-y-0.5 sm:p-6"
+              >
+                <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${GOLD} text-primary-900`}>
+                  <BookOpen className="h-6 w-6" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-xs font-bold text-[#8a6a2a]">{lesson.article.label}</span>
+                  <span className="mt-0.5 block text-base font-extrabold leading-snug text-ink-900 group-hover:text-primary-600 sm:text-lg">{lesson.article.title}</span>
+                  <span className="mt-1 block text-sm leading-relaxed text-ink-400">{lesson.article.body}</span>
+                </span>
+                <ArrowRight className="h-5 w-5 shrink-0 text-primary-500" />
+              </Link>
             )}
 
             {lesson.quiz.length > 0 && (

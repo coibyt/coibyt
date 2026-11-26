@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { LessonView } from "@/components/academy/lesson-view";
 import { lessonPageData } from "@/lib/academy";
 import { SITE, absoluteUrl, alternatesFor, jsonLd, localizedUrl, metaDescription } from "@/lib/seo";
+import { articleForLesson, wikiPath } from "@/lib/wiki";
+import { wikiStrings } from "@/lib/wiki/strings";
 
 type Params = Promise<{ locale: string; slug: string }>;
 
@@ -40,6 +42,10 @@ export default async function AcademyLessonPage({ params }: { params: Params }) 
   const data = lessonPageData(slug, locale);
   if (!data) notFound();
   const { view, video } = data;
+  // The same lesson written out as an article in the Wiki, when it exists.
+  const wiki = articleForLesson(slug, locale);
+  const ws = wiki && wikiStrings(wiki.locale);
+  const article = wiki && ws ? { href: wikiPath(wiki), title: wiki.title, label: ws.readArticle, body: ws.readArticleBody } : null;
 
   const videoLd = {
     "@context": "https://schema.org",
@@ -70,7 +76,7 @@ export default async function AcademyLessonPage({ params }: { params: Params }) 
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(videoLd)} />
       {howToLd && <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(howToLd)} />}
-      <LessonView lesson={view} locale={locale} />
+      <LessonView lesson={{ ...view, article }} locale={locale} />
     </>
   );
 }

@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { SEO_LOCALES, SITE, absoluteUrl, localizedUrl } from "@/lib/seo";
 import { coursePageSlugs, liveLessons } from "@/lib/academy";
 import { courseImage } from "@/lib/academy/course-media";
+import { wikiSitemap } from "@/lib/wiki/sitemap";
 
 // Built from the database on every request, so a new salon, product or
 // fanpage post is in the sitemap the moment it goes live — no rebuild.
@@ -138,6 +139,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/academy", 0.8, "weekly"),
     ...coursePageSlugs().map((slug) => entry(`/academy/khoa-hoc/${slug}`, 0.8, "weekly", undefined, [courseImage(slug)])),
     ...liveLessons().map((l) => entry(`/academy/${l.slug}`, 0.6, "monthly", new Date(l.video!.published), [l.video!.poster])),
+    // The Wiki: one written article per Academy lesson, only in the languages it is written in.
+    ...wikiSitemap().map((e) => ({ ...e, url: e.url.replace(/&/g, "&amp;") })),
     entry("/support", 0.4, "monthly"),
     entry("/directory", 0.3, "daily", newest),
     entry("/privacy", 0.2, "yearly"),
