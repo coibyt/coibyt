@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BizStory English</title>
+<meta name="description" content="Mỗi ngày hai giờ truyện kinh doanh song ngữ: học tiếng Anh chỉ bằng cách lắng nghe.">
+<meta name="theme-color" content="#120d1f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7 19h3l2-6 3 11 3-14 2 9h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="wordmark">BizStory <em>English</em></span>
+    </div>
+    <div class="pills">
+      <span class="pill" id="pillStreak" title="Chuỗi ngày nghe"><svg viewBox="0 0 24 24"><path d="M12 2c1 4 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-4-1-6 1-10z" fill="currentColor"/></svg><b id="streakN">0</b></span>
+      <span class="pill" id="pillToday" title="Phút nghe hôm nay"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg><b id="todayMin">0</b>′</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- NGHE -->
+    <section class="view" id="v-listen" data-view="listen">
+      <div class="stage">
+        <div class="cover" id="cover"><img id="coverImg" alt=""><div class="cover-glow"></div>
+          <div class="cover-meta"><span class="eyebrow" id="dayLabel">Ngày 1</span><h1 id="partTitle">BizStory English</h1><p id="layerTitle"></p></div>
+        </div>
+        <div class="caption" id="caption" aria-live="polite"><span class="cap-speaker" id="capSpeaker"></span><p id="capText">Bấm phát để bắt đầu.</p></div>
+        <div class="scrub">
+          <div class="bar" id="bar"><div class="buffer" id="buffer"></div><div class="fill" id="fill"></div><div class="ticks" id="ticks"></div><div class="knob" id="knob"></div></div>
+          <div class="times"><span id="tCur">0:00</span><span id="tChap"></span><span id="tDur">0:00</span></div>
+        </div>
+        <div class="controls">
+          <button class="ctl sm" id="bPrev" aria-label="Chương trước"><svg viewBox="0 0 24 24"><path d="M6 5v14M19 5l-10 7 10 7z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button>
+          <button class="ctl" id="bBack" aria-label="Lùi 15 giây"><svg viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><text x="12" y="16.5" font-size="6.5" text-anchor="middle" fill="currentColor" font-weight="700">15</text></svg></button>
+          <button class="play" id="bPlay" aria-label="Phát"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg></button>
+          <button class="ctl" id="bFwd" aria-label="Tới 30 giây"><svg viewBox="0 0 24 24"><path d="M12 5V2l5 4-5 4V7a6 6 0 1 0 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><text x="12" y="16.5" font-size="6.5" text-anchor="middle" fill="currentColor" font-weight="700">30</text></svg></button>
+          <button class="ctl sm" id="bNext" aria-label="Chương sau"><svg viewBox="0 0 24 24"><path d="M18 5v14M5 5l10 7-10 7z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button>
+        </div>
+        <div class="chips">
+          <button class="chip" id="bSpeed">1.0×</button>
+          <button class="chip" id="bSleep"><svg viewBox="0 0 24 24"><path d="M20 15a8 8 0 1 1-11-11 7 7 0 0 0 11 11z" fill="currentColor"/></svg><span id="sleepLabel">Hẹn giờ</span></button>
+          <button class="chip" id="bFollow" data-on="1"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Lời thoại</button>
+        </div>
+      </div>
+      <div class="card chapters">
+        <div class="card-h"><h2>Chương</h2><span class="muted" id="chapCount"></span></div>
+        <ol id="chapList"></ol>
+      </div>
+    </section>
+
+    <!-- LỜI THOẠI -->
+    <section class="view" id="v-text" data-view="text" hidden>
+      <div class="sticky-h"><h2>Lời thoại</h2><label class="toggle"><input type="checkbox" id="autoScroll" checked><span>Tự cuộn</span></label></div>
+      <p class="hint">Chạm vào câu để nghe từ đó. Chạm vào <span class="ph-sample">cụm vàng</span> để nghe riêng cụm và xem nghĩa.</p>
+      <div id="transcript" class="transcript"></div>
+    </section>
+
+    <!-- SỔ TAY -->
+    <section class="view" id="v-book" data-view="book" hidden>
+      <div class="review-hero card">
+        <div><span class="eyebrow">Tự kiểm tra · SRS 1–3–7–14 ngày</span><h2 id="dueTitle">0 cụm đến hạn</h2><p class="muted" id="dueSub">Nghe câu tiếng Anh, tự nhớ nghĩa, rồi lật thẻ.</p></div>
+        <button class="btn gold" id="bStartReview">Ôn ngay</button>
+      </div>
+      <div class="flash card" id="flash" hidden>
+        <div class="flash-top"><span class="muted" id="flashCount"></span><button class="x" id="bCloseFlash" aria-label="Đóng">×</button></div>
+        <p class="flash-en" id="flashEn"></p>
+        <div class="flash-actions-top"><button class="mini" id="bFlashPlay">▶ 1.0×</button><button class="mini" id="bFlashSlow">▶ 0.85×</button></div>
+        <div class="flash-back" id="flashBack" hidden><p class="flash-vi" id="flashVi"></p><p class="muted" id="flashCtx"></p></div>
+        <div class="flash-btns">
+          <button class="btn ghost" id="bReveal">Lật thẻ</button>
+          <button class="btn again" id="bAgain" hidden>Chưa nhớ</button>
+          <button class="btn good" id="bGood" hidden>Nhớ rồi</button>
+        </div>
+      </div>
+      <div class="filters"><input id="bookSearch" type="search" placeholder="Tìm cụm từ, nghĩa…"><select id="bookFilter"><option value="all">Tất cả</option><option value="due">Đến hạn</option><option value="new">Chưa ôn</option><option value="done">Đã thuộc</option></select></div>
+      <ul class="book" id="bookList"></ul>
+    </section>
+
+    <!-- KHO -->
+    <section class="view" id="v-archive" data-view="archive" hidden>
+      <div class="hero card"><img src="img/hero.webp" alt="" onerror="this.remove()"><div class="hero-t"><span class="eyebrow">Mỗi ngày một tập · khoảng 2 giờ</span><h2>Học tiếng Anh bằng những câu chuyện kinh doanh đáng nghe</h2></div></div>
+      <ul class="days" id="dayList"></ul>
+    </section>
+
+    <!-- THỐNG KÊ -->
+    <section class="view" id="v-stats" data-view="stats" hidden>
+      <div class="stat-grid">
+        <div class="stat card"><span class="muted">Chuỗi ngày</span><b id="sStreak">0</b><small>ngày liên tiếp ≥ 10 phút</small></div>
+        <div class="stat card"><span class="muted">Hôm nay</span><b id="sToday">0</b><small>phút đã nghe</small></div>
+        <div class="stat card"><span class="muted">Tổng</span><b id="sTotal">0</b><small>giờ nghe</small></div>
+        <div class="stat card"><span class="muted">Cụm từ</span><b id="sPhrases">0</b><small id="sPhrasesSub">đã gặp</small></div>
+      </div>
+      <div class="card"><div class="card-h"><h2>14 ngày gần đây</h2><span class="muted">phút / ngày</span></div><div class="spark" id="spark"></div></div>
+      <div class="card goal"><div class="card-h"><h2>Mục tiêu mỗi ngày</h2></div><div class="goal-row"><input type="range" id="goal" min="15" max="180" step="15" value="120"><b id="goalV">120′</b></div><div class="meter"><div id="goalFill"></div></div></div>
+    </section>
+  </main>
+
+  <div class="mini-player" id="miniPlayer" hidden><button class="play sm" id="bMiniPlay" aria-label="Phát/Dừng"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg></button><div class="mini-t"><b id="miniTitle"></b><span id="miniSub"></span></div><div class="mini-bar"><div id="miniFill"></div></div></div>
+
+  <nav class="tabs" aria-label="Điều hướng">
+    <button data-go="listen" class="on"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="5" height="7" rx="2" fill="currentColor"/><rect x="16" y="14" width="5" height="7" rx="2" fill="currentColor"/></svg><span>Nghe</span></button>
+    <button data-go="text"><svg viewBox="0 0 24 24"><path d="M5 4h14v16l-4-3H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Lời thoại</span></button>
+    <button data-go="book"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 9h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Sổ tay</span><i class="badge" id="dueBadge" hidden></i></button>
+    <button data-go="archive"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 9v10h14V9M10 13h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Kho</span></button>
+    <button data-go="stats"><svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span>Thống kê</span></button>
+  </nav>
+
+  <div class="sheet" id="sheet" hidden><div class="sheet-card" role="dialog" aria-modal="true"><div class="grab"></div><div id="sheetBody"></div></div></div>
+  <div class="toast" id="toast" hidden></div>
+</div>
+<audio id="audio" preload="metadata"></audio>
+<audio id="clip" preload="none"></audio>
+<script src="app.js"></script>
+</body>
+</html>

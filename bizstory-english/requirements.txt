@@ -1,0 +1,9 @@
+pydub>=0.25
+audioop-lts>=0.2; python_version >= "3.13"
+httpx>=0.27
+numpy>=1.26
+fastapi>=0.110
+uvicorn>=0.29
+anthropic>=0.70   # chỉ cần khi LLM_PROVIDER=anthropic
+openai>=1.40      # chỉ cần khi LLM_PROVIDER=openai
+pytest>=8

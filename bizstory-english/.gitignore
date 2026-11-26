@@ -1,0 +1,8 @@
+.env
+output/
+cache/
+data/*.sqlite*
+site/
+__pycache__/
+*.pyc
+.pytest_cache/

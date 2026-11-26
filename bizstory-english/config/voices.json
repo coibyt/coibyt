@@ -1,0 +1,80 @@
+{
+  "_note": "Giọng 11max. Tên/giới tính kiểm tra bằng API ngày 2026-11-26. en_male/en_female/en_male2 và 3 giọng Việt do chủ dự án chọn; en_female2/3, en_male3/4 lấy từ thư viện giọng 11max cho nhân vật phụ.",
+  "voices": {
+    "vn_linh": {
+      "id": "QqID1ZB0DTItNxAKGBNW",
+      "lang": "vi",
+      "name": "Viết Linh",
+      "gender": "male"
+    },
+    "vn_lily": {
+      "id": "WFDoCi084FlAxSbpBEfC",
+      "lang": "vi",
+      "name": "Saigon Lily",
+      "gender": "female"
+    },
+    "vn_kenh": {
+      "id": "5vqV9IG7sDpzgzKOIZAv",
+      "lang": "vi",
+      "name": "Kenh",
+      "gender": "female"
+    },
+    "en_male": {
+      "id": "Aa6nEBJJMKJwJkCx8VU2",
+      "lang": "en",
+      "name": "Quentin (narrator)",
+      "gender": "male"
+    },
+    "en_female": {
+      "id": "bxiObU1YDrf7lrFAyV99",
+      "lang": "en",
+      "name": "Ashley",
+      "gender": "female"
+    },
+    "en_male2": {
+      "id": "CE5BJM57m1rtrAFVXfCq",
+      "lang": "en",
+      "name": "VânCa",
+      "gender": "male"
+    },
+    "en_female2": {
+      "id": "19STyYD15bswVz51nqLf",
+      "lang": "en",
+      "name": "Samara X (British, classy)",
+      "gender": "female"
+    },
+    "en_female3": {
+      "id": "OYTbf65OHHFELVut7v2H",
+      "lang": "en",
+      "name": "Hope (young, calm)",
+      "gender": "female"
+    },
+    "en_male3": {
+      "id": "G17SuINrv2H9FC6nvetn",
+      "lang": "en",
+      "name": "Christopher (British, gentle)",
+      "gender": "male"
+    },
+    "en_male4": {
+      "id": "1SM7GgM6IMuvQlz2BwM3",
+      "lang": "en",
+      "name": "Mark (casual)",
+      "gender": "male"
+    }
+  },
+  "part_hosts": {
+    "1": "vn_linh",
+    "2": "vn_lily",
+    "3": "vn_kenh",
+    "4": "vn_lily",
+    "0": "vn_linh"
+  },
+  "phrase_voices": [
+    "en_female",
+    "en_male"
+  ],
+  "tts_speed": {
+    "vi": 1.0,
+    "en": 0.95
+  }
+}
