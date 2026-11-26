@@ -1,0 +1,4 @@
+# Python 3.10+ and ffmpeg (with rubberband filter, e.g. Ubuntu's ffmpeg) are required.
+numpy>=1.26
+requests>=2.31
+edge-tts>=6.1   # free fallback / preview TTS

@@ -1,0 +1,863 @@
+{
+  "date": "2026-11-27",
+  "day_number": 1,
+  "level": "A2-B1",
+  "topic": {
+    "id": "work-small-talk",
+    "en": "Small talk at work",
+    "vi": "Trò chuyện xã giao nơi công sở",
+    "art_prompt": "a calm modern office kitchen in the morning light, two colleagues chatting over coffee cups, big window with city view, plants"
+  },
+  "intro_vi": "Chủ đề hôm nay là trò chuyện xã giao nơi công sở: hỏi thăm cuối tuần, rủ đồng nghiệp đi cà phê, và những câu ngắn mà người bản xứ nói mỗi ngày.",
+  "phrases": [
+    {
+      "id": "p01",
+      "en": "How was your weekend?",
+      "vi": "Cuối tuần của bạn thế nào?",
+      "note_vi": "Câu mở đầu quen thuộc vào sáng thứ Hai. Trả lời ngắn rồi hỏi lại: “And yours?”",
+      "examples": [
+        {
+          "en": "Hi Tom! How was your weekend? Did you do anything fun?",
+          "vi": "Chào anh Tom! Cuối tuần của anh thế nào? Có làm gì vui không?"
+        },
+        {
+          "en": "How was your weekend? I heard you went to the beach.",
+          "vi": "Cuối tuần của chị thế nào? Em nghe nói chị đi biển."
+        }
+      ]
+    },
+    {
+      "id": "p02",
+      "en": "Not too bad, thanks.",
+      "vi": "Cũng không tệ, cảm ơn.",
+      "note_vi": "Cách trả lời nhẹ nhàng, tự nhiên. Người bản xứ nói câu này nhiều hơn “I'm fine, thank you.”",
+      "examples": [
+        {
+          "en": "Not too bad, thanks. I just stayed home and relaxed.",
+          "vi": "Cũng không tệ, cảm ơn. Tôi chỉ ở nhà nghỉ ngơi thôi."
+        },
+        {
+          "en": "Not too bad, thanks. A bit busy, but I'm getting used to it.",
+          "vi": "Cũng không tệ, cảm ơn. Hơi bận một chút, nhưng tôi đang quen dần."
+        }
+      ]
+    },
+    {
+      "id": "p03",
+      "en": "What have you been up to?",
+      "vi": "Dạo này bạn làm gì thế?",
+      "note_vi": "Hỏi về những việc người kia làm gần đây. Trả lời bằng “I've been …”.",
+      "examples": [
+        {
+          "en": "Long time no see! What have you been up to?",
+          "vi": "Lâu quá không gặp! Dạo này bạn làm gì thế?"
+        },
+        {
+          "en": "What have you been up to this week? You look tired.",
+          "vi": "Tuần này bạn bận gì thế? Trông bạn có vẻ mệt."
+        }
+      ]
+    },
+    {
+      "id": "p04",
+      "en": "I'm swamped with work.",
+      "vi": "Tôi ngập đầu trong công việc.",
+      "note_vi": "“Swamped” nghĩa là có quá nhiều việc. Dùng khi muốn nói mình đang rất bận.",
+      "examples": [
+        {
+          "en": "Sorry, I can't join you for lunch. I'm swamped with work today.",
+          "vi": "Xin lỗi, hôm nay tôi không đi ăn trưa cùng được. Tôi ngập đầu trong công việc."
+        },
+        {
+          "en": "I'm swamped with work until Friday, but next week is better.",
+          "vi": "Tôi ngập đầu trong công việc đến thứ Sáu, nhưng tuần sau thì đỡ hơn."
+        }
+      ]
+    },
+    {
+      "id": "p05",
+      "en": "Do you have a minute?",
+      "vi": "Bạn có rảnh một chút không?",
+      "note_vi": "Cách lịch sự để xin vài phút nói chuyện với đồng nghiệp hoặc sếp.",
+      "examples": [
+        {
+          "en": "Do you have a minute? I have a quick question about the report.",
+          "vi": "Anh có rảnh một chút không? Em có một câu hỏi nhanh về bản báo cáo."
+        },
+        {
+          "en": "Do you have a minute after the meeting? I'd like to show you something.",
+          "vi": "Sau cuộc họp chị có rảnh một chút không? Em muốn cho chị xem cái này."
+        }
+      ]
+    },
+    {
+      "id": "p06",
+      "en": "Let me get back to you.",
+      "vi": "Để tôi trả lời bạn sau nhé.",
+      "note_vi": "Dùng khi bạn chưa có câu trả lời ngay và cần thời gian kiểm tra lại.",
+      "examples": [
+        {
+          "en": "I'm not sure about the price. Let me get back to you this afternoon.",
+          "vi": "Tôi chưa chắc về giá. Để chiều nay tôi trả lời bạn nhé."
+        },
+        {
+          "en": "Good question. Let me get back to you after I talk to my manager.",
+          "vi": "Câu hỏi hay đấy. Để tôi hỏi quản lý rồi trả lời bạn sau nhé."
+        }
+      ]
+    },
+    {
+      "id": "p07",
+      "en": "That makes sense.",
+      "vi": "Nghe hợp lý đấy.",
+      "note_vi": "Cho người kia biết bạn đã hiểu và thấy lời giải thích là hợp lý.",
+      "examples": [
+        {
+          "en": "Oh, so the meeting moved because of the holiday. That makes sense.",
+          "vi": "À, vậy là cuộc họp dời lại vì ngày lễ. Nghe hợp lý đấy."
+        },
+        {
+          "en": "That makes sense. Thanks for explaining it again.",
+          "vi": "Vậy thì hợp lý rồi. Cảm ơn bạn đã giải thích lại."
+        }
+      ]
+    },
+    {
+      "id": "p08",
+      "en": "I'm running a bit late.",
+      "vi": "Tôi đến muộn một chút.",
+      "note_vi": "Báo trước khi bạn sắp trễ hẹn. Thường nói thêm thời gian: “… about ten minutes.”",
+      "examples": [
+        {
+          "en": "Sorry, I'm running a bit late. The traffic is terrible this morning.",
+          "vi": "Xin lỗi, tôi đến muộn một chút. Sáng nay kẹt xe kinh khủng."
+        },
+        {
+          "en": "I'm running a bit late, so please start the meeting without me.",
+          "vi": "Tôi đến muộn một chút, nên mọi người cứ bắt đầu họp trước nhé."
+        }
+      ]
+    },
+    {
+      "id": "p09",
+      "en": "Let's grab a coffee.",
+      "vi": "Mình đi uống cà phê đi.",
+      "note_vi": "“Grab” ở đây là đi mua, đi lấy nhanh. Cũng hay nói: “grab lunch”, “grab a bite”.",
+      "examples": [
+        {
+          "en": "You look tired. Let's grab a coffee before the next meeting.",
+          "vi": "Trông bạn mệt quá. Mình đi uống cà phê trước cuộc họp tới đi."
+        },
+        {
+          "en": "Let's grab a coffee sometime next week and catch up.",
+          "vi": "Tuần sau lúc nào đó mình đi uống cà phê, hàn huyên chút nhé."
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "en": "It's been a long week.",
+      "vi": "Tuần này dài thật đấy.",
+      "note_vi": "Nói khi bạn thấy mệt vì một tuần nhiều việc, thường nghe vào thứ Năm, thứ Sáu.",
+      "examples": [
+        {
+          "en": "It's been a long week. I'm going to sleep all day on Saturday.",
+          "vi": "Tuần này dài thật đấy. Thứ Bảy tôi sẽ ngủ cả ngày."
+        },
+        {
+          "en": "Thank goodness it's Friday. It's been a long week.",
+          "vi": "Ơn trời, cuối cùng cũng đến thứ Sáu. Tuần này dài thật đấy."
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "en": "Keep me posted.",
+      "vi": "Có gì mới thì báo tôi nhé.",
+      "note_vi": "Nhờ người khác cập nhật tình hình cho bạn. Rất hay dùng trong công việc.",
+      "examples": [
+        {
+          "en": "The client might call back today. Keep me posted.",
+          "vi": "Hôm nay khách hàng có thể gọi lại. Có gì mới thì báo tôi nhé."
+        },
+        {
+          "en": "Good luck with the interview! Keep me posted.",
+          "vi": "Chúc bạn phỏng vấn may mắn! Có gì thì báo tôi biết nhé."
+        }
+      ]
+    },
+    {
+      "id": "p12",
+      "en": "I'm looking forward to it.",
+      "vi": "Tôi rất mong chờ điều đó.",
+      "note_vi": "Sau “looking forward to” là danh từ hoặc V-ing, ví dụ: “looking forward to seeing you”.",
+      "examples": [
+        {
+          "en": "The team dinner is on Friday? Great, I'm looking forward to it.",
+          "vi": "Bữa tối của nhóm vào thứ Sáu à? Tuyệt, tôi rất mong chờ."
+        },
+        {
+          "en": "Thanks for the invitation. I'm looking forward to it.",
+          "vi": "Cảm ơn vì đã mời. Tôi rất mong chờ buổi đó."
+        }
+      ]
+    },
+    {
+      "id": "p13",
+      "en": "No worries.",
+      "vi": "Không sao đâu.",
+      "note_vi": "Đáp lại lời xin lỗi hoặc lời cảm ơn một cách thân thiện, thoải mái.",
+      "examples": [
+        {
+          "en": "No worries, we haven't started yet.",
+          "vi": "Không sao đâu, chúng tôi vẫn chưa bắt đầu mà."
+        },
+        {
+          "en": "No worries. You can send it to me tomorrow.",
+          "vi": "Không sao đâu. Mai bạn gửi cho tôi cũng được."
+        }
+      ]
+    },
+    {
+      "id": "p14",
+      "en": "Sounds good to me.",
+      "vi": "Tôi thấy được đấy.",
+      "note_vi": "Đồng ý với một đề nghị hoặc kế hoạch. Ngắn gọn hơn nữa: “Sounds good!”",
+      "examples": [
+        {
+          "en": "Lunch at half past twelve? Sounds good to me.",
+          "vi": "Ăn trưa lúc mười hai giờ rưỡi à? Tôi thấy được đấy."
+        },
+        {
+          "en": "Sounds good to me. Let's do it that way.",
+          "vi": "Tôi thấy được đấy. Mình làm theo cách đó nhé."
+        }
+      ]
+    },
+    {
+      "id": "p15",
+      "en": "Have a good one!",
+      "vi": "Chúc bạn một ngày vui vẻ nhé!",
+      "note_vi": "Lời chào tạm biệt thân thiện. “One” có thể là ngày, buổi tối hay cuối tuần, tùy lúc.",
+      "examples": [
+        {
+          "en": "Thanks for your help today. Have a good one!",
+          "vi": "Cảm ơn bạn đã giúp hôm nay. Chúc bạn một ngày vui vẻ nhé!"
+        },
+        {
+          "en": "See you on Monday. Have a good one!",
+          "vi": "Hẹn gặp lại thứ Hai nhé. Chúc cuối tuần vui vẻ!"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "d1",
+      "title_en": "Monday morning in the office kitchen",
+      "title_vi": "Sáng thứ Hai trong bếp văn phòng",
+      "setting_vi": "Linh và anh đồng nghiệp Tom gặp nhau đầu tuần. Linh đang có rất nhiều việc.",
+      "speakers": {
+        "A": {
+          "name": "Tom",
+          "gender": "m"
+        },
+        "B": {
+          "name": "Linh",
+          "gender": "f"
+        }
+      },
+      "lines": [
+        {
+          "s": "A",
+          "en": "Morning, Linh! How was your weekend?",
+          "vi": "Chào buổi sáng, Linh! Cuối tuần của em thế nào?"
+        },
+        {
+          "s": "B",
+          "en": "Not too bad, thanks. I visited my parents in the countryside.",
+          "vi": "Cũng không tệ, cảm ơn anh. Em về quê thăm bố mẹ."
+        },
+        {
+          "s": "A",
+          "en": "Oh, that sounds lovely. How are they doing?",
+          "vi": "Ồ, nghe thích quá. Bố mẹ em dạo này thế nào?"
+        },
+        {
+          "s": "B",
+          "en": "They're great. My mum cooked way too much food, as usual.",
+          "vi": "Bố mẹ em khỏe lắm. Mẹ em lại nấu quá nhiều đồ ăn, như mọi khi."
+        },
+        {
+          "s": "B",
+          "en": "And you? What have you been up to?",
+          "vi": "Còn anh thì sao? Dạo này anh làm gì thế?"
+        },
+        {
+          "s": "A",
+          "en": "Honestly, not much. I spent most of Sunday painting my kitchen.",
+          "vi": "Thật ra cũng không có gì nhiều. Anh dành gần hết Chủ nhật để sơn lại bếp."
+        },
+        {
+          "s": "B",
+          "en": "Painting? On your own?",
+          "vi": "Sơn nhà á? Một mình anh luôn?"
+        },
+        {
+          "s": "A",
+          "en": "Yes, and now my arms really hurt. But it looks much better.",
+          "vi": "Ừ, giờ tay anh đau nhừ. Nhưng trông đẹp hơn nhiều."
+        },
+        {
+          "s": "B",
+          "en": "You'll have to show me a picture.",
+          "vi": "Thế thì anh phải cho em xem ảnh đấy."
+        },
+        {
+          "s": "A",
+          "en": "Sure. So, how's your week looking?",
+          "vi": "Được thôi. Thế tuần này của em thế nào?"
+        },
+        {
+          "s": "B",
+          "en": "Busy. To be honest, I'm swamped with work.",
+          "vi": "Bận lắm. Nói thật là em đang ngập đầu trong công việc."
+        },
+        {
+          "s": "B",
+          "en": "We have a big presentation on Thursday, and nothing is ready yet.",
+          "vi": "Thứ Năm bọn em có một buổi thuyết trình lớn, mà chưa có gì sẵn sàng cả."
+        },
+        {
+          "s": "A",
+          "en": "Oh no. Is there anything I can do to help?",
+          "vi": "Ôi không. Anh có giúp được gì không?"
+        },
+        {
+          "s": "B",
+          "en": "That's kind of you. Maybe you could check my slides on Wednesday?",
+          "vi": "Anh tốt quá. Thứ Tư anh xem giúp em mấy slide được không?"
+        },
+        {
+          "s": "A",
+          "en": "No worries, I'm happy to help.",
+          "vi": "Không sao đâu, anh sẵn lòng giúp mà."
+        },
+        {
+          "s": "B",
+          "en": "Thank you so much.",
+          "vi": "Cảm ơn anh nhiều lắm."
+        },
+        {
+          "s": "A",
+          "en": "You know what? You look like you need a break already.",
+          "vi": "Em biết không? Trông em có vẻ cần nghỉ một chút rồi đấy."
+        },
+        {
+          "s": "B",
+          "en": "It's only nine o'clock, Tom!",
+          "vi": "Mới có chín giờ thôi mà, anh Tom!"
+        },
+        {
+          "s": "A",
+          "en": "Exactly. Let's grab a coffee before the day gets crazy.",
+          "vi": "Thì thế mới nói. Mình đi uống cà phê trước khi mọi thứ bắt đầu bận rộn đi."
+        },
+        {
+          "s": "B",
+          "en": "Sounds good to me. The coffee here is terrible anyway.",
+          "vi": "Em thấy được đấy. Đằng nào cà phê ở đây cũng dở tệ."
+        },
+        {
+          "s": "A",
+          "en": "There's a new place across the street. They make great iced coffee.",
+          "vi": "Bên kia đường có một quán mới. Họ pha cà phê đá ngon lắm."
+        },
+        {
+          "s": "B",
+          "en": "Vietnamese iced coffee?",
+          "vi": "Cà phê đá kiểu Việt Nam à?"
+        },
+        {
+          "s": "A",
+          "en": "Not exactly, but it's close. You can tell me if it's good enough.",
+          "vi": "Không hẳn, nhưng cũng gần giống. Em thử rồi cho anh biết có đạt không nhé."
+        },
+        {
+          "s": "B",
+          "en": "Ha! I'm a tough judge.",
+          "vi": "Ha! Em khó tính lắm đấy."
+        },
+        {
+          "s": "A",
+          "en": "I know. That's why I want your opinion.",
+          "vi": "Anh biết. Vì thế anh mới muốn hỏi ý kiến em."
+        },
+        {
+          "s": "B",
+          "en": "OK, but only ten minutes. I really have to start on those slides.",
+          "vi": "Được, nhưng chỉ mười phút thôi nhé. Em thật sự phải bắt tay vào làm mấy slide đó."
+        },
+        {
+          "s": "A",
+          "en": "Ten minutes. I promise.",
+          "vi": "Mười phút. Anh hứa."
+        },
+        {
+          "s": "B",
+          "en": "And if my boss asks, we're having a meeting about the presentation.",
+          "vi": "Mà nếu sếp em hỏi thì mình đang họp về buổi thuyết trình nhé."
+        },
+        {
+          "s": "A",
+          "en": "Of course. A very important coffee meeting.",
+          "vi": "Tất nhiên rồi. Một cuộc họp cà phê vô cùng quan trọng."
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "title_en": "A phone call on Friday afternoon",
+      "title_vi": "Cuộc gọi chiều thứ Sáu",
+      "setting_vi": "Mai vừa gặp khách hàng xong và gọi cho trưởng nhóm David. Cô đang về muộn.",
+      "speakers": {
+        "A": {
+          "name": "Mai",
+          "gender": "f"
+        },
+        "B": {
+          "name": "David",
+          "gender": "m"
+        }
+      },
+      "lines": [
+        {
+          "s": "A",
+          "en": "Hi David, it's Mai. Sorry, I'm running a bit late.",
+          "vi": "Chào anh David, em Mai đây. Xin lỗi, em về muộn một chút."
+        },
+        {
+          "s": "A",
+          "en": "The client meeting took longer than I expected.",
+          "vi": "Cuộc họp với khách hàng kéo dài hơn em nghĩ."
+        },
+        {
+          "s": "B",
+          "en": "No worries. Where are you now?",
+          "vi": "Không sao đâu. Giờ em đang ở đâu?"
+        },
+        {
+          "s": "A",
+          "en": "I'm on the bus. I'll be back in the office in about fifteen minutes.",
+          "vi": "Em đang trên xe buýt. Khoảng mười lăm phút nữa em về tới văn phòng."
+        },
+        {
+          "s": "B",
+          "en": "That's fine. Actually, do you have a minute now? We can talk on the phone.",
+          "vi": "Được mà. Thật ra bây giờ em có rảnh một chút không? Mình nói chuyện qua điện thoại luôn."
+        },
+        {
+          "s": "A",
+          "en": "Sure, go ahead.",
+          "vi": "Vâng, anh cứ nói ạ."
+        },
+        {
+          "s": "B",
+          "en": "How did the meeting go? Are they happy with the new design?",
+          "vi": "Cuộc họp thế nào? Họ có hài lòng với thiết kế mới không?"
+        },
+        {
+          "s": "A",
+          "en": "Mostly, yes. They love the colours, but they want a bigger logo.",
+          "vi": "Phần lớn là có ạ. Họ rất thích màu sắc, nhưng muốn logo to hơn."
+        },
+        {
+          "s": "B",
+          "en": "A bigger logo. Of course they do.",
+          "vi": "Logo to hơn. Tất nhiên là họ muốn thế rồi."
+        },
+        {
+          "s": "A",
+          "en": "They also asked if we can finish everything by the end of the month.",
+          "vi": "Họ còn hỏi mình có thể làm xong mọi thứ trước cuối tháng không."
+        },
+        {
+          "s": "B",
+          "en": "Hmm, I'm not sure. Our designers are already very busy.",
+          "vi": "Hừm, anh không chắc. Các bạn thiết kế của mình đang rất bận rồi."
+        },
+        {
+          "s": "B",
+          "en": "Let me get back to you on that. I need to check with the team first.",
+          "vi": "Chuyện đó để anh trả lời em sau nhé. Anh cần hỏi lại cả nhóm trước đã."
+        },
+        {
+          "s": "A",
+          "en": "That makes sense. I told them we'd confirm on Monday.",
+          "vi": "Vậy là hợp lý ạ. Em đã nói với họ là thứ Hai mình sẽ xác nhận."
+        },
+        {
+          "s": "B",
+          "en": "Perfect. And if they call you again over the weekend, keep me posted.",
+          "vi": "Tuyệt. Còn nếu cuối tuần họ gọi lại cho em, có gì mới thì báo anh nhé."
+        },
+        {
+          "s": "A",
+          "en": "I will. But I hope they don't call. I want a quiet weekend.",
+          "vi": "Em sẽ báo ạ. Nhưng em mong họ đừng gọi. Em muốn có một cuối tuần yên tĩnh."
+        },
+        {
+          "s": "B",
+          "en": "Same here. It's been a long week.",
+          "vi": "Anh cũng vậy. Tuần này dài thật đấy."
+        },
+        {
+          "s": "A",
+          "en": "It really has. Five meetings in one day on Wednesday!",
+          "vi": "Đúng thật. Thứ Tư có tận năm cuộc họp trong một ngày!"
+        },
+        {
+          "s": "B",
+          "en": "Don't remind me.",
+          "vi": "Đừng nhắc anh nữa."
+        },
+        {
+          "s": "B",
+          "en": "Oh, before I forget, are you coming to the team dinner next Friday?",
+          "vi": "À, trước khi anh quên: thứ Sáu tuần sau em có đi ăn tối cùng cả nhóm không?"
+        },
+        {
+          "s": "A",
+          "en": "Yes, I am. I'm looking forward to it.",
+          "vi": "Có ạ. Em rất mong chờ buổi đó."
+        },
+        {
+          "s": "B",
+          "en": "Great. We're thinking about the Korean barbecue place near the station.",
+          "vi": "Tuyệt. Mọi người đang tính đi quán thịt nướng Hàn Quốc gần nhà ga."
+        },
+        {
+          "s": "A",
+          "en": "Sounds good to me. I love Korean food.",
+          "vi": "Em thấy được đấy. Em mê đồ ăn Hàn lắm."
+        },
+        {
+          "s": "B",
+          "en": "Me too. I'll book a table for seven o'clock.",
+          "vi": "Anh cũng vậy. Anh sẽ đặt bàn lúc bảy giờ."
+        },
+        {
+          "s": "A",
+          "en": "Thanks, David. Do you still need me back at the office today?",
+          "vi": "Cảm ơn anh David. Hôm nay anh vẫn cần em quay lại văn phòng chứ ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Not really. We've covered everything. You can go straight home.",
+          "vi": "Không cần đâu. Mình bàn xong hết rồi. Em cứ về thẳng nhà đi."
+        },
+        {
+          "s": "A",
+          "en": "Really? Thank you! That's the best news all week.",
+          "vi": "Thật ạ? Cảm ơn anh! Đó là tin vui nhất cả tuần đấy."
+        },
+        {
+          "s": "B",
+          "en": "You deserve it. Have a good one, Mai!",
+          "vi": "Em xứng đáng mà. Chúc em cuối tuần vui vẻ nhé, Mai!"
+        },
+        {
+          "s": "A",
+          "en": "You too! See you on Monday.",
+          "vi": "Anh cũng vậy nhé! Hẹn gặp anh thứ Hai."
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l1",
+      "kind": "story",
+      "title_en": "The Ten-Minute Coffee",
+      "title_vi": "Mười phút cà phê",
+      "summary_vi": "Câu chuyện về tuần làm việc của Linh: một ly cà phê ngắn với Tom đã giúp cô chuẩn bị buổi thuyết trình quan trọng.",
+      "speakers": {
+        "N": {
+          "name": "Narrator",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "N",
+          "en": "Linh works for a small design company in the city. She is good at her job, and she likes her team. But on Monday morning, she has a problem. On Thursday, she has to give a big presentation to an important client, and her slides are not ready. In fact, she has only two slides, and one of them just says \"Thank you.\"",
+          "vi": "Linh làm việc cho một công ty thiết kế nhỏ trong thành phố. Cô làm việc giỏi và quý nhóm của mình. Nhưng sáng thứ Hai, cô gặp một vấn đề. Thứ Năm này, cô phải thuyết trình trước một khách hàng quan trọng, mà các slide vẫn chưa xong. Thật ra, cô mới có hai slide, và một trong số đó chỉ ghi “Cảm ơn”."
+        },
+        {
+          "s": "N",
+          "en": "When she arrives at the office, she meets her colleague Tom in the kitchen. Tom is friendly and always in a good mood. He asks about her weekend, and she tells him about her visit to her parents. Then he tells her about painting his kitchen. It is a short, easy conversation, but it makes Linh feel calm for a moment.",
+          "vi": "Khi đến văn phòng, cô gặp anh đồng nghiệp Tom trong bếp. Tom thân thiện và lúc nào cũng vui vẻ. Anh hỏi về cuối tuần của cô, và cô kể chuyện về quê thăm bố mẹ. Rồi anh kể chuyện sơn lại căn bếp nhà mình. Đó chỉ là một cuộc trò chuyện ngắn và đơn giản, nhưng nó giúp Linh bình tĩnh lại trong chốc lát."
+        },
+        {
+          "s": "N",
+          "en": "Tom can see that she is worried, so he invites her for a coffee. At first, Linh wants to say no. She is swamped with work, and every minute is important. But she says yes, and they walk to the new café across the street. The sun is shining, the street is busy, and the coffee smells wonderful.",
+          "vi": "Tom nhận ra cô đang lo lắng, nên anh rủ cô đi uống cà phê. Lúc đầu, Linh muốn từ chối. Cô đang ngập đầu trong công việc, và phút nào cũng quý. Nhưng rồi cô đồng ý, và hai người đi bộ sang quán cà phê mới bên kia đường. Trời nắng đẹp, phố xá nhộn nhịp, và cà phê thơm tuyệt vời."
+        },
+        {
+          "s": "N",
+          "en": "While they wait for their drinks, Tom asks her a simple question: \"What is the one thing the client really needs to hear?\" Linh thinks about it. Then she answers in one sentence. Tom smiles and says, \"Great. That's your first slide.\" Suddenly, the presentation does not feel so big anymore.",
+          "vi": "Trong lúc chờ đồ uống, Tom hỏi cô một câu đơn giản: “Điều quan trọng nhất mà khách hàng thật sự cần nghe là gì?” Linh suy nghĩ. Rồi cô trả lời bằng một câu. Tom mỉm cười: “Tuyệt. Đó chính là slide đầu tiên của em.” Bỗng nhiên, buổi thuyết trình không còn có vẻ quá to tát nữa."
+        },
+        {
+          "s": "N",
+          "en": "The coffee is not exactly like Vietnamese iced coffee, but Linh has to admit that it is good. They stay for ten minutes, just as Tom promised. When they get back to the office, Linh opens her laptop and starts writing. For the first time that day, she knows exactly what to say.",
+          "vi": "Cà phê không hẳn giống cà phê đá Việt Nam, nhưng Linh phải công nhận là nó ngon. Họ ngồi đúng mười phút, như Tom đã hứa. Về lại văn phòng, Linh mở máy tính và bắt đầu viết. Lần đầu tiên trong ngày, cô biết chính xác mình cần nói gì."
+        },
+        {
+          "s": "N",
+          "en": "On Wednesday, Tom checks her slides, as he promised. He finds a few small mistakes and one picture that is upside down. They laugh about it and fix it together. On Thursday, the presentation goes very well. The client asks a lot of questions, and Linh can answer almost all of them. For the difficult ones, she says, \"Let me get back to you,\" and the client is happy with that.",
+          "vi": "Thứ Tư, Tom xem lại các slide cho cô, đúng như đã hứa. Anh tìm ra vài lỗi nhỏ và một bức ảnh bị lộn ngược. Hai người cùng cười và sửa lại. Thứ Năm, buổi thuyết trình diễn ra rất suôn sẻ. Khách hàng hỏi rất nhiều, và Linh trả lời được gần hết. Với những câu khó, cô nói: “Để tôi trả lời anh chị sau nhé,” và khách hàng hài lòng với điều đó."
+        },
+        {
+          "s": "N",
+          "en": "On Friday afternoon, Linh is tired but happy. It has been a long week. Before she goes home, she stops at Tom's desk. \"Thank you for the coffee on Monday,\" she says. \"It really helped.\" Tom laughs. \"It was just ten minutes,\" he says. \"Yes,\" says Linh, \"but they were the most useful ten minutes of my week.\"",
+          "vi": "Chiều thứ Sáu, Linh mệt nhưng vui. Một tuần thật dài. Trước khi về, cô ghé qua bàn của Tom. “Cảm ơn anh vì ly cà phê hôm thứ Hai,” cô nói. “Nó giúp em nhiều lắm.” Tom bật cười. “Chỉ có mười phút thôi mà.” “Vâng,” Linh đáp, “nhưng đó là mười phút có ích nhất trong cả tuần của em.”"
+        },
+        {
+          "s": "N",
+          "en": "Sometimes the most important conversations at work do not happen in meetings. They happen in the kitchen, in the lift, or in a small café across the street. A friendly question like \"How was your weekend?\" can be the start of something much bigger.",
+          "vi": "Đôi khi những cuộc trò chuyện quan trọng nhất nơi công sở không diễn ra trong phòng họp. Chúng diễn ra trong bếp, trong thang máy, hay trong một quán cà phê nhỏ bên kia đường. Một câu hỏi thân thiện như “Cuối tuần của bạn thế nào?” có thể là khởi đầu cho điều gì đó lớn lao hơn nhiều."
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "kind": "podcast",
+      "title_en": "Small Talk, Big Difference",
+      "title_vi": "Chuyện nhỏ, khác biệt lớn",
+      "summary_vi": "Hai người dẫn chương trình chia sẻ ba mẹo trò chuyện xã giao: trả lời ngắn rồi hỏi lại, học sẵn cụm từ, chọn chủ đề an toàn.",
+      "speakers": {
+        "A": {
+          "name": "Anna",
+          "gender": "f"
+        },
+        "B": {
+          "name": "Ben",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "A",
+          "en": "Hello, and welcome to Easy English at Work. I'm Anna.",
+          "vi": "Xin chào, chào mừng các bạn đến với chương trình Tiếng Anh dễ nghe nơi công sở. Mình là Anna."
+        },
+        {
+          "s": "B",
+          "en": "And I'm Ben. Today we're talking about something small, but very important: small talk.",
+          "vi": "Còn mình là Ben. Hôm nay chúng ta nói về một chuyện nhỏ nhưng rất quan trọng: trò chuyện xã giao."
+        },
+        {
+          "s": "A",
+          "en": "Small talk is the short, friendly conversation we have with people at work. It's not about the job itself. It's about the weekend, the weather, food, or plans.",
+          "vi": "Trò chuyện xã giao là những cuộc nói chuyện ngắn, thân thiện với mọi người ở chỗ làm. Nó không nói về bản thân công việc, mà về cuối tuần, thời tiết, đồ ăn hay dự định."
+        },
+        {
+          "s": "B",
+          "en": "A lot of people think small talk is a waste of time. But actually, it helps people trust each other. When you know your colleagues a little better, it's much easier to work together.",
+          "vi": "Nhiều người nghĩ chuyện xã giao là phí thời gian. Nhưng thật ra, nó giúp mọi người tin tưởng nhau. Khi bạn hiểu đồng nghiệp hơn một chút, làm việc cùng nhau sẽ dễ hơn nhiều."
+        },
+        {
+          "s": "A",
+          "en": "Right. So today, we have three simple tips. Tip number one: keep your answers short, and then ask a question back.",
+          "vi": "Đúng vậy. Hôm nay chúng mình có ba mẹo đơn giản. Mẹo thứ nhất: trả lời ngắn gọn, rồi hỏi lại người kia."
+        },
+        {
+          "s": "B",
+          "en": "For example, if someone asks, \"How was your weekend?\", you don't need to tell a long story. You can say, \"Not too bad, thanks. I went to the cinema. What about you?\"",
+          "vi": "Ví dụ, nếu ai đó hỏi “Cuối tuần của bạn thế nào?”, bạn không cần kể dài. Bạn có thể nói: “Cũng không tệ, cảm ơn. Mình đi xem phim. Còn bạn thì sao?”"
+        },
+        {
+          "s": "A",
+          "en": "That last part, \"What about you?\", is the most important. It shows that you're interested in the other person.",
+          "vi": "Phần cuối, “Còn bạn thì sao?”, là quan trọng nhất. Nó cho thấy bạn quan tâm đến người kia."
+        },
+        {
+          "s": "B",
+          "en": "Exactly. Small talk is like playing tennis. Someone hits the ball to you, and you send it back.",
+          "vi": "Chính xác. Trò chuyện xã giao giống như chơi quần vợt. Có người đánh bóng sang, và bạn đánh trả lại."
+        },
+        {
+          "s": "A",
+          "en": "I love that. Tip number two: learn a few ready-made phrases. You don't have to build every sentence from zero.",
+          "vi": "Mình rất thích cách so sánh đó. Mẹo thứ hai: học sẵn vài cụm từ dùng ngay. Bạn không cần tự xây từng câu từ con số không."
+        },
+        {
+          "s": "B",
+          "en": "Native speakers use the same phrases again and again. \"What have you been up to?\" \"It's been a long week.\" \"Sounds good to me.\" \"Keep me posted.\"",
+          "vi": "Người bản xứ dùng đi dùng lại những cụm từ giống nhau. “Dạo này bạn làm gì thế?” “Tuần này dài thật đấy.” “Tôi thấy được đấy.” “Có gì mới thì báo tôi nhé.”"
+        },
+        {
+          "s": "A",
+          "en": "If you know these phrases well, you can answer quickly, without translating in your head. And that makes you sound natural and confident.",
+          "vi": "Nếu thuộc những cụm từ này, bạn có thể trả lời nhanh mà không cần dịch trong đầu. Và điều đó giúp bạn nghe tự nhiên, tự tin."
+        },
+        {
+          "s": "B",
+          "en": "That's why listening is so helpful. When you hear a phrase many times, it starts to come out of your mouth by itself.",
+          "vi": "Đó là lý do việc nghe lại có ích đến vậy. Khi bạn nghe một cụm từ nhiều lần, nó sẽ tự bật ra khỏi miệng bạn."
+        },
+        {
+          "s": "A",
+          "en": "OK, tip number three: choose safe topics. Good topics are the weekend, food, travel, hobbies, and of course, the weather.",
+          "vi": "Được rồi, mẹo thứ ba: chọn chủ đề an toàn. Những chủ đề tốt là cuối tuần, đồ ăn, du lịch, sở thích, và tất nhiên là thời tiết."
+        },
+        {
+          "s": "B",
+          "en": "And it's usually better to avoid money, politics, and very personal questions, especially with people you don't know well.",
+          "vi": "Và thường thì nên tránh chuyện tiền bạc, chính trị và những câu hỏi quá riêng tư, nhất là với người bạn chưa thân."
+        },
+        {
+          "s": "A",
+          "en": "So please don't ask your new manager how much they earn.",
+          "vi": "Vậy nên làm ơn đừng hỏi sếp mới của bạn là họ kiếm được bao nhiêu tiền nhé."
+        },
+        {
+          "s": "B",
+          "en": "Please don't! Ask them about their weekend instead.",
+          "vi": "Đừng nhé! Thay vào đó, hãy hỏi họ về cuối tuần."
+        },
+        {
+          "s": "A",
+          "en": "Let's practise with a quick example. Ben, imagine I'm your colleague, and it's Friday afternoon.",
+          "vi": "Cùng thực hành với một ví dụ nhanh nhé. Ben, hãy tưởng tượng mình là đồng nghiệp của bạn, và bây giờ là chiều thứ Sáu."
+        },
+        {
+          "s": "B",
+          "en": "OK, I'm ready.",
+          "vi": "Được, mình sẵn sàng rồi."
+        },
+        {
+          "s": "A",
+          "en": "Hi Ben! It's been a long week, hasn't it?",
+          "vi": "Chào Ben! Tuần này dài thật đấy nhỉ?"
+        },
+        {
+          "s": "B",
+          "en": "It really has. I'm so ready for the weekend. Have you got any plans?",
+          "vi": "Đúng thật. Mình chỉ mong đến cuối tuần thôi. Bạn có kế hoạch gì chưa?"
+        },
+        {
+          "s": "A",
+          "en": "I'm going hiking with some friends on Saturday. I'm looking forward to it.",
+          "vi": "Thứ Bảy mình đi leo núi với mấy người bạn. Mình rất mong chờ."
+        },
+        {
+          "s": "B",
+          "en": "That sounds great. Where are you going?",
+          "vi": "Nghe tuyệt quá. Bạn đi đâu thế?"
+        },
+        {
+          "s": "A",
+          "en": "To a lake about an hour from the city.",
+          "vi": "Đến một cái hồ cách thành phố khoảng một tiếng."
+        },
+        {
+          "s": "B",
+          "en": "Lovely. Well, have a good one, and enjoy the fresh air!",
+          "vi": "Tuyệt thật. Thôi, chúc bạn cuối tuần vui vẻ, tận hưởng không khí trong lành nhé!"
+        },
+        {
+          "s": "A",
+          "en": "Thanks, you too! And that's it. Short, friendly, and easy.",
+          "vi": "Cảm ơn, bạn cũng vậy nhé! Vậy đó. Ngắn gọn, thân thiện và dễ dàng."
+        },
+        {
+          "s": "B",
+          "en": "Did you notice? There was a short answer, a question back, and a couple of ready-made phrases.",
+          "vi": "Các bạn có để ý không? Có câu trả lời ngắn, có câu hỏi lại, và vài cụm từ dùng sẵn."
+        },
+        {
+          "s": "A",
+          "en": "One more thing. Don't worry about making mistakes. Your colleagues care about the conversation, not your grammar.",
+          "vi": "Thêm một điều nữa. Đừng lo mắc lỗi. Đồng nghiệp quan tâm đến cuộc trò chuyện, chứ không phải ngữ pháp của bạn."
+        },
+        {
+          "s": "B",
+          "en": "That's so true. A smile and a simple question are often enough.",
+          "vi": "Đúng thật. Một nụ cười và một câu hỏi đơn giản thường là đủ."
+        },
+        {
+          "s": "A",
+          "en": "So here's your challenge for this week: have one small conversation in English. Just one. It can be in the kitchen, in the lift, or online.",
+          "vi": "Vậy đây là thử thách của bạn tuần này: có một cuộc trò chuyện nhỏ bằng tiếng Anh. Chỉ một thôi. Có thể ở trong bếp, trong thang máy, hay trên mạng."
+        },
+        {
+          "s": "B",
+          "en": "And keep us posted! We'd love to hear how it goes.",
+          "vi": "Và nhớ kể cho chúng mình nghe nhé! Chúng mình rất muốn biết mọi chuyện thế nào."
+        },
+        {
+          "s": "A",
+          "en": "Thanks for listening, everyone. See you next time.",
+          "vi": "Cảm ơn các bạn đã lắng nghe. Hẹn gặp lại lần sau."
+        },
+        {
+          "s": "B",
+          "en": "Bye for now!",
+          "vi": "Tạm biệt nhé!"
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "kind": "monologue",
+      "title_en": "A Normal Friday",
+      "title_vi": "Một ngày thứ Sáu bình thường",
+      "summary_vi": "Mai kể về một ngày thứ Sáu của mình: thói quen buổi sáng, nghe podcast trên xe buýt, cuộc họp với khách hàng và buổi tối thư thả.",
+      "speakers": {
+        "M": {
+          "name": "Mai",
+          "gender": "f"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "M",
+          "en": "Hi, I'm Mai. People often ask me what my job is like, so today I want to tell you about a normal Friday at work. Well, it's almost normal.",
+          "vi": "Chào các bạn, mình là Mai. Mọi người hay hỏi công việc của mình thế nào, nên hôm nay mình muốn kể về một ngày thứ Sáu bình thường ở chỗ làm. À, gần như bình thường thôi."
+        },
+        {
+          "s": "M",
+          "en": "I usually wake up at half past six. I drink a big glass of water, and then I make a strong coffee. I never check my email before breakfast. That's my one rule. If I read my email too early, I start worrying, and the whole day feels stressful.",
+          "vi": "Mình thường dậy lúc sáu rưỡi. Mình uống một cốc nước lớn, rồi pha một ly cà phê đậm. Mình không bao giờ đọc email trước bữa sáng. Đó là quy tắc duy nhất của mình. Nếu đọc email quá sớm, mình sẽ bắt đầu lo lắng, và cả ngày sẽ thấy căng thẳng."
+        },
+        {
+          "s": "M",
+          "en": "I take the bus to work. It takes about forty minutes, so I listen to podcasts in English. At first, I understood maybe half of what I heard. Now I understand most of it. I don't study on the bus. I just listen, and little by little, it gets easier.",
+          "vi": "Mình đi làm bằng xe buýt. Mất khoảng bốn mươi phút, nên mình nghe podcast tiếng Anh. Lúc đầu, mình chỉ hiểu khoảng một nửa. Giờ thì mình hiểu gần hết. Mình không học trên xe buýt. Mình chỉ nghe thôi, và dần dần mọi thứ dễ hơn."
+        },
+        {
+          "s": "M",
+          "en": "On Friday morning, I had a meeting with a client. It was supposed to take one hour, but it took almost two. They had a lot of ideas, and some of them were very good. Some of them were not so good, but I smiled and wrote everything down.",
+          "vi": "Sáng thứ Sáu, mình có cuộc họp với khách hàng. Đáng lẽ chỉ mất một tiếng, nhưng lại kéo dài gần hai tiếng. Họ có rất nhiều ý tưởng, và vài ý rất hay. Vài ý thì không hay lắm, nhưng mình vẫn mỉm cười và ghi lại hết."
+        },
+        {
+          "s": "M",
+          "en": "After the meeting, I called my team leader, David, from the bus. I was running a bit late, but he didn't mind. We talked about the client, and he told me to go straight home. I was so happy. On the way home, I bought some fruit at the market and called my sister.",
+          "vi": "Sau cuộc họp, mình gọi cho trưởng nhóm David ngay trên xe buýt. Mình về muộn một chút, nhưng anh ấy không phiền gì. Bọn mình nói chuyện về khách hàng, và anh ấy bảo mình cứ về thẳng nhà. Mình vui lắm. Trên đường về, mình ghé chợ mua ít trái cây và gọi điện cho chị gái."
+        },
+        {
+          "s": "M",
+          "en": "In the evening, I cooked dinner, watched a funny show, and went to bed early. It wasn't an exciting day, but it was a good one. And next Friday, there's the team dinner at the Korean barbecue place. I'm really looking forward to it.",
+          "vi": "Buổi tối, mình nấu bữa tối, xem một chương trình hài và đi ngủ sớm. Đó không phải một ngày sôi động, nhưng là một ngày tốt đẹp. Và thứ Sáu tuần sau sẽ có bữa tối của cả nhóm ở quán thịt nướng Hàn Quốc. Mình thật sự rất mong chờ."
+        },
+        {
+          "s": "M",
+          "en": "So that's my Friday. What about you? What does a normal day look like for you? Try to describe it in English, just in your head. Short, simple sentences are perfect.",
+          "vi": "Đó là ngày thứ Sáu của mình. Còn bạn thì sao? Một ngày bình thường của bạn trông như thế nào? Hãy thử tả nó bằng tiếng Anh, chỉ cần nghĩ trong đầu thôi. Những câu ngắn, đơn giản là hoàn hảo."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "_comment": "Settings for the daily build. Voice ids are 11max voice identifiers (not secrets). Times are in seconds.",
+  "programme": {
+    "name_vi": "Nghe Tiếng Anh Mỗi Ngày",
+    "name_en": "Daily English Listening",
+    "level": "A2-B1"
+  },
+  "tts": {
+    "provider": "max11",
+    "fallback": "edge",
+    "max11": {
+      "base_url": "https://api.11max.id.vn",
+      "models": { "en": "eleven_v3", "vi": "eleven_v3" },
+      "concurrency": 6,
+      "poll_seconds": 0.8,
+      "timeout_seconds": 180
+    }
+  },
+  "voices": {
+    "en": {
+      "ashley":  { "id": "bxiObU1YDrf7lrFAyV99", "name": "Ashley",  "gender": "f", "edge": "en-US-AriaNeural" },
+      "quentin": { "id": "Aa6nEBJJMKJwJkCx8VU2", "name": "Quentin", "gender": "m", "tempo": 0.92, "edge": "en-US-GuyNeural" },
+      "vanca":   { "id": "CE5BJM57m1rtrAFVXfCq", "name": "VânCa",   "gender": "m", "tempo": 0.9, "edge": "en-GB-RyanNeural" }
+    },
+    "vi": {
+      "lily":     { "id": "WFDoCi084FlAxSbpBEfC", "name": "Saigon Lily", "gender": "f", "edge": "vi-VN-HoaiMyNeural" },
+      "kenh":     { "id": "5vqV9IG7sDpzgzKOIZAv", "name": "Kenh",        "gender": "f", "edge": "vi-VN-HoaiMyNeural" },
+      "vietlinh": { "id": "QqID1ZB0DTItNxAKGBNW", "name": "Viết Linh",   "gender": "m", "edge": "vi-VN-NamMinhNeural" }
+    },
+    "host_vi": "lily",
+    "host_en": "quentin",
+    "narrator_en": "quentin"
+  },
+  "audio": {
+    "sample_rate": 24000,
+    "bitrate": "48k",
+    "target_rms_db": -20.0,
+    "peak_db": -1.5,
+    "slow_engine": "rubberband"
+  },
+  "timing": {
+    "part1": {
+      "slow_speed": 0.85,
+      "after_vi": 0.7,
+      "after_slow": 2.0,
+      "after_normal": 1.6,
+      "shadow_extra": 0.8,
+      "between_items": 1.6,
+      "pass2": "full"
+    },
+    "part2": {
+      "slow_speed": 0.85,
+      "round1_gap": 0.8,
+      "round1_after_line": 1.2,
+      "round1_shadow": true,
+      "round2_shadow_extra": 0.8,
+      "round3_line_gap": 0.35,
+      "round3_repeats": 2,
+      "roleplay": true
+    },
+    "part3": {
+      "plays": [0.85, 1.0, 1.0],
+      "paragraph_gap": 1.2,
+      "turn_gap": 0.45
+    },
+    "part4": {
+      "think_pause": 3.0,
+      "after_vi": 1.4,
+      "target_minutes": 25,
+      "max_due_phrases": 120
+    },
+    "section_gap": 2.5,
+    "part_gap": 4.0
+  },
+  "srs": {
+    "intervals_days": [1, 3, 7, 14, 30, 60],
+    "mastered_interval_days": 120
+  }
+}

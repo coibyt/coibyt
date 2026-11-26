@@ -1,0 +1,11 @@
+# Generated / large files — never commit audio
+engine/cache/
+engine/data/*.db
+engine/data/*.db-journal
+build/
+web/node_modules/
+web/dist/
+web/public/days/**/*.mp3
+__pycache__/
+*.pyc
+.env

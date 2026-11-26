@@ -1,0 +1,39 @@
+{
+ "programme": {
+  "name_vi": "Nghe Tiếng Anh Mỗi Ngày",
+  "name_en": "Daily English Listening",
+  "level": "A2-B1"
+ },
+ "updated": "2026-11-26T09:31:33+00:00",
+ "days": [
+  {
+   "date": "2026-11-27",
+   "day_number": 1,
+   "topic": {
+    "id": "work-small-talk",
+    "en": "Small talk at work",
+    "vi": "Trò chuyện xã giao nơi công sở"
+   },
+   "level": "A2-B1",
+   "duration": 6564.706,
+   "cover": null,
+   "phrases": [
+    "How was your weekend?",
+    "Not too bad, thanks.",
+    "What have you been up to?",
+    "I'm swamped with work.",
+    "Do you have a minute?",
+    "Let me get back to you.",
+    "That makes sense.",
+    "I'm running a bit late.",
+    "Let's grab a coffee.",
+    "It's been a long week.",
+    "Keep me posted.",
+    "I'm looking forward to it.",
+    "No worries.",
+    "Sounds good to me.",
+    "Have a good one!"
+   ]
+  }
+ ]
+}
