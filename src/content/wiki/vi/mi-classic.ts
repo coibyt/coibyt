@@ -54,7 +54,7 @@ const article: WikiArticle = {
             "Khách muốn kiểu tự nhiên hay đậm hơn.",
           ],
         },
-        { p: "Mắt đang có vấn đề thì không làm. Đây không phải chuyện mất một khách, mà là tránh làm một con mắt đang viêm nặng thêm. Bài học [Khi nào không nên làm](/academy/khi-nao-khong-lam) liệt kê kỹ các trường hợp này." },
+        { p: "Mắt đang có vấn đề thì không làm. Đây không phải chuyện mất một khách, mà là tránh làm một con mắt đang viêm nặng thêm. Bài học [Khi nào không nên làm](lesson:khi-nao-khong-lam) liệt kê kỹ các trường hợp này." },
         { img: { src: img("tu-van-khach-truoc-khi-noi-mi"), alt: "Thợ nối mi ngồi đối diện khách trên ghế sofa kem, ghi chép vào bảng kẹp giấy trong buổi tư vấn", caption: "Tư vấn khi khách còn mở mắt: dị ứng, tình trạng mắt, kiểu mi mong muốn." } },
       ],
     },
@@ -89,7 +89,7 @@ const article: WikiArticle = {
       title: "Chọn độ dài theo từng vùng mắt",
       blocks: [
         { p: "Nguyên tắc cơ bản: góc trong ngắn nhất, rồi dài dần về phía giữa và đuôi mắt, để dáng mắt mềm mại và tự nhiên. Ở góc trong, mi thật ngắn và mảnh, nên chọn sợi ngắn và nhẹ." },
-        { p: "Chọn kiểu theo từng dáng mắt là một chủ đề riêng, có trong bài học [Lash mapping](/academy/mi-mapping-hieu-dung)." },
+        { p: "Chọn kiểu theo từng dáng mắt là một chủ đề riêng, có trong bài học [Lash mapping](lesson:mi-mapping-hieu-dung)." },
       ],
     },
     {
@@ -106,8 +106,8 @@ const article: WikiArticle = {
           ],
         },
         { img: { src: img("chai-mi-noi-moi-ngay-tai-nha"), alt: "Khách nữ mặc áo choàng lụa kem tự chải hàng mi nối bằng chổi chải mi sạch trước gương", caption: "Chải mi mỗi ngày bằng chổi sạch giúp các sợi nằm đều." } },
-        { p: "Hẹn luôn lịch dặm trước khi khách ra về. Nếu tiệm bạn dùng VaraaAi, bạn [tạo lịch hẹn](/academy/lich-hen) cho khách ngay tại bàn và để hệ thống nhắc lịch thay bạn; lời dặn chăm sóc mi có thể gửi lại qua [tin nhắn cho khách](/academy/tin-nhan-ai)." },
-        { p: "Khách về rồi: chổi chải mi, que bông nhỏ và miếng lót đã dùng được bỏ vào thùng rác có nắp. Nhíp được làm sạch và khử khuẩn sau mỗi khách, như trong bài [Xử lý dụng cụ sau mỗi khách](/academy/ve-sinh-dung-cu). Giường và bàn làm việc được lau sạch." },
+        { p: "Hẹn luôn lịch dặm trước khi khách ra về. Nếu tiệm bạn dùng VaraaAi, bạn [tạo lịch hẹn](lesson:lich-hen) cho khách ngay tại bàn và để hệ thống nhắc lịch thay bạn; lời dặn chăm sóc mi có thể gửi lại qua [tin nhắn cho khách](lesson:tin-nhan-ai)." },
+        { p: "Khách về rồi: chổi chải mi, que bông nhỏ và miếng lót đã dùng được bỏ vào thùng rác có nắp. Nhíp được làm sạch và khử khuẩn sau mỗi khách, như trong bài [Xử lý dụng cụ sau mỗi khách](lesson:ve-sinh-dung-cu). Giường và bàn làm việc được lau sạch." },
       ],
     },
   ],

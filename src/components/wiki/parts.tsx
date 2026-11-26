@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { findLesson } from "@/lib/academy";
 import { fmtDuration } from "@/lib/academy/progress";
 import { pick } from "@/lib/academy/types";
-import { readMinutes, wikiCategory, wikiPath } from "@/lib/wiki";
+import { articleForLesson, readMinutes, wikiCategory, wikiPath } from "@/lib/wiki";
 import type { WikiStrings } from "@/lib/wiki/strings";
 import type { WikiArticle, WikiBlock, WikiImage } from "@/lib/wiki/types";
 
@@ -14,8 +14,17 @@ export const SERIF = "font-serif tracking-[-0.01em]";
 
 export const GOLD = "bg-gradient-to-r from-[#f0d9a0] via-[#e8d3a6] to-[#c9a25a]";
 
-/** Inline marks of article text: **bold** and [label](href). Everything else is plain text. */
-export function rich(text: string): ReactNode {
+/** Where a `lesson:<slug>` link leads: the wiki article written from that lesson when it exists in the language, else the lesson itself. */
+const lessonHref = (slug: string, lang: string) => {
+  const a = articleForLesson(slug, lang);
+  return a ? wikiPath(a) : `/academy/${slug}`;
+};
+
+const LINK = "font-semibold text-primary-600 underline decoration-[#c9a25a] decoration-2 underline-offset-[3px] hover:text-primary-800";
+
+/** Inline marks of article text: **bold** and [label](href). An href is a site path ("/business"), a full URL,
+ * or `lesson:<academy-lesson-slug>`. Everything else is plain text. */
+export function rich(text: string, lang = "vi"): ReactNode {
   const out: ReactNode[] = [];
   const re = /\*\*([^*]+)\*\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
   let last = 0;
@@ -28,15 +37,15 @@ export function rich(text: string): ReactNode {
           {m[1]}
         </strong>
       );
-    } else if (m[3].startsWith("/")) {
+    } else if (m[3].startsWith("/") || m[3].startsWith("lesson:")) {
       out.push(
-        <Link key={m.index} href={m[3]} className="font-semibold text-primary-600 underline decoration-[#c9a25a] decoration-2 underline-offset-[3px] hover:text-primary-800">
+        <Link key={m.index} href={m[3].startsWith("lesson:") ? lessonHref(m[3].slice(7), lang) : m[3]} className={LINK}>
           {m[2]}
         </Link>
       );
     } else {
       out.push(
-        <a key={m.index} href={m[3]} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary-600 underline decoration-[#c9a25a] decoration-2 underline-offset-[3px] hover:text-primary-800">
+        <a key={m.index} href={m[3]} target="_blank" rel="noopener noreferrer" className={LINK}>
           {m[2]}
         </a>
       );
@@ -73,8 +82,8 @@ const NOTE = {
   info: { Icon: Info, box: "bg-primary-50 ring-primary-100", icon: "text-primary-500" },
 };
 
-export function Block({ block }: { block: WikiBlock }) {
-  if ("p" in block) return <p className="my-5">{rich(block.p)}</p>;
+export function Block({ block, lang = "vi" }: { block: WikiBlock; lang?: string }) {
+  if ("p" in block) return <p className="my-5">{rich(block.p, lang)}</p>;
   if ("h3" in block) return <h3 className="mb-3 mt-9 text-lg font-extrabold leading-snug text-ink-900 sm:text-xl">{block.h3}</h3>;
   if ("ul" in block)
     return (
@@ -82,7 +91,7 @@ export function Block({ block }: { block: WikiBlock }) {
         {block.ul.map((item, i) => (
           <li key={i} className="relative pl-6">
             <span className="absolute left-1 top-[0.72em] h-1.5 w-1.5 rounded-full bg-[#b08a3e]" aria-hidden />
-            {rich(item)}
+            {rich(item, lang)}
           </li>
         ))}
       </ul>
@@ -95,7 +104,7 @@ export function Block({ block }: { block: WikiBlock }) {
             <span className="absolute left-0 top-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-primary-50 text-[13px] font-extrabold tabular-nums text-primary-600 ring-1 ring-primary-100" aria-hidden>
               {i + 1}
             </span>
-            {rich(item)}
+            {rich(item, lang)}
           </li>
         ))}
       </ol>
@@ -108,7 +117,7 @@ export function Block({ block }: { block: WikiBlock }) {
         <n.Icon className={`mt-0.5 h-5 w-5 shrink-0 ${n.icon}`} aria-hidden />
         <div className="min-w-0 text-[15px] leading-relaxed sm:text-base">
           {block.title && <p className="mb-1 font-extrabold text-ink-900">{block.title}</p>}
-          <p>{rich(block.note)}</p>
+          <p>{rich(block.note, lang)}</p>
         </div>
       </aside>
     );
@@ -133,7 +142,7 @@ export function Block({ block }: { block: WikiBlock }) {
               {row.map((cell, c) =>
                 c === 0 ? (
                   <th key={c} scope="row" className="px-4 py-3 align-top font-extrabold text-ink-900 max-sm:block max-sm:p-0 max-sm:text-base">
-                    {rich(cell)}
+                    {rich(cell, lang)}
                   </th>
                 ) : (
                   <td
@@ -141,7 +150,7 @@ export function Block({ block }: { block: WikiBlock }) {
                     data-label={head[c] ?? ""}
                     className="px-4 py-3 align-top max-sm:block max-sm:p-0 max-sm:pt-2 max-sm:before:block max-sm:before:text-xs max-sm:before:font-bold max-sm:before:text-[#8a6a2a] max-sm:before:content-[attr(data-label)]"
                   >
-                    {rich(cell)}
+                    {rich(cell, lang)}
                   </td>
                 )
               )}

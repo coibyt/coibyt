@@ -62,7 +62,7 @@ const article: WikiArticle = {
       blocks: [
         { p: "Khi màn hình báo “Đặt lịch thành công”, bạn cũng nhận được một email xác nhận. Bấm “Xem lịch hẹn của tôi” để xem lại ngày giờ, dịch vụ và địa chỉ salon bất cứ lúc nào." },
         { p: "Nếu có việc bận, bạn tự hủy được ngay trong mục “Lịch hẹn của tôi”, miễn là còn trong thời hạn salon cho phép. Mỗi salon đặt thời hạn hủy riêng trong chính sách hủy bỏ, và bạn đã đọc chính sách đó ở bước xác nhận. Hủy sớm giúp salon nhận được khách khác vào giờ đó." },
-        { p: "Bài học tiếp theo trong Academy hướng dẫn kỹ phần này: [Lịch hẹn của tôi](/academy/lich-hen-cua-toi). Nếu cần hỏi salon điều gì trước khi đến, bạn có thể [nhắn tin cho salon](/academy/chat-voi-salon) ngay trên VaraaAi." },
+        { p: "Bài học tiếp theo trong Academy hướng dẫn kỹ phần này: [Lịch hẹn của tôi](lesson:lich-hen-cua-toi). Nếu cần hỏi salon điều gì trước khi đến, bạn có thể [nhắn tin cho salon](lesson:chat-voi-salon) ngay trên VaraaAi." },
       ],
     },
     {
@@ -87,7 +87,7 @@ const article: WikiArticle = {
       id: "cho-chu-salon",
       title: "Bạn là chủ salon?",
       blocks: [
-        { p: "Những gì khách thấy trong bài này cũng là điều khách của bạn sẽ thấy khi tiệm có trang đặt lịch trên VaraaAi: dịch vụ, giá, giờ trống thật và nút đặt lịch hoạt động 24/7. Việc đăng ký miễn phí cho chủ salon. Bạn xem bài học [Đăng ký salon](/academy/dang-ky-salon) hoặc mở trang [VaraaAi cho salon](/business)." },
+        { p: "Những gì khách thấy trong bài này cũng là điều khách của bạn sẽ thấy khi tiệm có trang đặt lịch trên VaraaAi: dịch vụ, giá, giờ trống thật và nút đặt lịch hoạt động 24/7. Việc đăng ký miễn phí cho chủ salon. Bạn xem bài học [Đăng ký salon](lesson:dang-ky-salon) hoặc mở trang [VaraaAi cho salon](/business)." },
       ],
     },
   ],

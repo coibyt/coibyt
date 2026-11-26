@@ -81,7 +81,7 @@ const article: WikiArticle = {
       title: "Bàn tay và bề mặt: hai đường lây còn lại",
       blocks: [
         { p: "Dụng cụ sạch đặt vào bàn tay bẩn thì cũng như không. Trước mỗi khách và trước khi đeo găng, rửa tay bằng xà phòng, lau khô rồi sát khuẩn tay. Găng tay chỉ bảo vệ trong thời gian ngắn nên phải thay thường xuyên. Đang đeo găng thì không chạm vào điện thoại, tay nắm cửa hay đèn; lỡ chạm rồi thì thay găng mới." },
-        { p: "Sau mỗi khách, lau sạch mặt bàn, gối kê tay, giường và ghế, rồi khử khuẩn những bề mặt có chạm vào da khách. Khăn và giấy lót được thay mới cho từng người. Phần này có bài học riêng: [Rửa tay và găng tay](/academy/rua-tay-gang-tay)." },
+        { p: "Sau mỗi khách, lau sạch mặt bàn, gối kê tay, giường và ghế, rồi khử khuẩn những bề mặt có chạm vào da khách. Khăn và giấy lót được thay mới cho từng người. Phần này có bài học riêng: [Rửa tay và găng tay](lesson:rua-tay-gang-tay)." },
       ],
     },
     {
@@ -112,7 +112,7 @@ const article: WikiArticle = {
             "Đưa dụng cụ đó đi xử lý ngay, không dùng tiếp cho đến khi đã làm sạch và tiệt trùng.",
           ],
         },
-        { p: "Nếu da hay móng của khách có dấu hiệu nhiễm trùng từ trước, hãy lịch sự từ chối và khuyên khách đi khám. Bài học [Khi nào không nên làm](/academy/khi-nao-khong-lam) nói kỹ về những trường hợp này, còn cách xử lý tai nạn trong tiệm có ở bài [Xử lý sự cố](/academy/xu-ly-su-co)." },
+        { p: "Nếu da hay móng của khách có dấu hiệu nhiễm trùng từ trước, hãy lịch sự từ chối và khuyên khách đi khám. Bài học [Khi nào không nên làm](lesson:khi-nao-khong-lam) nói kỹ về những trường hợp này, còn cách xử lý tai nạn trong tiệm có ở bài [Xử lý sự cố](lesson:xu-ly-su-co)." },
       ],
     },
     {
@@ -121,7 +121,7 @@ const article: WikiArticle = {
       blocks: [
         { p: "Mỗi nước và mỗi thành phố có yêu cầu riêng về vệ sinh trong tiệm làm đẹp. Ví dụ ở Phần Lan, phần lớn tiệm làm đẹp có chăm sóc da phải thông báo với cơ quan bảo vệ sức khỏe của thành phố ít nhất 30 ngày trước khi mở cửa và phải có kế hoạch tự kiểm soát vệ sinh. Các ví dụ trong bài này lấy từ hướng dẫn của thành phố Helsinki, có dẫn nguồn ở cuối bài." },
         { p: "Trước khi mở tiệm, hãy hỏi cơ quan y tế nơi bạn làm việc để biết yêu cầu chính xác về thiết bị tiệt trùng, sổ ghi chép và việc kiểm tra." },
-        { note: "Sạch sẽ là lời quảng cáo tốt nhất của một salon. Khi tiệm đã có quy trình rõ ràng, hãy viết điều đó vào phần giới thiệu trên [trang salon của bạn](/academy/ho-so-salon) để khách đọc được trước khi đặt lịch.", kind: "tip", title: "Cho khách thấy tiệm bạn làm kỹ" },
+        { note: "Sạch sẽ là lời quảng cáo tốt nhất của một salon. Khi tiệm đã có quy trình rõ ràng, hãy viết điều đó vào phần giới thiệu trên [trang salon của bạn](lesson:ho-so-salon) để khách đọc được trước khi đặt lịch.", kind: "tip", title: "Cho khách thấy tiệm bạn làm kỹ" },
       ],
     },
   ],

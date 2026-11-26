@@ -98,7 +98,7 @@ const article: WikiArticle = {
           ],
         },
         { note: "Từ ngày 1/9/2025, Liên minh châu Âu cấm chất TPO trong sản phẩm làm móng. Nếu bạn làm việc ở châu Âu, hãy đọc bảng thành phần của những chai gel đang dùng. Quy định ở mỗi nước một khác, nên hãy kiểm tra quy định nơi bạn làm việc.", kind: "warn", title: "Kiểm tra thành phần gel" },
-        { p: "Muốn hiểu kỹ hơn về dị ứng hóa chất trong tiệm, bạn xem bài học [Dị ứng hóa chất](/academy/di-ung-hoa-chat) trong khóa Vệ sinh & an toàn." },
+        { p: "Muốn hiểu kỹ hơn về dị ứng hóa chất trong tiệm, bạn xem bài học [Dị ứng hóa chất](lesson:di-ung-hoa-chat) trong khóa Vệ sinh & an toàn." },
       ],
     },
     {
@@ -106,6 +106,7 @@ const article: WikiArticle = {
       title: "Dặn khách chăm sóc móng sau khi sơn gel",
       blocks: [
         { p: "Bộ móng đẹp lúc khách rời ghế mới là một nửa công việc. Nửa còn lại là ba lời dặn ngắn, nói khi đang thoa dầu dưỡng:" },
+        { img: { src: img("nho-dau-duong-quanh-mong-sau-khi-son-gel"), alt: "Thợ nail nhỏ một giọt dầu dưỡng vàng lên vùng da ở chân móng đã sơn gel đỏ" } },
         {
           ol: [
             "Đeo găng tay khi rửa chén và lau dọn nhà cửa.",
@@ -114,14 +115,14 @@ const article: WikiArticle = {
           ],
         },
         { img: { src: img("bo-mong-son-gel-do-hoan-thien"), alt: "Hai bàn tay khách với mười móng sơn gel đỏ bóng, đường viền chân móng đều và sạch", caption: "Bộ sơn gel hoàn thiện: bề mặt căng bóng, viền chân móng đều, không dính da." } },
-        { p: "Khách về rồi, công việc ở bàn vẫn chưa xong. Dụng cụ kim loại mang đi rửa, khử khuẩn và tiệt trùng; đồ dùng một lần thì bỏ; mặt bàn và đèn được lau sạch trước khi đón khách tiếp theo. Quy trình này có trong bài học [Xử lý dụng cụ sau mỗi khách](/academy/ve-sinh-dung-cu)." },
+        { p: "Khách về rồi, công việc ở bàn vẫn chưa xong. Dụng cụ kim loại mang đi rửa, khử khuẩn và tiệt trùng; đồ dùng một lần thì bỏ; mặt bàn và đèn được lau sạch trước khi đón khách tiếp theo. Quy trình này có trong bài học [Xử lý dụng cụ sau mỗi khách](lesson:ve-sinh-dung-cu)." },
       ],
     },
     {
       id: "dua-dich-vu-len-lich",
       title: "Đưa dịch vụ sơn gel lên trang đặt lịch của tiệm",
       blocks: [
-        { p: "Khi đã làm quen tay, bạn nên để khách tự đặt dịch vụ sơn gel trên mạng thay vì nhắn tin qua lại. Trong VaraaAi, bạn [thêm dịch vụ](/academy/dich-vu) với đúng thời lượng mình cần cho một bộ, kể cả thời gian dọn bàn, rồi [làm bảng giá](/academy/bang-gia) để dán tại tiệm. Phần mềm miễn phí cho chủ salon: [xem VaraaAi cho salon](/business)." },
+        { p: "Khi đã làm quen tay, bạn nên để khách tự đặt dịch vụ sơn gel trên mạng thay vì nhắn tin qua lại. Trong VaraaAi, bạn [thêm dịch vụ](lesson:dich-vu) với đúng thời lượng mình cần cho một bộ, kể cả thời gian dọn bàn, rồi [làm bảng giá](lesson:bang-gia) để dán tại tiệm. Phần mềm miễn phí cho chủ salon: [xem VaraaAi cho salon](/business)." },
       ],
     },
   ],

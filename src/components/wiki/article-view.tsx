@@ -61,7 +61,7 @@ export function ArticleView({ article }: { article: WikiArticle }) {
   const steps = howTo && (
     <section>
       <H2 id={howToId}>{howTo.title}</H2>
-      {howTo.lead && <p className="my-5">{rich(howTo.lead)}</p>}
+      {howTo.lead && <p className="my-5">{rich(howTo.lead, lang)}</p>}
       {howTo.supplies && howTo.supplies.length > 0 && (
         <div className="my-6 rounded-2xl bg-white p-5 ring-1 ring-ink-100">
           <p className="font-extrabold text-ink-900">{s.supplies}</p>
@@ -69,7 +69,7 @@ export function ArticleView({ article }: { article: WikiArticle }) {
             {howTo.supplies.map((x, i) => (
               <li key={i} className="flex gap-2.5">
                 <Check className="mt-1 h-4 w-4 shrink-0 text-[#b08a3e]" aria-hidden />
-                <span>{rich(x)}</span>
+                <span>{rich(x, lang)}</span>
               </li>
             ))}
           </ul>
@@ -89,7 +89,7 @@ export function ArticleView({ article }: { article: WikiArticle }) {
               </span>
               {st.name}
             </h3>
-            <p className="mt-2">{rich(st.text)}</p>
+            <p className="mt-2">{rich(st.text, lang)}</p>
             {st.image && <Figure image={st.image} />}
           </li>
         ))}
@@ -162,7 +162,7 @@ export function ArticleView({ article }: { article: WikiArticle }) {
 
           {article.intro.map((p, i) => (
             <p key={i} className={i === 0 ? "mt-8 text-lg font-medium leading-[1.7] text-ink-900 sm:text-xl sm:leading-[1.65]" : "my-5"}>
-              {rich(p)}
+              {rich(p, lang)}
             </p>
           ))}
 
@@ -177,7 +177,7 @@ export function ArticleView({ article }: { article: WikiArticle }) {
                   <span className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${GOLD}`}>
                     <Check className="h-3.5 w-3.5 text-primary-900" aria-hidden />
                   </span>
-                  <span>{rich(t)}</span>
+                  <span>{rich(t, lang)}</span>
                 </li>
               ))}
             </ul>
@@ -246,7 +246,7 @@ export function ArticleView({ article }: { article: WikiArticle }) {
               <section>
                 <H2 id={sec.id}>{sec.title}</H2>
                 {sec.blocks.map((b, i) => (
-                  <Block key={i} block={b} />
+                  <Block key={i} block={b} lang={lang} />
                 ))}
               </section>
               {stepsAfter === sec.id && steps}
@@ -264,7 +264,7 @@ export function ArticleView({ article }: { article: WikiArticle }) {
                       <h3 className="text-base font-extrabold leading-snug text-ink-900 sm:text-[17px]">{f.q}</h3>
                       <ChevronDown className="mt-1 h-4 w-4 shrink-0 text-ink-400 transition group-open:rotate-180" aria-hidden />
                     </summary>
-                    <p className="mt-2.5 text-[15.5px] leading-relaxed sm:text-base">{rich(f.a)}</p>
+                    <p className="mt-2.5 text-[15.5px] leading-relaxed sm:text-base">{rich(f.a, lang)}</p>
                   </details>
                 ))}
               </div>
