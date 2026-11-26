@@ -98,6 +98,15 @@ h2 { font-size: 19px; }
 .play.sm svg { width: 20px; height: 20px; }
 .play .i-pause, .playing .play .i-play, .playing.play .i-play { display: none; }
 .playing .play .i-pause, .playing.play .i-pause { display: block; }
+.work { display: flex; align-items: center; gap: 14px; text-align: left; width: 100%; margin: 0; padding: 14px 16px; cursor: pointer;
+  background: linear-gradient(135deg, rgba(176, 138, 62, .22), rgba(31, 23, 54, .95) 60%); border-color: rgba(232, 211, 166, .3); color: var(--text); }
+.work-ico { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; background: rgba(232, 211, 166, .14); color: var(--gold-2); flex: none; }
+.work-t { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.work-t b { font-size: 15px; }
+.work-t small { color: var(--muted); font-size: 12.5px; line-height: 1.4; }
+.work-go { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--gold-2); color: #1b1406; font-size: 14px; flex: none; }
+.playing .work-go { background: var(--good); }
+a.chip { text-decoration: none; }
 .chips { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
 .chip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; background: var(--card);
   border: 1px solid var(--line); font-size: 13px; color: var(--text); font-weight: 500; }

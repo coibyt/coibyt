@@ -68,6 +68,7 @@
     for (const p of data.phrases) if (!p.review_only) book[p.key] = { ...p, day: n, date: data.date, base: base() };
     store.set("book", book);
     A.src = base() + data.audio;
+    $("#bDownload").href = A.src; $("#bDownload").setAttribute("download", `BizStory-ngay-${n}.mp3`);
     A.playbackRate = store.get("speed", 1);
     $("#dayLabel").textContent = `Ngày ${n} · ${data.date}` + (data.mode === "short" ? " · bản thử" : "");
     renderChapters(); renderTranscript(); renderArchive(); renderBook();
@@ -195,7 +196,48 @@
   const savePos = () => { if (S.day) store.set("pos." + S.day, A.currentTime || 0); };
   A.addEventListener("play", () => { document.body.classList.add("playing"); $("#bPlay").classList.add("playing"); $("#bMiniPlay").classList.add("playing"); lastReal = performance.now(); updateMini(); });
   A.addEventListener("pause", () => { document.body.classList.remove("playing"); $("#bPlay").classList.remove("playing"); $("#bMiniPlay").classList.remove("playing"); savePos(); lastReal = 0; if (S._listen) store.set("listen", S._listen); refreshStats(); });
-  A.addEventListener("ended", () => { savePos(); toast("Hoàn thành ngày " + S.day + " 🎉"); });
+  A.addEventListener("ended", async () => {
+    store.set("pos." + S.day, 0);
+    const done = store.get("done", {}); done[S.day] = today(); store.set("done", done);
+    toast("Hoàn thành ngày " + S.day + " 🎉");
+    if (!store.get("autoNext", true)) return;
+    // ngày kế tiếp chưa nghe xong (days.json xếp mới → cũ)
+    const nxt = [...S.days].sort((a, b) => a.day - b.day).find((d) => d.day > S.day && !done[d.day]);
+    if (nxt) { await loadDay(nxt.day, true); }
+  });
+  // Nghe liền mạch: mạng chập chờn thì tự nối lại đúng chỗ, không cần chạm điện thoại.
+  let wantPlay = false, stallTimer = null;
+  A.addEventListener("play", () => { wantPlay = true; });
+  A.addEventListener("pause", () => { if (!A.ended && !S._clipPause) wantPlay = false; });
+  const recover = () => {
+    if (!wantPlay || A.ended) return;
+    clearTimeout(stallTimer);
+    stallTimer = setTimeout(() => {
+      if (!wantPlay || !A.paused && A.readyState >= 3) return;
+      const t = A.currentTime; const src = A.src;
+      A.src = src; A.load();
+      A.addEventListener("loadedmetadata", () => { A.currentTime = t; A.play().catch(() => {}); }, { once: true });
+    }, 9000);
+  };
+  ["stalled", "waiting", "error"].forEach((ev) => A.addEventListener(ev, recover));
+  A.addEventListener("playing", () => clearTimeout(stallTimer));
+  const autoLabel = () => { const on = store.get("autoNext", true); $("#bAuto").classList.toggle("on", on); $("#autoLabel").textContent = on ? "Tự sang ngày sau" : "Dừng cuối ngày"; };
+  $("#bAuto").onclick = () => { store.set("autoNext", !store.get("autoNext", true)); autoLabel(); };
+  autoLabel();
+  $("#bWork").onclick = () => {
+    if (!A.paused) { A.pause(); return; }
+    A.volume = 1; A.play().then(() => {
+      const left = Math.max(0, (A.duration || S.data.duration) - A.currentTime);
+      toast(`Đang phát liền ${fmt(left)}. Khoá màn hình được rồi.`);
+    }).catch(() => toast("Bấm lại một lần nữa để phát"));
+  };
+  const workLabel = () => {
+    const playing = !A.paused;
+    $("#workTitle").textContent = playing ? "Đang nghe liền mạch" : (A.currentTime > 5 ? "Nghe tiếp liền mạch" : "Nghe liền mạch cả ngày");
+    $("#workSub").textContent = playing ? "Khoá màn hình, cất điện thoại. Âm thanh vẫn chạy đến hết ngày." : "Bấm một lần, khoá màn hình, cất điện thoại. Tự phát hết 2 giờ.";
+    $("#workGo").textContent = playing ? "❚❚" : "▶";
+  };
+  A.addEventListener("play", workLabel); A.addEventListener("pause", workLabel); A.addEventListener("loadedmetadata", workLabel);
   document.addEventListener("visibilitychange", () => { if (document.hidden) { savePos(); if (S._listen) store.set("listen", S._listen); } });
 
   // ---------------- điều khiển
@@ -282,7 +324,7 @@
     const src = p && (slow ? p.clip_slow : p.clip);
     if (!src) { toast("Cụm này chưa có file âm thanh"); return; }
     const wasPlaying = !A.paused;
-    if (wasPlaying) A.pause();
+    if (wasPlaying) { S._clipPause = true; A.pause(); S._clipPause = false; }
     C.src = (p.base || base()) + src;
     C.onended = () => { if (wasPlaying) A.play().catch(() => {}); };
     C.play().catch(() => {});
