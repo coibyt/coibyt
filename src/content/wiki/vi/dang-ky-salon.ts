@@ -122,12 +122,12 @@ const article: WikiArticle = {
     steps: [
       {
         name: "Mở varaaai.com và bấm dòng dành cho chủ salon",
-        text: "Trên trang chủ [varaaai.com](/), tìm dòng “Bạn là chủ salon? Đưa salon lên VaraaAi miễn phí” và bấm vào. Dòng này nằm ngay dưới ô tìm kiếm, phía trên phần “Duyệt theo danh mục”.",
+        text: "Trên trang chủ [varaaai.com](/), tìm dòng “Bạn là chủ salon? Đưa salon lên VaraaAi miễn phí” và bấm vào. Dòng này nằm phía trên nút “Tải app” và phần “Duyệt theo danh mục”.",
         image: { src: img("bam-ban-la-chu-salon-tren-trang-chu-varaaai"), alt: "Trang chủ VaraaAi trên máy tính bảng với dòng Bạn là chủ salon, đưa salon lên VaraaAi miễn phí được khoanh vàng" },
       },
       {
         name: "Bấm “Đăng ký salon miễn phí”",
-        text: "Trang dành cho chủ salon mở ra. Bấm nút màu cam “Đăng ký salon miễn phí” để đến trang đăng ký. Ngay dưới nút có dòng ghi rõ không cần thẻ tín dụng.",
+        text: "Trang dành cho chủ salon mở ra. Bấm nút màu cam “Đăng ký salon miễn phí” để đến trang đăng ký. Phía dưới nút có dòng ghi rõ không cần thẻ tín dụng.",
         image: { src: img("nut-dang-ky-salon-mien-phi"), alt: "Trang VaraaAi dành cho chủ salon với nút màu cam Đăng ký salon miễn phí và dòng Không cần thẻ tín dụng" },
       },
       {

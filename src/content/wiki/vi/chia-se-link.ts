@@ -105,7 +105,7 @@ const article: WikiArticle = {
       title: "Mã QR đặt lịch của salon: in ở đâu",
       blocks: [
         { p: "Quét mã QR là mở thẳng trang đặt lịch của salon. Bài học gợi ý ba chỗ in: danh thiếp, tờ rơi và ngay tại quầy. Khách vừa làm xong, đang đứng thanh toán, là lúc dễ đặt lần hẹn tiếp theo nhất." },
-        { p: "Tệp mã QR tải về từ trang “Cài đặt” là mã trơn, hợp để chèn vào mẫu thiết kế có sẵn của tiệm. Nếu bạn muốn một tấm poster hoàn chỉnh có tiêu đề “Quét để đặt lịch” mà không cần tự thiết kế, xem bài [tạo poster QR đặt lịch](lesson:poster-qr). Bài [tạo bảng giá đa ngôn ngữ](lesson:bang-gia) cũng cho thêm mã QR đặt lịch vào bảng giá." },
+        { p: "Mã QR tải về từ trang “Cài đặt” hợp để chèn vào danh thiếp hay tờ rơi mà tiệm đã có mẫu sẵn. Nếu bạn muốn một tấm poster hoàn chỉnh có tiêu đề “Quét để đặt lịch” mà không cần tự thiết kế, xem bài [tạo poster QR đặt lịch](lesson:poster-qr). Bài [tạo bảng giá đa ngôn ngữ](lesson:bang-gia) cũng cho thêm mã QR đặt lịch vào bảng giá." },
       ],
     },
     {

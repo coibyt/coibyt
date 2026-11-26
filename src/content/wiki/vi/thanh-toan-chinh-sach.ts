@@ -63,7 +63,7 @@ const article: WikiArticle = {
             ],
           },
         },
-        { p: "Nói gọn, dòng trên là cái khóa, dòng dưới là tấm biển giải thích cái khóa. Hệ thống chỉ thực hiện phần thời hạn. Những điều bạn viết trong chính sách, ví dụ có tính phí khi hủy muộn hay không, là thỏa thuận giữa tiệm và khách, và tiệm tự áp dụng." },
+        { p: "Nói gọn, dòng trên là cái khóa, dòng dưới là tấm biển giải thích cái khóa. Thời hạn là thứ trang đặt lịch thực hiện thay bạn. Đoạn chính sách là lời tiệm nói với khách, ví dụ có tính phí khi hủy muộn hay không." },
         { note: "Hai dòng phải nói cùng một con số. Nếu bạn chọn hạn 24 giờ thì đoạn chính sách cũng nên ghi 24 giờ. Mỗi lần đổi hạn hủy, hãy đọc lại đoạn chữ bên dưới và sửa cho khớp.", kind: "tip", title: "Giữ cho khớp" },
       ],
     },

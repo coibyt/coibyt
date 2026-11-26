@@ -37,7 +37,7 @@ const article: WikiArticle = {
   ],
   intro: [
     "Một tấm poster có mã QR đặt lịch cho salon làm việc ở đúng hai thời điểm mà link trên mạng không với tới: lúc khách đi ngang cửa tiệm, và lúc khách đang ngồi chờ ở quầy. Họ giơ điện thoại lên một lần là trang đặt lịch mở ra, không cần hỏi ai và không cần nhớ tên tiệm để tìm lại sau.",
-    "Bài viết này đi theo bài học “Tạo poster QR “Quét để đặt lịch”” của VaraaAi Academy. Bạn sẽ tự làm được một poster hoàn chỉnh trong vài phút, chọn đúng khổ in cho từng vị trí trong tiệm, và biết kiểm tra mã trước khi mang đi in.",
+    "Bài viết này đi theo bài học tạo poster QR “Quét để đặt lịch” của VaraaAi Academy. Bạn sẽ tự làm được một poster hoàn chỉnh trong vài phút, chọn đúng khổ in cho từng vị trí trong tiệm, và biết kiểm tra mã trước khi mang đi in.",
   ],
   sections: [
     {
@@ -45,7 +45,7 @@ const article: WikiArticle = {
       title: "Vì sao tiệm nên có poster mã QR “Quét để đặt lịch”",
       blocks: [
         { p: "Khách vừa làm xong một bộ móng đẹp là người dễ đặt lần hẹn tiếp theo nhất. Nhưng lúc đó họ đang đứng ở quầy, tay cầm ví, và sẽ không mở trình duyệt để gõ địa chỉ trang web. Một mã QR ngay trước mặt biến ý định đó thành một lịch hẹn trước khi họ ra khỏi cửa." },
-        { p: "Poster cũng làm việc khi tiệm đóng cửa. Người đi ngang qua lúc tối muộn thấy tấm poster trên cửa kính vẫn quét được mã và giữ chỗ cho hôm sau." },
+        { p: "Poster cũng làm việc khi tiệm đóng cửa. Người đi ngang qua lúc tối muộn thấy tấm poster trên cửa kính vẫn quét được mã và đặt lịch cho một ngày khác." },
         { p: "Trước đây, muốn có một tấm poster như vậy bạn phải nhờ người thiết kế. Công cụ trong bài học này làm sẵn phần thiết kế. Bạn chỉ nhập thông tin và chọn mẫu. Nó miễn phí và dùng được ngay, không cần đăng nhập." },
       ],
     },
@@ -82,7 +82,7 @@ const article: WikiArticle = {
       id: "chon-kho-in",
       title: "In mã QR khổ A4, A5, A6 hay sticker: chọn khổ theo chỗ dán",
       blocks: [
-        { p: "Phần “Thiết kế” có bốn mẫu là Tối giản, Sang trọng, Pastel và Theo mùa, cùng một bảng “Màu chủ đạo” để bạn chọn màu hợp với tiệm. Sau đó là khổ. Bài học gợi ý dùng từng khổ như sau:" },
+        { p: "Phần “Thiết kế” có bốn mẫu là Tối giản, Sang trọng, Pastel và Theo mùa, cùng một bảng “Màu chủ đạo” để bạn chọn màu hợp với tiệm. Sau đó là khổ. Dưới đây là các khổ có sẵn và chỗ dùng hợp với từng khổ:" },
         {
           table: {
             head: ["Khổ", "Dùng ở đâu"],
@@ -166,7 +166,7 @@ const article: WikiArticle = {
       },
       {
         name: "Thêm dòng phụ nếu cần",
-        text: "Điền những dòng phụ bạn muốn hiện trên poster: Ưu đãi, Giờ mở cửa, Số điện thoại, Wi-Fi. Ô nào để trống thì không hiện. Chỉ điền những dòng thật sự có ích ở chỗ bạn định dán.",
+        text: "Điền những dòng phụ bạn muốn hiện trên poster: Ưu đãi, Giờ mở cửa, Số điện thoại, Wi-Fi. Các ô này không bắt buộc. Chỉ điền những dòng thật sự có ích ở chỗ bạn định dán.",
         image: { src: img("them-dong-phu-uu-dai-gio-mo-cua-wifi"), alt: "Các ô dòng phụ không bắt buộc gồm Ưu đãi, Giờ mở cửa, Số điện thoại và Wi-Fi được khoanh vàng" },
       },
       {
@@ -181,7 +181,7 @@ const article: WikiArticle = {
       },
       {
         name: "Bấm “Xem trước” rồi tải về",
-        text: "Bấm “Xem trước” để xem poster hoàn chỉnh. Ưng ý thì bấm “Tải PDF” để mang đi in, hoặc “Tải PNG” để đăng lên mạng xã hội. Quét thử mã trên màn hình bằng một điện thoại khác trước khi in.",
+        text: "Bấm “Xem trước” để xem poster hoàn chỉnh. Ưng ý thì bấm “Tải PDF” để mang đi in, hoặc “Tải PNG” để đăng lên mạng xã hội. Trước khi in nhiều bản, quét thử mã bằng điện thoại một lần.",
         image: { src: img("xem-truoc-poster-va-tai-pdf-png"), alt: "Bản xem trước poster nền đen có tiêu đề Quét để đặt lịch và mã QR, bên dưới là nút Tải PDF và Tải PNG" },
       },
     ],

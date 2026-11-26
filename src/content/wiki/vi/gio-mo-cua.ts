@@ -88,7 +88,7 @@ const article: WikiArticle = {
       title: "Cài giờ nghỉ trưa cho salon bằng “Thêm ca”",
       blocks: [
         { p: "Mỗi ngày có thể có hai ca. Khoảng thời gian giữa ca thứ nhất và ca thứ hai là giờ nghỉ, và khách không đặt được vào khoảng đó. Đây là cách chặn giờ nghỉ trưa mà không phải tắt cả ngày." },
-        { p: "Ví dụ, tiệm làm buổi sáng đến 12 giờ, nghỉ một tiếng rồi làm tiếp đến tối. Bạn sửa ca thứ nhất cho kết thúc lúc 12 giờ, bấm “Thêm ca”, rồi đặt ca thứ hai bắt đầu từ 13 giờ. Trên trang đặt lịch, khách sẽ không thấy giờ nào từ 12 đến 13 giờ." },
+        { p: "Ví dụ, tiệm làm buổi sáng đến 12 giờ, nghỉ một tiếng rồi làm tiếp đến tối. Bạn sửa ca thứ nhất cho kết thúc lúc 12 giờ, bấm “Thêm ca”, rồi đặt ca thứ hai bắt đầu từ 13 giờ. Khi đó khách không đặt được lịch vào khoảng từ 12 đến 13 giờ." },
         { p: "Tiệm một người làm càng nên dùng cách này. Không có ai thay ca, nên nếu không chặn giờ trưa thì lịch có thể kín từ sáng đến tối mà bạn không có lúc nào để ăn." },
       ],
     },
