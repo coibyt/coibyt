@@ -420,11 +420,11 @@
     document.querySelectorAll(".tabs button").forEach((b) => b.classList.toggle("on", b.dataset.go === v));
     history.replaceState(null, "", "#" + v + (S.day ? `&day=${S.day}` : ""));
     updateMini();
+    window.scrollTo({ top: 0 });
     if (v === "text") { const el = document.querySelector(".seg.now"); if (el) el.scrollIntoView({ block: "center" }); }
     if (v === "book") renderBook();
     if (v === "stats") refreshStats();
     if (v === "archive") renderArchive();
-    window.scrollTo({ top: 0 });
   }
   function updateMini() { $("#miniPlayer").hidden = !A.src || !$("#v-listen").hidden; }
   document.querySelectorAll(".tabs button").forEach((b) => (b.onclick = () => go(b.dataset.go)));

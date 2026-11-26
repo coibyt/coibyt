@@ -113,7 +113,7 @@ class Builder:
 
     def phrase(self, p: dict, idx: int, speed: float, pause_ms: int, text: str | None = None, role="phrase"):
         self.say(phrase_voice(self.part, idx), text or p["en"], speed, pause_ms, kind="phrase",
-                 phrase_id=p["id"], role=role)
+                 phrase_id=p.get("key", p["id"]), role=role)
 
 
 def _mark(segs: list[dict], start: int, title: str):
@@ -154,13 +154,13 @@ def compile_part(part: dict, recap_vi: str | None = None) -> list[dict]:
     l2c = part.get("layer2", {})
     b.raw(l2c.get("intro", []))
     for i, p in enumerate(part["phrases"]):
-        b.say("vn_host", p["context_vi"], pause_ms=600, role="drill_context", phrase_ref=p["id"])
+        b.say("vn_host", p["context_vi"], pause_ms=600, role="drill_context", phrase_ref=p.get("key", p["id"]))
         b.phrase(p, i, 0.85, PAUSE["drill_slow"])
         b.phrase(p, i, 1.0, 900)
         for j, ex in enumerate(p.get("examples", [])[:2]):
             b.phrase(p, i + j + 1, 0.85, PAUSE["drill_slow"], text=ex["en"], role="example")
             b.phrase(p, i + j + 1, 1.0, 600, text=ex["en"], role="example")
-            b.say("vn_host", ex["vi"], pause_ms=1100, role="example_vi", phrase_ref=p["id"])
+            b.say("vn_host", ex["vi"], pause_ms=1100, role="example_vi", phrase_ref=p.get("key", p["id"]))
     b.raw(l2c.get("outro", []))
     _mark(b.segs, l2, f"P{part['part']} · {LAYER_TITLES_VI[2]}")
 
@@ -177,7 +177,7 @@ def compile_part(part: dict, recap_vi: str | None = None) -> list[dict]:
     # gắn phrase_id cho câu Lớp 3 có chứa cụm (để bấm nghe trên transcript)
     for s in b.segs[l3:]:
         if s["kind"] == "speech" and s["lang"] == "en":
-            hits = [p["id"] for p in part["phrases"] if any(norm(f) in norm(s["text"]) for f in forms_of(p))]
+            hits = [p.get("key", p["id"]) for p in part["phrases"] if any(norm(f) in norm(s["text"]) for f in forms_of(p))]
             if hits:
                 s["phrase_hits"] = hits
     return b.segs
