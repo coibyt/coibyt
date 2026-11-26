@@ -188,11 +188,11 @@ def synthesize(jobs: list[Job], workers: int | None = None, log=print) -> dict:
         with httpx.Client() as client:
             audio, info = _request(client, job)
         raw_path(job.key).write_bytes(audio)
-        lufs = measure_lufs(raw_path(job.key))
+        wav = processed_wav(job.key)
+        # đo trên clip mono đã xử lý (bản gốc 11max có giọng stereo, có giọng mono → lệch 3 dB nếu đo bản gốc)
         meta = {"voice": job.voice, "text": job.text, "speed": job.speed, "chars": len(job.text),
-                "duration": probe_duration(raw_path(job.key)), "lufs": lufs, **info}
+                "duration": probe_duration(raw_path(job.key)), "lufs_mono": measure_lufs(wav), **info}
         meta_path(job.key).write_text(json.dumps(meta, ensure_ascii=False))
-        processed_wav(job.key)
         return meta
 
     with cf.ThreadPoolExecutor(workers) as ex:
@@ -211,7 +211,11 @@ def synthesize(jobs: list[Job], workers: int | None = None, log=print) -> dict:
 
 
 def clip_meta(key: str) -> dict:
-    return json.loads(meta_path(key).read_text())
+    m = json.loads(meta_path(key).read_text())
+    if "lufs_mono" not in m:
+        m["lufs_mono"] = measure_lufs(processed_wav(key))
+        meta_path(key).write_text(json.dumps(m, ensure_ascii=False))
+    return m
 
 
 def calibrate() -> dict:

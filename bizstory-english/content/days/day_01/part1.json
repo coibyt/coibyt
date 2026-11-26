@@ -50,7 +50,7 @@
       "forms": [
         "how much runway"
       ],
-      "context_vi": "Câu đầu tiên. Runway nghĩa gốc là đường băng máy bay. Trong công ty, nó là số tháng còn trụ được với tiền mặt đang có. Bạn hỏi câu này khi xem dòng tiền, trước khi tuyển người hay trước một khoản chi lớn.",
+      "context_vi": "Câu đầu tiên. Runway nghĩa gốc là đường băng máy bay. Trong công ty, nó là số tháng hoặc số tuần còn trụ được với tiền mặt đang có, nếu không có thêm vốn. Bạn hỏi câu này khi xem dòng tiền, trước khi tuyển thêm người hay trước một khoản chi lớn.",
       "examples": [
         {
           "en": "Before we hire anyone else this quarter, how much runway do we have left?",
@@ -71,7 +71,7 @@
       "forms": [
         "be upfront with you"
       ],
-      "context_vi": "Câu thứ hai, để báo trước rằng bạn sắp nói thật, kể cả khi điều đó khó nghe. Upfront là thẳng thắn, không vòng vo. Dùng với khách, với sếp, với đối tác, và nhớ nói điều quan trọng ngay sau đó.",
+      "context_vi": "Câu thứ hai dùng để báo trước rằng bạn sắp nói thật, kể cả khi điều đó khó nghe. Upfront là thẳng thắn, không vòng vo. Dùng được với khách, với sếp, với đối tác, và nhớ nói ngay điều quan trọng sau đó, đừng để người nghe phải chờ.",
       "examples": [
         {
           "en": "I'll be upfront with you: we can't match their price, but we can deliver two weeks earlier.",
@@ -92,7 +92,7 @@
       "forms": [
         "sleep on it"
       ],
-      "context_vi": "Câu thứ ba giúp bạn khỏi bị ép quyết định ngay tại bàn. Nghĩa là để tôi suy nghĩ thêm một đêm đã. Câu này lịch sự, không phải từ chối, và người nghe hiểu là ngày mai bạn sẽ trả lời.",
+      "context_vi": "Câu thứ ba giúp bạn khỏi bị ép quyết định ngay tại bàn. Nghĩa là để tôi suy nghĩ thêm một đêm đã. Câu này lịch sự, không phải lời từ chối, và người nghe hiểu là ngày mai bạn sẽ có câu trả lời. Rất hợp khi ai đó đặt hạn chót quá gấp.",
       "examples": [
         {
           "en": "The new role sounds great, but it means moving to Hanoi. Let me sleep on it.",
@@ -113,7 +113,7 @@
       "forms": [
         "deal breaker"
       ],
-      "context_vi": "Câu thứ tư rất mạnh. Deal breaker là điều kiện mà nếu không đổi thì không ký. Bạn dùng để vạch lằn ranh rõ ràng trong đàm phán, nhưng chỉ cho một hai điểm, nếu không người ta sẽ không tin nữa.",
+      "context_vi": "Câu thứ tư rất mạnh. Deal breaker là điều kiện mà nếu không đổi thì bạn không ký. Bạn dùng để vạch một lằn ranh rõ ràng khi đàm phán với nhà cung cấp, khách hàng hay nhà tuyển dụng, nhưng chỉ cho một hai điểm, nếu không người ta sẽ không tin nữa.",
       "examples": [
         {
           "en": "A ninety-day payment term is a deal-breaker for us. We need to be paid within thirty days.",
@@ -134,7 +134,7 @@
       "forms": [
         "offer on the table"
       ],
-      "context_vi": "Câu thứ năm là đòn bẩy trong đàm phán. Offer on the table là lời đề nghị có thật, đang nằm trên bàn chờ bạn trả lời. Nói câu này để đối phương biết bạn có lựa chọn khác, nhưng chỉ khi nó là thật.",
+      "context_vi": "Câu thứ năm là đòn bẩy trong đàm phán. Offer on the table là lời đề nghị có thật, đang nằm trên bàn chờ bạn trả lời. Nói câu này để đối phương biết bạn có lựa chọn khác, khi mặc cả giá, lương hay hợp đồng, nhưng chỉ nói khi nó là thật.",
       "examples": [
         {
           "en": "I should tell you that we have another offer on the table, and it expires on Monday.",
@@ -156,7 +156,7 @@
         "meet halfway",
         "meet you halfway"
       ],
-      "context_vi": "Câu thứ sáu dùng khi hai bên đang kẹt. Meet halfway nghĩa là mỗi bên nhường một bước, gặp nhau ở giữa. Hỏi bằng câu hỏi thì mềm hơn ra điều kiện, và nhớ đưa ra một con số cụ thể ngay sau đó.",
+      "context_vi": "Câu thứ sáu dùng khi hai bên đang kẹt, không ai chịu lùi. Meet halfway nghĩa là mỗi bên nhường một bước, gặp nhau ở giữa. Hỏi bằng câu hỏi thì mềm hơn ra điều kiện, và nhớ đưa ra một con số cụ thể ngay sau đó, như giá, ngày giao hay phần trăm.",
       "examples": [
         {
           "en": "You want fifteen percent off, and we can offer five. Can we meet halfway at ten?",
@@ -178,7 +178,7 @@
         "put it in writing",
         "put that in writing"
       ],
-      "context_vi": "Câu cuối cùng là câu chốt của mọi cuộc đàm phán. Put it in writing là ghi lại thành văn bản, có thể là email hay biên bản. Nói câu này không phải vì nghi ngờ, mà để hai bên nhớ giống nhau.",
+      "context_vi": "Câu cuối cùng là câu chốt của mọi cuộc đàm phán. Put it in writing là ghi lại thành văn bản, có thể là email, biên bản hay hợp đồng. Nói câu này không phải vì nghi ngờ đối phương, mà để hai bên nhớ giống nhau và không ai phải cãi nhau về sau.",
       "examples": [
         {
           "en": "Great, we agree on the price and the delivery date. Let's put it in writing today.",
@@ -220,7 +220,7 @@
     },
     {
       "speaker": "vn_host",
-      "text": "Tầng trên, Lê Thảo Vy, hai mươi chín tuổi, đồng sáng lập Mây Coffee, đang nhìn một ô tô đỏ trong bảng tính. Vy từng làm kiểm toán, và đọc mọi thứ đến dòng cuối cùng, kể cả mặt sau hoá đơn tiền điện."
+      "text": "Tầng trên, Lê Thảo Vy, hai mươi chín tuổi, đồng sáng lập kiêm giám đốc vận hành của Mây Coffee, đang nhìn một ô được tô đỏ trong bảng tính. Vy từng làm kiểm toán, và đọc mọi thứ đến dòng cuối cùng, kể cả mặt sau hoá đơn tiền điện."
     },
     {
       "speaker": "vn_host",
@@ -248,7 +248,7 @@
     },
     {
       "speaker": "vn_host",
-      "text": "Sarah thông minh, nói nhanh, cười rất duyên, và nhớ cả tên con chó của Khang dù anh chỉ nhắc một lần. Mười giờ sáng thứ Tư, trên một sân thượng nhìn xuống đường Đồng Khởi, cô đặt lên bàn một xấp giấy mỏng: Term Sheet."
+      "text": "Khang gặp cô ba tuần trước ở một sự kiện gọi vốn tại Singapore. Sarah thông minh, nói nhanh, cười rất duyên, và nhớ cả tên con chó của Khang dù anh chỉ nhắc một lần. Mười giờ sáng thứ Tư, trên một sân thượng nhìn xuống đường Đồng Khởi, cô đặt lên bàn một xấp giấy mỏng: Term Sheet."
     },
     {
       "speaker": "vn_host",
@@ -259,7 +259,7 @@
     },
     {
       "speaker": "vn_host",
-      "text": "I'll be upfront with you: tôi sẽ nói thẳng với anh. Upfront là thẳng thắn, không vòng vo. Đây là lời rào trước lịch sự, chuyên nghiệp hơn to be honest. Và bạn để ý nhé: khi ai đó mở đầu như vậy, điều quan trọng nhất nằm ngay sau đó."
+      "text": "I'll be upfront with you: tôi sẽ nói thẳng với anh. Upfront là thẳng thắn, không vòng vo. Đây là lời rào trước lịch sự, chuyên nghiệp hơn to be honest, câu mà nói nhiều quá thì nghe như những lúc khác mình không thật lòng. Và bạn để ý nhé: khi ai đó mở đầu như vậy, điều quan trọng nhất nằm ngay sau đó."
     },
     {
       "speaker": "vn_host",
@@ -274,7 +274,7 @@
     },
     {
       "speaker": "vn_host",
-      "text": "Let me sleep on it: để tôi suy nghĩ thêm một đêm đã. Câu này hoãn quyết định mà không mất lòng ai, và cho thấy bạn nghiêm túc, sáng mai sẽ trả lời. Nó lấy lại đúng thứ mà exploding offer muốn cướp đi: thời gian. Sarah cười, khoác túi lên vai: Sleep fast. Ngủ nhanh lên nhé.",
+      "text": "Let me sleep on it: để tôi suy nghĩ thêm một đêm đã. Câu này hoãn quyết định mà không mất lòng ai. Khác với let me think about it, nghe dễ giống từ chối khéo, sleep on it cho thấy bạn nghiêm túc, sáng mai sẽ trả lời. Nó lấy lại đúng thứ mà exploding offer muốn cướp đi: thời gian. Sarah cười, khoác túi lên vai: Sleep fast. Ngủ nhanh lên nhé.",
       "pause_ms": 900
     },
     {
@@ -296,7 +296,7 @@
     },
     {
       "speaker": "vn_host",
-      "text": "Sáng thứ Năm, còn hai mươi lăm tiếng, Khang và Vy cãi nhau lần đầu tiên. Không có tiền này, lấy gì trả lương? Có tiền này, sang năm mình còn là chủ công ty không? Anh Đạt bước lên, tay còn dính bụi vỏ lụa. Ba năm chưa từng xen chuyện tiền bạc, giờ anh nói: ở quê em có một người, anh chị nên gặp."
+      "text": "Sáng thứ Năm, còn hai mươi lăm tiếng, Khang và Vy cãi nhau to, lần đầu tiên sau ba năm. Không có tiền này, lấy gì trả lương? Có tiền này, sang năm mình còn là chủ công ty không? Anh Đạt bước lên, tay còn dính bụi vỏ lụa. Ba năm chưa từng xen chuyện tiền bạc, giờ anh nói: ở quê em có một người, anh chị nên gặp."
     },
     {
       "speaker": "vn_host",
@@ -324,18 +324,18 @@
     },
     {
       "speaker": "vn_host",
-      "text": "Deal breaker là điều kiện mà không đổi thì không ký. Vì câu này nặng, đừng dùng bừa: cái gì cũng là deal breaker thì người ta chẳng tin cái nào. Muốn nhẹ hơn, bạn nói that's a major concern for us."
+      "text": "Deal breaker là điều kiện mà không đổi thì thoả thuận đổ. Không phải kiểu chúng tôi hơi lăn tăn, mà là: không đổi thì không ký. Vì câu này nặng, đừng dùng bừa: cái gì cũng là deal breaker thì người ta chẳng tin cái nào. Muốn nhẹ hơn, bạn nói that's a major concern for us."
     },
     {
       "speaker": "vn_host",
-      "text": "Sarah vẫn cười, nhưng mỏng hơn. Khang này, Lionheart có rất nhiều lựa chọn. Nghĩa là: anh cần chúng tôi hơn chúng tôi cần anh. Lần đầu tiên trong ba năm gọi vốn, Khang không lùi:"
+      "text": "Sarah vẫn cười, nhưng nụ cười mỏng hơn: Khang này, Lionheart có rất nhiều lựa chọn. Nghĩa là: anh cần chúng tôi hơn chúng tôi cần anh. Lần đầu tiên trong ba năm gọi vốn, Khang không lùi:"
     },
     {
       "phrase": "p5"
     },
     {
       "speaker": "vn_host",
-      "text": "Offer on the table là lời đề nghị có thật, đang nằm trên bàn chờ trả lời. Câu này cho đối phương biết bạn không phải người chết đuối. Nhưng chỉ nói khi nó là thật, vì giới đầu tư ai cũng quen ai. Sarah im lặng ba giây, dài như ba phút. Rồi cô nói: để tôi gọi lại.",
+      "text": "Offer on the table là lời đề nghị có thật, đang nằm trên bàn chờ trả lời. Câu này cho đối phương biết bạn không phải người chết đuối. Nhưng chỉ nói khi nó là thật, vì giới đầu tư ai cũng quen ai. Khang nói được câu này với cái đầu ngẩng cao, vì chú Bảo là thật. Sarah im lặng ba giây, dài như ba phút. Rồi cô nói: để tôi gọi lại.",
       "pause_ms": 900
     },
     {
@@ -365,7 +365,7 @@
     },
     {
       "speaker": "vn_host",
-      "text": "Bảy giờ sáng thứ Sáu, sảnh khách sạn năm sao ở quận Một nơi Sarah ở. Cà phê mang ra, và Khang suýt bật cười: hạt của Mây. Chính cái khách sạn đang nợ anh một tỷ tám. Sarah tới, áo blazer trắng: tôi có ba mươi phút, rồi ra sân bay. Hạn chót trong hạn chót."
+      "text": "Bảy giờ sáng thứ Sáu, sảnh khách sạn năm sao ở quận Một nơi Sarah ở. Cà phê mang ra, và Khang suýt bật cười: hạt của Mây. Chính cái khách sạn đang nợ anh một tỷ tám. Anh đang uống cà phê của mình, chưa được trả tiền, trong cuộc họp quan trọng nhất đời. Sarah tới, áo blazer trắng: tôi có ba mươi phút, rồi ra sân bay. Hạn chót trong hạn chót."
     },
     {
       "speaker": "vn_host",
@@ -404,7 +404,7 @@
     },
     {
       "speaker": "vn_host",
-      "text": "Trưa đó, Khang gọi chú Bảo, kể hết, kể cả chuyện đã dùng lời đề nghị của chú để mặc cả. Chú cười khà khà: vậy là tiền của chú đi làm trước cả khi chuyển. Chú vẫn góp hai trăm nghìn đô, cùng điều khoản với Lionheart, và chuyển ngay trong tuần cho kịp lương mùng năm. Chú bảo bắt tay là đủ. Khang thưa: con xin phép ghi ra giấy. Chú gật gù: học nhanh đó."
+      "text": "Trưa đó, Khang gọi chú Bảo, kể hết, kể cả chuyện đã dùng lời đề nghị của chú để mặc cả. Chú cười khà khà: vậy là tiền của chú đi làm trước cả khi chuyển. Chú vẫn góp, hai trăm nghìn đô, cùng điều khoản với Lionheart, tức là chịu giá cao hơn chính giá chú đưa ra hôm trước. Tiền của quỹ còn chờ vài tuần làm hồ sơ, nên chú chuyển ngay trong tuần cho kịp lương mùng năm. Chú bảo bắt tay là đủ. Khang thưa: con xin phép ghi ra giấy. Chú gật gù: học nhanh đó."
     },
     {
       "speaker": "vn_host",
@@ -455,15 +455,11 @@
   "layer3": [
     {
       "speaker": "Narrator",
-      "text": "Forty-seven days. That was how long a small coffee company in Saigon could survive with the cash in its bank account."
+      "text": "Forty-seven days. That was how long a small coffee company in Saigon could survive on the cash in its bank account."
     },
     {
       "speaker": "Narrator",
-      "text": "It was eleven forty at night, in an old house in District Three. Downstairs, the roaster was cold, but the walls still smelled of coffee. Upstairs, one cell in a spreadsheet was red."
-    },
-    {
-      "speaker": "Narrator",
-      "text": "The company was called May Coffee. May means cloud in Vietnamese. It had a roastery, six kiosks in office buildings, and an app that delivered fresh beans to offices every week. It also had thirty-eight people waiting for their salaries."
+      "text": "Eleven forty at night, an old house in District Three. Downstairs, the roaster was cold, but the walls still smelled of coffee. Upstairs, one cell in a spreadsheet was red. The company was called May Coffee. May means cloud in Vietnamese. It had a roastery, six kiosks in office buildings, an app that delivered fresh beans to offices, and thirty-eight people waiting for their salaries."
     },
     {
       "speaker": "Khang",
@@ -491,11 +487,7 @@
     },
     {
       "speaker": "Narrator",
-      "text": "Khang was thirty-one. For eight years he had worked in procurement at a big multinational. He was an optimist, a proud one, and he hated saying no to anybody. Vy was twenty-nine, a former auditor, and the co-founder who read every contract to the very last line. She liked to joke that her job at May Coffee was to be the person who says no."
-    },
-    {
-      "speaker": "Narrator",
-      "text": "At eleven forty-five, Khang's phone buzzed. An email from Singapore."
+      "text": "Khang, thirty-one, was a former procurement manager, an optimist, and a man who hated saying no. Vy, twenty-nine, was a former auditor who read every contract to the very last line. She liked to joke that her job was to be the person who says no. That night, Khang's phone buzzed. An email from Singapore."
     },
     {
       "speaker": "Khang",
@@ -511,7 +503,7 @@
     },
     {
       "speaker": "Sarah",
-      "text": "One point five million dollars. A pre-money valuation of six million. The moment we sign, you're worth seven and a half million. Not bad for a coffee shop, Khang."
+      "text": "One point five million dollars, at a pre-money valuation of six million. Not bad for a coffee shop, Khang."
     },
     {
       "speaker": "Khang",
@@ -536,11 +528,11 @@
     },
     {
       "speaker": "Narrator",
-      "text": "That night, Vy printed the term sheet. She didn't trust screens. Screens make you read too quickly. Her yellow highlighter stopped in three places."
+      "text": "That night, Vy printed the term sheet. Screens make you read too quickly. Her yellow highlighter stopped in three places."
     },
     {
       "speaker": "Vy",
-      "text": "Number one. A two times participating liquidation preference. If we sell the company, they get double their money back first. That's three million dollars. Then they also take twenty percent of whatever is left."
+      "text": "Number one. A two times participating liquidation preference. If we sell, they get double their money back first. Three million dollars. Then they also take twenty percent of whatever is left."
     },
     {
       "speaker": "Khang",
@@ -548,7 +540,7 @@
     },
     {
       "speaker": "Vy",
-      "text": "They walk away with three point six million. They own twenty percent of the company, and they take sixty percent of the money. We share the other two point four, with everyone else."
+      "text": "They walk away with three point six million. They own twenty percent of the company, and they take sixty percent of the money. We share the other two point four with everyone else."
     },
     {
       "speaker": "Vy",
@@ -568,7 +560,7 @@
     },
     {
       "speaker": "Narrator",
-      "text": "Put the three lines together and you get a trap. The investor controls the board. The board can force a cheap new round, and the ratchet makes the investor's share bigger. The board can force an early sale, and the preference makes sure the investor is paid first. And all of it was on page three, in small print, under a big bold six million on page one.",
+      "text": "Together, the three lines made a trap. Control the board, and you can force a cheap new round or an early sale. The ratchet and the preference make sure the investor wins either way. And all of it was on page three, in small print, under a big bold six million on page one.",
       "pause_ms": 900
     },
     {
@@ -585,35 +577,23 @@
     },
     {
       "speaker": "Narrator",
-      "text": "Then Dat came up the stairs. Dat was the head roaster, thirty-five, from Buon Ma Thuot, quiet and loyal. His hands were still covered in coffee dust. In three years, he had never said a word about money."
+      "text": "Then Dat, the head roaster, came up the stairs, his hands covered in coffee dust. In three years, he had never said a word about money."
     },
     {
       "speaker": "Dat",
-      "text": "Sorry to interrupt. There's a man from my hometown. Uncle Bao. He exported coffee for thirty years. I think you should meet him."
+      "text": "Sorry to interrupt. There's a man from my hometown, Uncle Bao. He exported coffee for thirty years. I think you should meet him."
     },
     {
       "speaker": "Narrator",
-      "text": "Uncle Bao was fifty-eight, retired, and slow in the way that careful people are slow. He did not want the meeting room. He asked to see the roaster."
-    },
-    {
-      "speaker": "Narrator",
-      "text": "The drum was turning. The fan was humming. Then came the first crack, a soft popping sound, like popcorn in the next room. The smell changed from dry grass to toasted bread to caramel. Uncle Bao listened for a long time before he said anything."
+      "text": "Uncle Bao was fifty-eight, retired, and slow in the way that careful people are slow. He did not want the meeting room. He asked to see the roaster. The drum was turning, the fan was humming, and then came the first crack, like popcorn in the next room. The smell changed from dry grass to toasted bread to caramel."
     },
     {
       "speaker": "Bao",
-      "text": "Which farm are these beans from?"
+      "text": "Which farm are these beans from? How much do you pay the farmers per kilo? And do you pay on time?"
     },
     {
       "speaker": "Khang",
-      "text": "Twelve families in Buon Ma Thuot. We buy directly from them."
-    },
-    {
-      "speaker": "Bao",
-      "text": "How much do you pay them per kilo? And do you pay on time?"
-    },
-    {
-      "speaker": "Khang",
-      "text": "About twenty percent above the market price. Always on time. When the rain came early last year and they lost half the harvest, we paid them in advance."
+      "text": "Twelve families in Buon Ma Thuot. About twenty percent above the market price, always on time. When the rain came early last year and they lost half the harvest, we paid them in advance."
     },
     {
       "speaker": "Bao",
@@ -624,12 +604,8 @@
       "text": "It's true, Uncle. My cousin is one of the twelve families."
     },
     {
-      "speaker": "Narrator",
-      "text": "Uncle Bao picked up a handful of beans that were still warm and held them to his nose."
-    },
-    {
       "speaker": "Bao",
-      "text": "Then here is my offer. Four hundred thousand dollars, at a four million valuation. If you sell the company, I get my money back or my share, whichever is bigger. Not both. No ratchet. No board seat. Just invite me for coffee every three months, and tell me the truth."
+      "text": "Then here is my offer. Four hundred thousand dollars, at a four million valuation. If you sell, I get my money back or my share, whichever is bigger. Not both. No ratchet. No board seat. Just invite me for coffee every three months, and tell me the truth."
     },
     {
       "speaker": "Vy",
@@ -637,20 +613,20 @@
     },
     {
       "speaker": "Bao",
-      "text": "I am slow. I need about a month. My lawyer will read your books, and I will go to Buon Ma Thuot and meet those twelve families myself. And four hundred thousand is all I can give. You don't have to answer me today. Sleep on it."
+      "text": "I am slow. I need about a month to read your books and meet those twelve families myself. And four hundred thousand is all I can give. You don't have to answer me today. Sleep on it."
     },
     {
       "speaker": "Narrator",
-      "text": "Four hundred thousand dollars was about ten billion dong. Enough to save payroll for months. Not enough for the twenty kiosks Khang dreamed about. But it was real. And in a negotiation, a real alternative, even a small one, changes everything.",
+      "text": "Four hundred thousand dollars was about ten billion dong. Enough to save payroll, but not enough for Khang's dream of twenty kiosks. But it was real. And in a negotiation, a real alternative, even a small one, changes everything.",
       "pause_ms": 900
     },
     {
       "speaker": "Narrator",
-      "text": "Thursday afternoon. Eighteen hours left. Khang called Sarah on video. Vy sat beside him with the highlighted term sheet."
+      "text": "Thursday afternoon, eighteen hours left. Khang called Sarah on video, with Vy beside him."
     },
     {
       "speaker": "Khang",
-      "text": "Sarah, thank you for the offer. We really want to work with you. But we can't accept the full ratchet. That's a deal-breaker for us."
+      "text": "Sarah, we really want to work with you. But we can't accept the full ratchet. That's a deal-breaker for us."
     },
     {
       "speaker": "Sarah",
@@ -671,43 +647,31 @@
     },
     {
       "speaker": "Narrator",
-      "text": "At eleven that night, her email arrived. She had moved further than Khang expected. No more participation. The full ratchet was gone, replaced with a weighted average. The valuation stayed at six million."
-    },
-    {
-      "speaker": "Narrator",
-      "text": "But two things did not move. The two times preference, and the two board seats. The last line said: This is our final offer. If you keep talking to the other investor, we walk away. The deadline is still nine a.m. tomorrow."
+      "text": "At eleven that night, her email arrived. No more participation. The full ratchet was gone, replaced with a weighted average. The valuation stayed at six million. But the two times preference and the two board seats did not move. The last line said: This is our final offer. If you keep talking to the other investor, we walk away."
     },
     {
       "speaker": "Khang",
-      "text": "Vy, we won! Look at this. It's almost fair. Six million! I already told my mother. Let's just sign it."
+      "text": "Vy, we won! It's almost fair. Six million! I already told my mother. Let's just sign it."
     },
     {
       "speaker": "Narrator",
-      "text": "Vy did not reply. She was building a new spreadsheet."
-    },
-    {
-      "speaker": "Narrator",
-      "text": "At two oh seven in the morning, Khang's phone buzzed on the bedside table. It was a screenshot of a small table, and a message."
+      "text": "Vy did not reply. At two oh seven in the morning, Khang's phone buzzed on the bedside table. A screenshot of a small table, and a message."
     },
     {
       "speaker": "Vy",
-      "text": "Look at the last row. If their board decides to sell us early for six million, they take three million first, because double their money beats twenty percent. Everyone else shares the other three. And who decides when to sell? The two board seats you want to give away."
+      "text": "Look at the last row. If their board sells us early for six million, they still take three million first. Everyone else shares the rest. And who decides when to sell? The two board seats you want to give away. Dropping participation was a nice gift. The board seats are the real weapon."
     },
     {
       "speaker": "Vy",
-      "text": "Dropping participation was a nice gift. The board seats are the real weapon. You did procurement for eight years, Khang. Did you ever sit down with a supplier without knowing your walk-away price?"
+      "text": "You did procurement for eight years, Khang. Did you ever sit down with a supplier without knowing your walk-away price?"
     },
     {
       "speaker": "Narrator",
-      "text": "He never had. Before every negotiation in his old job, he wrote one number on a piece of paper. Above this, I stand up and leave. For three days, with his own company on the line, he had written nothing."
+      "text": "He never had. In his old job, he always wrote one number on a piece of paper before a negotiation. Above this, I stand up and leave. For three days, with his own company on the line, he had written nothing."
     },
     {
       "speaker": "Narrator",
-      "text": "At four a.m., he drove to the roastery. Dat was already there, warming up the machine for the first batch. Dat made him a cup of filter coffee and asked no questions. Khang took an empty coffee bag, turned it over, and wrote three lines."
-    },
-    {
-      "speaker": "Narrator",
-      "text": "One. Two board seats for the founders, no exceptions. Two. The valuation can come down, but not below four point eight million. Three. If not, call Uncle Bao, cut costs, and grow slowly."
+      "text": "At four a.m., he drove to the roastery. Dat was warming up the machine, and made him a cup of filter coffee without a word. Khang turned over an empty coffee bag and wrote three lines. Two board seats for the founders, no exceptions. The valuation can come down, but not below four point eight million. If not, call Uncle Bao and grow slowly."
     },
     {
       "speaker": "Dat",
@@ -716,7 +680,7 @@
     },
     {
       "speaker": "Narrator",
-      "text": "At seven a.m. on Friday, Khang and Vy walked into the lobby of a five-star hotel in District One. Sarah was staying on the fourteenth floor. A waiter brought three coffees, and Khang almost laughed. It was May Coffee. This was the hotel that owed them one point eight billion dong. He was drinking his own unpaid coffee at the most important meeting of his life."
+      "text": "Seven a.m. on Friday, the lobby of a five-star hotel in District One. A waiter brought three coffees, and Khang almost laughed. It was May Coffee. This was the hotel that owed them one point eight billion dong."
     },
     {
       "speaker": "Sarah",
@@ -732,7 +696,7 @@
     },
     {
       "speaker": "Khang",
-      "text": "Sarah, I'll be upfront with you. We like Lionheart. We want your money and your network. But two investor seats on a three-seat board is a deal-breaker for us. Without that, we sign this morning. With it, we go home and take the other offer on the table."
+      "text": "Sarah, I'll be upfront with you. We want your money and your network. But two investor seats on a three-seat board is a deal-breaker for us. Without that, we sign this morning. With it, we go home and take the other offer on the table."
     },
     {
       "speaker": "Sarah",
@@ -748,15 +712,15 @@
     },
     {
       "speaker": "Khang",
-      "text": "We lower the valuation from six million to four point eight. You invest one point two million instead of one point five, and you still own twenty percent. In return, a one times, non-participating preference. Broad-based weighted average anti-dilution. A board with two founders and one seat for Lionheart. And no sale and no new round without your seat agreeing."
+      "text": "We lower the valuation to four point eight million. You invest one point two million, and you still own twenty percent. In return, a one times, non-participating preference. Broad-based weighted average anti-dilution. Two founders and one Lionheart seat on the board. And no sale and no new round without your seat agreeing."
     },
     {
       "speaker": "Narrator",
-      "text": "Sarah looked at her watch. Then she did something good negotiators do when the other side comes prepared. She stopped performing."
+      "text": "Sarah looked at her watch. Then she did what good negotiators do when the other side comes prepared. She stopped performing."
     },
     {
       "speaker": "Sarah",
-      "text": "Can I tell you something? The Jakarta company is real, but they won't be ready for three months. The forty-eight hours was my deadline, not the market's. I wanted to see if you knew what you wanted."
+      "text": "The Jakarta company is real, but they won't be ready for three months. The forty-eight hours was my deadline, not the market's. I wanted to see if you knew what you wanted."
     },
     {
       "speaker": "Khang",
@@ -772,7 +736,7 @@
     },
     {
       "speaker": "Sarah",
-      "text": "Of course you have. Wonderful. Let's shake hands, and our lawyers can sort out the details later."
+      "text": "Of course you have. Let's shake hands, and our lawyers can sort out the details later."
     },
     {
       "speaker": "Khang",
@@ -780,24 +744,24 @@
     },
     {
       "speaker": "Narrator",
-      "text": "Sarah called her associate. At the table, on a laptop, they changed the term sheet line by line. At eight twelve, the new version landed in Khang's inbox. At eight twenty, he replied with three words. We agree. Thanks. The nine o'clock deadline still had forty minutes to spare.",
+      "text": "Her associate changed the term sheet line by line, right there at the table. At eight twenty, Khang replied with three words. We agree. Thanks. The nine o'clock deadline still had forty minutes to spare.",
       "pause_ms": 900
     },
     {
       "speaker": "Narrator",
-      "text": "At lunchtime, Khang called Uncle Bao and told him everything, even the part where he had used Uncle Bao's offer to negotiate. He expected the old man to be upset."
+      "text": "At lunchtime, Khang called Uncle Bao and told him everything, even how he had used Uncle Bao's offer to negotiate."
     },
     {
       "speaker": "Bao",
-      "text": "So my money went to work before I even sent it. Good. I still want in, but smaller. Two hundred thousand dollars, on the same terms as Lionheart."
+      "text": "So my money went to work before I even sent it. Good. I still want in. Two hundred thousand dollars, on the same terms as Lionheart."
     },
     {
       "speaker": "Khang",
-      "text": "Uncle, that's a higher price than you offered us yesterday."
+      "text": "Uncle, that's a higher price than you offered yesterday."
     },
     {
       "speaker": "Bao",
-      "text": "Yesterday nobody had checked your books. Now a professional fund has. And because their money needs a month of paperwork, I will send mine this week, so your people are paid on the fifth. A handshake is enough for me."
+      "text": "Yesterday nobody had checked your books. Now a professional fund has. Their money needs a month of paperwork, so I will send mine this week, and your people are paid on the fifth. A handshake is enough for me."
     },
     {
       "speaker": "Khang",
@@ -808,36 +772,32 @@
       "text": "You learn fast."
     },
     {
-      "speaker": "Narrator",
-      "text": "That afternoon, Vy wrote a two-page agreement, and both men signed it. Then Khang asked her the question one more time."
-    },
-    {
       "speaker": "Khang",
-      "text": "So, how much runway do we have now?"
+      "text": "So, Vy. How much runway do we have now?"
     },
     {
       "speaker": "Vy",
-      "text": "With Uncle Bao's money this week and Lionheart's next month? About eighteen months. If you don't open twenty kiosks by Christmas."
+      "text": "About eighteen months. If you don't open twenty kiosks by Christmas."
     },
     {
       "speaker": "Narrator",
-      "text": "Here is the math that matters. Take the same six million dollar sale. Under the first term sheet, the founders and the team would share two point four million. Under the new one, Lionheart takes back its one point two million, Uncle Bao takes his two hundred thousand, and about four point six million is left. The valuation was one point two million lower. The founders would keep more than two million more."
+      "text": "Take the same six million dollar sale. Under the first term sheet, the founders and the team would share two point four million. Under the new one, about four point six million. A lower valuation, and almost twice as much for the people who built the company."
     },
     {
       "speaker": "Narrator",
-      "text": "There was one more message that day. From the airport, Sarah texted Khang."
+      "text": "From the airport, Sarah sent Khang one last message."
     },
     {
       "speaker": "Sarah",
-      "text": "For the record, you're the first founder this year who asked me to put it in writing before I left the table. That's why I said yes."
+      "text": "For the record, most founders would have signed on Wednesday. You made me put it in writing before I left the table. I think we're going to work well together."
     },
     {
       "speaker": "Narrator",
-      "text": "Friday night, the roastery in District Three was full of light. Thirty-eight people, a few cases of beer, and a pot of beef stew sent by Dat's mother. Dat roasted a special batch with beans from Uncle Bao's old farm, and he named it Runway. Even Vy laughed out loud."
+      "text": "Friday night, the roastery was full of light. Thirty-eight people, a few cases of beer, a pot of beef stew from Dat's mother. Dat roasted a special batch with beans from Uncle Bao's old farm, and named it Runway. Even Vy laughed out loud."
     },
     {
       "speaker": "Narrator",
-      "text": "At nine fifteen, Khang's phone rang again. The screen said: Mrs Hanh, landlord. He stepped out onto the balcony, still holding his beer."
+      "text": "At nine fifteen, Khang's phone rang. Mrs Hanh, the landlord. He stepped out onto the balcony."
     },
     {
       "speaker": "Khang",
@@ -865,7 +825,7 @@
     },
     {
       "speaker": "vn_host",
-      "text": "Còn Khang, vừa giữ được công ty, giờ lại sắp mất chính căn nhà đã sinh ra nó. Sáu mươi ngày, một cái máy rang nặng gần một tấn, và một hợp đồng thuê mà ngay cả Vy cũng chưa từng nghĩ sẽ phải đọc lại. Tập hai của Đường Băng: cuộc chiến mặt bằng. Hẹn bạn ngày mai."
+      "text": "Còn Khang, vừa giữ được công ty, giờ lại sắp mất chính căn nhà đã sinh ra nó. Sáu mươi ngày, một cái máy rang nặng gần một tấn, và một hợp đồng thuê mà ngay cả Vy cũng chưa từng nghĩ sẽ phải đọc lại. Tập hai của Đường Băng: cuộc chiến mặt bằng. Hẹn bạn ở tập sau."
     }
   ],
   "summary_vi": "Mây Coffee chỉ còn bốn mươi bảy ngày tiền mặt, một khách sạn năm sao nợ một tỷ tám trễ sáu mươi ngày, ba mươi tám người chờ lương.\nQuỹ Lionheart của Sarah Whitfield đưa term sheet một triệu rưỡi đô, định giá sáu triệu, hạn ký bốn mươi tám giờ, nhưng kèm ưu tiên thanh khoản hai lần có tham gia, full ratchet và hai trên ba ghế hội đồng.\nChú Bảo, nhà xuất khẩu cà phê về hưu ở Buôn Ma Thuột, đưa đề nghị bốn trăm nghìn đô điều khoản sạch, giúp Khang có lựa chọn thay thế để mặc cả.\nBảy giờ sáng thứ Sáu, Khang nói thẳng điểm không thể nhượng và chốt bằng văn bản: một triệu hai ở định giá bốn triệu tám, ưu tiên một lần không tham gia, bình quân gia quyền, hội đồng hai sáng lập một quỹ; chú Bảo góp thêm hai trăm nghìn.\nTối ăn mừng, cô Hạnh chủ nhà gọi báo căn nhà quận Ba đã bán, Mây Coffee có sáu mươi ngày để dọn xưởng rang đi."

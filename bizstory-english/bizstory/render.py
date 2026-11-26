@@ -139,16 +139,16 @@ def short_subset(segs: list[dict]) -> list[dict]:
                 got = True
             elif got:
                 after += 1
-            if t >= budget and (not need_phrase or (got and after >= 2)):
+            if t >= budget and (not need_phrase or (got and after >= 1)):
                 break
             if t >= budget * 2.2:
                 break
         return sel
-    out = take(lambda s: s["part"] == 0, 22)
-    out += take(lambda s: s["part"] == 1 and s["layer"] == 1, 70, need_phrase=True)
-    out += take(lambda s: s["part"] == 1 and s["layer"] == 2, 45, need_phrase=True)
-    out += take(lambda s: s["part"] == 1 and s["layer"] == 3, 35)
-    out += take(lambda s: s["part"] == 4, 25, need_phrase=True)
+    out = take(lambda s: s["part"] == 0, 12)
+    out += take(lambda s: s["part"] == 1 and s["layer"] == 1, 45, need_phrase=True)
+    out += take(lambda s: s["part"] == 1 and s["layer"] == 2, 30, need_phrase=True)
+    out += take(lambda s: s["part"] == 1 and s["layer"] == 3, 30)
+    out += take(lambda s: s["part"] == 4, 20, need_phrase=True)
     return out
 
 
@@ -227,7 +227,7 @@ def render(day: int, mode: str = "full", log=print, max_credits: float | None = 
             sp = s["speed"] if tts.needs_own_clip(s["speed"]) else 1.0
             key = tts.clip_key(s["voice"], s["text"], sp)
             m = tts.clip_meta(key)
-            gain = 0.0 if m.get("lufs") is None else max(-12.0, min(12.0, audio.CLIP_TARGET_LUFS - m["lufs"]))
+            gain = 0.0 if m.get("lufs_mono") is None else max(-12.0, min(12.0, audio.CLIP_TARGET_LUFS - m["lufs_mono"]))
             wav = tts.processed_wav(key, 1.0 if tts.needs_own_clip(s["speed"]) else s["speed"])
             a = audio.load_clip(wav, gain)
             s["clip"] = key
