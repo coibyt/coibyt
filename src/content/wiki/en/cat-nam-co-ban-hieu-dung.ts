@@ -10,7 +10,7 @@ const article: WikiArticle = {
   title: "Men's haircut basics: clipper guards, holding scissors and 6 common mistakes",
   metaTitle: "Men's haircut basics: clipper guards, scissors, mistakes",
   metaDescription:
-    "Men's haircut basics: the parts of a cut, clipper guard numbers and the taper lever, holding scissors, scissor-over-comb, blending the top, outline and 6 mistakes.",
+    "Men's haircut basics: the parts of a cut, clipper guard numbers, the taper lever, holding scissors, scissor-over-comb, blending, outline and 6 mistakes.",
   keyword: "men's haircut basics",
   keywords: [
     "clipper guard numbers explained",
