@@ -15,7 +15,7 @@ const args = process.argv.slice(2);
 const checkOnly = args[0] === "--check";
 const only = checkOnly ? args.slice(1) : [];
 const NAMES = { vi: "VI_ARTICLES", en: "EN_ARTICLES", fi: "FI_ARTICLES" };
-const CATEGORIES = ["nail", "lash", "hair", "spa", "safety", "salon", "marketing", "booking"];
+const CATEGORIES = ["nail", "lash", "hair", "spa", "safety", "salon", "marketing", "booking", "tips"];
 const ident = (file) => "a_" + file.replace(/\.ts$/, "").replace(/[^a-zA-Z0-9]/g, "_");
 const read = (p) => readFileSync(join(root, p), "utf8").replace(/\r\n/g, "\n");
 
@@ -27,9 +27,11 @@ for (const f of ["curriculum.ts", "craft.ts", "tositeo.ts", "babelisa.ts", "moja
     const end = src.indexOf("\n  },\n", m.index);
     if (!/video: null/.test(src.slice(m.index, end))) lessons.add(m[1]);
   }
+  // moja.ts builds its lessons with L("slug", …): every one listed in its VIDEOS table has a video.
+  if (f === "moja.ts") for (const m of src.matchAll(/^ {2}"([a-z0-9-]+)": \[\d+, "[\d-]+"\],$/gm)) lessons.add(m[1]);
 }
 const chapters = read("src/lib/wiki/categories.ts");
-const sitePaths = /^\/(|business|search|app|academy|academy\/khoa-hoc\/[a-z0-9-]+|loyalty-lite|salon-check|salon-quiz|tools\/price-list|tools\/qr-poster|help\/getting-started(#[a-z0-9-]+)?|support|directory|wiki)$/;
+const sitePaths = /^\/(|business|search|app|academy|academy\/khoa-hoc\/[a-z0-9-]+|loyalty-lite|salon-check|salon-quiz|tools\/price-list|tools\/qr-poster|help\/getting-started(#[a-z0-9-]+)?|support|directory|wiki|b/moja-beauty)$/;
 
 let problems = 0;
 const tmp = mkdtempSync(join(tmpdir(), "wiki-index-"));

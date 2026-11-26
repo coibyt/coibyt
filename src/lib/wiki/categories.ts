@@ -185,6 +185,26 @@ export const WIKI_CATEGORIES: WikiCategory[] = [
     courses: ["c-start", "c-bookings", "c-perks"],
     coursePages: ["huong-dan-dat-lich-lam-dep", "quan-ly-lich-hen-lam-dep", "the-thanh-vien-the-qua-tang"],
   },
+  {
+    id: "tips",
+    slug: l3("bi-quyet-lam-dep", "beauty-tips", "kauneusvinkit"),
+    name: l3("Bí quyết làm đẹp", "Beauty tips", "Kauneusvinkit"),
+    title: l3("Bí quyết nối mi, làm móng, làm mày: hiểu đúng trước khi đến tiệm", "Lash, nail and brow tips: know what you are booking", "Ripsi-, kynsi- ja kulmavinkit: tiedä mitä varaat"),
+    blurb: l3(
+      "Chọn kiểu mi, độ cong, gel hay BIAB, dáng móng, mày, và cách chăm sóc tại nhà.",
+      "Lash styles and curls, gel or BIAB, nail shapes, brows and care at home.",
+      "Ripsityylit ja taivutukset, geeli vai BIAB, kynsien muodot, kulmat ja kotihoito."
+    ),
+    intro: l3(
+      "Chuyên mục dành cho người đi làm đẹp: nên chọn kiểu nối mi nào, độ cong nào hợp dáng mắt, sơn gel khác BIAB ra sao, vì sao móng gel bong, chăm sóc mi và mày ở nhà thế nào. Các bài viết được viết lại từ khóa học ngắn của tiệm Moja Beauty ở Helsinki trong VaraaAi Academy, mỗi bài kèm video.",
+      "A chapter for people who book beauty treatments: which lash style and curl suits your eyes, how gel differs from BIAB, why gel nails lift, and how to care for lashes and brows at home. The articles are written from the short course of the Moja Beauty salon in Helsinki in VaraaAi Academy, each with its video.",
+      "Osio kauneushoitoja varaaville: mikä ripsityyli ja taivutus sopii silmillesi, miten geeli eroaa BIAB:sta, miksi geelikynnet irtoavat ja miten ripsiä ja kulmia hoidetaan kotona. Artikkelit perustuvat helsinkiläisen Moja Beautyn lyhyeen kurssiin VaraaAi Academyssa, ja jokaisessa on video."
+    ),
+    metaTitle: l3("Bí quyết nối mi, làm móng, làm mày cho khách", "Lash, nail and brow tips for clients", "Ripsi-, kynsi- ja kulmavinkit asiakkaille"),
+    image: "/academy/khoa-hoc/kien-thuc-noi-mi-lam-mong.jpg",
+    courses: ["c-moja-beauty"],
+    coursePages: ["kien-thuc-noi-mi-lam-mong"],
+  },
 ];
 
 export const wikiCategory = (id: WikiCategoryId) => WIKI_CATEGORIES.find((c) => c.id === id)!;

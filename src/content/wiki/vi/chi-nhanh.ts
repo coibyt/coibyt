@@ -24,8 +24,8 @@ const article: WikiArticle = {
   published: "2026-11-26",
   updated: "2026-11-26",
   hero: {
-    src: img("le-tan-don-khach-tai-quay-mot-chi-nhanh"),
-    alt: "Lễ tân mặc vest tím đưa ly nước cho một khách nữ mặc áo khoác kem tại quầy đá, phía sau là khách ngồi chờ trên ghế nhung",
+    src: img("tho-lam-toc-cho-khach-tai-chi-nhanh-moi"),
+    alt: "Một thợ tóc mặc áo vest kem đang chải tóc cho khách nữ tóc vàng ngồi trên ghế nhung tím trong phòng có ba gương viền vàng",
   },
   takeaways: [
     "Mở thêm cơ sở **không cần tạo tài khoản mới**: mọi chi nhánh nằm trong cùng một tài khoản.",
@@ -98,7 +98,7 @@ const article: WikiArticle = {
             "[Giờ mở cửa và ngày nghỉ](lesson:gio-mo-cua), vì khách chỉ đặt được lịch trong giờ mở cửa.",
           ],
         },
-        { img: { src: img("tho-lam-toc-cho-khach-tai-chi-nhanh-moi"), alt: "Một thợ tóc mặc áo vest kem đang chải tóc cho khách nữ tóc vàng ngồi trên ghế nhung tím trong phòng có ba gương viền vàng", caption: "Chi nhánh mới chỉ nhận được lịch khi đã có dịch vụ, nhân viên và giờ mở cửa." } },
+        { img: { src: img("le-tan-don-khach-tai-quay-mot-chi-nhanh"), alt: "Lễ tân mặc vest tím đưa ly nước cho một khách nữ mặc áo khoác kem tại quầy đá, phía sau là khách ngồi chờ trên ghế nhung", caption: "Chi nhánh mới chỉ nhận được lịch khi đã có dịch vụ, nhân viên và giờ mở cửa." } },
         { p: "Đừng gửi link của chi nhánh mới cho khách trước khi xong ba việc này. Một trang đặt lịch không có dịch vụ để chọn làm khách nghĩ cơ sở chưa hoạt động." },
         { note: "Hãy mở trang đặt lịch của chi nhánh mới trên điện thoại và tự đặt thử một lịch. Bạn sẽ thấy ngay còn thiếu dịch vụ nào hoặc giờ nào chưa mở.", kind: "tip", title: "Đặt thử một lịch" },
       ],

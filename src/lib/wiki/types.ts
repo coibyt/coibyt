@@ -9,7 +9,7 @@
 
 export type WikiLocale = "vi" | "en" | "fi";
 
-export type WikiCategoryId = "nail" | "lash" | "hair" | "spa" | "safety" | "salon" | "marketing" | "booking";
+export type WikiCategoryId = "nail" | "lash" | "hair" | "spa" | "safety" | "salon" | "marketing" | "booking" | "tips";
 
 export interface WikiImage {
   /** Site-relative path under public/wiki/…, a descriptive file name. */
