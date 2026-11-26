@@ -1,0 +1,999 @@
+{
+ "part": 1,
+ "kind": "series",
+ "version": 2,
+ "title_vi": "Sáu mươi ngày",
+ "title_en": "The Lease",
+ "topic": "thuê mặt bằng, hợp đồng thuê, đặt cọc, bảo lãnh cá nhân, điều khoản chấm dứt sớm, giấy phép môi trường, đàm phán điều khoản thuê",
+ "subject": null,
+ "series": {
+  "season": 1,
+  "episode_no": 2,
+  "theme": "Từ một xưởng rang cà phê đến chuỗi thương hiệu: gọi vốn, mặt bằng, dòng tiền, đàm phán, tái cấu trúc",
+  "title_vi": "Đường Băng",
+  "title_en": "Runway",
+  "bible": {
+   "company": "Mây Coffee, tiếng Anh viết May Coffee: xưởng rang thuê trong một căn nhà cũ ở quận Ba, Sài Gòn, máy rang mười lăm ký mua lại, nặng gần một tấn, ống khói xuyên mái, giấy phép môi trường mất sáu tháng mới xin được. Sáu ki ốt trong các toà văn phòng. Ứng dụng giao hạt rang mới hằng tuần cho khoảng một trăm bốn mươi công ty, tổng cộng hơn một tấn rưỡi hạt rang mỗi tuần. Ba mươi tám nhân viên. Mua thẳng của mười hai hộ nông dân ở Buôn Ma Thuột, trả cao hơn giá chợ khoảng một phần năm, năm mất mùa vẫn ứng tiền trước. Từ tập hai: đã ký thuê nhà kho tám trăm mét vuông ở Thủ Đức làm xưởng rang mới, đang sửa sang; vẫn rang ở quận Ba tới ngày thứ chín mươi.",
+   "characters": {
+    "Khang": "Trần Minh Khang, ba mươi mốt tuổi, người sáng lập và giám đốc điều hành. Tám năm làm thu mua, từng là trưởng phòng thu mua ở một tập đoàn hàng tiêu dùng đa quốc gia. Lạc quan, tự trọng cao, ghét nói không, dễ mê những thứ đẹp cho thương hiệu. Đang trả góp một căn hộ ở Bình Thạnh. Bài học tập một: luôn viết ra điểm bỏ đi trước khi đàm phán, và ghi mọi thoả thuận thành văn bản. Bài học tập hai: mặt bằng đẹp nhất chưa chắc là hợp đồng tốt nhất; đừng xin, hãy đề nghị; mặc cả điều khoản chứ không chỉ giá thuê; không ký bảo lãnh cá nhân.",
+    "Vy": "Lê Thảo Vy, hai mươi chín tuổi, đồng sáng lập và giám đốc vận hành, cựu kiểm toán năm năm. Mê con số, nói thẳng, đọc đến dòng cuối, in hợp đồng ra giấy và đánh dấu bằng bút dạ quang vàng. Tự nhận việc của mình là người nói không. Tập hai: đọc hết bốn mươi trang hợp đồng thuê trong một đêm, tìm ra bảo lãnh cá nhân và việc thiếu điều khoản chấm dứt sớm.",
+    "Dat": "Anh Đạt, ba mươi lăm tuổi, thợ rang trưởng, người Buôn Ma Thuột, ít nói, trung thành, có mặt ở xưởng từ bốn giờ sáng. Có người anh họ là một trong mười hai hộ nông dân. Hay nói bằng hình ảnh nghề rang. Tiếng Anh viết Dat. Tập hai: tìm ra nhà kho Thủ Đức qua bạn cũ là anh Thịnh, thợ rang trưởng của xưởng Mộc đã phá sản.",
+    "Sarah": "Sarah Whitfield, đối tác của Lionheart Ventures, quỹ hư cấu ở Singapore. Duyên dáng, nói nhanh, dùng áp lực thời gian và lời đề nghị tự huỷ, nhưng tôn trọng người có chuẩn bị. Sau tập một là thành viên hội đồng quản trị của Mây.",
+    "Bao": "Chú Bảo, Nguyễn Quốc Bảo, năm mươi tám tuổi, ba mươi năm xuất khẩu cà phê ở Buôn Ma Thuột, đã bán công ty và về hưu, nhà đầu tư thiên thần. Chậm rãi, coi trọng chữ tín, công bằng, hỏi về nông dân trước khi hỏi về lợi nhuận. Tiếng Anh viết Uncle Bao.",
+    "Hanh": "Cô Hạnh, chủ căn nhà ở quận Ba mà Mây thuê làm xưởng suốt ba năm. Hiền, áy náy vì phải bán nhà; tập hai đã gọi giúp Khang để được gặp chủ mới. Tiếng Anh viết Mrs Hanh.",
+    "Kim": "Chị Kim, môi giới bất động sản ở quận Một, áo dài xanh, nói ngọt, hay dùng chữ tiêu chuẩn và hạn chót sáng thứ Sáu. Chào căn nhà phố trên đường Pasteur, kèm một chuỗi trà sữa cũng muốn thuê mà cuối cùng không thấy đâu. Tiếng Anh viết Ms Kim.",
+    "Quan": "Ông Quân, năm mươi tuổi, nhà phát triển bất động sản, chủ mới của căn nhà quận Ba, sẽ xây toà văn phòng hai mươi tầng, khoảng hai năm nữa xong. Bận, thẳng, ghét dạo đầu, nhưng sòng phẳng. Vợ ông là khách đặt hạt Mây hằng tuần. Tiếng Anh viết Mr Quan.",
+    "Diep": "Bà Điệp, gần bảy mươi tuổi, chủ nhà kho tám trăm mét vuông ở Thủ Đức. Tóc bạc cắt ngắn, ít nói, nhìn ai cũng như thẩm định. Từng bị xưởng Mộc phá sản bỏ lại bốn tháng tiền thuê, nên rất sợ rủi ro. Tiếng Anh viết Mrs Diep."
+   },
+   "state_after_ep1": {
+    "cash_before_deal": "hai tỷ một trăm triệu đồng, đốt ròng khoảng bốn mươi lăm triệu mỗi ngày, bốn mươi bảy ngày runway",
+    "receivable": "một khách sạn năm sao ở quận Một nợ một tỷ tám trăm triệu đồng tiền cà phê, trễ sáu mươi ngày, vẫn chưa trả",
+    "payroll": "sáu trăm tám mươi triệu đồng, trả ngày mùng năm hằng tháng",
+    "lionheart_deal": "một triệu hai trăm nghìn đô la, định giá trước vốn bốn triệu tám, quỹ khoảng hai mươi phần trăm; ưu tiên thanh khoản một lần không tham gia; chống pha loãng bình quân gia quyền broad based; hội đồng ba ghế: hai sáng lập, một Lionheart; bán công ty hoặc gọi vốn mới cần ghế của quỹ đồng ý; báo cáo tài chính trước ngày mười hằng tháng; tiền về sau khoảng bốn tuần làm hồ sơ",
+    "bao_deal": "hai trăm nghìn đô la, cùng điều khoản với Lionheart, chuyển trước trong tuần theo thoả thuận hai trang Vy soạn, không có ghế hội đồng, mỗi quý một ly cà phê báo cáo",
+    "runway_after": "khoảng mười tám tháng nếu chi tiêu kỷ luật",
+    "cliffhanger": "tối thứ Sáu ăn mừng, cô Hạnh gọi báo căn nhà quận Ba đã bán cho chủ mới để xây toà văn phòng; theo hợp đồng thuê, Mây có sáu mươi ngày để dọn đi. Tập hai: thuê mặt bằng.",
+    "special_batch": "mẻ rang Đường Băng, tiếng Anh Runway, hạt từ vườn cũ của chú Bảo"
+   },
+   "state_after_ep2": {
+    "d3_extension": "chủ mới ông Quân cho ở thêm ba mươi ngày, tổng cộng chín mươi ngày, trả tiền thuê như cũ, trễ mỗi ngày phạt mười triệu; đổi lại Mây đặt quầy cà phê ở văn phòng bán hàng của ông từ tháng sau, và mở quầy cà phê ở sảnh toà nhà mới, ăn chia theo doanh thu",
+    "warehouse_lease": "nhà kho tám trăm mét vuông ở Thủ Đức của bà Điệp, bảy mươi triệu một tháng, thuê năm năm; ba tháng miễn tiền thuê để sửa sang; cọc hai tháng thay vì sáu; tăng giá tối đa năm phần trăm mỗi năm; được chấm dứt sau hai năm nếu báo trước ba tháng, mất cọc là cùng; không bảo lãnh cá nhân; Mây tự sửa mái và kéo điện ba pha, phần sửa sang để lại cho kho",
+    "permit": "kho có sẵn hệ thống hút và lọc khói, ống khói mười hai mét của xưởng Mộc, từng được duyệt, kết quả đo khí thải năm ngoái đạt; Mây vẫn phải nộp hồ sơ mới đứng tên mình, đo lại khí thải sau khi lắp máy, chờ kiểm tra; ước tính sáu đến tám tuần thay vì sáu tháng",
+    "rejected_option": "căn nhà phố đường Pasteur quận Một, hai trăm năm mươi triệu một tháng, năm năm, cọc sáu tháng, tăng mười phần trăm mỗi năm, không có điều khoản chấm dứt sớm, đòi bảo lãnh cá nhân của Khang; Khang giữ giấc mơ quận Một dưới dạng một ki ốt nhỏ, hợp đồng ngắn, khi đủ tiền",
+    "cash": "kế hoạch dọn xưởng và sửa kho một tỷ bốn, thực tế đã hai tỷ sáu vì trạm điện, hệ thống chữa cháy tự động và cần cẩu; tiền chú Bảo gần hết; tài khoản còn sáu trăm hai mươi triệu",
+    "lionheart_money": "chậm, hồ sơ góp vốn của nhà đầu tư nước ngoài bị yêu cầu bổ sung, ít nhất hai tuần nữa mới về",
+    "receivable": "khách sạn năm sao ở quận Một vẫn nợ một tỷ tám, đổi đơn vị quản lý và tạm dừng mọi khoản thanh toán cho nhà cung cấp, chưa có thời hạn",
+    "cliffhanger": "lương ba mươi tám người sáu trăm tám mươi triệu, trả ngày mùng năm, còn chín ngày; tài khoản sáu trăm hai mươi triệu. Tập ba: khủng hoảng dòng tiền.",
+    "foreshadow": "bà Điệp đưa Mây bao hạt nhân cuối cùng xưởng Mộc bỏ lại, kèm mảnh giấy: cho người đến sau, đừng lớn nhanh quá"
+   }
+  }
+ },
+ "cast": {
+  "Narrator": "en_male",
+  "Khang": "en_male2",
+  "Vy": "en_female3",
+  "Dat": "en_male4",
+  "Hanh": "en_female2",
+  "Bao": "en_male3",
+  "Kim": "en_female",
+  "Quan": "en_male3",
+  "Diep": "en_female2"
+ },
+ "phrases": [
+  {
+   "id": "p1",
+   "en": "We're working against the clock.",
+   "vi": "Chúng ta đang chạy đua với thời gian.",
+   "note_vi": "Against the clock là làm gấp vì có một hạn chót thật. Dùng trong họp để báo độ khẩn cấp, nghe nghiêm túc nhưng bình tĩnh; nên nói kèm hạn chót cụ thể.",
+   "forms": [
+    "against the clock"
+   ],
+   "context_vi": "Câu đầu tiên dùng khi cả đội phải xong một việc trước một hạn chót rất gần. Against the clock là chạy đua với đồng hồ. Nói câu này để cả phòng hiểu độ gấp, rồi nói ngay hạn chót là ngày nào và việc gì phải xong trước.",
+   "examples": [
+    {
+     "en": "We're working against the clock, so the report has to be ready by Thursday noon.",
+     "vi": "Mình đang chạy đua với thời gian, nên bản báo cáo phải xong trước trưa thứ Năm."
+    },
+    {
+     "en": "The client moved the launch forward, and now we're working against the clock.",
+     "vi": "Khách hàng dời ngày ra mắt lên sớm hơn, nên giờ mình đang chạy đua với thời gian."
+    }
+   ],
+   "recall_vi": "Câu Khang nói lúc sáu giờ sáng thứ Bảy, khi Vy viết lên bảng hai con số: sáu mươi ngày phải dọn đi, sáu tháng để xin giấy phép."
+  },
+  {
+   "id": "p2",
+   "en": "Let's weigh our options.",
+   "vi": "Mình cùng cân nhắc các phương án nhé.",
+   "note_vi": "Weigh là cân. Câu này mời mọi người so cái được và cái mất của từng phương án trước khi chọn, giúp cuộc họp bớt cảm tính.",
+   "forms": [
+    "weigh our options",
+    "weigh the options"
+   ],
+   "context_vi": "Câu thứ hai dùng khi có nhiều lựa chọn và chưa nên quyết vội. Weigh là cân. Weigh our options là đặt từng phương án lên bàn cân, so cái được và cái mất. Câu này giúp cuộc họp bớt cảm tính, nhất là khi có người đã thích sẵn một phương án.",
+   "examples": [
+    {
+     "en": "Before we choose a supplier, let's weigh our options and compare the total cost.",
+     "vi": "Trước khi chọn nhà cung cấp, mình cùng cân nhắc các phương án và so tổng chi phí nhé."
+    },
+    {
+     "en": "The budget is tight, so let's weigh the options before we hire anyone new.",
+     "vi": "Ngân sách đang eo hẹp, nên mình cân nhắc các phương án trước khi tuyển thêm người."
+    }
+   ],
+   "recall_vi": "Câu Vy nói trước khi kẻ ba cột lên bảng trắng: xin chủ mới cho ở thêm, nhà kho ở Thủ Đức, và căn nhà phố ở quận Một."
+  },
+  {
+   "id": "p3",
+   "en": "What's the catch?",
+   "vi": "Vậy có điều kiện gì kèm theo?",
+   "note_vi": "The catch là cái giá ẩn, điều kiện người ta chưa nói ra. Hơi thân mật; nói nhẹ nhàng thì không bất lịch sự. Với khách lớn, có thể hỏi mềm hơn về conditions.",
+   "forms": [
+    "what's the catch"
+   ],
+   "context_vi": "Câu thứ ba dùng khi một lời đề nghị nghe tốt đến mức đáng ngờ. The catch là điều kiện ẩn, cái giá người ta chưa nói ra. Hỏi bằng giọng nhẹ nhàng thì câu này không hề bất lịch sự, mà cho thấy bạn tỉnh táo trước một món hời.",
+   "examples": [
+    {
+     "en": "Free installation and free delivery? That sounds great, but what's the catch?",
+     "vi": "Miễn phí lắp đặt và miễn phí giao hàng à? Nghe hay quá, nhưng có điều kiện gì kèm theo?"
+    },
+    {
+     "en": "If the software is free for the first year, what's the catch after that?",
+     "vi": "Nếu phần mềm miễn phí năm đầu, thì sau đó có điều kiện gì kèm theo?"
+    }
+   ],
+   "recall_vi": "Câu Vy hỏi cô môi giới Kim, khi nghe chủ nhà tặng tháng đầu tiên nhưng phải đặt cọc trước sáng thứ Sáu."
+  },
+  {
+   "id": "p4",
+   "en": "I'm not comfortable with that clause.",
+   "vi": "Tôi chưa thể chấp nhận điều khoản đó.",
+   "note_vi": "Cách từ chối lịch sự nhưng rõ ràng một điều khoản trong hợp đồng, vẫn chừa cửa thương lượng. Nói xong, nêu ngay lý do hoặc đề xuất thay thế.",
+   "forms": [
+    "not comfortable with that clause",
+    "not comfortable with this clause"
+   ],
+   "context_vi": "Câu thứ tư dùng khi đọc hợp đồng và gặp một điều khoản bạn chưa chấp nhận được. Nghe nhẹ nhàng, nhưng ý rất rõ: điểm này phải sửa thì mới ký. Nói xong câu, bạn nên chỉ rõ điều khoản nào và vì sao, để bên kia biết cần sửa chỗ nào.",
+   "examples": [
+    {
+     "en": "I'm not comfortable with that clause, because it lets you change the price at any time.",
+     "vi": "Tôi chưa thể chấp nhận điều khoản đó, vì nó cho phép bên anh đổi giá bất cứ lúc nào."
+    },
+    {
+     "en": "Before we sign, I have to say I'm not comfortable with this clause about late payment.",
+     "vi": "Trước khi ký, tôi phải nói là tôi chưa chấp nhận được điều khoản về thanh toán trễ này."
+    }
+   ],
+   "recall_vi": "Câu Khang nói với cô môi giới Kim về điều khoản bảo lãnh cá nhân, thứ có thể lấy đi căn hộ của chính anh."
+  },
+  {
+   "id": "p5",
+   "en": "That's non-negotiable.",
+   "vi": "Điểm đó không thể thương lượng.",
+   "note_vi": "Vạch một lằn ranh cứng: không bàn thêm. Dùng ít thôi cho có trọng lượng. Khi người khác nói câu này, hãy hỏi những điểm nào khác còn bàn được.",
+   "forms": [
+    "non negotiable"
+   ],
+   "context_vi": "Câu thứ năm dùng để vạch một lằn ranh: điểm này không bàn thêm. Nếu ai đó nói câu này với bạn, đừng vội cãi, hãy hỏi những điểm nào khác còn thương lượng được. Còn khi bạn nói, dùng ít thôi, để mỗi lần nói đều có trọng lượng.",
+   "examples": [
+    {
+     "en": "The delivery date is non-negotiable, because the new store opens on Monday.",
+     "vi": "Ngày giao hàng thì không thể thương lượng, vì cửa hàng mới khai trương thứ Hai."
+    },
+    {
+     "en": "We can discuss the price, but safety training for every worker is non-negotiable.",
+     "vi": "Giá thì mình bàn được, nhưng việc huấn luyện an toàn cho mọi công nhân thì không thể thương lượng."
+    }
+   ],
+   "recall_vi": "Câu chủ căn nhà phố quận Một trả lời qua cô Kim về bảo lãnh cá nhân, rồi Khang dùng lại với bà Điệp ở nhà kho."
+  },
+  {
+   "id": "p6",
+   "en": "Can we get a rent-free period?",
+   "vi": "Bên mình có được miễn tiền thuê một thời gian không?",
+   "note_vi": "Rent free period là thời gian miễn tiền thuê, thường ở đầu hợp đồng để bên thuê sửa sang. Rất phổ biến với mặt bằng thương mại; nên hỏi kèm lý do và số tháng.",
+   "forms": [
+    "rent free period"
+   ],
+   "context_vi": "Câu thứ sáu dùng khi đàm phán thuê văn phòng, cửa hàng hay nhà xưởng. Rent free period là thời gian miễn tiền thuê ở đầu hợp đồng, để bên thuê sửa sang trước khi kinh doanh. Đề nghị này rất bình thường, cứ hỏi, và hỏi kèm lý do với số tháng cụ thể.",
+   "examples": [
+    {
+     "en": "The office needs new wiring, so can we get a rent-free period for the first two months?",
+     "vi": "Văn phòng cần đi lại dây điện, vậy bên tôi có được miễn tiền thuê hai tháng đầu không?"
+    },
+    {
+     "en": "We're happy to sign for three years, but can we get a rent-free period while we move in?",
+     "vi": "Bên tôi sẵn sàng ký ba năm, nhưng có được miễn tiền thuê trong thời gian dọn vào không?"
+    }
+   ],
+   "recall_vi": "Câu Vy hỏi bà Điệp ở nhà kho Thủ Đức, khi tính ra Mây sẽ trả gần ba tháng tiền thuê cho một cái kho chưa rang được hạt nào."
+  },
+  {
+   "id": "p7",
+   "en": "Let's cut to the chase.",
+   "vi": "Mình vào thẳng vấn đề nhé.",
+   "note_vi": "Vào thẳng việc chính, bỏ qua phần dạo đầu. Hơi thẳng; với cấp trên hay khách hàng, thêm so ở đầu câu cho mềm. Ai nói câu này với bạn là đang chờ bạn nói con số.",
+   "forms": [
+    "cut to the chase"
+   ],
+   "context_vi": "Câu cuối cùng dùng khi thời gian ít và cần nói ngay điều quan trọng nhất. Cut to the chase là bỏ qua phần dạo đầu, vào thẳng vấn đề. Người bận rộn dùng câu này rất nhiều. Nếu ai đó nói câu này với bạn, đừng phật ý, họ đang chờ bạn nói con số.",
+   "examples": [
+    {
+     "en": "We only have fifteen minutes, so let's cut to the chase: what is your budget?",
+     "vi": "Mình chỉ có mười lăm phút, nên vào thẳng vấn đề nhé: ngân sách của anh là bao nhiêu?"
+    },
+    {
+     "en": "Let's cut to the chase. Can you deliver by the end of the month or not?",
+     "vi": "Mình vào thẳng vấn đề nhé. Bên anh có giao được trước cuối tháng hay không?"
+    }
+   ],
+   "recall_vi": "Câu ông Quân, chủ mới của căn nhà quận Ba, nói khi Khang mới kể chuyện được một phút; sau đó Khang dùng lại với bà Điệp."
+  }
+ ],
+ "words": [
+  {
+   "id": "w1",
+   "en": "landlord",
+   "vi": "chủ nhà, người cho thuê",
+   "forms": [
+    "landlord",
+    "landlords"
+   ],
+   "example_en": "Our landlord has sold the house to a developer.",
+   "example_vi": "Chủ nhà của chúng tôi đã bán căn nhà cho một công ty bất động sản."
+  },
+  {
+   "id": "w2",
+   "en": "lease",
+   "vi": "hợp đồng thuê",
+   "forms": [
+    "lease",
+    "leases"
+   ],
+   "example_en": "Our lease says we have sixty days to move out.",
+   "example_vi": "Hợp đồng thuê ghi rằng mình có sáu mươi ngày để dọn đi."
+  },
+  {
+   "id": "w3",
+   "en": "permit",
+   "vi": "giấy phép",
+   "forms": [
+    "permit",
+    "permits"
+   ],
+   "example_en": "Last time, the environmental permit took six months.",
+   "example_vi": "Lần trước, giấy phép môi trường mất sáu tháng mới có."
+  },
+  {
+   "id": "w4",
+   "en": "warehouse",
+   "vi": "nhà kho",
+   "forms": [
+    "warehouse",
+    "warehouses"
+   ],
+   "example_en": "The old warehouse in Thu Duc already has a chimney.",
+   "example_vi": "Nhà kho cũ ở Thủ Đức đã có sẵn ống khói."
+  },
+  {
+   "id": "w5",
+   "en": "foot traffic",
+   "vi": "lượng người qua lại trước cửa hàng",
+   "forms": [
+    "foot traffic"
+   ],
+   "example_en": "The shophouse has huge foot traffic, but a roastery doesn't need it.",
+   "example_vi": "Căn nhà phố có rất đông người qua lại, nhưng một xưởng rang thì không cần điều đó."
+  },
+  {
+   "id": "w6",
+   "en": "deposit",
+   "vi": "tiền đặt cọc",
+   "forms": [
+    "deposit",
+    "deposits"
+   ],
+   "example_en": "They want a six-month deposit before Friday morning.",
+   "example_vi": "Họ muốn đặt cọc sáu tháng tiền thuê trước sáng thứ Sáu."
+  },
+  {
+   "id": "w7",
+   "en": "personal guarantee",
+   "vi": "bảo lãnh cá nhân, cam kết trả thay bằng tài sản riêng",
+   "forms": [
+    "personal guarantee"
+   ],
+   "example_en": "The landlord wants a personal guarantee from the director.",
+   "example_vi": "Chủ nhà muốn giám đốc ký bảo lãnh cá nhân."
+  },
+  {
+   "id": "w8",
+   "en": "break clause",
+   "vi": "điều khoản cho phép chấm dứt hợp đồng sớm",
+   "forms": [
+    "break clause"
+   ],
+   "example_en": "We need a break clause after two years.",
+   "example_vi": "Mình cần một điều khoản cho phép chấm dứt hợp đồng sau hai năm."
+  },
+  {
+   "id": "w9",
+   "en": "tenant",
+   "vi": "người thuê, bên thuê",
+   "forms": [
+    "tenant",
+    "tenants"
+   ],
+   "example_en": "The last tenant left owing four months of rent.",
+   "example_vi": "Người thuê trước bỏ đi khi còn nợ bốn tháng tiền thuê."
+  },
+  {
+   "id": "w10",
+   "en": "fit-out",
+   "vi": "giai đoạn sửa sang, lắp đặt mặt bằng",
+   "forms": [
+    "fit out"
+   ],
+   "example_en": "The fit-out will take at least two months.",
+   "example_vi": "Việc sửa sang, lắp đặt sẽ mất ít nhất hai tháng."
+  }
+ ],
+ "key_sentences": [
+  {
+   "en": "The permit belongs to the address, not the machine. New address, new permit.",
+   "vi": "Giấy phép gắn với địa chỉ, không gắn với cái máy. Địa chỉ mới thì giấy phép mới."
+  },
+  {
+   "en": "If May can't pay, they can come after your apartment and your savings.",
+   "vi": "Nếu Mây không trả nổi, họ có thể đòi tới căn hộ và tiền tiết kiệm của anh."
+  },
+  {
+   "en": "If we leave after one year, we still owe more than fifteen billion dong.",
+   "vi": "Nếu mình đi sau một năm, mình vẫn nợ hơn mười lăm tỷ đồng."
+  },
+  {
+   "en": "Don't ask him for a favour. Make him an offer.",
+   "vi": "Đừng xin ông ấy giúp. Hãy đưa ra một lời đề nghị."
+  },
+  {
+   "en": "We didn't negotiate the rent. We negotiated the terms.",
+   "vi": "Mình không mặc cả giá thuê. Mình mặc cả các điều khoản."
+  }
+ ],
+ "opening": [
+  {
+   "speaker": "vn_host",
+   "text": "Một nghìn bốn trăm bốn mươi giờ.",
+   "pause_ms": 1000
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Đó là sáu mươi ngày, nếu bạn đếm theo cách của một người mất ngủ. Trong từng ấy thời gian, một xưởng rang cà phê ở Sài Gòn phải dời cái máy nặng gần một tấn, tìm chỗ mới, và xin lại tờ giấy phép mà lần trước mất sáu tháng mới có."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Rồi một cô môi giới mở cửa căn nhà phố đẹp nhất mà Khang từng thấy, kèm bốn mươi trang hợp đồng. Ở trang mười chín có một dòng chữ nhỏ, đủ để lấy đi căn hộ của chính anh. Lần gần nhất ký hợp đồng thuê nhà, bạn có đọc tới trang cuối không?",
+   "pause_ms": 900
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Chào bạn, đây là BizStory English. Phim kinh doanh Đường Băng, tập hai: Sáu mươi ngày. Hôm nay có bảy câu tiếng Anh và mười từ vựng về thuê mặt bằng cài trong truyện. Và từ tập này, mình có thêm một người bạn đồng hành."
+  },
+  {
+   "speaker": "vn_cohost",
+   "text": "Chào bạn. Mình sẽ đọc nghĩa các từ mới, và thỉnh thoảng hỏi xen anh Linh những câu mà có lẽ bạn cũng đang thắc mắc.",
+   "pause_ms": 800
+  }
+ ],
+ "layer1": [
+  {
+   "speaker": "vn_host",
+   "text": "Chín giờ mười lăm tối thứ Sáu. Trong xưởng quận Ba, tiệc mừng gọi vốn vẫn còn ồn ào. Khang đứng ngoài hiên, nghe từng câu ngập ngừng của cô Hạnh, người đã cho Mây thuê căn nhà này suốt ba năm. Người chủ nhà, tiếng Anh gọi là"
+  },
+  {
+   "word": "w1"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Cô Hạnh không có lỗi. Cô muốn sang nước ngoài ở với các con, và một công ty bất động sản trả cái giá cô không thể từ chối. Hợp đồng thuê ghi rõ: chủ nhà bán nhà thì bên thuê được báo trước sáu mươi ngày. Hợp đồng thuê, tiếng Anh là"
+  },
+  {
+   "word": "w2"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Khang nói không sao đâu cô, rồi quay vào trong, tiếp tục cười với ba mươi tám người như chưa có gì xảy ra. Người ghét nói không, cũng ghét luôn việc báo tin xấu. Chỉ Vy nhìn mặt anh là biết."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Sáu giờ sáng thứ Bảy, xưởng vẫn còn mùi bia và bò kho. Anh Đạt đã đứng cạnh máy rang từ bốn giờ. Nghe Khang kể xong, anh im lặng rất lâu, rồi chỉ lên cái ống khói xuyên mái: cái này, ba năm trước, mình chờ sáu tháng đó anh."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Sáu tháng để xin giấy phép môi trường. Rang cà phê sinh ra khói, mùi và vỏ lụa, nên phải có hệ thống hút và lọc khói, phải đo khí thải, qua kiểm tra phòng cháy, rồi mới được rang. Giấy phép, tiếng Anh là"
+  },
+  {
+   "word": "w3"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Mà giấy phép gắn với địa chỉ, không gắn với cái máy. Dời máy là xin lại từ đầu. Vy mở bảng tính: sáu ki ốt, cộng gói giao hạt hằng tuần cho một trăm bốn mươi công ty, cần hơn một tấn rưỡi hạt rang mỗi tuần. Hạt trong kho chỉ đủ bán mười ngày."
+  },
+  {
+   "speaker": "vn_cohost",
+   "text": "Khoan đã anh. Sao không rang thật nhiều trước khi dọn, rồi để dành bán dần?"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Vì hạt rang ngon nhất trong vài tuần đầu, sau đó hương bay dần. Khách trả tiền cho Mây chính vì hạt lúc nào cũng mới. Khang nhìn lên bảng trắng, nơi Vy vừa viết hai con số: sáu mươi ngày, và sáu tháng. Anh nói với cả nhóm:"
+  },
+  {
+   "phrase": "p1"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Clock là đồng hồ. Câu này nghĩa là mình đang chạy đua với đồng hồ: hạn chót có thật, mỗi ngày trôi qua là mất một phần cơ hội. Dùng trong họp để cả đội hiểu độ gấp, và nhớ nói kèm hạn chót cụ thể. Nó nghe nghiêm túc nhưng bình tĩnh, không phải kiểu than trời."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Vy cầm bút lông, kẻ ba cột lên bảng:"
+  },
+  {
+   "phrase": "p2"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Weigh là cân. Ở đây là đặt từng phương án lên bàn cân, so cái được và cái mất trước khi chọn. Câu này giúp cuộc họp bớt cảm tính, nhất là khi trong phòng đã có người thích sẵn một phương án. Mà hôm đó, đúng là có một người như vậy."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Cột thứ nhất: xin chủ mới cho ở thêm. Nhưng ông Quân, chủ mới, làm bất động sản, bận và cứng. Khang gọi ba lần, không ai bắt máy, tin nhắn chỉ hiện chữ đã xem. Cột thứ hai của anh Đạt: một nhà kho ở Thủ Đức, xa gần một tiếng xe máy, nơi một xưởng rang vừa phá sản. Nhà kho, tiếng Anh là"
+  },
+  {
+   "word": "w4"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Khang chỉ gật đầu cho có. Vì cột thứ ba là của anh: một căn nhà phố trên đường Pasteur, quận Một, mặt tiền kính, tầng trệt làm quán, phía sau đặt máy rang. Người đi đường sẽ nhìn thấy hạt đang rang qua lớp kính. Giấc mơ thương hiệu của Khang, giờ có hẳn một địa chỉ."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Chiều thứ Hai, cô môi giới tên Kim, áo dài xanh, giày cao gót, mở cửa bằng một chùm chìa khoá leng keng. Sàn gỗ, trần cao năm mét, nắng chiều đổ qua cửa kính. Vy ra đứng bên kia đường, bấm máy đếm: mười lăm phút, bốn trăm hai mươi người đi ngang. Lượng người qua lại trước cửa hàng, tiếng Anh gọi là"
+  },
+  {
+   "word": "w5"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Giá thuê hai trăm năm mươi triệu một tháng. Ký trong tuần, chủ nhà tặng tháng đầu tiên. Có điều, một chuỗi trà sữa cũng đang hỏi, nên chậm nhất sáng thứ Sáu phải đặt cọc."
+  },
+  {
+   "speaker": "vn_cohost",
+   "text": "Lại hạn chót sáng thứ Sáu. Nghe quen quen anh nhỉ."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Quen lắm. Mới tuần trước, Khang cũng bị một hạn chót sáng thứ Sáu ép ký. Lần này anh không để ý, nhưng Vy thì có. Cô hỏi chị Kim, giọng nhẹ nhàng:"
+  },
+  {
+   "phrase": "p3"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "The catch là cái giá ẩn, điều kiện người ta chưa nói ra. Hỏi câu này là ngầm nói: nghe tốt quá, chắc phải có gì đó. Nói bằng giọng nhẹ thì hoàn toàn lịch sự."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Chị Kim cười tươi: toàn điều khoản tiêu chuẩn thôi chị. Thuê năm năm, tiền thuê tăng mười phần trăm mỗi năm, và vì công ty còn non, anh Khang ký bảo lãnh cá nhân, thủ tục thôi mà. Còn khoản tiền giao trước cho chủ nhà, để bảo đảm mình làm đúng hợp đồng, phải bằng sáu tháng tiền thuê. Tiền đặt cọc, tiếng Anh là"
+  },
+  {
+   "word": "w6"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Tối đó, Khang về nhà vẽ thử logo Mây lên mặt tiền kính. Còn Vy pha một ấm trà, lấy cây bút dạ quang vàng, và đọc bốn mươi trang, bắt đầu từ trang một.",
+   "pause_ms": 900
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Mười một giờ đêm, cô gửi Khang ba tấm ảnh. Tấm thứ nhất là tiền. Tăng mười phần trăm mỗi năm nghe thì nhỏ, nhưng tăng chồng lên nhau: tới năm thứ năm, mỗi tháng gần ba trăm bảy mươi triệu. Cộng năm năm, hơn mười tám tỷ đồng. Chưa kể tiền cọc một tỷ rưỡi, nằm im trong túi chủ nhà suốt năm năm."
+  },
+  {
+   "speaker": "vn_cohost",
+   "text": "Một tỷ rưỡi tiền cọc. Bình thường người ta cọc mấy tháng hả anh?"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Mặt bằng kinh doanh ở Sài Gòn thường cọc hai đến ba tháng. Sáu tháng là rất cao. Nhưng tấm ảnh thứ hai mới làm Khang tỉnh ngủ hẳn. Trang mười chín: ông Trần Minh Khang cam kết thanh toán mọi nghĩa vụ của bên thuê, nếu công ty không thanh toán. Bảo lãnh cá nhân, tiếng Anh gọi là"
+  },
+  {
+   "word": "w7"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bạn hiểu thế này. Người góp vốn vào công ty chỉ chịu trách nhiệm trong phạm vi số vốn đã góp, gọi là trách nhiệm hữu hạn. Làm ăn thua lỗ thì công ty mất tiền của công ty, còn nhà cửa, tiền tiết kiệm riêng của người sáng lập được tách ra. Bảo lãnh cá nhân xé đúng tấm khiên đó. Mây không trả nổi, chủ nhà đòi thẳng Khang, đòi tới căn hộ anh đang trả góp ở Bình Thạnh."
+  },
+  {
+   "speaker": "vn_cohost",
+   "text": "Nhưng nếu Mây cứ trả tiền đều đặn thì cái bảo lãnh đó đâu có sao, đúng không anh?"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Đúng, nếu mọi thứ suôn sẻ. Nhưng hợp đồng không viết cho những ngày suôn sẻ. Tấm ảnh thứ ba là về một điều khoản mà Vy lật hết bốn mươi trang vẫn không thấy: điều khoản cho bên thuê chấm dứt hợp đồng sớm. Tiếng Anh gọi là"
+  },
+  {
+   "word": "w8"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Hợp đồng tử tế thường có nó, chẳng hạn: sau hai năm, bên thuê được trả mặt bằng nếu báo trước ba tháng, mất cọc là cùng. Hợp đồng này thì ngược lại: chấm dứt trước hạn phải trả tiền thuê cho toàn bộ thời gian còn lại. Giả sử sau một năm Mây phải đi, bốn năm còn lại là hơn mười lăm tỷ. Mây không trả nổi thì ai trả? Quay lại trang mười chín."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Tin nhắn cuối của Vy: còn một chuyện. Chị Kim nói chắc chắn xin được phép rang ở đây. Chữ chắc chắn đó không có trong hợp đồng.",
+   "pause_ms": 900
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Sáng thứ Ba, Khang vẫn chưa chịu buông. Mình đàm phán được mà, anh nói. Anh gọi chị Kim, bật loa ngoài, nói chậm, rõ từng chữ:"
+  },
+  {
+   "phrase": "p4"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Not comfortable nghe nhẹ, nhưng trong hợp đồng, đây là lời từ chối rõ ràng: điều khoản này tôi chưa chấp nhận, mà vẫn mở cửa cho thương lượng. Người Việt mình hay nói vòng vo kiểu để em xem lại, làm bên kia tưởng mình đã đồng ý. Nói xong câu này, hãy chỉ rõ điều khoản nào và vì sao."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Chị Kim xin mười phút để hỏi chủ nhà. Khi gọi lại, giọng chị vẫn ngọt, nhưng câu trả lời cứng như cánh cửa sắt:"
+  },
+  {
+   "phrase": "p5"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Non negotiable là không thể thương lượng, không bàn thêm. Nghe câu này, đừng vội cãi, hãy hỏi những điểm nào khác còn bàn được. Còn khi chính bạn nói, dùng ít thôi, cũng như deal breaker ở tập trước, nói nhiều thì mất giá."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Khang cúp máy, im lặng rất lâu. Rồi anh nói một câu Vy không ngờ tới: hay anh cứ ký. Cùng lắm thì bán căn hộ. Quận Một đáng để liều."
+  },
+  {
+   "speaker": "vn_cohost",
+   "text": "Trời. Anh ấy định đặt cả căn hộ của mình vào đó thật hả anh?"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Thật. Đó đúng là kiểu quyết định mà người lạc quan, ghét nói không, rất dễ đưa ra. Nếu là Vy, bạn sẽ nói gì?",
+   "pause_ms": 1200
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Vy chỉ hỏi một câu: người ta mua cà phê Mây vì đi ngang qua xưởng, hay vì hạt ngon và giao đúng giờ? Ki ốt nằm trong toà văn phòng, khách đặt hạt qua ứng dụng. Chưa ai từng đi bộ ngang qua xưởng rang của Mây. Tối đó, chú Bảo nói qua điện thoại: chú xuất khẩu cà phê ba mươi năm, chưa bán được bao nào nhờ cái kho đẹp. Chỗ rang là nhà máy. Chỗ bán mới cần mặt tiền."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bốn giờ sáng thứ Tư, lần đầu tiên sau ba năm, anh Đạt không có mặt ở xưởng. Anh chạy xe máy lên Thủ Đức. Ở cổng nhà kho, anh Thịnh đang chờ, tay cầm hai ly cà phê. Anh Thịnh là thợ rang trưởng cũ của xưởng Mộc, bên thuê kho này suốt bốn năm trước khi phá sản. Người thuê, bên thuê, tiếng Anh là"
+  },
+  {
+   "word": "w9"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Mộc phá sản vì mở quán quá nhanh, chứ không phải vì cái xưởng. Mái tôn cao, mùi cà phê cũ bám trên thanh kèo, tờ lịch dừng ở tháng Ba. Và ở góc trong cùng: một hệ thống hút khói hoàn chỉnh, bộ lọc vỏ lụa, bộ đốt khói, ống khói thép cao mười hai mét, thiết kế cho máy gấp đôi máy của Mây. Anh Thịnh còn đưa ra bìa hồ sơ: giấy phép cũ, nghiệm thu phòng cháy, kết quả đo khí thải năm ngoái, đạt cả."
+  },
+  {
+   "speaker": "vn_cohost",
+   "text": "Vậy là Mây được dùng luôn giấy phép của người ta hả anh?"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Không, chỗ này phải nói cho chính xác. Giấy phép đứng tên Mộc, không chuyển sang người mới được. Mây vẫn phải nộp hồ sơ mới, đo lại khí thải sau khi lắp máy, chờ kiểm tra. Nhưng phần lâu nhất của lần trước, thiết kế, xây hệ thống và chứng minh nó đạt, thì đã có sẵn và từng được duyệt. Anh Thịnh ước tính: sáu đến tám tuần, thay vì sáu tháng."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Sáu giờ sáng, anh Đạt gọi Khang, cuộc gọi dài nhất của anh trong ba năm, mà cũng chỉ ba câu. Lò nóng sẵn rồi anh. Mình chỉ cần đổ hạt vào. Anh lên coi đi."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Chiều đó, cả ba gặp chủ kho, bà Điệp, gần bảy mươi tuổi, tóc bạc cắt ngắn, nhìn ai cũng như đang thẩm định. Giá thuê bảy mươi triệu, chưa bằng một phần ba căn nhà ở Pasteur. Nhưng Mộc nợ bà bốn tháng tiền thuê rồi biến mất, nên bà đòi cọc sáu tháng, bảo lãnh cá nhân, tăng giá mười phần trăm mỗi năm, ký là tính tiền. Mà kho thì mái dột, điện yếu, phải sửa ít nhất hai tháng."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Vy tính nhanh: hai tháng sửa, cộng thời gian chờ giấy phép, là gần ba tháng trả tiền thuê cho một cái kho chưa rang được hạt nào. Cô nhìn thẳng bà Điệp:"
+  },
+  {
+   "phrase": "p6"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Rent free là miễn tiền thuê, period là một khoảng thời gian. Thường là vài tháng ở đầu hợp đồng, để bên thuê sửa sang trước khi kinh doanh. Với mặt bằng thương mại, đề nghị này rất bình thường. Mẹo nhỏ: hỏi kèm lý do và số tháng, như Vy. Giai đoạn sửa sang, lắp đặt ấy, tiếng Anh gọi là"
+  },
+  {
+   "word": "w10"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bà Điệp nói: một tháng. Còn cọc và bảo lãnh thì không bàn. Rồi bà đứng dậy. Trên đường về, ngồi ở quán cóc ven xa lộ, Khang nói ra điều cả ba đang nghĩ. Kể cả bà Điệp gật đầu ngay ngày mai, với sáu mươi ngày, Mây vẫn phải ngừng rang ít nhất một tháng. Và trên bàn đàm phán, ai cần gấp hơn, người đó yếu thế hơn."
+  },
+  {
+   "speaker": "vn_cohost",
+   "text": "Vậy là phải quay lại cột thứ nhất, cái ông chủ mới không chịu nghe máy đó hả anh?"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Đúng vậy. Lần này Khang nhờ cô Hạnh. Cô vẫn áy náy, nên gọi thẳng cho ông Quân, xin cho Khang mười phút, bảy giờ sáng thứ Hai. Tối Chủ nhật, Khang nói anh sẽ vào xin thêm ba mươi ngày. Vy lắc đầu: tuần trước ở khách sạn anh làm được rồi mà. Đừng xin. Hãy đề nghị. Ông ấy cần gì mà mình có?"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Cả đêm, Khang tìm hiểu. Ông Quân sẽ xây một toà văn phòng hai mươi tầng, hai năm nữa xong. Toà nhà mới cần nhất là người thuê. Và người đi thuê văn phòng ở Sài Gòn hay hỏi hai câu: chỗ đậu xe thế nào, và dưới sảnh có cà phê ngon không."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bảy giờ sáng thứ Hai. Ông Quân, áo sơ mi trắng xắn tay, hai chiếc điện thoại úp trên bàn, cứ vài giây lại rung. Khang mở đầu bằng chuyện căn nhà, mùi cà phê ngấm trong tường. Được đúng một phút, ông Quân giơ tay lên:"
+  },
+  {
+   "phrase": "p7"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Chase là cảnh rượt đuổi. Câu này có gốc từ phim câm Mỹ ngày xưa: cắt ngay tới cảnh rượt đuổi, đoạn hay nhất. Nghĩa là vào thẳng vấn đề, bỏ qua phần dạo đầu. Nó hơi thẳng, nên với sếp hay khách hàng, bạn thêm chữ so ở đầu cho mềm. Ai nói câu này với bạn là đang chờ bạn nói con số."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Khang nói đúng những gì đã tập. Mây cần thêm ba mươi ngày, trả tiền thuê như cũ, đi đúng ngày thứ chín mươi, trễ một ngày phạt mười triệu, ghi vào hợp đồng. Đổi lại, khi toà nhà xong, Mây mở quầy cà phê ở sảnh, ăn chia theo doanh thu. Và ngay tháng sau, Mây đặt một quầy cà phê ở văn phòng bán hàng của ông, để khách đến xem dự án có ly cà phê ngon trong tay."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Ông Quân gõ cây bút lên bàn, rồi nói: giấy phép xây dựng của tôi sớm nhất tháng thứ tư mới có. Ba mươi ngày đó, căn nhà để không cũng là để không. Được. Rồi ông thêm một câu làm Khang suýt bật cười: văn phòng của vợ ông đặt hạt Mây mỗi tuần, mà ông chưa từng biết nó được rang ngay trong căn nhà mình vừa mua."
+  },
+  {
+   "speaker": "vn_cohost",
+   "text": "Vậy giờ Mây có chín mươi ngày. Nhưng thêm ba mươi ngày thì giúp gì khi quay lại gặp bà Điệp hả anh?"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Giúp được thứ quý nhất trên bàn đàm phán: Mây không còn là bên cần gấp hơn. Kho có thể sửa xong trước khi dời máy, khoảng ngừng rang chỉ còn chừng hai tuần. Còn bà Điệp thì sao? Vy đã tìm hiểu: kho trống tám tháng, mỗi tháng bà mất bảy mươi triệu, chưa có ai khác tới xem."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Thứ Tư, quay lại Thủ Đức, Khang đặt lên bàn một tờ giấy, và mở đầu bằng chính câu của ông Quân: mình vào thẳng vấn đề nhé. Mây thuê năm năm, lâu hơn bà mong. Mây tự thay mái, kéo điện ba pha, để lại hết cho kho. Đổi lại: ba tháng miễn tiền thuê. Cọc hai tháng chứ không phải sáu. Giá tăng không quá năm phần trăm mỗi năm. Sau hai năm được chấm dứt nếu báo trước ba tháng."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bà Điệp gõ ngón tay vào chỗ còn thiếu: thế còn bảo lãnh cá nhân? Khang nhìn thẳng bà, và lần này đến lượt anh dùng chữ chị Kim từng nói với mình: không bảo lãnh cá nhân, điểm này là non negotiable. Rồi anh giải thích để bà yên tâm: Mây vừa ký gọi vốn với một quỹ, báo cáo tài chính hằng tháng bà muốn xem thì Vy gửi. Mộc để lại cho bà một cái kho trống. Mây sẽ để lại một cái mái mới. Cái mái đó chính là khoản cọc lớn nhất."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bà Điệp im lặng rất lâu. Ngoài cổng, một chiếc container bóp còi. Rồi bà hỏi anh Đạt: máy của cậu, ống khói của tôi chịu nổi không? Anh Đạt đáp: dư sức bà, máy con chỉ bằng nửa máy cũ, mà lửa nhỏ đều thì rang mới bền. Bà Điệp bật cười, lần đầu tiên. Rồi bà ký."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bạn để ý nhé: giá thuê bảy mươi triệu không giảm một đồng. Thứ Mây đàm phán được là điều khoản. Ba tháng miễn tiền thuê là hai trăm mười triệu. Cọc hai tháng thay vì sáu giữ lại hai trăm tám mươi triệu tiền mặt. Mức tăng năm phần trăm thay vì mười bớt thêm gần năm trăm triệu sau năm năm. Và căn hộ của Khang vẫn là của Khang.",
+   "pause_ms": 900
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Chiều đó, Khang chạy xe ngang đường Pasteur. Căn nhà phố vẫn treo bảng cho thuê. Không thấy chuỗi trà sữa nào. Anh lật mặt sau một túi cà phê, viết một dòng: Pasteur, một ki ốt nhỏ, hợp đồng ngắn, khi nào đủ tiền. Giấc mơ quận Một không mất. Nó chỉ đổi kích thước, và đổi hợp đồng."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Hai tuần rưỡi sau, kho Thủ Đức đã có mái mới. Nhưng bảng tính của Vy lại có một ô đỏ. Dọn xưởng và sửa kho, kế hoạch một tỷ bốn, thực tế đã hai tỷ sáu: trạm điện đắt gấp đôi báo giá, lại thêm hệ thống chữa cháy tự động. Tiền của chú Bảo đã gần cạn: lương tháng trước, tiền ứng vụ mùa cho nông dân, và cái kho. Tiền của Lionheart lẽ ra về tuần này, nhưng hồ sơ góp vốn nước ngoài bị yêu cầu bổ sung. Ít nhất hai tuần nữa."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Chín giờ sáng thứ Năm, email từ khách sạn năm sao đang nợ Mây một tỷ tám. Khách sạn đổi đơn vị quản lý. Mọi khoản thanh toán cho nhà cung cấp tạm dừng, chưa biết đến bao giờ. Vy xoay màn hình về phía Khang, y như cái đêm bốn mươi bảy ngày. Trong tài khoản còn sáu trăm hai mươi triệu. Lương ba mươi tám người là sáu trăm tám mươi triệu. Ngày trả lương, mùng năm.",
+   "pause_ms": 900
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Còn chín ngày.",
+   "pause_ms": 1500
+  }
+ ],
+ "layer2": {
+  "intro": [
+   {
+    "speaker": "vn_host",
+    "text": "Giờ mình chuyển sang phần luyện nhanh. Bảy câu của hôm nay, mỗi câu bạn nghe chậm, có một khoảng lặng để nói theo, rồi nghe tốc độ thật, kèm hai ví dụ ở những tình huống công việc khác."
+   },
+   {
+    "speaker": "vn_host",
+    "text": "Sau bảy câu là mười từ vựng về thuê mặt bằng, và năm câu then chốt của phần tiếng Anh. Bạn cứ vừa làm việc vừa nhẩm theo nhé."
+   }
+  ],
+  "outro": [
+   {
+    "speaker": "vn_host",
+    "text": "Xong rồi. Nếu hôm nay chỉ nhớ được một câu, mình nghĩ nên là câu Khang nói với chị Kim, câu từ chối một điều khoản mà vẫn giữ được bàn đàm phán. Lần tới cầm một hợp đồng trong tay, bạn thử dùng nó xem."
+   },
+   {
+    "speaker": "vn_host",
+    "text": "Còn bây giờ, mình nghe lại cả câu chuyện, gọn hơn, hoàn toàn bằng tiếng Anh. Có một chi tiết nhỏ ở nhà kho mà phần tiếng Việt chưa kể, bạn nghe kỹ nhé."
+   }
+  ]
+ },
+ "layer3": [
+  {
+   "speaker": "Narrator",
+   "text": "Sixty days. That was how long May Coffee had to move a roaster that weighed almost a ton."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "Nine fifteen on a Friday night. Inside the roastery, thirty-eight people were still celebrating. Outside, Khang was on the phone with his landlord."
+  },
+  {
+   "speaker": "Hanh",
+   "text": "Khang, I'm so sorry. I've sold the house. Our lease says you have sixty days."
+  },
+  {
+   "speaker": "Khang",
+   "text": "Don't worry, Mrs Hanh. We'll figure it out."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "Then he went back inside and kept smiling. Khang hated saying no, and he hated bad news even more. Only Vy saw his face."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "Six a.m. on Saturday. Dat had been next to the roaster since four. He pointed at the chimney going up through the roof."
+  },
+  {
+   "speaker": "Dat",
+   "text": "Three years ago, we waited six months for the permit for that chimney."
+  },
+  {
+   "speaker": "Vy",
+   "text": "And the permit belongs to the address, not the machine. New address, new permit. We sell more than one and a half tons of roasted beans a week, and we have ten days of stock."
+  },
+  {
+   "speaker": "Khang",
+   "text": "Can't we roast a lot now and store it?"
+  },
+  {
+   "speaker": "Vy",
+   "text": "Fresh is the whole point, Khang. After a month, it's just expensive brown beans."
+  },
+  {
+   "speaker": "Khang",
+   "text": "Sixty days for the move. Six months for a permit. We're working against the clock."
+  },
+  {
+   "speaker": "Vy",
+   "text": "Then let's weigh our options."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "She drew three columns on the whiteboard. One: ask the new owner for more time. But he never answered Khang's calls. Two, from Dat: a warehouse in Thu Duc, an hour away in traffic, where a roaster had just gone bankrupt."
+  },
+  {
+   "speaker": "Khang",
+   "text": "And three. A shophouse on Pasteur Street, in District One. Glass front, a cafe downstairs, the roaster at the back. People walking past will watch our beans being roasted."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "On Monday, an agent called Ms Kim opened the door. Wooden floors, five-metre ceilings, afternoon sun. Across the street, Vy counted four hundred and twenty people in fifteen minutes."
+  },
+  {
+   "speaker": "Kim",
+   "text": "The best foot traffic in the city. Two hundred and fifty million dong a month, and if you sign this week, the first month is free. But a bubble tea chain is interested too, so I need the deposit by Friday morning."
+  },
+  {
+   "speaker": "Vy",
+   "text": "That sounds very generous, Ms Kim. What's the catch?"
+  },
+  {
+   "speaker": "Kim",
+   "text": "No catch at all! Just standard terms. A five-year lease. A six-month deposit. Ten percent more every year. And because your company is young, a personal guarantee from Mr Khang. It's only a formality."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "That night, Khang drew the May logo on a photo of the glass front. Vy made a pot of tea, took out her yellow highlighter, and read all forty pages. At eleven, she called him.",
+   "pause_ms": 600
+  },
+  {
+   "speaker": "Vy",
+   "text": "Three things. First, ten percent a year grows on top of itself. By year five, the rent is almost three hundred and seventy million a month. More than eighteen billion dong over five years, plus one and a half billion for the deposit."
+  },
+  {
+   "speaker": "Vy",
+   "text": "Second, page nineteen. We set up May with limited liability so that if the company fails, your home doesn't. The personal guarantee takes that protection away. If May can't pay, they can come after your apartment and your savings."
+  },
+  {
+   "speaker": "Khang",
+   "text": "But we're going to pay."
+  },
+  {
+   "speaker": "Vy",
+   "text": "Third. There is no break clause. If we leave early, we pay the rent until the end of the five years. If we leave after one year, we still owe more than fifteen billion dong. And who pays that? Go back to page nineteen."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "On Tuesday morning, Khang called Ms Kim on speaker."
+  },
+  {
+   "speaker": "Khang",
+   "text": "Ms Kim, about the personal guarantee. I'm not comfortable with that clause. Our company has limited liability for a reason."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "Ten minutes later, she called back. Her voice was still sweet. Her answer was not."
+  },
+  {
+   "speaker": "Kim",
+   "text": "I'm sorry, Mr Khang. The landlord says the personal guarantee is non-negotiable."
+  },
+  {
+   "speaker": "Khang",
+   "text": "Maybe I should just sign it. If things go wrong, I'll sell my apartment. District One is worth the risk."
+  },
+  {
+   "speaker": "Vy",
+   "text": "Khang, do people buy our coffee because they walk past it, or because it's fresh and it arrives on time? Our kiosks are in office buildings. Our customers order on an app. None of them has ever walked past our roaster."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "That evening, Uncle Bao said it more simply on the phone: in thirty years, I never sold a single bag of coffee because my warehouse was pretty."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "At four a.m. on Wednesday, for the first time in three years, Dat was not at the roastery. At the gate of the Thu Duc warehouse, his old friend Thinh was waiting with two coffees. Thinh had been head roaster at Moc Roasters, the previous tenant."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "Inside, under a high metal roof, the beams still smelled of coffee. A calendar on the wall still showed March. And in the far corner stood a complete ventilation system, a chaff collector, an afterburner, and a twelve-metre steel chimney, built for a roaster twice the size of May's. Thinh handed over a folder: the old permit, the fire safety approval, and last year's emissions test. Everything had passed."
+  },
+  {
+   "speaker": "Dat",
+   "text": "Khang, the oven is already hot. We just need to put the beans in. Come and see."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "That afternoon, they all drove up to Thu Duc, and Vy made sure nobody got too excited."
+  },
+  {
+   "speaker": "Vy",
+   "text": "It isn't magic. The old permit is in Moc's name, so we still need a new application, new tests and a new inspection. But the system exists, and it was approved before. That's weeks, not months."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "The warehouse belonged to Mrs Diep, a woman of almost seventy with short grey hair, who looked at everyone as if she were checking their accounts."
+  },
+  {
+   "speaker": "Diep",
+   "text": "Seventy million a month. The last tenant left owing me four months of rent. So, a six-month deposit, a personal guarantee, ten percent more every year, and the rent starts the day you sign."
+  },
+  {
+   "speaker": "Vy",
+   "text": "Mrs Diep, the roof leaks and the power is too weak. The fit-out will take two months, and then we wait for the permit. That's almost three months of rent for a roastery that can't roast. Can we get a rent-free period?"
+  },
+  {
+   "speaker": "Diep",
+   "text": "One month. The deposit and the guarantee are non-negotiable."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "At a roadside cafe on the way back, trucks thundered past."
+  },
+  {
+   "speaker": "Khang",
+   "text": "Even if she says yes tomorrow, with sixty days we stop roasting for at least a month. We're still working against the clock, and whoever is in more of a hurry is weaker at the table."
+  },
+  {
+   "speaker": "Vy",
+   "text": "Then we need more time. Back to option one."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "This time, Mrs Hanh made the call for him. The new owner agreed to ten minutes, at seven on Monday morning."
+  },
+  {
+   "speaker": "Khang",
+   "text": "I'll ask him for thirty more days."
+  },
+  {
+   "speaker": "Vy",
+   "text": "You did it last week at the hotel, remember? Don't ask him for a favour. Make him an offer. What does he need that we have?"
+  },
+  {
+   "speaker": "Narrator",
+   "text": "Khang spent the night reading. Mr Quan was going to build a twenty-floor office tower, ready in two years. A new tower needs tenants. And in Saigon, tenants ask two questions. Where can we park? And is there good coffee downstairs?"
+  },
+  {
+   "speaker": "Narrator",
+   "text": "Monday, seven a.m. Two phones buzzed face down on Mr Quan's desk. Khang began with the story of the old house. After one minute, Mr Quan raised his hand."
+  },
+  {
+   "speaker": "Quan",
+   "text": "Mr Khang, I have ten minutes. Let's cut to the chase. What do you need, and what's in it for me?"
+  },
+  {
+   "speaker": "Khang",
+   "text": "Thirty more days, at the same rent. We leave on day ninety, and if we're late, we pay ten million dong a day. Put it in the contract. In return, May runs the coffee bar in your new lobby, on a share of revenue. And from next month, a coffee cart in your sales gallery, so every buyer has a cup of May in their hand."
+  },
+  {
+   "speaker": "Quan",
+   "text": "So I get a coffee bar, a coffee cart, and ten million a day if you're late. What's the catch?"
+  },
+  {
+   "speaker": "Khang",
+   "text": "No catch. We just need thirty days that you're not using."
+  },
+  {
+   "speaker": "Quan",
+   "text": "True. My building permit won't arrive before month four anyway. The house would just sit empty. All right. Deal. And by the way, my wife's office gets your beans every week. I had no idea they were roasted in the house I just bought."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "It was the best kind of deal: something that cost the other side nothing, and meant everything to May. Now the warehouse could be ready before the roaster moved, and the gap without roasting shrank to about two weeks. And Vy had learned that Mrs Diep's warehouse had been empty for eight months. Seventy million a month, lost."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "On Wednesday, Khang put a single sheet of paper on Mrs Diep's table."
+  },
+  {
+   "speaker": "Khang",
+   "text": "Mrs Diep, let's cut to the chase. We sign for five years. We pay for the new roof and the three-phase power, and it all stays with your warehouse. In return, a three-month rent-free period for the fit-out and the permit. A two-month deposit, not six. Rent increases capped at five percent. And a break clause after two years, with three months' notice."
+  },
+  {
+   "speaker": "Diep",
+   "text": "A way out after two years? I'm not comfortable with that clause."
+  },
+  {
+   "speaker": "Khang",
+   "text": "If we leave after two years, you keep the deposit and a building worth much more than the one we found. Let's weigh the options, Mrs Diep. Another empty year, or a tenant who fixes your roof."
+  },
+  {
+   "speaker": "Diep",
+   "text": "And the personal guarantee?"
+  },
+  {
+   "speaker": "Khang",
+   "text": "No personal guarantee. That's non-negotiable. But we send financial reports to our investors every month, and Vy can send you a copy. Moc left you an empty warehouse. We'll leave you a new roof. The new roof is the biggest deposit we can give you."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "Mrs Diep said nothing for a long time. Then she turned to Dat."
+  },
+  {
+   "speaker": "Diep",
+   "text": "Your roaster. Can my chimney handle it?"
+  },
+  {
+   "speaker": "Dat",
+   "text": "Easily. Ours is half the size of the old one. And a small, steady fire roasts best."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "For the first time, Mrs Diep laughed. Then she signed. Before they left, she pulled a dusty bag of green beans from under her desk. Moc's last bag. Tied to it was a handwritten note. For whoever comes next. Don't grow too fast.",
+   "pause_ms": 800
+  },
+  {
+   "speaker": "Narrator",
+   "text": "The rent did not move by a single dong. The three-month rent-free period was worth two hundred and ten million. The smaller deposit kept two hundred and eighty million in the bank. The five percent cap would save almost five hundred million over five years. And Khang's apartment still belonged to Khang."
+  },
+  {
+   "speaker": "Vy",
+   "text": "We didn't negotiate the rent. We negotiated the terms."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "That afternoon, Khang rode down Pasteur Street. The shophouse still had a For Rent sign in the window. No bubble tea chain. On the back of an empty coffee bag, he wrote one line. A small kiosk here, a one-year lease, when we can afford it."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "Two and a half weeks later, the warehouse had a new roof and the sound of drills from morning to night. But in Vy's spreadsheet, one cell was red again.",
+   "pause_ms": 700
+  },
+  {
+   "speaker": "Vy",
+   "text": "The move and the fit-out were supposed to cost one point four billion. We've spent two point six. And Lionheart's money is late. The paperwork for foreign investors needs more documents. Two more weeks, at least. And Uncle Bao's money is almost gone. Last month's payroll, the harvest advance for the farmers, and this warehouse."
+  },
+  {
+   "speaker": "Narrator",
+   "text": "At nine on Thursday morning, an email arrived from the five-star hotel that still owed May one point eight billion dong. Due to a change of management, all payments to suppliers were on hold until further notice."
+  },
+  {
+   "speaker": "Vy",
+   "text": "We have six hundred and twenty million in the bank. Payroll is six hundred and eighty million. And payroll is on the fifth.",
+   "pause_ms": 900
+  },
+  {
+   "speaker": "Narrator",
+   "text": "Nine days.",
+   "pause_ms": 1500
+  }
+ ],
+ "closing": [
+  {
+   "speaker": "vn_host",
+   "text": "Bài học của tập này: mặt bằng đẹp nhất chưa chắc là hợp đồng tốt nhất. Hãy đọc từng điều khoản, nhất là những chữ được gọi là tiêu chuẩn. Và khi đàm phán, đừng chỉ mặc cả giá thuê, hãy mặc cả điều kiện: thời gian miễn tiền thuê, tiền cọc, mức tăng giá, cánh cửa ra, và ai là người chịu rủi ro."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Còn Mây Coffee, vừa giữ được xưởng rang, giờ lại sắp không giữ được lời hứa với chính ba mươi tám người của mình. Sáu trăm hai mươi triệu trong tài khoản, sáu trăm tám mươi triệu tiền lương, và chín ngày. Tập ba của Đường Băng: khủng hoảng dòng tiền. Hẹn bạn ở tập sau."
+  }
+ ],
+ "summary_vi": "Chủ nhà quận Ba bán nhà, Mây Coffee có sáu mươi ngày để dời máy rang gần một tấn, trong khi giấy phép môi trường lần trước mất sáu tháng.\nKhang mê căn nhà phố đường Pasteur quận Một, nhưng Vy đọc hợp đồng và tìm ra cọc sáu tháng, tăng giá mười phần trăm mỗi năm, không có điều khoản chấm dứt sớm và bảo lãnh cá nhân bằng căn hộ của Khang; chủ nhà nói điểm đó không thể thương lượng.\nAnh Đạt tìm ra nhà kho ở Thủ Đức của xưởng Mộc đã phá sản, có sẵn hệ thống hút khói từng được duyệt, giúp xin giấy phép trong vài tuần thay vì sáu tháng.\nÔng Quân, chủ mới, cho ở thêm ba mươi ngày để đổi lấy quầy cà phê của Mây ở sảnh toà nhà mới; có thời gian trong tay, Mây ký với bà Điệp: ba tháng miễn tiền thuê, cọc hai tháng, tăng tối đa năm phần trăm, được chấm dứt sau hai năm, không bảo lãnh cá nhân.\nNhưng sửa kho tốn gần gấp đôi dự tính, tiền Lionheart chậm hai tuần, khách sạn nợ một tỷ tám tạm dừng mọi khoản thanh toán, và chỉ còn chín ngày tới ngày trả lương."
+}
