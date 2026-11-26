@@ -1,0 +1,1042 @@
+{
+  "part": 2,
+  "kind": "case_study",
+  "version": 2,
+  "date": "2026-11-27",
+  "title_vi": "Ngày Starbucks đóng cửa",
+  "title_en": "The Day Starbucks Closed Its Doors",
+  "topic": "Starbucks 2007–2008, tăng trưởng quá nhanh, hàng hoá hoá thương hiệu, tái cấu trúc, đào tạo nhân viên, quay về giá trị cốt lõi",
+  "subject": "Starbucks",
+  "cast": {
+    "Narrator": "en_male",
+    "Cohost": "en_female"
+  },
+  "phrases": [
+    {
+      "id": "p1",
+      "en": "We grew too fast.",
+      "vi": "Chúng ta đã lớn quá nhanh.",
+      "note_vi": "Câu thừa nhận một sai lầm chiến lược mà không đổ lỗi cho riêng ai, vì chữ we gom cả tập thể vào. Grew là quá khứ của grow, đừng nói growed.",
+      "forms": [
+        "grew too fast"
+      ],
+      "context_vi": "Câu đầu tiên. Bạn dùng câu này trong buổi tổng kết, khi nói với nhà đầu tư hay với cả nhóm, để thừa nhận rằng công ty đã mở rộng nhanh hơn khả năng giữ chất lượng, giữ dòng tiền hay giữ con người. Giọng bình tĩnh, nhận trách nhiệm chung.",
+      "examples": [
+        {
+          "en": "We grew too fast and hired twenty people before we had a training plan.",
+          "vi": "Chúng tôi lớn quá nhanh, tuyển hai mươi người trước khi có kế hoạch đào tạo."
+        },
+        {
+          "en": "Looking back, the startup grew too fast and ran out of cash in one year.",
+          "vi": "Nhìn lại, công ty khởi nghiệp ấy lớn quá nhanh và cạn tiền chỉ trong một năm."
+        }
+      ],
+      "recall_vi": "Câu tóm tắt giai đoạn giữa những năm hai nghìn, khi Starbucks mở hơn hai nghìn cửa hàng mỗi năm và đặt mục tiêu bốn mươi nghìn cửa hàng."
+    },
+    {
+      "id": "p2",
+      "en": "We've lost sight of what matters.",
+      "vi": "Chúng ta đã quên mất điều thật sự quan trọng.",
+      "note_vi": "Lose sight of something là không còn nhìn thấy, quên mất điều gì vì mải lo chuyện khác. Luôn có giới từ of và một tân ngữ phía sau.",
+      "forms": [
+        "lost sight of"
+      ],
+      "context_vi": "Câu thứ hai. Bạn dùng câu này khi cả nhóm mải mê với quy trình, con số hay việc vặt đến mức quên mục tiêu thật: khách hàng, chất lượng, lý do mình làm việc này. Câu nghe nghiêm túc nhưng không gay gắt, hợp để mở đầu một cuộc họp nhìn lại.",
+      "examples": [
+        {
+          "en": "With all these internal meetings, we've lost sight of what matters: our clients.",
+          "vi": "Với ngần ấy cuộc họp nội bộ, chúng ta đã quên mất điều quan trọng: khách hàng của mình."
+        },
+        {
+          "en": "The team lost sight of the deadline because everyone was fixing small details.",
+          "vi": "Cả nhóm quên mất hạn chót vì ai cũng mải sửa những chi tiết nhỏ."
+        }
+      ],
+      "recall_vi": "Câu tóm ý bản ghi nhớ của Howard Schultz ngày mười bốn tháng hai năm hai nghìn không trăm lẻ bảy, lo rằng trải nghiệm Starbucks đã bị làm nhạt đi."
+    },
+    {
+      "id": "p3",
+      "en": "The numbers don't lie.",
+      "vi": "Con số không biết nói dối.",
+      "note_vi": "Dùng để đưa cuộc tranh luận về dữ liệu thay vì cảm nhận. Câu khá mạnh, nên với cấp trên có thể mở đầu bằng I think cho mềm hơn. Numbers số nhiều, động từ là don't.",
+      "forms": [
+        "numbers don't lie"
+      ],
+      "context_vi": "Câu thứ ba. Bạn dùng câu này khi mọi người đang tranh luận bằng cảm giác, còn bạn có dữ liệu trong tay: doanh số, lượt khách, tỷ lệ khiếu nại. Nó kéo cả phòng họp quay về sự thật, dù sự thật ấy không dễ nghe.",
+      "examples": [
+        {
+          "en": "I like the new design too, but the numbers don't lie: fewer people are buying.",
+          "vi": "Tôi cũng thích thiết kế mới, nhưng con số không nói dối: ít người mua hơn."
+        },
+        {
+          "en": "Complaints doubled this month, and the numbers don't lie, so we have to act.",
+          "vi": "Khiếu nại tháng này tăng gấp đôi, con số không nói dối, nên chúng ta phải hành động."
+        }
+      ],
+      "recall_vi": "Câu mô tả tháng mười một năm hai nghìn không trăm lẻ bảy, khi Starbucks lần đầu báo lượt khách ở Mỹ giảm và cổ phiếu có năm tệ nhất từ trước tới khi ấy."
+    },
+    {
+      "id": "p4",
+      "en": "We need to get back to basics.",
+      "vi": "Chúng ta cần quay về những điều căn bản.",
+      "note_vi": "Dùng khi mọi thứ đã quá phức tạp và cần làm thật tốt phần nền tảng. Câu tích cực, không trách móc. Basics luôn ở số nhiều.",
+      "forms": [
+        "back to basics"
+      ],
+      "context_vi": "Câu thứ tư. Bạn dùng câu này khi một sản phẩm có quá nhiều tính năng, một nhóm có quá nhiều mục tiêu, hay một công ty đi quá xa khỏi thế mạnh ban đầu. Nó mời mọi người tập trung lại vào vài việc quan trọng nhất và làm thật tốt.",
+      "examples": [
+        {
+          "en": "Our app has too many features, so we need to get back to basics.",
+          "vi": "Ứng dụng của mình có quá nhiều tính năng, nên chúng ta cần quay về những điều căn bản."
+        },
+        {
+          "en": "After a bad quarter, the sales team went back to basics and called customers every day.",
+          "vi": "Sau một quý tệ, đội bán hàng quay về điều căn bản và gọi cho khách hàng mỗi ngày."
+        }
+      ],
+      "recall_vi": "Câu nói lên tinh thần khi Howard Schultz trở lại làm tổng giám đốc tháng một năm hai nghìn không trăm lẻ tám và bắt đầu từ chính ly espresso."
+    },
+    {
+      "id": "p5",
+      "en": "Let's go back to the drawing board.",
+      "vi": "Hãy làm lại từ đầu.",
+      "note_vi": "Nghĩa đen là quay lại bàn vẽ thiết kế. Dùng khi một ý tưởng hay một bản kế hoạch không thành và cần thiết kế lại. Giọng thoải mái, không bi quan.",
+      "forms": [
+        "back to the drawing board"
+      ],
+      "context_vi": "Câu thứ năm. Bạn dùng câu này khi khách hàng từ chối bản đề xuất, khi sản phẩm thử nghiệm thất bại, hay khi cả nhóm nhận ra kế hoạch không ổn. Nó nói rằng thất bại chưa phải là hết, mình chỉ cần thiết kế lại từ con số không.",
+      "examples": [
+        {
+          "en": "The client rejected our proposal, so let's go back to the drawing board.",
+          "vi": "Khách hàng đã từ chối đề xuất của mình, vậy hãy làm lại từ đầu."
+        },
+        {
+          "en": "The test results were poor, so the engineers went back to the drawing board.",
+          "vi": "Kết quả thử nghiệm kém, nên các kỹ sư làm lại từ đầu."
+        }
+      ],
+      "recall_vi": "Câu mô tả việc Starbucks ngừng bán bánh sandwich ăn sáng nóng năm hai nghìn không trăm lẻ tám vì mùi lấn át cà phê, rồi quay lại với công thức mới."
+    },
+    {
+      "id": "p6",
+      "en": "It's short-term pain for long-term gain.",
+      "vi": "Đau trước mắt để được lợi lâu dài.",
+      "note_vi": "Dùng để bảo vệ một quyết định khó như tái cấu trúc hay cắt chi phí. Cẩn thận khi nói với chính người đang chịu phần đau, vì có thể nghe lạnh lùng.",
+      "forms": [
+        "short term pain"
+      ],
+      "context_vi": "Câu thứ sáu. Bạn dùng câu này khi đề xuất một thay đổi khiến mọi người vất vả lúc đầu, như chuyển sang hệ thống mới, cắt bớt sản phẩm hay đóng một chi nhánh, nhưng sẽ giúp công ty khoẻ hơn về sau. Hãy kèm theo cách bạn giảm bớt cái đau ấy.",
+      "examples": [
+        {
+          "en": "The new system will be hard for a month, but it's short-term pain for long-term gain.",
+          "vi": "Hệ thống mới sẽ vất vả trong một tháng, nhưng đó là đau trước mắt để được lợi lâu dài."
+        },
+        {
+          "en": "Cutting half of our product range is short-term pain for long-term gain.",
+          "vi": "Cắt một nửa dòng sản phẩm là đau trước mắt để được lợi lâu dài."
+        }
+      ],
+      "recall_vi": "Câu giải thích quyết định tháng bảy năm hai nghìn không trăm lẻ tám, khi Starbucks đóng khoảng sáu trăm cửa hàng kinh doanh kém ở Mỹ."
+    },
+    {
+      "id": "p7",
+      "en": "We need to win back our customers.",
+      "vi": "Chúng ta cần giành lại khách hàng.",
+      "note_vi": "Win back là lấy lại thứ từng có rồi để mất: khách hàng, niềm tin, thị phần. Chữ back ngầm thừa nhận rằng mình đã từng để mất họ.",
+      "forms": [
+        "win back"
+      ],
+      "context_vi": "Câu thứ bảy. Bạn dùng câu này sau một sự cố, một mùa kinh doanh tệ hay khi khách đã chuyển sang đối thủ. Nó vừa thừa nhận mình đã để mất khách, vừa đặt ra mục tiêu rõ ràng cho cả nhóm: làm gì để họ quay lại.",
+      "examples": [
+        {
+          "en": "After last month's delays, we need to win back our customers with faster delivery.",
+          "vi": "Sau những lần giao trễ tháng trước, chúng ta cần giành lại khách hàng bằng cách giao nhanh hơn."
+        },
+        {
+          "en": "A personal call from the manager helped us win back the client.",
+          "vi": "Một cuộc gọi trực tiếp từ quản lý đã giúp chúng tôi giành lại khách hàng đó."
+        }
+      ],
+      "recall_vi": "Câu nói lên mục tiêu của hội nghị ở New Orleans tháng mười năm hai nghìn không trăm lẻ tám, với khoảng mười nghìn quản lý cửa hàng Starbucks."
+    }
+  ],
+  "words": [
+    {
+      "id": "w1",
+      "en": "barista",
+      "vi": "người pha chế cà phê",
+      "forms": [
+        "barista"
+      ],
+      "example_en": "Customers want to watch the barista make their drink.",
+      "example_vi": "Khách muốn được nhìn người pha chế làm ly đồ uống của mình."
+    },
+    {
+      "id": "w2",
+      "en": "customer experience",
+      "vi": "trải nghiệm khách hàng",
+      "forms": [
+        "customer experience"
+      ],
+      "example_en": "Starbucks wasn't really selling coffee. It was selling a customer experience.",
+      "example_vi": "Starbucks thật ra không chỉ bán cà phê. Họ bán một trải nghiệm khách hàng."
+    },
+    {
+      "id": "w3",
+      "en": "expansion",
+      "vi": "sự mở rộng",
+      "forms": [
+        "expansion"
+      ],
+      "example_en": "The rapid expansion made it hard to keep the quality.",
+      "example_vi": "Sự mở rộng thần tốc khiến việc giữ chất lượng trở nên khó khăn."
+    },
+    {
+      "id": "w4",
+      "en": "commoditization",
+      "vi": "sự hàng hoá hoá, khi thứ đặc biệt trở thành hàng phổ thông",
+      "forms": [
+        "commoditization"
+      ],
+      "example_en": "Commoditization is when something special slowly becomes ordinary.",
+      "example_vi": "Hàng hoá hoá là khi một thứ đặc biệt dần trở nên bình thường."
+    },
+    {
+      "id": "w5",
+      "en": "same-store sales",
+      "vi": "doanh số của các cửa hàng đã mở từ một năm trở lên",
+      "forms": [
+        "same store sales"
+      ],
+      "example_en": "In 2008, same-store sales in the US turned negative.",
+      "example_vi": "Năm hai nghìn không trăm lẻ tám, doanh số cửa hàng cũ ở Mỹ chuyển sang âm."
+    },
+    {
+      "id": "w6",
+      "en": "shareholder",
+      "vi": "cổ đông",
+      "forms": [
+        "shareholder",
+        "shareholders"
+      ],
+      "example_en": "Shareholders were not happy with the falling share price.",
+      "example_vi": "Cổ đông không vui khi giá cổ phiếu đi xuống."
+    },
+    {
+      "id": "w7",
+      "en": "turnaround",
+      "vi": "cuộc xoay chuyển, vực dậy công ty",
+      "forms": [
+        "turnaround"
+      ],
+      "example_en": "Schultz came back as CEO and needed a turnaround plan.",
+      "example_vi": "Schultz trở lại làm tổng giám đốc và cần một kế hoạch vực dậy công ty."
+    },
+    {
+      "id": "w8",
+      "en": "retrain",
+      "vi": "đào tạo lại",
+      "forms": [
+        "retrain",
+        "retrained",
+        "retraining"
+      ],
+      "example_en": "The company closed its stores to retrain its baristas.",
+      "example_vi": "Công ty đóng cửa hàng để đào tạo lại người pha chế."
+    },
+    {
+      "id": "w9",
+      "en": "underperforming",
+      "vi": "kinh doanh kém, dưới kỳ vọng",
+      "forms": [
+        "underperforming"
+      ],
+      "example_en": "Starbucks closed about six hundred underperforming stores.",
+      "example_vi": "Starbucks đóng khoảng sáu trăm cửa hàng kinh doanh kém."
+    },
+    {
+      "id": "w10",
+      "en": "layoffs",
+      "vi": "đợt cắt giảm nhân sự, cho nghỉ việc",
+      "forms": [
+        "layoffs",
+        "layoff"
+      ],
+      "example_en": "Layoffs are not just numbers. Every one is a person.",
+      "example_vi": "Cắt giảm nhân sự không chỉ là con số. Mỗi trường hợp là một con người."
+    }
+  ],
+  "key_sentences": [
+    {
+      "en": "A coffee company closed its doors so its people could learn to make coffee again.",
+      "vi": "Một công ty cà phê đóng cửa để nhân viên của mình học lại cách pha cà phê."
+    },
+    {
+      "en": "For the first time ever, fewer customers were walking into Starbucks stores in the United States.",
+      "vi": "Lần đầu tiên, số khách bước vào các cửa hàng Starbucks ở Mỹ giảm đi."
+    },
+    {
+      "en": "Closing six hundred stores was a painful way to admit that the company grew too fast.",
+      "vi": "Đóng sáu trăm cửa hàng là một cách đau đớn để thừa nhận công ty đã lớn quá nhanh."
+    },
+    {
+      "en": "Before you can win back your customers, you have to win back your own people.",
+      "vi": "Trước khi giành lại khách hàng, bạn phải giành lại chính người của mình."
+    },
+    {
+      "en": "Every store you open too fast can take a little bit of the magic away.",
+      "vi": "Mỗi cửa hàng mở quá vội đều có thể lấy đi một chút điều kỳ diệu."
+    }
+  ],
+  "opening": [
+    {
+      "speaker": "vn_host",
+      "text": "Chiều thứ ba, ngày hai mươi sáu tháng hai năm hai nghìn không trăm lẻ tám. Năm giờ rưỡi chiều theo giờ địa phương. Trên khắp nước Mỹ, gần bảy nghìn một trăm cửa hàng Starbucks đồng loạt khoá cửa.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Không phải bão. Không phải đình công. Không phải sự cố kỹ thuật. Trên cửa kính là một tấm biển nhỏ, đại ý: cửa hàng tạm đóng để chúng tôi dành thời gian hoàn thiện ly espresso. Bên trong, nhân viên đứng quanh máy pha, học lại cách pha một ly cà phê."
+    },
+    {
+      "speaker": "vn_cohost",
+      "text": "Khoan đã chị. Một công ty bán cà phê, đóng cửa ngay giờ bán hàng, chỉ để dạy nhân viên pha cà phê? Họ đang mất tiền từng phút đấy."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Đúng vậy. Mất doanh thu, mất cả thể diện. Báo chí đưa tin khắp nơi, và đối thủ Dunkin' Donuts tranh thủ tung khuyến mãi ngay tối hôm đó. Vậy vì sao một công ty lại tự đóng cửa chính mình? Câu trả lời bắt đầu từ rất lâu trước buổi chiều ấy.",
+      "pause_ms": 1000
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Chào bạn, đây là BizStory English, Phần hai, case study có thật. Hôm nay là chuyện Starbucks những năm hai nghìn không trăm lẻ bảy và hai nghìn không trăm lẻ tám: một thương hiệu lớn quá nhanh, dần đánh mất chính thứ làm nên mình, và cuộc quay về đầy đau đớn do Howard Schultz dẫn dắt."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Mọi sự kiện và con số hôm nay dựa trên tài liệu công khai, cảnh nào dựng lại mình sẽ nói rõ. Bảy câu tiếng Anh bạn học là câu dân văn phòng hay nói trong tình huống tương tự, không phải lời của nhân vật thật. Người vừa hỏi xen là bạn đồng hành của mình hôm nay, sẽ giải nghĩa nhanh mười từ vựng trong truyện."
+    }
+  ],
+  "layer1": [
+    {
+      "speaker": "vn_host",
+      "text": "Muốn hiểu buổi chiều kỳ lạ ấy, mình phải quay lại từ đầu. Năm một nghìn chín trăm tám mươi hai, một người làm kinh doanh đồ gia dụng ở New York tên Howard Schultz chuyển tới Seattle, về làm cho một công ty nhỏ chuyên bán hạt cà phê rang. Công ty ấy tên là Starbucks."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Năm sau, ông sang Milan, nước Ý, công tác. Ông bị cuốn hút bởi những quán espresso nhỏ ở đó: người pha chế vừa pha vừa trò chuyện với khách, khách đứng ngay quầy, quán giống như phòng khách của cả khu phố. Ông muốn mang cảm giác ấy về Mỹ."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Theo lời kể của Schultz, những người chủ Starbucks khi đó chưa muốn bán đồ uống, nên ông ra riêng, mở quán của mình. Rồi năm một nghìn chín trăm tám mươi bảy, ông cùng một nhóm nhà đầu tư mua lại chính Starbucks, với giá khoảng ba phẩy tám triệu đô la."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Ý tưởng lớn của Schultz là nơi thứ ba: không phải nhà, không phải chỗ làm, mà là một nơi thứ ba để bạn thư giãn. Bạn không chỉ mua một ly cà phê. Bạn mua mười lăm phút trong một không gian ấm, mùi cà phê rang thơm, tiếng máy xay rè rè, và người đứng sau quầy gọi đúng tên bạn. Người đứng quầy pha chế ấy, tiếng Anh gọi là"
+    },
+    {
+      "word": "w1"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Tất cả những thứ đó cộng lại, từ mùi hương, âm nhạc, ánh đèn cho tới nụ cười ở quầy, dân kinh doanh gọi chung là"
+    },
+    {
+      "word": "w2"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Thứ trải nghiệm ấy bán rất chạy. Starbucks lên sàn chứng khoán năm một nghìn chín trăm chín mươi hai. Schultz làm tổng giám đốc tới năm hai nghìn, rồi lui về làm chủ tịch hội đồng quản trị. Starbucks lan ra khắp nước Mỹ, rồi khắp thế giới."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Rồi tốc độ ấy trở nên chóng mặt. Trong hai năm hai nghìn không trăm lẻ sáu và hai nghìn không trăm lẻ bảy, mỗi năm Starbucks mở thêm hơn hai nghìn cửa hàng, tức là trung bình mỗi ngày vài cửa hàng mới. Tháng mười năm hai nghìn không trăm lẻ sáu, công ty công bố mục tiêu dài hạn: bốn mươi nghìn cửa hàng trên toàn thế giới. Việc mở rộng ấy, tiếng Anh gọi là"
+    },
+    {
+      "word": "w3"
+    },
+    {
+      "speaker": "vn_cohost",
+      "text": "Bốn mươi nghìn cửa hàng! Vậy lúc đó họ đang có bao nhiêu hả chị?"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Khoảng mười hai nghìn. Tức là muốn gấp hơn ba lần. Đến cuối năm hai nghìn không trăm lẻ bảy, con số đã vào khoảng mười lăm nghìn. Người ta hay đùa rằng ở nhiều thành phố Mỹ, đứng trong một quán Starbucks, bạn có thể nhìn thấy quán Starbucks tiếp theo ở bên kia đường."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Để chạy nhanh như thế, mọi thứ phải nhanh hơn, rẻ hơn, đồng đều hơn. Nhiều nhà phân tích về sau nhận xét rằng Starbucks đã lớn nhanh hơn khả năng giữ chất lượng của chính mình. Nhìn lại giai đoạn ấy, người trong cuộc thường thừa nhận bằng một câu rất ngắn."
+    },
+    {
+      "phrase": "p1"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Chúng ta đã lớn quá nhanh. Câu này thừa nhận sai lầm mà không đổ lỗi cho riêng ai, vì chữ we gom cả tập thể vào. Hợp trong buổi tổng kết hay khi giải thích với nhà đầu tư. Grew là quá khứ của grow, đừng lỡ nói growed."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Điều bất ngờ là người lo lắng sớm nhất lại chính là người đã biến Starbucks thành chuỗi cà phê như ta biết. Ngày mười bốn tháng hai năm hai nghìn không trăm lẻ bảy, đúng ngày lễ tình nhân, Howard Schultz, khi ấy là chủ tịch, gửi một bản ghi nhớ nội bộ cho ban lãnh đạo. Tiêu đề của nó là thế này.",
+      "pause_ms": 700
+    },
+    {
+      "speaker": "en_male",
+      "text": "The Commoditization of the Starbucks Experience.",
+      "pause_ms": 1200
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Sự hàng hoá hoá trải nghiệm Starbucks. Hàng hoá hoá nghĩa là một thứ từng đặc biệt dần trở thành hàng phổ thông, giống hệt mọi thứ khác, đến mức khách chỉ còn so giá. Từ khoá ấy là"
+    },
+    {
+      "word": "w4"
+    },
+    {
+      "speaker": "vn_cohost",
+      "text": "Nghe nặng nề thật. Nhưng cụ thể thì ông ấy lo chuyện gì vậy chị?"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Bản ghi nhớ ấy về sau bị lộ ra ngoài, đăng trên một trang blog chuyên về Starbucks, rồi báo chí lớn đưa tin, và công ty xác nhận nó là thật. Đại ý, Schultz viết rằng để đi từ dưới một nghìn lên khoảng mười ba nghìn cửa hàng, công ty đã đưa ra hàng loạt quyết định mà nhìn lại, đã làm nhạt đi trải nghiệm Starbucks."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Ông nêu ví dụ. Máy pha espresso tự động giúp phục vụ nhanh hơn, nhưng máy cao, chắn mất tầm nhìn: khách không còn thấy người pha chế làm ly cà phê của mình, mất đi phần trình diễn và sự gần gũi."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Còn cà phê đóng gói kín để giữ hương thì tiện, nhưng cửa hàng không còn xúc hạt và xay ngay trước mặt khách. Và mùi cà phê, thứ mà theo ông có lẽ là tín hiệu không lời mạnh nhất của quán, dần biến mất."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Điều đáng chú ý là Schultz cũng viết rằng nhiều quyết định trong số đó, xét riêng từng cái, có lẽ đúng vào thời điểm ấy. Cái nguy hiểm là khi cộng tất cả lại. Và nên nhớ, suốt những năm ấy ông vẫn là chủ tịch, nên chính ông cũng là một phần của câu chuyện. Tóm ý bản ghi nhớ bằng tiếng Anh công sở, người ta sẽ nói thế này."
+    },
+    {
+      "phrase": "p2"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Chúng ta đã quên mất điều thật sự quan trọng. Phần lõi là lose sight of: nghĩa đen là không còn nhìn thấy, nghĩa bóng là quên mất vì mải lo chuyện khác. Câu nghiêm túc nhưng không gay gắt, hợp để mở đầu một buổi họp nhìn lại. Đừng quên giới từ of."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Năm hai nghìn không trăm lẻ bảy trôi qua, và bên ngoài, sức ép dồn tới. Các chuỗi như McDonald's và Dunkin' Donuts đẩy mạnh cà phê giá mềm hơn. Kinh tế Mỹ bắt đầu chao đảo vì khủng hoảng nhà đất."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Tháng mười một năm hai nghìn không trăm lẻ bảy, Starbucks báo cáo một điều chưa từng có: lần đầu tiên, lượt khách vào các cửa hàng ở Mỹ giảm, khoảng một phần trăm trong quý. Doanh thu vẫn tăng, một phần nhờ tăng giá. Nhưng số người bước qua cửa thì ít đi.",
+      "pause_ms": 800
+    },
+    {
+      "speaker": "vn_cohost",
+      "text": "Chỉ một phần trăm thôi mà chị. Có đáng lo đến vậy không?"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Với một công ty chỉ quen tăng trưởng, đó là đèn đỏ: khách ít đi nghĩa là sức hút đang yếu. Giới phân tích còn nhìn một chỉ số khác: doanh số của những cửa hàng đã mở từ một năm trở lên, để cửa hàng mới không che giấu vấn đề. Tiếng Anh gọi là"
+    },
+    {
+      "word": "w5"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Sang năm hai nghìn không trăm lẻ tám, chỉ số này ở Mỹ chuyển sang âm. Còn cổ phiếu Starbucks đã khép lại năm hai nghìn không trăm lẻ bảy với kết quả tệ nhất từ trước tới khi ấy. Những người nắm cổ phiếu, tức là cổ đông, tiếng Anh gọi là"
+    },
+    {
+      "word": "w6"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Cổ đông bắt đầu sốt ruột. Bạn có thể kể bao nhiêu câu chuyện đẹp về thương hiệu, nhưng khi bảng số liệu được chiếu lên trong phòng họp hội đồng quản trị, sẽ có người nói câu này."
+    },
+    {
+      "phrase": "p3"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Con số không biết nói dối. Câu này kéo cuộc tranh luận từ cảm nhận về dữ liệu. Nó khá mạnh, nên khi nói với sếp, bạn có thể mở đầu bằng I think cho mềm hơn. Và nhớ numbers ở số nhiều, nên động từ là don't, không phải doesn't."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Ngày bảy tháng một năm hai nghìn không trăm lẻ tám, Starbucks công bố: Howard Schultz trở lại làm tổng giám đốc, thay ông Jim Donald. Tám năm sau khi rời ghế điều hành, ông quay lại buồng lái. Và nhiệm vụ của ông có một cái tên trong tiếng Anh kinh doanh, nghĩa là vực dậy một công ty đang đi xuống.",
+      "pause_ms": 700
+    },
+    {
+      "word": "w7"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Công bằng mà nói, ông Jim Donald điều hành trong một giai đoạn rất khó, và chiến lược mở rộng được cả ban lãnh đạo lẫn hội đồng quản trị theo đuổi suốt nhiều năm. Câu chuyện này không có kẻ xấu, chỉ có một cỗ máy tăng trưởng chạy quá đà."
+    },
+    {
+      "speaker": "vn_cohost",
+      "text": "Vậy việc đầu tiên ông ấy làm là gì? Em đoán là cắt chi phí, đóng bớt cửa hàng."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Chuyện đó sẽ đến sau. Nhưng một trong những việc đầu tiên, và được nhớ tới nhiều nhất, lại là quay về ly cà phê: trước khi nghĩ tới tăng trưởng, hãy làm cho đúng điều căn bản nhất. Câu tiếng Anh bạn hay nghe trong phòng họp lúc ấy là câu này."
+    },
+    {
+      "phrase": "p4"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Chúng ta cần quay về những điều căn bản. Dùng khi một sản phẩm, một nhóm hay cả công ty đã đi quá xa, quá phức tạp, và cần làm thật tốt phần nền tảng. Câu tích cực, không trách móc. Basics luôn có chữ s ở cuối."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Và thế là ta quay lại buổi chiều ở đầu tập. Ngày mười một tháng hai, Starbucks công bố kế hoạch. Ngày hai mươi sáu tháng hai, gần bảy nghìn một trăm cửa hàng do công ty trực tiếp vận hành ở Mỹ đóng cửa khoảng ba tiếng. Theo công ty, khoảng một trăm ba mươi lăm nghìn nhân viên và quản lý được học lại cách pha espresso. Học lại, đào tạo lại, tiếng Anh là"
+    },
+    {
+      "word": "w8"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Đoạn sau đây là cảnh dựng lại để bạn dễ hình dung không khí, không phải ghi chép thật. Một cửa hàng ở ngoại ô, đèn trong quán vẫn sáng, nhưng cửa đã khoá. Ngoài cửa kính, vài khách quen dừng lại đọc tấm biển rồi bỏ đi. Bên trong là tiếng máy xay, tiếng hơi nước rít lên khi đánh sữa, mùi cà phê đậm đặc. Một nhóm người đeo tạp dề xanh đứng quanh quầy, chăm chú nhìn từng dòng espresso chảy xuống.",
+      "pause_ms": 1000
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Hết phần dựng lại. Còn đây là điều có ghi chép: theo báo chí đưa tin, buổi huấn luyện tập trung vào cách pha một shot espresso chuẩn và cách đánh sữa, và nhân viên được hướng dẫn rót espresso vào một ly nhỏ trước để kiểm tra chất lượng."
+    },
+    {
+      "speaker": "vn_cohost",
+      "text": "Nghe cũng hơi giống một màn quảng cáo. Có ai chê không chị?"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Có chứ. Một số nhà phân tích hoài nghi, cho rằng ba tiếng huấn luyện không thể sửa một vấn đề lớn như vậy. Nhưng nhiều người khác thấy đây là thông điệp rất mạnh gửi tới nhân viên: thứ quan trọng nhất ở đây là ly cà phê trong tay khách. Theo mình, chính vì thông điệp ấy đắt, nên người ta tin."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Những tháng sau đó, Starbucks làm lại nhiều thứ. Đầu tiên là bánh sandwich ăn sáng nóng. Món này bán khá chạy, nhưng theo nhiều bài báo thời đó, mùi phô mai nướng lấn át mùi cà phê trong quán. Cuối tháng một năm hai nghìn không trăm lẻ tám, Starbucks thông báo sẽ ngừng bán món này."
+    },
+    {
+      "speaker": "vn_cohost",
+      "text": "Bỏ một món đang bán chạy chỉ vì mùi? Nghe như mất tiền vì một lý do rất cảm tính."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Nghe thì vậy. Nhưng nhớ lại bản ghi nhớ: mùi cà phê là thứ Schultz coi là linh hồn của quán. Và họ không bỏ hẳn bữa sáng. Chưa đầy một năm sau, đồ ăn sáng quay lại với công thức mới. Khi một thứ không ổn và cần thiết kế lại từ con số không, người ta nói."
+    },
+    {
+      "phrase": "p5"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Hãy làm lại từ đầu. Nghĩa đen là quay lại bàn vẽ, nơi kiến trúc sư hay kỹ sư phác thảo bản thiết kế. Câu này nghe thoải mái, không bi quan: ý tưởng chưa thành thì ta vẽ lại. Phần lõi là drawing board, thường đi với động từ go."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Họ cũng làm lại cách lắng nghe khách hàng. Tháng ba năm hai nghìn không trăm lẻ tám, Starbucks mở trang web My Starbucks Idea, nơi khách gửi ý tưởng và bình chọn cho nhau. Tháng tư, họ ra mắt Pike Place Roast, đặt theo tên khu chợ Pike Place ở Seattle, nơi có cửa hàng Starbucks lâu đời nhất. Đó là loại cà phê pha hằng ngày, vị vừa phải, hạt được xay ngay tại quán và pha từng mẻ nhỏ. Mùi cà phê rang bắt đầu quay trở lại."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Nhưng cà phê ngon hơn vẫn chưa đủ. Vấn đề lớn nhất vẫn còn đó: quá nhiều cửa hàng. Ngày một tháng bảy năm hai nghìn không trăm lẻ tám, Starbucks công bố đóng khoảng sáu trăm cửa hàng của công ty ở Mỹ. Đó là những cửa hàng hoạt động dưới kỳ vọng, tiếng Anh gọi là",
+      "pause_ms": 600
+    },
+    {
+      "word": "w9"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Phần lớn những cửa hàng ấy mới mở từ năm hai nghìn không trăm lẻ sáu trở lại đây, tức là chính những cửa hàng của giai đoạn chạy đua. Theo thông báo của công ty, có tới khoảng mười hai nghìn vị trí việc làm bị ảnh hưởng, dù công ty nói sẽ cố chuyển nhiều người sang các cửa hàng gần đó."
+    },
+    {
+      "speaker": "vn_cohost",
+      "text": "Mười hai nghìn người. Đây là phần đau nhất của câu chuyện, phải không chị?"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Đúng vậy. Đằng sau mỗi con số là một người mất việc hoặc phải chuyển chỗ, với tiền nhà, tiền học của con. Những đợt cắt giảm nhân sự như thế, tiếng Anh gọi là"
+    },
+    {
+      "word": "w10"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Đây là lựa chọn mà bên nào cũng có giá. Giữ các cửa hàng ấy là giữ việc làm và giữ hình ảnh tăng trưởng, nhưng tiếp tục mất tiền. Đóng chúng là thừa nhận sai lầm trước cả thế giới. Ban lãnh đạo chọn đóng. Cách giải thích quen thuộc cho một quyết định như vậy là câu này."
+    },
+    {
+      "phrase": "p6"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Đau trước mắt để được lợi lâu dài. Dùng khi bảo vệ một quyết định khó: tái cấu trúc, cắt chi phí, đổi hệ thống. Nhưng cẩn thận, nói câu này với chính người đang chịu phần đau có thể nghe lạnh lùng. Hãy nói kèm cách bạn làm cho cái đau ấy nhẹ và ngắn hơn."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Rồi tháng chín năm hai nghìn không trăm lẻ tám, ngân hàng Lehman Brothers sụp đổ, khủng hoảng tài chính lan ra toàn cầu. Người ta cắt những khoản tiêu nhỏ trước tiên, và ly cà phê đắt tiền là thứ dễ cắt. Cuối năm ấy, cổ phiếu Starbucks rơi xuống dưới mười đô la.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Bạn sẽ nghĩ đây là lúc phải thắt lưng buộc bụng. Nhưng đây là cú xoay tiếp theo. Cuối tháng mười năm hai nghìn không trăm lẻ tám, Starbucks đưa khoảng mười nghìn quản lý cửa hàng tới New Orleans, thành phố vẫn còn hằn vết cơn bão Katrina, để dự một hội nghị lãnh đạo. Theo công ty, họ dành hàng chục nghìn giờ làm tình nguyện cho thành phố, như sơn sửa nhà cửa và làm đẹp khu phố."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Theo nhiều nguồn tin, chi phí của hội nghị lên tới hơn ba mươi triệu đô la, đúng vào lúc kinh tế lao dốc. Trong cuốn sách Onward viết năm hai nghìn mười một, Schultz coi hội nghị ấy là một bước ngoặt của cuộc xoay chuyển. Theo cách mình hiểu, ý tưởng là: trước khi khách tin lại Starbucks, chính những người quản lý cửa hàng phải tin lại trước."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Mục tiêu của tất cả những việc ấy, từ ly espresso, Pike Place Roast cho tới New Orleans, nói bằng tiếng Anh công sở là câu này."
+    },
+    {
+      "phrase": "p7"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Chúng ta cần giành lại khách hàng. Win back là lấy lại thứ mình từng có rồi để mất: khách hàng, niềm tin, thị phần. Khác với win đơn thuần là thắng. Có chữ back là ngầm thừa nhận rằng mình đã từng để mất họ."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Và cú xoay cuối cùng. Năm hai nghìn không trăm lẻ chín, Starbucks ra mắt VIA, cà phê hoà tan. Vâng, cà phê hoà tan, từ chính người từng viết bản ghi nhớ lo thương hiệu bị hàng hoá hoá.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "vn_cohost",
+      "text": "Ơ, thế chẳng phải đi ngược lại tất cả những gì chị vừa kể sao?"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Nhiều nhà phân tích thời đó cũng nghĩ vậy, và lo VIA sẽ làm rẻ hình ảnh thương hiệu. Nhưng Starbucks giới thiệu VIA như một sản phẩm cao cấp, mời khách nếm thử và so sánh ngay trong quán. Theo mình, khác biệt nằm ở chỗ lần này họ chủ động chọn nước đi, chứ không phải để tăng trưởng kéo mình đi."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Đến năm hai nghìn mười, Starbucks báo cáo kết quả kinh doanh kỷ lục. Năm hai nghìn mười một, Schultz kể lại toàn bộ hành trình trong cuốn Onward.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Vậy mình rút ra được gì? Thứ nhất, tăng trưởng không miễn phí: mỗi bước tối ưu cho nhanh và rẻ đều có thể lấy đi một chút thứ làm nên thương hiệu. Thứ hai, hãy nghe những con số nhỏ. Một phần trăm khách giảm là lời cảnh báo sớm, đừng đợi nó thành mười phần trăm."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Thứ ba, khi quay về cốt lõi, hãy bắt đầu từ người đứng quầy, vì khách cảm nhận thương hiệu qua chính người phục vụ họ. Đào tạo nhân viên là đầu tư, không phải chi phí. Thứ tư, tái cấu trúc thì đau, và cái đau rơi vào những con người thật. Hãy làm nhanh, rõ ràng và tử tế."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Nhìn từ buổi chiều tháng hai năm ấy, mình thấy một điều thú vị. Starbucks chấp nhận mất ba tiếng bán hàng để nói với hơn một trăm nghìn nhân viên rằng ly cà phê là quan trọng nhất. Còn trong công ty bạn, điều căn bản nào đang dần bị quên đi?",
+      "pause_ms": 1200
+    }
+  ],
+  "layer2": {
+    "intro": [
+      {
+        "speaker": "vn_host",
+        "text": "Giờ là phần luyện nhanh. Bảy câu, mỗi câu bạn nghe chậm, có khoảng lặng để nhắc lại trong đầu, rồi nghe tốc độ thật và hai ví dụ ở những tình huống công việc khác."
+      }
+    ],
+    "outro": [
+      {
+        "speaker": "vn_host",
+        "text": "Xong phần luyện rồi. Tiếp theo, hai người dẫn bản ngữ sẽ bàn lại chuyện Starbucks hoàn toàn bằng tiếng Anh. Bạn thử đếm xem mình bắt được bao nhiêu câu và bao nhiêu từ vừa học nhé."
+      }
+    ]
+  },
+  "layer3": [
+    {
+      "speaker": "Narrator",
+      "text": "February twenty-sixth, 2008. It's five thirty in the afternoon, and all over America, Starbucks stores are locking their doors. Thousands of them, on the same evening."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And it's not a holiday, and it's not a strike. There's a small sign on the door. Basically, the store is closed so the staff can work on their espresso.",
+      "pause_ms": 800
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Welcome to BizStory English. Today: Starbucks, and one of the most famous turnarounds in modern business."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "A coffee company closed its doors so its people could learn to make coffee again. I love that. But how did they get there?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "We have to start with one man. Howard Schultz joined Starbucks in 1982, when it was a small Seattle company that sold coffee beans. A year later he visited Milan and fell in love with Italian espresso bars."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "The barista talks to you, people stand at the counter, and the cafe feels like part of the neighborhood."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Exactly. He wanted that feeling in America. And in 1987, he and a group of investors bought Starbucks for about three point eight million dollars."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "His big idea was the third place. Not home, not work, but a third place where you can relax. So Starbucks wasn't really selling coffee. It was selling a customer experience."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "The smell of fresh coffee, the music, someone making your drink right in front of you. The whole package."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And people loved it. Schultz was CEO until 2000, and then he became chairman. Starbucks kept growing, and in 2006 and 2007, it was opening more than two thousand stores a year."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Two thousand a year? That's several new stores every single day."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Yes. And in October 2006, the company announced a long-term target of forty thousand stores worldwide. At the time it had around twelve thousand."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So the plan was to more than triple. That's not growth, that's a rocket."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "It was a very rapid expansion. By the end of 2007, Starbucks had roughly fifteen thousand stores. People used to joke that you could stand in one Starbucks and see the next one across the street."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "But here's my question. When you grow that fast, what do you lose?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "That's the question Schultz himself asked. On February fourteenth, 2007, Valentine's Day, he sent an internal memo to the leadership team. The subject line was: The Commoditization of the Starbucks Experience.",
+      "pause_ms": 800
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Commoditization. Let's explain that word. A commodity is a basic product, like sugar or rice. People don't care who makes it, they just compare prices. So commoditization is when something special slowly becomes ordinary."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And that was his fear. The memo later leaked to a blog about Starbucks, and then the big newspapers picked it up. The company confirmed it was real."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So what did it actually say?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "We'll describe it, not quote it. He wrote that to go from under a thousand stores to around thirteen thousand, the company had made a series of decisions that, looking back, had watered down the experience."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Give me an example."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "The espresso machines. New automatic machines made service faster, but they were tall. They blocked the view, so customers couldn't really watch the barista make their drink anymore."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So you lose the show. The little bit of theater."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Right. Then the packaging. Sealed bags kept the coffee fresh, but stores stopped scooping and grinding beans in front of customers. And the smell of coffee, which he saw as maybe the most powerful signal in the store, began to fade."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "But each of those decisions made sense on its own, didn't it?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "He said that too. Many of them were probably right at the time. The problem was what they added up to. And to be fair, he was chairman during those years, so he was part of the story."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So the honest summary is something any team could say after a crazy growth period. We grew too fast."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Phrase number one. We grew too fast. It admits a mistake without blaming one person, because we includes everyone."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And phrase number two fits the memo perfectly. We've lost sight of what matters. If you lose sight of something, you forget what's important because you're busy with other things."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Everyone was busy opening stores, and somewhere along the way, they lost sight of the coffee."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Okay, so the chairman is worried. Did things get better?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "No, they got worse. Chains like McDonald's and Dunkin' Donuts were pushing cheaper coffee. The US economy was getting weaker. And in November 2007, Starbucks reported something it had never reported before."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Uh oh."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "For the first time ever, fewer customers were walking into Starbucks stores in the United States. Traffic was down about one percent in the quarter.",
+      "pause_ms": 800
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Just one percent? That doesn't sound like a disaster."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "For a company that only knew growth, it was a warning light. Sales were still up, partly because of higher prices. But fewer people were coming through the door. And in 2008, same-store sales in the US turned negative."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Same-store sales. Quick explanation. It compares sales in stores that have been open for at least a year. So all the new stores can't hide the problem."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And the stock? 2007 was the worst year for Starbucks shares up to that point. Shareholders were not happy."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "You can tell a beautiful brand story, but in the boardroom, the numbers don't lie."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Phrase number three. The numbers don't lie. You use it when you want a discussion to move from feelings to data. It's quite strong, so be careful with your boss."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So what happened next?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "On January seventh, 2008, Starbucks announced that Howard Schultz was coming back as CEO, replacing Jim Donald. Eight years after he left the job."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And I want to be fair here. This isn't a story with a villain. The leadership and the board followed that growth strategy for years."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Agreed. So Schultz is back, and he needs a turnaround plan. You'd expect cost cuts first, right?"
+    },
+    {
+      "speaker": "Cohost",
+      "text": "That's what I'd expect. Close stores, cut budgets."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "That came later. But one of the first and most famous moves was about the coffee itself. The message was simple. We need to get back to basics."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Phrase number four. Back to basics. When a company has become too complicated, you go back to the things that really matter, and you do them well. And notice: basics, always with an s."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "For Starbucks, the basics meant a good cup of espresso. So on February eleventh, the company announced the plan, and on February twenty-sixth, it closed nearly seven thousand one hundred company-operated stores in the US for about three hours."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "To retrain about one hundred thirty-five thousand employees and managers, right?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "That's the number the company gave. They practiced pulling a proper shot of espresso and steaming milk. Reports said baristas were told to pour each shot into a small glass first, to check the quality."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "I bet some people laughed at it."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Some did. A few analysts said three hours of training couldn't fix a problem this big. And Dunkin' Donuts ran promotions that same evening."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "But many people saw it as a powerful message to employees. In my opinion, the message worked because it was expensive. People believe what costs you something."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "What else changed?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "The breakfast sandwiches. They sold well, but according to news reports at the time, the smell of melted cheese was fighting with the smell of coffee. So at the end of January 2008, Starbucks said it would stop selling them."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Stop selling something popular because of a smell? That's bold."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And less than a year later, breakfast came back with a new recipe. They didn't give up on the idea. They went back to the drawing board."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Phrase number five. Let's go back to the drawing board. It means let's start again from the beginning, because the first plan didn't work. And it sounds positive. It didn't work, so we redesign it."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "They also changed how they listened. In March 2008, they launched My Starbucks Idea, a website where customers could share ideas and vote on them."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And in April, Pike Place Roast, right? Named after Pike Place Market in Seattle, home of the oldest Starbucks store."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Yes. An everyday coffee, ground in the store and brewed in small batches. And the smell of coffee started to come back."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Okay. Better coffee, better listening. But there were still too many stores."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Right. On July first, 2008, Starbucks announced it would close about six hundred underperforming company-operated stores in the US.",
+      "pause_ms": 800
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Underperforming means doing worse than expected. And many of those stores were quite new, weren't they?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Yes. Most of them had opened since 2006. And according to the company, up to twelve thousand jobs were affected, although it said it would try to move many people to nearby stores."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Twelve thousand. That's the hard part. Layoffs are not just numbers. Every one is a person."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Absolutely. Closing six hundred stores was a painful way to admit that the company grew too fast."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So how do leaders explain a decision like that?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Usually with phrase number six. It's short-term pain for long-term gain."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Short-term pain for long-term gain. You accept something painful now because it makes the company stronger later. But be careful. If you say it to the people who feel the pain, it can sound cold."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Then, in September 2008, Lehman Brothers collapsed, and the financial crisis spread around the world. People cut small luxuries first, and an expensive coffee is easy to cut. By late 2008, Starbucks shares were below ten dollars."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So that's the worst possible moment to spend money."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And that's exactly when Starbucks spent a lot of it. In October 2008, it brought about ten thousand store managers to New Orleans for a leadership conference."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "New Orleans. A city still recovering from Hurricane Katrina."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Exactly. According to the company, they gave tens of thousands of volunteer hours to the city, painting houses and working on community projects. Several reports put the total cost at more than thirty million dollars."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "In the middle of a crisis. Shareholders must have asked some hard questions."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "I'm sure many did. But in his 2011 book, Onward, Schultz described the conference as a turning point. And the idea, as I understand it, goes like this."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Before you can win back your customers, you have to win back your own people.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "Narrator",
+      "text": "That's it. And that's our seventh phrase. We need to win back our customers. To win back means to get back something you had and lost. Customers, trust, market share."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And the word back is important. It admits that you lost them in the first place."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And now the final twist. In 2009, Starbucks launched VIA. Instant coffee.",
+      "pause_ms": 800
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Wait. Instant coffee? From the man who wrote a memo about commoditization? That sounds like the opposite of everything we just said."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Many analysts thought the same. They worried it would cheapen the brand. But Starbucks presented VIA as a premium product and invited customers to taste it and compare. The difference, I think, is that this time they chose the move on purpose. Growth wasn't pushing them."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And did the turnaround work?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "By 2010, Starbucks reported record results. And in 2011, Schultz told the whole story in Onward."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Okay. Lessons."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "One. Growth isn't free. Every store you open too fast can take a little bit of the magic away."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Two. Listen to small numbers. A one percent drop in traffic was an early warning. The numbers don't lie, but sometimes they whisper first."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Three. When you go back to basics, start with the people behind the counter. Customers meet your brand through your barista. Training is an investment, not a cost."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Four. Restructuring hurts real people. If it's short-term pain for long-term gain, make the pain as short and as fair as you can."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And five. Notice what you've lost sight of, before your customers notice it for you.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "Cohost",
+      "text": "That's a good one. So next time your team wants to grow faster, ask one simple question. What are we going to lose?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Perfect. That's the Starbucks story. Thanks for listening to BizStory English."
+    }
+  ],
+  "closing": [
+    {
+      "speaker": "vn_host",
+      "text": "Câu chuyện Starbucks cho mình thấy: lớn nhanh không có lỗi, nhưng lớn nhanh đến mức quên điều làm nên mình thì phải trả giá đắt. Khi đã lạc đường, hãy dám dừng lại, quay về điều căn bản và bắt đầu từ chính con người của mình. Hẹn gặp bạn ở Phần ba."
+    }
+  ],
+  "fact_check": {
+    "sources": [
+      "Howard Schultz, bản ghi nhớ nội bộ 'The Commoditization of the Starbucks Experience', ngày 14 tháng 2 năm 2007, gửi ban lãnh đạo; bị lộ trên blog Starbucks Gossip ngày 23 tháng 2 năm 2007, Starbucks xác nhận là thật; The Wall Street Journal và CNBC đưa tin ngày 24 tháng 2 năm 2007",
+      "Starbucks, hội nghị nhà phân tích tháng 10 năm 2006: nâng mục tiêu dài hạn lên 40.000 cửa hàng toàn cầu (thông cáo báo chí; AP, Reuters, Fox News)",
+      "Starbucks, báo cáo quý 4 năm tài chính 2007, ngày 15 tháng 11 năm 2007: lượt giao dịch tại cửa hàng ở Mỹ lần đầu giảm, khoảng 1 phần trăm (Bloomberg, NPR, Nation's Restaurant News)",
+      "Starbucks, thông cáo ngày 7 tháng 1 năm 2008: Howard Schultz trở lại làm tổng giám đốc, thay Jim Donald",
+      "Starbucks, thông báo cuối tháng 1 năm 2008 ngừng bán bánh sandwich ăn sáng nóng vì mùi lấn át mùi cà phê, và đóng khoảng 100 cửa hàng (NBC News, Nation's Restaurant News); món ăn sáng quay lại với công thức mới chưa đầy một năm sau (NPR, 2011)",
+      "Starbucks, thông cáo ngày 11 tháng 2 năm 2008 về buổi huấn luyện espresso; ngày 26 tháng 2 năm 2008 đóng gần 7.100 cửa hàng ở Mỹ khoảng ba tiếng từ 5 giờ 30 chiều, đào tạo khoảng 135.000 nhân viên (NPR, CBS News, UPI)",
+      "Starbucks, thông cáo ngày 20 tháng 3 năm 2008 về các sáng kiến chiến lược, gồm MyStarbucksIdea.com",
+      "Starbucks, thông cáo ngày 7 tháng 4 năm 2008 ra mắt Pike Place Roast, xay tại quán và pha mẻ nhỏ",
+      "Starbucks, báo cáo Form 8-K gửi SEC ngày 1 tháng 7 năm 2008: đóng khoảng 600 cửa hàng kinh doanh kém ở Mỹ, ảnh hưởng tới khoảng 12.000 vị trí (NPR, The New York Times, Reuters)",
+      "Starbucks, hội nghị lãnh đạo New Orleans ngày 26 đến 30 tháng 10 năm 2008 với khoảng 10.000 quản lý và nhân viên, hơn 50.000 giờ tình nguyện (thông cáo Business Wire; Harvard Business School Working Knowledge)",
+      "Giá cổ phiếu Starbucks trên Nasdaq: năm 2007 là năm tệ nhất tới khi ấy (NPR); xuống dưới 10 đô la tháng 11 năm 2008 (Fortune, 24/7 Wall St.)",
+      "Starbucks, ra mắt VIA Ready Brew năm 2009; báo cáo thường niên năm tài chính 2010 với doanh thu và lợi nhuận kỷ lục",
+      "Howard Schultz, Joanne Gordon, Onward: How Starbucks Fought for Its Life without Losing Its Soul, Rodale, 2011",
+      "Howard Schultz, Dori Jones Yang, Pour Your Heart Into It, Hyperion, 1997 (gia nhập năm 1982, chuyến đi Milan năm 1983, mua Starbucks năm 1987)"
+    ],
+    "dramatized_note": "Chỉ có một cảnh dựng lại: không khí bên trong một cửa hàng Starbucks chiều ngày 26 tháng 2 năm 2008, được nói rõ trên sóng là dựng lại, không có nhân vật thật và không có lời thoại. Câu tiếng Anh nguyên văn duy nhất của người thật là tiêu đề bản ghi nhớ của Howard Schultz; nội dung bản ghi nhớ và tấm biển trên cửa chỉ được thuật lại đại ý. Bảy câu tiếng Anh là câu thông dụng nơi công sở, không phải lời của nhân vật thật. Các nhận định về nguyên nhân khủng hoảng và vì sao cuộc xoay chuyển thành công được trình bày là ý kiến của người dẫn hoặc nhà phân tích."
+  }
+}
