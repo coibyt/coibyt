@@ -25,7 +25,9 @@ export function videoFor(lesson: Lesson, locale: string): (LessonVideo & { lang:
     const dub = DUBS[lang]?.[lesson.slug];
     if (dub) {
       const base = `/academy/${lang}/${lesson.slug}`;
-      return { src: videoUrl(`${base}.mp4`), poster: `${base}.jpg`, captions: `${base}.vtt`, seconds: dub.seconds, published: dub.published, lang };
+      // A portrait lesson's dub is portrait too, with its own upright poster (<slug>-v.jpg).
+      const portrait = lesson.video.portrait ? { poster: `${base}-v.jpg` } : undefined;
+      return { src: videoUrl(`${base}.mp4`), poster: `${base}.jpg`, captions: `${base}.vtt`, seconds: dub.seconds, published: dub.published, lang, portrait };
     }
   }
   return { ...lesson.video, lang: "vi" };
