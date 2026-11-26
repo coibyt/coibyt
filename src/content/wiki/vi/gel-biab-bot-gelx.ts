@@ -43,7 +43,6 @@ const article: WikiArticle = {
       id: "bang-so-sanh",
       title: "So sánh nhanh bốn cách làm móng",
       blocks: [
-        { p: "Hãy nhìn bảng này trước. Các phần bên dưới giải thích từng dòng." },
         {
           table: {
             head: ["Loại", "Nó là gì", "Hợp với ai"],
@@ -96,7 +95,7 @@ const article: WikiArticle = {
       title: "Úp móng Gel-X là gì",
       blocks: [
         { p: "Gel-X là móng giả làm bằng gel mềm, đã có sẵn dáng. Thợ chọn cỡ vừa với từng móng, úp lên móng thật và gắn bằng gel. Vì móng giả đúc sẵn, mười móng có dáng đều tăm tắp, và buổi làm thường nhanh hơn so với đắp từng lớp." },
-        { p: "Khi tháo, Gel-X chỉ cần ngâm. Đây là lựa chọn hợp với người muốn mười móng thật đều dáng mà không phải ngồi lâu ở tiệm. Trước khi làm, bạn vẫn nên hỏi thợ loại Gel-X của tiệm tháo bằng dung dịch gì và mất bao lâu." },
+        { p: "Khi tháo, Gel-X chỉ cần ngâm. Đây là lựa chọn hợp với người muốn mười móng thật đều dáng mà không phải ngồi lâu ở tiệm." },
         { h3: "Gel cần đèn, bột thì không" },
         { p: "Sơn gel, BIAB và lớp gel dùng để gắn Gel-X đều chỉ cứng lại dưới đèn. Đèn phải đúng loại của hãng và hơ đủ thời gian. Nếu tay bạn thấy nóng rát trong đèn, cứ nói với thợ: rút tay ra vài giây rồi cho vào lại là bình thường, không cần cố chịu." },
         { img: { src: img("ho-den-led-cho-gel-cung-lai"), alt: "Bàn tay khách đặt phẳng trong đèn LED hơ gel hình vòm màu trắng đang phát ánh sáng tím trên bàn đá" } },
@@ -106,7 +105,7 @@ const article: WikiArticle = {
       id: "chon-loai-nao",
       title: "Nên sơn gel hay đắp bột: chọn theo móng của bạn",
       blocks: [
-        { p: "Đừng chọn theo bức ảnh đẹp nhất trên mạng. Hãy chọn theo móng thật và cách bạn dùng đôi tay mỗi ngày." },
+        { p: "Đừng chọn theo bức ảnh đẹp nhất trên mạng. Hãy chọn theo móng thật và cách bạn dùng đôi tay mỗi ngày. Dáng móng chọn riêng, xem bài [5 dáng móng tay trên cùng một bàn tay](lesson:5-dang-mong)." },
         {
           ul: [
             "**Móng khỏe, thích đổi màu thường xuyên:** sơn gel thường.",
@@ -125,7 +124,6 @@ const article: WikiArticle = {
       title: "Đặt lịch và hỏi tư vấn trước khi làm",
       blocks: [
         { p: "Chưa chắc móng mình hợp loại nào thì cứ nhắn cho tiệm trước, kèm một tấm ảnh móng hiện tại. Trên VaraaAi, bạn có thể [nhắn tin cho salon](lesson:chat-voi-salon) để hỏi, rồi [đặt lịch online](lesson:dat-lich-online): chọn dịch vụ, chọn giờ là xong. Bài học này đến từ Moja Beauty ở Helsinki, bạn có thể xem dịch vụ và đặt lịch tại [trang đặt lịch của Moja Beauty](/b/moja-beauty)." },
-        { p: "Muốn đổi luôn dáng móng khi làm mới, bài [5 dáng móng tay trên cùng một bàn tay](lesson:5-dang-mong) giúp bạn chọn dáng hợp với ngón tay của mình." },
       ],
     },
   ],

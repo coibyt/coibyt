@@ -63,7 +63,7 @@ const article: WikiArticle = {
       title: "Thói quen 2: găng tay khi ra ngoài, kem tay sau khi rửa",
       blocks: [
         { p: "Ra ngoài trời lạnh, luôn đeo găng tay. Găng giữ ấm và chắn gió, để da tay và móng không bị không khí lạnh hút khô suốt quãng đường đi." },
-        { p: "Sau mỗi lần rửa tay, thoa ngay một lớp kem tay mỏng, lúc da còn hơi ẩm. Một lớp mỏng là đủ, không cần dày đến mức tay trơn. Nếu bạn rửa bát, giặt đồ, hãy đeo thêm găng cao su: vừa đỡ khô tay, vừa giúp móng gel không bị nước và chất tẩy rửa làm bong sớm, như trong bài [5 thói quen làm móng gel nhanh bong](lesson:5-thoi-quen-gel-bong)." },
+        { p: "Sau mỗi lần rửa tay, thoa ngay một lớp kem tay mỏng. Một lớp mỏng là đủ, không cần dày đến mức tay trơn. Nếu bạn rửa bát, giặt đồ, hãy đeo thêm găng cao su: vừa đỡ khô tay, vừa giúp móng gel không bị nước và chất tẩy rửa làm bong sớm, như trong bài [5 thói quen làm móng gel nhanh bong](lesson:5-thoi-quen-gel-bong)." },
         { img: { src: img("thoa-kem-duong-tay-sau-khi-rua-tay"), alt: "Hai bàn tay đeo găng đen thoa kem dưỡng trắng lên mu bàn tay khách đang đặt trên gối kê tay màu kem", caption: "Kem tay mỏng sau mỗi lần rửa tay giữ da không nứt nẻ." } },
       ],
     },
@@ -92,7 +92,7 @@ const article: WikiArticle = {
       blocks: [
         { p: "Trong nhà có sưởi, không khí rất khô. Một máy tạo ẩm nhỏ đặt trong phòng ngủ hay phòng làm việc giúp ích nhiều: da, môi, móng và mi đều bớt khô qua đêm." },
         { img: { src: img("may-tao-am-nho-trong-phong"), alt: "Máy tạo ẩm nhỏ màu kem tỏa hơi sương trên bậu cửa sổ đá cẩm thạch, bên cạnh bình hoa trắng và ghế bành màu kem" } },
-        { p: "Uống đủ nước cũng là một phần của việc chăm sóc mùa đông. Trời lạnh làm nhiều người ít khát, nên dễ quên uống. Cơ thể đủ nước thì da, móng và mi đều bớt khô." },
+        { p: "Bài học còn nhắc thêm một việc đơn giản: uống đủ nước. Cơ thể đủ nước thì da, móng và mi đều bớt khô." },
         { note: "Nếu da quanh móng nứt sâu, sưng đỏ, đau, hoặc móng đổi màu lạ, đó không còn là chuyện khô do thời tiết. Hãy hỏi bác sĩ hoặc dược sĩ trước khi làm móng.", kind: "warn", title: "Khi không chỉ là khô" },
       ],
     },
@@ -100,7 +100,7 @@ const article: WikiArticle = {
       id: "dat-lich-cham-soc",
       title: "Móng khô, mi xơ sau mùa lạnh: đặt lịch chăm sóc",
       blocks: [
-        { p: "Một buổi chăm sóc ở tiệm giúp bạn bắt đầu lại: thợ xem móng, cắt gọn phần tách lớp, dưỡng da quanh móng, và xem hàng mi có cần dặm hay không. Trên VaraaAi, bạn [đặt lịch online](lesson:dat-lich-online) bằng cách chọn dịch vụ, chọn giờ là xong. Bài học này đến từ Moja Beauty ở Helsinki, bạn có thể đặt lịch trên [trang đặt lịch của Moja Beauty](/b/moja-beauty)." },
+        { p: "Sau mùa lạnh, nếu móng khô, hay gãy hoặc mi trông xơ, hãy để thợ xem tận nơi và tư vấn nên làm gì tiếp, từ một buổi chăm sóc móng đến một lần dặm mi. Trên VaraaAi, bạn [đặt lịch online](lesson:dat-lich-online) bằng cách chọn dịch vụ, chọn giờ là xong. Bài học này đến từ Moja Beauty ở Helsinki, bạn có thể đặt lịch trên [trang đặt lịch của Moja Beauty](/b/moja-beauty)." },
       ],
     },
   ],
