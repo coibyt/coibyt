@@ -139,7 +139,7 @@ const article: WikiArticle = {
             head: ["Góc nâng", "Cầm tóc thế nào", "Kết quả"],
             rows: [
               ["0°", "Tóc rơi thẳng xuống", "Đường bằng, nặng ở dưới"],
-              ["45°", "Nâng nhẹ", "Tầng thấp, vẫn giữ độ dày"],
+              ["45°", "Nâng chếch lên, nửa góc vuông", "Tầng thấp, vẫn giữ độ dày"],
               ["90°", "Vuông góc với da đầu", "Tầng đều theo dáng đầu"],
               ["180°", "Nâng thẳng lên trên đỉnh", "Tóc phía dưới dài dần, thành tầng dài"],
             ],
@@ -156,7 +156,7 @@ const article: WikiArticle = {
           ],
         },
         { img: { src: img("so-hai-ben-toc-de-kiem-tra-sau-khi-cat"), alt: "Thợ tóc đứng sau khách, giữ hai lọn tóc hai bên mặt khách ở cùng một độ cao trước ngực và so độ dài trong gương", caption: "So hai bên trái phải trong gương là bước cuối của kiểm tra chéo." } },
-        { note: "Trong VaraaAi, ghi độ dài đã thống nhất, vị trí xoáy và chất tóc vào ghi chú trong [hồ sơ khách hàng](lesson:khach-hang), để lần sau ai làm cũng biết. Khi tạo [dịch vụ](lesson:dich-vu) cắt tóc, tính cả thời gian tư vấn và gội vào thời lượng.", kind: "tip", title: "Ghi lại cho lần sau" },
+        { note: "Trong VaraaAi, ghi độ dài đã thống nhất, vị trí xoáy và chất tóc vào ghi chú trong [hồ sơ khách hàng](lesson:khach-hang), để lần sau ai làm cũng biết. Khi tạo [dịch vụ](lesson:dich-vu) cắt tóc, tính cả phần gội và chia vùng vào thời lượng.", kind: "tip", title: "Ghi lại cho lần sau" },
         { note: "Thời gian để dầu xả theo hướng dẫn của sản phẩm. Quy định vệ sinh khác nhau theo từng nước. Bài viết là tài liệu đào tạo, không phải chứng chỉ hành nghề.", kind: "info", title: "Lưu ý" },
       ],
     },

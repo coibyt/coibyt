@@ -35,7 +35,7 @@ const article: WikiArticle = {
     "Luôn bắt đầu dài. Ngắn thêm thì lúc nào cũng được, dài lại thì phải chờ tóc mọc.",
   ],
   intro: [
-    "Cách cắt tóc tầng nữ trong bài này dành cho yêu cầu hay gặp nhất ở ghế cắt: khách tóc dài muốn tóc nhẹ, bồng, có tầng ôm mặt, nhưng không muốn mất độ dài. Kiểu tóc được cắt theo bốn phần, mỗi phần một góc nâng và một hướng kéo tóc riêng, và thứ tự của chúng không đổi chỗ cho nhau được.",
+    "Cách cắt tóc tầng nữ trong bài này dành cho yêu cầu hay gặp nhất ở ghế cắt: khách tóc dài muốn tóc nhẹ, bồng, có tầng ôm mặt, nhưng không muốn mất độ dài. Kiểu tóc được cắt theo bốn phần, mỗi phần một góc nâng và một hướng kéo tóc riêng, phần sau dựa vào phần trước.",
     "Bài viết đi theo bài học “Cắt tóc nữ tầng: thực hành từng bước” trong khóa Nghề Tóc của VaraaAi Academy. Làm theo mười bước dưới đây, bạn cắt được một kiểu tầng dài hoàn chỉnh, từ lúc quấn giấy cổ cho tới lúc ghi hồ sơ khách. Lý do đằng sau từng góc nâng nằm ở bài lý thuyết [Cắt tóc tầng là gì](lesson:cat-nu-tang-hieu-dung), nên đọc trước nếu bạn chưa quen với khái niệm đường chuẩn và kéo lệch.",
   ],
   sections: [
