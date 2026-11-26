@@ -40,8 +40,8 @@ h2 { font-size: 19px; }
 [hidden] { display: none !important; }
 
 .app { max-width: 1180px; margin: 0 auto; padding: 0 16px calc(var(--tabs-h) + var(--safe-b) + 84px); }
-.top { display: flex; align-items: center; justify-content: space-between; padding: 14px 0 10px; position: sticky; top: 0; z-index: 20;
-  background: linear-gradient(var(--ink) 70%, transparent); }
+.top { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px 10px; margin: 0 -16px; position: sticky; top: 0; z-index: 20;
+  background: rgba(18, 13, 31, .86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(232, 211, 166, .06); }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--gold-2); }
 .mark svg { width: 30px; height: 30px; }
 .wordmark { font-family: "Playfair Display", serif; font-size: 20px; font-weight: 700; color: var(--text); }
@@ -231,7 +231,7 @@ h2 { font-size: 19px; }
 /* ---------- desktop ---------- */
 @media (min-width: 900px) {
   .app { padding-bottom: 40px; }
-  .tabs { position: sticky; top: 64px; left: auto; right: auto; bottom: auto; height: auto; grid-template-columns: none; display: flex; gap: 6px;
+  .tabs { position: sticky; z-index: 25; background: var(--ink) !important; left: auto; right: auto; bottom: auto; height: auto; grid-template-columns: none; display: flex; gap: 6px;
     background: transparent; border: 0; backdrop-filter: none; margin: 4px 0 6px; padding: 0; }
   .tabs button { flex-direction: row; font-size: 14px; padding: 9px 16px; border-radius: 999px; gap: 8px; border: 1px solid transparent; }
   .tabs button.on { background: var(--card); border-color: var(--line-2); }
@@ -240,12 +240,16 @@ h2 { font-size: 19px; }
   .app > .top { order: 0; } .app > .tabs { order: 1; } .app > main { order: 2; }
   #v-listen:not([hidden]) { display: grid; grid-template-columns: minmax(380px, 470px) 1fr; gap: 28px; align-items: start; }
   #v-listen .chapters { margin-top: 0; max-height: calc(100vh - 150px); overflow: auto; position: sticky; top: 120px; }
-  .cover { max-height: none; }
+  .cover { aspect-ratio: 16 / 10; max-height: 42vh; }
+  .top { position: static; background: transparent; backdrop-filter: none; border: 0; margin: 0; padding: 14px 0 6px; }
+  .tabs { top: 0; }
+  .sticky-h { top: 52px; }
+  #v-listen .chapters { top: 64px; max-height: calc(100vh - 90px); }
+  .stage { gap: 10px; }
   .mini-player { bottom: 18px; }
   .stat-grid { grid-template-columns: repeat(4, 1fr); }
   .days { grid-template-columns: 1fr 1fr; }
   .book { grid-template-columns: 1fr 1fr; }
-  .sticky-h { top: 108px; }
   .sheet { align-items: center; }
   .sheet-card { border-radius: 26px; }
 }

@@ -113,7 +113,7 @@
     $("#partTitle").textContent = part ? part.title_vi : (c.part === 4 ? "Ôn tập SRS" : S.data.title_vi);
     $("#layerTitle").textContent = c.title;
     $("#tChap").textContent = c.title;
-    $("#miniTitle").textContent = part ? part.title_vi : c.title;
+    $("#miniTitle").textContent = part ? part.title_vi : S.data.title_vi;
     $("#miniSub").textContent = c.title;
     mediaMeta(c, img, part);
   }

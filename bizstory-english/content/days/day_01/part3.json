@@ -1,0 +1,846 @@
+{
+ "part": 3,
+ "kind": "finance_psych",
+ "title_vi": "Con số đầu tiên",
+ "title_en": "The First Number",
+ "topic": "hiệu ứng mỏ neo khi đàm phán giá, báo giá freelance, đặt cọc, rủi ro tập trung một khách hàng, quỹ dự phòng",
+ "subject": null,
+ "cast": {
+  "Thu": "en_female3",
+  "Quan": "en_male3",
+  "Daniel": "en_male4",
+  "Narrator": "en_male"
+ },
+ "phrases": [
+  {
+   "id": "p1",
+   "en": "Let me get back to you on that.",
+   "vi": "Để tôi xem lại rồi báo lại anh chị sau nhé.",
+   "note_vi": "Cách lịch sự để xin thêm thời gian trước khi trả lời. Nên kèm một mốc cụ thể, ví dụ trước thứ Sáu, để người nghe yên tâm là bạn không né.",
+   "forms": [
+    "get back to you"
+   ],
+   "context_vi": "Câu đầu tiên là câu đã cứu Thu khỏi con số bốn nghìn đô. Khi ai đó hỏi bạn một điều chưa thể trả lời ngay, như giá, ngày giao hàng hay một quyết định quan trọng, câu này giúp bạn xin thêm thời gian mà vẫn lịch sự, chuyên nghiệp.",
+   "examples": [
+    {
+     "en": "I don't have the delivery date yet. Let me get back to you on that by Friday.",
+     "vi": "Tôi chưa có ngày giao hàng. Để tôi xem lại và báo anh trước thứ Sáu nhé."
+    },
+    {
+     "en": "That's a good question about the training budget. Let me get back to you on that after I talk to HR.",
+     "vi": "Câu hỏi hay về ngân sách đào tạo. Để tôi trao đổi với phòng nhân sự rồi báo lại chị sau nhé."
+    }
+   ],
+   "recall_vi": "Câu Thu nói khi Daniel bất ngờ hỏi giá trong cuộc gọi đầu tiên."
+  },
+  {
+   "id": "p2",
+   "en": "What's your budget for this project?",
+   "vi": "Ngân sách của anh chị cho dự án này là bao nhiêu?",
+   "note_vi": "Câu hỏi chuẩn để lấy thông tin trước khi báo giá, trực tiếp mà không thô. Hỏi để hiểu khách, nhưng đừng để con số của họ thành mỏ neo của mình.",
+   "forms": [
+    "what's your budget",
+    "what is your budget"
+   ],
+   "context_vi": "Câu thứ hai dùng khi bạn bán dịch vụ và muốn hiểu khách trước khi báo giá. Nó trực tiếp nhưng không hề thô. Nhớ bài học của Thu: hỏi ngân sách là để lấy thông tin, còn con số của bạn vẫn phải dựa trên giá trị bạn mang lại cho khách.",
+   "examples": [
+    {
+     "en": "Before I prepare a quote, what's your budget for this project?",
+     "vi": "Trước khi tôi làm báo giá, ngân sách của anh cho dự án này là bao nhiêu?"
+    },
+    {
+     "en": "We have three packages for events like this. What's your budget for this project, roughly?",
+     "vi": "Chúng tôi có ba gói dịch vụ cho sự kiện kiểu này. Ngân sách của chị cho dự án này khoảng bao nhiêu?"
+    }
+   ],
+   "recall_vi": "Câu Thu hỏi ngược lại Daniel ở cuộc gọi thứ hai, ngay trước khi anh ta thả mỏ neo sáu nghìn đô."
+  },
+  {
+   "id": "p3",
+   "en": "Can you walk me through the numbers?",
+   "vi": "Anh chị giải thích giúp tôi từng con số được không?",
+   "note_vi": "Walk someone through là dẫn ai đó đi qua từng bước. Đây là câu hỏi tò mò chứ không phản bác, nên rất an toàn khi bạn muốn kiểm tra một con số.",
+   "forms": [
+    "walk me through"
+   ],
+   "context_vi": "Câu thứ ba dùng khi ai đó đưa ra một con số bạn chưa đồng ý hoặc chưa hiểu: một báo giá, một dự báo doanh thu, một bảng ngân sách. Thay vì cãi, bạn nhờ họ giải thích từng bước. Thường thì chính họ sẽ tự thấy chỗ yếu của con số đó.",
+   "examples": [
+    {
+     "en": "This sales forecast looks very optimistic. Can you walk me through the numbers?",
+     "vi": "Dự báo doanh số này trông rất lạc quan. Anh giải thích giúp tôi từng con số được không?"
+    },
+    {
+     "en": "Before the board meeting, could you walk me through the numbers in this report?",
+     "vi": "Trước cuộc họp hội đồng quản trị, chị giải thích giúp tôi các con số trong báo cáo này được không?"
+    }
+   ],
+   "recall_vi": "Câu Thu hỏi khi Daniel nói ngân sách chỉ có sáu nghìn đô và có người báo giá rẻ hơn."
+  },
+  {
+   "id": "p4",
+   "en": "That's a bit outside our budget.",
+   "vi": "Mức đó hơi vượt ngân sách của chúng tôi.",
+   "note_vi": "Lời từ chối mềm, chữ a bit làm câu nhẹ đi. Thường đây là tín hiệu muốn đàm phán tiếp, chưa phải cánh cửa đóng lại.",
+   "forms": [
+    "outside our budget",
+    "outside your budget",
+    "outside my budget"
+   ],
+   "context_vi": "Câu thứ tư thường do bên mua nói khi giá cao hơn dự kiến. Nếu bạn là bên mua, câu này giúp mở cuộc mặc cả mà không làm mất lòng ai. Nếu bạn là bên bán và nghe câu này, hãy nhớ: hơi vượt ngân sách chưa có nghĩa là không mua.",
+   "examples": [
+    {
+     "en": "We really like the new design, but that's a bit outside our budget for this quarter.",
+     "vi": "Chúng tôi rất thích bản thiết kế mới, nhưng mức đó hơi vượt ngân sách quý này của chúng tôi."
+    },
+    {
+     "en": "Thank you for the quote. To be honest, that's a bit outside our budget.",
+     "vi": "Cảm ơn anh đã gửi báo giá. Thật lòng mà nói, mức đó hơi vượt ngân sách của chúng tôi."
+    }
+   ],
+   "recall_vi": "Câu Daniel nói khi đọc đề xuất mười tám nghìn đô của Thu."
+  },
+  {
+   "id": "p5",
+   "en": "Is there any flexibility on the price?",
+   "vi": "Giá có thể linh động được chút nào không?",
+   "note_vi": "Cách hỏi giảm giá lịch sự, không ép. Nếu bạn là người bán, có thể đáp rằng bạn linh động về phạm vi công việc, không phải về giá.",
+   "forms": [
+    "any flexibility on",
+    "flexibility on the"
+   ],
+   "context_vi": "Câu thứ năm là cách hỏi giảm giá lịch sự nhất. Nó không ép, chỉ mở ra một cánh cửa. Nếu bạn là người bán và nghe câu này, đừng vội giảm. Hãy làm như Thu: linh động về phạm vi công việc, bớt hạng mục chứ không bớt giá trị.",
+   "examples": [
+    {
+     "en": "We'd like to sign this month. Is there any flexibility on the price if we pay for the whole year?",
+     "vi": "Chúng tôi muốn ký trong tháng này. Nếu trả trước cả năm thì giá có linh động được chút nào không?"
+    },
+    {
+     "en": "The quality is great. Is there any flexibility on the price for an order of ten thousand units?",
+     "vi": "Chất lượng rất tốt. Với đơn hàng mười nghìn sản phẩm, giá có thể linh động được không?"
+    }
+   ],
+   "recall_vi": "Câu Daniel hỏi sau bảy giây im lặng của Thu."
+  },
+  {
+   "id": "p6",
+   "en": "I'd rather not go below that.",
+   "vi": "Tôi không muốn xuống thấp hơn mức đó.",
+   "note_vi": "I'd rather not là tôi không muốn, mềm hơn tôi không thể nhưng vẫn rất chắc. Dùng để đặt ra một cái sàn. Nói xong thì im lặng, đừng giải thích thêm.",
+   "forms": [
+    "rather not go below"
+   ],
+   "context_vi": "Câu thứ sáu là cách giữ giá sàn. I'd rather not nghĩa là tôi không muốn, nghe mềm hơn tôi không thể, nhưng ai nghe cũng hiểu. Dùng khi bạn đã nhường đến mức cuối cùng và muốn người kia biết đây là giới hạn, mà không cần to tiếng.",
+   "examples": [
+    {
+     "en": "Our best rate for this kind of work is ninety dollars an hour. I'd rather not go below that.",
+     "vi": "Mức tốt nhất của chúng tôi cho loại việc này là chín mươi đô một giờ. Tôi không muốn xuống thấp hơn mức đó."
+    },
+    {
+     "en": "I'm looking for a salary of around fifty million dong a month, and I'd rather not go below that.",
+     "vi": "Tôi mong mức lương khoảng năm mươi triệu đồng một tháng, và tôi không muốn thấp hơn mức đó."
+    }
+   ],
+   "recall_vi": "Câu Thu nói khi chốt mười ba nghìn năm trăm đô với Daniel."
+  },
+  {
+   "id": "p7",
+   "en": "We'll need a deposit upfront.",
+   "vi": "Chúng tôi cần một khoản đặt cọc trước khi bắt đầu.",
+   "note_vi": "Upfront là trả trước, ngay từ đầu. We'll need nghe như một điều kiện bình thường của công việc chứ không phải lời xin. Nên kèm tỉ lệ cụ thể.",
+   "forms": [
+    "deposit upfront"
+   ],
+   "context_vi": "Câu cuối cùng là câu đã bảo vệ Thu khi khách chậm trả tiền. Upfront nghĩa là trả trước, ngay từ đầu. Bạn nói we'll need, tức là chúng tôi sẽ cần, như một điều kiện bình thường của công việc, chứ không phải đang xin xỏ.",
+   "examples": [
+    {
+     "en": "For custom furniture orders, we'll need a deposit upfront, usually thirty percent.",
+     "vi": "Với đơn hàng nội thất đặt riêng, chúng tôi cần đặt cọc trước, thường là ba mươi phần trăm."
+    },
+    {
+     "en": "We're happy to book the hotel for your team, but we'll need a deposit upfront to hold the dates.",
+     "vi": "Chúng tôi rất sẵn lòng đặt khách sạn cho đội của anh, nhưng cần một khoản cọc trước để giữ ngày."
+    }
+   ],
+   "recall_vi": "Câu Thu nói khi Daniel đề nghị trả tiền sáu mươi ngày sau khi bàn giao."
+  }
+ ],
+ "opening": [
+  {
+   "speaker": "vn_host",
+   "text": "Bốn nghìn đô la. Con số đó nằm sẵn trên đầu lưỡi Phạm Anh Thu, chỉ chờ cô mở miệng."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bốn giờ chiều thứ Ba, một quán cà phê nhỏ nhìn ra biển Mỹ Khê, Đà Nẵng. Gió mang theo mùi muối. Trên màn hình laptop, một người đàn ông sơ mi trắng mỉm cười từ Singapore. Anh ta là Daniel Tan, trưởng phòng mua hàng của một công ty công nghệ tài chính, và anh ta vừa hỏi:"
+  },
+  {
+   "speaker": "Daniel",
+   "text": "So, Thu, before we go any further. What's your rate for a project like this?",
+   "pause_ms": 900
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bốn nghìn đô, khoảng một trăm triệu đồng. Nhiều hơn số tiền Thu kiếm được trong hai tháng. Trên bàn ở nhà là giấy báo viện phí của mẹ. Trong tài khoản, số tiết kiệm chỉ đủ sống khoảng năm tuần.",
+   "pause_ms": 1200
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Mình dừng hình ở đây một chút. Nếu bạn là Thu, ngồi trước màn hình đó, bạn sẽ nói con số nào? Bạn cứ nghĩ ra một con số, giữ nó trong đầu. Cuối tập, mình sẽ hỏi lại bạn.",
+   "pause_ms": 1500
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Đây là Phần ba của BizStory English, phần Tài chính và Tâm lý. Tập hôm nay tên là Con số đầu tiên. Câu chuyện là hư cấu, nhưng các nghiên cứu trong đó là thật, có tên người, có năm, có kết quả."
+  }
+ ],
+ "layer1": [
+  {
+   "speaker": "vn_host",
+   "text": "Quay lại quán cà phê. Thu không nói bốn nghìn đô. Cô nhìn ra những con sóng bạc đầu, nói rằng cô cần hiểu rõ phạm vi công việc trước đã, rồi thêm một câu ngắn, giọng bình thản hơn cô tưởng:"
+  },
+  {
+   "phrase": "p1"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Câu này nghĩa là: để tôi xem lại rồi báo anh sau nhé. Nó lịch sự, chuyên nghiệp, và mua cho bạn thời gian mà không làm ai phật lòng. Mẹo nhỏ: nói kèm một mốc cụ thể, ví dụ trước thứ Tư, để người kia thấy bạn nghiêm túc chứ không né."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Daniel gật đầu, nói không sao, nhưng bên anh đang đi rất nhanh. Cuộc gọi kết thúc. Màn hình tối lại, và Thu thấy gương mặt mình phản chiếu trong đó: hai mươi bảy tuổi, có tài, và đang rất sợ.",
+   "pause_ms": 900
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Để hiểu vì sao Thu suýt nói bốn nghìn đô, mình lùi lại ba tuần. Thu là designer tự do, chuyên thiết kế giao diện ứng dụng di động. Cô giỏi. Nhưng cô có một thói quen nguy hiểm: luôn báo giá thấp, vì sợ mất khách."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Tám mươi phần trăm thu nhập của Thu đến từ đúng một khách hàng, một agency ở Sài Gòn, trả cô khoảng ba mươi sáu triệu đồng mỗi tháng. Nghe thì ổn. Cho đến tháng vừa rồi, khi khoản tiền ấy về muộn. Không phải muộn một tuần. Muộn bảy mươi ngày."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bảy mươi ngày đó, Thu sống bằng tiền tiết kiệm. Chi phí mỗi tháng của cô khoảng hai mươi hai triệu: tiền thuê phòng gần biển, tiền ăn, và tiền gửi về cho mẹ ở Tam Kỳ. Khi tiền về, tài khoản chỉ còn hai mươi sáu triệu, đủ sống khoảng năm tuần."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Rồi mẹ gọi. Bác sĩ nói mẹ cần mổ tim trong vòng hai tháng. Bảo hiểm trả một phần, phần còn lại khoảng tám mươi triệu đồng. Mẹ nói nhẹ tênh: con đừng lo, mẹ còn ít vàng. Thu biết số vàng đó. Mẹ đã giữ nó ba mươi năm, chưa bao giờ đụng tới.",
+   "pause_ms": 1000
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Đúng tuần đó, email của Daniel đến. Một công ty công nghệ tài chính ở Singapore, mình tạm gọi là Tidewell, muốn thiết kế lại toàn bộ ứng dụng thanh toán. Đó là dự án lớn nhất Thu từng được mời."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Giờ bạn hiểu vì sao bốn nghìn đô bật ra trong đầu cô chưa? Vì nó gần bằng ba tháng tiền agency trả. Thu không hề tính dự án này đáng giá bao nhiêu với khách. Cô tính từ cái ví đang lép của chính mình."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Tối đó, Thu nhắn cho anh Quân. Trịnh Minh Quân, bốn mươi sáu tuổi, sếp cũ của cô ở một tập đoàn bán lẻ, làm giám đốc mua hàng gần hai mươi năm rồi ra làm tư vấn. Tức là anh đã ngồi đúng ghế của Daniel gần nửa đời người."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Sáng hôm sau, họ gặp nhau ở một quán nhỏ dưới chân bán đảo Sơn Trà. Anh Quân gọi ly bạc xỉu, nghe Thu kể hết, rồi hỏi đúng một câu: em định bán mười tuần làm việc với giá một chiếc xe tay ga hả? Thu bật cười, rồi suýt khóc."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Anh rút tờ giấy ăn, vẽ một cái mỏ neo. Trong đàm phán, anh nói, con số đầu tiên giống cái neo thả xuống biển. Con thuyền vẫn trôi được, nhưng chỉ trôi quanh chỗ cái neo. Các nhà tâm lý học gọi đó là hiệu ứng mỏ neo."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Năm một nghìn chín trăm bảy mươi tư, hai nhà tâm lý học Amos Tversky và Daniel Kahneman công bố một thí nghiệm nổi tiếng. Họ dùng một vòng quay may mắn có các số từ không đến một trăm, nhưng đã chỉnh để nó chỉ dừng ở một trong hai số: mười, hoặc sáu mươi lăm."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Sau đó, người tham gia được hỏi: các nước châu Phi chiếm bao nhiêu phần trăm số thành viên Liên Hợp Quốc? Nhóm thấy số mười có câu trả lời trung vị, tức mức nằm giữa, là hai mươi lăm phần trăm. Nhóm thấy số sáu mươi lăm: bốn mươi lăm phần trăm."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Một con số ngẫu nhiên, ai cũng biết là ngẫu nhiên, anh Quân nói, vẫn kéo câu trả lời lệch đi gần gấp đôi. Vậy con số của một khách hàng tự tin sẽ kéo em đi xa tới đâu?"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Thu cãi: dân chuyên nghiệp phải khác chứ. Anh Quân lắc đầu. Năm một nghìn chín trăm tám mươi bảy, Gregory Northcraft và Margaret Neale mời các nhân viên môi giới bất động sản ở Mỹ đi xem cùng một căn nhà, đọc cùng một bộ hồ sơ, rồi định giá. Chỉ khác một chi tiết: giá niêm yết ghi trong hồ sơ."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Giá niêm yết càng cao, các chuyên gia định giá càng cao. Và khi được hỏi, phần lớn họ khẳng định giá niêm yết không hề ảnh hưởng đến mình. Bị ảnh hưởng mà không biết mình bị ảnh hưởng, đó mới là chỗ đáng sợ của mỏ neo."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Daniel không cần lừa em, anh Quân nói. Anh ta chỉ cần nói con số trước. Mà mỏ neo nguy hiểm nhất chưa chắc là con số của Daniel. Nó là con số cũ trong đầu em."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Rồi anh đưa ra ba nguyên tắc. Một, giá tính từ giá trị em tạo ra cho khách, không phải từ chi phí sinh hoạt của em. Hai, nói con số thì luôn kèm lý do, vì mỏ neo có lý do thì nặng hơn, khó nhổ lên hơn. Ba, điều khó nhất: nói xong thì im lặng. Đừng tự giảm giá trước khi người ta kịp phản ứng."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Anh Quân cười khô khốc: hai mươi năm làm mua hàng, phần lớn tiền anh tiết kiệm cho công ty không đến từ lúc anh nói. Nó đến từ lúc người bán sợ im lặng."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Họ mở tài liệu của Tidewell. Mỗi tháng có khoảng hai mươi nghìn người bắt đầu đăng ký, nhưng cứ một trăm người thì sáu mươi hai người bỏ cuộc ở bước xác minh danh tính. Mỗi khách hàng giữ lại được mang về khoảng bốn mươi đô la một năm."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Kéo sáu mươi hai xuống năm mươi bảy thôi, Tidewell đã giữ thêm một nghìn khách mỗi tháng, mười hai nghìn khách mỗi năm. Nhân với bốn mươi đô, gần nửa triệu đô la mỗi năm. Em không bán mười tuần vẽ màn hình, anh Quân nói. Em bán nửa triệu đô. So với nó, mười tám nghìn đô không hề đắt."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Mười tám nghìn, gấp bốn lần rưỡi con số Thu định nói. Trước khi về, anh Quân dặn: cứ hỏi ngân sách của họ để lấy thông tin. Nếu họ nói một con số thấp, coi nó như gió biển, để nó bay qua, rồi hỏi họ tính ra nó thế nào. Và tuyệt đối đừng bịa ra khách hàng khác để doạ. Em chỉ cần nói thật."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Thứ Hai tuần sau, cuộc gọi thứ hai. Thu ngồi ở nhà, lưng thẳng, tờ giấy ăn có hình cái mỏ neo dán ngay cạnh màn hình. Daniel hỏi cô đã sẵn sàng báo giá chưa. Thu mỉm cười và hỏi ngược lại:"
+  },
+  {
+   "phrase": "p2"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Nghĩa là: ngân sách của anh cho dự án này là bao nhiêu? Đây là câu hỏi chuẩn để lấy thông tin, nghe chuyên nghiệp chứ không thô. Đừng hỏi kiểu anh có bao nhiêu tiền, nghe như đang soi ví người ta."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Daniel trả lời nhanh như đã tập trước. Sáu nghìn đô. Rồi anh nói thêm, giọng vẫn thân thiện: thật lòng mà nói, một designer khác đã báo giá năm nghìn rưỡi. Và bên tôi cần quyết định trước thứ Sáu.",
+   "pause_ms": 1200
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bụng Thu thắt lại. Sáu nghìn, chỉ bằng một phần ba con số của cô. Một đối thủ rẻ hơn. Một hạn chót còn bốn ngày. Mỏ neo thấp, đối thủ, hạn chót: ba đòn kinh điển của dân mua hàng, tung ra trong một hơi. Một năm trước, Thu sẽ gật đầu ngay. Hôm nay, cô liếc tờ giấy ăn, không cãi con số, chỉ hỏi:"
+  },
+  {
+   "phrase": "p3"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Nghĩa là: anh giải thích giúp tôi từng con số được không? Walk through là dẫn ai đó đi qua từng bước. Câu này mạnh vì nó không phản bác, chỉ tò mò. Và người phải giải thích một con số thường sẽ tự thấy chỗ yếu của nó."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Đúng vậy thật. Daniel giải thích, rồi chậm dần. Hoá ra sáu nghìn là giá một đợt làm mới giao diện năm ngoái: ba tuần, đổi màu, đổi biểu tượng, không nghiên cứu người dùng, không đụng đến bước xác minh danh tính. Còn báo giá năm nghìn rưỡi kia là cho một bộ giao diện làm theo mẫu có sẵn."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Thu nói nhẹ nhàng: vậy đó là một công việc khác hẳn. Cô hẹn thứ Tư gửi đề xuất, sáng thứ Năm gọi lại, vẫn kịp hạn thứ Sáu. Không chê đối thủ, không doạ ai, chỉ làm cho mọi thứ rõ ràng."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Đề xuất của Thu dài hai trang. Trang đầu không nói về cô, mà về gần nửa triệu đô mỗi năm Tidewell đang để rơi. Trang hai là ba lựa chọn. Trọn gói mười tám nghìn đô, gồm nghiên cứu người dùng, luồng đăng ký, luồng thanh toán và bản cho máy tính bảng. Bỏ bản máy tính bảng: mười bốn nghìn năm trăm. Chỉ luồng đăng ký: mười hai nghìn."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Anh Quân đọc bản nháp, chỉ xoá đúng một câu: câu xin lỗi vì giá có thể hơi cao mà Thu lén viết ở cuối trang. Đừng bao giờ xin lỗi cho mỏ neo của chính mình, anh nói."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Sáng thứ Năm, trời Đà Nẵng âm u, biển xám như chì. Daniel mở lời bằng một tiếng thở dài rất lịch sự. Đề xuất rất ấn tượng, anh nói, nhưng mà:"
+  },
+  {
+   "phrase": "p4"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Nghĩa là: mức đó hơi vượt ngân sách của chúng tôi. Hai chữ a bit làm câu mềm đi nhiều. Hãy để ý: người ta nói hơi vượt, chứ không nói không thể. Trong đàm phán, đó thường là lời mời nói chuyện tiếp, chưa phải cánh cửa đóng lại."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Đây là lúc khó nhất. Lời xin lỗi đã lên tới cổ họng Thu. Nhưng cô nhớ anh Quân. Im lặng. Cô nhìn ra cửa sổ và đếm sóng. Một. Hai. Ba. Bốn. Bảy giây im lặng, dài như bảy phút.",
+   "pause_ms": 1500
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Rồi chính Daniel lên tiếng trước, giọng đã bớt kịch bản:"
+  },
+  {
+   "phrase": "p5"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Nghĩa là: giá có thể linh động được chút nào không? Câu này khéo hơn nhiều so với bảo thẳng người ta giảm giá. Nếu bạn là người bán, có một câu trả lời rất hay: linh động về phạm vi, không phải về giá. Trả ít hơn thì nhận ít hạng mục hơn."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Thu trả lời đúng như thế. Bỏ bản máy tính bảng, còn mười bốn nghìn năm trăm. Daniel thử thêm lần nữa: mười hai nghìn, giữ cả hai luồng, ký ngay hôm nay. Nhưng đó là giá của gói chỉ có luồng đăng ký. Nhường một chút để chốt sớm cũng được, Thu nghĩ, nhưng phải có điểm dừng. Mười ba nghìn năm trăm, cô nói, giữ cả hai luồng, bắt đầu từ thứ Hai. Rồi thêm, chậm và rõ:"
+  },
+  {
+   "phrase": "p6"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Nghĩa là: tôi không muốn xuống thấp hơn mức đó. I'd rather not mềm hơn nhiều so với tôi không thể, nhưng ai nghe cũng hiểu đó là cái sàn. Và nói xong, Thu lại im lặng."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Daniel nhìn cô một lúc lâu, rồi bật cười, lần này là tiếng cười thật. Được, mười ba nghìn năm trăm. Khoảng ba trăm năm mươi triệu đồng, hơn ba lần con số Thu suýt nói hôm nọ."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Nhưng Thu chưa xong. Daniel nói Tidewell thường thanh toán sáu mươi ngày sau khi bàn giao. Sáu mươi ngày. Thu vừa sống sót qua bảy mươi ngày chờ tiền. Cô nói, rất bình tĩnh:"
+  },
+  {
+   "phrase": "p7"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Nghĩa là: chúng tôi cần một khoản đặt cọc trước khi bắt đầu. Upfront là trả trước, ngay từ đầu. Để ý: không phải xin xỏ anh đặt cọc được không ạ, mà là chúng tôi sẽ cần, như một điều kiện bình thường của công việc."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Thu đề nghị: ba mươi phần trăm đặt cọc, ba mươi phần trăm khi xong giai đoạn giữa, bốn mươi phần trăm khi bàn giao. Kèm một điều khoản: khoản nào trễ quá mười ngày làm việc, cô tạm dừng công việc đến khi nhận được tiền. Daniel nhăn mặt, hỏi lại phòng tài chính, rồi đồng ý."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Ba ngày sau, tiền cọc về: bốn nghìn không trăm năm mươi đô la, khoảng một trăm lẻ năm triệu đồng. Tối đó, Thu gửi về cho mẹ đủ tám mươi triệu cho ca mổ, để số vàng của mẹ được nằm yên trong tủ. Và lần đầu tiên sau nhiều tháng, cô ngủ một mạch tới sáng.",
+   "pause_ms": 1000
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Bạn nghĩ câu chuyện kết thúc ở đây? Chưa đâu. Tuần thứ sáu, Thu gửi bản thiết kế giai đoạn giữa, Daniel khen hết lời, nhưng khoản thanh toán thứ hai không về. Phòng tài chính của Tidewell báo: công ty đang chuyển sang hệ thống kế toán mới, mọi khoản chi cho nhà cung cấp tạm hoãn khoảng bốn mươi lăm ngày."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Và đúng sáng hôm đó, agency ở Sài Gòn nhắn tin. Họ vừa mất khách hàng lớn nhất. Từ cuối tháng, họ dừng hợp tác với toàn bộ người làm tự do. Tám mươi phần trăm thu nhập của Thu, biến mất trong một tin nhắn.",
+   "pause_ms": 1500
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Nếu là Thu của mấy tháng trước, không đặt cọc, nhận tiền sáu mươi ngày sau bàn giao, cô sẽ làm không công nhiều tháng liền, với số tiết kiệm chỉ đủ sống năm tuần."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Nhưng Thu của hôm nay có tiền cọc trong tay và một điều khoản trong hợp đồng. Cô viết cho Daniel một email lịch sự, không trách móc: theo hợp đồng, cô tạm dừng giai đoạn tiếp theo đến khi nhận được khoản thứ hai, và sẵn sàng làm tiếp ngay ngày tiền về."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Hai ngày sau, Daniel gọi. Ngày ra mắt đã báo lên ban giám đốc, không thể lùi, nên anh đưa hồ sơ của Thu lên thẳng giám đốc tài chính. Tiền về ngay trong tuần. Cô là nhà cung cấp duy nhất được trả tiền tháng này đấy, Daniel nói, nửa đùa nửa thật."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Nhưng đêm đó Thu vẫn mất ngủ, vì một phép tính. Nếu giờ cô dồn hết sức cho Tidewell, họ sẽ thành khách hàng tám mươi phần trăm mới của cô. Cô chỉ đổi một rủi ro lấy một rủi ro y hệt, có điều tính bằng đô la."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Cô gọi anh Quân. Anh kể: hồi anh làm mua hàng, có một nhà cung cấp bán cho tập đoàn gần hết sản lượng của họ. Họ tưởng mình là đối tác chiến lược. Thật ra họ là con tin. Mỗi lần ép giá, anh biết họ không dám nói không. Em có muốn làm con tin của ai không?"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Cuối tuần đó, ở cái bàn quen nhìn ra biển Mỹ Khê, Thu đặt cho mình ba quy tắc tiền bạc. Thứ nhất: quỹ dự phòng bằng sáu tháng chi phí, tức khoảng một trăm ba mươi hai triệu đồng. Quỹ này không để đầu tư, không để mua sắm. Nó cho cô quyền nói không với một hợp đồng tồi."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Thứ hai: tách tài khoản. Một tài khoản hoạt động để nhận tiền khách và tự trả cho mình mức lương cố định hằng tháng. Một tài khoản thuế, cứ nhận tiền là chuyển ngay một phần vào, theo mức kế toán tư vấn. Và một tài khoản tiết kiệm cho quỹ dự phòng."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Thứ ba: không khách hàng nào chiếm quá khoảng bốn mươi đến năm mươi phần trăm thu nhập. Vượt ngưỡng đó không phải lúc ăn mừng, mà là tín hiệu phải tìm thêm khách. Thu nhận thêm hai khách nhỏ, ở Hà Nội và Melbourne. Lần này, cả hai đều đặt cọc trước."
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Ca mổ của mẹ Thu thành công. Vài tháng sau, ứng dụng mới của Tidewell ra mắt, số người bỏ cuộc ở bước xác minh danh tính giảm từ sáu mươi hai xuống bốn mươi chín trên một trăm. Daniel nhắn: dự án sau, tôi sẽ không hỏi giá cô trước nữa. Tôi để cô nói con số đầu tiên.",
+   "pause_ms": 1000
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Còn bạn, nhớ con số bạn nghĩ ra ở đầu tập không? Nó đến từ giá trị bạn tạo ra cho khách, hay từ nỗi sợ và cái ví của chính bạn?"
+  },
+  {
+   "speaker": "vn_host",
+   "text": "Câu chuyện của Thu để lại hai điều. Con số đầu tiên có sức nặng, nên hãy đặt nó bằng giá trị và giữ nó bằng im lặng. Và đừng để một khách hàng nào nắm cả cuộc sống của bạn trong tay."
+  }
+ ],
+ "layer2": {
+  "intro": [
+   {
+    "speaker": "vn_host",
+    "text": "Giờ là phần luyện nhanh. Bảy câu tiếng Anh từ câu chuyện của Thu. Mỗi câu bạn nghe chậm, có khoảng lặng để nói theo, rồi nghe tốc độ thật. Cứ nói thành tiếng, lẩm nhẩm thôi cũng được."
+   }
+  ],
+  "outro": [
+   {
+    "speaker": "vn_host",
+    "text": "Xong bảy câu rồi. Tiếp theo, bạn sẽ nghe chính Thu kể lại câu chuyện, hoàn toàn bằng tiếng Anh. Thử đếm xem bạn nhận ra được bao nhiêu câu vừa học nhé."
+   }
+  ]
+ },
+ "layer3": [
+  {
+   "speaker": "Thu",
+   "text": "My name is Thu. I'm a freelance designer in Da Nang, and a few months ago, I almost said the most expensive number of my life. Let me tell you how I didn't."
+  },
+  {
+   "speaker": "Thu",
+   "text": "It was a Tuesday afternoon, in a small cafe by My Khe beach. On my laptop screen, a man in a white shirt was smiling at me from Singapore."
+  },
+  {
+   "speaker": "Thu",
+   "text": "His name was Daniel Tan, procurement manager at Tidewell, a fintech company. They wanted me to redesign their whole payment app. The biggest project anyone had ever offered me."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "So, Thu, before we go any further. What's your rate for a project like this?",
+   "pause_ms": 900
+  },
+  {
+   "speaker": "Thu",
+   "text": "Four thousand dollars. The number was right there, on my tongue. It was more than I earned in two months. To me, it sounded huge."
+  },
+  {
+   "speaker": "Thu",
+   "text": "But something stopped me. I said I needed to understand the scope first. Then I added one short sentence."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Let me get back to you on that. I'd like a few days to read your documents properly."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "Sure, no problem. Just so you know, we're moving fast on this one."
+  },
+  {
+   "speaker": "Thu",
+   "text": "When the call ended, my screen went black, and I saw my own face in it. Twenty-seven years old. Good at my job. And very scared.",
+   "pause_ms": 900
+  },
+  {
+   "speaker": "Thu",
+   "text": "Here's why that number was in my head. Eighty percent of my income came from one client, an agency in Ho Chi Minh City. They paid me about thirty-six million dong a month. That month, they paid seventy days late."
+  },
+  {
+   "speaker": "Thu",
+   "text": "For seventy days, I lived on my savings. When the money finally came, I had twenty-six million dong left, and my costs were about twenty-two million a month. My savings covered barely five weeks."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Then my mother called from Tam Ky. She needed heart surgery within two months. After insurance, we still had to find about eighty million dong. She told me not to worry, she still had some gold. Gold she had kept for thirty years and never touched.",
+   "pause_ms": 900
+  },
+  {
+   "speaker": "Thu",
+   "text": "That night, I messaged Quan, my old boss. He spent almost twenty years as a procurement director at a big retail group. Twenty years on Daniel's side of the table."
+  },
+  {
+   "speaker": "Thu",
+   "text": "We met the next morning at a little cafe below the Son Tra peninsula. He listened to the whole story, then asked me one question."
+  },
+  {
+   "speaker": "Quan",
+   "text": "Let me check I understand. You want to sell ten weeks of work for the price of a scooter?"
+  },
+  {
+   "speaker": "Thu",
+   "text": "When you say it like that, it sounds terrible."
+  },
+  {
+   "speaker": "Quan",
+   "text": "It is terrible. Pass me that napkin."
+  },
+  {
+   "speaker": "Thu",
+   "text": "He drew an anchor on the napkin."
+  },
+  {
+   "speaker": "Quan",
+   "text": "In a negotiation, the first number is an anchor. The boat can still move, but only around the anchor. Psychologists call this the anchoring effect."
+  },
+  {
+   "speaker": "Quan",
+   "text": "In 1974, Amos Tversky and Daniel Kahneman described a famous experiment. They used a wheel of fortune with numbers from zero to one hundred. But the wheel was rigged. It only stopped at ten or at sixty-five."
+  },
+  {
+   "speaker": "Quan",
+   "text": "Then they asked people a question. What percentage of the countries in the United Nations are African? The group that saw ten gave a median answer of twenty-five percent. The group that saw sixty-five said forty-five percent."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Because of a random number?"
+  },
+  {
+   "speaker": "Quan",
+   "text": "A random number that everyone knew was random. Now imagine a number from a confident buyer in a nice white shirt."
+  },
+  {
+   "speaker": "Thu",
+   "text": "But those people weren't experts. Professionals are different, right?"
+  },
+  {
+   "speaker": "Quan",
+   "text": "Are they? In 1987, Gregory Northcraft and Margaret Neale asked real estate agents to visit a house and estimate its value. Same house, same information packet. They changed only one thing: the listing price in the packet."
+  },
+  {
+   "speaker": "Quan",
+   "text": "A higher listing price led to higher appraisals. And when they were asked, most of the agents said the listing price did not influence them at all."
+  },
+  {
+   "speaker": "Thu",
+   "text": "So they were anchored, and they didn't even know it."
+  },
+  {
+   "speaker": "Quan",
+   "text": "Exactly. Daniel doesn't need to trick you. He only needs to say his number first. And the most dangerous anchor may not be his number. It's the old number in your own head."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Then he gave me three rules. One, price from the value I create, not from my bills. Two, whenever I say a number, give a reason. An anchor with a reason is heavier."
+  },
+  {
+   "speaker": "Quan",
+   "text": "And three. After you say your number, stop talking. In twenty years of procurement, most of the money I saved didn't come from what I said. It came from sellers who were afraid of silence."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Then we opened Tidewell's own documents. About twenty thousand people started signing up every month, but sixty-two out of every hundred gave up at the identity check. Each customer they kept was worth about forty dollars a year."
+  },
+  {
+   "speaker": "Quan",
+   "text": "Bring that sixty-two down to fifty-seven, and they keep a thousand more customers a month. Twelve thousand a year. Times forty dollars..."
+  },
+  {
+   "speaker": "Thu",
+   "text": "That's almost half a million dollars a year."
+  },
+  {
+   "speaker": "Quan",
+   "text": "So you're not selling ten weeks of screens. You're selling half a million dollars a year. Eighteen thousand for that is not expensive."
+  },
+  {
+   "speaker": "Quan",
+   "text": "One more thing. On the next call, ask them: what's your budget for this project? Ask to learn. If they throw a low number at you, don't negotiate around it. Ask how they got there. And never invent another client to scare them. Just tell the truth."
+  },
+  {
+   "speaker": "Thu",
+   "text": "The next Monday, Daniel called again. This time I was at home, sitting up straight, with the napkin taped next to my screen."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "So, Thu, are you ready to give me a number?"
+  },
+  {
+   "speaker": "Thu",
+   "text": "Almost. First, what's your budget for this project?"
+  },
+  {
+   "speaker": "Daniel",
+   "text": "Honestly? Six thousand dollars. And to be transparent, another designer quoted us five thousand five hundred. We need a decision by Friday.",
+   "pause_ms": 1200
+  },
+  {
+   "speaker": "Thu",
+   "text": "My stomach went tight. A low anchor, one third of my number. A cheaper competitor. A deadline in four days. Three classic procurement tactics, all in one breath."
+  },
+  {
+   "speaker": "Thu",
+   "text": "A year ago, I would have said yes on the spot. This time, I didn't argue. I asked a question."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Okay. Can you walk me through the numbers? How did you get to six thousand?"
+  },
+  {
+   "speaker": "Daniel",
+   "text": "Sure. So, six thousand is what we paid for a refresh last year. Three weeks. New colours, new icons. No user research. And, well, we didn't touch the identity check."
+  },
+  {
+   "speaker": "Thu",
+   "text": "And the other quote?"
+  },
+  {
+   "speaker": "Daniel",
+   "text": "That one is based on a template. I guess it's a different scope."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Then it sounds like a different project. I'll send you a full proposal on Wednesday. Could we talk on Thursday morning? That's still before your Friday deadline."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "Fair enough. Let me get back to you on the Thursday slot. I'll confirm within the hour."
+  },
+  {
+   "speaker": "Thu",
+   "text": "My proposal was two pages long. The first page wasn't about me. It was about the sixty-two people out of every hundred, and the half a million dollars a year Tidewell was losing."
+  },
+  {
+   "speaker": "Thu",
+   "text": "The second page had three options. Eighteen thousand dollars for everything, including user research, the payment flow and a tablet version. Fourteen thousand five hundred without the tablet. Twelve thousand for the sign-up flow only."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Quan read my draft and deleted exactly one sentence. At the very bottom, I had written: Sorry if the price is a bit high."
+  },
+  {
+   "speaker": "Quan",
+   "text": "Never apologise for your own anchor."
+  },
+  {
+   "speaker": "Thu",
+   "text": "On Thursday morning, the sky over Da Nang was heavy and the sea was the colour of steel. Daniel started with a very polite sigh."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "Thu, I've read your proposal. It's impressive. Really. But eighteen thousand... That's a bit outside our budget."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Every part of me wanted to say, I can go lower. Instead, I looked out of the window and counted the waves. One. Two. Three. Four. Seven seconds of silence. It felt like seven minutes.",
+   "pause_ms": 1500
+  },
+  {
+   "speaker": "Thu",
+   "text": "And then Daniel spoke first. His voice was different now. Less like a script."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "Okay. Is there any flexibility on the price?"
+  },
+  {
+   "speaker": "Thu",
+   "text": "There's some flexibility on scope. If we remove the tablet version, it's fourteen thousand five hundred."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "What about twelve? With both flows. And we sign today."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Twelve thousand is the sign-up flow only. Without the payment flow, I can't promise the results you need."
+  },
+  {
+   "speaker": "Thu",
+   "text": "I can do thirteen thousand five hundred, with both flows, starting on Monday. I'd rather not go below that."
+  },
+  {
+   "speaker": "Thu",
+   "text": "And then I stopped talking again. Daniel looked at me for a long moment. Then he laughed, a real laugh this time."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "Thirteen five. Deal. You're tougher than your portfolio, you know that?"
+  },
+  {
+   "speaker": "Thu",
+   "text": "Thirteen thousand five hundred dollars. More than three times the number I almost said in that cafe."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "Great. Our standard terms are payment sixty days after delivery. I'll send the contract tonight."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Sixty days. I had just survived seventy. So I said, calmly, as if it were the most normal thing in the world:"
+  },
+  {
+   "speaker": "Thu",
+   "text": "We'll need a deposit upfront. Thirty percent before I start, thirty percent at the midpoint, and forty percent at delivery. And if any payment is more than ten working days late, I'll pause the work until it arrives."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "That's not how we usually do it. Let me check with our finance team."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Finance said yes. Three days later, the deposit arrived. Four thousand and fifty dollars. That night, I sent my mother the eighty million dong for her surgery and told her to leave her gold in the drawer. Then I slept through the night for the first time in months.",
+   "pause_ms": 1000
+  },
+  {
+   "speaker": "Thu",
+   "text": "But that wasn't the end. In week six, I delivered the midpoint designs. Daniel loved them. But the second payment didn't arrive. Tidewell's finance team was moving to a new accounting system, and all vendor payments were on hold for about forty-five days."
+  },
+  {
+   "speaker": "Thu",
+   "text": "That same morning, the agency in Ho Chi Minh City messaged me. They had lost their biggest client. From the end of the month, they were stopping work with all their freelancers.",
+   "pause_ms": 1200
+  },
+  {
+   "speaker": "Thu",
+   "text": "Eighty percent of my income, gone in one message."
+  },
+  {
+   "speaker": "Thu",
+   "text": "The old me, with no deposit and sixty-day terms, would have worked for free for months, with five weeks of savings. But the new me had a deposit in the bank and a clause in the contract. So I wrote to Daniel. Politely. No blame."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Hi Daniel. I hope you're well. As agreed in our contract, I'll pause the next phase until the second payment arrives. I'm ready to continue the day it does."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "Thu, I get it. Our launch date is already with the board, so this can't wait. I'm taking it to our finance director today."
+  },
+  {
+   "speaker": "Thu",
+   "text": "The money arrived that same week. Daniel told me, half joking, that I was the only vendor who got paid that month."
+  },
+  {
+   "speaker": "Thu",
+   "text": "That night, I still couldn't sleep, because of a simple calculation. If I gave all my time to Tidewell now, they would become my new eighty percent. Same risk, just in dollars."
+  },
+  {
+   "speaker": "Thu",
+   "text": "So I called Quan."
+  },
+  {
+   "speaker": "Quan",
+   "text": "When I was in procurement, one supplier sold us almost everything they made. They thought they were our strategic partner. Actually, they were our hostage. Every time I pushed the price down, they couldn't say no."
+  },
+  {
+   "speaker": "Quan",
+   "text": "So tell me, Thu. Do you want to be anyone's hostage?"
+  },
+  {
+   "speaker": "Thu",
+   "text": "No. I want to be able to say no."
+  },
+  {
+   "speaker": "Quan",
+   "text": "Then build a system that lets you say it."
+  },
+  {
+   "speaker": "Thu",
+   "text": "That weekend, back at my usual table by the sea, I wrote down three money rules."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Rule one: an emergency fund of six months of expenses. For me, that's about one hundred and thirty-two million dong. It's not for investing or shopping. It gives me the power to say no to a bad contract."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Rule two: separate accounts. An operating account, where client money arrives and I pay myself a fixed salary. A tax account, where a share of every payment goes right away, at the rate my accountant suggested. And a savings account for the emergency fund."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Rule three: no client should be more than about forty to fifty percent of my income. When one goes over that line, it's not a reason to celebrate. It's a signal to find more clients. I found two smaller ones, in Ha Noi and Melbourne. Both paid a deposit upfront."
+  },
+  {
+   "speaker": "Thu",
+   "text": "My mother's surgery went well. A few months later, Tidewell launched the new app, and the drop-off at the identity check fell from sixty-two to forty-nine out of every hundred."
+  },
+  {
+   "speaker": "Thu",
+   "text": "Then Daniel sent me a message I still keep on my phone."
+  },
+  {
+   "speaker": "Daniel",
+   "text": "Next project, I won't ask for your rate first. You can say the first number. And between us, yours was the only proposal our finance director read to the end."
+  },
+  {
+   "speaker": "Thu",
+   "text": "I still think about that Tuesday in the cafe, and the one short sentence that gave me time to find a better number. So the next time someone asks you for a number, take a breath. Let me get back to you on that. It's a complete sentence."
+  }
+ ],
+ "closing": [
+  {
+   "speaker": "vn_host",
+   "text": "Trước khi chào bạn, đây là một quy tắc để dùng ngay ngày mai. Lần tới có ai hỏi giá, đừng nói con số đầu tiên bật ra trong đầu. Hãy xin thời gian, tính xem việc của bạn đáng giá bao nhiêu với họ, rồi nói con số kèm lý do, và im lặng. Hẹn gặp bạn ở tập sau."
+  }
+ ],
+ "fact_check": {
+  "sources": [
+   "Tversky, A. & Kahneman, D. (1974). Judgment under Uncertainty: Heuristics and Biases. Science, 185(4157), 1124-1131. Wheel of fortune rigged to stop at 10 or 65; median estimates of the percentage of African countries in the UN were 25 and 45.",
+   "Northcraft, G. B. & Neale, M. A. (1987). Experts, amateurs, and real estate: An anchoring-and-adjustment perspective on property pricing decisions. Organizational Behavior and Human Decision Processes, 39(1), 84-97. Agents' appraisals of the same house rose with the listing price in the packet; most denied using the listing price."
+  ],
+  "dramatized_note": "Nhân vật, công ty Tidewell và mọi con số của dự án là hư cấu. Chỉ hai nghiên cứu được nêu là thật."
+ }
+}

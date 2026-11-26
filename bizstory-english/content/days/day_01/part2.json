@@ -1,0 +1,774 @@
+{
+  "part": 2,
+  "kind": "case_study",
+  "title_vi": "Lời xin lỗi đắt nhất của Netflix",
+  "title_en": "Netflix and the Qwikster Mistake",
+  "topic": "Netflix 2011, Qwikster, tăng giá, tâm lý khách hàng, sự công bằng về giá, truyền thông khủng hoảng",
+  "subject": "Netflix",
+  "cast": {
+    "Narrator": "en_male",
+    "Cohost": "en_female"
+  },
+  "phrases": [
+    {
+      "id": "p1",
+      "en": "They didn't take it seriously.",
+      "vi": "Họ không coi chuyện đó là nghiêm túc.",
+      "note_vi": "Take something seriously là coi trọng, nghiêm túc với điều gì. Nói về người: take someone seriously. Nhớ dùng trạng từ seriously, không nói take it serious.",
+      "forms": [
+        "take it seriously",
+        "take us seriously",
+        "take the offer seriously"
+      ],
+      "context_vi": "Câu đầu tiên. Bạn dùng câu này khi kể lại rằng đối tác, sếp hay khách hàng đã xem nhẹ một ý tưởng, một lời cảnh báo hay một đối thủ. Giọng điệu trung tính, dùng được cả trong họp lẫn trong email nội bộ. Nghe chậm, rồi nghe tốc độ thật.",
+      "examples": [
+        {
+          "en": "We warned the board about the new competitor, but they didn't take it seriously.",
+          "vi": "Chúng tôi đã cảnh báo hội đồng quản trị về đối thủ mới, nhưng họ không coi chuyện đó là nghiêm túc."
+        },
+        {
+          "en": "Big clients will only take us seriously if our proposal has real numbers in it.",
+          "vi": "Khách hàng lớn chỉ coi trọng chúng ta nếu bản đề xuất có số liệu thật."
+        }
+      ],
+      "recall_vi": "Câu mô tả phía Blockbuster ở Dallas năm hai nghìn, khi Netflix đề nghị được mua lại với giá khoảng năm mươi triệu đô la."
+    },
+    {
+      "id": "p2",
+      "en": "We need to get ahead of this.",
+      "vi": "Chúng ta cần đi trước một bước, chủ động xử lý chuyện này.",
+      "note_vi": "Dùng khi muốn hành động sớm, trước khi một thay đổi hay một rắc rối kịp lớn lên. Đừng nhầm với get ahead đứng một mình, nghĩa là thăng tiến.",
+      "forms": [
+        "get ahead of this",
+        "get ahead of it"
+      ],
+      "context_vi": "Câu thứ hai. Đây là câu rất hay nghe trong phòng họp khi có tin xấu sắp lộ ra, một đánh giá tiêu cực đang lan, hay một thay đổi lớn của thị trường đang tới. Nghĩa là chủ động ra tay trước, đừng để sự việc dắt mình đi.",
+      "examples": [
+        {
+          "en": "The delay will be in the news tomorrow, so we need to get ahead of this and call our clients today.",
+          "vi": "Ngày mai báo sẽ đưa tin về việc chậm trễ, nên chúng ta cần đi trước một bước và gọi cho khách hàng ngay hôm nay."
+        },
+        {
+          "en": "If the new law changes our prices, let's get ahead of it and update the contracts now.",
+          "vi": "Nếu luật mới làm thay đổi giá của mình, hãy chủ động trước và cập nhật hợp đồng ngay bây giờ."
+        }
+      ],
+      "recall_vi": "Câu nói lên logic của Netflix khi chuyển sang xem phim trực tuyến từ năm hai nghìn không trăm lẻ bảy, để không đi vào vết xe của Blockbuster."
+    },
+    {
+      "id": "p3",
+      "en": "We need to read the room.",
+      "vi": "Chúng ta cần nắm bắt không khí, hiểu người khác đang cảm thấy thế nào.",
+      "note_vi": "Read the room là đọc tình hình, nhìn sắc mặt trước khi nói hay làm. Nói về người khác như He didn't read the room nghe khá thẳng, nên cẩn thận khi nói với cấp trên.",
+      "forms": [
+        "read the room"
+      ],
+      "context_vi": "Câu thứ ba. Bạn dùng câu này trước một buổi thuyết trình, một cuộc đàm phán hay một thông báo quan trọng, để nhắc cả nhóm để ý tâm trạng của người nghe. Nó cũng dùng cho cả thị trường: khách hàng đang vui hay đang bực.",
+      "examples": [
+        {
+          "en": "The team is already tired, so read the room before you add another deadline.",
+          "vi": "Cả nhóm đang mệt rồi, nên hãy nhìn không khí trước khi giao thêm một hạn chót nữa."
+        },
+        {
+          "en": "The client looked worried about the budget, so I read the room and changed my pitch.",
+          "vi": "Khách hàng có vẻ lo về ngân sách, nên tôi nắm bắt không khí và đổi cách trình bày."
+        }
+      ],
+      "recall_vi": "Câu lẽ ra phải có ai đó nói trước khi Netflix công bố tăng giá khoảng sáu mươi phần trăm vào tháng bảy năm hai nghìn mười một."
+    },
+    {
+      "id": "p4",
+      "en": "Customers vote with their wallets.",
+      "vi": "Khách hàng bỏ phiếu bằng ví tiền của họ.",
+      "note_vi": "Ý là khách hàng thể hiện quan điểm bằng việc chi tiền hay ngừng chi tiền, chứ không phải bằng lời nói. Cũng có thể nói people vote with their wallets.",
+      "forms": [
+        "vote with their wallets"
+      ],
+      "context_vi": "Câu thứ tư. Câu này hay dùng khi phân tích bán hàng hoặc thuyết phục sếp rằng hành vi mua thật quan trọng hơn lời khen trong khảo sát. Khách không cần phàn nàn. Họ chỉ cần ngừng trả tiền, hoặc chuyển sang trả cho người khác.",
+      "examples": [
+        {
+          "en": "The survey says people love the new menu, but customers vote with their wallets, and sales are down.",
+          "vi": "Khảo sát nói mọi người thích thực đơn mới, nhưng khách hàng bỏ phiếu bằng ví tiền, và doanh số đang giảm."
+        },
+        {
+          "en": "If the service gets worse, clients will vote with their wallets and move to a competitor.",
+          "vi": "Nếu dịch vụ kém đi, khách hàng sẽ bỏ phiếu bằng ví tiền và chuyển sang đối thủ."
+        }
+      ],
+      "recall_vi": "Câu mô tả cách khách hàng Netflix phản ứng với đợt tăng giá năm hai nghìn mười một: huỷ tài khoản thay vì chỉ phàn nàn."
+    },
+    {
+      "id": "p5",
+      "en": "I owe you an explanation.",
+      "vi": "Tôi nợ bạn một lời giải thích.",
+      "note_vi": "Câu nhận trách nhiệm và hứa sẽ nói rõ sự việc. Trang trọng vừa phải, dùng được với khách hàng, sếp và đồng nghiệp. Tránh lỗi I must explain you; phải là explain to you.",
+      "forms": [
+        "owe you an explanation",
+        "owe everyone an explanation",
+        "owe our customers an explanation"
+      ],
+      "context_vi": "Câu thứ năm. Bạn dùng câu này khi mình đã làm ai đó thất vọng, như giao hàng trễ, đổi kế hoạch đột ngột hay im lặng quá lâu, và muốn nhận phần trách nhiệm trước khi giải thích. Nó cho thấy bạn tôn trọng người nghe.",
+      "examples": [
+        {
+          "en": "I know the report was late again, and I owe you an explanation.",
+          "vi": "Tôi biết bản báo cáo lại trễ, và tôi nợ anh một lời giải thích."
+        },
+        {
+          "en": "After the system went down for six hours, we owe our customers an explanation, not just a discount.",
+          "vi": "Sau khi hệ thống ngừng chạy sáu tiếng, chúng ta nợ khách hàng một lời giải thích, chứ không chỉ một khoản giảm giá."
+        }
+      ],
+      "recall_vi": "Câu Reed Hastings dùng ở dạng I owe everyone an explanation trong lá thư xin lỗi ngày mười tám tháng chín năm hai nghìn mười một."
+    },
+    {
+      "id": "p6",
+      "en": "The plan backfired.",
+      "vi": "Kế hoạch đã phản tác dụng.",
+      "note_vi": "Backfire là gây ra kết quả ngược với mong muốn. Đây là động từ chủ động: nói the plan backfired, không nói the plan was backfired.",
+      "forms": [
+        "backfired"
+      ],
+      "context_vi": "Câu thứ sáu. Bạn dùng câu này trong buổi tổng kết, khi một chiến dịch, một chính sách hay một nước đi đàm phán mang lại kết quả ngược lại với điều bạn muốn. Câu ngắn, thẳng, không đổ lỗi cho ai cụ thể.",
+      "examples": [
+        {
+          "en": "We cut the training budget to save money, but the plan backfired and mistakes went up.",
+          "vi": "Chúng tôi cắt ngân sách đào tạo để tiết kiệm, nhưng kế hoạch phản tác dụng và lỗi tăng lên."
+        },
+        {
+          "en": "The aggressive discount backfired, because customers started to think the product was cheap.",
+          "vi": "Đợt giảm giá mạnh tay đã phản tác dụng, vì khách bắt đầu nghĩ sản phẩm là hàng rẻ tiền."
+        }
+      ],
+      "recall_vi": "Câu mô tả việc tách mảng đĩa thành Qwikster: lá thư lẽ ra để xoa dịu khách hàng, nhưng lại khiến nhiều người giận hơn."
+    },
+    {
+      "id": "p7",
+      "en": "Let's cut our losses.",
+      "vi": "Hãy cắt lỗ, dừng lại để không mất thêm.",
+      "note_vi": "Gốc từ đầu tư, nay dùng cho mọi dự án, hợp đồng hay quyết định đang đi sai. Losses luôn ở số nhiều. Dạng khác: they cut their losses, the company cut its losses.",
+      "forms": [
+        "cut our losses",
+        "cut their losses",
+        "cut its losses"
+      ],
+      "context_vi": "Câu thứ bảy. Bạn dùng câu này khi một dự án đã tốn tiền, tốn công nhưng rõ ràng không hiệu quả, và bạn đề nghị dừng lại ngay để không mất thêm. Nó cần dũng khí, vì dừng lại nghĩa là thừa nhận phần đã mất.",
+      "examples": [
+        {
+          "en": "The new app has no users after six months, so let's cut our losses and focus on the website.",
+          "vi": "Ứng dụng mới sau sáu tháng vẫn không có người dùng, nên hãy cắt lỗ và tập trung vào trang web."
+        },
+        {
+          "en": "The partner kept missing deadlines, so we decided to cut our losses and end the contract early.",
+          "vi": "Đối tác liên tục trễ hạn, nên chúng tôi quyết định cắt lỗ và chấm dứt hợp đồng sớm."
+        }
+      ],
+      "recall_vi": "Câu mô tả quyết định ngày mười tháng mười năm hai nghìn mười một, khi Netflix bỏ hẳn kế hoạch Qwikster chỉ sau khoảng ba tuần."
+    }
+  ],
+  "opening": [
+    {
+      "speaker": "vn_host",
+      "text": "Tối chủ nhật, ngày mười tám tháng chín năm hai nghìn mười một. Hàng triệu khách hàng của Netflix ở Mỹ mở hộp thư và thấy một email từ chính tổng giám đốc, Reed Hastings. Không phải quảng cáo phim mới. Không phải khuyến mãi. Câu đầu tiên của email là thế này.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "en_male",
+      "text": "I messed up. I owe everyone an explanation.",
+      "pause_ms": 1200
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Tôi đã làm hỏng chuyện. Tôi nợ mọi người một lời giải thích. Đây là câu thật, Reed Hastings viết trên blog của công ty và gửi tới khách hàng. Hiếm có vị tổng giám đốc nào mở lời với hàng triệu khách hàng bằng một câu như vậy."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Lúc ấy, cổ phiếu Netflix đã rơi rất xa mức gần ba trăm đô la hồi giữa tháng bảy. Và điều kỳ lạ là lá thư xin lỗi ấy không dập được lửa. Nó còn đổ thêm dầu. Đến cuối năm, cổ phiếu xuống dưới một trăm đô la. Khoảng ba phần tư giá trị bốc hơi trong vài tháng.",
+      "pause_ms": 1000
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Chào bạn, đây là BizStory English, Phần hai, case study có thật. Hôm nay mình kể chuyện Netflix: một công ty đi đúng hướng chiến lược, nhưng suýt tự tay phá mình vì cách làm và cách nói. Và cũng là chuyện họ đứng dậy như thế nào."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Mọi sự kiện và con số hôm nay dựa trên tài liệu công khai. Cảnh nào dựng lại, mình sẽ nói rõ. Bảy câu tiếng Anh bạn học hôm nay là câu dân văn phòng hay nói trong tình huống tương tự, không phải lời của nhân vật thật, trừ câu bạn vừa nghe."
+    }
+  ],
+  "layer1": [
+    {
+      "speaker": "vn_host",
+      "text": "Muốn hiểu vì sao lá thư ấy đau đến vậy, mình phải quay lại từ đầu. Năm một nghìn chín trăm chín mươi bảy, ở California, Reed Hastings và Marc Randolph lập ra Netflix: cho thuê đĩa phim qua bưu điện. Bạn chọn phim trên mạng, chiếc phong bì đỏ đến tận hộp thư, xem xong thì gửi trả."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Dịch vụ chạy từ năm một nghìn chín trăm chín mươi tám. Sang năm sau, Netflix chuyển sang thu phí thuê bao hằng tháng và bỏ hẳn tiền phạt trả trễ, thứ mà rất nhiều người thuê phim thời đó rất ghét."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Ông vua của ngành cho thuê băng đĩa khi ấy là Blockbuster, biển hiệu xanh vàng ở gần như mọi khu phố. Lúc đỉnh cao, khoảng giữa những năm hai nghìn, chuỗi này có chừng chín nghìn cửa hàng. Còn Netflix năm hai nghìn thì nhỏ, chưa có lãi, và cơn sốt dot com vừa sụp. Gọi vốn khó vô cùng."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Năm hai nghìn, Hastings và Randolph bay tới Dallas, nơi Blockbuster đặt trụ sở, để gặp ban lãnh đạo của họ. Lời đề nghị: Blockbuster mua lại Netflix với giá khoảng năm mươi triệu đô la. Theo lời kể của Randolph, Netflix khi đó sẽ lo phần kinh doanh trên mạng cho Blockbuster."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Đoạn sau đây là cảnh dựng lại để bạn dễ hình dung không khí, không phải lời thoại thật. Một phòng họp lớn ở Dallas. Một bên bàn là hai nhà sáng lập của một công ty nhỏ đang lỗ. Bên kia là những người điều hành một đế chế hàng nghìn cửa hàng. Cả hai cùng nói về tương lai, nhưng mỗi bên nhìn thấy một tương lai khác hẳn.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Hết phần dựng lại. Còn đây là điều có ghi chép. Trong hồi ký That Will Never Work, năm hai nghìn mười chín, Marc Randolph kể rằng phía Blockbuster không hề coi lời đề nghị ấy là nghiêm túc. Câu trả lời là không. Kể lại chuyện này với đồng nghiệp, người ta sẽ nói gọn một câu."
+    },
+    {
+      "phrase": "p1"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "They didn't take it seriously. Họ không coi chuyện đó là nghiêm túc, họ xem nhẹ. Phần lõi là take something seriously, và bạn có thể thay tân ngữ: take us seriously, take the offer seriously. Lỗi người Việt hay mắc là nói take it serious, quên phần đuôi của trạng từ. Câu này trung tính, dùng được cả trong họp lẫn trong email."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Giờ hãy giữ khoảnh khắc ở Dallas trong đầu, rồi tua nhanh mười năm. Tháng chín năm hai nghìn mười, chính Blockbuster nộp đơn xin bảo hộ phá sản. Gã khổng lồ chín nghìn cửa hàng ngã xuống. Còn công ty nhỏ từng được rao bán năm mươi triệu đô la thì đang tăng trưởng mạnh và được giới đầu tư săn đón.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Nếu câu chuyện dừng ở đây, nó là bài học quen thuộc: kẻ lớn chủ quan, kẻ nhỏ thắng. Nhưng chỉ khoảng mười tháng sau khi Blockbuster phá sản, Netflix suýt mắc một kiểu sai lầm khác. Không phải sai hướng. Mà là đúng hướng, nhưng đi sai cách."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Hướng đúng ấy bắt đầu từ năm hai nghìn không trăm lẻ bảy, khi Netflix ra mắt xem phim trực tuyến, gọi là Watch Instantly, nghĩa là xem ngay. Không chờ đĩa, không phong bì, bấm là xem. Kho phim lúc đầu còn ít, nhưng hướng đi thì rõ: đĩa phim rồi sẽ hết thời."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Trong lá thư tháng chín năm hai nghìn mười một, Reed Hastings giải thích suy nghĩ của mình. Đại ý ông viết rằng suốt năm năm, nỗi sợ lớn nhất của ông là Netflix không bước được từ đĩa sang xem trực tuyến, vì phần lớn công ty giỏi một thứ thường thất bại ở thứ tiếp theo, chỉ bởi họ sợ làm tổn thương mảng kinh doanh cũ."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Nghe quen không? Gần như là câu chuyện của Blockbuster. Thay vì chờ làn sóng mới cuốn trôi mảng đĩa, hãy ra tay trước. Trong phòng họp chiến lược, khi một thay đổi lớn đang đến gần, câu bạn sẽ nghe rất nhiều là câu này."
+    },
+    {
+      "phrase": "p2"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "We need to get ahead of this. Chúng ta cần đi trước một bước, chủ động xử lý trước khi chuyện kịp lớn lên. Dùng cho cả cơ hội lẫn khủng hoảng: tin xấu sắp lộ, đối thủ sắp ra mắt sản phẩm. Dạng ngắn là get ahead of it. Cẩn thận: get ahead đứng một mình lại có nghĩa là thăng tiến trong sự nghiệp."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Chiến lược đi trước ấy, nhìn lại thì đúng. Vấn đề là bước tiếp theo. Ngày mười hai tháng bảy năm hai nghìn mười một, Netflix công bố tách thuê đĩa và xem trực tuyến thành hai gói riêng, mỗi gói bảy phẩy chín chín đô la một tháng. Nghe có vẻ rẻ. Nhưng hãy làm một phép tính.",
+      "pause_ms": 800
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Trước đó, rất nhiều khách hàng trả chín phẩy chín chín đô la mỗi tháng cho cả hai thứ: vừa thuê đĩa, vừa xem trực tuyến. Giờ muốn giữ y như cũ, họ phải trả mười lăm phẩy chín tám đô la. Tăng khoảng sáu mươi phần trăm. Khách mới bị áp giá ngay. Khách cũ thì từ ngày một tháng chín.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Hãy đặt mình vào vị trí một khách hàng. Không thêm bộ phim nào, không thêm tính năng nào. Chỉ là cùng một dịch vụ, bỗng đắt hơn sáu mươi phần trăm. Phản ứng đến gần như ngay lập tức. Blog và trang mạng xã hội của Netflix ngập bình luận giận dữ. Nhiều người tuyên bố sẽ huỷ tài khoản."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Công bằng mà nói, Netflix có lý do kinh doanh: nhiều bài phân tích thời đó chỉ ra chi phí bản quyền phim trực tuyến đang tăng mạnh. Nhưng nhiều nhà phân tích cho rằng vấn đề nằm ở cách tăng: một lần quá lớn, không có gì mới đi kèm, và lời thông báo nghe như một bảng giá lạnh lùng."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Nếu bạn ngồi trong cuộc họp ngay trước khi công bố một thay đổi như thế, người tỉnh táo nhất phòng lẽ ra phải lên tiếng."
+    },
+    {
+      "phrase": "p3"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "We need to read the room. Nghĩa đen là đọc căn phòng. Nghĩa thật là nắm bắt không khí, hiểu người khác đang cảm thấy thế nào trước khi nói hay làm, giống như biết nhìn sắc mặt trong tiếng Việt. Nói về nhóm mình thì rất tự nhiên. Còn nói về người khác, như He didn't read the room, thì khá thẳng, nên cẩn thận với sếp."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Vì sao khách hàng giận đến thế? Năm một nghìn chín trăm tám mươi sáu, ba nhà kinh tế học Daniel Kahneman, Jack Knetsch và Richard Thaler công bố một nghiên cứu nổi tiếng về sự công bằng trong việc tìm kiếm lợi nhuận."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Họ hỏi mọi người: một cửa hàng bán xẻng xúc tuyết giá mười lăm đô la. Sáng hôm sau một trận bão tuyết, cửa hàng nâng giá lên hai mươi đô la. Tám mươi hai phần trăm người được hỏi cho rằng như vậy là không công bằng, dù nhu cầu tăng thì giá tăng, nghe rất hợp lý về kinh tế.",
+      "pause_ms": 800
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Khách hàng không chỉ hỏi giá này có đắt không. Họ hỏi giá này có công bằng không. Tăng giá vì chi phí tăng, họ dễ chấp nhận. Cảm thấy bị tận dụng, họ nổi giận."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Thêm vào đó là hiệu ứng ghét mất mát. Năm một nghìn chín trăm bảy mươi chín, Daniel Kahneman và Amos Tversky đưa ra lý thuyết triển vọng: nỗi đau khi mất một thứ thường lớn hơn niềm vui khi được một thứ tương đương. Gói chín phẩy chín chín đô la là thứ khách đang có. Mất nó, như bị lấy đi một thứ của mình."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Và khi thấy bị đối xử không công bằng, khách hàng không cần biểu tình hay viết thư dài. Dân kinh doanh tóm điều đó bằng một câu."
+    },
+    {
+      "phrase": "p4"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Customers vote with their wallets. Khách hàng bỏ phiếu bằng ví tiền: họ thể hiện ý kiến bằng việc tiếp tục trả tiền, ngừng trả, hay chuyển tiền sang đối thủ. Câu này rất hợp khi bạn muốn nói với sếp rằng khảo sát nói một đằng, doanh số mới là sự thật. Có cách nói họ hàng là vote with their feet, tức là bỏ đi."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Mùa hè trôi qua trong cơn giận ấy. Ngày một tháng chín, giá mới áp cho khách cũ. Rồi đến tối chủ nhật, mười tám tháng chín. Lá thư bạn nghe ở đầu tập.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Reed Hastings mở đầu bằng lời nhận lỗi. Ông viết rằng, qua phản hồi của khách hàng, ông thấy Netflix đã thiếu tôn trọng và thiếu khiêm tốn trong cách công bố việc tách dịch vụ và đổi giá. Một tổng giám đốc tự nhận phần sai, công khai, trước hàng triệu người. Nhiều người đánh giá phần mở đầu ấy là thẳng thắn hiếm thấy."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Khi bạn đã làm ai đó thất vọng, và muốn nhận trách nhiệm trước khi bào chữa, đây là câu chuẩn."
+    },
+    {
+      "phrase": "p5"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "I owe you an explanation. Tôi nợ bạn một lời giải thích: vừa thừa nhận lỗi, vừa hứa sẽ nói rõ ràng. Hastings dùng dạng I owe everyone an explanation. Trong email công ty, bạn viết we owe our customers an explanation. Tránh lỗi I must explain you. Động từ explain không đi thẳng với người, phải là explain to you."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Đến đây, nếu lá thư dừng lại ở lời xin lỗi, có lẽ câu chuyện đã khác. Nhưng lá thư còn tiếp. Và đoạn tiếp theo mới là quả bom thật sự.",
+      "pause_ms": 1200
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Hastings thông báo: dịch vụ thuê đĩa sẽ đổi tên thành Qwikster. Một trang web riêng. Tài khoản riêng. Danh sách phim chờ riêng. Điểm đánh giá phim cũng riêng, và hai trang không liên thông với nhau. Cái tên Netflix từ nay chỉ dành cho xem trực tuyến. Còn giá thì không giảm."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Nếu bạn dùng cả hai dịch vụ: hai tháng trước bị tăng giá sáu mươi phần trăm, giờ nhận lời xin lỗi, và kèm theo là hai trang web, hai tài khoản, hai lần trừ tiền trên thẻ. Lời xin lỗi không trả lại thứ gì. Nó còn lấy đi thêm sự tiện lợi."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Rồi một chi tiết nghe như truyện cười: tên tài khoản Qwikster trên Twitter đã thuộc về người khác từ trước. Thương hiệu mới công bố cho hàng triệu khách, nhưng chưa giữ được cái tên của mình trên mạng xã hội. Báo chí và cư dân mạng chế giễu không thương tiếc."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Một lá thư xin lỗi lẽ ra phải xoa dịu khách hàng. Kết quả là nhiều người còn giận hơn, và công ty trông lúng túng. Trong buổi họp tổng kết, người ta sẽ mô tả nước đi ấy bằng một câu rất ngắn."
+    },
+    {
+      "phrase": "p6"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "The plan backfired. Kế hoạch đã phản tác dụng. Nghĩa gốc là động cơ hay khẩu súng nổ ngược. Trong công việc, đó là khi nước đi mang lại kết quả ngược với mong muốn. Backfire là động từ chủ động: nói the plan backfired, đừng nói the plan was backfired. Câu này mô tả sự việc mà không chỉ tay vào ai."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Giờ Netflix đứng trước lựa chọn mà bên nào cũng có giá. Giữ Qwikster là giữ thể diện, nhưng có thể mất thêm khách mỗi tuần. Bỏ Qwikster là thừa nhận sai lầm lần thứ hai trong vài tuần, trước cả nước Mỹ. Nếu bạn là Reed Hastings, bạn chọn bên nào?",
+      "pause_ms": 1200
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Ngày mười tháng mười năm hai nghìn mười một, chỉ khoảng ba tuần sau lá thư, Netflix bỏ kế hoạch Qwikster. Khách giữ một trang web, một tài khoản như cũ. Giá mới vẫn giữ, nhưng sự phiền phức được gỡ bỏ. Khi dừng một dự án đang đi sai để không mất thêm, câu người ta nói trong phòng họp là thế này."
+    },
+    {
+      "phrase": "p7"
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Let's cut our losses. Hãy cắt lỗ: dừng lại, chấp nhận phần đã mất để không mất thêm. Gốc từ đầu tư, nay dùng cho dự án, đối tác, sản phẩm. Losses luôn ở số nhiều. Nói về công ty thì the company cut its losses. Câu này đi ngược với bẫy chi phí chìm, tức là cứ tiếp tục chỉ vì đã lỡ bỏ ra quá nhiều."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Nhưng cắt lỗ không có nghĩa là hết đau. Ngày hai mươi bốn tháng mười, Netflix công bố mất khoảng tám trăm nghìn thuê bao tại Mỹ trong quý ba. Cổ phiếu, từng gần ba trăm đô la hồi giữa tháng bảy, đến cuối năm đã dưới một trăm đô la.",
+      "pause_ms": 1000
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Không ít người tự hỏi: liệu Netflix có thành một Blockbuster tiếp theo? Và đây là cú xoay cuối cùng. Hướng đi của Hastings hoá ra đúng. Cái sai nằm ở cách làm và cách nói."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Netflix dồn sức vào xem trực tuyến. Tháng hai năm hai nghìn mười ba, họ ra mắt House of Cards, loạt phim gốc lớn đầu tiên, chỉ có trên Netflix. Từ một công ty cho thuê đĩa, Netflix bước sang làm nội dung của riêng mình, rồi trở thành dịch vụ xem phim trực tuyến thu phí lớn nhất thế giới."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Còn mảng đĩa? Nó lặng lẽ chạy thêm hơn mười năm, về sau mang tên DVD chấm com, rồi gửi những chiếc đĩa cuối cùng ngày hai mươi chín tháng chín năm hai nghìn hai mươi ba. Tổng cộng hơn năm tỷ đĩa đã đi qua bưu điện. Đĩa phim đúng là hết thời. Chỉ là, như nhiều người nhận xét, năm hai nghìn mười một ông đã cắt nó ra quá vội."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Vậy mình rút ra được gì? Thứ nhất, sự công bằng. Khách chấp nhận tăng giá nếu hiểu lý do và thấy công bằng. Hãy giải thích, thêm giá trị mới, hoặc tăng từng bước. Thứ hai, hiệu ứng ghét mất mát: khách luôn thấy phần mình mất trước tiên, nên hãy ngồi sang phía bên kia bàn mà nhìn."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Thứ ba, read the room: thử ý tưởng với một nhóm khách thật trước khi công bố cho hàng triệu người. Thứ tư, nhận lỗi là đúng, nhưng lời xin lỗi phải trả lại cho khách điều gì đó, chứ không lấy đi thêm. Thứ năm, khi kế hoạch phản tác dụng, cắt lỗ thật nhanh. Ba tuần với một công ty cỡ Netflix là nhanh."
+    },
+    {
+      "speaker": "vn_host",
+      "text": "Nhìn cả câu chuyện từ Dallas năm hai nghìn đến lá thư năm hai nghìn mười một, mình thấy một điều thú vị. Blockbuster không coi trọng tương lai. Netflix rất coi trọng tương lai, nhưng trong vài tháng, họ quên coi trọng chính khách hàng của mình. Nếu là Reed Hastings vào tháng bảy năm ấy, bạn sẽ làm khác điều gì?",
+      "pause_ms": 1200
+    }
+  ],
+  "layer2": {
+    "intro": [
+      {
+        "speaker": "vn_host",
+        "text": "Giờ là phần luyện nhanh. Bảy câu, mỗi câu bạn nghe chậm, có khoảng lặng để nhắc lại trong đầu, rồi nghe tốc độ thật và hai ví dụ ở những tình huống công việc khác."
+      }
+    ],
+    "outro": [
+      {
+        "speaker": "vn_host",
+        "text": "Xong bảy câu rồi. Tiếp theo, hai người dẫn bản ngữ sẽ bàn lại vụ Netflix hoàn toàn bằng tiếng Anh. Bạn thử để ý xem mình bắt được bao nhiêu câu vừa học nhé."
+      }
+    ]
+  },
+  "layer3": [
+    {
+      "speaker": "Narrator",
+      "text": "September eighteenth, 2011. A Sunday evening in the United States. Millions of Netflix customers get an email from the CEO, Reed Hastings. And the first line is not what you expect from a CEO."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And this is a real line. We didn't make it up. It says: I messed up. I owe everyone an explanation.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Welcome to BizStory English. Today: one of the most famous customer mistakes in modern business. A company with the right strategy that nearly broke itself with the wrong execution."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And there's no simple villain here. Netflix was right about the future. It was just wrong about how to get there. But to understand that email, we have to go back to the year 2000."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Right. Netflix was tiny back then. Reed Hastings and Marc Randolph founded it in 1997 in California. The idea was DVD rental by mail. You picked a movie online, a red envelope arrived in your mailbox, and you sent it back when you were done."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And from 1999 it was a monthly subscription with no late fees. That was a big deal, because everybody hated late fees."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And the biggest video store chain of them all was Blockbuster. So in 2000, Hastings and Randolph flew to Dallas to meet Blockbuster's executives. Their offer was simple. Buy Netflix for about fifty million dollars."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Fifty million dollars. For Netflix today, that sounds like pocket change."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "It does. And Blockbuster said no. According to Marc Randolph's own memoir, That Will Never Work, from 2019, the people on the Blockbuster side didn't take the offer seriously."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So that's our first phrase. They didn't take it seriously. If you take something seriously, you treat it as important. If you don't, you treat it almost like a joke."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And to be clear, we weren't in that room, so we won't guess who said what. We only have Randolph's account. But the result is on the record. No deal."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So what happened to Blockbuster in the end?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "At its peak, around the middle of the two thousands, Blockbuster had roughly nine thousand stores. Then, in September 2010, it filed for bankruptcy."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Wow. So ten years after that meeting, the giant was bankrupt, and the small company it didn't take seriously was doing great. Lesson for every manager: when a small competitor knocks on your door, take it seriously.",
+      "pause_ms": 800
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Exactly. But here's the strange part. Less than a year later, Netflix almost made a different mistake. Not ignoring the future, but rushing into it."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Okay, you have to explain that."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Let's go to 2007. That year Netflix launched streaming, called Watch Instantly. No disc, no envelope, no waiting. The online library was small at first, but the direction was clear."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So Hastings could already see that DVDs wouldn't last forever."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Yes. In that September 2011 post, he explained his thinking. He wrote that for five years, his biggest fear had been that Netflix wouldn't make the jump from DVDs to streaming, because companies that are great at one thing often fail at the next, afraid to hurt their old business."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Which is basically the Blockbuster story."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Right. So you can see the logic for any company in that position. Streaming is coming, whether we like it or not. We need to get ahead of this."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Phrase number two. We need to get ahead of this. It means act early, before a problem or a change gets bigger than you. A bad review is spreading online? We need to get ahead of it. Careful: get ahead on its own means to move up in your career."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And the strategy was sound. Most people today would say Netflix was right to bet on streaming. The problem was what came next."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "July 2011."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "July twelfth, 2011. Netflix announced that it would split DVDs and streaming into two separate plans. Each plan cost seven ninety-nine a month."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Which sounds cheap."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "It sounds cheap. But a lot of customers had been paying nine ninety-nine for both. To keep exactly the same service, they now had to pay fifteen ninety-eight. That's an increase of about sixty percent."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Sixty percent. For the same thing. No new movies, no new features. That's the part that really hurts."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "New members paid the new price right away. Existing members, from September first. And the reaction was immediate. Angry comments everywhere, and lots of people saying they would cancel."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Honestly, I'd be angry too. Imagine you open your bill, it's sixty percent higher, and the company basically says, here are our new plans, enjoy."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And this is where our third phrase comes in. Before you announce something like that, somebody in the meeting should stop and say: wait a second. We need to read the room."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Read the room. It means notice how people feel before you speak or act. In a meeting, you watch faces and body language. In business, you watch your customers' mood."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And many commentators felt Netflix didn't read the room. To be fair, there was a business reason. Many reports pointed to the rising cost of streaming rights. But customers didn't see those costs. They only saw their bill."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "There's some famous research on exactly this, isn't there? About fairness?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "There is. In 1986, Daniel Kahneman, Jack Knetsch and Richard Thaler published a paper called Fairness as a Constraint on Profit Seeking. In one question, a hardware store sells snow shovels for fifteen dollars. The morning after a big snowstorm, it raises the price to twenty."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Oh, I don't like that store already."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "You're not alone. Eighty-two percent of the people they asked said it was unfair, even though, in simple economic terms, demand had gone up."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So customers don't only ask, is this expensive? They ask, is this fair?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Exactly. And there's a second idea: loss aversion. In 1979, Kahneman and Amos Tversky published prospect theory. One key point is that losses loom larger than equivalent gains. Losing something hurts more than getting the same thing feels good."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And for Netflix customers, the nine ninety-nine plan was something they already had. It was theirs. So losing it felt like a real loss, not just a new price."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "So what did customers do? They did what customers always do in the end."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Phrase number four. Customers vote with their wallets. They don't write long letters. They just stop paying. Or they start paying someone else."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And that's the most honest data a company gets. In surveys, people say anything. When they vote with their wallets, you see what they really think."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Okay. So now we're in September, and that email."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "September eighteenth. Hastings published a post on the company blog and sent it to customers by email. It started with the line we heard at the beginning. I messed up. I owe everyone an explanation."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And that's our fifth phrase, in a simpler form. I owe you an explanation. I know I let you down, and I'll tell you honestly what happened. In a company email: we owe our customers an explanation."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "It's strong, because you take responsibility before you defend yourself. Hastings also wrote that members felt Netflix hadn't shown enough respect and humility in how it announced the changes."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Honestly, if the email had stopped there, I think a lot of people would have forgiven him."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Maybe. But it didn't stop there. In the same post, he announced a brand new name for the DVD service.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Qwikster. A separate website, with separate accounts, separate movie queues and separate ratings. And a small detail many people forget: according to the post, the name refers to quick delivery."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Wait. So if I use both services, I now have two websites, two accounts, and two charges on my card?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "That's right. And the prices didn't go down."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So the apology didn't give customers anything back. It actually took something else away. Convenience."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And then came the Twitter problem. The Qwikster name on Twitter already belonged to someone else."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Oh no. You launch a new brand to millions of people, and you don't even own the name online?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And the internet had a lot of fun with that. So, phrase number six. The plan backfired."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Backfired. When a plan backfires, it produces the opposite of what you wanted. An apology is supposed to calm customers down. Instead, the plan backfired, and people got even angrier. And notice, it's an active verb. The plan backfired, not the plan was backfired."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So what did Netflix do next?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Something many companies find very hard. On October tenth, 2011, about three weeks after the announcement, Netflix dropped Qwikster. One website, one account, like before. The new prices stayed, but the split was gone."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "That must have been painful. You announce a new brand to the whole country, and three weeks later you kill it."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "It's painful. But the alternative is worse. You keep going and lose more customers every week, just to avoid looking bad. Sometimes the smartest thing a leader can say is: this isn't working. Let's cut our losses."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Phrase number seven. Let's cut our losses. It means stop now and accept what you've already lost, so you don't lose more. It comes from investing, but we use it for projects, partners, products, almost anything. It's the opposite of the sunk cost trap."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So Netflix cut its losses. Did that fix everything?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Not right away. On October twenty-fourth, Netflix reported losing about eight hundred thousand subscribers in the United States in the third quarter. And the share price, around three hundred dollars in mid-July, was below one hundred dollars by the end of the year.",
+      "pause_ms": 800
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So roughly three quarters of the company's value, gone in a few months."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Yes. And plenty of people started asking whether Netflix would become the next Blockbuster."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "But it didn't."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "It didn't. And here's the final twist. The strategy was right. Netflix went all in on streaming. In February 2013 it released House of Cards, its first major original series. In the years that followed, it became the largest subscription streaming service in the world."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And what happened to the DVDs?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "The DVD service kept running quietly for years, later under the name DVD dot com. It shipped its final discs on September twenty-ninth, 2023. More than five billion discs in total."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "So Hastings was right about where the market was going. He just tried to move customers there too fast."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "That's how many analysts see it. Right direction, wrong execution, and wrong communication."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Okay, lessons. One: fairness. Customers accept a price increase if they understand it and it feels fair. Explain the reason, add something new, or raise prices step by step."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Two: loss aversion. When you change something, customers see what they lose first. So sit on their side of the table."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "Three: read the room. Test the idea with real customers before you tell millions. And if you have bad news, get ahead of it."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Four: own your mistakes. I owe you an explanation is a great start. But a good apology gives something back. It doesn't take more away."
+    },
+    {
+      "speaker": "Cohost",
+      "text": "And five: when a plan backfires, move fast. Netflix took about three weeks to cut their losses on Qwikster. For a company that size, that's quick."
+    },
+    {
+      "speaker": "Narrator",
+      "text": "And one more lesson, from the very beginning. Blockbuster didn't take the future seriously. Netflix took the future very seriously. But for a few months, it forgot to take its own customers seriously.",
+      "pause_ms": 900
+    },
+    {
+      "speaker": "Cohost",
+      "text": "That's a great way to put it. So next time someone in your meeting says, we need to get ahead of this, ask one simple question. Have we read the room?"
+    },
+    {
+      "speaker": "Narrator",
+      "text": "Perfect. That's the Netflix story. Thanks for listening to BizStory English."
+    }
+  ],
+  "closing": [
+    {
+      "speaker": "vn_host",
+      "text": "Câu chuyện Netflix cho mình thấy: đi đúng hướng thôi chưa đủ, cách bạn dẫn khách hàng đi theo mới quyết định họ có ở lại hay không. Hãy nói thật sớm, nói công bằng, và khi sai thì nhận lỗi rồi cắt lỗ thật nhanh. Hẹn gặp bạn ở Phần ba."
+    }
+  ],
+  "fact_check": {
+    "sources": [
+      "Netflix, tuyên bố ngày 12 tháng 7 năm 2011 về việc tách gói DVD và streaming; tin của Bloomberg và CNN Money cùng ngày (giá từ 9,99 lên 15,98 đô la, khoảng 60 phần trăm; khách cũ áp dụng từ 1 tháng 9 năm 2011)",
+      "Reed Hastings, bài blog Netflix 'An Explanation and Some Reflections', ngày 18 tháng 9 năm 2011, đồng thời gửi qua email cho khách hàng (câu 'I messed up. I owe everyone an explanation.', công bố Qwikster)",
+      "Tin của Yahoo News và nhiều báo Mỹ ngày 19 tháng 9 năm 2011 về tài khoản Twitter Qwikster đã thuộc về người khác",
+      "Netflix, thông báo bỏ kế hoạch Qwikster ngày 10 tháng 10 năm 2011",
+      "Netflix, thư gửi cổ đông quý 3 năm 2011, công bố ngày 24 tháng 10 năm 2011 (mất khoảng 800.000 thuê bao tại Mỹ)",
+      "Dữ liệu giá cổ phiếu lịch sử của Netflix trên sàn Nasdaq, tháng 7 đến tháng 12 năm 2011",
+      "Marc Randolph, That Will Never Work: The Birth of Netflix and the Amazing Life of an Idea, Little, Brown and Company, 2019 (cuộc gặp Blockbuster ở Dallas năm 2000)",
+      "Blockbuster nộp đơn phá sản theo Chương 11, tháng 9 năm 2010 (Reuters, The New York Times)",
+      "Kahneman, D., Knetsch, J. L., Thaler, R. H. (1986). Fairness as a Constraint on Profit Seeking: Entitlements in the Market. American Economic Review 76(4), 728–741",
+      "Kahneman, D., Tversky, A. (1979). Prospect Theory: An Analysis of Decision under Risk. Econometrica 47(2), 263–291",
+      "Netflix, ra mắt House of Cards ngày 1 tháng 2 năm 2013",
+      "Netflix, thông báo tháng 4 năm 2023 về việc đóng DVD.com, đĩa cuối gửi ngày 29 tháng 9 năm 2023, hơn 5 tỷ đĩa đã gửi (NPR, CBS News)"
+    ],
+    "dramatized_note": "Chỉ có một cảnh dựng lại: không khí phòng họp ở Dallas năm 2000, được nói rõ trên sóng là dựng lại và không có lời thoại. Câu nói trực tiếp duy nhất của người thật là dòng mở đầu bài blog của Reed Hastings ngày 18 tháng 9 năm 2011. Các ý khác của bài blog (nỗi sợ không chuyển kịp sang streaming, thiếu tôn trọng và khiêm tốn, tên Qwikster gợi ý giao nhanh) được thuật lại bằng lời gián tiếp. Bảy câu tiếng Anh là câu thông dụng nơi công sở, không phải lời của nhân vật thật. Các nhận định về nguyên nhân thất bại được trình bày là ý kiến của nhà phân tích."
+  }
+}
