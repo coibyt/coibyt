@@ -4,7 +4,7 @@
   "name_en": "Daily English Listening",
   "level": "A2-B1"
  },
- "updated": "2026-11-26T09:31:33+00:00",
+ "updated": "2026-11-26T09:43:00+00:00",
  "days": [
   {
    "date": "2026-11-27",
@@ -16,23 +16,83 @@
    },
    "level": "A2-B1",
    "duration": 6564.706,
-   "cover": null,
+   "cover": "cover.jpg",
    "phrases": [
-    "How was your weekend?",
-    "Not too bad, thanks.",
-    "What have you been up to?",
-    "I'm swamped with work.",
-    "Do you have a minute?",
-    "Let me get back to you.",
-    "That makes sense.",
-    "I'm running a bit late.",
-    "Let's grab a coffee.",
-    "It's been a long week.",
-    "Keep me posted.",
-    "I'm looking forward to it.",
-    "No worries.",
-    "Sounds good to me.",
-    "Have a good one!"
+    {
+     "id": "p01",
+     "en": "How was your weekend?",
+     "vi": "Cuối tuần của bạn thế nào?"
+    },
+    {
+     "id": "p02",
+     "en": "Not too bad, thanks.",
+     "vi": "Cũng không tệ, cảm ơn."
+    },
+    {
+     "id": "p03",
+     "en": "What have you been up to?",
+     "vi": "Dạo này bạn làm gì thế?"
+    },
+    {
+     "id": "p04",
+     "en": "I'm swamped with work.",
+     "vi": "Tôi ngập đầu trong công việc."
+    },
+    {
+     "id": "p05",
+     "en": "Do you have a minute?",
+     "vi": "Bạn có rảnh một chút không?"
+    },
+    {
+     "id": "p06",
+     "en": "Let me get back to you.",
+     "vi": "Để tôi trả lời bạn sau nhé."
+    },
+    {
+     "id": "p07",
+     "en": "That makes sense.",
+     "vi": "Nghe hợp lý đấy."
+    },
+    {
+     "id": "p08",
+     "en": "I'm running a bit late.",
+     "vi": "Tôi đến muộn một chút."
+    },
+    {
+     "id": "p09",
+     "en": "Let's grab a coffee.",
+     "vi": "Mình đi uống cà phê đi."
+    },
+    {
+     "id": "p10",
+     "en": "It's been a long week.",
+     "vi": "Tuần này dài thật đấy."
+    },
+    {
+     "id": "p11",
+     "en": "Keep me posted.",
+     "vi": "Có gì mới thì báo tôi nhé."
+    },
+    {
+     "id": "p12",
+     "en": "I'm looking forward to it.",
+     "vi": "Tôi rất mong chờ điều đó."
+    },
+    {
+     "id": "p13",
+     "en": "No worries.",
+     "vi": "Không sao đâu."
+    },
+    {
+     "id": "p14",
+     "en": "Sounds good to me.",
+     "vi": "Tôi thấy được đấy."
+    },
+    {
+     "id": "p15",
+     "en": "Have a good one!",
+     "vi": "Chúc bạn một ngày vui vẻ nhé!"
+    }
    ]
   }
  ]

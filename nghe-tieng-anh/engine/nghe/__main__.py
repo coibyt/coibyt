@@ -144,7 +144,8 @@ def write_index(cfg: dict) -> None:
     for d in sorted(WEB_DAYS.glob("*/day.json"), reverse=True):
         j = json.loads(d.read_text(encoding="utf-8"))
         days.append({"date": j["date"], "day_number": j["day_number"], "topic": j["topic"], "level": j["level"],
-                     "duration": j["duration"], "cover": j.get("cover"), "phrases": [p["en"] for p in j["phrases"]]})
+                     "duration": j["duration"], "cover": j.get("cover"),
+                     "phrases": [{"id": p["id"], "en": p["en"], "vi": p["vi"]} for p in j["phrases"]]})
     idx = {"programme": cfg["programme"], "updated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
            "days": days}
     WEB_DAYS.mkdir(parents=True, exist_ok=True)
