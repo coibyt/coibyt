@@ -58,7 +58,7 @@ const article: WikiArticle = {
           table: {
             head: ["Kênh", "Được kiểm tra"],
             rows: [
-              ["Website", "Tốc độ, hiển thị trên điện thoại, nút đặt lịch, bảng giá, giờ mở cửa"],
+              ["Website", "Tốc độ, điện thoại, nút đặt lịch, bảng giá, giờ mở cửa"],
               ["Hồ sơ Google doanh nghiệp", "Hồ sơ và đánh giá"],
               ["Facebook và Instagram", "Công cụ tự tìm từ website của salon"],
               ["Từ khóa", "Từ khóa nên nhắm tới và gợi ý marketing"],
@@ -66,7 +66,7 @@ const article: WikiArticle = {
           },
         },
         { img: { src: img("cong-cu-kiem-tra-website-google-facebook-instagram"), alt: "Nút Kiểm tra miễn phí ngay màu cam, dòng Không cần email, không cần đăng ký và bảng Chúng tôi kiểm tra liệt kê Website, Hồ sơ Google, Facebook và Instagram, từ khóa", caption: "Bảng “Chúng tôi kiểm tra” nằm ngay dưới nút “Kiểm tra miễn phí ngay”." } },
-        { p: "Năm mục của phần Website cũng là năm câu hỏi của một khách mới: trang có mở nhanh không, xem trên điện thoại có dễ không, đặt lịch ở đâu, giá bao nhiêu, mấy giờ mở cửa." },
+        { p: "Các mục của phần Website trùng với những gì một khách mới muốn biết: trang có mở nhanh không, đặt lịch ở đâu, giá bao nhiêu, mấy giờ mở cửa." },
       ],
     },
     {
@@ -213,7 +213,7 @@ const article: WikiArticle = {
     },
     {
       q: "Làm sao lưu lại báo cáo kiểm tra salon?",
-      a: "Bấm “In / Lưu PDF” ở đầu báo cáo để in hoặc lưu thành tệp PDF. Bản lưu giúp bạn so sánh với lần kiểm tra sau, khi đã làm xong các việc được gợi ý.",
+      a: "Bấm “In / Lưu PDF” ở phần đầu báo cáo để in hoặc lưu thành tệp PDF. Bản lưu giúp bạn so sánh với lần kiểm tra sau, khi đã làm xong các việc được gợi ý.",
     },
     {
       q: "Salon có nhiều chi nhánh thì kiểm tra thế nào?",
