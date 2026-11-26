@@ -10,7 +10,7 @@ const article: WikiArticle = {
   title: "How to do volume lashes: 10 steps to make fans by hand and place them on the natural lash",
   metaTitle: "How to do volume lashes: 10 steps to make and place fans",
   metaDescription:
-    "Volume lashes with handmade fans: picking lashes off the strip, sliding the tweezers to open the fan, checking it, dipping only the base, placing 0.5–1 mm off the lid.",
+    "Volume lashes with handmade fans: picking lashes off the strip, opening the fan, checking it, gluing only the base and placing it 0.5–1 mm from the lid.",
   keyword: "how to do volume lashes",
   keywords: [
     "how to make volume lash fans",

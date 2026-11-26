@@ -12,7 +12,7 @@ const article: WikiArticle = {
   metaDescription:
     "Välinehuolto jokaisen asiakkaan jälkeen kynsi-, ripsi-, hius- ja spa-työssä: puhdistus, desinfiointi, sterilointi ja säilytys sekä mikä väline vaatii mitäkin.",
   keyword: "kauneushoitolan välinehuolto",
-  keywords: ["välineiden sterilointi kauneushoitolassa", "desinfiointi ja sterilointi ero", "kynsinauhapihtien sterilointi", "autoklaavi kynsistudioon", "kampaamon välineiden desinfiointi", "omavalvontasuunnitelma kauneushoitola"],
+  keywords: ["välineiden sterilointi kauneushoitolassa", "desinfiointi ja sterilointi ero", "kynsinauhapihtien sterilointi", "autoklaavi kynsistudioon", "kampaamon välineiden desinfiointi", "välineiden puhdistus asiakkaiden välillä"],
   excerpt: "Puhdistus, desinfiointi ja sterilointi ovat kolme eri tasoa. Artikkeli kertoo, mikä väline vaatii minkäkin tason ja miten välineet käsitellään jokaisen asiakkaan jälkeen.",
   published: "2026-11-27",
   updated: "2026-11-27",
