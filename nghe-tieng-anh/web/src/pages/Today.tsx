@@ -52,7 +52,7 @@ export function Today({ day, isLatest }: { day: DayData; isLatest: boolean }) {
         <div className="hero-art"><img src={coverUrl(day.date, day.cover)} alt="" /></div>
         <div className="hero-body">
           <div className="row wrap" style={{ gap: 6 }}>
-            <span className="chip gold">{isLatest ? "Bài hôm nay" : "Bài cũ"} · Ngày {day.day_number}</span>
+            <span className="chip gold">{isLatest ? "Bài học tiếp theo" : "Bài đã có"} · Ngày {day.day_number}</span>
             <span className="chip">{day.level}</span>
             <span className="chip">{minutesText(day.duration)}</span>
           </div>

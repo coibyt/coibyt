@@ -1,0 +1,898 @@
+{
+  "date": "2026-12-03",
+  "day_number": 7,
+  "level": "A2-B1",
+  "topic": {
+    "id": "health-doctor",
+    "en": "At the doctor's",
+    "vi": "Đi khám bệnh",
+    "art_prompt": "a calm, friendly doctor's consultation room: a kind female doctor in a white coat listening to a young man with a bandaged ankle sitting on the examination bed, a window with soft daylight, plants"
+  },
+  "intro_vi": "Chủ đề hôm nay là đi khám bệnh: gọi điện xin nghỉ ốm, đặt lịch khám, kể triệu chứng thật đơn giản và hiểu lời dặn của bác sĩ.",
+  "phrases": [
+    {
+      "id": "p01",
+      "en": "I'd like to make an appointment.",
+      "vi": "Tôi muốn đặt lịch khám.",
+      "note_vi": "Câu mở đầu lịch sự khi gọi điện cho phòng khám. Có thể thêm “please” ở cuối, hoặc nói rõ thời gian như “for tomorrow morning”.",
+      "examples": [
+        {
+          "en": "Good morning. I'd like to make an appointment for tomorrow, please.",
+          "vi": "Chào buổi sáng. Tôi muốn đặt lịch khám cho ngày mai ạ."
+        },
+        {
+          "en": "Hi, I'd like to make an appointment with Doctor Pham.",
+          "vi": "Chào chị, tôi muốn đặt lịch khám với bác sĩ Phạm."
+        }
+      ]
+    },
+    {
+      "id": "p02",
+      "en": "I'm not feeling very well.",
+      "vi": "Tôi thấy trong người không được khỏe.",
+      "note_vi": "Cách nói nhẹ nhàng, lịch sự khi bị ốm, dùng được với sếp, đồng nghiệp hay bác sĩ.",
+      "examples": [
+        {
+          "en": "Sorry, I'm not feeling very well. Can I go home early?",
+          "vi": "Xin lỗi, tôi thấy không được khỏe lắm. Tôi về sớm được không?"
+        },
+        {
+          "en": "I'm not feeling very well today, so I'll stay at home.",
+          "vi": "Hôm nay tôi thấy không được khỏe lắm, nên tôi sẽ ở nhà."
+        }
+      ]
+    },
+    {
+      "id": "p03",
+      "en": "I've got a sore throat.",
+      "vi": "Tôi bị đau họng.",
+      "note_vi": "Mẫu “I've got a...” dùng cho nhiều bệnh nhẹ, ví dụ “a cold” là cảm lạnh, “a headache” là đau đầu, “a cough” là ho.",
+      "examples": [
+        {
+          "en": "I've got a sore throat, so I can't talk very much today.",
+          "vi": "Tôi bị đau họng, nên hôm nay tôi không nói nhiều được."
+        },
+        {
+          "en": "I've got a sore throat and a bit of a cough.",
+          "vi": "Tôi bị đau họng và hơi ho một chút."
+        }
+      ]
+    },
+    {
+      "id": "p04",
+      "en": "It started a few days ago.",
+      "vi": "Bị từ mấy hôm trước rồi.",
+      "note_vi": "Bác sĩ hay hỏi bệnh bắt đầu từ khi nào. Có thể đổi thành “yesterday” là hôm qua, hoặc “last week” là tuần trước.",
+      "examples": [
+        {
+          "en": "It started a few days ago, but now it's worse.",
+          "vi": "Bị từ mấy hôm trước rồi, nhưng giờ thì nặng hơn."
+        },
+        {
+          "en": "My back hurts. It started a few days ago, after I moved some furniture.",
+          "vi": "Tôi bị đau lưng. Bị từ mấy hôm trước, sau khi tôi khiêng đồ đạc."
+        }
+      ]
+    },
+    {
+      "id": "p05",
+      "en": "It hurts when I walk.",
+      "vi": "Tôi đi lại là đau.",
+      "note_vi": "Mẫu “It hurts when I...” giúp bạn tả lúc nào thì đau, ví dụ “when I swallow” là khi nuốt, “when I sit down” là khi ngồi xuống.",
+      "examples": [
+        {
+          "en": "My knee looks okay, but it hurts when I walk.",
+          "vi": "Đầu gối tôi nhìn thì bình thường, nhưng cứ đi lại là đau."
+        },
+        {
+          "en": "It hurts when I walk, so I'm taking a taxi today.",
+          "vi": "Tôi đi lại là đau, nên hôm nay tôi đi taxi."
+        }
+      ]
+    },
+    {
+      "id": "p06",
+      "en": "I need to call in sick today.",
+      "vi": "Hôm nay tôi phải xin nghỉ ốm.",
+      "note_vi": "“Call in sick” là gọi báo cho sếp rằng mình nghỉ vì ốm. Chỉ cần nói ngắn gọn và lịch sự là đủ.",
+      "examples": [
+        {
+          "en": "Hi David, I need to call in sick today. I've got a fever.",
+          "vi": "Chào anh David, hôm nay em phải xin nghỉ ốm. Em bị sốt."
+        },
+        {
+          "en": "I'm sorry, but I need to call in sick today. I'll check my email tomorrow.",
+          "vi": "Em xin lỗi chị, hôm nay em phải xin nghỉ ốm. Mai em sẽ xem email."
+        }
+      ]
+    },
+    {
+      "id": "p07",
+      "en": "What seems to be the problem?",
+      "vi": "Bạn bị làm sao vậy?",
+      "note_vi": "Câu hỏi đầu tiên quen thuộc của bác sĩ, nghĩa là “Hôm nay bạn đến khám vì chuyện gì?”.",
+      "examples": [
+        {
+          "en": "Good morning. Please sit down. What seems to be the problem?",
+          "vi": "Chào chị. Mời chị ngồi. Chị bị làm sao vậy?"
+        },
+        {
+          "en": "What seems to be the problem? Is it your back again?",
+          "vi": "Anh bị làm sao vậy? Lại đau lưng à?"
+        }
+      ]
+    },
+    {
+      "id": "p08",
+      "en": "How long have you had it?",
+      "vi": "Bạn bị bao lâu rồi?",
+      "note_vi": "Bác sĩ hỏi bệnh đã kéo dài bao lâu. Trả lời ngắn là được, ví dụ “About three days.” hoặc “Since Monday.”",
+      "examples": [
+        {
+          "en": "You've got a cough. How long have you had it?",
+          "vi": "Chị bị ho à. Chị bị bao lâu rồi?"
+        },
+        {
+          "en": "How long have you had it? More than a week?",
+          "vi": "Anh bị bao lâu rồi? Hơn một tuần chưa?"
+        }
+      ]
+    },
+    {
+      "id": "p09",
+      "en": "Are you taking anything for it?",
+      "vi": "Bạn có đang dùng thuốc gì không?",
+      "note_vi": "Bác sĩ hỏi bạn đã dùng thuốc gì chưa. Nếu không nhớ tên thuốc, cứ đưa hộp thuốc cho bác sĩ xem.",
+      "examples": [
+        {
+          "en": "You've got a headache? Are you taking anything for it?",
+          "vi": "Anh bị đau đầu à? Anh có đang dùng thuốc gì không?"
+        },
+        {
+          "en": "Are you taking anything for it, or are you just resting?",
+          "vi": "Chị có đang dùng thuốc gì không, hay chỉ nghỉ ngơi thôi?"
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "en": "Let me take a look.",
+      "vi": "Để tôi xem nào.",
+      "note_vi": "Bác sĩ hay nói câu này trước khi khám. Ngoài đời bạn cũng dùng được, ví dụ khi xem giúp ai cái máy tính.",
+      "examples": [
+        {
+          "en": "Open your mouth, please. Let me take a look.",
+          "vi": "Chị há miệng ra nhé. Để tôi xem nào."
+        },
+        {
+          "en": "Your laptop isn't working? Let me take a look.",
+          "vi": "Máy tính của bạn bị hỏng à? Để mình xem nào."
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "en": "It's nothing serious.",
+      "vi": "Không có gì nghiêm trọng đâu.",
+      "note_vi": "Câu trấn an rất hay nghe ở phòng khám. Nghe câu này là bạn có thể yên tâm rồi.",
+      "examples": [
+        {
+          "en": "Don't worry. It's nothing serious, just a cold.",
+          "vi": "Đừng lo. Không có gì nghiêm trọng đâu, chỉ là cảm lạnh thôi."
+        },
+        {
+          "en": "It's nothing serious. You'll feel better in a few days.",
+          "vi": "Không có gì nghiêm trọng đâu. Vài hôm nữa anh sẽ thấy khỏe hơn."
+        }
+      ]
+    },
+    {
+      "id": "p12",
+      "en": "Get plenty of rest.",
+      "vi": "Nghỉ ngơi cho thật nhiều nhé.",
+      "note_vi": "Lời khuyên quen thuộc của bác sĩ, cũng là câu hỏi thăm khi đồng nghiệp bị ốm. Hay đi kèm với “drink lots of water”, tức là uống nhiều nước.",
+      "examples": [
+        {
+          "en": "Get plenty of rest and drink lots of water.",
+          "vi": "Nghỉ ngơi cho thật nhiều và uống nhiều nước nhé."
+        },
+        {
+          "en": "Stay at home tomorrow and get plenty of rest.",
+          "vi": "Mai em cứ ở nhà và nghỉ ngơi cho thật nhiều nhé."
+        }
+      ]
+    },
+    {
+      "id": "p13",
+      "en": "Take it twice a day.",
+      "vi": "Ngày uống hai lần.",
+      "note_vi": "Cách bác sĩ hay dược sĩ dặn uống thuốc. Tương tự, “once a day” là ngày một lần, “three times a day” là ngày ba lần.",
+      "examples": [
+        {
+          "en": "This is for your throat. Take it twice a day, after meals.",
+          "vi": "Thuốc này cho họng của chị. Ngày uống hai lần, sau bữa ăn."
+        },
+        {
+          "en": "Take it twice a day, in the morning and in the evening.",
+          "vi": "Ngày uống hai lần, buổi sáng và buổi tối."
+        }
+      ]
+    },
+    {
+      "id": "p14",
+      "en": "Come back if it gets worse.",
+      "vi": "Nếu nặng hơn thì quay lại khám nhé.",
+      "note_vi": "Bác sĩ hay dặn câu này trước khi bạn về. “It gets worse” là bệnh nặng hơn, ngược lại là “it gets better”.",
+      "examples": [
+        {
+          "en": "Rest for a few days, and come back if it gets worse.",
+          "vi": "Nghỉ ngơi vài hôm, nếu nặng hơn thì quay lại khám nhé."
+        },
+        {
+          "en": "Come back if it gets worse, or if the fever doesn't go away.",
+          "vi": "Nếu nặng hơn, hoặc vẫn chưa hết sốt, thì quay lại khám nhé."
+        }
+      ]
+    },
+    {
+      "id": "p15",
+      "en": "Get well soon!",
+      "vi": "Mau khỏe nhé!",
+      "note_vi": "Lời chúc khi ai đó bị ốm. Dùng được khi nói chuyện, nhắn tin hay viết thiệp.",
+      "examples": [
+        {
+          "en": "Sorry to hear you're sick. Get well soon!",
+          "vi": "Tiếc quá khi biết bạn bị ốm. Mau khỏe nhé!"
+        },
+        {
+          "en": "The whole team says get well soon!",
+          "vi": "Cả nhóm chúc anh mau khỏe nhé!"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "d1",
+      "title_en": "A sick call on Monday morning",
+      "title_vi": "Cuộc gọi xin nghỉ ốm sáng thứ Hai",
+      "setting_vi": "Linh bị đau họng và gọi cho trưởng nhóm David để xin nghỉ. Cô hơi run vì phải gọi phòng khám bằng tiếng Anh, nên David giúp cô tập trước.",
+      "speakers": {
+        "A": {
+          "name": "Linh",
+          "gender": "f"
+        },
+        "B": {
+          "name": "David",
+          "gender": "m"
+        }
+      },
+      "lines": [
+        {
+          "s": "A",
+          "en": "Hi David, it's Linh. Sorry to call so early.",
+          "vi": "Chào anh David, em Linh đây. Em xin lỗi vì gọi sớm thế này."
+        },
+        {
+          "s": "B",
+          "en": "Morning, Linh. That's okay. You sound different. Is everything all right?",
+          "vi": "Chào Linh. Không sao đâu. Giọng em nghe lạ quá. Mọi chuyện ổn chứ?"
+        },
+        {
+          "s": "A",
+          "en": "Not really. I'm not feeling very well.",
+          "vi": "Không ổn lắm anh ạ. Em thấy trong người không được khỏe."
+        },
+        {
+          "s": "A",
+          "en": "I've got a sore throat, and my head hurts too.",
+          "vi": "Em bị đau họng, mà đầu cũng đau nữa."
+        },
+        {
+          "s": "B",
+          "en": "Oh no. That doesn't sound good at all.",
+          "vi": "Ôi không. Nghe không ổn chút nào."
+        },
+        {
+          "s": "A",
+          "en": "So I'm sorry, but I need to call in sick today.",
+          "vi": "Nên em xin lỗi anh, hôm nay em phải xin nghỉ ốm."
+        },
+        {
+          "s": "B",
+          "en": "Of course. Don't worry about work. When did it start?",
+          "vi": "Tất nhiên rồi. Đừng lo chuyện công việc. Em bị từ khi nào?"
+        },
+        {
+          "s": "A",
+          "en": "It started a few days ago. On Saturday it was only a little sore.",
+          "vi": "Bị từ mấy hôm trước rồi anh ạ. Hôm thứ Bảy thì chỉ hơi đau một chút thôi."
+        },
+        {
+          "s": "A",
+          "en": "But this morning I can hardly talk.",
+          "vi": "Nhưng sáng nay em gần như không nói được."
+        },
+        {
+          "s": "B",
+          "en": "Yes, I can hear that. You sound like a very tired robot.",
+          "vi": "Ừ, anh nghe ra rồi. Giọng em nghe như một con rô bốt rất mệt ấy."
+        },
+        {
+          "s": "A",
+          "en": "Thanks, David. That's very kind of you.",
+          "vi": "Cảm ơn anh nhé. Anh khen hay quá cơ."
+        },
+        {
+          "s": "B",
+          "en": "Sorry! What about the client slides for Wednesday?",
+          "vi": "Xin lỗi, xin lỗi! Thế còn bộ slide cho khách hàng hôm thứ Tư thì sao?"
+        },
+        {
+          "s": "A",
+          "en": "They're almost finished. Tom can send them if I'm still sick.",
+          "vi": "Gần xong rồi anh ạ. Nếu em vẫn còn ốm thì Tom có thể gửi giúp em."
+        },
+        {
+          "s": "B",
+          "en": "Great. Are you going to see a doctor?",
+          "vi": "Tốt quá. Em có định đi khám bác sĩ không?"
+        },
+        {
+          "s": "A",
+          "en": "I think so. But I'm a bit nervous about calling the clinic in English.",
+          "vi": "Chắc là có ạ. Nhưng em hơi run khi phải gọi cho phòng khám bằng tiếng Anh."
+        },
+        {
+          "s": "B",
+          "en": "Then let's practice right now. I'll be the receptionist.",
+          "vi": "Vậy mình tập luôn bây giờ đi. Anh sẽ đóng vai lễ tân."
+        },
+        {
+          "s": "B",
+          "en": "Good morning, Green Street Clinic. How can I help you?",
+          "vi": "Chào buổi sáng, phòng khám Green Street xin nghe. Tôi có thể giúp gì cho chị?"
+        },
+        {
+          "s": "A",
+          "en": "Good morning. I'd like to make an appointment, please.",
+          "vi": "Chào anh. Tôi muốn đặt lịch khám ạ."
+        },
+        {
+          "s": "B",
+          "en": "Of course. Can I have your name, please?",
+          "vi": "Vâng. Chị cho tôi xin tên được không ạ?"
+        },
+        {
+          "s": "A",
+          "en": "It's Linh Tran. That's L, I, N, H.",
+          "vi": "Tôi tên là Linh Trần. Đánh vần là L, I, N, H."
+        },
+        {
+          "s": "B",
+          "en": "Thank you. And what's the problem today?",
+          "vi": "Cảm ơn chị. Hôm nay chị bị làm sao ạ?"
+        },
+        {
+          "s": "A",
+          "en": "I have a very bad sore throat and a headache.",
+          "vi": "Tôi bị đau họng rất nặng và đau đầu."
+        },
+        {
+          "s": "B",
+          "en": "I see. How long have you had it?",
+          "vi": "Tôi hiểu rồi. Chị bị bao lâu rồi ạ?"
+        },
+        {
+          "s": "A",
+          "en": "About three days. And it's getting worse.",
+          "vi": "Khoảng ba ngày rồi. Mà càng ngày càng nặng hơn."
+        },
+        {
+          "s": "B",
+          "en": "We have a free appointment at half past ten. Is that okay for you?",
+          "vi": "Chúng tôi còn một lịch trống lúc mười giờ rưỡi. Giờ đó chị có tiện không?"
+        },
+        {
+          "s": "A",
+          "en": "Yes, half past ten is perfect. Thank you very much.",
+          "vi": "Vâng, mười giờ rưỡi là rất tốt. Cảm ơn anh nhiều."
+        },
+        {
+          "s": "B",
+          "en": "See? You did it! Your English is great, even with a sore throat.",
+          "vi": "Thấy chưa? Em làm được rồi đấy! Tiếng Anh của em tốt lắm, kể cả khi đang đau họng."
+        },
+        {
+          "s": "A",
+          "en": "Ha, thanks. I feel much more confident now.",
+          "vi": "Hì, cảm ơn anh. Giờ em thấy tự tin hơn nhiều rồi."
+        },
+        {
+          "s": "B",
+          "en": "Good. Now call them, get plenty of rest, and drink lots of water.",
+          "vi": "Tốt. Giờ em gọi cho họ đi, rồi nghỉ ngơi cho thật nhiều và uống nhiều nước nhé."
+        },
+        {
+          "s": "B",
+          "en": "And please, no checking emails today!",
+          "vi": "Và làm ơn, hôm nay không được xem email đâu đấy!"
+        },
+        {
+          "s": "A",
+          "en": "I promise. Thanks for everything, David.",
+          "vi": "Em hứa ạ. Cảm ơn anh vì tất cả nhé."
+        },
+        {
+          "s": "B",
+          "en": "You're welcome. Get well soon!",
+          "vi": "Không có gì. Mau khỏe nhé!"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "title_en": "Too much dancing",
+      "title_vi": "Nhảy hơi nhiều",
+      "setting_vi": "Tom bị trẹo mắt cá chân khi nhảy ở đám cưới em họ. Sáng thứ Hai, anh đến phòng khám gặp bác sĩ Phạm.",
+      "speakers": {
+        "A": {
+          "name": "Doctor Pham",
+          "gender": "f"
+        },
+        "B": {
+          "name": "Tom",
+          "gender": "m"
+        }
+      },
+      "lines": [
+        {
+          "s": "A",
+          "en": "Hello, Tom. Come in and sit down. What seems to be the problem?",
+          "vi": "Chào anh Tom. Mời anh vào ngồi. Anh bị làm sao vậy?"
+        },
+        {
+          "s": "B",
+          "en": "Hi, Doctor. It's my right ankle. It hurts when I walk.",
+          "vi": "Chào bác sĩ. Là mắt cá chân phải của tôi. Tôi đi lại là đau."
+        },
+        {
+          "s": "A",
+          "en": "I see. When did it happen?",
+          "vi": "Tôi hiểu rồi. Chuyện xảy ra khi nào?"
+        },
+        {
+          "s": "B",
+          "en": "On Saturday night, at my cousin's wedding.",
+          "vi": "Tối thứ Bảy, ở đám cưới em họ tôi."
+        },
+        {
+          "s": "A",
+          "en": "At a wedding? What happened?",
+          "vi": "Ở đám cưới à? Đã xảy ra chuyện gì vậy?"
+        },
+        {
+          "s": "B",
+          "en": "Well, I was dancing. Maybe a little too much.",
+          "vi": "À, tôi đang nhảy. Chắc là nhảy hơi nhiều."
+        },
+        {
+          "s": "B",
+          "en": "The band played a fast song, and I tried a big spin.",
+          "vi": "Ban nhạc chơi một bài nhanh, và tôi thử xoay một vòng thật lớn."
+        },
+        {
+          "s": "A",
+          "en": "And the spin didn't go very well?",
+          "vi": "Và cú xoay không được suôn sẻ lắm nhỉ?"
+        },
+        {
+          "s": "B",
+          "en": "No. I landed on the side of my foot. Everybody clapped, but I couldn't stand up.",
+          "vi": "Không ạ. Tôi tiếp đất bằng cạnh bàn chân. Mọi người vỗ tay, nhưng tôi không đứng dậy nổi."
+        },
+        {
+          "s": "A",
+          "en": "Oh dear. Are you taking anything for it?",
+          "vi": "Ôi trời. Anh có đang dùng thuốc gì không?"
+        },
+        {
+          "s": "B",
+          "en": "Not really. I put some ice on it last night.",
+          "vi": "Không hẳn ạ. Tối qua tôi có chườm đá một chút."
+        },
+        {
+          "s": "A",
+          "en": "Good, ice is a smart idea. Let me take a look.",
+          "vi": "Tốt, chườm đá là ý hay đấy. Để tôi xem nào."
+        },
+        {
+          "s": "A",
+          "en": "Can you move your toes for me?",
+          "vi": "Anh cử động các ngón chân cho tôi xem được không?"
+        },
+        {
+          "s": "B",
+          "en": "Yes, like this. That feels fine.",
+          "vi": "Được ạ, thế này. Chỗ đó thì không sao."
+        },
+        {
+          "s": "A",
+          "en": "Now I'm going to press here gently. Does this hurt?",
+          "vi": "Giờ tôi sẽ ấn nhẹ vào chỗ này. Có đau không?"
+        },
+        {
+          "s": "B",
+          "en": "Ouch! Yes, a little.",
+          "vi": "Ui da! Có ạ, hơi đau."
+        },
+        {
+          "s": "A",
+          "en": "Sorry. It's a bit swollen, but don't worry. It's nothing serious.",
+          "vi": "Xin lỗi anh. Chỗ này hơi sưng, nhưng đừng lo. Không có gì nghiêm trọng đâu."
+        },
+        {
+          "s": "A",
+          "en": "You've sprained your ankle. It happens to a lot of people.",
+          "vi": "Anh bị bong gân mắt cá chân. Nhiều người cũng bị như vậy lắm."
+        },
+        {
+          "s": "B",
+          "en": "That's a relief. So it's not broken?",
+          "vi": "Thế thì nhẹ cả người. Vậy là không bị gãy ạ?"
+        },
+        {
+          "s": "A",
+          "en": "No, it's not broken. But you need to rest it for a few days.",
+          "vi": "Không, không bị gãy. Nhưng anh cần để chân nghỉ vài hôm."
+        },
+        {
+          "s": "A",
+          "en": "Keep your foot up when you sit, and use ice for twenty minutes, three or four times a day.",
+          "vi": "Khi ngồi thì gác chân lên cao, và chườm đá khoảng hai mươi phút, ba hoặc bốn lần một ngày."
+        },
+        {
+          "s": "B",
+          "en": "Okay. Can I still go to work?",
+          "vi": "Vâng. Tôi vẫn đi làm được chứ ạ?"
+        },
+        {
+          "s": "A",
+          "en": "Can you work from home for a couple of days?",
+          "vi": "Anh có thể làm việc ở nhà vài hôm không?"
+        },
+        {
+          "s": "B",
+          "en": "Yes, I think my team lead will say yes.",
+          "vi": "Được ạ, tôi nghĩ trưởng nhóm của tôi sẽ đồng ý."
+        },
+        {
+          "s": "A",
+          "en": "Good. You can also get a mild painkiller at the pharmacy. Take it twice a day, after meals.",
+          "vi": "Tốt. Anh cũng có thể mua một loại thuốc giảm đau nhẹ ở hiệu thuốc. Ngày uống hai lần, sau bữa ăn."
+        },
+        {
+          "s": "B",
+          "en": "Twice a day, after meals. Got it.",
+          "vi": "Ngày hai lần, sau bữa ăn. Tôi nhớ rồi."
+        },
+        {
+          "s": "A",
+          "en": "And come back if it gets worse, or if you still can't walk well in a week.",
+          "vi": "Và nếu nặng hơn, hoặc một tuần nữa mà anh vẫn chưa đi lại bình thường được, thì quay lại khám nhé."
+        },
+        {
+          "s": "B",
+          "en": "I will. Thank you, Doctor. So, no more dancing?",
+          "vi": "Vâng ạ. Cảm ơn bác sĩ. Vậy là tôi không được nhảy nữa ạ?"
+        },
+        {
+          "s": "A",
+          "en": "Not for a few weeks. After that, maybe try some slower songs.",
+          "vi": "Vài tuần tới thì không. Sau đó, có lẽ anh nên thử những bài chậm hơn."
+        },
+        {
+          "s": "B",
+          "en": "Slow songs only. My family will be very happy to hear that.",
+          "vi": "Chỉ nhảy bài chậm thôi. Cả nhà tôi chắc sẽ mừng lắm khi nghe vậy."
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l1",
+      "kind": "story",
+      "title_en": "Two Patients, One Waiting Room",
+      "title_vi": "Hai bệnh nhân, một phòng chờ",
+      "summary_vi": "Linh bị đau họng và phải xin nghỉ ốm. David giúp cô tập gọi điện cho phòng khám, và ở phòng chờ cô bất ngờ gặp Tom với cái mắt cá chân bị bong gân.",
+      "speakers": {
+        "N": {
+          "name": "Narrator",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "N",
+          "en": "On Saturday evening, Linh started to feel strange. Her throat was a little sore, and her whole body felt heavy and tired. She thought, \"It's nothing serious. I just need a good night's sleep.\" She made a cup of warm tea with honey and went to bed early. She had a busy week ahead. On Wednesday, she had to show some new slides to an important client.",
+          "vi": "Tối thứ Bảy, Linh bắt đầu thấy trong người là lạ. Họng cô hơi đau, cả người thì nặng nề và mệt mỏi. Cô nghĩ: “Không có gì nghiêm trọng đâu. Mình chỉ cần ngủ một giấc thật ngon.” Cô pha một cốc trà ấm với mật ong rồi đi ngủ sớm. Tuần tới của cô rất bận. Thứ Tư này, cô phải trình bày bộ slide mới cho một khách hàng quan trọng."
+        },
+        {
+          "s": "N",
+          "en": "She spent a quiet Sunday on the sofa. But on Monday morning, she woke up and tried to say \"good morning\" to her cat. Only a strange little sound came out. Her throat hurt, her head hurt, and she felt hot. She looked at the clock. It was ten past seven. She knew she couldn't go to the office like this. So she picked up her phone and called her team lead, David.",
+          "vi": "Cô nằm nghỉ trên ghế sofa suốt ngày Chủ nhật. Nhưng sáng thứ Hai, cô thức dậy và định nói “chào buổi sáng” với con mèo. Chỉ có một âm thanh nhỏ kỳ lạ phát ra. Họng cô đau, đầu cô đau, và người cô thấy nóng. Cô nhìn đồng hồ. Lúc đó là bảy giờ mười phút. Cô biết mình không thể đến văn phòng trong tình trạng này. Thế là cô cầm điện thoại lên và gọi cho trưởng nhóm, anh David."
+        },
+        {
+          "s": "N",
+          "en": "David answered quickly. \"I'm not feeling very well,\" Linh said in her new robot voice. \"I need to call in sick today.\" David was very kind. He told her not to worry about work, and he asked about the slides. Linh explained that they were almost finished, and that Tom could send them if she was still sick. Then she told David the real problem. She was nervous about calling the clinic in English.",
+          "vi": "David bắt máy ngay. “Em thấy trong người không được khỏe,” Linh nói bằng giọng rô bốt mới của mình. “Hôm nay em phải xin nghỉ ốm.” David rất tốt bụng. Anh bảo cô đừng lo chuyện công việc, rồi hỏi về bộ slide. Linh giải thích rằng slide gần xong rồi, và nếu cô vẫn còn ốm thì Tom có thể gửi giúp. Sau đó cô kể cho David nghe vấn đề thật sự. Cô thấy run khi phải gọi cho phòng khám bằng tiếng Anh."
+        },
+        {
+          "s": "N",
+          "en": "\"Let's practice,\" said David. \"I'll be the receptionist.\" So they did a short role-play. Linh said, \"I'd like to make an appointment,\" and then she described her problem in simple sentences. \"I've got a sore throat,\" she said, and \"It started a few days ago.\" David answered just like a real receptionist. At the end, he laughed and said, \"See? You did it!\" Linh felt much more confident.",
+          "vi": "“Mình tập thử đi,” David nói. “Anh sẽ đóng vai lễ tân.” Thế là hai người đóng vai một đoạn ngắn. Linh nói: “Tôi muốn đặt lịch khám,” rồi tả bệnh của mình bằng những câu đơn giản. “Tôi bị đau họng,” cô nói, và “Bị từ mấy hôm trước rồi.” David trả lời y như một nhân viên lễ tân thật. Cuối cùng, anh cười và nói: “Thấy chưa? Em làm được rồi đấy!” Linh thấy tự tin hơn nhiều."
+        },
+        {
+          "s": "N",
+          "en": "At eight o'clock, she called the Green Street Clinic. The real call was almost the same as the practice call. The receptionist asked for her name, her problem, and how long she had had it. Linh answered slowly and clearly. \"We have a free appointment at half past ten,\" the receptionist said. Linh smiled. Half past ten was the same time David had given her in the role-play.",
+          "vi": "Lúc tám giờ, cô gọi cho phòng khám Green Street. Cuộc gọi thật gần như giống hệt cuộc gọi tập. Nhân viên lễ tân hỏi tên cô, cô bị làm sao, và bị bao lâu rồi. Linh trả lời chậm rãi và rõ ràng. “Chúng tôi còn một lịch trống lúc mười giờ rưỡi,” nhân viên lễ tân nói. Linh mỉm cười. Mười giờ rưỡi đúng là giờ mà David đã đưa ra trong lúc đóng vai."
+        },
+        {
+          "s": "N",
+          "en": "The waiting room at the clinic was warm and quiet. Linh sat down and looked around. There was an old man with a newspaper, a mother with a sleepy baby, and a tall man with one foot up on a chair. The tall man looked very familiar. \"Tom?\" Linh whispered. Tom turned around and waved. \"Linh! What are you doing here?\" \"I could ask you the same question,\" she said.",
+          "vi": "Phòng chờ của phòng khám ấm áp và yên tĩnh. Linh ngồi xuống và nhìn quanh. Có một ông cụ đang đọc báo, một người mẹ bế em bé đang buồn ngủ, và một người đàn ông cao gác một chân lên ghế. Người đàn ông cao trông rất quen. “Tom à?” Linh thì thầm. Tom quay lại và vẫy tay. “Linh! Em làm gì ở đây thế?” “Em cũng đang muốn hỏi anh câu đó đấy,” cô đáp."
+        },
+        {
+          "s": "N",
+          "en": "Tom told her the whole story. On Saturday night, at his cousin's wedding, he tried a big spin on the dance floor and landed badly on his ankle. Linh tried not to laugh, but it was difficult. Then a nurse called Tom's name, and he walked slowly into Doctor Pham's room. Ten minutes later, he came out with a big smile. \"It's nothing serious,\" he said. \"It's just a sprain. But no more dancing for a few weeks.\"",
+          "vi": "Tom kể cho cô nghe toàn bộ câu chuyện. Tối thứ Bảy, ở đám cưới em họ, anh thử xoay một vòng thật lớn trên sàn nhảy và tiếp đất không khéo nên bị đau mắt cá chân. Linh cố nhịn cười, nhưng khó lắm. Rồi một cô y tá gọi tên Tom, và anh chậm rãi bước vào phòng của bác sĩ Phạm. Mười phút sau, anh bước ra với nụ cười tươi rói. “Không có gì nghiêm trọng đâu,” anh nói. “Chỉ bị bong gân thôi. Nhưng vài tuần tới thì không được nhảy nữa.”"
+        },
+        {
+          "s": "N",
+          "en": "Next, it was Linh's turn. Doctor Pham was friendly and calm. She asked, \"How long have you had it?\" and \"Are you taking anything for it?\" Then she looked at Linh's throat. \"It's just a cold,\" she said. \"Get plenty of rest, drink lots of water, and come back if it gets worse.\" Linh stayed at home for three days and slept a lot. On Wednesday, Tom sent the client slides from his own sofa, with his foot up on three pillows. In the team chat, David wrote one message for both of them: \"Get well soon! And Tom, no more dancing.\"",
+          "vi": "Tiếp theo là đến lượt Linh. Bác sĩ Phạm thân thiện và điềm tĩnh. Bác sĩ hỏi: “Chị bị bao lâu rồi?” và “Chị có đang dùng thuốc gì không?” Rồi bác sĩ khám họng cho Linh. “Chỉ là cảm lạnh thôi,” bác sĩ nói. “Chị nghỉ ngơi cho thật nhiều, uống nhiều nước, và nếu nặng hơn thì quay lại khám nhé.” Linh ở nhà ba ngày và ngủ rất nhiều. Hôm thứ Tư, Tom gửi bộ slide cho khách hàng từ chính chiếc ghế sofa nhà mình, chân gác trên ba cái gối. Trong nhóm chat, David viết một tin nhắn cho cả hai người: “Mau khỏe nhé! Còn Tom, đừng nhảy nữa đấy.”"
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "kind": "podcast",
+      "title_en": "Feeling Sick? Keep It Simple",
+      "title_vi": "Bị ốm? Cứ nói thật đơn giản",
+      "summary_vi": "Anna và Ben chia sẻ cách xin nghỉ ốm thật ngắn gọn, cách đặt lịch khám qua điện thoại, công thức ba phần để tả triệu chứng, và một đoạn đóng vai ngắn ở phòng khám.",
+      "speakers": {
+        "A": {
+          "name": "Anna",
+          "gender": "f"
+        },
+        "B": {
+          "name": "Ben",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "A",
+          "en": "Hello, and welcome to Easy English at Work. I'm Anna.",
+          "vi": "Xin chào, chào mừng các bạn đến với chương trình Tiếng Anh dễ nghe nơi công sở. Mình là Anna."
+        },
+        {
+          "s": "B",
+          "en": "And I'm Ben. Today's topic is something nobody enjoys, but everybody needs to know about: being sick. We're talking about calling in sick and talking to a doctor.",
+          "vi": "Còn mình là Ben. Chủ đề hôm nay là chuyện không ai thích, nhưng ai cũng cần biết: bị ốm. Chúng ta sẽ nói về cách xin nghỉ ốm và cách nói chuyện với bác sĩ."
+        },
+        {
+          "s": "A",
+          "en": "Yes. When you feel bad, your English often feels bad too. Your head is tired, your throat hurts, and suddenly you can't remember any words.",
+          "vi": "Đúng vậy. Khi bạn thấy mệt, tiếng Anh của bạn cũng thường mệt theo. Đầu óc thì mệt mỏi, họng thì đau, và tự nhiên bạn chẳng nhớ ra từ nào cả."
+        },
+        {
+          "s": "B",
+          "en": "That's so true. So today we want to give you a few short, simple sentences. You can learn them now, when you feel well, and use them later, when you need them.",
+          "vi": "Chuẩn luôn. Vì vậy hôm nay chúng mình muốn tặng các bạn vài câu ngắn và đơn giản. Bạn có thể học ngay bây giờ, khi đang khỏe, rồi dùng sau này, khi cần đến."
+        },
+        {
+          "s": "A",
+          "en": "Let's start with calling in sick. Ben, what's the most important thing?",
+          "vi": "Mình bắt đầu với chuyện xin nghỉ ốm nhé. Ben, điều quan trọng nhất là gì?"
+        },
+        {
+          "s": "B",
+          "en": "Keep it short. Your manager doesn't need every detail. Just say three things: what the problem is, that you can't come in, and what will happen with your work.",
+          "vi": "Nói thật ngắn gọn. Sếp của bạn không cần biết mọi chi tiết. Chỉ cần nói ba điều: bạn bị làm sao, bạn không đến được, và công việc của bạn sẽ được xử lý thế nào."
+        },
+        {
+          "s": "A",
+          "en": "Can you give us an example?",
+          "vi": "Bạn cho một ví dụ được không?"
+        },
+        {
+          "s": "B",
+          "en": "Sure. \"Hi David, it's Ben. I'm not feeling very well. I've got a sore throat and a headache. I need to call in sick today. Tom can help with the report if it's urgent.\"",
+          "vi": "Được chứ. “Chào anh David, em Ben đây. Em thấy trong người không được khỏe. Em bị đau họng và đau đầu. Hôm nay em phải xin nghỉ ốm. Nếu báo cáo gấp thì Tom có thể giúp ạ.”"
+        },
+        {
+          "s": "A",
+          "en": "That's perfect. Short, clear, and polite. And I like the last part, about the report. It shows that you care about your team.",
+          "vi": "Hoàn hảo. Ngắn gọn, rõ ràng và lịch sự. Mình thích phần cuối, về bản báo cáo. Nó cho thấy bạn quan tâm đến cả nhóm."
+        },
+        {
+          "s": "B",
+          "en": "Exactly. You can also add one more line: \"I'll check my messages this afternoon.\" But only if you really feel well enough.",
+          "vi": "Chính xác. Bạn cũng có thể thêm một câu nữa: “Chiều nay em sẽ xem tin nhắn.” Nhưng chỉ khi bạn thật sự thấy đủ khỏe thôi nhé."
+        },
+        {
+          "s": "A",
+          "en": "Right. Rest is more important than email. Okay, the next step is often the doctor. And first, you have to make an appointment.",
+          "vi": "Đúng thế. Nghỉ ngơi quan trọng hơn email. Được rồi, bước tiếp theo thường là đi khám bác sĩ. Và trước hết, bạn phải đặt lịch khám."
+        },
+        {
+          "s": "B",
+          "en": "For many people, this is the scariest part, because it's a phone call. You can't see the other person, and they often speak quite fast.",
+          "vi": "Với nhiều người, đây là phần đáng sợ nhất, vì phải gọi điện thoại. Bạn không nhìn thấy người kia, mà họ lại thường nói khá nhanh."
+        },
+        {
+          "s": "A",
+          "en": "So here is my tip. Prepare before you call. Write down your name, your date of birth, and your problem on a piece of paper. Then start with one easy sentence: \"I'd like to make an appointment, please.\"",
+          "vi": "Vậy đây là mẹo của mình. Hãy chuẩn bị trước khi gọi. Viết tên, ngày sinh và bệnh của bạn ra một tờ giấy. Rồi bắt đầu bằng một câu thật dễ: “Tôi muốn đặt lịch khám ạ.”"
+        },
+        {
+          "s": "B",
+          "en": "And if they speak too fast, it's fine to say, \"Sorry, could you say that again, a bit more slowly?\" Receptionists hear that every day.",
+          "vi": "Và nếu họ nói nhanh quá, bạn cứ nói: “Xin lỗi, anh chị nói lại chậm hơn một chút được không?” Nhân viên lễ tân ngày nào cũng nghe câu đó."
+        },
+        {
+          "s": "A",
+          "en": "Now let's talk about the doctor. The first question is usually, \"What seems to be the problem?\"",
+          "vi": "Giờ mình nói về bác sĩ nhé. Câu hỏi đầu tiên thường là: “Bạn bị làm sao vậy?”"
+        },
+        {
+          "s": "B",
+          "en": "That's a very common one. It just means, \"What's wrong?\" or \"Why are you here today?\"",
+          "vi": "Câu đó rất hay gặp. Nó chỉ có nghĩa là “Bạn bị gì?” hoặc “Hôm nay bạn đến đây vì sao?”"
+        },
+        {
+          "s": "A",
+          "en": "And how can our listeners answer in a simple way?",
+          "vi": "Vậy các bạn đang nghe có thể trả lời đơn giản thế nào?"
+        },
+        {
+          "s": "B",
+          "en": "I like a simple formula with three parts. Part one: what hurts. \"I've got a sore throat,\" or \"My ankle hurts.\" Part two: when it started. \"It started a few days ago.\" Part three: when it feels worse. \"It hurts when I walk,\" or \"It hurts when I swallow.\"",
+          "vi": "Mình thích một công thức đơn giản gồm ba phần. Phần một: chỗ nào đau. “Tôi bị đau họng,” hoặc “Mắt cá chân tôi bị đau.” Phần hai: bắt đầu từ khi nào. “Bị từ mấy hôm trước rồi.” Phần ba: lúc nào thì đau hơn. “Tôi đi lại là đau,” hoặc “Tôi nuốt là đau.”"
+        },
+        {
+          "s": "A",
+          "en": "What hurts, when it started, and when it feels worse. That's easy to remember. Then the doctor will ask more questions, like \"How long have you had it?\" and \"Are you taking anything for it?\"",
+          "vi": "Đau chỗ nào, bắt đầu từ khi nào, và lúc nào đau hơn. Dễ nhớ thật. Sau đó bác sĩ sẽ hỏi thêm, ví dụ “Bạn bị bao lâu rồi?” và “Bạn có đang dùng thuốc gì không?”"
+        },
+        {
+          "s": "B",
+          "en": "For the second question, you can say, \"No, nothing,\" or you can say the name of the medicine. You can also just show the doctor the box. That's completely fine.",
+          "vi": "Với câu hỏi thứ hai, bạn có thể nói “Không, chưa dùng gì cả,” hoặc nói tên thuốc. Bạn cũng có thể đưa hộp thuốc cho bác sĩ xem. Hoàn toàn không sao cả."
+        },
+        {
+          "s": "A",
+          "en": "Great tip. Okay, shall we do a short role-play? You're the patient, and I'm the doctor.",
+          "vi": "Mẹo hay đấy. Được rồi, mình đóng vai một đoạn ngắn nhé? Bạn là bệnh nhân, còn mình là bác sĩ."
+        },
+        {
+          "s": "B",
+          "en": "Oh, I love being the patient. Okay, go.",
+          "vi": "Ồ, mình rất thích làm bệnh nhân. Được, bắt đầu nào."
+        },
+        {
+          "s": "A",
+          "en": "Hello, come in. What seems to be the problem?",
+          "vi": "Chào anh, mời vào. Anh bị làm sao vậy?"
+        },
+        {
+          "s": "B",
+          "en": "Hi, Doctor. I've got a sore throat, and I feel very tired. It started a few days ago.",
+          "vi": "Chào bác sĩ. Tôi bị đau họng và thấy rất mệt. Bị từ mấy hôm trước rồi."
+        },
+        {
+          "s": "A",
+          "en": "I see. Are you taking anything for it?",
+          "vi": "Tôi hiểu rồi. Anh có đang dùng thuốc gì không?"
+        },
+        {
+          "s": "B",
+          "en": "Just some warm tea with honey.",
+          "vi": "Chỉ uống chút trà ấm với mật ong thôi ạ."
+        },
+        {
+          "s": "A",
+          "en": "That's a good idea. Let me take a look. Okay, it's a little red, but it's nothing serious. Get plenty of rest and drink lots of water. And come back if it gets worse.",
+          "vi": "Thế là tốt đấy. Để tôi xem nào. Được rồi, hơi đỏ một chút, nhưng không có gì nghiêm trọng đâu. Anh nghỉ ngơi cho thật nhiều và uống nhiều nước nhé. Nếu nặng hơn thì quay lại khám."
+        },
+        {
+          "s": "B",
+          "en": "Thank you, Doctor. That's a relief.",
+          "vi": "Cảm ơn bác sĩ. Vậy thì tôi yên tâm rồi."
+        },
+        {
+          "s": "A",
+          "en": "And we're back! Did you hear how the doctor finished? With advice. Listen carefully to that part, because it tells you what to do at home.",
+          "vi": "Và chúng mình quay lại rồi đây! Các bạn có nghe thấy bác sĩ kết thúc thế nào không? Bằng lời khuyên. Hãy nghe thật kỹ phần đó, vì nó cho bạn biết về nhà phải làm gì."
+        },
+        {
+          "s": "B",
+          "en": "And if you get some medicine, always check how to take it. Ask, \"How often should I take it?\" The answer might be, \"Take it twice a day,\" or \"Take one in the morning.\"",
+          "vi": "Và nếu bạn được kê thuốc, hãy luôn hỏi rõ cách uống. Bạn hỏi: “Tôi nên uống mấy lần?” Câu trả lời có thể là “Ngày uống hai lần,” hoặc “Uống một viên vào buổi sáng.”"
+        },
+        {
+          "s": "A",
+          "en": "And if you're not sure, ask the pharmacist too. Pharmacists are usually very friendly, and they explain things clearly.",
+          "vi": "Và nếu bạn chưa chắc, hãy hỏi cả dược sĩ nữa. Dược sĩ thường rất thân thiện và giải thích rất rõ ràng."
+        },
+        {
+          "s": "B",
+          "en": "So, here's today's homework. Write your own three sentences for calling in sick, and say them out loud once or twice.",
+          "vi": "Vậy bài tập hôm nay là thế này. Hãy tự viết ba câu để xin nghỉ ốm, rồi đọc to lên một hai lần."
+        },
+        {
+          "s": "A",
+          "en": "And we hope you don't need them soon! That's all for today. Take care, and if you're feeling sick right now, get well soon!",
+          "vi": "Và chúng mình mong là bạn sẽ không sớm phải dùng đến chúng! Hôm nay đến đây thôi. Giữ gìn sức khỏe nhé, và nếu bạn đang bị ốm, chúc bạn mau khỏe!"
+        },
+        {
+          "s": "B",
+          "en": "Bye for now!",
+          "vi": "Tạm biệt nhé!"
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "kind": "monologue",
+      "title_en": "My Famous Dance Move",
+      "title_vi": "Điệu nhảy “nổi tiếng” của mình",
+      "summary_vi": "Tom kể về tuần lễ đáng nhớ của mình: một cú xoay ở đám cưới, buổi khám với bác sĩ Phạm, mấy ngày làm việc ở nhà và quy tắc mới mà gia đình đặt ra cho anh.",
+      "speakers": {
+        "T": {
+          "name": "Tom",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "T",
+          "en": "Hi, I'm Tom. I work with Linh and David at a small design company. Today I want to tell you about the week my dancing sent me to the doctor. Don't worry, it's a funny story, and I'm fine now.",
+          "vi": "Chào các bạn, mình là Tom. Mình làm việc cùng Linh và David ở một công ty thiết kế nhỏ. Hôm nay mình muốn kể về cái tuần mà vì nhảy nhót, mình phải đi khám bác sĩ. Đừng lo, đây là một câu chuyện vui, và giờ mình khỏe rồi."
+        },
+        {
+          "s": "T",
+          "en": "Last Saturday was my cousin Emma's wedding. It was a beautiful day. The food was great, the speeches were short, and the band was fantastic. When they played my favorite song, I ran onto the dance floor. I felt like a star. Then I decided to try a big spin. That was my mistake. I landed on the side of my foot, and everybody clapped. I think they thought it was part of the dance.",
+          "vi": "Thứ Bảy tuần trước là đám cưới của Emma, em họ mình. Hôm đó thật đẹp. Đồ ăn ngon, các bài phát biểu ngắn gọn, và ban nhạc thì tuyệt vời. Khi họ chơi bài hát mình thích nhất, mình chạy ngay ra sàn nhảy. Mình thấy mình như một ngôi sao. Rồi mình quyết định thử một cú xoay thật lớn. Đó chính là sai lầm. Mình tiếp đất bằng cạnh bàn chân, và mọi người vỗ tay. Chắc họ tưởng đó là một phần của điệu nhảy."
+        },
+        {
+          "s": "T",
+          "en": "On Sunday, my ankle was big and blue, and it hurt when I walked. I put some ice on it and watched films all day. On Monday morning, it still hurt, so I sent a message to David. I wrote, \"Sorry, I need to call in sick today. I hurt my ankle at a wedding.\" David replied, \"Dancing again?\" and then, \"Get well soon!\"",
+          "vi": "Sang Chủ nhật, mắt cá chân mình sưng to và tím bầm, đi lại là đau. Mình chườm đá rồi nằm xem phim cả ngày. Sáng thứ Hai vẫn còn đau, nên mình nhắn tin cho David. Mình viết: “Xin lỗi anh, hôm nay em phải xin nghỉ ốm. Em bị đau mắt cá chân ở một đám cưới.” David trả lời: “Lại nhảy nữa à?” rồi thêm: “Mau khỏe nhé!”"
+        },
+        {
+          "s": "T",
+          "en": "Then I called the clinic and said, \"I'd like to make an appointment.\" The receptionist was very nice, and I got an appointment at ten. And guess who I met in the waiting room? My colleague Linh, with a terrible sore throat. She tried very hard not to laugh at my story. She didn't try hard enough.",
+          "vi": "Sau đó mình gọi cho phòng khám và nói: “Tôi muốn đặt lịch khám.” Cô lễ tân rất dễ thương, và mình được hẹn lúc mười giờ. Và đoán xem mình gặp ai ở phòng chờ? Cô đồng nghiệp Linh, đang bị đau họng rất nặng. Linh đã cố hết sức để không cười câu chuyện của mình. Nhưng cố chưa đủ."
+        },
+        {
+          "s": "T",
+          "en": "The doctor, Doctor Pham, was really kind. She asked, \"What seems to be the problem?\" and I told her, \"It hurts when I walk.\" She asked if I was taking anything for it. Then she said, \"Let me take a look,\" and she pressed my ankle gently. Well, she said it was gently. Finally, she smiled and said, \"It's nothing serious. It's just a sprain.\" I was so relieved.",
+          "vi": "Bác sĩ Phạm rất tốt bụng. Bác sĩ hỏi: “Anh bị làm sao vậy?” và mình trả lời: “Tôi đi lại là đau.” Bác sĩ hỏi mình có đang dùng thuốc gì không. Rồi bác sĩ nói: “Để tôi xem nào,” và ấn nhẹ vào mắt cá chân mình. À, ít ra bác sĩ bảo là ấn nhẹ. Cuối cùng, bác sĩ mỉm cười và nói: “Không có gì nghiêm trọng đâu. Chỉ là bong gân thôi.” Mình nhẹ cả người."
+        },
+        {
+          "s": "T",
+          "en": "Her advice was simple. Rest your foot, keep it up when you sit, and use ice a few times a day. She told me to get a mild painkiller and said, \"Take it twice a day, after meals.\" She also said, \"Come back if it gets worse.\" On the way home, I stopped at the pharmacy, and the pharmacist explained everything again, very clearly.",
+          "vi": "Lời khuyên của bác sĩ rất đơn giản. Để chân nghỉ ngơi, khi ngồi thì gác chân lên cao, và chườm đá vài lần mỗi ngày. Bác sĩ bảo mình mua một loại thuốc giảm đau nhẹ và dặn: “Ngày uống hai lần, sau bữa ăn.” Bác sĩ còn nói: “Nếu nặng hơn thì quay lại khám nhé.” Trên đường về, mình ghé hiệu thuốc, và dược sĩ lại giải thích mọi thứ một lần nữa, rất rõ ràng."
+        },
+        {
+          "s": "T",
+          "en": "So I worked from home for three days, with my foot on a pile of pillows. I even sent Linh's client slides for her, because she was still sick. Now my ankle feels much better. I can walk normally again, and soon I can start running slowly. My family has one new rule for me: at the next wedding, slow songs only. And honestly, I think that's a good rule.",
+          "vi": "Thế là mình làm việc ở nhà ba ngày, chân gác trên một chồng gối. Mình còn gửi giúp Linh bộ slide cho khách hàng, vì cô ấy vẫn còn ốm. Giờ thì mắt cá chân mình đỡ nhiều rồi. Mình đã đi lại bình thường được, và sắp tới có thể bắt đầu chạy bộ nhẹ nhàng. Gia đình mình đặt ra một quy tắc mới cho mình: ở đám cưới tới, chỉ được nhảy bài chậm. Và thật lòng mà nói, mình thấy đó là một quy tắc hay."
+        }
+      ]
+    }
+  ]
+}

@@ -4,8 +4,542 @@
   "name_en": "Daily English Listening",
   "level": "A2-B1"
  },
- "updated": "2026-11-26T09:43:00+00:00",
+ "updated": "2026-11-26T12:05:08+00:00",
  "days": [
+  {
+   "date": "2026-12-03",
+   "day_number": 7,
+   "topic": {
+    "id": "health-doctor",
+    "en": "At the doctor's",
+    "vi": "Đi khám bệnh"
+   },
+   "level": "A2-B1",
+   "duration": 7671.205,
+   "cover": "cover.jpg",
+   "phrases": [
+    {
+     "id": "p01",
+     "en": "I'd like to make an appointment.",
+     "vi": "Tôi muốn đặt lịch khám."
+    },
+    {
+     "id": "p02",
+     "en": "I'm not feeling very well.",
+     "vi": "Tôi thấy trong người không được khỏe."
+    },
+    {
+     "id": "p03",
+     "en": "I've got a sore throat.",
+     "vi": "Tôi bị đau họng."
+    },
+    {
+     "id": "p04",
+     "en": "It started a few days ago.",
+     "vi": "Bị từ mấy hôm trước rồi."
+    },
+    {
+     "id": "p05",
+     "en": "It hurts when I walk.",
+     "vi": "Tôi đi lại là đau."
+    },
+    {
+     "id": "p06",
+     "en": "I need to call in sick today.",
+     "vi": "Hôm nay tôi phải xin nghỉ ốm."
+    },
+    {
+     "id": "p07",
+     "en": "What seems to be the problem?",
+     "vi": "Bạn bị làm sao vậy?"
+    },
+    {
+     "id": "p08",
+     "en": "How long have you had it?",
+     "vi": "Bạn bị bao lâu rồi?"
+    },
+    {
+     "id": "p09",
+     "en": "Are you taking anything for it?",
+     "vi": "Bạn có đang dùng thuốc gì không?"
+    },
+    {
+     "id": "p10",
+     "en": "Let me take a look.",
+     "vi": "Để tôi xem nào."
+    },
+    {
+     "id": "p11",
+     "en": "It's nothing serious.",
+     "vi": "Không có gì nghiêm trọng đâu."
+    },
+    {
+     "id": "p12",
+     "en": "Get plenty of rest.",
+     "vi": "Nghỉ ngơi cho thật nhiều nhé."
+    },
+    {
+     "id": "p13",
+     "en": "Take it twice a day.",
+     "vi": "Ngày uống hai lần."
+    },
+    {
+     "id": "p14",
+     "en": "Come back if it gets worse.",
+     "vi": "Nếu nặng hơn thì quay lại khám nhé."
+    },
+    {
+     "id": "p15",
+     "en": "Get well soon!",
+     "vi": "Mau khỏe nhé!"
+    }
+   ]
+  },
+  {
+   "date": "2026-12-02",
+   "day_number": 6,
+   "topic": {
+    "id": "food-restaurant",
+    "en": "Ordering at a restaurant",
+    "vi": "Gọi món ở nhà hàng"
+   },
+   "level": "A2-B1",
+   "duration": 7820.304,
+   "cover": "cover.jpg",
+   "phrases": [
+    {
+     "id": "p01",
+     "en": "Do you have a reservation?",
+     "vi": "Anh chị đã đặt bàn trước chưa ạ?"
+    },
+    {
+     "id": "p02",
+     "en": "I'd like to book a table.",
+     "vi": "Tôi muốn đặt bàn."
+    },
+    {
+     "id": "p03",
+     "en": "Right this way.",
+     "vi": "Mời anh chị đi lối này."
+    },
+    {
+     "id": "p04",
+     "en": "Can I get you something to drink?",
+     "vi": "Anh chị có muốn uống gì không ạ?"
+    },
+    {
+     "id": "p05",
+     "en": "What do you recommend?",
+     "vi": "Bạn gợi ý món gì?"
+    },
+    {
+     "id": "p06",
+     "en": "Could we have a few more minutes?",
+     "vi": "Cho chúng tôi thêm vài phút nữa nhé?"
+    },
+    {
+     "id": "p07",
+     "en": "I'm allergic to peanuts.",
+     "vi": "Tôi bị dị ứng lạc."
+    },
+    {
+     "id": "p08",
+     "en": "Is it very spicy?",
+     "vi": "Món này có cay lắm không?"
+    },
+    {
+     "id": "p09",
+     "en": "Are you ready to order?",
+     "vi": "Anh chị gọi món được chưa ạ?"
+    },
+    {
+     "id": "p10",
+     "en": "That's all for now.",
+     "vi": "Tạm thời vậy thôi."
+    },
+    {
+     "id": "p11",
+     "en": "How is everything?",
+     "vi": "Mọi thứ ổn cả chứ ạ?"
+    },
+    {
+     "id": "p12",
+     "en": "This isn't what we ordered.",
+     "vi": "Đây không phải món chúng tôi gọi."
+    },
+    {
+     "id": "p13",
+     "en": "Could we get the bill, please?",
+     "vi": "Cho chúng tôi thanh toán nhé."
+    },
+    {
+     "id": "p14",
+     "en": "Can we split the bill?",
+     "vi": "Chúng tôi chia hóa đơn ra được không?"
+    },
+    {
+     "id": "p15",
+     "en": "Is service included?",
+     "vi": "Đã tính phí phục vụ chưa?"
+    }
+   ]
+  },
+  {
+   "date": "2026-12-01",
+   "day_number": 5,
+   "topic": {
+    "id": "work-email-phone",
+    "en": "Phone calls and messages at work",
+    "vi": "Gọi điện và nhắn tin công việc"
+   },
+   "level": "A2-B1",
+   "duration": 7588.27,
+   "cover": "cover.jpg",
+   "phrases": [
+    {
+     "id": "p01",
+     "en": "May I ask who's calling?",
+     "vi": "Xin hỏi ai đang gọi đấy ạ?"
+    },
+    {
+     "id": "p02",
+     "en": "Hold on a second.",
+     "vi": "Chờ một chút nhé."
+    },
+    {
+     "id": "p03",
+     "en": "I'll put you through.",
+     "vi": "Tôi nối máy cho anh chị nhé."
+    },
+    {
+     "id": "p04",
+     "en": "I'm afraid he's not available.",
+     "vi": "Tôi e là anh ấy không nghe máy được."
+    },
+    {
+     "id": "p05",
+     "en": "Can I take a message?",
+     "vi": "Anh chị có muốn để lại lời nhắn không?"
+    },
+    {
+     "id": "p06",
+     "en": "Could you spell that for me?",
+     "vi": "Anh chị đánh vần giúp tôi được không?"
+    },
+    {
+     "id": "p07",
+     "en": "What's the best number to reach you?",
+     "vi": "Số nào tiện nhất để liên lạc với anh chị?"
+    },
+    {
+     "id": "p08",
+     "en": "Could you ask him to call me back?",
+     "vi": "Nhờ bạn nhắn anh ấy gọi lại cho tôi được không?"
+    },
+    {
+     "id": "p09",
+     "en": "I'll pass it on.",
+     "vi": "Tôi sẽ chuyển lời giúp."
+    },
+    {
+     "id": "p10",
+     "en": "Sorry I missed your call.",
+     "vi": "Xin lỗi, mình lỡ cuộc gọi của bạn."
+    },
+    {
+     "id": "p11",
+     "en": "Thanks for getting back to me.",
+     "vi": "Cảm ơn bạn đã phản hồi nhé."
+    },
+    {
+     "id": "p12",
+     "en": "You're breaking up.",
+     "vi": "Tiếng bạn bị ngắt quãng."
+    },
+    {
+     "id": "p13",
+     "en": "Can you hear me now?",
+     "vi": "Giờ bạn nghe rõ không?"
+    },
+    {
+     "id": "p14",
+     "en": "I'll call you back.",
+     "vi": "Mình gọi lại cho bạn sau nhé."
+    },
+    {
+     "id": "p15",
+     "en": "Text me when you're free.",
+     "vi": "Khi nào rảnh thì nhắn tin cho mình nhé."
+    }
+   ]
+  },
+  {
+   "date": "2026-11-30",
+   "day_number": 4,
+   "topic": {
+    "id": "daily-plans",
+    "en": "Making plans with friends",
+    "vi": "Hẹn hò, lên kế hoạch với bạn bè"
+   },
+   "level": "A2-B1",
+   "duration": 7666.438,
+   "cover": "cover.jpg",
+   "phrases": [
+    {
+     "id": "p01",
+     "en": "Are you free this weekend?",
+     "vi": "Cuối tuần này bạn có rảnh không?"
+    },
+    {
+     "id": "p02",
+     "en": "Do you want to join us?",
+     "vi": "Bạn có muốn đi cùng bọn mình không?"
+    },
+    {
+     "id": "p03",
+     "en": "How does Saturday sound?",
+     "vi": "Thứ Bảy thì sao?"
+    },
+    {
+     "id": "p04",
+     "en": "What time works for you?",
+     "vi": "Mấy giờ thì tiện cho bạn?"
+    },
+    {
+     "id": "p05",
+     "en": "Where should we meet?",
+     "vi": "Mình gặp nhau ở đâu nhỉ?"
+    },
+    {
+     "id": "p06",
+     "en": "Count me in!",
+     "vi": "Tính cả mình nhé!"
+    },
+    {
+     "id": "p07",
+     "en": "I'd love to, but I can't.",
+     "vi": "Mình rất muốn, nhưng không đi được rồi."
+    },
+    {
+     "id": "p08",
+     "en": "Maybe another time.",
+     "vi": "Để dịp khác nhé."
+    },
+    {
+     "id": "p09",
+     "en": "Something came up.",
+     "vi": "Mình có việc đột xuất."
+    },
+    {
+     "id": "p10",
+     "en": "Can I take a rain check?",
+     "vi": "Mình hẹn lại dịp khác được không?"
+    },
+    {
+     "id": "p11",
+     "en": "Can we make it a bit later?",
+     "vi": "Mình hẹn muộn hơn một chút được không?"
+    },
+    {
+     "id": "p12",
+     "en": "Does that work for you?",
+     "vi": "Như vậy có tiện cho bạn không?"
+    },
+    {
+     "id": "p13",
+     "en": "Are we still on for tomorrow?",
+     "vi": "Ngày mai mình vẫn gặp nhau như đã hẹn chứ?"
+    },
+    {
+     "id": "p14",
+     "en": "I'll text you the address.",
+     "vi": "Mình sẽ nhắn địa chỉ cho bạn."
+    },
+    {
+     "id": "p15",
+     "en": "See you there!",
+     "vi": "Gặp nhau ở đó nhé!"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-29",
+   "day_number": 3,
+   "topic": {
+    "id": "work-meetings",
+    "en": "Taking part in meetings",
+    "vi": "Tham gia cuộc họp"
+   },
+   "level": "A2-B1",
+   "duration": 7957.566,
+   "cover": "cover.jpg",
+   "phrases": [
+    {
+     "id": "p01",
+     "en": "Can I just add something?",
+     "vi": "Cho tôi bổ sung một chút được không?"
+    },
+    {
+     "id": "p02",
+     "en": "Sorry to interrupt.",
+     "vi": "Xin lỗi vì đã ngắt lời."
+    },
+    {
+     "id": "p03",
+     "en": "Could you say that again?",
+     "vi": "Bạn nói lại được không?"
+    },
+    {
+     "id": "p04",
+     "en": "What do you mean by that?",
+     "vi": "Ý bạn là sao?"
+    },
+    {
+     "id": "p05",
+     "en": "Just to be clear.",
+     "vi": "Cho rõ ràng nhé."
+    },
+    {
+     "id": "p06",
+     "en": "I couldn't agree more.",
+     "vi": "Tôi hoàn toàn đồng ý."
+    },
+    {
+     "id": "p07",
+     "en": "I see your point.",
+     "vi": "Tôi hiểu ý bạn."
+    },
+    {
+     "id": "p08",
+     "en": "I'm not sure about that.",
+     "vi": "Tôi không chắc lắm về chuyện đó."
+    },
+    {
+     "id": "p09",
+     "en": "Let's move on.",
+     "vi": "Mình chuyển sang phần tiếp theo nhé."
+    },
+    {
+     "id": "p10",
+     "en": "Here's a quick update.",
+     "vi": "Tôi xin cập nhật nhanh tình hình."
+    },
+    {
+     "id": "p11",
+     "en": "We're on track.",
+     "vi": "Mọi việc đang đúng tiến độ."
+    },
+    {
+     "id": "p12",
+     "en": "Can we come back to that later?",
+     "vi": "Chuyện đó mình bàn sau được không?"
+    },
+    {
+     "id": "p13",
+     "en": "What are the next steps?",
+     "vi": "Các bước tiếp theo là gì?"
+    },
+    {
+     "id": "p14",
+     "en": "Does that work for everyone?",
+     "vi": "Mọi người thấy vậy được không?"
+    },
+    {
+     "id": "p15",
+     "en": "Let's wrap things up.",
+     "vi": "Mình kết thúc ở đây nhé."
+    }
+   ]
+  },
+  {
+   "date": "2026-11-28",
+   "day_number": 2,
+   "topic": {
+    "id": "food-cafe",
+    "en": "At the café",
+    "vi": "Ở quán cà phê"
+   },
+   "level": "A2-B1",
+   "duration": 7327.645,
+   "cover": "cover.jpg",
+   "phrases": [
+    {
+     "id": "p01",
+     "en": "What can I get you?",
+     "vi": "Bạn muốn dùng gì?"
+    },
+    {
+     "id": "p02",
+     "en": "I'll have a latte, please.",
+     "vi": "Cho tôi một ly latte."
+    },
+    {
+     "id": "p03",
+     "en": "What size would you like?",
+     "vi": "Bạn muốn cỡ nào?"
+    },
+    {
+     "id": "p04",
+     "en": "For here or to go?",
+     "vi": "Uống ở đây hay mang đi?"
+    },
+    {
+     "id": "p05",
+     "en": "Can I have it with oat milk?",
+     "vi": "Cho tôi dùng sữa yến mạch được không?"
+    },
+    {
+     "id": "p06",
+     "en": "Can I get an extra shot?",
+     "vi": "Cho tôi thêm một shot cà phê nhé?"
+    },
+    {
+     "id": "p07",
+     "en": "Would you like it warmed up?",
+     "vi": "Bạn có muốn hâm nóng không?"
+    },
+    {
+     "id": "p08",
+     "en": "Anything else for you?",
+     "vi": "Bạn cần gì thêm không?"
+    },
+    {
+     "id": "p09",
+     "en": "That's all, thanks.",
+     "vi": "Vậy thôi, cảm ơn."
+    },
+    {
+     "id": "p10",
+     "en": "Can I have your name?",
+     "vi": "Cho mình xin tên bạn nhé?"
+    },
+    {
+     "id": "p11",
+     "en": "Just tap your card here.",
+     "vi": "Bạn chỉ cần chạm thẻ vào đây."
+    },
+    {
+     "id": "p12",
+     "en": "Is this seat taken?",
+     "vi": "Chỗ này có ai ngồi chưa?"
+    },
+    {
+     "id": "p13",
+     "en": "What's the Wi-Fi password?",
+     "vi": "Mật khẩu Wi-Fi là gì?"
+    },
+    {
+     "id": "p14",
+     "en": "This one's on me.",
+     "vi": "Lần này để mình mời."
+    },
+    {
+     "id": "p15",
+     "en": "Less sugar, please.",
+     "vi": "Cho ít đường thôi."
+    }
+   ]
+  },
   {
    "date": "2026-11-27",
    "day_number": 1,

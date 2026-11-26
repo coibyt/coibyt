@@ -1,0 +1,883 @@
+{
+  "date": "2026-12-01",
+  "day_number": 5,
+  "level": "A2-B1",
+  "topic": {
+    "id": "work-email-phone",
+    "en": "Phone calls and messages at work",
+    "vi": "Gọi điện và nhắn tin công việc",
+    "art_prompt": "a bright modern design studio reception desk in soft afternoon light, a young Vietnamese woman answering a desk phone and writing a note, a colleague smiling in the background, plants, large window"
+  },
+  "intro_vi": "Chủ đề hôm nay là gọi điện và nhắn tin trong công việc: nghe máy, hỏi ai đang gọi, nối máy, ghi lời nhắn, xử lý khi sóng yếu, và những tin nhắn ngắn gửi đồng nghiệp.",
+  "phrases": [
+    {
+      "id": "p01",
+      "en": "May I ask who's calling?",
+      "vi": "Xin hỏi ai đang gọi đấy ạ?",
+      "note_vi": "Cách hỏi tên người gọi rất lịch sự khi nghe máy ở công ty. Đừng bao giờ hỏi “Who are you?” trên điện thoại.",
+      "examples": [
+        {
+          "en": "Good morning, Bright Studio. May I ask who's calling?",
+          "vi": "Xin chào, Bright Studio xin nghe. Xin hỏi ai đang gọi đấy ạ?"
+        },
+        {
+          "en": "Yes, she's in the office today. May I ask who's calling?",
+          "vi": "Vâng, hôm nay chị ấy có ở văn phòng. Xin hỏi ai đang gọi đấy ạ?"
+        }
+      ]
+    },
+    {
+      "id": "p02",
+      "en": "Hold on a second.",
+      "vi": "Chờ một chút nhé.",
+      "note_vi": "Nhờ người gọi đợi trong giây lát, ví dụ khi bạn cần tìm bút hoặc kiểm tra thông tin. Thêm “please” để lịch sự hơn.",
+      "examples": [
+        {
+          "en": "Hold on a second. I need to find a pen.",
+          "vi": "Chờ một chút nhé. Để tôi tìm cái bút."
+        },
+        {
+          "en": "Hold on a second, please. Let me check if she's at her desk.",
+          "vi": "Anh chờ một chút nhé. Để tôi xem chị ấy có ở bàn không."
+        }
+      ]
+    },
+    {
+      "id": "p03",
+      "en": "I'll put you through.",
+      "vi": "Tôi nối máy cho anh chị nhé.",
+      "note_vi": "“Put through” nghĩa là chuyển cuộc gọi sang người khác. Có thể nói rõ hơn: “I'll put you through to David.”",
+      "examples": [
+        {
+          "en": "Thank you for waiting. I'll put you through now.",
+          "vi": "Cảm ơn anh đã chờ. Tôi nối máy cho anh ngay đây."
+        },
+        {
+          "en": "One moment, please. I'll put you through to the sales team.",
+          "vi": "Xin chờ một chút. Tôi sẽ nối máy cho chị sang bộ phận kinh doanh."
+        }
+      ]
+    },
+    {
+      "id": "p04",
+      "en": "I'm afraid he's not available.",
+      "vi": "Tôi e là anh ấy không nghe máy được.",
+      "note_vi": "“I'm afraid” ở đây không phải là sợ, mà là cách báo một tin không vui thật lịch sự. Với nữ thì nói “she's not available”.",
+      "examples": [
+        {
+          "en": "I'm afraid he's not available. He's out of the office today.",
+          "vi": "Tôi e là anh ấy không nghe máy được. Hôm nay anh ấy không có ở văn phòng."
+        },
+        {
+          "en": "I'm sorry, I'm afraid he's not available right now. Can he call you later?",
+          "vi": "Xin lỗi, tôi e là bây giờ anh ấy không nghe máy được. Lát nữa anh ấy gọi lại cho chị được không?"
+        }
+      ]
+    },
+    {
+      "id": "p05",
+      "en": "Can I take a message?",
+      "vi": "Anh chị có muốn để lại lời nhắn không?",
+      "note_vi": "Người nghe máy hỏi câu này để ghi lại lời nhắn. Còn người gọi thì nói: “Can I leave a message?”",
+      "examples": [
+        {
+          "en": "She's at lunch at the moment. Can I take a message?",
+          "vi": "Chị ấy đang đi ăn trưa. Anh có muốn để lại lời nhắn không?"
+        },
+        {
+          "en": "Can I take a message? I'll put it on his desk.",
+          "vi": "Chị có muốn để lại lời nhắn không? Tôi sẽ để trên bàn anh ấy."
+        }
+      ]
+    },
+    {
+      "id": "p06",
+      "en": "Could you spell that for me?",
+      "vi": "Anh chị đánh vần giúp tôi được không?",
+      "note_vi": "Dùng khi cần ghi đúng tên, họ hay địa chỉ. Hai chữ cái giống nhau đứng liền thường đọc là “double”, ví dụ “double R”.",
+      "examples": [
+        {
+          "en": "Sorry, could you spell that for me? I want to write it correctly.",
+          "vi": "Xin lỗi, anh đánh vần giúp tôi được không? Tôi muốn ghi cho đúng."
+        },
+        {
+          "en": "That street name is new to me. Could you spell that for me?",
+          "vi": "Tên đường này lạ với tôi quá. Chị đánh vần giúp tôi được không?"
+        }
+      ]
+    },
+    {
+      "id": "p07",
+      "en": "What's the best number to reach you?",
+      "vi": "Số nào tiện nhất để liên lạc với anh chị?",
+      "note_vi": "“Reach” ở đây là liên lạc được với ai đó. Câu trả lời thường gặp: “My mobile is best.”",
+      "examples": [
+        {
+          "en": "David will call you later. What's the best number to reach you?",
+          "vi": "Lát nữa anh David sẽ gọi cho chị. Số nào tiện nhất để liên lạc với chị?"
+        },
+        {
+          "en": "What's the best number to reach you this afternoon?",
+          "vi": "Chiều nay số nào tiện nhất để liên lạc với anh?"
+        }
+      ]
+    },
+    {
+      "id": "p08",
+      "en": "Could you ask him to call me back?",
+      "vi": "Nhờ bạn nhắn anh ấy gọi lại cho tôi được không?",
+      "note_vi": "Người gọi dùng câu này khi người mình cần gặp đang bận. Với nữ thì nói “ask her”.",
+      "examples": [
+        {
+          "en": "Could you ask him to call me back? It's quite urgent.",
+          "vi": "Nhờ cô nhắn anh ấy gọi lại cho tôi được không? Chuyện khá gấp."
+        },
+        {
+          "en": "Could you ask him to call me back after lunch?",
+          "vi": "Nhờ anh nhắn anh ấy gọi lại cho tôi sau bữa trưa được không?"
+        }
+      ]
+    },
+    {
+      "id": "p09",
+      "en": "I'll pass it on.",
+      "vi": "Tôi sẽ chuyển lời giúp.",
+      "note_vi": "Hứa sẽ chuyển lời nhắn hoặc thông tin cho người khác. Muốn nói rõ người nhận thì thêm “to”: “I'll pass it on to Mai.”",
+      "examples": [
+        {
+          "en": "Thanks for the message. I'll pass it on to Mai.",
+          "vi": "Cảm ơn anh đã nhắn. Tôi sẽ chuyển lời cho chị Mai."
+        },
+        {
+          "en": "Don't worry, I'll pass it on when she gets back.",
+          "vi": "Chị đừng lo, khi nào chị ấy về tôi sẽ chuyển lời."
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "en": "Sorry I missed your call.",
+      "vi": "Xin lỗi, mình lỡ cuộc gọi của bạn.",
+      "note_vi": "Câu mở đầu khi bạn gọi lại hoặc nhắn tin cho người vừa gọi mà bạn không kịp nghe máy.",
+      "examples": [
+        {
+          "en": "Hi Nam, sorry I missed your call. I was in a meeting.",
+          "vi": "Chào Nam, xin lỗi mình lỡ cuộc gọi của bạn. Lúc đó mình đang họp."
+        },
+        {
+          "en": "Sorry I missed your call. What did you want to ask?",
+          "vi": "Xin lỗi, em lỡ cuộc gọi của anh. Anh muốn hỏi gì ạ?"
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "en": "Thanks for getting back to me.",
+      "vi": "Cảm ơn bạn đã phản hồi nhé.",
+      "note_vi": "Cảm ơn ai đó đã gọi lại hoặc trả lời tin nhắn, email của bạn. Có thể thêm “so quickly” nếu họ trả lời nhanh.",
+      "examples": [
+        {
+          "en": "Thanks for getting back to me. I know you're busy this week.",
+          "vi": "Cảm ơn chị đã phản hồi. Tôi biết tuần này chị bận."
+        },
+        {
+          "en": "Thanks for getting back to me so quickly. That really helps.",
+          "vi": "Cảm ơn anh đã trả lời nhanh thế. Thật sự giúp tôi nhiều lắm."
+        }
+      ]
+    },
+    {
+      "id": "p12",
+      "en": "You're breaking up.",
+      "vi": "Tiếng bạn bị ngắt quãng.",
+      "note_vi": "Dùng khi sóng yếu và tiếng của người kia lúc có lúc mất. Thường nói thêm: “Can you say that again?”",
+      "examples": [
+        {
+          "en": "Sorry, you're breaking up. Can you say that again?",
+          "vi": "Xin lỗi, tiếng bạn bị ngắt quãng. Bạn nói lại được không?"
+        },
+        {
+          "en": "You're breaking up. I think you're in the lift.",
+          "vi": "Tiếng anh bị ngắt quãng. Chắc anh đang ở trong thang máy."
+        }
+      ]
+    },
+    {
+      "id": "p13",
+      "en": "Can you hear me now?",
+      "vi": "Giờ bạn nghe rõ không?",
+      "note_vi": "Hỏi lại sau khi bạn đổi chỗ đứng hoặc khi sóng có vẻ tốt hơn.",
+      "examples": [
+        {
+          "en": "I moved closer to the window. Can you hear me now?",
+          "vi": "Mình ra gần cửa sổ rồi. Giờ bạn nghe rõ không?"
+        },
+        {
+          "en": "Hello? Hello? Can you hear me now?",
+          "vi": "Alô? Alô? Giờ anh nghe rõ không?"
+        }
+      ]
+    },
+    {
+      "id": "p14",
+      "en": "I'll call you back.",
+      "vi": "Mình gọi lại cho bạn sau nhé.",
+      "note_vi": "Dùng khi bạn đang bận, sóng yếu hoặc cần kiểm tra gì đó trước. Có thể thêm thời gian: “in ten minutes”.",
+      "examples": [
+        {
+          "en": "I'm driving right now. I'll call you back in ten minutes.",
+          "vi": "Giờ mình đang lái xe. Mười phút nữa mình gọi lại cho bạn nhé."
+        },
+        {
+          "en": "The line is really bad. I'll call you back.",
+          "vi": "Đường truyền tệ quá. Mình gọi lại cho bạn sau nhé."
+        }
+      ]
+    },
+    {
+      "id": "p15",
+      "en": "Text me when you're free.",
+      "vi": "Khi nào rảnh thì nhắn tin cho mình nhé.",
+      "note_vi": "“Text” vừa là danh từ vừa là động từ, nghĩa là nhắn tin. Câu này rất hay dùng giữa các đồng nghiệp thân.",
+      "examples": [
+        {
+          "en": "No rush. Text me when you're free.",
+          "vi": "Không vội đâu. Khi nào rảnh thì nhắn tin cho mình nhé."
+        },
+        {
+          "en": "I have a question about the report. Text me when you're free.",
+          "vi": "Mình có câu hỏi về bản báo cáo. Khi nào rảnh thì nhắn tin cho mình nhé."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "d1",
+      "title_en": "One hour on reception",
+      "title_vi": "Một tiếng trực lễ tân",
+      "setting_vi": "Chị lễ tân đi ăn trưa, nên Linh nghe điện thoại thay. Một khách hàng quan trọng gọi đến tìm anh David.",
+      "speakers": {
+        "A": {
+          "name": "Linh",
+          "gender": "f"
+        },
+        "B": {
+          "name": "Paul",
+          "gender": "m"
+        }
+      },
+      "lines": [
+        {
+          "s": "A",
+          "en": "Good afternoon, Bright Studio. Linh speaking. How can I help?",
+          "vi": "Xin chào, Bright Studio xin nghe, tôi là Linh. Tôi có thể giúp gì ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Hi there. Could I speak to David, please?",
+          "vi": "Chào cô. Cho tôi nói chuyện với anh David được không?"
+        },
+        {
+          "s": "A",
+          "en": "Of course. May I ask who's calling?",
+          "vi": "Dạ vâng. Xin hỏi ai đang gọi đấy ạ?"
+        },
+        {
+          "s": "B",
+          "en": "This is Paul Kerr from Green Leaf Hotels.",
+          "vi": "Tôi là Paul Kerr, bên khách sạn Green Leaf."
+        },
+        {
+          "s": "A",
+          "en": "Thank you, Mr Kerr. Hold on a second, please.",
+          "vi": "Cảm ơn anh Kerr. Anh vui lòng chờ một chút nhé."
+        },
+        {
+          "s": "A",
+          "en": "I'll put you through.",
+          "vi": "Tôi nối máy cho anh ngay đây."
+        },
+        {
+          "s": "B",
+          "en": "Great, thanks.",
+          "vi": "Tốt quá, cảm ơn cô."
+        },
+        {
+          "s": "A",
+          "en": "Hello? Mr Kerr? Are you still there?",
+          "vi": "Alô? Anh Kerr? Anh vẫn còn đó chứ ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Yes, I'm here. A man just answered and asked if I was the pizza delivery.",
+          "vi": "Vâng, tôi đây. Vừa có một anh nghe máy và hỏi tôi có phải người giao pizza không."
+        },
+        {
+          "s": "A",
+          "en": "Oh no! I'm so sorry. That was my colleague Tom. I pressed the wrong button.",
+          "vi": "Ôi không! Tôi thành thật xin lỗi anh. Đó là anh Tom, đồng nghiệp của tôi. Tôi bấm nhầm nút."
+        },
+        {
+          "s": "B",
+          "en": "Ha! No problem. That was the best part of my day.",
+          "vi": "Ha! Không sao đâu. Đó là lúc vui nhất trong ngày của tôi đấy."
+        },
+        {
+          "s": "A",
+          "en": "Let me try again. This time I'll check the button very carefully.",
+          "vi": "Để tôi thử lại nhé. Lần này tôi sẽ xem nút thật kỹ."
+        },
+        {
+          "s": "A",
+          "en": "Mr Kerr, I'm afraid he's not available. He's in a meeting until four.",
+          "vi": "Anh Kerr ơi, tôi e là anh ấy không nghe máy được. Anh ấy họp đến bốn giờ."
+        },
+        {
+          "s": "A",
+          "en": "Can I take a message?",
+          "vi": "Anh có muốn để lại lời nhắn không ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Yes, please. It's about the new website for our hotels.",
+          "vi": "Vâng, nhờ cô. Chuyện là về trang web mới cho các khách sạn của chúng tôi."
+        },
+        {
+          "s": "A",
+          "en": "Of course. Your surname is Kerr. Could you spell that for me?",
+          "vi": "Dạ vâng. Họ của anh là Kerr. Anh đánh vần giúp tôi được không ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Sure. K, E, double R.",
+          "vi": "Được chứ. K, E, hai chữ R."
+        },
+        {
+          "s": "A",
+          "en": "Double R. Got it. And what's the best number to reach you?",
+          "vi": "Hai chữ R. Tôi ghi rồi. Vậy số nào tiện nhất để liên lạc với anh ạ?"
+        },
+        {
+          "s": "B",
+          "en": "My mobile is best. It's oh four one two, five five eight, three six nine.",
+          "vi": "Số di động là tiện nhất. Số là không bốn một hai, năm năm tám, ba sáu chín."
+        },
+        {
+          "s": "A",
+          "en": "Let me read that back. Oh four one two, five five eight, three six nine.",
+          "vi": "Để tôi đọc lại nhé. Không bốn một hai, năm năm tám, ba sáu chín."
+        },
+        {
+          "s": "B",
+          "en": "That's right. Could you ask him to call me back today?",
+          "vi": "Đúng rồi. Nhờ cô nhắn anh ấy gọi lại cho tôi trong hôm nay được không?"
+        },
+        {
+          "s": "B",
+          "en": "We need to choose the photos before Friday.",
+          "vi": "Chúng tôi cần chọn ảnh trước thứ Sáu."
+        },
+        {
+          "s": "A",
+          "en": "No problem. Call back today, about the website photos.",
+          "vi": "Dạ không vấn đề gì. Gọi lại trong hôm nay, về chuyện ảnh cho trang web."
+        },
+        {
+          "s": "A",
+          "en": "Don't worry, I'll pass it on as soon as his meeting finishes.",
+          "vi": "Anh đừng lo, cuộc họp vừa xong là tôi chuyển lời ngay."
+        },
+        {
+          "s": "B",
+          "en": "Thank you, Linh. You're very good on the phone.",
+          "vi": "Cảm ơn cô Linh. Cô nghe điện thoại giỏi thật đấy."
+        },
+        {
+          "s": "A",
+          "en": "Thanks! To be honest, I'm a designer. I'm only on reception for one hour.",
+          "vi": "Cảm ơn anh! Nói thật là tôi làm thiết kế. Tôi chỉ trực lễ tân có một tiếng thôi."
+        },
+        {
+          "s": "B",
+          "en": "Really? Well, apart from the pizza, you're doing a great job.",
+          "vi": "Thật sao? Ngoài vụ pizza ra thì cô làm rất tốt đấy."
+        },
+        {
+          "s": "A",
+          "en": "Please don't tell David about the pizza.",
+          "vi": "Xin anh đừng kể với anh David chuyện pizza nhé."
+        },
+        {
+          "s": "B",
+          "en": "Your secret is safe with me. Goodbye, Linh.",
+          "vi": "Cô yên tâm, tôi sẽ giữ bí mật. Chào cô Linh."
+        },
+        {
+          "s": "A",
+          "en": "Goodbye, Mr Kerr. Have a nice afternoon.",
+          "vi": "Chào anh Kerr. Chúc anh buổi chiều vui vẻ."
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "title_en": "A bad line on the train",
+      "title_vi": "Sóng yếu trên tàu",
+      "setting_vi": "Mai đang đi tàu đến gặp khách hàng ở thành phố khác. Cô gọi lại cho Tom, nhưng sóng điện thoại rất yếu.",
+      "speakers": {
+        "A": {
+          "name": "Mai",
+          "gender": "f"
+        },
+        "B": {
+          "name": "Tom",
+          "gender": "m"
+        }
+      },
+      "lines": [
+        {
+          "s": "A",
+          "en": "Hi Tom, it's Mai. Sorry I missed your call.",
+          "vi": "Chào anh Tom, em Mai đây. Xin lỗi, em lỡ cuộc gọi của anh."
+        },
+        {
+          "s": "A",
+          "en": "I was buying a ticket at the station.",
+          "vi": "Lúc đó em đang mua vé ở nhà ga."
+        },
+        {
+          "s": "B",
+          "en": "No problem. Thanks for getting back to me so quickly.",
+          "vi": "Không sao. Cảm ơn em đã gọi lại cho anh nhanh thế."
+        },
+        {
+          "s": "B",
+          "en": "Quick question about the Green Leaf photos.",
+          "vi": "Anh hỏi nhanh chút về mấy tấm ảnh của Green Leaf."
+        },
+        {
+          "s": "B",
+          "en": "David wants to send them to the client this afternoon.",
+          "vi": "Anh David muốn gửi cho khách hàng trong chiều nay."
+        },
+        {
+          "s": "A",
+          "en": "Oh, they're in our shared folder. The name of the folder is very easy.",
+          "vi": "À, ảnh ở trong thư mục chung của mình. Tên thư mục dễ nhớ lắm."
+        },
+        {
+          "s": "B",
+          "en": "Sorry, Mai, you're breaking up. I only heard \"very easy.\"",
+          "vi": "Xin lỗi Mai, tiếng em bị ngắt quãng. Anh chỉ nghe được mỗi chữ “dễ nhớ lắm”."
+        },
+        {
+          "s": "A",
+          "en": "We're going into a tunnel. Can you hear me now?",
+          "vi": "Tàu đang chạy vào đường hầm. Giờ anh nghe rõ không?"
+        },
+        {
+          "s": "B",
+          "en": "A little. You sound like a robot.",
+          "vi": "Hơi hơi. Giọng em nghe như rô bốt ấy."
+        },
+        {
+          "s": "A",
+          "en": "I said the folder is called Final.",
+          "vi": "Em nói là thư mục tên là “Bản cuối”."
+        },
+        {
+          "s": "B",
+          "en": "Final. OK, I can see it. But there are three folders.",
+          "vi": "“Bản cuối”. Được rồi, anh thấy rồi. Nhưng có tận ba thư mục."
+        },
+        {
+          "s": "B",
+          "en": "Final, New Final, and Really Final.",
+          "vi": "“Bản cuối”, “Bản cuối mới” và “Bản cuối thật sự”."
+        },
+        {
+          "s": "A",
+          "en": "Ha! Sorry. It's the one called Really Final.",
+          "vi": "Ha! Em xin lỗi. Là thư mục “Bản cuối thật sự” ấy."
+        },
+        {
+          "s": "B",
+          "en": "What? I can't hear you very well.",
+          "vi": "Gì cơ? Anh nghe không rõ lắm."
+        },
+        {
+          "s": "A",
+          "en": "Really Final! The third one!",
+          "vi": "“Bản cuối thật sự”! Cái thứ ba ấy!"
+        },
+        {
+          "s": "B",
+          "en": "Got it. And now everyone on your train knows about it too.",
+          "vi": "Anh hiểu rồi. Mà giờ chắc cả toa tàu của em cũng biết luôn rồi."
+        },
+        {
+          "s": "A",
+          "en": "I know. The man next to me is laughing.",
+          "vi": "Em biết. Ông ngồi cạnh em đang cười kìa."
+        },
+        {
+          "s": "B",
+          "en": "One more thing. Can you check the text on the last page of the website?",
+          "vi": "Thêm một việc nữa. Em xem giúp anh phần chữ ở trang cuối của trang web được không?"
+        },
+        {
+          "s": "A",
+          "en": "Sure, but the signal is terrible here. I'll call you back when I get off the train.",
+          "vi": "Được ạ, nhưng ở đây sóng tệ lắm. Lúc nào xuống tàu em sẽ gọi lại cho anh."
+        },
+        {
+          "s": "B",
+          "en": "What time do you arrive?",
+          "vi": "Mấy giờ em tới nơi?"
+        },
+        {
+          "s": "A",
+          "en": "At twenty past two. Then I have a meeting with the client.",
+          "vi": "Hai giờ hai mươi ạ. Sau đó em có cuộc họp với khách hàng."
+        },
+        {
+          "s": "B",
+          "en": "Then don't worry about calling. Text me when you're free.",
+          "vi": "Vậy em khỏi cần gọi. Khi nào rảnh thì nhắn tin cho anh nhé."
+        },
+        {
+          "s": "A",
+          "en": "Good idea. Texting is much easier on a train like this.",
+          "vi": "Ý hay đấy ạ. Đi tàu thế này thì nhắn tin dễ hơn nhiều."
+        },
+        {
+          "s": "B",
+          "en": "And Mai? Please rename those folders when you're back.",
+          "vi": "À Mai này. Khi nào về, em đổi tên mấy thư mục đó giúp anh nhé."
+        },
+        {
+          "s": "A",
+          "en": "I will. The new name will be Really, Really Final.",
+          "vi": "Em sẽ đổi ạ. Tên mới sẽ là “Bản cuối thật sự thật sự”."
+        },
+        {
+          "s": "B",
+          "en": "Very funny. Good luck with the meeting.",
+          "vi": "Vui tính ghê. Chúc em họp suôn sẻ nhé."
+        },
+        {
+          "s": "A",
+          "en": "Thanks, Tom. Oh no, here comes another tunnel.",
+          "vi": "Cảm ơn anh Tom. Ôi không, lại sắp vào đường hầm nữa rồi."
+        },
+        {
+          "s": "B",
+          "en": "Mai? Hello? Mai?",
+          "vi": "Mai? Alô? Mai ơi?"
+        },
+        {
+          "s": "B",
+          "en": "OK. I'll wait for your text, then.",
+          "vi": "Thôi được. Vậy anh chờ tin nhắn của em."
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l1",
+      "kind": "story",
+      "title_en": "The Wrong Button",
+      "title_vi": "Bấm nhầm nút",
+      "summary_vi": "Linh trực điện thoại thay lễ tân trong một tiếng. Cô bấm nhầm nút, nối máy khách hàng sang chỗ Tom đang chờ pizza, nhưng vẫn ghi lại được một lời nhắn hoàn hảo.",
+      "speakers": {
+        "N": {
+          "name": "Narrator",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "N",
+          "en": "Every day at one o'clock, Sarah, the receptionist at Bright Studio, goes out for lunch. Usually someone from the sales team answers the phone for her. But on Tuesday, everyone in sales is busy, so David asks Linh to help. \"It's easy,\" he says. \"Just answer the phone, be friendly, and take a message if you need to.\" Linh is a designer, not a receptionist. She is happy to help, but she is a little nervous. She does not love talking on the phone, especially in English.",
+          "vi": "Ngày nào cũng vậy, đúng một giờ, Sarah, cô lễ tân của Bright Studio, lại đi ăn trưa. Thường thì một người bên nhóm kinh doanh sẽ nghe điện thoại thay cô. Nhưng hôm thứ Ba, cả nhóm kinh doanh đều bận, nên David nhờ Linh giúp. “Dễ thôi mà,” anh nói. “Cứ nghe máy, nói chuyện thân thiện, và ghi lời nhắn nếu cần.” Linh là nhân viên thiết kế, không phải lễ tân. Cô sẵn lòng giúp, nhưng hơi lo. Cô không thích nói chuyện điện thoại lắm, nhất là bằng tiếng Anh."
+        },
+        {
+          "s": "N",
+          "en": "Before she leaves, Sarah gives Linh a quick lesson. First, Linh should say the company name and her own name. Then she should ask, \"May I ask who's calling?\" If the caller wants to speak to someone, she should say \"Hold on a second,\" press the right button, and say \"I'll put you through.\" There is a list of buttons next to the phone. David is button four. Tom is button five. \"Don't mix them up,\" Sarah says with a smile, and then she leaves.",
+          "vi": "Trước khi đi, Sarah dạy nhanh cho Linh vài điều. Đầu tiên, Linh cần nói tên công ty và tên mình. Sau đó hỏi: “Xin hỏi ai đang gọi đấy ạ?” Nếu người gọi muốn gặp ai đó, hãy nói “Chờ một chút nhé”, bấm đúng nút, rồi nói “Tôi nối máy cho anh chị nhé”. Bên cạnh điện thoại có một danh sách các nút. David là nút số bốn. Tom là nút số năm. “Đừng nhầm nhé,” Sarah cười nói, rồi đi."
+        },
+        {
+          "s": "N",
+          "en": "For the first twenty minutes, the phone is quiet. Then it rings three times in a row. The first caller wants to book a meeting with Mai, and Linh writes it in the calendar. The second caller is selling printer paper, and Linh politely says no. The third caller is a man with a warm, friendly voice. \"Could I speak to David, please?\" he asks. His name is Paul Kerr, and he works for Green Leaf Hotels, one of the studio's biggest clients.",
+          "vi": "Hai mươi phút đầu, điện thoại im lặng. Rồi nó reo ba lần liền. Người thứ nhất muốn đặt lịch họp với Mai, và Linh ghi vào lịch. Người thứ hai chào bán giấy in, và Linh lịch sự từ chối. Người thứ ba là một người đàn ông có giọng nói ấm áp, thân thiện. “Cho tôi nói chuyện với anh David được không?” anh hỏi. Anh tên là Paul Kerr, làm cho chuỗi khách sạn Green Leaf, một trong những khách hàng lớn nhất của công ty."
+        },
+        {
+          "s": "N",
+          "en": "Linh says, \"Hold on a second,\" and presses a button. But it is the wrong button. She presses five, not four. On the other side of the office, Tom picks up his phone. He is very hungry, and he is waiting for a pizza. \"Hello! Is that my pizza?\" he asks. Mr Kerr is confused for a moment, and then he laughs. When Linh comes back on the line, he tells her the whole story. Linh's face goes red. She wants to hide under the desk.",
+          "vi": "Linh nói “Chờ một chút nhé” rồi bấm nút. Nhưng đó là nút sai. Cô bấm số năm chứ không phải số bốn. Ở đầu kia văn phòng, Tom nhấc máy. Anh đang rất đói và đang chờ pizza. “Alô! Pizza của tôi đến rồi à?” anh hỏi. Anh Kerr ngơ ngác một lúc, rồi bật cười. Khi Linh quay lại máy, anh kể cho cô nghe toàn bộ câu chuyện. Mặt Linh đỏ bừng. Cô chỉ muốn chui xuống gầm bàn."
+        },
+        {
+          "s": "N",
+          "en": "She tries again, and this time she checks the button very carefully. Nobody answers. David is in a meeting until four. So she says, \"I'm afraid he's not available. Can I take a message?\" Mr Kerr spells his surname for her, K, E, double R, and gives her his mobile number. She reads the number back to him slowly, just to be sure. He wants David to call him back today, because they need to choose photos for the new hotel website.",
+          "vi": "Cô thử lại, và lần này cô xem nút thật kỹ. Không ai nghe máy. David đang họp đến bốn giờ. Vì vậy cô nói: “Tôi e là anh ấy không nghe máy được. Anh có muốn để lại lời nhắn không ạ?” Anh Kerr đánh vần họ của mình cho cô, K, E, hai chữ R, rồi đọc số di động. Cô đọc lại số đó thật chậm cho chắc. Anh muốn David gọi lại trong hôm nay, vì họ cần chọn ảnh cho trang web mới của khách sạn."
+        },
+        {
+          "s": "N",
+          "en": "At four o'clock, David walks out of the meeting room, and Linh is waiting for him with a yellow note. \"Paul Kerr called,\" she says. \"Could you call him back today? It's about the website photos.\" David reads the note. Everything is there: the name, the number, the reason for the call, and the time. \"This is perfect,\" he says. \"Thank you for passing it on.\"",
+          "vi": "Bốn giờ, David bước ra khỏi phòng họp, và Linh đã đứng chờ anh với một tờ giấy nhớ màu vàng. “Anh Paul Kerr có gọi,” cô nói. “Trong hôm nay anh gọi lại cho anh ấy được không? Chuyện về ảnh cho trang web.” David đọc tờ giấy. Có đủ mọi thứ: tên, số điện thoại, lý do cuộc gọi và thời gian. “Hoàn hảo,” anh nói. “Cảm ơn em đã chuyển lời.”"
+        },
+        {
+          "s": "N",
+          "en": "Half an hour later, David comes back to Linh's desk with a big smile. \"I just spoke to Paul,\" he says. \"He's very happy. And he told me a funny story about a pizza.\" Linh closes her eyes. \"He promised not to tell you,\" she says. David laughs. \"Don't worry. He also said you were very good on the phone. Apart from the pizza, of course.\"",
+          "vi": "Nửa tiếng sau, David quay lại bàn của Linh với một nụ cười thật tươi. “Anh vừa nói chuyện với Paul,” anh nói. “Anh ấy rất hài lòng. Mà anh ấy còn kể cho anh nghe một chuyện buồn cười về pizza.” Linh nhắm mắt lại. “Anh ấy đã hứa là không kể với anh mà,” cô nói. David bật cười. “Đừng lo. Anh ấy còn khen em nghe điện thoại rất giỏi. Tất nhiên là trừ vụ pizza ra.”"
+        },
+        {
+          "s": "N",
+          "en": "Before Linh goes home, Tom stops at her desk. He is holding the last slice of his pizza. \"For the best receptionist in the building,\" he says. Linh laughs and takes it. She learned something important that day. On the phone, mistakes happen to everyone. What really matters is a friendly voice, a clear message, and a few simple phrases that you can say without thinking.",
+          "vi": "Trước khi Linh về, Tom ghé qua bàn cô. Anh đang cầm miếng pizza cuối cùng của mình. “Tặng cô lễ tân giỏi nhất tòa nhà,” anh nói. Linh bật cười và nhận lấy. Hôm đó cô học được một điều quan trọng. Khi nói chuyện điện thoại, ai cũng có lúc mắc lỗi. Điều thật sự quan trọng là một giọng nói thân thiện, một lời nhắn rõ ràng, và vài câu đơn giản mà bạn có thể nói ra không cần nghĩ."
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "kind": "podcast",
+      "title_en": "Don't Panic When the Phone Rings",
+      "title_vi": "Đừng hoảng khi điện thoại reo",
+      "summary_vi": "Anna và Ben chia sẻ bốn mẹo gọi điện bằng tiếng Anh: chuẩn bị sẵn câu mở đầu, hỏi lại khi không nghe rõ, ghi lời nhắn đầy đủ, và viết tin nhắn công việc ngắn gọn.",
+      "speakers": {
+        "A": {
+          "name": "Anna",
+          "gender": "f"
+        },
+        "B": {
+          "name": "Ben",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "A",
+          "en": "Hello, and welcome to Easy English at Work. I'm Anna.",
+          "vi": "Xin chào, chào mừng các bạn đến với chương trình Tiếng Anh dễ nghe nơi công sở. Mình là Anna."
+        },
+        {
+          "s": "B",
+          "en": "And I'm Ben. Today's topic is one that many learners find scary: phone calls.",
+          "vi": "Còn mình là Ben. Chủ đề hôm nay là thứ mà nhiều người học thấy đáng sợ: gọi điện thoại."
+        },
+        {
+          "s": "A",
+          "en": "It's true. A lot of people tell us they can read emails in English with no problem. But when the phone rings, they panic.",
+          "vi": "Đúng vậy. Rất nhiều người kể với chúng mình là họ đọc email tiếng Anh không gặp vấn đề gì. Nhưng khi điện thoại reo thì họ hoảng."
+        },
+        {
+          "s": "B",
+          "en": "And that makes sense. On the phone, you can't see the other person's face. You can't watch their hands or their smile. You only have their voice.",
+          "vi": "Mà cũng dễ hiểu thôi. Khi nghe điện thoại, bạn không nhìn thấy mặt người kia. Bạn không thấy tay hay nụ cười của họ. Bạn chỉ có giọng nói thôi."
+        },
+        {
+          "s": "A",
+          "en": "And sometimes the line is bad, too, or the caller speaks very fast. So today we have four simple tips to make phone calls easier.",
+          "vi": "Mà đôi khi đường truyền còn kém, hoặc người gọi nói rất nhanh. Vì vậy hôm nay chúng mình có bốn mẹo đơn giản để gọi điện dễ dàng hơn."
+        },
+        {
+          "s": "B",
+          "en": "Tip number one: have your first sentences ready. When you answer the phone at work, you usually say the company name, your name, and a friendly question.",
+          "vi": "Mẹo thứ nhất: chuẩn bị sẵn mấy câu mở đầu. Khi nghe máy ở chỗ làm, bạn thường nói tên công ty, tên mình, và một câu hỏi thân thiện."
+        },
+        {
+          "s": "A",
+          "en": "For example: \"Good morning, Bright Studio, Anna speaking. How can I help?\" And if you don't know the caller, you can ask, \"May I ask who's calling?\"",
+          "vi": "Ví dụ: “Xin chào, Bright Studio xin nghe, tôi là Anna. Tôi có thể giúp gì ạ?” Còn nếu không biết người gọi là ai, bạn có thể hỏi: “Xin hỏi ai đang gọi đấy ạ?”"
+        },
+        {
+          "s": "B",
+          "en": "That's much more polite than \"Who are you?\" Please never say \"Who are you?\" on the phone at work.",
+          "vi": "Câu đó lịch sự hơn nhiều so với “Bạn là ai?” Làm ơn đừng bao giờ hỏi “Bạn là ai?” khi nghe điện thoại ở chỗ làm nhé."
+        },
+        {
+          "s": "A",
+          "en": "Never! And if you need time to find a pen or check something, just say, \"Hold on a second.\" Nobody minds waiting a few seconds.",
+          "vi": "Không bao giờ! Còn nếu bạn cần thời gian để tìm bút hay kiểm tra gì đó, chỉ cần nói: “Chờ một chút nhé.” Chẳng ai phiền khi phải chờ vài giây cả."
+        },
+        {
+          "s": "B",
+          "en": "Tip number two: it's OK not to understand everything. Native speakers often miss words on the phone, too. So please don't feel bad when you have to ask again. Asking is a skill, not a weakness.",
+          "vi": "Mẹo thứ hai: không hiểu hết cũng không sao. Người bản xứ cũng thường nghe sót chữ khi nói chuyện điện thoại. Vì vậy, đừng ngại khi phải hỏi lại. Biết hỏi lại là một kỹ năng, chứ không phải điểm yếu."
+        },
+        {
+          "s": "A",
+          "en": "That's right. If the line is bad, you can say, \"Sorry, you're breaking up,\" or \"Can you say that again?\" If a name is difficult, just ask, \"Could you spell that for me?\"",
+          "vi": "Đúng thế. Nếu đường truyền kém, bạn có thể nói: “Xin lỗi, tiếng bạn bị ngắt quãng,” hoặc “Bạn nói lại được không?” Nếu tên khó nghe, cứ hỏi: “Bạn đánh vần giúp tôi được không?”"
+        },
+        {
+          "s": "B",
+          "en": "And with numbers, always read them back. Say, \"Let me read that back,\" and repeat the number slowly. It takes five seconds, and it saves a lot of problems.",
+          "vi": "Còn với số điện thoại, luôn luôn đọc lại. Hãy nói: “Để tôi đọc lại nhé,” rồi nhắc lại số đó thật chậm. Chỉ mất năm giây mà tránh được bao nhiêu rắc rối."
+        },
+        {
+          "s": "A",
+          "en": "Tip number three is about taking messages. When the person they want is busy, you can say, \"I'm afraid he's not available. Can I take a message?\"",
+          "vi": "Mẹo thứ ba là về việc ghi lời nhắn. Khi người mà họ muốn gặp đang bận, bạn có thể nói: “Tôi e là anh ấy không nghe máy được. Anh chị có muốn để lại lời nhắn không?”"
+        },
+        {
+          "s": "B",
+          "en": "A good message has four things: the caller's name, their number, the reason for the call, and the time they called. Write it down while you listen, not after the call. Your memory is not as good as you think.",
+          "vi": "Một lời nhắn tốt có bốn thứ: tên người gọi, số điện thoại của họ, lý do cuộc gọi, và thời gian họ gọi. Hãy ghi lại ngay trong lúc nghe, đừng đợi đến khi cúp máy. Trí nhớ của bạn không tốt như bạn nghĩ đâu."
+        },
+        {
+          "s": "A",
+          "en": "And at the end, you can tell the caller, \"I'll pass it on.\" That makes them feel safe. They know the message won't get lost.",
+          "vi": "Và cuối cùng, bạn có thể nói với người gọi: “Tôi sẽ chuyển lời giúp.” Câu đó giúp họ yên tâm. Họ biết lời nhắn sẽ không bị thất lạc."
+        },
+        {
+          "s": "B",
+          "en": "Tip number four: short messages and texts. These days, a lot of work happens by text, not by phone. In many offices, people send a quick text first and ask, \"Is now a good time to call?\"",
+          "vi": "Mẹo thứ tư: lời nhắn và tin nhắn ngắn. Ngày nay, rất nhiều việc được trao đổi qua tin nhắn chứ không phải qua điện thoại. Ở nhiều văn phòng, mọi người nhắn tin trước và hỏi: “Giờ gọi cho bạn có tiện không?”"
+        },
+        {
+          "s": "A",
+          "en": "Yes. If someone called you and you didn't answer, start your text with \"Sorry I missed your call.\" It's friendly, and it explains everything.",
+          "vi": "Đúng vậy. Nếu ai đó gọi mà bạn không nghe máy, hãy mở đầu tin nhắn bằng câu “Xin lỗi, mình lỡ cuộc gọi của bạn.” Câu này thân thiện và nói rõ được mọi chuyện."
+        },
+        {
+          "s": "B",
+          "en": "And when someone answers your question, say, \"Thanks for getting back to me.\" It's a small thing, but people notice it.",
+          "vi": "Còn khi ai đó trả lời câu hỏi của bạn, hãy nói: “Cảm ơn bạn đã phản hồi nhé.” Chuyện nhỏ thôi, nhưng mọi người sẽ để ý đấy."
+        },
+        {
+          "s": "A",
+          "en": "If you're busy, you can write, \"I'll call you back in ten minutes,\" or just, \"Text me when you're free.\" Keep it short. A work text is not a love letter.",
+          "vi": "Nếu đang bận, bạn có thể viết: “Mười phút nữa mình gọi lại cho bạn nhé,” hoặc chỉ cần: “Khi nào rảnh thì nhắn tin cho mình nhé.” Viết ngắn thôi. Tin nhắn công việc đâu phải thư tình."
+        },
+        {
+          "s": "B",
+          "en": "Ha! Definitely not. OK, let's do a quick role-play. Anna, you work at a hotel, and I'm calling to speak to your manager.",
+          "vi": "Ha! Chắc chắn là không rồi. Được rồi, mình cùng đóng vai nhanh nhé. Anna, bạn làm ở một khách sạn, còn mình gọi đến để gặp quản lý của bạn."
+        },
+        {
+          "s": "A",
+          "en": "OK. Good afternoon, Green Leaf Hotels, Anna speaking. How can I help?",
+          "vi": "Được. Xin chào, khách sạn Green Leaf xin nghe, tôi là Anna. Tôi có thể giúp gì ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Hi. Could I speak to Mr Lee, please?",
+          "vi": "Chào chị. Cho tôi nói chuyện với ông Lee được không?"
+        },
+        {
+          "s": "A",
+          "en": "Of course. May I ask who's calling?",
+          "vi": "Dạ được ạ. Xin hỏi ai đang gọi đấy ạ?"
+        },
+        {
+          "s": "B",
+          "en": "It's Ben Taylor from Easy Travel.",
+          "vi": "Tôi là Ben Taylor, bên công ty Easy Travel."
+        },
+        {
+          "s": "A",
+          "en": "Thank you, Ben. Hold on a second, please. I'm sorry, I'm afraid he's not available. He's in a meeting. Can I take a message?",
+          "vi": "Cảm ơn anh Ben. Anh vui lòng chờ một chút nhé. Xin lỗi anh, tôi e là ông ấy không nghe máy được. Ông ấy đang họp. Anh có muốn để lại lời nhắn không ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Yes, please. Could you ask him to call me back? My number is oh two nine, four four seven, eight one six.",
+          "vi": "Vâng, nhờ chị. Chị nhắn ông ấy gọi lại cho tôi được không? Số của tôi là không hai chín, bốn bốn bảy, tám một sáu."
+        },
+        {
+          "s": "A",
+          "en": "Let me read that back. Oh two nine, four four seven, eight one six. I'll pass it on as soon as he's free.",
+          "vi": "Để tôi đọc lại nhé. Không hai chín, bốn bốn bảy, tám một sáu. Ông ấy vừa rảnh là tôi chuyển lời ngay."
+        },
+        {
+          "s": "B",
+          "en": "Great. Thanks so much. Bye!",
+          "vi": "Tuyệt quá. Cảm ơn chị nhiều. Chào chị!"
+        },
+        {
+          "s": "A",
+          "en": "Bye! And that's it. Did you hear all the phrases? Short, polite, and clear. And did you notice that I read the number back? That's the moment when most mistakes happen, so please don't skip it.",
+          "vi": "Chào anh! Vậy đó. Các bạn có nghe ra hết các cụm từ không? Ngắn gọn, lịch sự và rõ ràng. Các bạn có để ý là mình đã đọc lại số điện thoại không? Đó là lúc dễ xảy ra lỗi nhất, nên đừng bỏ qua bước này nhé."
+        },
+        {
+          "s": "B",
+          "en": "So here's your challenge for this week. Next time the phone rings at work, take a deep breath, smile, and say your first sentence.",
+          "vi": "Vậy đây là thử thách của bạn tuần này. Lần tới khi điện thoại ở chỗ làm reo, hãy hít một hơi thật sâu, mỉm cười, và nói câu mở đầu của bạn."
+        },
+        {
+          "s": "A",
+          "en": "Smiling really helps. People can hear a smile in your voice, even on the phone. And remember, the person on the other end is often busy, too. They will be happy with short, clear English.",
+          "vi": "Mỉm cười thật sự có ích đấy. Người ta nghe được nụ cười trong giọng nói của bạn, ngay cả qua điện thoại. Và hãy nhớ, người ở đầu dây bên kia cũng thường đang bận. Họ sẽ rất vui khi nghe tiếng Anh ngắn gọn, rõ ràng."
+        },
+        {
+          "s": "B",
+          "en": "Thanks for listening, everyone. And if you have a question for us, text us when you're free!",
+          "vi": "Cảm ơn các bạn đã lắng nghe. Và nếu có câu hỏi cho chúng mình, khi nào rảnh thì nhắn tin cho chúng mình nhé!"
+        },
+        {
+          "s": "A",
+          "en": "See you next time. Bye for now!",
+          "vi": "Hẹn gặp lại lần sau. Tạm biệt nhé!"
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "kind": "monologue",
+      "title_en": "Really Final",
+      "title_vi": "Bản cuối thật sự",
+      "summary_vi": "Mai kể về nỗi sợ gọi điện bằng tiếng Anh hồi mới đi làm, hai quy tắc giúp cô tự tin hơn, và cuộc gọi đầy đường hầm trên chuyến tàu hôm nay.",
+      "speakers": {
+        "M": {
+          "name": "Mai",
+          "gender": "f"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "M",
+          "en": "Hi, it's Mai again. Today I want to talk about phone calls. When I started my job as an account manager, I was scared of the phone. Emails were fine, because I had time to think. But on the phone, people spoke so fast, and I always felt one step behind.",
+          "vi": "Chào các bạn, lại là Mai đây. Hôm nay mình muốn nói về chuyện gọi điện thoại. Hồi mới làm quản lý khách hàng, mình rất sợ điện thoại. Email thì không sao, vì mình có thời gian suy nghĩ. Nhưng qua điện thoại, mọi người nói nhanh quá, và mình lúc nào cũng thấy chậm hơn một nhịp."
+        },
+        {
+          "s": "M",
+          "en": "My first big mistake happened in my first month. A client called and gave me his phone number. I was too shy to ask him to repeat it, so I just wrote down what I heard. Later, I called the number, and a very confused grandmother answered. She was very kind about it, but I felt terrible.",
+          "vi": "Lỗi lớn đầu tiên của mình xảy ra ngay trong tháng đầu. Một khách hàng gọi đến và đọc số điện thoại cho mình. Mình ngại không dám nhờ anh ấy nhắc lại, nên cứ ghi theo những gì mình nghe được. Lúc sau mình gọi vào số đó, và một bà cụ rất ngơ ngác nghe máy. Bà rất dễ chịu, nhưng mình thấy tệ vô cùng."
+        },
+        {
+          "s": "M",
+          "en": "After that, I made two rules for myself. Rule number one: always read numbers back. Rule number two: if I don't understand a name, I ask, \"Could you spell that for me?\" Nobody has ever been annoyed by that question. In fact, people like it, because it shows that I want to get it right.",
+          "vi": "Sau lần đó, mình tự đặt ra hai quy tắc. Quy tắc thứ nhất: luôn đọc lại số điện thoại. Quy tắc thứ hai: nếu không nghe rõ tên, mình sẽ hỏi: “Anh chị đánh vần giúp tôi được không?” Chưa ai khó chịu vì câu hỏi đó cả. Thật ra mọi người còn thích, vì nó cho thấy mình muốn ghi cho đúng."
+        },
+        {
+          "s": "M",
+          "en": "Today was a good example of a difficult phone day. I took the train to visit a client in another city. While I was buying my ticket, Tom called me, and I missed it. So I called him back from the train and said, \"Sorry I missed your call.\" He needed to find some photos for a client, and he needed them quickly.",
+          "vi": "Hôm nay là một ví dụ điển hình cho một ngày gọi điện vất vả. Mình đi tàu đến gặp khách hàng ở thành phố khác. Lúc đang mua vé thì Tom gọi, và mình lỡ mất cuộc gọi. Thế là mình gọi lại cho anh ấy từ trên tàu và nói: “Xin lỗi, em lỡ cuộc gọi của anh.” Anh ấy cần tìm mấy tấm ảnh cho khách hàng, và cần gấp."
+        },
+        {
+          "s": "M",
+          "en": "The problem was the tunnels. Every five minutes, we went into another one. Tom kept saying, \"You're breaking up,\" and I kept saying, \"Can you hear me now?\" At one point, I had to shout the name of a folder, and the man next to me started laughing. I don't blame him. The folder was called Really Final.",
+          "vi": "Vấn đề là mấy cái đường hầm. Cứ năm phút tàu lại chui vào một đường hầm mới. Tom thì cứ nói “Tiếng em bị ngắt quãng”, còn mình thì cứ hỏi “Giờ anh nghe rõ không?” Có lúc mình phải hét to tên một thư mục, và ông ngồi cạnh bật cười. Mình không trách ông ấy được. Thư mục đó tên là “Bản cuối thật sự”."
+        },
+        {
+          "s": "M",
+          "en": "In the end, Tom had a great idea. He said, \"Text me when you're free.\" Texting is perfect on a train. After my meeting, I wrote a short message: \"Meeting went well. I checked the last page, and it looks fine. I'll call you back tomorrow morning.\" Three short sentences, and he had everything he needed.",
+          "vi": "Cuối cùng, Tom nghĩ ra một ý rất hay. Anh ấy nói: “Khi nào rảnh thì nhắn tin cho anh nhé.” Đi tàu thì nhắn tin là hợp nhất. Họp xong, mình viết một tin nhắn ngắn: “Buổi họp suôn sẻ ạ. Em xem trang cuối rồi, thấy ổn. Sáng mai em gọi lại cho anh.” Chỉ ba câu ngắn, mà anh ấy có đủ mọi thứ cần biết."
+        },
+        {
+          "s": "M",
+          "en": "A few minutes later, Tom replied, \"Great, thanks for getting back to me.\" That's what I love about work texts. They are short, simple, and friendly. You don't need beautiful English. You just need clear English.",
+          "vi": "Vài phút sau, Tom trả lời: “Tuyệt, cảm ơn em đã phản hồi nhé.” Đó là điều mình thích ở tin nhắn công việc. Chúng ngắn gọn, đơn giản và thân thiện. Bạn không cần tiếng Anh hay. Bạn chỉ cần tiếng Anh rõ ràng."
+        },
+        {
+          "s": "M",
+          "en": "So here's my advice. Learn a few phone phrases until you can say them without thinking. Read numbers back. Ask people to spell names. And when the line is bad, don't panic. Just say, \"I'll call you back,\" and try again later. Oh, and please give your folders better names than I do.",
+          "vi": "Vậy lời khuyên của mình là thế này. Hãy học vài câu dùng khi gọi điện cho đến khi nói ra được mà không cần nghĩ. Đọc lại số điện thoại. Nhờ người ta đánh vần tên. Và khi đường truyền kém, đừng hoảng. Chỉ cần nói “Mình gọi lại cho bạn sau nhé,” rồi thử lại sau. À, và làm ơn đặt tên thư mục hay hơn mình nhé."
+        }
+      ]
+    }
+  ]
+}

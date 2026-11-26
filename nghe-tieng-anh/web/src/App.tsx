@@ -4,7 +4,7 @@ import { IconBook, IconCalendar, IconGear, IconHome, IconText } from "./componen
 import { useDay, useIndex } from "./lib/hooks";
 import { load, usePlayer } from "./lib/player";
 import { go, useRoute } from "./lib/router";
-import { progressStore } from "./lib/store";
+import { progressStore, useProgress } from "./lib/store";
 import { Archive } from "./pages/Archive";
 import { Notebook } from "./pages/Notebook";
 import { Settings } from "./pages/Settings";
@@ -36,7 +36,11 @@ export function App() {
 
   // /day/<date>[/text] views an older lesson; otherwise the newest one (or the one being played)
   const routeDate = route[0] === "day" ? route[1] : undefined;
-  const latest = index?.days[0]?.date;
+  // "Today" = the first lesson (oldest first) not yet listened to the end, so a learner goes day 1, 2, 3…
+  const prog = useProgress();
+  const ordered = index ? [...index.days].sort((a, b) => a.date.localeCompare(b.date)) : [];
+  const latest = (ordered.find((d) => (prog.lessonHeard[d.date] ?? 0) < d.duration * 0.9 && (prog.positions[d.date] ?? 0) < d.duration - 120)
+    ?? ordered[ordered.length - 1])?.date;
   const date = routeDate ?? (route[0] === "text" && player.day ? player.day.date : latest);
   const { day } = useDay(date);
   const section = route[0] === "day" ? (route[2] === "text" ? "text" : "") : route[0] ?? "";
@@ -45,9 +49,9 @@ export function App() {
   useEffect(() => {
     if (player.day || !index?.days.length) return;
     const last = progressStore.get().lastLesson;
-    const target = index.days.find((d) => d.date === last)?.date ?? index.days[0].date;
+    const target = index.days.find((d) => d.date === last)?.date ?? latest;
     import("./lib/data").then(({ loadDay }) => loadDay(target)).then((d) => load(d, false)).catch(() => undefined);
-  }, [index, player.day]);
+  }, [index, player.day, latest]);
 
   let page: React.ReactNode = <div className="empty">Đang tải…</div>;
   if (error) page = <div className="empty">Chưa có bài nào hoặc không tải được dữ liệu.<br /><span className="small faint">{error}</span></div>;

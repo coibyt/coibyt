@@ -71,7 +71,10 @@ def check_clips(items: set[tuple[str, str, str]], store: ClipStore, base_url: st
         lang, voice, text = it
         path = store.resolve(lang, voice, text)
         heard = ck.transcribe(path, lang)
-        return {"lang": lang, "voice": voice, "text": text, "heard": heard, "score": round(similarity(text, heard), 3),
+        score = similarity(text, heard)
+        if re.search(r"[\u3040-\u30ff\u4e00-\u9fff]", heard):  # drifted into Chinese/Japanese: always redo
+            score = 0.0
+        return {"lang": lang, "voice": voice, "text": text, "heard": heard, "score": round(score, 3),
                 "file": path.name}
 
     with ThreadPoolExecutor(6) as ex:

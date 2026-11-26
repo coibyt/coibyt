@@ -1,0 +1,883 @@
+{
+  "date": "2026-11-28",
+  "day_number": 2,
+  "level": "A2-B1",
+  "topic": {
+    "id": "food-cafe",
+    "en": "At the café",
+    "vi": "Ở quán cà phê",
+    "art_prompt": "a smiling barista handing a cup of coffee across a warm wooden café counter to a young woman, soft morning sunlight, plants and pastries in a glass case"
+  },
+  "intro_vi": "Chủ đề hôm nay là ở quán cà phê: gọi đồ uống và bánh, nhờ đổi sữa hay bớt đường, trả tiền, tìm chỗ ngồi, và trò chuyện vui vẻ bên ly cà phê.",
+  "phrases": [
+    {
+      "id": "p01",
+      "en": "What can I get you?",
+      "vi": "Bạn muốn dùng gì?",
+      "note_vi": "Câu đầu tiên nhân viên quầy hay hỏi. Bạn chỉ cần trả lời ngay tên đồ uống, ví dụ “I'll have a latte, please.”",
+      "examples": [
+        {
+          "en": "Hi there! What can I get you this morning?",
+          "vi": "Chào bạn! Sáng nay bạn muốn dùng gì ạ?"
+        },
+        {
+          "en": "Take your time. What can I get you?",
+          "vi": "Bạn cứ từ từ nhé. Bạn muốn dùng gì ạ?"
+        }
+      ]
+    },
+    {
+      "id": "p02",
+      "en": "I'll have a latte, please.",
+      "vi": "Cho tôi một ly latte.",
+      "note_vi": "Mẫu câu “I'll have..., please” dùng để gọi món, vừa lịch sự vừa tự nhiên. Bạn có thể thay “a latte” bằng đồ uống mình thích.",
+      "examples": [
+        {
+          "en": "I'll have a latte, please. And a glass of water.",
+          "vi": "Cho tôi một ly latte. Thêm một cốc nước lọc nữa nhé."
+        },
+        {
+          "en": "Hmm, everything looks good. I'll have a latte, please.",
+          "vi": "Ừm, món nào trông cũng ngon. Cho tôi một ly latte nhé."
+        }
+      ]
+    },
+    {
+      "id": "p03",
+      "en": "What size would you like?",
+      "vi": "Bạn muốn cỡ nào?",
+      "note_vi": "Nhân viên hỏi cỡ ly. Bạn chỉ cần trả lời “Small”, “Medium” hoặc “Large, please.”",
+      "examples": [
+        {
+          "en": "One cappuccino. What size would you like?",
+          "vi": "Một ly cappuccino. Bạn muốn cỡ nào ạ?"
+        },
+        {
+          "en": "What size would you like? We have small, medium and large.",
+          "vi": "Bạn muốn cỡ nào ạ? Bên mình có cỡ nhỏ, vừa và lớn."
+        }
+      ]
+    },
+    {
+      "id": "p04",
+      "en": "For here or to go?",
+      "vi": "Uống ở đây hay mang đi?",
+      "note_vi": "Nhân viên hỏi bạn ngồi lại quán hay mang đi. Trả lời “For here, please.” hoặc “To go, please.”",
+      "examples": [
+        {
+          "en": "Two teas. For here or to go?",
+          "vi": "Hai ly trà. Bạn uống ở đây hay mang đi ạ?"
+        },
+        {
+          "en": "Sorry, I forgot to ask. For here or to go?",
+          "vi": "Xin lỗi, mình quên hỏi. Bạn uống ở đây hay mang đi ạ?"
+        }
+      ]
+    },
+    {
+      "id": "p05",
+      "en": "Can I have it with oat milk?",
+      "vi": "Cho tôi dùng sữa yến mạch được không?",
+      "note_vi": "Dùng khi muốn đổi loại sữa. Bạn cũng có thể nói “soy milk” là sữa đậu nành, hay “almond milk” là sữa hạnh nhân.",
+      "examples": [
+        {
+          "en": "A cappuccino, please. Can I have it with oat milk?",
+          "vi": "Cho tôi một ly cappuccino. Dùng sữa yến mạch được không?"
+        },
+        {
+          "en": "I don't drink normal milk. Can I have it with oat milk?",
+          "vi": "Tôi không uống sữa bò. Cho tôi dùng sữa yến mạch được không?"
+        }
+      ]
+    },
+    {
+      "id": "p06",
+      "en": "Can I get an extra shot?",
+      "vi": "Cho tôi thêm một shot cà phê nhé?",
+      "note_vi": "“Shot” là một phần cà phê espresso nhỏ và đậm. Thêm shot thì cà phê mạnh hơn, rất hợp những hôm buồn ngủ.",
+      "examples": [
+        {
+          "en": "I didn't sleep well last night. Can I get an extra shot?",
+          "vi": "Tối qua tôi ngủ không ngon. Cho tôi thêm một shot được không?"
+        },
+        {
+          "en": "Can I get an extra shot? I have a long day ahead.",
+          "vi": "Cho tôi thêm một shot nhé? Hôm nay tôi còn cả một ngày dài phía trước."
+        }
+      ]
+    },
+    {
+      "id": "p07",
+      "en": "Would you like it warmed up?",
+      "vi": "Bạn có muốn hâm nóng không?",
+      "note_vi": "Nhân viên hay hỏi câu này khi bạn gọi bánh. Trả lời “Yes, please.” hoặc “No, thanks, it's fine.”",
+      "examples": [
+        {
+          "en": "One chocolate muffin. Would you like it warmed up?",
+          "vi": "Một bánh muffin sô-cô-la. Bạn có muốn hâm nóng không ạ?"
+        },
+        {
+          "en": "Would you like it warmed up? It only takes a minute.",
+          "vi": "Bạn có muốn hâm nóng không ạ? Chỉ mất một phút thôi."
+        }
+      ]
+    },
+    {
+      "id": "p08",
+      "en": "Anything else for you?",
+      "vi": "Bạn cần gì thêm không?",
+      "note_vi": "Câu hỏi quen thuộc trước khi tính tiền. Nếu đã gọi xong, bạn trả lời “That's all, thanks.”",
+      "examples": [
+        {
+          "en": "One latte and one croissant. Anything else for you?",
+          "vi": "Một latte và một bánh sừng bò. Bạn cần gì thêm không ạ?"
+        },
+        {
+          "en": "Here's your tea. Anything else for you today?",
+          "vi": "Trà của bạn đây. Hôm nay bạn cần gì thêm không ạ?"
+        }
+      ]
+    },
+    {
+      "id": "p09",
+      "en": "That's all, thanks.",
+      "vi": "Vậy thôi, cảm ơn.",
+      "note_vi": "Báo cho nhân viên biết bạn đã gọi xong. Ngắn gọn, lịch sự, dùng được ở quán cà phê, tiệm bánh hay cửa hàng.",
+      "examples": [
+        {
+          "en": "No, that's all, thanks. How much is it?",
+          "vi": "Không, vậy thôi, cảm ơn. Hết bao nhiêu tiền vậy?"
+        },
+        {
+          "en": "That's all, thanks. Oh wait, can I have a bottle of water too?",
+          "vi": "Vậy thôi, cảm ơn. À khoan, cho tôi thêm một chai nước nữa nhé?"
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "en": "Can I have your name?",
+      "vi": "Cho mình xin tên bạn nhé?",
+      "note_vi": "Nhiều quán ghi tên khách lên ly rồi gọi tên khi đồ uống xong. Nếu tên bạn khó, hãy đánh vần từng chữ cái thật chậm.",
+      "examples": [
+        {
+          "en": "Can I have your name? We'll call you when it's ready.",
+          "vi": "Cho mình xin tên bạn nhé? Đồ uống xong bên mình sẽ gọi bạn."
+        },
+        {
+          "en": "Can I have your name, please? Sorry, how do you spell that?",
+          "vi": "Cho mình xin tên bạn được không? Xin lỗi, tên bạn đánh vần thế nào?"
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "en": "Just tap your card here.",
+      "vi": "Bạn chỉ cần chạm thẻ vào đây.",
+      "note_vi": "Câu nhân viên nói khi bạn trả bằng thẻ không tiếp xúc. Muốn hỏi trước, bạn nói “Can I pay by card?”",
+      "examples": [
+        {
+          "en": "That's six euros. Just tap your card here.",
+          "vi": "Của bạn hết sáu euro. Bạn chỉ cần chạm thẻ vào đây."
+        },
+        {
+          "en": "The machine is ready. Just tap your card here.",
+          "vi": "Máy sẵn sàng rồi. Bạn chỉ cần chạm thẻ vào đây."
+        }
+      ]
+    },
+    {
+      "id": "p12",
+      "en": "Is this seat taken?",
+      "vi": "Chỗ này có ai ngồi chưa?",
+      "note_vi": "Hỏi lịch sự trước khi ngồi cạnh người lạ ở quán đông. Nếu chỗ trống, họ sẽ nói “No, go ahead.”",
+      "examples": [
+        {
+          "en": "Excuse me, is this seat taken?",
+          "vi": "Xin lỗi, chỗ này có ai ngồi chưa ạ?"
+        },
+        {
+          "en": "The café is so full today. Is this seat taken?",
+          "vi": "Hôm nay quán đông quá. Chỗ này có ai ngồi chưa bạn?"
+        }
+      ]
+    },
+    {
+      "id": "p13",
+      "en": "What's the Wi-Fi password?",
+      "vi": "Mật khẩu Wi-Fi là gì?",
+      "note_vi": "Câu không thể thiếu ở quán cà phê. Thêm “Sorry” ở đầu câu thì nghe lịch sự hơn.",
+      "examples": [
+        {
+          "en": "Sorry, what's the Wi-Fi password? I need to check my email.",
+          "vi": "Xin lỗi, mật khẩu Wi-Fi là gì vậy? Tôi cần xem email."
+        },
+        {
+          "en": "What's the Wi-Fi password? Is it on the receipt?",
+          "vi": "Mật khẩu Wi-Fi là gì vậy? Có in trên hóa đơn không?"
+        }
+      ]
+    },
+    {
+      "id": "p14",
+      "en": "This one's on me.",
+      "vi": "Lần này để mình mời.",
+      "note_vi": "Dùng khi bạn muốn trả tiền cho người khác. Người kia thường đáp “Thanks! Next one's on me.”, nghĩa là lần sau họ mời lại.",
+      "examples": [
+        {
+          "en": "Put your money away. This one's on me.",
+          "vi": "Cất tiền đi. Lần này để mình mời."
+        },
+        {
+          "en": "You helped me so much this week. This one's on me.",
+          "vi": "Tuần này bạn giúp mình nhiều quá. Lần này mình mời nhé."
+        }
+      ]
+    },
+    {
+      "id": "p15",
+      "en": "Less sugar, please.",
+      "vi": "Cho ít đường thôi.",
+      "note_vi": "Đồ uống ở nhiều quán khá ngọt. Nếu không muốn đường chút nào, bạn nói “No sugar, please.”",
+      "examples": [
+        {
+          "en": "One iced tea. Less sugar, please.",
+          "vi": "Một ly trà đá. Cho ít đường thôi nhé."
+        },
+        {
+          "en": "Less sugar, please. I'm trying to eat more healthily.",
+          "vi": "Cho ít đường thôi nhé. Tôi đang cố ăn uống lành mạnh hơn."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "d1",
+      "title_en": "A busy morning at the café counter",
+      "title_vi": "Buổi sáng bận rộn bên quầy cà phê",
+      "setting_vi": "Linh ghé quán cà phê gần văn phòng trước một buổi thuyết trình. Sam, cậu nhân viên pha chế mới, nhận đơn cho cô.",
+      "speakers": {
+        "A": {
+          "name": "Sam",
+          "gender": "m"
+        },
+        "B": {
+          "name": "Linh",
+          "gender": "f"
+        }
+      },
+      "lines": [
+        {
+          "s": "A",
+          "en": "Good morning! What can I get you?",
+          "vi": "Chào buổi sáng! Chị muốn dùng gì ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Morning! I'll have a latte, please.",
+          "vi": "Chào em! Cho chị một ly latte nhé."
+        },
+        {
+          "s": "A",
+          "en": "Sure. What size would you like?",
+          "vi": "Dạ được. Chị muốn cỡ nào ạ?"
+        },
+        {
+          "s": "B",
+          "en": "A large one, please. It's going to be a busy day.",
+          "vi": "Cỡ lớn nhé. Hôm nay chắc sẽ bận lắm đây."
+        },
+        {
+          "s": "A",
+          "en": "One large latte. With normal milk?",
+          "vi": "Một latte cỡ lớn. Chị dùng sữa thường ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Actually, can I have it with oat milk?",
+          "vi": "À, cho chị dùng sữa yến mạch được không em?"
+        },
+        {
+          "s": "A",
+          "en": "Of course. Oat milk is fifty cents extra.",
+          "vi": "Dĩ nhiên rồi ạ. Sữa yến mạch tính thêm năm mươi xu ạ."
+        },
+        {
+          "s": "B",
+          "en": "That's fine. Oh, and can I get an extra shot?",
+          "vi": "Không sao. À, cho chị thêm một shot cà phê nữa nhé?"
+        },
+        {
+          "s": "A",
+          "en": "An extra shot. Wow, it really is a busy day.",
+          "vi": "Thêm một shot. Ồ, hôm nay đúng là chị bận thật."
+        },
+        {
+          "s": "B",
+          "en": "I have a big presentation at ten. I need all the energy I can get.",
+          "vi": "Mười giờ chị có một buổi thuyết trình quan trọng. Chị cần thật nhiều năng lượng."
+        },
+        {
+          "s": "A",
+          "en": "I understand. For here or to go?",
+          "vi": "Em hiểu mà. Chị uống ở đây hay mang đi ạ?"
+        },
+        {
+          "s": "B",
+          "en": "To go, please. I need to be at the office in fifteen minutes.",
+          "vi": "Mang đi nhé. Mười lăm phút nữa chị phải có mặt ở văn phòng rồi."
+        },
+        {
+          "s": "A",
+          "en": "No problem. We also have fresh croissants this morning.",
+          "vi": "Dạ. Sáng nay bên em còn có bánh sừng bò mới ra lò nữa ạ."
+        },
+        {
+          "s": "B",
+          "en": "Oh, they smell amazing. One croissant, please.",
+          "vi": "Ôi, thơm quá. Cho chị một cái nhé."
+        },
+        {
+          "s": "A",
+          "en": "Would you like it warmed up?",
+          "vi": "Chị có muốn hâm nóng bánh không ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Yes, please. A warm croissant is the best.",
+          "vi": "Có, cảm ơn em. Bánh sừng bò ăn nóng là ngon nhất."
+        },
+        {
+          "s": "A",
+          "en": "I agree. Anything else for you?",
+          "vi": "Em cũng thấy vậy. Chị cần gì thêm không ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Hmm, my colleague Tom wants a black coffee. Small, no sugar.",
+          "vi": "Ừm, anh Tom đồng nghiệp của chị muốn một ly cà phê đen. Cỡ nhỏ, không đường."
+        },
+        {
+          "s": "A",
+          "en": "One small black coffee. Anything else?",
+          "vi": "Một cà phê đen cỡ nhỏ. Chị còn gọi gì nữa không ạ?"
+        },
+        {
+          "s": "B",
+          "en": "That's all, thanks.",
+          "vi": "Vậy thôi, cảm ơn em."
+        },
+        {
+          "s": "A",
+          "en": "Great. Can I have your name? It's for the cups.",
+          "vi": "Dạ. Cho em xin tên chị nhé? Để em ghi lên ly."
+        },
+        {
+          "s": "B",
+          "en": "It's Linh. L, I, N, H.",
+          "vi": "Chị tên Linh. L, I, N, H."
+        },
+        {
+          "s": "A",
+          "en": "Got it. That's nine euros fifty.",
+          "vi": "Em ghi rồi ạ. Của chị hết chín euro năm mươi xu."
+        },
+        {
+          "s": "A",
+          "en": "Just tap your card here.",
+          "vi": "Chị chỉ cần chạm thẻ vào đây thôi ạ."
+        },
+        {
+          "s": "B",
+          "en": "Done. Thank you so much.",
+          "vi": "Xong rồi. Cảm ơn em nhiều nhé."
+        },
+        {
+          "s": "A",
+          "en": "Your drinks will be ready in two minutes.",
+          "vi": "Hai phút nữa đồ uống của chị sẽ xong ạ."
+        },
+        {
+          "s": "A",
+          "en": "One large oat latte for Lin? And a small black coffee for Tim?",
+          "vi": "Một latte sữa yến mạch cỡ lớn cho chị Lin? Và một cà phê đen cỡ nhỏ cho anh Tim?"
+        },
+        {
+          "s": "B",
+          "en": "Close enough! Tom is going to laugh when he sees his cup.",
+          "vi": "Cũng gần đúng rồi! Anh Tom mà thấy ly của mình chắc sẽ cười lắm."
+        },
+        {
+          "s": "A",
+          "en": "Oh no, I'm so sorry! It's my first week.",
+          "vi": "Ôi, em xin lỗi chị! Em mới làm tuần đầu tiên."
+        },
+        {
+          "s": "B",
+          "en": "Don't worry, it's fine. See you tomorrow, Sam!",
+          "vi": "Đừng lo, không sao đâu. Mai gặp lại em nhé, Sam!"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "title_en": "No Wi-Fi on Saturday",
+      "title_vi": "Thứ Bảy không có Wi-Fi",
+      "setting_vi": "Sáng thứ Bảy, quán cà phê rất đông. David mang laptop đi tìm chỗ ngồi và bất ngờ gặp Mai đang đọc sách.",
+      "speakers": {
+        "A": {
+          "name": "Mai",
+          "gender": "f"
+        },
+        "B": {
+          "name": "David",
+          "gender": "m"
+        }
+      },
+      "lines": [
+        {
+          "s": "B",
+          "en": "Excuse me, is this seat taken?",
+          "vi": "Xin lỗi, chỗ này có ai ngồi chưa ạ?"
+        },
+        {
+          "s": "A",
+          "en": "No, it's free. Wait a second. David?",
+          "vi": "Chưa có ai đâu ạ. Khoan đã. Anh David?"
+        },
+        {
+          "s": "B",
+          "en": "Mai! Sorry, I didn't see your face behind that big book.",
+          "vi": "Mai à! Xin lỗi, anh không nhìn thấy mặt em sau cuốn sách to thế kia."
+        },
+        {
+          "s": "A",
+          "en": "What are you doing here on a Saturday morning?",
+          "vi": "Sáng thứ Bảy mà anh ra đây làm gì thế?"
+        },
+        {
+          "s": "B",
+          "en": "My internet at home isn't working. I just need to send one email.",
+          "vi": "Mạng ở nhà anh không vào được. Anh chỉ cần gửi một cái email thôi."
+        },
+        {
+          "s": "A",
+          "en": "Just one email? Really?",
+          "vi": "Chỉ một email thôi á? Thật không đấy?"
+        },
+        {
+          "s": "B",
+          "en": "Okay, maybe three. What's the Wi-Fi password?",
+          "vi": "Thôi được, chắc là ba cái. Mật khẩu Wi-Fi là gì vậy em?"
+        },
+        {
+          "s": "A",
+          "en": "I'm sorry, David. There's no Wi-Fi here on weekends.",
+          "vi": "Tiếc quá anh David ạ. Cuối tuần ở đây không có Wi-Fi đâu."
+        },
+        {
+          "s": "B",
+          "en": "What? Are you serious?",
+          "vi": "Hả? Em nói thật à?"
+        },
+        {
+          "s": "A",
+          "en": "Look at the sign on the wall.",
+          "vi": "Anh nhìn tấm biển trên tường kìa."
+        },
+        {
+          "s": "B",
+          "en": "\"No Wi-Fi on weekends. Talk to each other.\" Oh no.",
+          "vi": "“Cuối tuần không có Wi-Fi. Hãy trò chuyện với nhau.” Ôi không."
+        },
+        {
+          "s": "A",
+          "en": "I think it's a nice idea. People really talk to each other here.",
+          "vi": "Em thấy ý tưởng đó hay mà. Ở đây mọi người nói chuyện với nhau thật đấy."
+        },
+        {
+          "s": "B",
+          "en": "Well, I guess my emails can wait. Can I get you a drink? This one's on me.",
+          "vi": "Thôi, chắc mấy cái email để sau cũng được. Anh mua đồ uống cho em nhé? Lần này anh mời."
+        },
+        {
+          "s": "A",
+          "en": "Oh, you don't have to do that.",
+          "vi": "Ôi, anh không cần thế đâu ạ."
+        },
+        {
+          "s": "B",
+          "en": "Please. You gave me a seat. That's worth a coffee.",
+          "vi": "Đừng ngại mà. Em cho anh ngồi cùng, thế là đáng một ly cà phê rồi."
+        },
+        {
+          "s": "A",
+          "en": "All right, thank you. I'll have an iced coffee with milk.",
+          "vi": "Vâng, em cảm ơn anh. Em uống một ly cà phê sữa đá ạ."
+        },
+        {
+          "s": "A",
+          "en": "And less sugar, please. Their iced coffee is very sweet.",
+          "vi": "À, anh dặn ít đường thôi nhé. Cà phê đá ở đây ngọt lắm."
+        },
+        {
+          "s": "B",
+          "en": "Iced coffee with milk, less sugar. Anything to eat?",
+          "vi": "Cà phê sữa đá, ít đường. Em có muốn ăn gì không?"
+        },
+        {
+          "s": "A",
+          "en": "No, thanks. I already had a muffin.",
+          "vi": "Thôi ạ, em cảm ơn. Em ăn bánh muffin rồi."
+        },
+        {
+          "s": "B",
+          "en": "Okay. Back in a minute.",
+          "vi": "Được rồi. Anh quay lại ngay."
+        },
+        {
+          "s": "B",
+          "en": "Here you are. One iced coffee, less sugar.",
+          "vi": "Của em đây. Một ly cà phê đá, ít đường."
+        },
+        {
+          "s": "A",
+          "en": "Thank you! What did you get?",
+          "vi": "Em cảm ơn anh! Thế anh gọi gì?"
+        },
+        {
+          "s": "B",
+          "en": "A cappuccino. The barista says it's the best drink here.",
+          "vi": "Một ly cappuccino. Cậu pha chế bảo đây là món ngon nhất quán."
+        },
+        {
+          "s": "A",
+          "en": "Good choice. So, no work today?",
+          "vi": "Chọn hay đấy ạ. Vậy là hôm nay anh không làm việc nữa nhé?"
+        },
+        {
+          "s": "B",
+          "en": "No work. So, what's that big book about?",
+          "vi": "Không làm nữa. Thế cuốn sách to kia nói về chuyện gì vậy?"
+        },
+        {
+          "s": "A",
+          "en": "It's about a woman who opens a small café in Hanoi.",
+          "vi": "Nó kể về một người phụ nữ mở một quán cà phê nhỏ ở Hà Nội."
+        },
+        {
+          "s": "B",
+          "en": "Interesting. Do you want to open a café one day?",
+          "vi": "Hay đấy. Em có muốn một ngày nào đó mở quán cà phê không?"
+        },
+        {
+          "s": "A",
+          "en": "Maybe. But my café will have Wi-Fi every day.",
+          "vi": "Có thể ạ. Nhưng quán của em thì ngày nào cũng có Wi-Fi."
+        },
+        {
+          "s": "B",
+          "en": "Then I'll be your best customer.",
+          "vi": "Thế thì anh sẽ là khách ruột của em."
+        },
+        {
+          "s": "A",
+          "en": "Deal. But only if you talk to me, not to your laptop.",
+          "vi": "Chốt nhé. Nhưng với điều kiện anh nói chuyện với em, chứ không phải với cái laptop."
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l1",
+      "kind": "story",
+      "title_en": "The New Barista",
+      "title_vi": "Cậu pha chế mới",
+      "summary_vi": "Tuần làm việc đầu tiên của Sam, cậu sinh viên pha chế ở quán cà phê gần văn phòng Linh: từ chiếc ly ghi sai tên đến lúc cậu thuộc lòng mọi câu hỏi.",
+      "speakers": {
+        "N": {
+          "name": "Narrator",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "N",
+          "en": "Sam is twenty-two years old. He studies music at university, and in the mornings he works at a small café near Linh's office. This is his first week. The café is warm and busy, and it smells of coffee and fresh bread. Sam likes the job, but he is nervous. There are so many drinks, so many sizes, and so many special requests. Some customers speak very fast, and some speak very quietly.",
+          "vi": "Sam hai mươi hai tuổi. Cậu học âm nhạc ở trường đại học, và buổi sáng thì làm ở một quán cà phê nhỏ gần văn phòng của Linh. Đây là tuần đầu tiên của cậu. Quán ấm áp, đông khách, thơm mùi cà phê và bánh mì mới nướng. Sam thích công việc này, nhưng cậu khá hồi hộp. Có quá nhiều loại đồ uống, quá nhiều cỡ ly, và quá nhiều yêu cầu đặc biệt. Có khách nói rất nhanh, lại có khách nói rất nhỏ."
+        },
+        {
+          "s": "N",
+          "en": "On Monday, his manager Rosa gives him one simple tip. \"Every order is the same short conversation,\" she says. \"First you say, 'What can I get you?' Then you ask about the size. Then you ask, 'For here or to go?' At the end, you say, 'Anything else for you?' Remember these questions, and you will be fine.\" Sam writes them on a small piece of paper and keeps it in his pocket.",
+          "vi": "Thứ Hai, chị quản lý Rosa cho cậu một lời khuyên đơn giản. “Đơn nào cũng là cùng một cuộc nói chuyện ngắn,” chị nói. “Đầu tiên em hỏi: ‘Anh chị muốn dùng gì?’ Rồi em hỏi cỡ ly. Rồi hỏi: ‘Uống ở đây hay mang đi?’ Cuối cùng em hỏi: ‘Anh chị cần gì thêm không?’ Nhớ mấy câu này là em sẽ ổn thôi.” Sam viết chúng lên một mẩu giấy nhỏ và cất trong túi."
+        },
+        {
+          "s": "N",
+          "en": "On Tuesday morning, a young woman comes in. She looks tired, and she is carrying a laptop and three folders. \"Good morning! What can I get you?\" Sam asks. \"I'll have a latte, please,\" she says. Sam asks, \"What size would you like?\" She wants a large one. Then she asks for oat milk, and then she says, \"Can I get an extra shot?\" Sam smiles. He can see that she has a busy day.",
+          "vi": "Sáng thứ Ba, một cô gái trẻ bước vào. Trông cô có vẻ mệt, tay cầm một chiếc laptop và ba tập hồ sơ. “Chào buổi sáng! Chị muốn dùng gì ạ?” Sam hỏi. “Cho chị một ly latte nhé,” cô nói. Sam hỏi: “Chị muốn cỡ nào ạ?” Cô muốn cỡ lớn. Rồi cô xin dùng sữa yến mạch, rồi lại nói: “Cho chị thêm một shot cà phê nhé?” Sam mỉm cười. Cậu thấy rõ hôm nay cô rất bận."
+        },
+        {
+          "s": "N",
+          "en": "She also orders a croissant, and Sam remembers to ask, \"Would you like it warmed up?\" She says yes. Then she orders a small black coffee for her colleague. \"That's all, thanks,\" she says at last. \"Can I have your name?\" Sam asks. \"Linh,\" she says, and she spells it for him. But the café is very loud. On the first cup, Sam writes \"Lin\". On the second cup, for her colleague Tom, he writes \"Tim\".",
+          "vi": "Cô gọi thêm một cái bánh sừng bò, và Sam nhớ hỏi: “Chị có muốn hâm nóng bánh không ạ?” Cô bảo có. Rồi cô gọi một ly cà phê đen cỡ nhỏ cho anh đồng nghiệp. “Vậy thôi, cảm ơn em,” cuối cùng cô nói. “Cho em xin tên chị nhé?” Sam hỏi. “Linh,” cô nói, rồi đánh vần cho cậu. Nhưng trong quán ồn quá. Trên ly thứ nhất, Sam viết “Lin”. Trên ly thứ hai, cho anh đồng nghiệp tên Tom, cậu viết “Tim”."
+        },
+        {
+          "s": "N",
+          "en": "When Sam calls the names, Linh laughs. Suddenly she does not look tired anymore. \"Close enough,\" she says. Sam feels terrible, but Linh tells him not to worry. Later that day, Tom comes to the café himself. He shows Sam his cup and says with a big smile, \"Hi, I'm Tim. All my colleagues call me Tim today.\" Then he orders another black coffee, and this time Sam writes his name very carefully.",
+          "vi": "Khi Sam gọi tên, Linh bật cười. Bỗng nhiên trông cô không còn mệt nữa. “Cũng gần đúng rồi,” cô nói. Sam thấy ngại vô cùng, nhưng Linh bảo cậu đừng lo. Chiều hôm đó, chính anh Tom ghé quán. Anh giơ chiếc ly cho Sam xem và cười tươi: “Chào em, anh là Tim đây. Hôm nay cả văn phòng gọi anh là Tim.” Rồi anh gọi thêm một ly cà phê đen, và lần này Sam viết tên anh thật cẩn thận."
+        },
+        {
+          "s": "N",
+          "en": "For the rest of the week, Sam practises. He learns the regular customers and their drinks. There is an old man who always wants green tea with less sugar. There is a student who asks, \"What's the Wi-Fi password?\" every single morning, because she always forgets it. There are two friends who argue every day about who pays, until one of them finally says, \"This one's on me.\" Sam also learns to say, \"Just tap your card here,\" with a friendly smile, even at seven in the morning.",
+          "vi": "Suốt những ngày còn lại trong tuần, Sam luyện tập. Cậu nhớ dần những khách quen và đồ uống của họ. Có một ông cụ lúc nào cũng gọi trà xanh ít đường. Có một cô sinh viên sáng nào cũng hỏi “Mật khẩu Wi-Fi là gì vậy?”, vì cô toàn quên. Có hai người bạn ngày nào cũng tranh nhau trả tiền, cho đến khi một người cuối cùng nói: “Lần này để mình mời.” Sam cũng học được cách nói “Anh chị chỉ cần chạm thẻ vào đây” với một nụ cười thân thiện, kể cả lúc bảy giờ sáng."
+        },
+        {
+          "s": "N",
+          "en": "On Friday, Linh comes in again. Before she can say anything, Sam says, \"A large latte with oat milk, an extra shot, and a warm croissant?\" Linh is surprised. \"Yes! How did you remember?\" Sam shows her his notebook. Next to her order, he has written her name in big letters: L, I, N, H. \"No more Lin,\" he says.",
+          "vi": "Thứ Sáu, Linh lại đến. Cô chưa kịp nói gì thì Sam đã hỏi: “Một latte cỡ lớn sữa yến mạch, thêm một shot, và một bánh sừng bò nóng phải không chị?” Linh ngạc nhiên. “Đúng rồi! Sao em nhớ hay vậy?” Sam cho cô xem cuốn sổ nhỏ. Bên cạnh đơn của cô, cậu đã viết tên cô bằng chữ to: L, I, N, H. “Không còn Lin nữa đâu ạ,” cậu nói."
+        },
+        {
+          "s": "N",
+          "en": "Linh tells him that her presentation went very well. \"Maybe it was the extra shot,\" she says, and they both laugh. After she leaves, Sam takes the small piece of paper out of his pocket and looks at it. He does not need it anymore. The questions come out of his mouth by themselves now, like a song he knows by heart. And for a music student, that is a wonderful feeling.",
+          "vi": "Linh kể với cậu rằng buổi thuyết trình của cô đã diễn ra rất tốt. “Chắc là nhờ shot cà phê thêm đấy,” cô nói, và cả hai cùng cười. Khi cô đi rồi, Sam lấy mẩu giấy nhỏ trong túi ra nhìn. Cậu không cần đến nó nữa. Giờ đây những câu hỏi tự bật ra khỏi miệng cậu, như một bài hát cậu đã thuộc lòng. Và với một cậu sinh viên âm nhạc, đó là một cảm giác thật tuyệt vời."
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "kind": "podcast",
+      "title_en": "Coffee Without Stress",
+      "title_vi": "Gọi cà phê không còn căng thẳng",
+      "summary_vi": "Anna và Ben chia sẻ ba mẹo gọi đồ ở quán cà phê: nắm trước các câu nhân viên hay hỏi, nói yêu cầu riêng thật ngắn, và những câu khi trả tiền hay tìm chỗ ngồi, kèm một màn đóng vai.",
+      "speakers": {
+        "A": {
+          "name": "Anna",
+          "gender": "f"
+        },
+        "B": {
+          "name": "Ben",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "A",
+          "en": "Hello, and welcome to Easy English at Work. I'm Anna.",
+          "vi": "Xin chào, chào mừng các bạn đến với chương trình Tiếng Anh dễ nghe nơi công sở. Mình là Anna."
+        },
+        {
+          "s": "B",
+          "en": "And I'm Ben. Today we're leaving the office for a few minutes, because we're going to the café. I drink about three coffees a day, so this is my favourite topic.",
+          "vi": "Còn mình là Ben. Hôm nay chúng mình rời văn phòng một lát, vì chúng mình sẽ ra quán cà phê. Mỗi ngày mình uống khoảng ba ly cà phê, nên đây là chủ đề mình thích nhất."
+        },
+        {
+          "s": "A",
+          "en": "Many of our listeners tell us that ordering at a café feels stressful. The barista speaks fast, there's a line of people behind you, and suddenly you forget every English word you know.",
+          "vi": "Nhiều thính giả kể với chúng mình rằng gọi đồ ở quán cà phê thấy căng thẳng lắm. Nhân viên nói nhanh, phía sau có cả hàng người đang chờ, và bỗng nhiên bạn quên sạch mọi từ tiếng Anh mình biết."
+        },
+        {
+          "s": "B",
+          "en": "I understand that feeling. But here's the good news. A café conversation is almost always the same. The barista asks the same four or five questions, usually in the same order.",
+          "vi": "Mình hiểu cảm giác đó. Nhưng có một tin vui. Cuộc nói chuyện ở quán cà phê gần như lúc nào cũng giống nhau. Nhân viên hỏi đúng bốn, năm câu, và thường theo cùng một thứ tự."
+        },
+        {
+          "s": "A",
+          "en": "So if you know the questions, you're ready. That's tip number one. Ben, what's the first question?",
+          "vi": "Vậy nếu bạn biết trước các câu hỏi, bạn đã sẵn sàng rồi. Đó là mẹo thứ nhất. Ben, câu hỏi đầu tiên là gì?"
+        },
+        {
+          "s": "B",
+          "en": "The first one is usually \"What can I get you?\" It means \"What would you like?\" You don't need a long answer. Just say, \"I'll have a latte, please,\" or \"I'll have a tea, please.\"",
+          "vi": "Câu đầu tiên thường là “What can I get you?”, nghĩa là “Bạn muốn dùng gì?”. Bạn không cần trả lời dài. Chỉ cần nói: “Cho tôi một ly latte” hoặc “Cho tôi một ly trà”."
+        },
+        {
+          "s": "A",
+          "en": "Short and polite. Then the barista often asks, \"What size would you like?\" And you just say small, medium or large.",
+          "vi": "Ngắn gọn và lịch sự. Sau đó nhân viên thường hỏi: “Bạn muốn cỡ nào?” Và bạn chỉ cần nói nhỏ, vừa hoặc lớn."
+        },
+        {
+          "s": "B",
+          "en": "The next question is very important: \"For here or to go?\" \"For here\" means you will sit in the café. \"To go\" means you will take the drink with you. In Britain, you might also hear \"Eat in or take away?\" It's the same question.",
+          "vi": "Câu tiếp theo rất quan trọng: “For here or to go?” “For here” nghĩa là bạn sẽ ngồi lại quán. “To go” nghĩa là bạn mang đồ uống đi. Ở Anh, bạn còn có thể nghe “Eat in or take away?”. Đó cũng là cùng một câu hỏi."
+        },
+        {
+          "s": "A",
+          "en": "And at the end, the barista asks, \"Anything else for you?\" If you're finished, you say, \"That's all, thanks.\"",
+          "vi": "Và cuối cùng, nhân viên hỏi: “Bạn cần gì thêm không?” Nếu đã gọi xong, bạn nói: “Vậy thôi, cảm ơn.”"
+        },
+        {
+          "s": "B",
+          "en": "Perfect. So learn the questions, and prepare one short answer for each of them. You can practise at home, even in the shower.",
+          "vi": "Tuyệt. Vậy hãy học các câu hỏi và chuẩn bị sẵn một câu trả lời ngắn cho mỗi câu. Bạn có thể tập ở nhà, kể cả lúc đang tắm."
+        },
+        {
+          "s": "A",
+          "en": "Tip number two is about special requests. Because today, nobody just wants a coffee. They want a large coffee with oat milk, less sugar and an extra shot. And yes, that is exactly my order every morning. The good news is that special requests are easy in English. You can say, \"Can I have it with oat milk?\" or \"Can I have it with soy milk?\" The pattern is always the same.",
+          "vi": "Mẹo thứ hai là về những yêu cầu đặc biệt. Vì bây giờ chẳng ai chỉ gọi một ly cà phê bình thường nữa. Người ta muốn một ly cà phê cỡ lớn, sữa yến mạch, ít đường và thêm một shot. Và đúng thế, sáng nào mình cũng gọi y như vậy. Tin vui là yêu cầu đặc biệt trong tiếng Anh rất dễ nói. Bạn có thể nói: “Cho tôi dùng sữa yến mạch được không?” hoặc “Cho tôi dùng sữa đậu nành được không?” Mẫu câu lúc nào cũng giống nhau."
+        },
+        {
+          "s": "B",
+          "en": "And for sugar, just say, \"Less sugar, please.\" That's very useful, because many café drinks are quite sweet, especially the big iced ones.",
+          "vi": "Còn với đường, bạn chỉ cần nói: “Cho ít đường thôi.” Câu này rất có ích, vì nhiều đồ uống ở quán khá ngọt, nhất là mấy ly đá cỡ lớn."
+        },
+        {
+          "s": "A",
+          "en": "If you're tired, try \"Can I get an extra shot?\" A shot is a small, strong coffee. One more shot means more energy.",
+          "vi": "Nếu bạn mệt, hãy thử nói: “Cho tôi thêm một shot cà phê nhé?” Shot là một phần cà phê nhỏ và đậm. Thêm một shot nghĩa là thêm năng lượng."
+        },
+        {
+          "s": "B",
+          "en": "And if you order something to eat, like a croissant or a muffin, the barista might ask, \"Would you like it warmed up?\" My answer is always \"Yes, please.\" A warm croissant is one of life's small joys.",
+          "vi": "Và nếu bạn gọi đồ ăn, như bánh sừng bò hay bánh muffin, nhân viên có thể hỏi: “Bạn có muốn hâm nóng không?” Mình thì lúc nào cũng trả lời “Có, cảm ơn.” Một chiếc bánh sừng bò nóng là một niềm vui nhỏ trong cuộc sống."
+        },
+        {
+          "s": "A",
+          "en": "Agreed. Okay, tip number three: paying and finding a seat. Today, most people pay by card. Often the barista just says, \"Just tap your card here,\" and points to the machine.",
+          "vi": "Đồng ý. Được rồi, mẹo thứ ba: trả tiền và tìm chỗ ngồi. Ngày nay hầu hết mọi người trả bằng thẻ. Thường thì nhân viên chỉ nói “Bạn chỉ cần chạm thẻ vào đây” rồi chỉ vào máy."
+        },
+        {
+          "s": "B",
+          "en": "Some cafés also ask, \"Can I have your name?\" They write it on your cup and call it when your drink is ready. If your name is not common in English, spell it slowly, letter by letter.",
+          "vi": "Một số quán còn hỏi: “Cho mình xin tên bạn nhé?” Họ ghi tên lên ly và gọi khi đồ uống của bạn xong. Nếu tên bạn không phổ biến trong tiếng Anh, hãy đánh vần thật chậm, từng chữ cái một."
+        },
+        {
+          "s": "A",
+          "en": "Or just enjoy a new name for the day. One café always called me Hannah, and I never said anything! Now, when the café is full and you see a free chair next to someone, ask, \"Is this seat taken?\" If they say, \"No, go ahead,\" you can sit down.",
+          "vi": "Hoặc cứ vui vẻ nhận một cái tên mới trong ngày. Có một quán lúc nào cũng gọi mình là Hannah, mà mình chẳng bao giờ sửa! Còn khi quán đông mà bạn thấy một chiếc ghế trống cạnh ai đó, hãy hỏi: “Chỗ này có ai ngồi chưa?” Nếu họ nói “Chưa, bạn cứ ngồi đi”, thì bạn có thể ngồi xuống."
+        },
+        {
+          "s": "B",
+          "en": "And of course, for many people, the most important question of all: \"What's the Wi-Fi password?\" But look around before you ask. Many cafés write it on a small board near the counter, or print it on your receipt.",
+          "vi": "Và tất nhiên, với nhiều người, câu hỏi quan trọng nhất là: “Mật khẩu Wi-Fi là gì?” Nhưng hãy nhìn quanh trước khi hỏi nhé. Nhiều quán ghi nó trên một tấm bảng nhỏ gần quầy, hoặc in luôn trên hóa đơn."
+        },
+        {
+          "s": "A",
+          "en": "Ha, yes. Okay, let's put it all together in a short role-play. Ben, you are the barista, and I'm the customer.",
+          "vi": "Haha, đúng thế. Nào, giờ chúng mình ghép tất cả lại trong một màn đóng vai ngắn nhé. Ben, bạn là nhân viên pha chế, còn mình là khách."
+        },
+        {
+          "s": "B",
+          "en": "Great. Good morning! What can I get you?",
+          "vi": "Được thôi. Chào buổi sáng! Chị muốn dùng gì ạ?"
+        },
+        {
+          "s": "A",
+          "en": "Hi! I'll have a latte, please.",
+          "vi": "Chào em! Cho chị một ly latte nhé."
+        },
+        {
+          "s": "B",
+          "en": "Sure. What size would you like?",
+          "vi": "Dạ được. Chị muốn cỡ nào ạ?"
+        },
+        {
+          "s": "A",
+          "en": "Medium, please. Can I have it with oat milk?",
+          "vi": "Cỡ vừa nhé. Cho chị dùng sữa yến mạch được không?"
+        },
+        {
+          "s": "B",
+          "en": "Of course. For here or to go?",
+          "vi": "Dĩ nhiên rồi ạ. Chị uống ở đây hay mang đi ạ?"
+        },
+        {
+          "s": "A",
+          "en": "For here, please. And one croissant.",
+          "vi": "Uống ở đây nhé. Thêm một cái bánh sừng bò nữa."
+        },
+        {
+          "s": "B",
+          "en": "Would you like it warmed up?",
+          "vi": "Chị có muốn hâm nóng bánh không ạ?"
+        },
+        {
+          "s": "A",
+          "en": "Yes, please. That's all, thanks.",
+          "vi": "Có, cảm ơn em. Vậy thôi nhé."
+        },
+        {
+          "s": "B",
+          "en": "Perfect. That's seven euros. Just tap your card here.",
+          "vi": "Dạ. Của chị hết bảy euro. Chị chỉ cần chạm thẻ vào đây thôi ạ."
+        },
+        {
+          "s": "A",
+          "en": "Thank you! And what's the Wi-Fi password?",
+          "vi": "Cảm ơn em! À, mật khẩu Wi-Fi là gì vậy?"
+        },
+        {
+          "s": "B",
+          "en": "It's on the wall behind you. Well done, Anna! That was a perfect order.",
+          "vi": "Nó ghi trên tường sau lưng chị đấy ạ. Giỏi lắm Anna! Một lượt gọi món hoàn hảo."
+        },
+        {
+          "s": "A",
+          "en": "Thank you. You see, everyone? It's only a few short sentences. Say them out loud at home a few times, and then try them at your next café visit.",
+          "vi": "Cảm ơn bạn. Các bạn thấy không? Chỉ là vài câu ngắn thôi. Hãy nói to chúng vài lần ở nhà, rồi thử dùng ở lần ghé quán cà phê tiếp theo nhé."
+        },
+        {
+          "s": "B",
+          "en": "And if you want to make someone happy, buy a coffee for a friend and say, \"This one's on me.\" Thanks for listening, everyone. See you next time on Easy English at Work!",
+          "vi": "Và nếu bạn muốn làm ai đó vui, hãy mua cà phê cho một người bạn và nói: “Lần này để mình mời.” Cảm ơn các bạn đã lắng nghe. Hẹn gặp lại các bạn lần sau trong chương trình Tiếng Anh dễ nghe nơi công sở!"
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "kind": "monologue",
+      "title_en": "My Saturday Café",
+      "title_vi": "Quán cà phê ngày thứ Bảy của mình",
+      "summary_vi": "Mai kể về thói quen sáng thứ Bảy ở một quán cà phê không có Wi-Fi, lần tình cờ gặp trưởng nhóm David ở đó, và ước mơ mở quán của riêng mình.",
+      "speakers": {
+        "M": {
+          "name": "Mai",
+          "gender": "f"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "M",
+          "en": "Hi, it's Mai again. During the week, I drink my coffee very fast, usually at my desk, between two emails. But on Saturday mornings, I have a little tradition. I go to a small café near the river, I order an iced coffee, and I read a book for two hours. No laptop, no work.",
+          "vi": "Chào các bạn, lại là Mai đây. Trong tuần, mình uống cà phê rất vội, thường là ngay tại bàn làm việc, giữa hai cái email. Nhưng sáng thứ Bảy, mình có một thói quen nho nhỏ. Mình ra một quán cà phê nhỏ gần bờ sông, gọi một ly cà phê đá và đọc sách trong hai tiếng. Không laptop, không công việc."
+        },
+        {
+          "s": "M",
+          "en": "I love this café because it's quiet and a little old-fashioned. There are wooden tables and lots of plants, and the barista, a friendly man called Leo, plays soft music. There's also one special rule. A sign on the wall says, \"No Wi-Fi on weekends. Talk to each other.\" The first time I saw it, I laughed. Now I really like it.",
+          "vi": "Mình thích quán này vì nó yên tĩnh và hơi cổ điển. Có những chiếc bàn gỗ, rất nhiều cây xanh, và anh pha chế tên Leo rất thân thiện, hay mở nhạc nhẹ. Quán còn có một quy định đặc biệt. Tấm biển trên tường ghi: “Cuối tuần không có Wi-Fi. Hãy trò chuyện với nhau.” Lần đầu nhìn thấy, mình bật cười. Giờ thì mình thật sự thích nó."
+        },
+        {
+          "s": "M",
+          "en": "My order is always the same. \"An iced coffee with milk. Less sugar, please.\" Leo knows it by heart now, so he often starts making it when I walk in. Back home in Vietnam, I love very sweet coffee, but here I like it a little less sweet. Then I find a seat by the window and open my book.",
+          "vi": "Món mình gọi lúc nào cũng vậy. “Cho em một ly cà phê sữa đá. Ít đường thôi ạ.” Giờ anh Leo thuộc lòng rồi, nên thường mình vừa bước vào là anh đã bắt đầu pha. Ở quê nhà Việt Nam, mình thích cà phê thật ngọt, nhưng ở đây mình lại thích uống ít ngọt hơn một chút. Rồi mình tìm một chỗ cạnh cửa sổ và mở sách ra đọc."
+        },
+        {
+          "s": "M",
+          "en": "Last Saturday, something funny happened. The café was very full. I was reading a big book, and I heard a man say, \"Excuse me, is this seat taken?\" I looked up, and it was David, my team lead! He had his laptop with him, of course. His internet at home wasn't working, and he wanted to send \"just one email\".",
+          "vi": "Thứ Bảy vừa rồi có một chuyện buồn cười. Quán rất đông. Mình đang đọc một cuốn sách to thì nghe một người đàn ông nói: “Xin lỗi, chỗ này có ai ngồi chưa ạ?” Mình ngẩng lên, hóa ra là anh David, trưởng nhóm của mình! Tất nhiên là anh mang theo laptop. Mạng ở nhà anh bị hỏng, và anh muốn gửi “chỉ một email thôi”."
+        },
+        {
+          "s": "M",
+          "en": "Then he asked me, \"What's the Wi-Fi password?\" So I had to tell him the bad news. I showed him the sign on the wall, and his face was so funny. He looked at his laptop, then at the sign, then at his laptop again. Finally, he closed it and said, \"Okay. My emails can wait.\"",
+          "vi": "Rồi anh hỏi mình: “Mật khẩu Wi-Fi là gì vậy em?” Thế là mình phải báo cho anh tin xấu. Mình chỉ cho anh tấm biển trên tường, và nét mặt anh lúc đó buồn cười lắm. Anh nhìn cái laptop, rồi nhìn tấm biển, rồi lại nhìn cái laptop. Cuối cùng, anh gập máy lại và nói: “Thôi được. Mấy cái email để sau vậy.”"
+        },
+        {
+          "s": "M",
+          "en": "He bought me a second iced coffee. I said, \"You don't have to,\" but he just smiled and said, \"This one's on me.\" Then we talked for almost an hour, not about work, but about books, food and travel. At work, I usually see a busy team lead. At the café, I met a different David, relaxed and very funny.",
+          "vi": "Anh mua cho mình ly cà phê đá thứ hai. Mình nói “Anh không cần thế đâu ạ”, nhưng anh chỉ cười và bảo: “Lần này anh mời.” Rồi hai anh em nói chuyện gần một tiếng, không phải về công việc, mà về sách, đồ ăn và du lịch. Ở công ty, mình thường chỉ thấy một anh trưởng nhóm bận rộn. Ở quán cà phê, mình gặp một anh David khác hẳn, thoải mái và rất vui tính."
+        },
+        {
+          "s": "M",
+          "en": "I also told David about my secret dream. One day, I want to open my own small café, with wooden tables, lots of plants and very good coffee. And yes, it will have Wi-Fi every day. David laughed and said he would be my best customer. I think he really meant it.",
+          "vi": "Mình còn kể với anh David về ước mơ thầm kín của mình. Một ngày nào đó, mình muốn mở một quán cà phê nhỏ của riêng mình, có bàn gỗ, thật nhiều cây xanh và cà phê thật ngon. Và đúng rồi, quán sẽ có Wi-Fi mỗi ngày. Anh David bật cười và bảo anh sẽ là khách ruột của mình. Mình nghĩ anh nói thật lòng đấy."
+        },
+        {
+          "s": "M",
+          "en": "So here's my small tip for you. If you go to a café this weekend, put your phone in your bag for a while. Order your drink in English, find a nice seat, and look around. Maybe you will meet someone interesting. Maybe you will just enjoy your coffee. Both are good.",
+          "vi": "Vậy nên đây là lời khuyên nhỏ của mình dành cho bạn. Nếu cuối tuần này bạn đi cà phê, hãy cất điện thoại vào túi một lúc. Gọi đồ uống bằng tiếng Anh, tìm một chỗ ngồi thật dễ chịu, rồi nhìn quanh. Có thể bạn sẽ gặp một người thú vị. Cũng có thể bạn chỉ đơn giản là thưởng thức ly cà phê của mình. Cả hai đều tốt."
+        }
+      ]
+    }
+  ]
+}

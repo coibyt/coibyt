@@ -1,0 +1,903 @@
+{
+  "date": "2026-11-30",
+  "day_number": 4,
+  "level": "A2-B1",
+  "topic": {
+    "id": "daily-plans",
+    "en": "Making plans with friends",
+    "vi": "Hẹn hò, lên kế hoạch với bạn bè",
+    "art_prompt": "a sunny autumn park beside a calm lake, a small group of friends sitting on a picnic blanket, a guitar and a box of spring rolls, red and yellow trees, soft golden light"
+  },
+  "intro_vi": "Chủ đề hôm nay là hẹn hò, lên kế hoạch với bạn bè: cách rủ ai đó đi chơi, gợi ý ngày giờ và địa điểm, nhận lời hay từ chối thật khéo, và đổi lịch khi có việc đột xuất.",
+  "phrases": [
+    {
+      "id": "p01",
+      "en": "Are you free this weekend?",
+      "vi": "Cuối tuần này bạn có rảnh không?",
+      "note_vi": "Câu mở lời quen thuộc nhất khi muốn rủ ai đó. Hỏi xem người kia có rảnh không trước, rồi mới nói kế hoạch.",
+      "examples": [
+        {
+          "en": "Are you free this weekend? We're having a small party at my place.",
+          "vi": "Cuối tuần này bạn có rảnh không? Nhà mình có tổ chức một bữa tiệc nhỏ."
+        },
+        {
+          "en": "Hi Mai! Are you free this weekend? I want to try that new café with you.",
+          "vi": "Chào Mai! Cuối tuần này cậu có rảnh không? Mình muốn rủ cậu đi thử quán cà phê mới đó."
+        }
+      ]
+    },
+    {
+      "id": "p02",
+      "en": "Do you want to join us?",
+      "vi": "Bạn có muốn đi cùng bọn mình không?",
+      "note_vi": "Dùng khi bạn và nhóm đã có kế hoạch và muốn mời thêm người. Câu này nghe thân thiện, không ép buộc.",
+      "examples": [
+        {
+          "en": "We're going to the cinema tonight. Do you want to join us?",
+          "vi": "Tối nay bọn mình đi xem phim. Bạn có muốn đi cùng không?"
+        },
+        {
+          "en": "Do you want to join us? There's plenty of food for everyone.",
+          "vi": "Bạn có muốn tham gia cùng bọn mình không? Đồ ăn nhiều lắm, đủ cho mọi người."
+        }
+      ]
+    },
+    {
+      "id": "p03",
+      "en": "How does Saturday sound?",
+      "vi": "Thứ Bảy thì sao?",
+      "note_vi": "Cách gợi ý một ngày hay một giờ thật nhẹ nhàng. Bạn có thể thay “Saturday” bằng “seven o'clock” hoặc “next week”.",
+      "examples": [
+        {
+          "en": "I'm busy on Friday. How does Saturday sound?",
+          "vi": "Thứ Sáu mình bận rồi. Thứ Bảy thì sao?"
+        },
+        {
+          "en": "How does Saturday sound? We could go in the afternoon.",
+          "vi": "Thứ Bảy thì thế nào? Mình có thể đi vào buổi chiều."
+        }
+      ]
+    },
+    {
+      "id": "p04",
+      "en": "What time works for you?",
+      "vi": "Mấy giờ thì tiện cho bạn?",
+      "note_vi": "Hỏi giờ hẹn mà vẫn để người kia chọn. Câu này lịch sự hơn nhiều so với chỉ hỏi “What time?”.",
+      "examples": [
+        {
+          "en": "I can meet any time after work. What time works for you?",
+          "vi": "Sau giờ làm thì lúc nào mình cũng gặp được. Mấy giờ thì tiện cho bạn?"
+        },
+        {
+          "en": "What time works for you? Morning or afternoon?",
+          "vi": "Mấy giờ thì tiện cho bạn? Buổi sáng hay buổi chiều?"
+        }
+      ]
+    },
+    {
+      "id": "p05",
+      "en": "Where should we meet?",
+      "vi": "Mình gặp nhau ở đâu nhỉ?",
+      "note_vi": "Câu hỏi để chốt địa điểm. Người kia thường trả lời bằng một gợi ý, ví dụ “How about the park?” hoặc “Let's meet at the station.”",
+      "examples": [
+        {
+          "en": "Okay, Saturday at ten. Where should we meet?",
+          "vi": "Được rồi, mười giờ thứ Bảy nhé. Mình gặp nhau ở đâu nhỉ?"
+        },
+        {
+          "en": "Where should we meet? At the station or at the restaurant?",
+          "vi": "Mình gặp nhau ở đâu? Ở nhà ga hay ở nhà hàng?"
+        }
+      ]
+    },
+    {
+      "id": "p06",
+      "en": "Count me in!",
+      "vi": "Tính cả mình nhé!",
+      "note_vi": "Cách nhận lời vui vẻ, hào hứng. Ngược lại, “Count me out.” nghĩa là “Đừng tính mình nhé.”",
+      "examples": [
+        {
+          "en": "A football game on Sunday? Count me in!",
+          "vi": "Đá bóng hôm Chủ nhật à? Tính cả mình nhé!"
+        },
+        {
+          "en": "Count me in! I'll bring some snacks.",
+          "vi": "Cho mình tham gia với! Mình sẽ mang ít đồ ăn vặt."
+        }
+      ]
+    },
+    {
+      "id": "p07",
+      "en": "I'd love to, but I can't.",
+      "vi": "Mình rất muốn, nhưng không đi được rồi.",
+      "note_vi": "Cách từ chối lịch sự nhất, vì nó cho thấy bạn thật lòng muốn đi. Sau đó nói ngắn gọn lý do.",
+      "examples": [
+        {
+          "en": "I'd love to, but I can't. I'm working late on Friday.",
+          "vi": "Mình rất muốn, nhưng không đi được. Thứ Sáu mình phải làm muộn."
+        },
+        {
+          "en": "Thanks for asking. I'd love to, but I can't. My parents are visiting this weekend.",
+          "vi": "Cảm ơn bạn đã rủ. Mình rất muốn, nhưng không được rồi. Cuối tuần này bố mẹ mình lên chơi."
+        }
+      ]
+    },
+    {
+      "id": "p08",
+      "en": "Maybe another time.",
+      "vi": "Để dịp khác nhé.",
+      "note_vi": "Dùng khi bạn từ chối, hoặc khi người kia từ chối bạn, để cho thấy vẫn còn cơ hội. Hãy nói bằng giọng vui vẻ.",
+      "examples": [
+        {
+          "en": "I can't come tonight, sorry. Maybe another time.",
+          "vi": "Tối nay mình không đến được, xin lỗi nhé. Để dịp khác vậy."
+        },
+        {
+          "en": "That's okay, I know you're busy. Maybe another time.",
+          "vi": "Không sao đâu, mình biết bạn đang bận mà. Để dịp khác nhé."
+        }
+      ]
+    },
+    {
+      "id": "p09",
+      "en": "Something came up.",
+      "vi": "Mình có việc đột xuất.",
+      "note_vi": "Nói khi có chuyện bất ngờ khiến bạn phải đổi kế hoạch. Không cần kể chi tiết, người nghe sẽ hiểu.",
+      "examples": [
+        {
+          "en": "I'm really sorry. Something came up. Can we meet next week instead?",
+          "vi": "Mình thật sự xin lỗi. Mình có việc đột xuất. Tuần sau mình gặp nhau được không?"
+        },
+        {
+          "en": "Tom can't come to the picnic. Something came up at home.",
+          "vi": "Tom không đến buổi dã ngoại được. Nhà anh ấy có việc đột xuất."
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "en": "Can I take a rain check?",
+      "vi": "Mình hẹn lại dịp khác được không?",
+      "note_vi": "Cách nói thân mật khi muốn hoãn một lời mời, nghĩa là “bây giờ thì không được, nhưng lần sau mình nhất định đi”. Câu này không liên quan gì đến trời mưa.",
+      "examples": [
+        {
+          "en": "I'm so tired tonight. Can I take a rain check?",
+          "vi": "Tối nay mình mệt quá. Mình hẹn lại dịp khác được không?"
+        },
+        {
+          "en": "Can I take a rain check? I'd really like to go next Friday.",
+          "vi": "Để hôm khác được không? Thứ Sáu tuần sau thì mình rất muốn đi."
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "en": "Can we make it a bit later?",
+      "vi": "Mình hẹn muộn hơn một chút được không?",
+      "note_vi": "Dùng khi bạn vẫn muốn gặp nhưng cần dời giờ muộn hơn. Muốn sớm hơn thì nói “a bit earlier”.",
+      "examples": [
+        {
+          "en": "Seven is a little early for me. Can we make it a bit later?",
+          "vi": "Bảy giờ thì hơi sớm với mình. Mình hẹn muộn hơn một chút được không?"
+        },
+        {
+          "en": "Can we make it a bit later? The traffic is always bad on Fridays.",
+          "vi": "Mình hẹn muộn hơn chút được không? Thứ Sáu nào đường cũng tắc."
+        }
+      ]
+    },
+    {
+      "id": "p12",
+      "en": "Does that work for you?",
+      "vi": "Như vậy có tiện cho bạn không?",
+      "note_vi": "Câu hỏi lại sau khi gợi ý giờ hay địa điểm, để chắc chắn người kia cũng đồng ý.",
+      "examples": [
+        {
+          "en": "Let's meet at the station at six. Does that work for you?",
+          "vi": "Mình gặp nhau ở nhà ga lúc sáu giờ nhé. Như vậy có tiện cho bạn không?"
+        },
+        {
+          "en": "I can call you tomorrow morning. Does that work for you?",
+          "vi": "Sáng mai mình gọi cho bạn nhé. Vậy có được không?"
+        }
+      ]
+    },
+    {
+      "id": "p13",
+      "en": "Are we still on for tomorrow?",
+      "vi": "Ngày mai mình vẫn gặp nhau như đã hẹn chứ?",
+      "note_vi": "Hỏi để xác nhận lại một cuộc hẹn. Người ta thường hỏi câu này vào hôm trước, hoặc buổi sáng của ngày hẹn.",
+      "examples": [
+        {
+          "en": "Hi Huy! Are we still on for tomorrow?",
+          "vi": "Chào Huy! Ngày mai mình vẫn gặp nhau như đã hẹn chứ?"
+        },
+        {
+          "en": "Are we still on for tomorrow? I just want to check before I leave work.",
+          "vi": "Ngày mai mình vẫn đi chứ? Mình chỉ muốn hỏi lại trước khi tan làm."
+        }
+      ]
+    },
+    {
+      "id": "p14",
+      "en": "I'll text you the address.",
+      "vi": "Mình sẽ nhắn địa chỉ cho bạn.",
+      "note_vi": "Câu chốt kế hoạch, hứa gửi địa chỉ qua tin nhắn. Ở đây “text” là động từ, nghĩa là nhắn tin.",
+      "examples": [
+        {
+          "en": "The restaurant is a bit hard to find. I'll text you the address.",
+          "vi": "Nhà hàng hơi khó tìm. Mình sẽ nhắn địa chỉ cho bạn."
+        },
+        {
+          "en": "I'll text you the address tonight, so you can check the map.",
+          "vi": "Tối nay mình sẽ nhắn địa chỉ cho bạn để bạn xem bản đồ trước."
+        }
+      ]
+    },
+    {
+      "id": "p15",
+      "en": "See you there!",
+      "vi": "Gặp nhau ở đó nhé!",
+      "note_vi": "Câu chào khi hai bên đã chốt địa điểm. Khác với “See you!”, câu này nói rõ là gặp nhau ở chỗ đã hẹn.",
+      "examples": [
+        {
+          "en": "Okay, the park at eleven. See you there!",
+          "vi": "Được rồi, mười một giờ ở công viên. Gặp nhau ở đó nhé!"
+        },
+        {
+          "en": "Great, I'll bring the drinks. See you there!",
+          "vi": "Tuyệt, mình sẽ mang đồ uống. Hẹn gặp ở đó nhé!"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "d1",
+      "title_en": "A picnic by the lake",
+      "title_vi": "Buổi dã ngoại bên hồ",
+      "setting_vi": "Tom rủ Linh đi dã ngoại cuối tuần cùng vài đồng nghiệp. Chỉ có một vấn đề: Chủ nhật Linh bận.",
+      "speakers": {
+        "A": {
+          "name": "Tom",
+          "gender": "m"
+        },
+        "B": {
+          "name": "Linh",
+          "gender": "f"
+        }
+      },
+      "lines": [
+        {
+          "s": "A",
+          "en": "Hey Linh, are you free this weekend?",
+          "vi": "Này Linh, cuối tuần này em có rảnh không?"
+        },
+        {
+          "s": "B",
+          "en": "That depends. Is this about work?",
+          "vi": "Còn tùy ạ. Có phải chuyện công việc không anh?"
+        },
+        {
+          "s": "A",
+          "en": "No, I promise. No work and no laptops.",
+          "vi": "Không, anh hứa đấy. Không công việc, không máy tính."
+        },
+        {
+          "s": "B",
+          "en": "Okay, then I'm listening.",
+          "vi": "Vậy thì em nghe đây."
+        },
+        {
+          "s": "A",
+          "en": "A few of us are having a picnic by the lake on Sunday. Do you want to join us?",
+          "vi": "Anh với mấy người trong nhóm định đi dã ngoại bên hồ vào Chủ nhật. Em có muốn đi cùng không?"
+        },
+        {
+          "s": "B",
+          "en": "Oh, Sunday? I'd love to, but I can't. My cousin is getting married.",
+          "vi": "Ôi, Chủ nhật ạ? Em rất muốn, nhưng không đi được rồi. Hôm đó em phải đi đám cưới em họ."
+        },
+        {
+          "s": "A",
+          "en": "A wedding! That's much better than a picnic.",
+          "vi": "Đám cưới cơ à! Thế thì vui hơn đi dã ngoại nhiều."
+        },
+        {
+          "s": "B",
+          "en": "Not really. I have to sing a song in front of two hundred people.",
+          "vi": "Không hẳn đâu anh. Em phải hát một bài trước hai trăm người."
+        },
+        {
+          "s": "A",
+          "en": "Wow. Good luck with that. Well, maybe another time.",
+          "vi": "Chà. Chúc em may mắn nhé. Thôi, để dịp khác vậy."
+        },
+        {
+          "s": "B",
+          "en": "Wait, is the day fixed? Or can you change it?",
+          "vi": "Khoan đã, ngày đó chốt rồi ạ? Hay vẫn đổi được hả anh?"
+        },
+        {
+          "s": "A",
+          "en": "Nothing is fixed yet. How does Saturday sound?",
+          "vi": "Chưa chốt gì cả. Thứ Bảy thì sao?"
+        },
+        {
+          "s": "B",
+          "en": "Saturday is perfect. Count me in!",
+          "vi": "Thứ Bảy thì tuyệt. Tính cả em nhé!"
+        },
+        {
+          "s": "A",
+          "en": "Great. I'll ask the others, but I think they'll say yes.",
+          "vi": "Tuyệt. Anh sẽ hỏi mọi người, nhưng chắc họ sẽ đồng ý thôi."
+        },
+        {
+          "s": "A",
+          "en": "So, what time works for you?",
+          "vi": "Vậy mấy giờ thì tiện cho em?"
+        },
+        {
+          "s": "B",
+          "en": "Not too early, please. I like to sleep late on Saturdays.",
+          "vi": "Đừng sớm quá anh nhé. Thứ Bảy em thích ngủ nướng."
+        },
+        {
+          "s": "A",
+          "en": "How about eleven o'clock? We can have lunch by the water.",
+          "vi": "Mười một giờ thì sao? Mình có thể ăn trưa cạnh hồ."
+        },
+        {
+          "s": "B",
+          "en": "Eleven is good. Where should we meet?",
+          "vi": "Mười một giờ được ạ. Mình gặp nhau ở đâu anh?"
+        },
+        {
+          "s": "A",
+          "en": "At the main gate of the park, next to the ice cream shop. Does that work for you?",
+          "vi": "Ở cổng chính công viên, cạnh tiệm kem. Chỗ đó có tiện cho em không?"
+        },
+        {
+          "s": "B",
+          "en": "Yes, I know that place. I can get there by bus.",
+          "vi": "Có ạ, em biết chỗ đó. Em có thể đi xe buýt tới."
+        },
+        {
+          "s": "A",
+          "en": "Perfect. I'll text you the address anyway, just in case.",
+          "vi": "Tốt quá. Dù sao anh cũng sẽ nhắn địa chỉ cho em, phòng khi cần."
+        },
+        {
+          "s": "B",
+          "en": "Thanks. Should I bring anything?",
+          "vi": "Cảm ơn anh. Em có cần mang gì không?"
+        },
+        {
+          "s": "A",
+          "en": "Everyone brings one dish. Can you cook?",
+          "vi": "Mỗi người mang một món. Em có biết nấu ăn không?"
+        },
+        {
+          "s": "B",
+          "en": "Honestly? Not really. The last time I cooked rice, the smoke alarm went off.",
+          "vi": "Nói thật ạ? Không hẳn. Lần trước em nấu cơm, chuông báo cháy kêu ầm lên."
+        },
+        {
+          "s": "A",
+          "en": "Oh no. Maybe you can bring drinks, then.",
+          "vi": "Ôi trời. Vậy chắc em mang đồ uống thôi nhé."
+        },
+        {
+          "s": "B",
+          "en": "No, wait. My mum makes amazing spring rolls. I'll ask her for some.",
+          "vi": "Không, khoan đã. Mẹ em làm nem rán ngon tuyệt. Em sẽ xin mẹ một ít."
+        },
+        {
+          "s": "A",
+          "en": "Even better! Everyone will love you.",
+          "vi": "Còn tuyệt hơn nữa! Mọi người sẽ quý em lắm đấy."
+        },
+        {
+          "s": "B",
+          "en": "And what are you bringing, Tom?",
+          "vi": "Còn anh mang gì, anh Tom?"
+        },
+        {
+          "s": "A",
+          "en": "My guitar. I'm learning three songs.",
+          "vi": "Anh mang đàn ghi-ta. Anh đang tập ba bài."
+        },
+        {
+          "s": "B",
+          "en": "Only three?",
+          "vi": "Có ba bài thôi ạ?"
+        },
+        {
+          "s": "A",
+          "en": "Well, two and a half.",
+          "vi": "Thì hai bài rưỡi thôi."
+        },
+        {
+          "s": "B",
+          "en": "Then I can practise my wedding song with your guitar.",
+          "vi": "Vậy em có thể tập bài hát đám cưới với cây đàn của anh."
+        },
+        {
+          "s": "A",
+          "en": "Deal. See you there on Saturday!",
+          "vi": "Chốt nhé. Thứ Bảy gặp em ở đó nhé!"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "title_en": "The night before dinner",
+      "title_vi": "Tối hôm trước buổi hẹn",
+      "setting_vi": "Tối thứ Sáu, Huy gọi cho Mai, cô bạn thân thời đại học, để hỏi lại về bữa tối ngày mai. Nhưng hóa ra cả hai đều có chuyện muốn nói.",
+      "speakers": {
+        "A": {
+          "name": "Mai",
+          "gender": "f"
+        },
+        "B": {
+          "name": "Huy",
+          "gender": "m"
+        }
+      },
+      "lines": [
+        {
+          "s": "B",
+          "en": "Hi Mai, it's Huy. Are we still on for tomorrow?",
+          "vi": "Chào Mai, Huy đây. Ngày mai mình vẫn gặp nhau như đã hẹn chứ?"
+        },
+        {
+          "s": "A",
+          "en": "Hi Huy! Well, about tomorrow.",
+          "vi": "Chào Huy! À, về chuyện ngày mai."
+        },
+        {
+          "s": "B",
+          "en": "Oh no. I know that voice.",
+          "vi": "Ôi không. Mình biết cái giọng này rồi."
+        },
+        {
+          "s": "A",
+          "en": "I'm so sorry. Something came up.",
+          "vi": "Mình xin lỗi nhiều. Mình có việc đột xuất."
+        },
+        {
+          "s": "B",
+          "en": "What happened? Is everything okay?",
+          "vi": "Có chuyện gì thế? Mọi chuyện ổn chứ?"
+        },
+        {
+          "s": "A",
+          "en": "Yes, it's fine. My boss wants me to meet a client on Saturday afternoon.",
+          "vi": "Ừ, ổn mà. Sếp muốn mình gặp một khách hàng vào chiều thứ Bảy."
+        },
+        {
+          "s": "B",
+          "en": "On a Saturday? That's terrible.",
+          "vi": "Vào thứ Bảy á? Tệ thật."
+        },
+        {
+          "s": "A",
+          "en": "I know. The client is only in the city for one day.",
+          "vi": "Mình biết. Khách chỉ ở thành phố này có một ngày thôi."
+        },
+        {
+          "s": "A",
+          "en": "So, can I take a rain check?",
+          "vi": "Nên là, mình hẹn lại dịp khác được không?"
+        },
+        {
+          "s": "B",
+          "en": "Mai, this is the third time this month.",
+          "vi": "Mai à, tháng này là lần thứ ba rồi đấy."
+        },
+        {
+          "s": "A",
+          "en": "Is it? I thought it was the second.",
+          "vi": "Thế à? Mình tưởng mới là lần thứ hai."
+        },
+        {
+          "s": "B",
+          "en": "The first time, your cat was sick. The second time, you fell asleep on the sofa.",
+          "vi": "Lần đầu, mèo của cậu bị ốm. Lần thứ hai, cậu ngủ quên trên ghế sô-pha."
+        },
+        {
+          "s": "A",
+          "en": "Okay, okay. You're right. I don't want to cancel again.",
+          "vi": "Thôi được rồi. Cậu nói đúng. Mình không muốn hủy hẹn nữa."
+        },
+        {
+          "s": "A",
+          "en": "The meeting finishes at six. Can we make it a bit later?",
+          "vi": "Cuộc họp xong lúc sáu giờ. Mình hẹn muộn hơn một chút được không?"
+        },
+        {
+          "s": "B",
+          "en": "Our table is booked for seven. What time works for you?",
+          "vi": "Bàn của mình đặt lúc bảy giờ. Mấy giờ thì tiện cho cậu?"
+        },
+        {
+          "s": "A",
+          "en": "Maybe half past eight? I need time to go home and change.",
+          "vi": "Tám rưỡi được không? Mình cần thời gian về nhà thay đồ."
+        },
+        {
+          "s": "B",
+          "en": "Half past eight. I can call the restaurant and change it.",
+          "vi": "Tám rưỡi. Mình có thể gọi cho nhà hàng để đổi giờ."
+        },
+        {
+          "s": "A",
+          "en": "Thank you! But does that work for you?",
+          "vi": "Cảm ơn cậu! Nhưng như thế có tiện cho cậu không?"
+        },
+        {
+          "s": "B",
+          "en": "Actually, it works really well for me.",
+          "vi": "Thật ra, giờ đó lại rất hợp với mình."
+        },
+        {
+          "s": "A",
+          "en": "Really? Why?",
+          "vi": "Thật á? Sao thế?"
+        },
+        {
+          "s": "B",
+          "en": "Well, I have a small confession.",
+          "vi": "Thì mình có một chuyện nhỏ muốn thú nhận."
+        },
+        {
+          "s": "A",
+          "en": "A confession? Huy, what did you do?",
+          "vi": "Thú nhận á? Huy, cậu đã làm gì thế?"
+        },
+        {
+          "s": "B",
+          "en": "I called to cancel too. My football team has a match tomorrow at five.",
+          "vi": "Mình gọi cũng là để hủy hẹn. Đội bóng của mình có trận đấu lúc năm giờ chiều mai."
+        },
+        {
+          "s": "A",
+          "en": "You wanted to cancel too? And you let me say sorry three times!",
+          "vi": "Cậu cũng định hủy à? Thế mà cậu để mình xin lỗi ba lần!"
+        },
+        {
+          "s": "B",
+          "en": "You started first. I was just listening.",
+          "vi": "Cậu nói trước mà. Mình chỉ ngồi nghe thôi."
+        },
+        {
+          "s": "A",
+          "en": "Unbelievable. So half past eight is perfect for both of us.",
+          "vi": "Không thể tin được. Vậy tám rưỡi là hoàn hảo cho cả hai đứa rồi."
+        },
+        {
+          "s": "B",
+          "en": "Exactly. But the restaurant moved last month. It's on a different street now.",
+          "vi": "Đúng thế. Nhưng tháng trước nhà hàng chuyển chỗ rồi. Giờ nó ở một con phố khác."
+        },
+        {
+          "s": "A",
+          "en": "Oh, I didn't know that.",
+          "vi": "Ồ, mình không biết chuyện đó."
+        },
+        {
+          "s": "B",
+          "en": "No problem. I'll text you the address tonight.",
+          "vi": "Không sao. Tối nay mình sẽ nhắn địa chỉ cho cậu."
+        },
+        {
+          "s": "A",
+          "en": "Great. And this time, I'll really be there. I promise.",
+          "vi": "Tuyệt. Lần này mình sẽ đến thật. Mình hứa đấy."
+        },
+        {
+          "s": "B",
+          "en": "I'll believe it when I see you.",
+          "vi": "Gặp cậu rồi mình mới tin."
+        },
+        {
+          "s": "A",
+          "en": "Okay. See you there, Huy. And good luck with the match!",
+          "vi": "Được rồi. Hẹn gặp cậu ở đó nhé, Huy. Chúc đội cậu đá thật hay!"
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l1",
+      "kind": "story",
+      "title_en": "Tom's Picnic Plan",
+      "title_vi": "Kế hoạch dã ngoại của Tom",
+      "summary_vi": "Tom muốn rủ cả nhóm đi dã ngoại bên hồ. Nhưng đám cưới, lớp học bơi, một cuộc hẹn với khách hàng và cả cơn mưa khiến kế hoạch cứ phải đổi mãi.",
+      "speakers": {
+        "N": {
+          "name": "Narrator",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "N",
+          "en": "Tom loves making plans. At work, he organises the team lunches, the birthday cakes, and the end-of-year party. This autumn, he has a new idea. The weather is still warm, and the trees around the city lake are red and yellow. \"Before winter comes,\" he thinks, \"we need a picnic.\"",
+          "vi": "Tom rất thích lên kế hoạch. Ở chỗ làm, anh là người tổ chức những bữa trưa của nhóm, những chiếc bánh sinh nhật và cả bữa tiệc cuối năm. Mùa thu này, anh có một ý tưởng mới. Trời vẫn còn ấm, và hàng cây quanh hồ của thành phố đã chuyển sang màu đỏ và vàng. Anh nghĩ: “Trước khi mùa đông đến, cả nhóm phải đi dã ngoại một bữa mới được.”"
+        },
+        {
+          "s": "N",
+          "en": "On Monday morning, he sends a message to the team group chat. \"Hi everyone! Are you free this weekend? A few of us are having a picnic by the lake on Sunday. Do you want to join us?\" Then he puts his phone on the desk and waits. He doesn't wait long. Two minutes later, David answers first. \"Count me in! Can I bring my kids?\" Tom smiles and writes back, \"Of course!\"",
+          "vi": "Sáng thứ Hai, anh gửi một tin nhắn vào nhóm chat của cả đội: “Chào mọi người! Cuối tuần này mọi người có rảnh không? Bọn mình định đi dã ngoại bên hồ vào Chủ nhật. Mọi người có muốn đi cùng không?” Rồi anh đặt điện thoại lên bàn và chờ. Anh không phải chờ lâu. Hai phút sau, David là người trả lời đầu tiên: “Tính cả anh nhé! Anh dẫn bọn trẻ theo được không?” Tom mỉm cười và nhắn lại: “Tất nhiên rồi!”"
+        },
+        {
+          "s": "N",
+          "en": "But then the problems begin. In the office kitchen, Linh tells him about her cousin's wedding on Sunday. \"I'd love to, but I can't,\" she says. So Tom moves the picnic to Saturday at eleven, and Linh is happy. Then David writes again. On Saturday mornings, his kids have swimming lessons. \"Can we make it a bit later?\" he asks. Tom changes the time to half past twelve. Then Mai writes, \"Half past twelve is fine, but I have to leave at two. I have a meeting with a client.\" Tom looks at his notebook. The page is full of arrows, question marks, and times with lines through them.",
+          "vi": "Nhưng rồi rắc rối bắt đầu. Trong bếp văn phòng, Linh kể cho anh nghe về đám cưới của em họ cô vào Chủ nhật. Cô nói: “Em rất muốn, nhưng không đi được rồi.” Thế là Tom dời buổi dã ngoại sang mười một giờ thứ Bảy, và Linh rất vui. Rồi David lại nhắn. Sáng thứ Bảy nào bọn trẻ nhà anh cũng có lớp học bơi. Anh hỏi: “Mình hẹn muộn hơn một chút được không?” Tom đổi giờ thành mười hai rưỡi. Sau đó Mai nhắn: “Mười hai rưỡi thì được, nhưng em phải đi lúc hai giờ. Em có cuộc họp với khách hàng.” Tom nhìn vào cuốn sổ của mình. Trang giấy đầy những mũi tên, dấu hỏi và những giờ hẹn bị gạch đi."
+        },
+        {
+          "s": "N",
+          "en": "On Thursday evening, Tom checks the weather on his phone. Rain on Saturday. Heavy rain, all afternoon. He checks again an hour later, and again before bed. The answer is always the same. On Friday morning, the questions start in the group chat. \"Are we still on for tomorrow?\" Linh asks. \"What about the rain?\" David asks. Tom doesn't know what to say.",
+          "vi": "Tối thứ Năm, Tom xem dự báo thời tiết trên điện thoại. Thứ Bảy có mưa. Mưa to, suốt cả buổi chiều. Một tiếng sau anh xem lại, rồi xem thêm lần nữa trước khi đi ngủ. Câu trả lời vẫn y như cũ. Sáng thứ Sáu, những câu hỏi bắt đầu xuất hiện trong nhóm chat. Linh hỏi: “Ngày mai mình vẫn đi như đã hẹn chứ anh?” David hỏi: “Thế còn trời mưa thì sao?” Tom không biết phải trả lời thế nào."
+        },
+        {
+          "s": "N",
+          "en": "For a moment, he thinks about cancelling. It's easy to write, \"Sorry, everyone. Something came up.\" But nothing came up, only some grey clouds, and Tom doesn't like to lie. So he makes a new plan. He writes, \"We're still on! If it rains, we can have the picnic at my flat. It's small, but it's dry. I'll text you the address tonight.\" The answers come quickly. \"Sounds good to me,\" writes David. \"An indoor picnic. I love it,\" writes Mai.",
+          "vi": "Trong một lúc, anh nghĩ đến chuyện hủy. Viết một câu như “Xin lỗi mọi người. Mình có việc đột xuất.” thì dễ lắm. Nhưng chẳng có việc gì đột xuất cả, chỉ có vài đám mây xám, mà Tom thì không thích nói dối. Vì vậy anh lập một kế hoạch mới. Anh viết: “Vẫn đi nhé! Nếu trời mưa, mình sẽ dã ngoại ở căn hộ của mình. Nhà hơi nhỏ, nhưng khô ráo. Tối nay mình sẽ nhắn địa chỉ cho mọi người.” Mọi người trả lời rất nhanh. David viết: “Anh thấy được đấy.” Mai viết: “Dã ngoại trong nhà. Em thích lắm.”"
+        },
+        {
+          "s": "N",
+          "en": "On Saturday morning, the sky is grey. But at half past twelve, when everyone meets at the main gate of the park, the sun suddenly comes out. Linh arrives with a big box of her mum's spring rolls. David brings fruit, a ball, and two very excited children. Mai brings a chocolate cake. Tom brings his guitar and a very large umbrella, just in case.",
+          "vi": "Sáng thứ Bảy, bầu trời xám xịt. Nhưng đến mười hai rưỡi, khi mọi người gặp nhau ở cổng chính công viên, mặt trời bỗng ló ra. Linh đến với một hộp nem rán to do mẹ cô làm. David mang theo hoa quả, một quả bóng và hai đứa trẻ đang vô cùng háo hức. Mai mang một chiếc bánh sô-cô-la. Còn Tom mang cây đàn ghi-ta và một chiếc ô thật to, phòng khi trời mưa."
+        },
+        {
+          "s": "N",
+          "en": "They find a quiet place by the water and eat almost everything. The spring rolls disappear in ten minutes. At two o'clock, Mai has to leave for her meeting. \"Maybe another time for the guitar,\" she laughs. \"I'm sure you'll know four songs by then.\" After she leaves, Tom plays his two and a half songs. Linh practises her wedding song, and David's children dance on the grass. Nobody cares about the wrong notes.",
+          "vi": "Họ tìm một chỗ yên tĩnh cạnh hồ và ăn gần hết mọi thứ. Hộp nem rán biến mất chỉ trong mười phút. Lúc hai giờ, Mai phải đi họp. Cô cười: “Nghe đàn thì để dịp khác nhé. Em chắc lúc đó anh sẽ biết tới bốn bài rồi.” Sau khi cô đi, Tom chơi hai bài rưỡi của mình. Linh tập bài hát cho đám cưới, còn hai đứa con của David nhảy múa trên bãi cỏ. Chẳng ai để ý đến những nốt nhạc sai."
+        },
+        {
+          "s": "N",
+          "en": "That evening, Tom sits on his sofa, tired and happy. He thinks about the week: the wedding, the swimming lessons, the client meeting, and the rain that never came. Making plans with friends is never simple, he thinks. Times change, people get busy, and the weather does what it wants. But in the end, people who want to be together always find a way. Then he picks up his phone and writes one more message. \"Same place next month? How does Saturday sound?\"",
+          "vi": "Tối hôm đó, Tom ngồi trên ghế sô-pha, mệt nhưng vui. Anh nghĩ lại cả tuần: đám cưới, lớp học bơi, cuộc họp với khách hàng và cơn mưa chẳng bao giờ tới. Anh nghĩ, lên kế hoạch với bạn bè chưa bao giờ là chuyện đơn giản. Giờ giấc thay đổi, ai cũng bận rộn, còn thời tiết thì muốn làm gì thì làm. Nhưng cuối cùng, những người muốn ở bên nhau luôn tìm ra cách. Rồi anh cầm điện thoại lên và viết thêm một tin nhắn nữa: “Tháng sau cũng chỗ cũ nhé? Thứ Bảy thì sao mọi người?”"
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "kind": "podcast",
+      "title_en": "Yes, No, and Maybe Another Time",
+      "title_vi": "Đồng ý, từ chối và để dịp khác",
+      "summary_vi": "Anna và Ben chia sẻ năm bước để lên kế hoạch bằng tiếng Anh: rủ, gợi ý giờ và chỗ, nhận lời hoặc từ chối khéo, đổi lịch và xác nhận lại, kèm một đoạn đóng vai ngắn.",
+      "speakers": {
+        "A": {
+          "name": "Anna",
+          "gender": "f"
+        },
+        "B": {
+          "name": "Ben",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "A",
+          "en": "Hello, and welcome back to Easy English at Work. I'm Anna.",
+          "vi": "Xin chào, chào mừng các bạn trở lại với chương trình Tiếng Anh dễ nghe nơi công sở. Mình là Anna."
+        },
+        {
+          "s": "B",
+          "en": "And I'm Ben. Today's topic is something we all do every week: making plans with friends and colleagues.",
+          "vi": "Còn mình là Ben. Chủ đề hôm nay là việc mà tuần nào chúng ta cũng làm: hẹn hò, lên kế hoạch với bạn bè và đồng nghiệp."
+        },
+        {
+          "s": "A",
+          "en": "Making plans sounds easy. But in English, a few small phrases can make it much easier, and much more polite. Today, we'll look at the whole process, from the first invitation to the last message before you meet.",
+          "vi": "Lên kế hoạch nghe thì dễ. Nhưng trong tiếng Anh, chỉ vài cụm từ nhỏ cũng có thể giúp việc này dễ hơn nhiều, và lịch sự hơn nhiều. Hôm nay, chúng ta sẽ đi qua cả quá trình, từ lời rủ đầu tiên cho đến tin nhắn cuối cùng trước khi gặp nhau."
+        },
+        {
+          "s": "B",
+          "en": "Let's think about the steps. First, you invite someone. Then you agree on a time and a place. Sometimes you have to say no, or change the plan. And at the end, you confirm.",
+          "vi": "Hãy nghĩ về các bước nhé. Đầu tiên, bạn rủ ai đó. Sau đó hai bên thống nhất giờ và địa điểm. Đôi khi bạn phải từ chối, hoặc đổi kế hoạch. Và cuối cùng, bạn xác nhận lại."
+        },
+        {
+          "s": "A",
+          "en": "So, step one: inviting. Ben, how do you usually invite a friend?",
+          "vi": "Vậy bước một: rủ rê. Ben, bạn thường rủ bạn bè thế nào?"
+        },
+        {
+          "s": "B",
+          "en": "I don't start with the plan. I start with a question: \"Are you free this weekend?\" It's short and friendly, and the other person can answer honestly.",
+          "vi": "Mình không bắt đầu bằng kế hoạch. Mình bắt đầu bằng một câu hỏi: “Cuối tuần này bạn có rảnh không?” Câu đó ngắn, thân thiện, và người kia có thể trả lời thật lòng."
+        },
+        {
+          "s": "A",
+          "en": "And then you tell them the plan. For example, \"We're going to the beach on Saturday. Do you want to join us?\"",
+          "vi": "Rồi bạn mới nói kế hoạch. Ví dụ: “Thứ Bảy bọn mình đi biển. Bạn có muốn đi cùng không?”"
+        },
+        {
+          "s": "B",
+          "en": "Yes. \"Do you want to join us?\" is great because there's no pressure. Your friend can say yes or no easily.",
+          "vi": "Đúng vậy. “Bạn có muốn đi cùng bọn mình không?” là câu rất hay, vì nó không tạo áp lực. Bạn của bạn có thể dễ dàng nhận lời hay từ chối."
+        },
+        {
+          "s": "A",
+          "en": "Okay, step two: the time and the place. Here, I like to ask questions instead of giving orders.",
+          "vi": "Được rồi, bước hai: giờ giấc và địa điểm. Ở bước này, mình thích đặt câu hỏi hơn là ra lệnh."
+        },
+        {
+          "s": "B",
+          "en": "Good point. Instead of \"Come at seven,\" you can ask, \"What time works for you?\" Or you can make a suggestion: \"How does Saturday sound?\"",
+          "vi": "Ý hay đấy. Thay vì nói “Bảy giờ đến nhé”, bạn có thể hỏi: “Mấy giờ thì tiện cho bạn?” Hoặc bạn có thể gợi ý: “Thứ Bảy thì sao?”"
+        },
+        {
+          "s": "A",
+          "en": "And for the place, simply ask, \"Where should we meet?\" One person suggests a place, and then you finish with, \"Does that work for you?\"",
+          "vi": "Còn về địa điểm, chỉ cần hỏi: “Mình gặp nhau ở đâu nhỉ?” Một người gợi ý một chỗ, rồi bạn kết thúc bằng câu: “Như vậy có tiện cho bạn không?”"
+        },
+        {
+          "s": "B",
+          "en": "That little question is very polite. It shows that you care about the other person's time. Another tip: give two choices. \"Saturday or Sunday?\" \"The café or the park?\" Choices make the decision quick and easy.",
+          "vi": "Câu hỏi nhỏ đó rất lịch sự. Nó cho thấy bạn tôn trọng thời gian của người kia. Thêm một mẹo nữa: hãy đưa ra hai lựa chọn. “Thứ Bảy hay Chủ nhật?” “Quán cà phê hay công viên?” Có lựa chọn thì quyết định sẽ nhanh và dễ hơn."
+        },
+        {
+          "s": "A",
+          "en": "Now, step three. Saying yes is easy. My favourite way is \"Count me in!\" It sounds happy and excited.",
+          "vi": "Giờ đến bước ba. Nhận lời thì dễ rồi. Cách mình thích nhất là “Tính cả mình nhé!” Nghe rất vui vẻ và hào hứng."
+        },
+        {
+          "s": "B",
+          "en": "Saying no is the hard part. Many learners worry that no sounds rude. But there's a simple pattern: say something nice, give a short reason, and leave the door open.",
+          "vi": "Từ chối mới là phần khó. Nhiều người học lo rằng từ chối nghe sẽ bất lịch sự. Nhưng có một công thức đơn giản: nói một câu dễ nghe, đưa ra lý do ngắn gọn, và để ngỏ cơ hội."
+        },
+        {
+          "s": "A",
+          "en": "For example: \"I'd love to, but I can't. I'm visiting my parents that day. Maybe another time.\"",
+          "vi": "Ví dụ: “Mình rất muốn, nhưng không đi được rồi. Hôm đó mình về thăm bố mẹ. Để dịp khác nhé.”"
+        },
+        {
+          "s": "B",
+          "en": "Perfect. \"I'd love to\" is the nice part. The reason is short. And \"Maybe another time\" leaves the door open.",
+          "vi": "Hoàn hảo. “Mình rất muốn” là phần dễ nghe. Lý do thì ngắn gọn. Còn “Để dịp khác nhé” là để ngỏ cơ hội."
+        },
+        {
+          "s": "A",
+          "en": "There's another useful phrase: \"Can I take a rain check?\" It means, \"Not today, but I really want to do it another time.\"",
+          "vi": "Còn một cụm từ hữu ích nữa: “Can I take a rain check?” Nó có nghĩa là: “Hôm nay thì không được, nhưng mình thật sự muốn đi vào dịp khác.”"
+        },
+        {
+          "s": "B",
+          "en": "And it has nothing to do with rain. You can use it on a sunny day!",
+          "vi": "Và nó chẳng liên quan gì đến trời mưa cả. Trời nắng bạn cũng dùng được!"
+        },
+        {
+          "s": "A",
+          "en": "One more tip: if you can't come, say it early. Please don't wait until the last minute. And be clear. In some cultures, people say \"maybe\" when they really mean no. In English, that can be confusing, because your friend keeps waiting for your answer. A clear and kind no is often more polite than a long maybe.",
+          "vi": "Thêm một mẹo nữa: nếu không đến được, hãy nói sớm. Đừng đợi đến phút cuối nhé. Và hãy nói rõ ràng. Ở một số nền văn hóa, người ta nói “có lẽ” khi thật ra ý là không. Trong tiếng Anh, điều đó dễ gây khó hiểu, vì bạn của bạn sẽ cứ chờ câu trả lời. Một lời từ chối rõ ràng và tử tế thường lịch sự hơn một câu “có lẽ” kéo dài."
+        },
+        {
+          "s": "B",
+          "en": "That brings us to step four: changing plans. Life happens. Your boss needs you, your child is sick, or your bus is late. Plans change all the time, and that's normal. The important thing is to tell people quickly.",
+          "vi": "Điều đó đưa chúng ta đến bước bốn: đổi kế hoạch. Cuộc sống luôn có những chuyện bất ngờ. Sếp cần bạn, con bạn bị ốm, hay xe buýt đến muộn. Kế hoạch thay đổi suốt, và điều đó là bình thường. Quan trọng là báo cho mọi người thật sớm."
+        },
+        {
+          "s": "A",
+          "en": "Then you can simply say, \"Something came up.\" You don't have to explain everything. Most people understand.",
+          "vi": "Khi đó bạn chỉ cần nói: “Mình có việc đột xuất.” Bạn không cần giải thích hết mọi chuyện. Hầu hết mọi người đều hiểu."
+        },
+        {
+          "s": "B",
+          "en": "And if you still want to meet, but later, try this: \"Can we make it a bit later?\" That's much better than not coming at all.",
+          "vi": "Còn nếu bạn vẫn muốn gặp nhưng muộn hơn, hãy thử câu này: “Mình hẹn muộn hơn một chút được không?” Như thế tốt hơn nhiều so với việc không đến."
+        },
+        {
+          "s": "A",
+          "en": "Finally, step five: confirming. The day before, it's a good idea to send a quick message: \"Are we still on for tomorrow?\"",
+          "vi": "Cuối cùng là bước năm: xác nhận. Vào hôm trước, bạn nên gửi một tin nhắn ngắn: “Ngày mai mình vẫn gặp nhau như đã hẹn chứ?”"
+        },
+        {
+          "s": "B",
+          "en": "And your friend might answer, \"Yes! I'll text you the address.\" Then you finish with, \"Great. See you there!\" Messages like these are short, but they save everyone a lot of stress.",
+          "vi": "Và bạn của bạn có thể trả lời: “Có chứ! Mình sẽ nhắn địa chỉ cho bạn.” Rồi bạn kết thúc bằng: “Tuyệt. Gặp nhau ở đó nhé!” Những tin nhắn như vậy rất ngắn, nhưng giúp mọi người đỡ căng thẳng rất nhiều."
+        },
+        {
+          "s": "A",
+          "en": "Let's do a short role-play. Ben, I'm going to invite you to the cinema.",
+          "vi": "Mình cùng đóng vai một chút nhé. Ben, mình sẽ rủ bạn đi xem phim."
+        },
+        {
+          "s": "A",
+          "en": "Hi Ben! Are you free on Friday evening? We're going to see a film. Do you want to join us?",
+          "vi": "Chào Ben! Tối thứ Sáu bạn có rảnh không? Bọn mình đi xem phim. Bạn có muốn đi cùng không?"
+        },
+        {
+          "s": "B",
+          "en": "Oh, I'd love to, but I have a meeting until seven. Can we make it a bit later?",
+          "vi": "Ồ, mình rất muốn, nhưng mình có cuộc họp đến bảy giờ. Mình hẹn muộn hơn một chút được không?"
+        },
+        {
+          "s": "A",
+          "en": "Sure. There's another show at eight. Does that work for you?",
+          "vi": "Được chứ. Có một suất chiếu khác lúc tám giờ. Như vậy có tiện cho bạn không?"
+        },
+        {
+          "s": "B",
+          "en": "Eight is perfect. Count me in! Where should we meet?",
+          "vi": "Tám giờ thì hoàn hảo. Tính cả mình nhé! Mình gặp nhau ở đâu?"
+        },
+        {
+          "s": "A",
+          "en": "At the cinema entrance. I'll text you the address. See you there!",
+          "vi": "Ở lối vào rạp chiếu phim. Mình sẽ nhắn địa chỉ cho bạn. Gặp nhau ở đó nhé!"
+        },
+        {
+          "s": "B",
+          "en": "See you there! You see? Five steps, and all of them are short and simple. Invite, suggest a time and a place, answer, change the plan if you need to, and confirm.",
+          "vi": "Gặp nhau ở đó nhé! Thấy chưa? Năm bước, và bước nào cũng ngắn gọn, đơn giản. Rủ, gợi ý giờ và địa điểm, trả lời, đổi kế hoạch nếu cần, và xác nhận lại."
+        },
+        {
+          "s": "A",
+          "en": "So here's your homework. This week, invite one person in English. A friend, a colleague, anyone.",
+          "vi": "Vậy đây là bài tập về nhà của các bạn. Tuần này, hãy rủ một người bằng tiếng Anh. Một người bạn, một đồng nghiệp, ai cũng được."
+        },
+        {
+          "s": "B",
+          "en": "And if they say \"Count me in!\", you know you did it right. Thanks for listening, everyone. See you next time!",
+          "vi": "Và nếu họ nói “Tính cả mình nhé!”, thì bạn biết mình đã làm đúng rồi đấy. Cảm ơn mọi người đã lắng nghe. Hẹn gặp lại lần sau!"
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "kind": "monologue",
+      "title_en": "Three Plans in One Day",
+      "title_vi": "Ba cuộc hẹn trong một ngày",
+      "summary_vi": "Mai kể về ngày thứ Bảy bận rộn của mình: buổi dã ngoại với đồng nghiệp, cuộc họp với khách hàng và bữa tối được dời giờ với người bạn cũ Huy.",
+      "speakers": {
+        "M": {
+          "name": "Mai",
+          "gender": "f"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "M",
+          "en": "Hi, I'm Mai. Last Saturday was one of the busiest days of my life. And the funny thing is, it was supposed to be a quiet weekend. Let me tell you what happened.",
+          "vi": "Chào các bạn, mình là Mai. Thứ Bảy vừa rồi là một trong những ngày bận rộn nhất đời mình. Buồn cười ở chỗ, đáng lẽ đó phải là một cuối tuần yên tĩnh. Để mình kể các bạn nghe chuyện gì đã xảy ra nhé."
+        },
+        {
+          "s": "M",
+          "en": "It started on Monday. My colleague Tom invited the whole team to a picnic by the lake. A picnic with good food and good people? Count me in! But on Wednesday, my team lead David came to my desk with bad news. An important client was in the city for one day only, on Saturday, and he needed me to meet them in the afternoon.",
+          "vi": "Mọi chuyện bắt đầu từ thứ Hai. Anh đồng nghiệp Tom rủ cả nhóm đi dã ngoại bên hồ. Dã ngoại với đồ ăn ngon và những người dễ mến à? Tính cả mình nhé! Nhưng đến thứ Tư, trưởng nhóm của mình là anh David đến bàn mình với một tin không vui. Một khách hàng quan trọng chỉ ở thành phố đúng một ngày, vào thứ Bảy, và anh ấy cần mình gặp họ vào buổi chiều."
+        },
+        {
+          "s": "M",
+          "en": "So now I had three plans on one day: the picnic at half past twelve, the client at two, and dinner with my old friend Huy at seven. Huy and I studied together at university. We try to meet every month, but this month I had already cancelled twice. Once because my cat was sick, and once because, well, I fell asleep on the sofa.",
+          "vi": "Thế là mình có ba cuộc hẹn trong một ngày: buổi dã ngoại lúc mười hai rưỡi, gặp khách lúc hai giờ, và ăn tối với Huy, bạn cũ của mình, lúc bảy giờ. Huy và mình học cùng nhau hồi đại học. Bọn mình cố gắng tháng nào cũng gặp nhau, nhưng tháng này mình đã hủy hẹn hai lần rồi. Một lần vì mèo của mình bị ốm, và một lần vì, ờ thì, mình ngủ quên trên ghế sô-pha."
+        },
+        {
+          "s": "M",
+          "en": "On Friday evening, Huy called me. \"Are we still on for tomorrow?\" he asked. I felt terrible. I said, \"Something came up,\" and asked for a rain check. Huy was quiet for a moment. Then he said, \"Mai, this is the third time.\" He was right. So I asked, \"Can we make it a bit later?\" And then he told me that he also wanted to cancel, because of a football match! We laughed for five minutes and moved dinner to half past eight.",
+          "vi": "Tối thứ Sáu, Huy gọi cho mình. Cậu ấy hỏi: “Ngày mai mình vẫn gặp nhau như đã hẹn chứ?” Mình thấy áy náy vô cùng. Mình nói: “Mình có việc đột xuất”, rồi xin hẹn lại dịp khác. Huy im lặng một lúc. Rồi cậu ấy nói: “Mai à, đây là lần thứ ba rồi đấy.” Cậu ấy nói đúng. Thế là mình hỏi: “Mình hẹn muộn hơn một chút được không?” Và rồi cậu ấy kể là cậu ấy cũng định hủy, vì có một trận bóng đá! Hai đứa cười suốt năm phút, rồi dời bữa tối sang tám rưỡi."
+        },
+        {
+          "s": "M",
+          "en": "On Saturday, I went to the picnic first. The sun came out, Linh brought her mum's spring rolls, and David said sorry for the client meeting about ten times. I stayed for an hour and a half and ate far too many spring rolls. At two o'clock, I took a taxi to meet the client. The meeting went well, and it finished at six, just as I hoped.",
+          "vi": "Thứ Bảy, mình đi dã ngoại trước. Mặt trời ló ra, Linh mang nem rán mẹ cô ấy làm, còn anh David xin lỗi mình về cuộc họp với khách đến khoảng mười lần. Mình ở lại một tiếng rưỡi và ăn quá nhiều nem rán. Lúc hai giờ, mình bắt taxi đi gặp khách. Cuộc họp diễn ra suôn sẻ và kết thúc lúc sáu giờ, đúng như mình mong."
+        },
+        {
+          "s": "M",
+          "en": "At half past eight, I walked into the restaurant. Huy was already at the table. He looked at his watch, then at me, and said, \"Wow. You really came.\" We had a lovely evening. We talked about old friends from university, our jobs, and our plans for the new year. His team lost the match, but he scored a goal, so he was very happy.",
+          "vi": "Tám rưỡi, mình bước vào nhà hàng. Huy đã ngồi ở bàn từ trước. Cậu ấy nhìn đồng hồ, rồi nhìn mình và nói: “Chà. Cậu đến thật này.” Bọn mình đã có một buổi tối thật vui. Hai đứa nói chuyện về đám bạn cũ thời đại học, về công việc và về dự định cho năm mới. Đội của cậu ấy thua trận, nhưng cậu ấy ghi được một bàn, nên vui lắm."
+        },
+        {
+          "s": "M",
+          "en": "So what did I learn? Say no early and clearly. Now, when I can't come, I say, \"I'd love to, but I can't,\" and I suggest another day straight away. I also check my calendar before I say yes. And good friends are patient. Huy and I already have our next plan: the first Saturday of next month. This time, I'm going to be there.",
+          "vi": "Vậy mình đã học được gì? Hãy từ chối sớm và rõ ràng. Giờ đây, khi không đến được, mình nói: “Mình rất muốn, nhưng không đi được rồi”, và gợi ý ngay một ngày khác. Mình cũng xem lịch trước khi nhận lời. Và bạn tốt thì luôn kiên nhẫn. Huy và mình đã có kế hoạch tiếp theo: thứ Bảy đầu tiên của tháng sau. Lần này, mình nhất định sẽ có mặt."
+        }
+      ]
+    }
+  ]
+}

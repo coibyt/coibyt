@@ -1,0 +1,893 @@
+{
+  "date": "2026-11-29",
+  "day_number": 3,
+  "level": "A2-B1",
+  "topic": {
+    "id": "work-meetings",
+    "en": "Taking part in meetings",
+    "vi": "Tham gia cuộc họp",
+    "art_prompt": "a bright modern meeting room in soft morning light, a small team around a wooden table with laptops and notebooks, a young Vietnamese woman speaking while her colleagues listen and smile, plants by the window"
+  },
+  "intro_vi": "Chủ đề hôm nay là tham gia cuộc họp: xin phép nói thêm ý, đồng ý và phản đối một cách lịch sự, nhờ người khác nhắc lại, cập nhật công việc thật nhanh và kết thúc cuộc họp với các bước tiếp theo.",
+  "phrases": [
+    {
+      "id": "p01",
+      "en": "Can I just add something?",
+      "vi": "Cho tôi bổ sung một chút được không?",
+      "note_vi": "Cách lịch sự để xin nói thêm ý của mình trong cuộc họp. Chữ “just” làm câu nghe nhẹ nhàng hơn.",
+      "examples": [
+        {
+          "en": "Can I just add something? The client also asked for a new logo.",
+          "vi": "Cho tôi bổ sung một chút được không? Khách hàng cũng yêu cầu một logo mới."
+        },
+        {
+          "en": "Sorry, can I just add something before we finish?",
+          "vi": "Xin lỗi, trước khi kết thúc, cho tôi bổ sung một chút được không?"
+        }
+      ]
+    },
+    {
+      "id": "p02",
+      "en": "Sorry to interrupt.",
+      "vi": "Xin lỗi vì đã ngắt lời.",
+      "note_vi": "Dùng khi bạn cần chen vào lúc người khác đang nói. Thường nói tiếp: “Sorry to interrupt, but …”.",
+      "examples": [
+        {
+          "en": "Sorry to interrupt, but we only have five minutes left.",
+          "vi": "Xin lỗi vì đã ngắt lời, nhưng chúng ta chỉ còn năm phút thôi."
+        },
+        {
+          "en": "Sorry to interrupt. Is the design meeting in this room?",
+          "vi": "Xin lỗi đã làm gián đoạn. Cuộc họp thiết kế ở phòng này phải không ạ?"
+        }
+      ]
+    },
+    {
+      "id": "p03",
+      "en": "Could you say that again?",
+      "vi": "Bạn nói lại được không?",
+      "note_vi": "Nhờ người khác nhắc lại khi bạn nghe không rõ. Lịch sự hơn rất nhiều so với chỉ nói “What?”.",
+      "examples": [
+        {
+          "en": "Sorry, could you say that again? I didn't catch the last part.",
+          "vi": "Xin lỗi, anh nói lại được không? Tôi nghe không kịp phần cuối."
+        },
+        {
+          "en": "Could you say that again a bit more slowly, please?",
+          "vi": "Chị nói lại chậm hơn một chút được không ạ?"
+        }
+      ]
+    },
+    {
+      "id": "p04",
+      "en": "What do you mean by that?",
+      "vi": "Ý bạn là sao?",
+      "note_vi": "Hỏi khi bạn nghe rõ từng chữ nhưng chưa hiểu ý. Nói nhẹ nhàng, mỉm cười để không nghe như đang bắt bẻ.",
+      "examples": [
+        {
+          "en": "You said the design is too busy. What do you mean by that?",
+          "vi": "Anh bảo thiết kế này rối quá. Ý anh là sao?"
+        },
+        {
+          "en": "What do you mean by that? Can you give me an example?",
+          "vi": "Ý chị là sao? Chị cho em một ví dụ được không?"
+        }
+      ]
+    },
+    {
+      "id": "p05",
+      "en": "Just to be clear.",
+      "vi": "Cho rõ ràng nhé.",
+      "note_vi": "Dùng để kiểm tra lại hoặc nói rõ một điểm quan trọng, tránh hiểu lầm. Thường đứng đầu câu: “Just to be clear, …”.",
+      "examples": [
+        {
+          "en": "Just to be clear, the deadline is Friday, not Monday?",
+          "vi": "Cho rõ ràng nhé, hạn chót là thứ Sáu chứ không phải thứ Hai, đúng không?"
+        },
+        {
+          "en": "Just to be clear, I'm not saying it's a bad idea.",
+          "vi": "Nói cho rõ nhé, tôi không bảo đó là ý tồi đâu."
+        }
+      ]
+    },
+    {
+      "id": "p06",
+      "en": "I couldn't agree more.",
+      "vi": "Tôi hoàn toàn đồng ý.",
+      "note_vi": "Cách đồng ý mạnh nhất, nghĩa đen là “không thể đồng ý hơn được nữa”. Đừng nhầm là “không đồng ý”.",
+      "examples": [
+        {
+          "en": "I couldn't agree more. The first page is the most important.",
+          "vi": "Tôi hoàn toàn đồng ý. Trang đầu tiên là quan trọng nhất."
+        },
+        {
+          "en": "You think we need a short break? I couldn't agree more!",
+          "vi": "Anh nghĩ mình cần nghỉ giải lao một chút à? Tôi hoàn toàn đồng ý!"
+        }
+      ]
+    },
+    {
+      "id": "p07",
+      "en": "I see your point.",
+      "vi": "Tôi hiểu ý bạn.",
+      "note_vi": "Cho thấy bạn tôn trọng ý kiến người khác trước khi nói ý của mình. Thường nói tiếp: “I see your point, but …”.",
+      "examples": [
+        {
+          "en": "I see your point, but I think the price is too high.",
+          "vi": "Tôi hiểu ý anh, nhưng tôi nghĩ giá này cao quá."
+        },
+        {
+          "en": "OK, I see your point. Let's try it your way.",
+          "vi": "Được rồi, tôi hiểu ý chị. Mình thử làm theo cách của chị nhé."
+        }
+      ]
+    },
+    {
+      "id": "p08",
+      "en": "I'm not sure about that.",
+      "vi": "Tôi không chắc lắm về chuyện đó.",
+      "note_vi": "Cách phản đối nhẹ nhàng, lịch sự. Người bản xứ hay dùng câu này thay cho “I disagree.”",
+      "examples": [
+        {
+          "en": "A meeting at seven in the morning? I'm not sure about that.",
+          "vi": "Họp lúc bảy giờ sáng à? Tôi không chắc lắm về chuyện đó."
+        },
+        {
+          "en": "I'm not sure about that. Can we look at the numbers again?",
+          "vi": "Tôi không chắc lắm về chuyện đó. Mình xem lại số liệu được không?"
+        }
+      ]
+    },
+    {
+      "id": "p09",
+      "en": "Let's move on.",
+      "vi": "Mình chuyển sang phần tiếp theo nhé.",
+      "note_vi": "Người chủ trì dùng câu này để chuyển sang nội dung kế tiếp. Hay nói: “Let's move on to …”.",
+      "examples": [
+        {
+          "en": "OK, that's clear. Let's move on to the next point.",
+          "vi": "Được rồi, vậy là rõ. Mình chuyển sang ý tiếp theo nhé."
+        },
+        {
+          "en": "We don't have much time, so let's move on.",
+          "vi": "Chúng ta không còn nhiều thời gian, nên mình chuyển sang phần tiếp theo nhé."
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "en": "Here's a quick update.",
+      "vi": "Tôi xin cập nhật nhanh tình hình.",
+      "note_vi": "Câu mở đầu khi bạn báo cáo ngắn về tiến độ công việc. Sau đó chỉ cần nói hai, ba ý chính.",
+      "examples": [
+        {
+          "en": "Here's a quick update on the new website.",
+          "vi": "Tôi xin cập nhật nhanh về trang web mới."
+        },
+        {
+          "en": "Good morning, everyone. Here's a quick update from the sales team.",
+          "vi": "Chào buổi sáng mọi người. Tôi xin cập nhật nhanh tình hình của nhóm kinh doanh."
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "en": "We're on track.",
+      "vi": "Mọi việc đang đúng tiến độ.",
+      "note_vi": "Báo rằng công việc đang đi đúng kế hoạch. Ngược lại là “We're behind schedule.”",
+      "examples": [
+        {
+          "en": "Don't worry. We're on track to finish by Friday.",
+          "vi": "Đừng lo. Mọi việc đang đúng tiến độ để xong trước thứ Sáu."
+        },
+        {
+          "en": "We're on track, but next week will be very busy.",
+          "vi": "Mọi việc đang đúng tiến độ, nhưng tuần sau sẽ rất bận đấy."
+        }
+      ]
+    },
+    {
+      "id": "p12",
+      "en": "Can we come back to that later?",
+      "vi": "Chuyện đó mình bàn sau được không?",
+      "note_vi": "Lịch sự hoãn một chủ đề lại, để cuộc họp không bị lan man hay kéo dài.",
+      "examples": [
+        {
+          "en": "That's a big question. Can we come back to that later?",
+          "vi": "Đó là một câu hỏi lớn. Chuyện đó mình bàn sau được không?"
+        },
+        {
+          "en": "Can we come back to that later? I want to finish this point first.",
+          "vi": "Chuyện đó mình bàn sau được không? Tôi muốn nói xong ý này trước."
+        }
+      ]
+    },
+    {
+      "id": "p13",
+      "en": "What are the next steps?",
+      "vi": "Các bước tiếp theo là gì?",
+      "note_vi": "Câu hỏi quan trọng ở cuối cuộc họp, để mọi người biết ai làm gì và làm khi nào.",
+      "examples": [
+        {
+          "en": "OK, we've made a decision. What are the next steps?",
+          "vi": "Được rồi, chúng ta đã quyết định xong. Các bước tiếp theo là gì?"
+        },
+        {
+          "en": "Before we finish, what are the next steps for this project?",
+          "vi": "Trước khi kết thúc, các bước tiếp theo của dự án này là gì?"
+        }
+      ]
+    },
+    {
+      "id": "p14",
+      "en": "Does that work for everyone?",
+      "vi": "Mọi người thấy vậy được không?",
+      "note_vi": "Hỏi xem cả nhóm có đồng ý với một kế hoạch hay một thời gian không. Khi hỏi một người: “Does that work for you?”",
+      "examples": [
+        {
+          "en": "Let's meet again on Tuesday at ten. Does that work for everyone?",
+          "vi": "Thứ Ba lúc mười giờ mình họp lại nhé. Mọi người thấy vậy được không?"
+        },
+        {
+          "en": "I'll send the report on Monday. Does that work for everyone?",
+          "vi": "Tôi sẽ gửi báo cáo vào thứ Hai. Mọi người thấy vậy được không?"
+        }
+      ]
+    },
+    {
+      "id": "p15",
+      "en": "Let's wrap things up.",
+      "vi": "Mình kết thúc ở đây nhé.",
+      "note_vi": "“Wrap up” nghĩa là kết thúc, gói gọn lại. Người chủ trì hay nói câu này khi cuộc họp sắp hết giờ.",
+      "examples": [
+        {
+          "en": "It's almost twelve o'clock, so let's wrap things up.",
+          "vi": "Gần mười hai giờ rồi, nên mình kết thúc ở đây nhé."
+        },
+        {
+          "en": "Let's wrap things up. Thank you all for coming.",
+          "vi": "Mình kết thúc ở đây nhé. Cảm ơn mọi người đã đến dự."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "d1",
+      "title_en": "A design meeting about a bakery website",
+      "title_vi": "Cuộc họp thiết kế trang web cho tiệm bánh",
+      "setting_vi": "Linh và Tom họp để chọn ảnh chính cho trang web của một tiệm bánh nhỏ. Tom có một ý tưởng hơi quá đà.",
+      "speakers": {
+        "A": {
+          "name": "Tom",
+          "gender": "m"
+        },
+        "B": {
+          "name": "Linh",
+          "gender": "f"
+        }
+      },
+      "lines": [
+        {
+          "s": "A",
+          "en": "OK, let's start. Today we need to choose the main picture for the bakery website.",
+          "vi": "Được rồi, mình bắt đầu nhé. Hôm nay mình cần chọn ảnh chính cho trang web của tiệm bánh."
+        },
+        {
+          "s": "A",
+          "en": "I think we should use a big photo of a chocolate cake.",
+          "vi": "Anh nghĩ mình nên dùng một bức ảnh thật to chụp chiếc bánh sô-cô-la."
+        },
+        {
+          "s": "B",
+          "en": "Hmm. I see your point, but this bakery is famous for its bread, not its cakes.",
+          "vi": "Hừm. Em hiểu ý anh, nhưng tiệm này nổi tiếng nhờ bánh mì, chứ không phải bánh ngọt."
+        },
+        {
+          "s": "A",
+          "en": "True, but everyone loves chocolate. People always stop for chocolate.",
+          "vi": "Đúng, nhưng ai cũng mê sô-cô-la. Thấy sô-cô-la là người ta dừng lại xem ngay."
+        },
+        {
+          "s": "A",
+          "en": "And I want the cake to turn slowly, and then little stars appear around it.",
+          "vi": "Mà anh muốn chiếc bánh xoay từ từ, rồi những ngôi sao nhỏ hiện lên xung quanh."
+        },
+        {
+          "s": "B",
+          "en": "Sorry to interrupt, but did you say stars?",
+          "vi": "Xin lỗi vì đã ngắt lời, nhưng anh vừa nói ngôi sao à?"
+        },
+        {
+          "s": "A",
+          "en": "Yes, gold stars, lots of them, flying all over the page, with music, and maybe a little dancing croissant at the bottom.",
+          "vi": "Ừ, sao vàng, thật nhiều, bay khắp trang, có cả nhạc nữa, và có khi thêm một chiếc bánh sừng bò nhỏ nhảy múa ở dưới cùng."
+        },
+        {
+          "s": "B",
+          "en": "Wait, could you say that again? You're talking really fast.",
+          "vi": "Khoan đã, anh nói lại được không? Anh nói nhanh quá."
+        },
+        {
+          "s": "A",
+          "en": "Sorry. Gold stars, music, and a dancing croissant.",
+          "vi": "Xin lỗi em. Sao vàng, có nhạc, và một chiếc bánh sừng bò nhảy múa."
+        },
+        {
+          "s": "B",
+          "en": "A dancing croissant. What do you mean by that, exactly?",
+          "vi": "Bánh sừng bò nhảy múa. Chính xác thì ý anh là sao?"
+        },
+        {
+          "s": "A",
+          "en": "You know, a small cartoon croissant. It waves at you and says hello.",
+          "vi": "Thì kiểu một chiếc bánh sừng bò hoạt hình nho nhỏ. Nó vẫy tay và chào mình."
+        },
+        {
+          "s": "B",
+          "en": "That's very creative, Tom. But I'm not sure about that.",
+          "vi": "Ý tưởng sáng tạo lắm, anh Tom. Nhưng em không chắc lắm về chuyện đó."
+        },
+        {
+          "s": "B",
+          "en": "The owner is a quiet older man. He told us he wants something simple and warm.",
+          "vi": "Chủ tiệm là một bác lớn tuổi, ít nói. Bác ấy bảo bọn mình là bác muốn một thứ đơn giản và ấm áp."
+        },
+        {
+          "s": "A",
+          "en": "Simple and warm. Hmm, a croissant can be warm.",
+          "vi": "Đơn giản và ấm áp. Hừm, bánh sừng bò cũng có thể ấm mà."
+        },
+        {
+          "s": "B",
+          "en": "Only when it comes out of the oven!",
+          "vi": "Chỉ khi nó vừa ra lò thôi anh ạ!"
+        },
+        {
+          "s": "A",
+          "en": "Fair enough. So what's your idea?",
+          "vi": "Cũng đúng. Thế ý tưởng của em là gì?"
+        },
+        {
+          "s": "B",
+          "en": "A photo of the owner in the early morning, taking fresh bread out of the oven.",
+          "vi": "Một bức ảnh chụp bác chủ tiệm lúc sáng sớm, đang lấy bánh mì nóng hổi ra khỏi lò."
+        },
+        {
+          "s": "B",
+          "en": "Soft light, a little flour in the air, and no music.",
+          "vi": "Ánh sáng dịu, chút bột mì bay trong không khí, và không có nhạc."
+        },
+        {
+          "s": "A",
+          "en": "Hmm. That's actually really nice. People like to see the real person behind a shop.",
+          "vi": "Hừm. Thật ra cũng hay đấy. Người ta thích được thấy con người thật đứng sau một cửa hàng."
+        },
+        {
+          "s": "B",
+          "en": "Exactly. It feels honest.",
+          "vi": "Đúng vậy. Nó tạo cảm giác chân thật."
+        },
+        {
+          "s": "A",
+          "en": "Can I just add something?",
+          "vi": "Cho anh bổ sung một chút được không?"
+        },
+        {
+          "s": "B",
+          "en": "Of course, go ahead.",
+          "vi": "Tất nhiên rồi, anh cứ nói."
+        },
+        {
+          "s": "A",
+          "en": "We could put a short line under the photo: \"Every morning at five o'clock.\"",
+          "vi": "Mình có thể thêm một dòng ngắn bên dưới ảnh: “Mỗi sáng lúc năm giờ.”"
+        },
+        {
+          "s": "B",
+          "en": "Oh, I love that. It shows how hard he works.",
+          "vi": "Ồ, em thích ý đó lắm. Nó cho thấy bác ấy làm việc chăm chỉ thế nào."
+        },
+        {
+          "s": "A",
+          "en": "And that the bread is always fresh. That's the most important message.",
+          "vi": "Và cho thấy bánh mì lúc nào cũng mới ra lò. Đó là thông điệp quan trọng nhất."
+        },
+        {
+          "s": "B",
+          "en": "I couldn't agree more.",
+          "vi": "Em hoàn toàn đồng ý."
+        },
+        {
+          "s": "A",
+          "en": "Good. But what about my dancing croissant?",
+          "vi": "Tốt. Nhưng còn chiếc bánh sừng bò nhảy múa của anh thì sao?"
+        },
+        {
+          "s": "B",
+          "en": "Can we come back to that later?",
+          "vi": "Chuyện đó mình bàn sau được không anh?"
+        },
+        {
+          "s": "A",
+          "en": "How much later?",
+          "vi": "Sau là bao giờ?"
+        },
+        {
+          "s": "B",
+          "en": "Maybe next year. For a different client.",
+          "vi": "Chắc là năm sau. Cho một khách hàng khác."
+        },
+        {
+          "s": "A",
+          "en": "OK, OK. I'll keep him for a children's party website.",
+          "vi": "Thôi được rồi. Anh sẽ để dành cậu bánh ấy cho một trang web tiệc sinh nhật trẻ con vậy."
+        },
+        {
+          "s": "B",
+          "en": "Perfect. He'll be much happier there.",
+          "vi": "Tuyệt. Ở đó chắc cậu ấy sẽ vui hơn nhiều."
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "title_en": "The Friday team meeting",
+      "title_vi": "Cuộc họp nhóm sáng thứ Sáu",
+      "setting_vi": "David chủ trì cuộc họp nhóm hằng tuần. Mai cập nhật dự án trang web tiệm bánh, trong khi phòng họp chỉ được đặt đến mười giờ.",
+      "speakers": {
+        "A": {
+          "name": "David",
+          "gender": "m"
+        },
+        "B": {
+          "name": "Mai",
+          "gender": "f"
+        }
+      },
+      "lines": [
+        {
+          "s": "A",
+          "en": "Good morning, everyone. We only have the room until ten, so let's be quick.",
+          "vi": "Chào buổi sáng mọi người. Mình chỉ được dùng phòng này đến mười giờ, nên làm nhanh nhé."
+        },
+        {
+          "s": "A",
+          "en": "Mai, can you start with the bakery project?",
+          "vi": "Mai, em bắt đầu với dự án tiệm bánh nhé?"
+        },
+        {
+          "s": "B",
+          "en": "Sure. Here's a quick update.",
+          "vi": "Vâng ạ. Em xin cập nhật nhanh tình hình."
+        },
+        {
+          "s": "B",
+          "en": "The design team chose the main photo on Monday. It's the owner taking bread out of the oven.",
+          "vi": "Hôm thứ Hai, nhóm thiết kế đã chọn xong ảnh chính. Đó là ảnh bác chủ tiệm đang lấy bánh mì ra khỏi lò."
+        },
+        {
+          "s": "B",
+          "en": "I showed it to him yesterday, and he loved it. He even showed it to his wife.",
+          "vi": "Hôm qua em đã cho bác ấy xem, và bác rất thích. Bác còn khoe với cả vợ nữa."
+        },
+        {
+          "s": "A",
+          "en": "Great news. And the rest of the website?",
+          "vi": "Tin tốt đấy. Thế còn phần còn lại của trang web?"
+        },
+        {
+          "s": "B",
+          "en": "We're on track. The first version will be ready next Wednesday.",
+          "vi": "Mọi việc đang đúng tiến độ ạ. Bản đầu tiên sẽ xong vào thứ Tư tuần sau."
+        },
+        {
+          "s": "A",
+          "en": "Next Wednesday. Just to be clear, is that the full website or only the home page?",
+          "vi": "Thứ Tư tuần sau. Cho rõ ràng nhé, đó là toàn bộ trang web hay chỉ có trang chủ thôi?"
+        },
+        {
+          "s": "B",
+          "en": "Only the home page and the menu page. The full website will be ready at the end of the month.",
+          "vi": "Chỉ trang chủ và trang thực đơn thôi ạ. Toàn bộ trang web sẽ xong vào cuối tháng."
+        },
+        {
+          "s": "A",
+          "en": "OK, good. Any problems?",
+          "vi": "Được, tốt rồi. Có vấn đề gì không em?"
+        },
+        {
+          "s": "B",
+          "en": "Just one. The owner wants to put all forty kinds of bread on the menu page.",
+          "vi": "Chỉ một thôi ạ. Bác chủ tiệm muốn đưa cả bốn mươi loại bánh mì lên trang thực đơn."
+        },
+        {
+          "s": "A",
+          "en": "Forty? That's a very long page.",
+          "vi": "Bốn mươi? Thế thì trang dài lắm đấy."
+        },
+        {
+          "s": "B",
+          "en": "I know. I suggested only his ten most popular ones, with photos.",
+          "vi": "Em biết ạ. Em đã gợi ý chỉ đưa mười loại được ưa chuộng nhất, kèm ảnh."
+        },
+        {
+          "s": "A",
+          "en": "Good idea. What did he say?",
+          "vi": "Ý hay đấy. Bác ấy nói sao?"
+        },
+        {
+          "s": "B",
+          "en": "He said, \"But all my bread is popular!\"",
+          "vi": "Bác ấy bảo: “Nhưng bánh nào của tôi cũng được ưa chuộng mà!”"
+        },
+        {
+          "s": "A",
+          "en": "Of course he did. We can decide that with him next week. Let's move on to the budget.",
+          "vi": "Cũng phải thôi. Tuần sau mình quyết chuyện đó với bác ấy. Giờ mình chuyển sang phần ngân sách nhé."
+        },
+        {
+          "s": "B",
+          "en": "The budget is fine. We've used about half of it so far.",
+          "vi": "Ngân sách vẫn ổn ạ. Đến giờ mình mới dùng khoảng một nửa."
+        },
+        {
+          "s": "A",
+          "en": "Perfect. It's almost ten, so what are the next steps?",
+          "vi": "Tuyệt. Gần mười giờ rồi, vậy các bước tiếp theo là gì?"
+        },
+        {
+          "s": "B",
+          "en": "First, Linh finishes the home page by Tuesday.",
+          "vi": "Thứ nhất, Linh hoàn thành trang chủ trước thứ Ba."
+        },
+        {
+          "s": "B",
+          "en": "Then I send it to the owner on Wednesday morning.",
+          "vi": "Sau đó em gửi cho bác chủ tiệm vào sáng thứ Tư."
+        },
+        {
+          "s": "B",
+          "en": "And on Thursday, we all meet him at the bakery to talk about the menu.",
+          "vi": "Và thứ Năm, cả nhóm mình gặp bác ấy ở tiệm bánh để bàn về thực đơn."
+        },
+        {
+          "s": "A",
+          "en": "At the bakery? Does that work for everyone?",
+          "vi": "Ở tiệm bánh à? Mọi người thấy vậy được không?"
+        },
+        {
+          "s": "B",
+          "en": "Everyone's nodding. And Tom is smiling for the first time this week.",
+          "vi": "Mọi người đều gật đầu ạ. Còn anh Tom thì cười lần đầu tiên trong tuần này."
+        },
+        {
+          "s": "A",
+          "en": "Tom is smiling because there will be fresh croissants.",
+          "vi": "Tom cười là vì ở đó sẽ có bánh sừng bò mới ra lò đấy."
+        },
+        {
+          "s": "B",
+          "en": "Probably. Oh, one more thing. Who's going to write the text for the menu?",
+          "vi": "Chắc vậy ạ. À, còn một việc nữa. Ai sẽ viết nội dung cho trang thực đơn ạ?"
+        },
+        {
+          "s": "A",
+          "en": "Good question. I'll ask the owner to send us a short description of each bread.",
+          "vi": "Câu hỏi hay đấy. Anh sẽ nhờ bác chủ tiệm gửi cho mình một đoạn mô tả ngắn về từng loại bánh."
+        },
+        {
+          "s": "B",
+          "en": "Each of the forty?",
+          "vi": "Cả bốn mươi loại ạ?"
+        },
+        {
+          "s": "A",
+          "en": "Just the ten. Wish me luck.",
+          "vi": "Chỉ mười loại thôi. Chúc anh may mắn đi."
+        },
+        {
+          "s": "B",
+          "en": "Good luck! Oh, David, the marketing team is already waiting outside the door.",
+          "vi": "Chúc anh may mắn! À, anh David ơi, nhóm marketing đang đứng chờ ngoài cửa rồi kìa."
+        },
+        {
+          "s": "A",
+          "en": "Right on time. OK, let's wrap things up. Thanks, everyone. Great work this week.",
+          "vi": "Đúng giờ thật. Được rồi, mình kết thúc ở đây nhé. Cảm ơn mọi người. Tuần này mọi người làm tốt lắm."
+        },
+        {
+          "s": "B",
+          "en": "Thanks, David. I'll send everyone the notes this afternoon.",
+          "vi": "Cảm ơn anh David. Chiều nay em sẽ gửi biên bản họp cho mọi người."
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l1",
+      "kind": "story",
+      "title_en": "The Yellow Sticky Note",
+      "title_vi": "Mẩu giấy nhớ màu vàng",
+      "summary_vi": "Linh từng rất ít nói trong các cuộc họp. Nhờ vài cụm từ ghi trên một mẩu giấy nhớ, cô dần tự tin nói lên ý kiến của mình.",
+      "speakers": {
+        "N": {
+          "name": "Narrator",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "N",
+          "en": "When Linh started her job at the design company, she was very quiet in meetings. She had good ideas, but she kept them in her notebook. Everyone spoke so quickly, and she was afraid of making mistakes in English. By the time she was ready to say something, the meeting had already moved on to the next point. So she just listened, nodded, and wrote everything down.",
+          "vi": "Khi mới vào làm ở công ty thiết kế, Linh rất ít nói trong các cuộc họp. Cô có nhiều ý tưởng hay, nhưng chỉ giữ chúng trong cuốn sổ tay. Mọi người nói nhanh quá, và cô sợ mắc lỗi tiếng Anh. Đến lúc cô sẵn sàng lên tiếng thì cuộc họp đã chuyển sang ý tiếp theo mất rồi. Vì thế, cô chỉ ngồi nghe, gật đầu và ghi chép lại mọi thứ."
+        },
+        {
+          "s": "N",
+          "en": "One afternoon, her team leader, David, asked her to stay after a meeting. \"Linh, you always look like you have an idea,\" he said. \"Why don't you say it?\" Linh told him the truth. She did not know how to join a conversation that was moving so fast. David smiled. \"You don't need perfect English,\" he said. \"You only need a few good phrases. Try 'Can I just add something?' It works every time.\"",
+          "vi": "Một buổi chiều, trưởng nhóm David bảo cô ở lại sau cuộc họp. “Linh này, trông em lúc nào cũng như đang có ý tưởng,” anh nói. “Sao em không nói ra?” Linh kể thật với anh. Cô không biết làm sao để chen vào một cuộc trò chuyện diễn ra nhanh như vậy. David mỉm cười. “Em không cần tiếng Anh hoàn hảo đâu,” anh nói. “Em chỉ cần vài cụm từ hay thôi. Thử câu ‘Cho tôi bổ sung một chút được không?’ xem. Lần nào cũng hiệu quả.”"
+        },
+        {
+          "s": "N",
+          "en": "That evening, Linh wrote the phrase on a yellow sticky note and put it on her laptop. Then she added two more: \"Could you say that again?\" and \"I see your point.\" She practised them on the bus, in the shower, and even in the supermarket, very quietly, so that nobody could hear her. Her cat heard them many times, but the cat did not seem very impressed.",
+          "vi": "Tối hôm đó, Linh viết câu ấy lên một mẩu giấy nhớ màu vàng và dán lên máy tính. Rồi cô viết thêm hai câu nữa: “Bạn nói lại được không?” và “Tôi hiểu ý bạn.” Cô tập nói trên xe buýt, khi tắm, và cả trong siêu thị, thật khẽ để không ai nghe thấy. Con mèo của cô đã nghe những câu đó rất nhiều lần, nhưng có vẻ nó chẳng ấn tượng lắm."
+        },
+        {
+          "s": "N",
+          "en": "Her chance came with a new client, a small family bakery. In the first design meeting, Tom was full of energy. He wanted a chocolate cake that turned slowly on the screen, gold stars that flew across the page, and a cartoon croissant that danced and waved hello. He was talking so fast that Linh only understood half of it. Her heart was beating hard, but she looked at her sticky note and said, \"Sorry, could you say that again?\"",
+          "vi": "Cơ hội của cô đến cùng một khách hàng mới, một tiệm bánh nhỏ của gia đình. Trong buổi họp thiết kế đầu tiên, Tom tràn đầy năng lượng. Anh muốn có một chiếc bánh sô-cô-la xoay từ từ trên màn hình, những ngôi sao vàng bay khắp trang, và một chiếc bánh sừng bò hoạt hình vừa nhảy múa vừa vẫy tay chào. Anh nói nhanh đến mức Linh chỉ hiểu được một nửa. Tim cô đập mạnh, nhưng cô nhìn mẩu giấy nhớ và nói: “Xin lỗi, anh nói lại được không?”"
+        },
+        {
+          "s": "N",
+          "en": "Tom laughed and said it all again, more slowly. This time Linh understood every word, and she knew it was not right for the client. The baker was a quiet older man who wanted something simple and warm. So she took a deep breath. \"I see your point,\" she said, \"but I'm not sure about that.\" Then she explained her own idea: a photo of the baker in the early morning, taking fresh bread out of the oven.",
+          "vi": "Tom bật cười và nói lại tất cả, chậm hơn. Lần này Linh hiểu từng chữ, và cô biết ý tưởng đó không hợp với khách hàng. Bác chủ tiệm là một người lớn tuổi, ít nói, chỉ muốn một thứ đơn giản và ấm áp. Thế là cô hít một hơi thật sâu. “Em hiểu ý anh,” cô nói, “nhưng em không chắc lắm về chuyện đó.” Rồi cô trình bày ý tưởng của mình: một bức ảnh chụp bác chủ tiệm lúc sáng sớm, đang lấy bánh mì nóng hổi ra khỏi lò."
+        },
+        {
+          "s": "N",
+          "en": "Tom thought about it for a moment. Then he said, \"Can I just add something?\" and suggested a short line under the photo: \"Every morning at five o'clock.\" Linh loved it. In ten minutes, they had a plan that both of them were proud of. The dancing croissant was not part of it, but Tom promised to keep it for a children's party website one day. For Linh, it was the first time she had really fought for her own idea in English, and it felt good.",
+          "vi": "Tom suy nghĩ một lát. Rồi anh nói: “Cho anh bổ sung một chút được không?” và gợi ý thêm một dòng ngắn bên dưới ảnh: “Mỗi sáng lúc năm giờ.” Linh rất thích. Chỉ trong mười phút, họ đã có một kế hoạch mà cả hai đều thấy tự hào. Chiếc bánh sừng bò nhảy múa không có trong đó, nhưng Tom hứa sẽ để dành nó cho một trang web tiệc sinh nhật trẻ con vào một ngày nào đó. Với Linh, đó là lần đầu tiên cô thật sự bảo vệ ý tưởng của mình bằng tiếng Anh, và cảm giác ấy thật tuyệt."
+        },
+        {
+          "s": "N",
+          "en": "On Friday, at the weekly team meeting, Mai gave a quick update on the project. \"We're on track,\" she said, \"and the client loves the main photo.\" David looked at Linh and smiled. After the meeting, he stopped at her desk. \"I heard you had some strong opinions this week,\" he said. Linh felt her face go red. \"Is that a problem?\" she asked. \"Not at all,\" said David. \"That's exactly what we need.\"",
+          "vi": "Thứ Sáu, trong cuộc họp nhóm hằng tuần, Mai cập nhật nhanh về dự án. “Mọi việc đang đúng tiến độ,” cô nói, “và khách hàng rất thích bức ảnh chính.” David nhìn Linh và mỉm cười. Sau cuộc họp, anh ghé qua bàn cô. “Anh nghe nói tuần này em có những ý kiến rất mạnh mẽ,” anh nói. Linh thấy mặt mình đỏ bừng. “Như vậy có sao không ạ?” cô hỏi. “Không sao cả,” David đáp. “Đó chính là điều nhóm mình cần.”"
+        },
+        {
+          "s": "N",
+          "en": "Linh still keeps the yellow sticky note on her laptop, but she doesn't need to look at it anymore. The phrases come out by themselves now. She has learned that a meeting is not a test, and nobody is counting her mistakes. Her colleagues just want to hear what she thinks. And the only way to share a good idea is to say it out loud, even if your voice shakes a little the first time.",
+          "vi": "Linh vẫn giữ mẩu giấy nhớ màu vàng trên máy tính, nhưng cô không cần nhìn vào nó nữa. Giờ đây những cụm từ ấy tự bật ra. Cô đã hiểu rằng cuộc họp không phải là một bài kiểm tra, và không ai đếm lỗi của cô cả. Đồng nghiệp chỉ muốn nghe cô nghĩ gì. Và cách duy nhất để chia sẻ một ý tưởng hay là nói nó ra thành lời, dù lần đầu giọng bạn có hơi run một chút."
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "kind": "podcast",
+      "title_en": "Speak Up in Meetings",
+      "title_vi": "Mạnh dạn lên tiếng trong cuộc họp",
+      "summary_vi": "Anna và Ben chia sẻ bốn mẹo: nói sớm, dùng cụm từ để xin lời, mạnh dạn hỏi lại, và phản đối một cách lịch sự, kèm một đoạn đóng vai ngắn.",
+      "speakers": {
+        "A": {
+          "name": "Anna",
+          "gender": "f"
+        },
+        "B": {
+          "name": "Ben",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "A",
+          "en": "Hello, and welcome to Easy English at Work. I'm Anna.",
+          "vi": "Xin chào, chào mừng các bạn đến với chương trình Tiếng Anh dễ nghe nơi công sở. Mình là Anna."
+        },
+        {
+          "s": "B",
+          "en": "And I'm Ben. Today's topic is something that many of us find a little scary: meetings.",
+          "vi": "Còn mình là Ben. Chủ đề hôm nay là một thứ mà nhiều người trong chúng ta thấy hơi đáng sợ: các cuộc họp."
+        },
+        {
+          "s": "A",
+          "en": "Meetings in English can be really hard. People speak fast, they interrupt each other, and by the time you're ready to speak, the topic has already changed.",
+          "vi": "Họp bằng tiếng Anh có thể rất khó. Mọi người nói nhanh, hay ngắt lời nhau, và đến lúc bạn sẵn sàng lên tiếng thì chủ đề đã đổi mất rồi."
+        },
+        {
+          "s": "B",
+          "en": "I know that feeling. I once spent a whole meeting waiting for the right moment, and the right moment never came. By the time I opened my mouth, everyone was standing up and leaving the room.",
+          "vi": "Mình hiểu cảm giác đó. Có lần mình ngồi suốt cả buổi họp để chờ đúng thời điểm, mà thời điểm đó chẳng bao giờ đến. Đến lúc mình mở miệng thì mọi người đã đứng dậy rời khỏi phòng rồi."
+        },
+        {
+          "s": "A",
+          "en": "So today we have four simple tips to help you take part in a meeting, not just sit and listen. And at the end, we'll do a short role-play, so you can hear the phrases in action.",
+          "vi": "Vì vậy hôm nay chúng mình có bốn mẹo đơn giản giúp bạn tham gia cuộc họp, chứ không chỉ ngồi nghe. Và cuối chương trình, chúng mình sẽ đóng vai một đoạn ngắn để các bạn nghe những cụm từ này được dùng thế nào."
+        },
+        {
+          "s": "B",
+          "en": "Tip number one: speak early. Try to say something in the first ten minutes, because the longer you wait, the harder it gets. Even a small comment, like \"I couldn't agree more,\" helps you feel part of the meeting.",
+          "vi": "Mẹo thứ nhất: nói sớm. Hãy cố nói điều gì đó trong mười phút đầu tiên, vì càng chờ lâu thì càng khó. Chỉ một nhận xét nhỏ thôi, như “Tôi hoàn toàn đồng ý”, cũng giúp bạn thấy mình là một phần của cuộc họp."
+        },
+        {
+          "s": "A",
+          "en": "Be careful with that phrase, though. \"I couldn't agree more\" sounds negative, but it actually means you agree one hundred percent.",
+          "vi": "Nhưng cẩn thận với câu đó nhé. Trong tiếng Anh, câu này nghe như phủ định, nhưng thật ra nó có nghĩa là bạn đồng ý một trăm phần trăm."
+        },
+        {
+          "s": "B",
+          "en": "Yes, it's the strongest way to agree. A lot of learners get confused by it.",
+          "vi": "Đúng vậy, đó là cách đồng ý mạnh nhất. Nhiều người học hay bị nhầm câu này."
+        },
+        {
+          "s": "A",
+          "en": "Tip number two: use a phrase to open the door. In a busy meeting, you can say, \"Can I just add something?\" People will usually stop and give you space to talk.",
+          "vi": "Mẹo thứ hai: dùng một cụm từ để “mở cửa”. Trong một cuộc họp sôi nổi, bạn có thể nói: “Cho tôi bổ sung một chút được không?” Thường thì mọi người sẽ dừng lại và nhường chỗ cho bạn nói."
+        },
+        {
+          "s": "B",
+          "en": "And if someone is talking for a long time, \"Sorry to interrupt\" is polite and completely normal. Just say it with a friendly voice. In English meetings, people interrupt each other all the time, and nobody gets angry about it.",
+          "vi": "Còn nếu có người nói rất lâu, câu “Xin lỗi vì đã ngắt lời” vừa lịch sự vừa hoàn toàn bình thường. Chỉ cần nói bằng giọng thân thiện. Trong các cuộc họp bằng tiếng Anh, người ta ngắt lời nhau suốt, và chẳng ai giận cả."
+        },
+        {
+          "s": "A",
+          "en": "Tip number three: it's OK to ask. If you don't understand something, you're probably not the only one.",
+          "vi": "Mẹo thứ ba: cứ mạnh dạn hỏi. Nếu bạn không hiểu điều gì đó, có lẽ bạn không phải là người duy nhất."
+        },
+        {
+          "s": "B",
+          "en": "That's so true. When I ask a question in a meeting, someone always thanks me afterwards, because they didn't understand either.",
+          "vi": "Đúng thật. Mỗi lần mình đặt câu hỏi trong cuộc họp, sau đó luôn có người cảm ơn mình, vì họ cũng không hiểu."
+        },
+        {
+          "s": "A",
+          "en": "If you didn't hear clearly, say, \"Could you say that again?\" or \"Sorry, I didn't catch that.\" If you heard the words, but you don't understand the idea, ask, \"What do you mean by that?\"",
+          "vi": "Nếu nghe không rõ, hãy nói: “Bạn nói lại được không?” hoặc “Xin lỗi, tôi nghe chưa kịp.” Nếu nghe rõ từng chữ mà chưa hiểu ý, hãy hỏi: “Ý bạn là sao?”"
+        },
+        {
+          "s": "B",
+          "en": "And to check a detail, like a date or a number, start with \"Just to be clear.\" For example, \"Just to be clear, the deadline is the fifteenth?\"",
+          "vi": "Còn để kiểm tra một chi tiết, như ngày tháng hay con số, hãy bắt đầu bằng “Cho rõ ràng nhé”. Ví dụ: “Cho rõ ràng nhé, hạn chót là ngày mười lăm phải không?”"
+        },
+        {
+          "s": "A",
+          "en": "Checking is not a weakness. It saves everyone from big mistakes later. And people are usually happy to explain, because it shows that you're really listening.",
+          "vi": "Hỏi lại để kiểm tra không phải là điểm yếu. Nó giúp mọi người tránh được những sai lầm lớn về sau. Và người ta thường vui lòng giải thích, vì điều đó cho thấy bạn đang thật sự lắng nghe."
+        },
+        {
+          "s": "B",
+          "en": "Tip number four: disagree politely. In English, we usually make disagreement soft.",
+          "vi": "Mẹo thứ tư: phản đối một cách lịch sự. Trong tiếng Anh, người ta thường nói lời phản đối thật nhẹ nhàng."
+        },
+        {
+          "s": "A",
+          "en": "So instead of \"No, that's wrong,\" you can say, \"I see your point, but I think the price is too high.\" Or simply, \"I'm not sure about that.\"",
+          "vi": "Vậy thay vì nói “Không, sai rồi”, bạn có thể nói: “Tôi hiểu ý anh, nhưng tôi nghĩ giá này cao quá.” Hoặc đơn giản là: “Tôi không chắc lắm về chuyện đó.”"
+        },
+        {
+          "s": "B",
+          "en": "First you show respect for the other person's idea, and then you give your own. It keeps the meeting friendly, and your colleagues will listen to you much more when they don't feel attacked.",
+          "vi": "Trước tiên bạn thể hiện sự tôn trọng ý kiến của người kia, rồi mới nói ý của mình. Như vậy cuộc họp vẫn giữ được không khí thân thiện, và đồng nghiệp sẽ chịu lắng nghe bạn hơn nhiều khi họ không cảm thấy bị tấn công."
+        },
+        {
+          "s": "A",
+          "en": "OK, let's try a quick role-play. Ben, I'm your team leader, and you're giving an update on a project.",
+          "vi": "Được rồi, cùng thử đóng vai nhanh nhé. Ben, mình là trưởng nhóm của bạn, còn bạn đang cập nhật tình hình một dự án."
+        },
+        {
+          "s": "B",
+          "en": "Sounds good to me. Ready when you are.",
+          "vi": "Mình thấy được đấy. Bạn bắt đầu lúc nào cũng được."
+        },
+        {
+          "s": "A",
+          "en": "Good morning, everyone. Ben, would you like to start?",
+          "vi": "Chào buổi sáng mọi người. Ben, bạn bắt đầu trước nhé?"
+        },
+        {
+          "s": "B",
+          "en": "Sure. Here's a quick update. The new brochure is almost finished, and we're on track for Friday.",
+          "vi": "Vâng. Tôi xin cập nhật nhanh tình hình. Tập tài liệu giới thiệu mới sắp xong rồi, và mọi việc đang đúng tiến độ để kịp thứ Sáu."
+        },
+        {
+          "s": "A",
+          "en": "Great. Just to be clear, is that the printed brochure or the online one?",
+          "vi": "Tuyệt. Cho rõ ràng nhé, đó là bản in hay bản trực tuyến?"
+        },
+        {
+          "s": "B",
+          "en": "Both. But we have one small problem. The printer wants to change the paper.",
+          "vi": "Cả hai. Nhưng có một vấn đề nhỏ. Bên in muốn đổi loại giấy."
+        },
+        {
+          "s": "A",
+          "en": "Can we come back to that later? First, what are the next steps?",
+          "vi": "Chuyện đó mình bàn sau được không? Trước hết, các bước tiếp theo là gì?"
+        },
+        {
+          "s": "B",
+          "en": "I'll send the final file to the printer on Thursday, and we'll check the first copies on Friday morning. Does that work for everyone?",
+          "vi": "Thứ Năm tôi sẽ gửi tệp cuối cùng cho bên in, và sáng thứ Sáu mình sẽ kiểm tra những bản đầu tiên. Mọi người thấy vậy được không?"
+        },
+        {
+          "s": "A",
+          "en": "Works for me. OK, let's wrap things up. Thanks, Ben. And that's the end of our role-play.",
+          "vi": "Được đấy. Thôi, mình kết thúc ở đây nhé. Cảm ơn Ben. Và phần đóng vai của chúng mình đến đây là hết."
+        },
+        {
+          "s": "B",
+          "en": "Did you notice? There was a quick update, a question to check a detail, and a clear ending with next steps. That's what makes a meeting useful. Everyone leaves the room knowing exactly what to do.",
+          "vi": "Các bạn có để ý không? Có một phần cập nhật nhanh, một câu hỏi để kiểm tra chi tiết, và một phần kết rõ ràng với các bước tiếp theo. Đó là điều làm nên một cuộc họp có ích. Ai rời phòng họp cũng biết chính xác mình cần làm gì."
+        },
+        {
+          "s": "A",
+          "en": "My last piece of advice: a meeting is a conversation, not an exam. People want to hear your ideas. They don't need perfect grammar. Even native speakers make mistakes in meetings all the time, and nobody remembers them.",
+          "vi": "Lời khuyên cuối cùng của mình: cuộc họp là một cuộc trò chuyện, không phải một kỳ thi. Mọi người muốn nghe ý tưởng của bạn. Họ không cần ngữ pháp hoàn hảo. Ngay cả người bản xứ cũng mắc lỗi suốt trong các cuộc họp, và chẳng ai nhớ đến những lỗi đó."
+        },
+        {
+          "s": "B",
+          "en": "So here's your challenge for this week: say one thing in your next meeting. Just one sentence. It can even be \"I couldn't agree more.\" Then notice how you feel afterwards. I promise it gets easier every time.",
+          "vi": "Vậy đây là thử thách của bạn tuần này: nói một điều trong cuộc họp tới. Chỉ một câu thôi. Thậm chí có thể là “Tôi hoàn toàn đồng ý.” Rồi hãy để ý xem sau đó bạn cảm thấy thế nào. Mình hứa là mỗi lần sẽ dễ hơn một chút."
+        },
+        {
+          "s": "A",
+          "en": "That's an easy start! Thanks for listening, everyone. See you next time.",
+          "vi": "Một khởi đầu thật dễ dàng! Cảm ơn các bạn đã lắng nghe. Hẹn gặp lại lần sau."
+        },
+        {
+          "s": "B",
+          "en": "Bye for now!",
+          "vi": "Tạm biệt nhé!"
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "kind": "monologue",
+      "title_en": "Short Meetings, Happy Team",
+      "title_vi": "Họp ngắn, cả nhóm vui",
+      "summary_vi": "David, trưởng nhóm, kể về những quy tắc giúp cuộc họp ngắn gọn và hiệu quả, và về một tuần đáng nhớ của nhóm mình.",
+      "speakers": {
+        "D": {
+          "name": "David",
+          "gender": "m"
+        }
+      },
+      "paragraphs": [
+        {
+          "s": "D",
+          "en": "Hi, I'm David. I'm a team leader at a small design company. My friends sometimes joke that my job is going to meetings, and to be honest, they're not completely wrong. On a busy day, I have four or five. So today I want to tell you how I try to make them shorter and better.",
+          "vi": "Xin chào, tôi là David. Tôi là trưởng nhóm ở một công ty thiết kế nhỏ. Bạn bè tôi đôi khi đùa rằng công việc của tôi là đi họp, và nói thật, họ cũng không sai hoàn toàn. Vào ngày bận rộn, tôi có bốn hay năm cuộc họp. Vì vậy hôm nay tôi muốn kể về cách tôi cố làm cho các cuộc họp ngắn hơn và tốt hơn."
+        },
+        {
+          "s": "D",
+          "en": "My first rule is simple: every meeting needs a reason. Before I invite anyone, I ask myself one question: \"What do we need to decide?\" If I can't answer that, I send an email instead. My team is very happy about that rule.",
+          "vi": "Quy tắc đầu tiên của tôi rất đơn giản: cuộc họp nào cũng cần có lý do. Trước khi mời ai, tôi tự hỏi mình một câu: “Chúng ta cần quyết định điều gì?” Nếu không trả lời được, tôi sẽ gửi email thay vì họp. Cả nhóm tôi rất hài lòng với quy tắc đó."
+        },
+        {
+          "s": "D",
+          "en": "My second rule is that every meeting has an end time, and we keep it. On Fridays, we only have the meeting room until ten o'clock, because another team uses it after us. At first I didn't like that, but now I love it. When people know the time is short, they get to the point. Nobody tells long stories when the marketing team is waiting at the door.",
+          "vi": "Quy tắc thứ hai là cuộc họp nào cũng có giờ kết thúc, và chúng tôi giữ đúng giờ. Vào thứ Sáu, chúng tôi chỉ được dùng phòng họp đến mười giờ, vì sau đó một nhóm khác sẽ dùng. Lúc đầu tôi không thích chuyện đó, nhưng giờ tôi lại rất thích. Khi biết thời gian ngắn, mọi người sẽ đi thẳng vào vấn đề. Chẳng ai kể chuyện dài dòng khi nhóm marketing đang đứng chờ ngoài cửa."
+        },
+        {
+          "s": "D",
+          "en": "I also try to make space for everyone. Half of my team speak English as a second language, and I know how hard it is to jump into a fast conversation. Years ago, I worked in Germany, and in my first meetings there, I didn't say a word. So now I speak a bit more slowly, and I often stop and ask, \"Does that work for everyone?\" Then I wait. Sometimes the best idea comes after a few seconds of silence.",
+          "vi": "Tôi cũng cố gắng tạo cơ hội cho mọi người. Một nửa nhóm tôi nói tiếng Anh như ngôn ngữ thứ hai, và tôi biết chen vào một cuộc trò chuyện nhanh khó đến mức nào. Nhiều năm trước, tôi từng làm việc ở Đức, và trong những cuộc họp đầu tiên ở đó, tôi không nói một lời nào. Vì vậy bây giờ tôi nói chậm hơn một chút, và tôi thường dừng lại hỏi: “Mọi người thấy vậy được không?” Rồi tôi chờ. Đôi khi ý tưởng hay nhất lại đến sau vài giây im lặng."
+        },
+        {
+          "s": "D",
+          "en": "This week, something nice happened. Linh, one of our designers, is usually very quiet in meetings. But on Monday, she disagreed with Tom about a client's website. She said, \"I see your point, but I'm not sure about that,\" and then she explained a much better idea. Tom told me about it later. He was a little sad about his dancing croissant, but he agreed with her.",
+          "vi": "Tuần này có một chuyện rất vui. Linh, một nhà thiết kế trong nhóm, thường rất ít nói trong các cuộc họp. Nhưng hôm thứ Hai, cô ấy đã không đồng ý với Tom về trang web của một khách hàng. Cô ấy nói: “Em hiểu ý anh, nhưng em không chắc lắm về chuyện đó,” rồi trình bày một ý tưởng hay hơn nhiều. Sau đó Tom kể lại cho tôi nghe. Cậu ấy hơi buồn vì chiếc bánh sừng bò nhảy múa của mình, nhưng vẫn đồng ý với cô ấy."
+        },
+        {
+          "s": "D",
+          "en": "Then, at our Friday meeting, Mai gave a quick update on the same project. We're on track, the client is happy, and on Thursday we're all going to visit the bakery. At the end, Mai asked a smart question: \"Who's going to write the text for the menu?\" I said I would ask the owner. That's my homework for next week.",
+          "vi": "Rồi trong cuộc họp sáng thứ Sáu, Mai cập nhật nhanh về chính dự án đó. Mọi việc đang đúng tiến độ, khách hàng hài lòng, và thứ Năm tới cả nhóm sẽ đến thăm tiệm bánh. Cuối buổi, Mai hỏi một câu rất thông minh: “Ai sẽ viết nội dung cho trang thực đơn ạ?” Tôi nói tôi sẽ nhờ bác chủ tiệm. Đó là bài tập về nhà của tôi tuần tới."
+        },
+        {
+          "s": "D",
+          "en": "At the end of every meeting, I ask the same question: \"What are the next steps?\" Who does what, and by when? If we can't answer that, the meeting was just a nice chat. Then I say, \"Let's wrap things up,\" and everyone goes back to work. Usually with a smile, because the meeting was short. And later that day, someone always sends short notes to the whole team, so nobody forgets what we decided.",
+          "vi": "Cuối mỗi cuộc họp, tôi luôn hỏi cùng một câu: “Các bước tiếp theo là gì?” Ai làm việc gì, và xong trước khi nào? Nếu không trả lời được, thì cuộc họp đó chỉ là một buổi tán gẫu vui vẻ. Sau đó tôi nói: “Mình kết thúc ở đây nhé,” và mọi người quay lại làm việc. Thường là với một nụ cười, vì cuộc họp đã ngắn gọn. Và ngay trong ngày hôm đó, luôn có người gửi biên bản ngắn cho cả nhóm, để không ai quên những gì đã quyết định."
+        }
+      ]
+    }
+  ]
+}

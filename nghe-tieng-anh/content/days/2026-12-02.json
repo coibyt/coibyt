@@ -1,0 +1,620 @@
+{
+  "date": "2026-12-02",
+  "day_number": 6,
+  "level": "A2-B1",
+  "topic": {
+    "id": "food-restaurant",
+    "en": "Ordering at a restaurant",
+    "vi": "Gọi món ở nhà hàng",
+    "art_prompt": "a warm Korean barbecue restaurant on a rainy evening, a group of colleagues around a table grill, a friendly young waiter taking an order, soft golden lights and steam rising from the grill"
+  },
+  "intro_vi": "Chủ đề hôm nay là gọi món ở nhà hàng: đặt bàn, hỏi về thực đơn, báo dị ứng, nhờ đổi món khi bị mang nhầm, và xin thanh toán hay chia hóa đơn. Chúng ta sẽ cùng cả nhóm đi ăn tối ở quán thịt nướng Hàn Quốc gần nhà ga nhé.",
+  "phrases": [
+    {
+      "id": "p01",
+      "en": "Do you have a reservation?",
+      "vi": "Anh chị đã đặt bàn trước chưa ạ?",
+      "note_vi": "Câu nhân viên hỏi ngay khi bạn bước vào. Bạn có thể trả lời: “Yes, it's under the name Brown.”, nghĩa là bàn đặt dưới tên Brown.",
+      "examples": [
+        {
+          "en": "Good evening. Do you have a reservation?",
+          "vi": "Chào buổi tối anh chị. Anh chị đã đặt bàn trước chưa ạ?"
+        },
+        {
+          "en": "Do you have a reservation? If not, there's a short wait.",
+          "vi": "Chị đã đặt bàn trước chưa ạ? Nếu chưa thì chị phải chờ một lát ạ."
+        }
+      ]
+    },
+    {
+      "id": "p02",
+      "en": "I'd like to book a table.",
+      "vi": "Tôi muốn đặt bàn.",
+      "note_vi": "Dùng khi gọi điện hoặc đến nhà hàng để giữ chỗ. Nói thêm số người, ngày và giờ, ví dụ: “for four, on Saturday, at seven o'clock”.",
+      "examples": [
+        {
+          "en": "Hello, I'd like to book a table for four on Saturday.",
+          "vi": "Chào chị, tôi muốn đặt bàn cho bốn người vào thứ Bảy."
+        },
+        {
+          "en": "I'd like to book a table by the window, if possible.",
+          "vi": "Tôi muốn đặt một bàn cạnh cửa sổ, nếu được."
+        }
+      ]
+    },
+    {
+      "id": "p03",
+      "en": "Right this way.",
+      "vi": "Mời anh chị đi lối này.",
+      "note_vi": "Nhân viên nói câu này khi dẫn bạn đến bàn. Bạn chỉ cần mỉm cười, nói “Thank you” rồi đi theo.",
+      "examples": [
+        {
+          "en": "Your table is ready. Right this way, please.",
+          "vi": "Bàn của anh chị đã sẵn sàng. Mời anh chị đi lối này ạ."
+        },
+        {
+          "en": "A table for two? Of course. Right this way.",
+          "vi": "Bàn cho hai người ạ? Vâng. Mời anh chị đi lối này."
+        }
+      ]
+    },
+    {
+      "id": "p04",
+      "en": "Can I get you something to drink?",
+      "vi": "Anh chị có muốn uống gì không ạ?",
+      "note_vi": "Nhân viên thường hỏi câu này ngay sau khi bạn ngồi xuống. Bạn chưa cần gọi món ăn, chỉ cần chọn đồ uống, hoặc nói: “Just water for now, please.”",
+      "examples": [
+        {
+          "en": "Hi there. Can I get you something to drink while you look at the menu?",
+          "vi": "Chào anh. Trong lúc anh xem thực đơn, anh có muốn uống gì không ạ?"
+        },
+        {
+          "en": "Can I get you something to drink? We have fresh lemonade today.",
+          "vi": "Chị có muốn uống gì không ạ? Hôm nay bên em có nước chanh tươi."
+        }
+      ]
+    },
+    {
+      "id": "p05",
+      "en": "What do you recommend?",
+      "vi": "Bạn gợi ý món gì?",
+      "note_vi": "Hỏi nhân viên khi bạn chưa biết chọn món nào. Họ hiểu thực đơn nhất và thường giới thiệu món ngon nhất của quán.",
+      "examples": [
+        {
+          "en": "Everything looks so good. What do you recommend?",
+          "vi": "Món nào trông cũng ngon quá. Bạn gợi ý món gì?"
+        },
+        {
+          "en": "It's my first time here. What do you recommend?",
+          "vi": "Đây là lần đầu tôi đến đây. Bạn gợi ý món gì?"
+        }
+      ]
+    },
+    {
+      "id": "p06",
+      "en": "Could we have a few more minutes?",
+      "vi": "Cho chúng tôi thêm vài phút nữa nhé?",
+      "note_vi": "Dùng khi nhân viên đến hỏi gọi món mà bạn chưa chọn xong. Câu này lịch sự và hoàn toàn bình thường, không ai thấy phiền cả.",
+      "examples": [
+        {
+          "en": "Sorry, could we have a few more minutes? We can't decide.",
+          "vi": "Xin lỗi, cho chúng tôi thêm vài phút nữa nhé? Chúng tôi chưa chọn được."
+        },
+        {
+          "en": "Could we have a few more minutes? Our friend is still parking the car.",
+          "vi": "Cho chúng tôi thêm vài phút nữa được không? Bạn chúng tôi vẫn đang đỗ xe."
+        }
+      ]
+    },
+    {
+      "id": "p07",
+      "en": "I'm allergic to peanuts.",
+      "vi": "Tôi bị dị ứng lạc.",
+      "note_vi": "Nói rõ và nói sớm, trước khi gọi món. Thay “peanuts” bằng thứ bạn bị dị ứng, ví dụ “seafood” là hải sản, “eggs” là trứng.",
+      "examples": [
+        {
+          "en": "Just so you know, I'm allergic to peanuts. Is the sauce OK for me?",
+          "vi": "Cho bạn biết trước, tôi bị dị ứng lạc. Nước sốt này tôi ăn được không?"
+        },
+        {
+          "en": "I'm allergic to peanuts, so I can't eat this salad.",
+          "vi": "Tôi bị dị ứng lạc, nên tôi không ăn được món salad này."
+        }
+      ]
+    },
+    {
+      "id": "p08",
+      "en": "Is it very spicy?",
+      "vi": "Món này có cay lắm không?",
+      "note_vi": "Hỏi trước khi gọi nếu bạn không ăn được cay. Nếu món đó cay, bạn có thể xin: “Can you make it mild?”, tức là làm ít cay thôi.",
+      "examples": [
+        {
+          "en": "The red soup looks great. Is it very spicy?",
+          "vi": "Món canh đỏ trông ngon quá. Có cay lắm không?"
+        },
+        {
+          "en": "Is it very spicy? My son doesn't eat spicy food.",
+          "vi": "Món này có cay lắm không? Con trai tôi không ăn được cay."
+        }
+      ]
+    },
+    {
+      "id": "p09",
+      "en": "Are you ready to order?",
+      "vi": "Anh chị gọi món được chưa ạ?",
+      "note_vi": "Nhân viên hỏi khi quay lại bàn. Nếu đã chọn xong, bạn trả lời: “Yes, I'll have the chicken, please.”",
+      "examples": [
+        {
+          "en": "Are you ready to order, or do you need more time?",
+          "vi": "Anh chị gọi món được chưa ạ, hay cần thêm thời gian?"
+        },
+        {
+          "en": "Are you ready to order? Today's special is grilled fish.",
+          "vi": "Chị gọi món được chưa ạ? Món đặc biệt hôm nay là cá nướng."
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "en": "That's all for now.",
+      "vi": "Tạm thời vậy thôi.",
+      "note_vi": "Dùng khi bạn gọi món xong. “For now” cho thấy lát nữa bạn vẫn có thể gọi thêm.",
+      "examples": [
+        {
+          "en": "Two noodle soups and a salad. That's all for now, thanks.",
+          "vi": "Hai bát mì nước và một đĩa salad. Tạm thời vậy thôi, cảm ơn bạn."
+        },
+        {
+          "en": "Anything else? That's all for now, thank you.",
+          "vi": "Còn gì nữa không ạ? Tạm thời vậy thôi, cảm ơn bạn."
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "en": "How is everything?",
+      "vi": "Mọi thứ ổn cả chứ ạ?",
+      "note_vi": "Nhân viên hỏi giữa bữa ăn để xem bạn có hài lòng không. Nếu món ăn có vấn đề, đây là lúc tốt nhất để nói.",
+      "examples": [
+        {
+          "en": "How is everything? Is the fish OK?",
+          "vi": "Mọi thứ ổn cả chứ ạ? Món cá có vừa miệng không ạ?"
+        },
+        {
+          "en": "How is everything? Can I bring you anything else?",
+          "vi": "Mọi thứ ổn cả chứ ạ? Em mang thêm gì cho anh chị nữa không ạ?"
+        }
+      ]
+    },
+    {
+      "id": "p12",
+      "en": "This isn't what we ordered.",
+      "vi": "Đây không phải món chúng tôi gọi.",
+      "note_vi": "Nói nhẹ nhàng, thường bắt đầu bằng “Excuse me” hoặc “I'm sorry, but”. Nếu đi một mình, bạn nói: “This isn't what I ordered.”",
+      "examples": [
+        {
+          "en": "Excuse me, I'm sorry, but this isn't what we ordered.",
+          "vi": "Xin lỗi, nhưng đây không phải món chúng tôi gọi."
+        },
+        {
+          "en": "This isn't what we ordered. We asked for the beef, not the pork.",
+          "vi": "Đây không phải món chúng tôi gọi. Chúng tôi gọi thịt bò, không phải thịt lợn."
+        }
+      ]
+    },
+    {
+      "id": "p13",
+      "en": "Could we get the bill, please?",
+      "vi": "Cho chúng tôi thanh toán nhé.",
+      "note_vi": "Ở nhiều nước, nhân viên không tự mang hóa đơn ra, bạn phải gọi. Người Mỹ thường nói “the check” thay cho “the bill”.",
+      "examples": [
+        {
+          "en": "Could we get the bill, please? We have to catch a train.",
+          "vi": "Cho chúng tôi thanh toán nhé. Chúng tôi phải đi cho kịp tàu."
+        },
+        {
+          "en": "That was delicious. Could we get the bill, please?",
+          "vi": "Ngon quá. Cho chúng tôi xin hóa đơn nhé."
+        }
+      ]
+    },
+    {
+      "id": "p14",
+      "en": "Can we split the bill?",
+      "vi": "Chúng tôi chia hóa đơn ra được không?",
+      "note_vi": "Hỏi khi mỗi người muốn tự trả phần của mình. Nếu muốn chia đều, bạn nói thêm: “Three ways, please.”, tức là chia làm ba phần.",
+      "examples": [
+        {
+          "en": "Can we split the bill? We'd like to pay separately.",
+          "vi": "Chúng tôi chia hóa đơn ra được không? Chúng tôi muốn trả riêng."
+        },
+        {
+          "en": "Can we split the bill? There are three of us, and we all have cards.",
+          "vi": "Chia hóa đơn ra được không bạn? Chúng tôi có ba người, ai cũng có thẻ."
+        }
+      ]
+    },
+    {
+      "id": "p15",
+      "en": "Is service included?",
+      "vi": "Đã tính phí phục vụ chưa?",
+      "note_vi": "Ở một số nơi, phí phục vụ đã có sẵn trong hóa đơn. Hỏi câu này để biết bạn có cần để lại tiền boa nữa không.",
+      "examples": [
+        {
+          "en": "Is service included, or should we leave a tip?",
+          "vi": "Đã tính phí phục vụ chưa, hay chúng tôi nên để lại tiền boa?"
+        },
+        {
+          "en": "The bill looks right. Is service included?",
+          "vi": "Hóa đơn có vẻ đúng rồi. Đã tính phí phục vụ chưa nhỉ?"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "id": "d1",
+      "title_en": "The missing reservation",
+      "title_vi": "Bàn đặt không thấy đâu",
+      "setting_vi": "Tối thứ Sáu, trời mưa. Mai đến quán thịt nướng Hàn Quốc sớm nhất nhóm, nhưng anh phục vụ Jun không tìm thấy bàn mà anh David đã đặt.",
+      "speakers": {
+        "A": {"name": "Jun", "gender": "m"},
+        "B": {"name": "Mai", "gender": "f"}
+      },
+      "lines": [
+        {"s": "A", "en": "Good evening, and welcome. Do you have a reservation?", "vi": "Chào chị, chào mừng chị đến với quán. Chị đã đặt bàn trước chưa ạ?"},
+        {"s": "B", "en": "Yes, I think so. It's for six people at seven o'clock.", "vi": "Có em, chị nghĩ là có. Bàn cho sáu người, lúc bảy giờ."},
+        {"s": "A", "en": "And what name is it under?", "vi": "Dạ, bàn đặt dưới tên ai ạ?"},
+        {"s": "B", "en": "David. David Brown.", "vi": "Tên David. David Brown."},
+        {"s": "A", "en": "Let me check. Hmm, I can't see a David at seven tonight.", "vi": "Để em kiểm tra ạ. Hừm, tối nay lúc bảy giờ em không thấy tên David nào cả."},
+        {"s": "B", "en": "Really? Can you look again, please?", "vi": "Thật à? Em xem lại giúp chị được không?"},
+        {"s": "A", "en": "Oh, here it is. David Brown, six people, seven o'clock, next Friday.", "vi": "À, đây rồi. David Brown, sáu người, bảy giờ, thứ Sáu tuần sau ạ."},
+        {"s": "B", "en": "Next Friday? Oh no. He booked the wrong week.", "vi": "Thứ Sáu tuần sau á? Ôi trời. Anh ấy đặt nhầm tuần rồi."},
+        {"s": "B", "en": "OK. Then I'd like to book a table for tonight, if you have one.", "vi": "Thôi được. Vậy chị muốn đặt bàn cho tối nay, nếu quán còn bàn."},
+        {"s": "A", "en": "You're lucky. A big group just cancelled. Right this way.", "vi": "Chị may đấy ạ. Có một nhóm đông vừa hủy bàn. Mời chị đi lối này."},
+        {"s": "B", "en": "Thank you so much. You've saved my evening.", "vi": "Cảm ơn em nhiều lắm. Em cứu cả buổi tối của chị rồi đấy."},
+        {"s": "A", "en": "Here's your table. Can I get you something to drink?", "vi": "Bàn của chị đây ạ. Chị có muốn uống gì không ạ?"},
+        {"s": "B", "en": "Just some water for now, please. The others aren't here yet.", "vi": "Tạm thời cho chị nước lọc thôi. Mọi người chưa đến."},
+        {"s": "A", "en": "Of course. And here's the menu.", "vi": "Vâng ạ. Còn đây là thực đơn ạ."},
+        {"s": "B", "en": "Thanks. It's my first time here. What do you recommend?", "vi": "Cảm ơn em. Đây là lần đầu chị đến quán. Em gợi ý món gì?"},
+        {"s": "A", "en": "For a group, the mixed barbecue set is great. Beef, pork and chicken.", "vi": "Đi nhóm thì set thịt nướng thập cẩm ngon lắm ạ. Có bò, lợn và gà."},
+        {"s": "B", "en": "Is it very spicy? One of my colleagues can't eat spicy food.", "vi": "Có cay lắm không em? Một đồng nghiệp của chị không ăn được cay."},
+        {"s": "A", "en": "The beef isn't spicy at all. The chicken is, but we can make it mild.", "vi": "Thịt bò thì không cay chút nào ạ. Gà thì có cay, nhưng bên em có thể làm ít cay."},
+        {"s": "B", "en": "Perfect. Oh, and one more thing. I'm allergic to peanuts.", "vi": "Tuyệt quá. À, còn một chuyện nữa. Chị bị dị ứng lạc."},
+        {"s": "A", "en": "Thanks for telling me. Our dipping sauce has peanuts, so I'll bring you a different one.", "vi": "Cảm ơn chị đã báo ạ. Nước chấm bên em có lạc, nên em sẽ mang cho chị loại khác."},
+        {"s": "B", "en": "Hmm, a message from Tom. They're all stuck in traffic.", "vi": "Hừm, tin nhắn của anh Tom. Mọi người đang bị kẹt xe hết."},
+        {"s": "A", "en": "So, are you ready to order?", "vi": "Vậy chị gọi món được chưa ạ?"},
+        {"s": "B", "en": "Could we have a few more minutes? They're about ten minutes away.", "vi": "Cho bọn chị thêm vài phút nữa nhé? Mọi người còn cách đây khoảng mười phút."},
+        {"s": "A", "en": "No problem. But the grill takes a while to get hot.", "vi": "Không sao ạ. Nhưng bếp nướng phải một lúc mới nóng."},
+        {"s": "B", "en": "In that case, I'll order now. Two mixed barbecue sets, please. One with mild chicken.", "vi": "Thế thì chị gọi luôn bây giờ. Cho chị hai set thịt nướng thập cẩm. Một set gà làm ít cay nhé."},
+        {"s": "A", "en": "Two sets, one with mild chicken. Anything else?", "vi": "Hai set, một set gà ít cay. Chị còn gọi gì nữa không ạ?"},
+        {"s": "B", "en": "That's all for now, thanks. They can order more when they arrive.", "vi": "Tạm thời vậy thôi, cảm ơn em. Lúc đến mọi người có thể gọi thêm."},
+        {"s": "A", "en": "Great. Is that your group at the door? A man with a very big umbrella?", "vi": "Dạ được. Ở cửa có phải nhóm của chị không ạ? Một anh cầm chiếc ô rất to?"},
+        {"s": "B", "en": "Yes, that's David. And he has no idea about the wrong week.", "vi": "Đúng rồi, anh David đấy. Mà anh ấy chẳng biết gì về chuyện đặt nhầm tuần đâu."},
+        {"s": "A", "en": "Don't worry. I won't say a word.", "vi": "Chị đừng lo. Em sẽ không nói một lời nào đâu."},
+        {"s": "B", "en": "Thank you. I'll tell him after dinner. Maybe.", "vi": "Cảm ơn em. Ăn xong chị sẽ kể cho anh ấy. Có lẽ thế."}
+      ]
+    },
+    {
+      "id": "d2",
+      "title_en": "Too spicy for Tom",
+      "title_vi": "Quá cay với anh Tom",
+      "setting_vi": "Giữa bữa tối, món gà của Tom bị mang nhầm thành loại siêu cay. Linh nói chuyện với anh phục vụ Jun, rồi xin thanh toán cho cả nhóm.",
+      "speakers": {
+        "A": {"name": "Jun", "gender": "m"},
+        "B": {"name": "Linh", "gender": "f"}
+      },
+      "lines": [
+        {"s": "A", "en": "Hi there. How is everything?", "vi": "Chào chị. Mọi thứ ổn cả chứ ạ?"},
+        {"s": "B", "en": "The beef is amazing, thank you. But there's a small problem.", "vi": "Thịt bò ngon tuyệt, cảm ơn em. Nhưng có một vấn đề nhỏ."},
+        {"s": "A", "en": "Oh? What's wrong?", "vi": "Ồ? Có chuyện gì vậy chị?"},
+        {"s": "B", "en": "My colleague Tom asked for the mild chicken. But this chicken is very, very spicy.", "vi": "Anh Tom, đồng nghiệp của chị, gọi gà ít cay. Nhưng món gà này cay ơi là cay."},
+        {"s": "B", "en": "I'm sorry, but this isn't what we ordered.", "vi": "Chị xin lỗi, nhưng đây không phải món bọn chị gọi."},
+        {"s": "A", "en": "Let me see. Oh no, that's our extra spicy chicken.", "vi": "Để em xem nào. Ôi không, đây là món gà siêu cay của quán."},
+        {"s": "B", "en": "That explains a lot. Look at him. He's on his third glass of water.", "vi": "Thảo nào. Em nhìn anh ấy kìa. Anh ấy đang uống cốc nước thứ ba rồi."},
+        {"s": "A", "en": "His face is very red. I'm so sorry about that.", "vi": "Mặt anh ấy đỏ quá. Em thật sự xin lỗi ạ."},
+        {"s": "B", "en": "It's OK. He says it's delicious, but he can't feel his lips.", "vi": "Không sao đâu. Anh ấy bảo ngon, nhưng môi tê hết cả rồi."},
+        {"s": "A", "en": "I'll take this away and bring the mild one right now.", "vi": "Em sẽ dọn món này đi và mang món ít cay ra ngay ạ."},
+        {"s": "B", "en": "Thank you. And maybe some milk for him? People say milk helps.", "vi": "Cảm ơn em. Với lại cho anh ấy một cốc sữa được không? Người ta bảo uống sữa đỡ cay."},
+        {"s": "A", "en": "Good idea. The milk is free, of course. And the chicken too.", "vi": "Ý hay đấy ạ. Sữa tất nhiên là miễn phí. Cả món gà cũng vậy ạ."},
+        {"s": "B", "en": "That's very kind of you.", "vi": "Em chu đáo quá."},
+        {"s": "A", "en": "So, how was the mild chicken?", "vi": "Thế món gà ít cay thế nào ạ?"},
+        {"s": "B", "en": "Much better. Tom is smiling again.", "vi": "Ổn hơn nhiều rồi. Anh Tom cười lại được rồi."},
+        {"s": "B", "en": "It's getting late, though. Could we get the bill, please?", "vi": "Nhưng cũng muộn rồi. Cho bọn chị thanh toán nhé."},
+        {"s": "A", "en": "Of course. One bill for the whole table?", "vi": "Vâng ạ. Một hóa đơn chung cho cả bàn phải không chị?"},
+        {"s": "B", "en": "Actually, can we split the bill? Six ways, please.", "vi": "Thật ra, chia hóa đơn ra được không em? Chia làm sáu phần nhé."},
+        {"s": "A", "en": "Sure. So everyone pays the same amount?", "vi": "Được ạ. Vậy mỗi người trả bằng nhau ạ?"},
+        {"s": "B", "en": "Yes, that's easiest. Oh, and is service included?", "vi": "Ừ, thế cho đơn giản. À, đã tính phí phục vụ chưa em?"},
+        {"s": "A", "en": "Yes, it is. It's already on the bill.", "vi": "Dạ rồi ạ. Phí phục vụ đã có trong hóa đơn rồi."},
+        {"s": "B", "en": "Great. Wait a second. David wants to say something.", "vi": "Tốt quá. Chờ chị một chút. Anh David muốn nói gì đó."},
+        {"s": "B", "en": "He says dinner is on him tonight. He just found out about the wrong week.", "vi": "Anh ấy bảo tối nay anh ấy mời cả nhóm. Anh ấy vừa biết chuyện đặt nhầm tuần."},
+        {"s": "A", "en": "Ha! So your friend told him in the end.", "vi": "Ha! Vậy cuối cùng bạn chị cũng kể cho anh ấy rồi."},
+        {"s": "B", "en": "She did. So no splitting after all. Just one bill, please.", "vi": "Kể rồi em ạ. Thế nên không chia nữa. Cho bọn chị một hóa đơn thôi nhé."},
+        {"s": "A", "en": "One bill, no problem. And what about the booking for next Friday?", "vi": "Một hóa đơn, không vấn đề gì ạ. Thế còn bàn đặt cho thứ Sáu tuần sau thì sao ạ?"},
+        {"s": "B", "en": "Hmm. Everyone loves the food here. Let's keep it!", "vi": "Hừm. Ai cũng mê đồ ăn ở đây. Cứ giữ bàn đó đi em!"},
+        {"s": "A", "en": "Wonderful. Shall I tell the kitchen to make the chicken mild?", "vi": "Tuyệt quá. Em dặn bếp làm gà ít cay luôn nhé?"},
+        {"s": "B", "en": "Yes, please. And write it down twice.", "vi": "Ừ, nhờ em. Mà em ghi hai lần cho chắc nhé."},
+        {"s": "A", "en": "Mild, mild. Got it. See you next Friday!", "vi": "Ít cay, ít cay. Em nhớ rồi ạ. Hẹn gặp anh chị thứ Sáu tuần sau!"}
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l1",
+      "kind": "story",
+      "title_en": "The Wrong Friday",
+      "title_vi": "Nhầm thứ Sáu",
+      "summary_vi": "Bữa tối của cả nhóm ở quán thịt nướng Hàn Quốc: anh David đặt nhầm tuần, Mai phải đặt bàn lại và gọi món cho mọi người, còn anh Tom thì gặp phải món gà siêu cay.",
+      "speakers": {
+        "N": {"name": "Narrator", "gender": "m"}
+      },
+      "paragraphs": [
+        {
+          "s": "N",
+          "en": "It was Friday evening, and it was raining. Mai left the office a little early and took the bus to the Korean barbecue restaurant near the station. The whole team was coming to dinner that night: Mai, Linh, Tom, their team leader David, and two people from the sales team. David had booked a table for seven o'clock. At least, that was what everyone thought.",
+          "vi": "Đó là một buổi tối thứ Sáu, trời đang mưa. Mai rời văn phòng sớm một chút và đi xe buýt đến quán thịt nướng Hàn Quốc gần nhà ga. Tối hôm đó cả nhóm sẽ cùng đi ăn: Mai, Linh, Tom, trưởng nhóm David, và hai người bên phòng kinh doanh. Anh David đã đặt bàn lúc bảy giờ. Ít nhất thì ai cũng nghĩ như vậy."
+        },
+        {
+          "s": "N",
+          "en": "Mai arrived first, at ten to seven. The restaurant was warm and busy, and it smelled wonderful. A young waiter called Jun smiled at her and asked, \"Do you have a reservation?\" Mai said yes, a table for six under the name David Brown. Jun checked his list. Then he checked it again. There was a David Brown, six people, seven o'clock. But the booking was for next Friday.",
+          "vi": "Mai đến đầu tiên, lúc bảy giờ kém mười. Quán ấm áp, đông khách và thơm phức. Một anh phục vụ trẻ tên là Jun mỉm cười với cô và hỏi: “Chị đã đặt bàn trước chưa ạ?” Mai nói có, một bàn sáu người dưới tên David Brown. Jun kiểm tra danh sách. Rồi anh kiểm tra lại lần nữa. Đúng là có David Brown, sáu người, bảy giờ. Nhưng bàn được đặt cho thứ Sáu tuần sau."
+        },
+        {
+          "s": "N",
+          "en": "For a moment, Mai didn't know what to say. Then she laughed. It was so typical of David. He was a great team leader, but he always had too many things in his head. \"OK,\" Mai said. \"Then I'd like to book a table for tonight, please.\" Jun looked at his screen and smiled. A big group had just cancelled. \"You're lucky,\" he said. \"Right this way.\"",
+          "vi": "Trong giây lát, Mai không biết nói gì. Rồi cô bật cười. Đúng là kiểu của anh David. Anh ấy là một trưởng nhóm tuyệt vời, nhưng lúc nào trong đầu cũng có quá nhiều thứ. “Thôi được,” Mai nói. “Vậy chị muốn đặt bàn cho tối nay.” Jun nhìn màn hình rồi mỉm cười. Một nhóm đông vừa hủy bàn. “Chị may đấy ạ,” anh nói. “Mời chị đi lối này.”"
+        },
+        {
+          "s": "N",
+          "en": "Jun gave her a table by the window, with a round grill in the middle. He asked if he could get her something to drink, and Mai asked for water. She looked at the menu, but there were so many pictures and so many dishes. So she asked Jun, \"What do you recommend?\" He suggested the mixed barbecue set, with beef, pork and chicken. Mai remembered that Tom couldn't eat spicy food, so she asked about the chicken. Jun said the kitchen could make it mild. Mai also told him that she was allergic to peanuts, and he promised to bring her a different sauce.",
+          "vi": "Jun xếp cho cô một bàn cạnh cửa sổ, ở giữa có một bếp nướng tròn. Anh hỏi cô có muốn uống gì không, và Mai xin nước lọc. Cô xem thực đơn, nhưng có quá nhiều hình ảnh và quá nhiều món. Thế là cô hỏi Jun: “Em gợi ý món gì?” Anh giới thiệu set thịt nướng thập cẩm, có bò, lợn và gà. Mai nhớ ra Tom không ăn được cay, nên cô hỏi về món gà. Jun nói bếp có thể làm ít cay. Mai cũng báo với anh là cô bị dị ứng lạc, và anh hứa sẽ mang cho cô loại nước chấm khác."
+        },
+        {
+          "s": "N",
+          "en": "Then her phone buzzed. It was a message from Tom: everyone was stuck in traffic. When Jun came back and asked if she was ready to order, she asked for a few more minutes. But the grill needed time to get hot, so in the end she ordered for the whole table: two mixed sets, one with mild chicken. \"That's all for now,\" she said. The others could order more later.",
+          "vi": "Rồi điện thoại của cô rung lên. Đó là tin nhắn của Tom: mọi người đang bị kẹt xe. Khi Jun quay lại hỏi cô đã gọi món được chưa, cô xin thêm vài phút. Nhưng bếp nướng cần thời gian để nóng, nên cuối cùng cô gọi món cho cả bàn: hai set thập cẩm, một set gà ít cay. “Tạm thời vậy thôi,” cô nói. Lát nữa mọi người có thể gọi thêm."
+        },
+        {
+          "s": "N",
+          "en": "At twenty past seven, the door opened, and David came in with a huge umbrella. Linh, Tom and the others were right behind him. They were wet, hungry and very happy to see the meat already on the grill. Mai said nothing about the reservation. The food was excellent, and for half an hour everyone was too busy eating to talk.",
+          "vi": "Lúc bảy giờ hai mươi, cửa mở ra, và anh David bước vào với một chiếc ô thật to. Linh, Tom và những người khác đi ngay sau anh. Ai cũng ướt, đói và rất vui khi thấy thịt đã ở sẵn trên bếp nướng. Mai không nói gì về chuyện đặt bàn. Đồ ăn rất ngon, và suốt nửa tiếng, mọi người mải ăn đến mức chẳng ai nói chuyện."
+        },
+        {
+          "s": "N",
+          "en": "Then Tom took a big bite of chicken. His face went red, and then even redder. He drank one glass of water, then another, then a third. The kitchen had sent the extra spicy chicken by mistake. When Jun came to ask how everything was, Linh explained the problem politely. Jun was very sorry. He took the dish away, brought the mild chicken, and gave Tom a glass of cold milk for free.",
+          "vi": "Rồi Tom cắn một miếng gà thật to. Mặt anh đỏ lên, rồi càng lúc càng đỏ hơn. Anh uống một cốc nước, rồi cốc nữa, rồi cốc thứ ba. Bếp đã mang nhầm món gà siêu cay. Khi Jun đến hỏi mọi thứ có ổn không, Linh lịch sự giải thích vấn đề. Jun rất áy náy. Anh dọn món đó đi, mang món gà ít cay ra, và tặng Tom một cốc sữa lạnh miễn phí."
+        },
+        {
+          "s": "N",
+          "en": "Near the end of the evening, Mai finally told David about the wrong Friday. Everyone laughed, and David laughed the loudest. When Linh asked for the bill and wanted to split it six ways, David stopped her. \"Dinner is on me tonight,\" he said. \"It's the least I can do.\" And the booking for next Friday? They kept it. After all, the food was too good to visit only once.",
+          "vi": "Gần cuối buổi tối, cuối cùng Mai cũng kể cho anh David chuyện nhầm thứ Sáu. Ai cũng cười, và anh David cười to nhất. Khi Linh xin hóa đơn và muốn chia làm sáu phần, anh David ngăn cô lại. “Tối nay để anh mời,” anh nói. “Coi như anh chuộc lỗi vậy.” Còn bàn đặt cho thứ Sáu tuần sau thì sao? Họ vẫn giữ. Dù sao thì đồ ăn ngon quá, chỉ đến một lần thì tiếc lắm."
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "kind": "podcast",
+      "title_en": "Eating Out in English",
+      "title_vi": "Đi ăn nhà hàng bằng tiếng Anh",
+      "summary_vi": "Hai người dẫn chương trình đi qua từng bước khi ăn ở nhà hàng: đặt bàn, vào quán, gọi món, báo dị ứng, xử lý khi món ăn có vấn đề và thanh toán, kèm một đoạn đóng vai ngắn.",
+      "speakers": {
+        "A": {"name": "Anna", "gender": "f"},
+        "B": {"name": "Ben", "gender": "m"}
+      },
+      "paragraphs": [
+        {
+          "s": "A",
+          "en": "Hello, and welcome to Easy English at Work. I'm Anna.",
+          "vi": "Xin chào, chào mừng các bạn đến với chương trình Tiếng Anh dễ nghe nơi công sở. Mình là Anna."
+        },
+        {
+          "s": "B",
+          "en": "And I'm Ben. Today we're leaving the office and going out to eat. Our topic is ordering at a restaurant.",
+          "vi": "Còn mình là Ben. Hôm nay chúng ta rời văn phòng để đi ăn. Chủ đề của chúng ta là gọi món ở nhà hàng."
+        },
+        {
+          "s": "A",
+          "en": "I love this topic, because I love food. But a lot of people feel nervous in a restaurant when they have to speak English.",
+          "vi": "Mình rất thích chủ đề này, vì mình mê đồ ăn. Nhưng nhiều người thấy lo lắng khi phải nói tiếng Anh trong nhà hàng."
+        },
+        {
+          "s": "B",
+          "en": "That's true. The waiter speaks fast, the menu is long, and everyone is waiting for you. So today, we'll go step by step, from booking a table to paying the bill.",
+          "vi": "Đúng vậy. Nhân viên nói nhanh, thực đơn thì dài, mà ai cũng đang chờ bạn. Vì thế hôm nay chúng ta sẽ đi từng bước một, từ lúc đặt bàn đến lúc thanh toán."
+        },
+        {
+          "s": "A",
+          "en": "Step one: booking. You can call the restaurant or go there in person. The easiest sentence is, \"I'd like to book a table.\" Then you add the number of people, the day and the time.",
+          "vi": "Bước một: đặt bàn. Bạn có thể gọi điện cho nhà hàng hoặc đến tận nơi. Câu dễ nhất là: “Tôi muốn đặt bàn.” Sau đó bạn nói thêm số người, ngày và giờ."
+        },
+        {
+          "s": "B",
+          "en": "For example, \"Hi, I'd like to book a table for four on Saturday, at half past seven.\" The restaurant will usually ask for your name and maybe your phone number.",
+          "vi": "Ví dụ: “Chào chị, tôi muốn đặt bàn cho bốn người vào thứ Bảy, lúc bảy rưỡi.” Nhà hàng thường sẽ hỏi tên bạn, có khi cả số điện thoại."
+        },
+        {
+          "s": "A",
+          "en": "And here's my tip: check the day before you hang up. Just say it back to them. \"So that's this Saturday, at half past seven?\" It only takes a few seconds.",
+          "vi": "Và đây là mẹo của mình: kiểm tra lại ngày trước khi cúp máy. Chỉ cần nhắc lại cho họ nghe: “Vậy là thứ Bảy tuần này, lúc bảy rưỡi phải không?” Chỉ mất vài giây thôi."
+        },
+        {
+          "s": "B",
+          "en": "Good advice. We heard a story this week about a team leader who booked the right day, but the wrong week. His colleague arrived first, and the waiter couldn't find the booking. Luckily, there was a free table, so she just booked a new one on the spot.",
+          "vi": "Lời khuyên hay đấy. Tuần này chúng mình nghe kể về một anh trưởng nhóm đặt đúng ngày nhưng sai tuần. Đồng nghiệp của anh ấy đến trước, và nhân viên không tìm thấy bàn đặt. May là quán còn bàn trống, nên cô ấy đặt luôn một bàn mới ngay tại chỗ."
+        },
+        {
+          "s": "A",
+          "en": "Smart woman. OK, step two: arriving. When you walk in, the first thing you will probably hear is, \"Do you have a reservation?\"",
+          "vi": "Cô ấy thông minh thật. Được rồi, bước hai: đến quán. Khi bạn bước vào, câu đầu tiên bạn có thể sẽ nghe là: “Anh chị đã đặt bàn trước chưa ạ?”"
+        },
+        {
+          "s": "B",
+          "en": "You can answer, \"Yes, it's under the name Brown,\" or \"No, we don't. Do you have a table for two?\" Then the waiter will often say, \"Right this way,\" and take you to your table.",
+          "vi": "Bạn có thể trả lời: “Có, bàn đặt dưới tên Brown,” hoặc “Chưa, còn bàn cho hai người không?” Sau đó nhân viên thường sẽ nói: “Mời anh chị đi lối này,” rồi dẫn bạn đến bàn."
+        },
+        {
+          "s": "A",
+          "en": "Very soon after you sit down, you'll hear another question: \"Can I get you something to drink?\" You don't have to order your food yet. Just choose a drink, or say, \"Just water for now, please.\"",
+          "vi": "Ngay sau khi bạn ngồi xuống, bạn sẽ nghe một câu hỏi khác: “Anh chị có muốn uống gì không ạ?” Bạn chưa cần gọi món ăn. Chỉ cần chọn đồ uống, hoặc nói: “Tạm thời cho tôi nước lọc thôi.”"
+        },
+        {
+          "s": "B",
+          "en": "Step three is the menu. Menus can be confusing, especially in a new restaurant. So my favourite question is, \"What do you recommend?\" Waiters love this question. They know the food, and they're happy to help.",
+          "vi": "Bước ba là thực đơn. Thực đơn có thể khá rối, nhất là ở một nhà hàng mới. Vì thế câu hỏi mình thích nhất là: “Bạn gợi ý món gì?” Nhân viên rất thích câu hỏi này. Họ hiểu các món ăn, và họ sẵn lòng giúp bạn."
+        },
+        {
+          "s": "A",
+          "en": "And sometimes the waiter comes back and asks, \"Are you ready to order?\" If you're not ready yet, it's completely fine to say, \"Could we have a few more minutes?\" Nobody will think you're rude.",
+          "vi": "Đôi khi nhân viên quay lại và hỏi: “Anh chị gọi món được chưa ạ?” Nếu bạn chưa chọn xong, cứ thoải mái nói: “Cho chúng tôi thêm vài phút nữa nhé?” Không ai nghĩ bạn bất lịch sự đâu."
+        },
+        {
+          "s": "B",
+          "en": "Now, step four is very important: allergies and preferences. If there's something you can't eat, say it clearly, and say it early.",
+          "vi": "Giờ đến bước bốn, rất quan trọng: dị ứng và sở thích. Nếu có thứ gì bạn không ăn được, hãy nói rõ, và nói sớm."
+        },
+        {
+          "s": "A",
+          "en": "Yes. Use a simple sentence like \"I'm allergic to peanuts\" or \"I'm allergic to seafood.\" Don't be shy about it. It's about your health, and the kitchen needs to know.",
+          "vi": "Đúng vậy. Hãy dùng một câu đơn giản như “Tôi bị dị ứng lạc” hay “Tôi bị dị ứng hải sản.” Đừng ngại. Đây là chuyện sức khỏe của bạn, và nhà bếp cần biết."
+        },
+        {
+          "s": "B",
+          "en": "And for preferences, a really useful question is, \"Is it very spicy?\" If the answer is yes, you can ask, \"Can you make it mild?\"",
+          "vi": "Còn về sở thích, một câu hỏi rất hữu ích là: “Món này có cay lắm không?” Nếu câu trả lời là có, bạn có thể hỏi: “Làm ít cay được không?”"
+        },
+        {
+          "s": "A",
+          "en": "When you finish ordering, the waiter often asks, \"Anything else?\" A nice answer is, \"That's all for now.\" The words \"for now\" mean you might order more later.",
+          "vi": "Khi bạn gọi món xong, nhân viên thường hỏi: “Còn gì nữa không ạ?” Một câu trả lời hay là: “Tạm thời vậy thôi.” Chữ “for now”, tức là “tạm thời”, cho thấy lát nữa bạn có thể gọi thêm."
+        },
+        {
+          "s": "B",
+          "en": "Let's practise. I'll be the customer, and you can be the waiter.",
+          "vi": "Chúng ta thực hành nhé. Mình sẽ làm khách, còn bạn làm nhân viên phục vụ."
+        },
+        {
+          "s": "A",
+          "en": "OK. Good evening, sir. Are you ready to order?",
+          "vi": "Được. Chào buổi tối anh. Anh gọi món được chưa ạ?"
+        },
+        {
+          "s": "B",
+          "en": "Yes, I think so. It's my first time here. What do you recommend?",
+          "vi": "Có, chắc là được rồi. Đây là lần đầu tôi đến đây. Bạn gợi ý món gì?"
+        },
+        {
+          "s": "A",
+          "en": "The grilled fish is very popular. It comes with rice, salad and our special sauce.",
+          "vi": "Món cá nướng được nhiều người gọi lắm ạ. Món này ăn kèm cơm, salad và nước sốt đặc biệt của quán."
+        },
+        {
+          "s": "B",
+          "en": "Sounds good to me. Is it very spicy?",
+          "vi": "Nghe được đấy. Có cay lắm không?"
+        },
+        {
+          "s": "A",
+          "en": "Not at all. But the special sauce has nuts in it.",
+          "vi": "Không cay chút nào ạ. Nhưng nước sốt đặc biệt có các loại hạt."
+        },
+        {
+          "s": "B",
+          "en": "Ah, I'm allergic to nuts. Can I have it without the sauce, please?",
+          "vi": "À, tôi bị dị ứng các loại hạt. Cho tôi món đó nhưng không lấy nước sốt nhé?"
+        },
+        {
+          "s": "A",
+          "en": "Of course, no problem. Anything else?",
+          "vi": "Tất nhiên rồi, không vấn đề gì ạ. Anh còn gọi gì nữa không ạ?"
+        },
+        {
+          "s": "B",
+          "en": "That's all for now, thanks.",
+          "vi": "Tạm thời vậy thôi, cảm ơn bạn."
+        },
+        {
+          "s": "A",
+          "en": "Perfect. And that's the end of our little role play. Well done, Ben! Now, what's step five?",
+          "vi": "Hoàn hảo. Và đoạn đóng vai nhỏ của chúng ta kết thúc ở đây. Giỏi lắm, Ben! Giờ thì bước năm là gì nhỉ?"
+        },
+        {
+          "s": "B",
+          "en": "Step five is when something goes wrong. Maybe your food is cold, or it's not the dish you ordered. Stay calm and polite. Usually the waiter comes and asks, \"How is everything?\" That's the perfect moment.",
+          "vi": "Bước năm là khi có gì đó không ổn. Có thể đồ ăn bị nguội, hoặc không phải món bạn gọi. Hãy bình tĩnh và lịch sự. Thường thì nhân viên sẽ đến hỏi: “Mọi thứ ổn cả chứ ạ?” Đó là lúc hoàn hảo để nói."
+        },
+        {
+          "s": "A",
+          "en": "You can say, \"Excuse me, I'm sorry, but this isn't what we ordered.\" Most restaurants will fix it very quickly. Sometimes they even give you something for free.",
+          "vi": "Bạn có thể nói: “Xin lỗi, nhưng đây không phải món chúng tôi gọi.” Hầu hết nhà hàng sẽ sửa rất nhanh. Đôi khi họ còn tặng bạn thứ gì đó miễn phí."
+        },
+        {
+          "s": "B",
+          "en": "And the last step: paying. In many countries, the waiter won't bring the bill until you ask. So you say, \"Could we get the bill, please?\" In American English, people say \"the check\" instead.",
+          "vi": "Và bước cuối cùng: thanh toán. Ở nhiều nước, nhân viên sẽ không mang hóa đơn ra cho đến khi bạn gọi. Vì thế bạn nói: “Cho chúng tôi thanh toán nhé.” Trong tiếng Anh Mỹ, người ta nói “the check” thay cho “the bill”."
+        },
+        {
+          "s": "A",
+          "en": "If you're with friends and everyone wants to pay for themselves, ask, \"Can we split the bill?\" And if you're not sure about tipping, just ask, \"Is service included?\"",
+          "vi": "Nếu bạn đi cùng bạn bè và mỗi người muốn tự trả phần mình, hãy hỏi: “Chúng tôi chia hóa đơn ra được không?” Còn nếu không chắc có cần để tiền boa không, cứ hỏi: “Đã tính phí phục vụ chưa?”"
+        },
+        {
+          "s": "B",
+          "en": "That's it for today. Next time you eat out, try just one or two of these phrases. You'll be surprised how easy it is.",
+          "vi": "Hôm nay đến đây thôi. Lần tới khi đi ăn ngoài, bạn hãy thử dùng một hai câu trong số này. Bạn sẽ ngạc nhiên vì nó dễ đến thế nào."
+        },
+        {
+          "s": "A",
+          "en": "And enjoy your meal! See you next time on Easy English at Work.",
+          "vi": "Và chúc các bạn ngon miệng! Hẹn gặp lại lần sau trong chương trình Tiếng Anh dễ nghe nơi công sở."
+        }
+      ]
+    },
+    {
+      "id": "l3",
+      "kind": "monologue",
+      "title_en": "Notes from a Waiter",
+      "title_vi": "Chuyện của một anh phục vụ",
+      "summary_vi": "Anh phục vụ Jun kể về tối thứ Sáu bận rộn ở quán: vị khách đến sớm với bàn đặt nhầm tuần, món gà siêu cay mang nhầm, và vài lời khuyên để trở thành một vị khách dễ thương.",
+      "speakers": {
+        "J": {"name": "Jun", "gender": "m"}
+      },
+      "paragraphs": [
+        {
+          "s": "J",
+          "en": "Hi, I'm Jun. I work as a waiter at a Korean barbecue restaurant near the station. My parents came here from Korea twenty years ago, and they opened the restaurant when I was a child. So I grew up between the tables, the grills and the smell of garlic. Now I'm a student, and I work here four evenings a week.",
+          "vi": "Chào các bạn, mình là Jun. Mình làm phục vụ ở một quán thịt nướng Hàn Quốc gần nhà ga. Bố mẹ mình từ Hàn Quốc sang đây hai mươi năm trước, và mở quán này khi mình còn nhỏ. Vì thế mình lớn lên giữa những chiếc bàn, những bếp nướng và mùi tỏi. Giờ mình là sinh viên, và mỗi tuần mình làm ở đây bốn buổi tối."
+        },
+        {
+          "s": "J",
+          "en": "Friday nights are always the busiest. Last Friday, it was raining, and every table was full. At ten to seven, a young woman came in alone. I asked, \"Do you have a reservation?\" and she said yes, for six people. But when I checked, the booking was for the next Friday. Her boss had booked the wrong week!",
+          "vi": "Tối thứ Sáu lúc nào cũng đông nhất. Thứ Sáu tuần trước trời mưa, và bàn nào cũng kín chỗ. Lúc bảy giờ kém mười, một cô gái trẻ bước vào một mình. Mình hỏi: “Chị đã đặt bàn trước chưa ạ?” và cô ấy nói có, cho sáu người. Nhưng khi mình kiểm tra, bàn lại được đặt cho thứ Sáu tuần sau. Sếp của cô ấy đặt nhầm tuần!"
+        },
+        {
+          "s": "J",
+          "en": "Honestly, this happens more often than you think. People book the wrong day, the wrong time, or even the wrong restaurant. Luckily, a big group had just cancelled, so I could give her a table. She looked so relieved. When she said, \"You've saved my evening,\" it made my evening too.",
+          "vi": "Nói thật, chuyện này xảy ra thường xuyên hơn bạn nghĩ. Người ta đặt nhầm ngày, nhầm giờ, thậm chí nhầm cả nhà hàng. May là có một nhóm đông vừa hủy bàn, nên mình xếp được bàn cho cô ấy. Trông cô ấy nhẹ nhõm hẳn. Khi cô ấy nói: “Em cứu cả buổi tối của chị rồi đấy,” mình cũng thấy buổi tối của mình vui hơn hẳn."
+        },
+        {
+          "s": "J",
+          "en": "One thing I really liked: she told me about her peanut allergy right away, before she ordered. That's exactly what I want from customers. Our dipping sauce has peanuts, and I need to tell the kitchen early. So please, if you have an allergy, say it clearly. Just say, \"I'm allergic to peanuts,\" or whatever it is. We are never annoyed. We are grateful.",
+          "vi": "Có một điều mình rất thích: cô ấy báo ngay chuyện bị dị ứng lạc, trước cả khi gọi món. Đó đúng là điều mình mong ở khách hàng. Nước chấm của quán có lạc, và mình cần báo cho bếp sớm. Vì vậy, nếu bạn bị dị ứng thứ gì, hãy nói rõ ra. Chỉ cần nói: “Tôi bị dị ứng lạc,” hay bất cứ thứ gì bạn bị dị ứng. Bọn mình không bao giờ thấy phiền. Bọn mình còn biết ơn nữa."
+        },
+        {
+          "s": "J",
+          "en": "Of course, we make mistakes too. That same night, our kitchen sent extra spicy chicken to a man who asked for mild. His colleague, a very polite woman, called me over and said, \"I'm sorry, but this isn't what we ordered.\" She was right. I felt terrible, especially when I saw his red face. We changed the dish, and I brought him some milk. Thank goodness, he laughed about it in the end.",
+          "vi": "Tất nhiên, bọn mình cũng có lúc nhầm. Ngay tối hôm đó, bếp mang gà siêu cay cho một anh đã gọi món ít cay. Đồng nghiệp của anh ấy, một cô gái rất lịch sự, gọi mình lại và nói: “Chị xin lỗi, nhưng đây không phải món bọn chị gọi.” Cô ấy nói đúng. Mình thấy áy náy vô cùng, nhất là khi nhìn khuôn mặt đỏ bừng của anh ấy. Bọn mình đổi món, và mình mang cho anh ấy một ít sữa. May quá, cuối cùng anh ấy cũng cười xòa cho qua."
+        },
+        {
+          "s": "J",
+          "en": "People sometimes ask me what makes a good customer. It's simple. Be polite, be clear, and don't be afraid to ask questions. If you don't understand the menu, ask, \"What do you recommend?\" If you need more time, say, \"Could we have a few more minutes?\" Waiters are people too. We really want you to have a good time.",
+          "vi": "Đôi khi có người hỏi mình thế nào là một vị khách dễ thương. Đơn giản lắm. Hãy lịch sự, nói rõ ràng, và đừng ngại đặt câu hỏi. Nếu không hiểu thực đơn, hãy hỏi: “Bạn gợi ý món gì?” Nếu cần thêm thời gian, hãy nói: “Cho chúng tôi thêm vài phút nữa nhé?” Nhân viên phục vụ cũng là con người. Bọn mình thật lòng muốn bạn có một buổi tối vui vẻ."
+        },
+        {
+          "s": "J",
+          "en": "At the end of the night, the group asked for the bill. First they wanted to split it, but then their boss paid for everyone, to say sorry for the booking mistake. And guess what? They kept the reservation for next Friday. So this Friday, I'll see them again. And this time, I've written \"mild chicken\" on the booking. Twice.",
+          "vi": "Cuối buổi tối, cả nhóm xin hóa đơn. Lúc đầu họ muốn chia ra, nhưng sau đó anh sếp trả cho tất cả mọi người, để xin lỗi vì vụ đặt nhầm bàn. Và bạn đoán xem? Họ vẫn giữ bàn đặt cho thứ Sáu tuần sau. Vậy là thứ Sáu này mình sẽ gặp lại họ. Và lần này, mình đã ghi chữ “gà ít cay” vào phiếu đặt bàn. Ghi hai lần hẳn hoi."
+        }
+      ]
+    }
+  ]
+}
