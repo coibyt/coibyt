@@ -32,6 +32,12 @@ JOBS = {
                           "confidence, viewed from a respectful distance, face not detailed. "),
     "part_review": ("1:1", "Elegant gold index cards floating in a spiral above a dark violet desk, soft bokeh, "
                            "memory and rhythm, abstract and minimal. "),
+    "d02_case": ("1:1", "A warm neighbourhood coffee shop at mid-afternoon with its door closed and a blank handwritten "
+                        "paper note taped on the glass, inside baristas in aprons gather around an espresso machine "
+                        "learning together, soft golden light, no logos, no brand colours, documentary mood. "),
+    "d02_money": ("1:1", "A man in his thirties sitting alone at a kitchen table at two in the morning in a Hanoi apartment "
+                         "in early winter, face lit only by a phone screen showing a falling red chart, a cup of tea "
+                         "gone cold, misty window with street lights, viewed from the side, face not detailed. "),
     "icon": ("1:1", "A minimal emblem: a golden soundwave that becomes an upward business chart line inside a "
                     "deep violet circle, flat premium vector, centered, crisp edges, plain dark violet background. "),
 }

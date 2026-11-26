@@ -30,6 +30,9 @@ def load_day(day: int) -> tuple[dict, list[dict]]:
     for p in parts:
         for ph in p["phrases"]:
             ph["key"] = phrase_key(day, p["part"], ph["id"])
+        for w in p.get("words", []):
+            w["key"] = phrase_key(day, p["part"], w["id"])
+            w["kind"] = "word"
     return meta, parts
 
 
@@ -39,7 +42,8 @@ def _review_item(row_or_dict, db_id=None) -> dict:
     r = dict(row_or_dict)
     return {"key": r["key"], "en": r["en"], "vi": r["vi"], "recall_vi": r.get("context_vi") or r.get("recall_vi"),
             "example_en": r.get("example_en"), "example_vi": r.get("example_vi"),
-            "db_id": db_id if db_id is not None else r.get("id"), "from_day": r.get("ep_day")}
+            "db_id": db_id if db_id is not None else r.get("id"), "from_day": r.get("ep_day"),
+            "kind": r.get("kind") or "phrase"}
 
 
 def plan_review(day: int, date: str, parts: list[dict], con=None) -> dict:
@@ -53,11 +57,11 @@ def plan_review(day: int, date: str, parts: list[dict], con=None) -> dict:
         fresh.append(it)
     if not fresh:  # chưa nhập DB (dry-run): lấy từ kịch bản
         for p in parts:
-            for ph in p["phrases"]:
-                ex = (ph.get("examples") or [{}])[0]
+            for ph in p["phrases"] + p.get("words", []):
+                ex = (ph.get("examples") or [{"en": ph.get("example_en"), "vi": ph.get("example_vi")}])[0]
                 fresh.append({"key": ph["key"], "en": ph["en"], "vi": ph["vi"], "recall_vi": ph.get("recall_vi"),
                               "example_en": ex.get("en"), "example_vi": ex.get("vi"), "db_id": None,
-                              "from_day": day, "fresh": True})
+                              "from_day": day, "fresh": True, "kind": ph.get("kind", "phrase")})
     budget = config.REVIEW_TARGET_MIN * 60 - 70  # trừ lời mở/kết
     items, t = [], 0.0
     for it in due + fresh:
@@ -73,6 +77,9 @@ def plan_review(day: int, date: str, parts: list[dict], con=None) -> dict:
 def _item_cost(it: dict) -> float:
     rates = config.chars_per_sec()
     en = script.seg_seconds(it["en"], "en", 1.0, rates)
+    if it.get("kind") == "word":
+        vi = script.seg_seconds(it["vi"], "vi", 1.0, rates)
+        return en * 3 + vi * 2 + 2.2 + 0.5 + 1.2 + 2.2 + 1.2
     vi = script.seg_seconds(it["vi"] + " " + (it.get("recall_vi") or ""), "vi", 1.0, rates)
     c = en * 2 + vi + 3.0 + 0.7 + 1.6 + script.seg_seconds(it["vi"], "vi", 1.0, rates) + 3.0 + en + 1.2
     if it.get("fresh") and it.get("example_en"):
@@ -294,17 +301,20 @@ def export_phrase_clips(day, parts, segs, od: Path, plan) -> dict:
     for s in segs:
         if s["kind"] == "phrase" and s.get("role") == "phrase" and s.get("t") is not None:
             first_t.setdefault(s["phrase_id"], s["t"])
-    allp = [(p["part"], ph) for p in parts for ph in p["phrases"]]
+    allp = [(p["part"], ph) for p in parts for ph in p["phrases"] + p.get("words", [])]
     for it in plan["items"]:
         if not it.get("fresh"):
-            allp.append((0, {"key": it["key"], "en": it["en"], "vi": it["vi"], "id": it["key"],
+            allp.append((0, {"key": it["key"], "en": it["en"], "vi": it["vi"], "id": it["key"], "kind": it.get("kind", "phrase"),
                              "recall_vi": it.get("recall_vi"), "review_only": True}))
     voices = config.phrase_voices()
     for idx, (part, ph) in enumerate(allp):
         seg = next((s for s in segs if s.get("phrase_id") == ph["key"] and s["text"] == ph["en"] and s.get("clip")),
                    None)
         rec = {"key": ph["key"], "en": ph["en"], "vi": ph["vi"], "note_vi": ph.get("note_vi"),
-               "examples": ph.get("examples", []), "forms": script.forms_of(ph) if "en" in ph else [], "recall_vi": ph.get("recall_vi"), "part": part,
+               "examples": ph.get("examples") or ([{"en": ph["example_en"], "vi": ph.get("example_vi", "")}]
+                                                  if ph.get("example_en") else []),
+               "forms": script.forms_of(ph) if "en" in ph else [], "recall_vi": ph.get("recall_vi"), "part": part,
+               "kind": ph.get("kind", "phrase"),
                "t": first_t.get(ph["key"]), "review_only": ph.get("review_only", False)}
         if seg:
             m = tts.clip_meta(seg["clip"])
@@ -343,6 +353,8 @@ def write_transcript(path: Path, meta, parts, segs, chapters, duration, plan) ->
     for p in parts:
         L += [f"## Cụm từ · {script.PART_TITLES_VI[p['part']]}", "", "| English | Tiếng Việt |", "|---|---|"]
         L += [f"| **{ph['en']}** | {ph['vi']} |" for ph in p["phrases"]]
+        if p.get("words"):
+            L += ["", "| Từ vựng | Nghĩa |", "|---|---|"] + [f"| {w['en']} | {w['vi']} |" for w in p["words"]]
         L.append("")
         fc = p.get("fact_check")
         if fc:
@@ -376,7 +388,8 @@ def player_json(day, meta, parts, segs, chapters, duration, phrases, mp3_name, m
         "mode": mode, "duration": round(duration, 2), "audio": mp3_name, "chapters": chapters,
         "cover": meta.get("cover"),
         "parts": [{"part": p["part"], "kind": p["kind"], "title_vi": p["title_vi"], "title_en": p["title_en"],
-                   "series": p.get("series"), "fact_check": p.get("fact_check"), "cover": p.get("cover"),
+                   "series": p.get("series"), "fact_check": p.get("fact_check"),
+                   "cover": p.get("cover") or (meta.get("covers") or {}).get(str(p["part"])),
                    "cast": p.get("cast")} for p in parts],
         "segments": [{k: s[k] for k in keep if k in s and s[k] is not None} for s in segs],
         "phrases": list(phrases.values()),

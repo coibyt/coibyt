@@ -20,8 +20,11 @@
   const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const base = () => S.days.find((d) => d.day === S.day)?.base || `media/day_${String(S.day).padStart(2, "0")}/`;
   const toast = (msg) => { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => (t.hidden = true), 2200); };
-  const label = (s) => s.kind === "phrase" ? (s.speed !== 1 ? "English · 0.85×" : "English")
-    : s.lang === "vi" ? (s.layer === 2 ? "Luyện nhanh" : s.part === 4 ? "Ôn tập" : "Người dẫn")
+  const COHOST = { word_vi: "Từ vựng", word_example_vi: "Từ vựng", sentence_vi: "Nghe hiểu", words_intro: "Từ vựng", sentences_intro: "Nghe hiểu" };
+  const label = (s) => s.role === "word" || s.role === "word_example" ? "Từ vựng"
+    : s.kind === "sentence" ? "Câu nghe hiểu" + (s.speed !== 1 ? " · 0.85×" : "")
+    : s.kind === "phrase" ? (s.speed !== 1 ? "English · 0.85×" : "English")
+    : s.lang === "vi" ? (COHOST[s.role] || (s.layer === 2 ? "Luyện nhanh" : s.part === 4 ? "Ôn tập" : (s.speaker === "vn_cohost" ? "Người dẫn phụ" : "Người dẫn")))
     : (s.speaker || "").startsWith("en_") ? "Narrator" : s.speaker;
 
   function bsearch(t) {
@@ -36,7 +39,7 @@
       const p = S.phrases[k]; if (!p) continue;
       for (const f of (p.forms || [p.en.replace(/[.!?]$/, "")])) {
         const re = new RegExp(`(${f.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/'/g, "['’]")})`, "i");
-        if (re.test(html)) { html = html.replace(re, `<span class="ph" data-k="${k}">$1</span>`); break; }
+        if (re.test(html)) { html = html.replace(re, `<span class="ph${p.kind === "word" ? " w" : ""}" data-k="${k}">$1</span>`); break; }
       }
     }
     if (seg.kind === "phrase" && seg.phrase_id) html = `<span class="ph" data-k="${seg.phrase_id}">${html}</span>`;
@@ -371,13 +374,14 @@
     const srs = store.get("srs", {});
     for (const p of items) {
       const st = bookState(p.key);
-      if (f !== "all" && !(f === st || (f === "new" && st === "new"))) continue;
+      if (f === "word" || f === "phrase") { if ((p.kind || "phrase") !== f) continue; }
+      else if (f !== "all" && f !== st) continue;
       if (q && !(p.en + " " + p.vi).toLowerCase().includes(q)) continue;
       const r = srs[p.key];
       const li = document.createElement("li");
       li.innerHTML = `<div class="en"><span>${esc(p.en)}</span><span class="playbtns"><button class="round" data-a="n" aria-label="Nghe">▶</button><button class="round" data-a="s" aria-label="Nghe chậm">.85</button></span></div>
         <p class="vi">${esc(p.vi)}</p>${p.note_vi ? `<p class="note">${esc(p.note_vi)}</p>` : ""}
-        <div class="meta"><span class="tag ${st}">${{ new: "Chưa gặp", due: "Đến hạn ôn", learning: "Đang nhớ", done: "Đã thuộc" }[st]}</span>
+        <div class="meta"><span class="tag kind">${p.kind === "word" ? "Từ vựng" : "Cụm câu"}</span><span class="tag ${st}">${{ new: "Chưa gặp", due: "Đến hạn ôn", learning: "Đang nhớ", done: "Đã thuộc" }[st]}</span>
         <span class="muted" style="font-size:12px">Ngày ${p.day}${r ? ` · bậc ${Math.min(r.step, 4)}/4 · ôn tiếp ${r.next}` : ""}</span></div>`;
       li.querySelector('[data-a="n"]').onclick = (e) => { e.stopPropagation(); playClip(p, false); };
       li.querySelector('[data-a="s"]').onclick = (e) => { e.stopPropagation(); playClip(p, true); };
@@ -424,7 +428,7 @@
       const pos = store.get("pos." + d.day, 0), pct = Math.min(100, pos / d.duration * 100);
       const li = document.createElement("li"); li.className = d.day === S.day ? "on" : "";
       li.innerHTML = `<img src="${esc(d.cover || "img/hero.webp")}" alt="" loading="lazy"><div><span class="eyebrow">Ngày ${d.day} · ${esc(d.date)}${d.mode === "short" ? " · bản thử" : ""}</span>
-        <h3>${esc(d.title_vi)}</h3><p>${d.parts.map((p) => esc(p.title_vi)).join(" · ")}</p><p>${fmt(d.duration)} · ${d.phrases} cụm từ</p><div class="prog"><i style="width:${pct}%"></i></div></div>`;
+        <h3>${esc(d.title_vi)}</h3><p>${d.parts.map((p) => esc(p.title_vi)).join(" · ")}</p><p>${fmt(d.duration)} · ${d.phrases} cụm câu${d.words ? ` · ${d.words} từ vựng` : ""}</p><div class="prog"><i style="width:${pct}%"></i></div></div>`;
       li.onclick = async () => { if (d.day !== S.day) await loadDay(d.day, true); else A.play().catch(() => {}); go("listen"); };
       ul.appendChild(li);
     }

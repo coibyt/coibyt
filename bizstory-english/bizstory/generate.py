@@ -179,6 +179,9 @@ def import_day(day: int, log=print, lenient_time: bool = False) -> None:
             summary=summary, script_path=str(day_dir(day) / PART_FILES[p["part"] - 1]))
         for ph in p["phrases"]:
             db.add_phrase(con, eid, meta["date"], {**ph, "key": phrase_key(day, p["part"], ph["id"])})
+        for w in p.get("words", []):
+            db.add_phrase(con, eid, meta["date"], {**w, "kind": "word", "key": phrase_key(day, p["part"], w["id"]),
+                                                   "recall_vi": w.get("recall_vi") or w.get("example_vi")})
         if p["part"] == 1:
             db.advance_series(con, sid, epno, summary)
     con.commit()

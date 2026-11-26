@@ -100,3 +100,40 @@ Giọng có sẵn: `vn_host` (người dẫn của phần), `en_male` (Quentin, 
 `en_male3` (Christopher, nam Anh trung niên ấm), `en_male4` (Mark, nam Mỹ thoải mái).
 Nhân vật khai báo trong `cast` và ánh xạ vào một giọng tiếng Anh.
 Tuỳ chọn trong segment: `"pause_ms": 1200` để dừng lâu hơn sau câu (khoảnh khắc kịch tính).
+
+## 6. Kịch bản v2 (từ ngày 2): thêm từ vựng, câu nghe hiểu và người dẫn phụ
+
+Đặt `"version": 2`. Mục tiêu: người nghe học được **nhiều từ hơn** qua câu chuyện và **nghe hiểu được nhiều câu hơn**
+ở Lớp 3.
+
+**Người dẫn phụ `vn_cohost`** (giọng Việt thứ hai, nữ). Người dẫn chính vẫn kể. Người dẫn phụ:
+- giải nghĩa từ vựng (máy tự chèn),
+- thỉnh thoảng hỏi xen hoặc phản ứng ngắn ở Lớp 1, khoảng 6–10 lần mỗi tập, mỗi lần 1–2 câu
+  ("Khoan đã, đặt cọc ba tháng là nhiều hay ít vậy anh?"). Đừng để thành tán gẫu; mỗi câu xen phải đẩy câu chuyện
+  hoặc làm rõ một điều người nghe đang thắc mắc.
+
+**`words`: 10 từ vựng** (8–12) lấy từ chính câu chuyện. Từ đơn hoặc cụm danh/động từ ngắn, hay gặp trong công việc
+(lease, landlord, deposit, cash flow, foot traffic, to renegotiate…), KHÔNG trùng với 7 cụm câu.
+```json
+{"id": "w1", "en": "landlord", "vi": "chủ nhà, người cho thuê", "forms": ["landlord"],
+ "example_en": "The landlord wants a three month deposit.", "example_vi": "Chủ nhà muốn đặt cọc ba tháng."}
+```
+- `forms`: các dạng chấp nhận để kiểm tra Lớp 3, viết thường (ví dụ ["renegotiate", "renegotiated"]).
+- `example_en`: một câu ngắn lấy từ hoặc sát với Lớp 3, chứa từ đó. `example_vi`: nghĩa tiếng Việt của câu.
+- Lớp 1: đặt `{"word": "w1"}` đúng **một lần** cho mỗi từ, ngay sau câu kể có nhắc tới khái niệm đó
+  (ví dụ: "…người chủ nhà, tiếng Anh gọi là" rồi `{"word": "w1"}`). Máy phát: giọng bản ngữ đọc từ, rồi người dẫn
+  phụ nói nghĩa ngắn. Sau đó người dẫn chính kể tiếp, không cần giải thích thêm.
+- Lớp 3: mỗi từ xuất hiện ít nhất một lần.
+
+**`key_sentences`: 5 câu nghe hiểu** (4–6), chép **nguyên văn** từ Lớp 3: những câu quan trọng nhất của cốt truyện,
+độ dài vừa phải (8–20 từ). Máy dựng ở cuối Lớp 2: EN 0.85 → dừng → nghĩa tiếng Việt (người dẫn phụ) → EN 1.0.
+Nhờ vậy khi vào Lớp 3, người nghe đã có "điểm neo" để theo kịp cả câu chuyện.
+```json
+{"en": "If we sign this lease, we can't walk away for three years.", "vi": "Nếu ký hợp đồng thuê này, ba năm tới mình không thể rút lui."}
+```
+
+Thời lượng v2: opening + Lớp 1 khoảng 16 phút (≈ 12.500–14.000 ký tự tiếng Việt, kể cả lời người dẫn phụ),
+Lớp 2 khoảng 12–13 phút (máy tự dựng), Lớp 3 khoảng 12 phút (≈ 10.000–11.500 ký tự tiếng Anh).
+
+Thêm một quy tắc cho giọng đọc: người dẫn tiếng Việt **không đọc lại nguyên câu tiếng Anh**, vì giọng Việt đọc tiếng
+Anh nghe không chuẩn. Muốn nhắc thì chỉ nói một hai chữ khoá (runway, deal-breaker).

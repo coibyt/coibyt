@@ -97,3 +97,36 @@ def test_chime_is_generated():
 def test_sample_scripts_are_valid(f):
     errs, _ = script.validate_part(json.loads(f.read_text(encoding="utf-8")))
     assert errs == []
+
+
+def v2_part():
+    p = mini_part()
+    p["version"] = 2
+    p["words"] = [{"id": f"w{i}", "en": f"zword{i}", "vi": "nghĩa", "example_en": f"A zword{i} here.",
+                   "example_vi": "câu"} for i in range(10)]
+    p["layer1"] += [{"word": f"w{i}"} for i in range(10)] + [{"speaker": "vn_cohost", "text": "Khoan đã?"}]
+    p["layer3"].append({"speaker": "Khang", "text": " ".join(f"zword{i}" for i in range(10))
+                        + ". Key one here. Key two here. Key three here. Key four here."})
+    p["key_sentences"] = [{"en": f"Key {n} here.", "vi": "x"} for n in ("one", "two", "three", "four")]
+    return p
+
+
+def test_v2_words_and_sentences():
+    p = v2_part()
+    errs, _ = script.validate_part(p, lenient_time=True)
+    assert errs == []
+    segs = script.compile_part(p)
+    assert {s["voice"] for s in segs if s.get("role") == "word_vi"} == {"vn_lily"}  # người dẫn phụ Phần 1
+    assert sum(s.get("kind") == "sentence" for s in segs) == 8
+    bad = copy.deepcopy(p)
+    bad["key_sentences"][0]["en"] = "Not in layer three."
+    bad["layer1"] = [x for x in bad["layer1"] if x.get("word") != "w3"]
+    errs, _ = script.validate_part(bad, lenient_time=True)
+    assert any("nguyên văn" in e for e in errs) and any("w3 xuất hiện 0" in e for e in errs)
+
+
+def test_db_kind_column(tmp_path):
+    con = db.connect(tmp_path / "t.sqlite")
+    eid = db.upsert_episode(con, day=1, part=1, kind="series", title_vi="a", title_en="a", topic="t")
+    db.add_phrase(con, eid, "2026-01-01", {"key": "k", "en": "lease", "vi": "hợp đồng thuê", "kind": "word"})
+    assert con.execute("SELECT kind FROM phrases").fetchone()["kind"] == "word"

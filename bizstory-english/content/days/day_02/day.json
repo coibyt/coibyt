@@ -1,0 +1,17 @@
+{
+ "day": 2,
+ "date": "2026-11-27",
+ "title_vi": "Sáu mươi ngày",
+ "title_en": "The Lease",
+ "covers": {"2": "img/d02_case.webp", "3": "img/d02_money.webp"},
+ "intro": [
+  {"speaker": "vn_host", "text": "Sáu mươi ngày để dời một chiếc máy rang nặng gần một tấn. Một buổi chiều năm hai nghìn lẻ tám, hơn bảy nghìn cửa hàng Starbucks ở Mỹ cùng lúc đóng cửa. Và một kế toán trưởng ở Hà Nội thức đến hai giờ sáng, nhìn màn hình chứng khoán đỏ rực."},
+  {"speaker": "vn_host", "text": "Chào bạn, đây là BizStory English, ngày thứ hai. Mình là Linh. Hôm nay mình có thêm một người bạn đồng hành."},
+  {"speaker": "vn_cohost", "text": "Chào các bạn, mình là Lily. Mình sẽ chen vào lúc câu chuyện căng thẳng nhất để hỏi những điều bạn đang thắc mắc, và nhắc nghĩa của những từ vựng mới ngay khi chúng xuất hiện."},
+  {"speaker": "vn_host", "text": "Từ hôm nay, mỗi câu chuyện có bảy cụm câu, mười từ vựng, và năm câu then chốt giúp bạn nghe hiểu trọn phần tiếng Anh. Cuối chương trình là phần ôn tập, kể cả những câu bạn học hôm qua. Bắt đầu nhé.", "pause_ms": 900}
+ ],
+ "outro": [
+  {"speaker": "vn_host", "text": "Hết ngày thứ hai rồi. Hôm nay bạn đã gặp hai mươi mốt cụm câu và ba mươi từ vựng mới. Ngày mai chúng sẽ quay lại trong phần ôn tập, đúng lúc bạn sắp quên."},
+  {"speaker": "vn_cohost", "text": "Còn Mây Coffee thì sắp bước vào tuần khó khăn nhất từ trước tới nay. Hẹn gặp bạn ngày mai, trong tập ba của Đường Băng."}
+ ]
+}

@@ -27,7 +27,8 @@ def day_entry(p: dict, data: dict) -> dict:
             "duration": data["duration"], "mode": data["mode"], "data": f"data/day_{data['day']:02d}.json",
             "base": f"media/day_{data['day']:02d}/",
             "parts": [{"part": x["part"], "title_vi": x["title_vi"], "title_en": x["title_en"]} for x in data["parts"]],
-            "phrases": len([q for q in data["phrases"] if not q.get("review_only")]),
+            "phrases": len([q for q in data["phrases"] if not q.get("review_only") and q.get("kind", "phrase") == "phrase"]),
+            "words": len([q for q in data["phrases"] if not q.get("review_only") and q.get("kind") == "word"]),
             "cover": PART_COVERS[1]}
 
 

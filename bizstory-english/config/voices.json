@@ -76,5 +76,12 @@
   "tts_speed": {
     "vi": 1.0,
     "en": 0.95
+  },
+  "part_cohosts": {
+    "0": "vn_lily",
+    "1": "vn_lily",
+    "2": "vn_kenh",
+    "3": "vn_lily",
+    "4": "vn_kenh"
   }
 }

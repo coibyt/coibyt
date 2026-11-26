@@ -78,6 +78,9 @@ def connect(path: Path | None = None) -> sqlite3.Connection:
     con.row_factory = sqlite3.Row
     con.execute("PRAGMA foreign_keys = ON")
     con.executescript(SCHEMA)
+    cols = {r["name"] for r in con.execute("PRAGMA table_info(phrases)")}
+    if "kind" not in cols:  # nâng cấp DB cũ: phrase (cụm câu) | word (từ vựng)
+        con.execute("ALTER TABLE phrases ADD COLUMN kind TEXT NOT NULL DEFAULT 'phrase'")
     return con
 
 
@@ -134,9 +137,11 @@ def upsert_episode(con, **f) -> int:
 def add_phrase(con, episode_id: int, date: str, p: dict) -> int:
     cur = con.execute(
         """INSERT OR REPLACE INTO phrases(key, en, vi, note_vi, context_vi, example_en, example_vi, episode_id,
-               learned_date, srs_step, next_review_date) VALUES (?,?,?,?,?,?,?,?,?,0,?)""",
+               learned_date, srs_step, next_review_date, kind) VALUES (?,?,?,?,?,?,?,?,?,0,?,?)""",
         (p["key"], p["en"], p["vi"], p.get("note_vi"), p.get("recall_vi") or p.get("context_vi"),
-         (p.get("examples") or [{}])[0].get("en"), (p.get("examples") or [{}])[0].get("vi"), episode_id, date, add_days(date, SRS_INTERVALS[0])),
+         p.get("example_en") or (p.get("examples") or [{}])[0].get("en"),
+         p.get("example_vi") or (p.get("examples") or [{}])[0].get("vi"), episode_id, date,
+         add_days(date, SRS_INTERVALS[0]), p.get("kind", "phrase")),
     )
     return cur.lastrowid
 

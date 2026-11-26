@@ -21,7 +21,10 @@ STATIC_DIR = Path(__file__).resolve().parent / "web" / "static"
 # Kế hoạch thời lượng (phút) — Phần 1–3 mỗi phần 3 lớp, Phần 4 ôn tập.
 LAYER_TARGET_MIN = {1: 15.0, 2: 8.0, 3: 12.0}
 LAYER_TOLERANCE_MIN = {1: 3.0, 2: 2.0, 3: 3.0}
-REVIEW_TARGET_MIN = 15.0
+# Kịch bản v2 (từ ngày 2): thêm 8–12 từ vựng + 4–6 câu nghe hiểu mỗi phần → Lớp 1, 2 dài hơn.
+LAYER_TARGET_MIN_V2 = {1: 16.0, 2: 12.5, 3: 12.0}
+LAYER_TOLERANCE_MIN_V2 = {1: 3.0, 2: 3.0, 3: 3.0}
+REVIEW_TARGET_MIN = 18.0
 SRS_INTERVALS = [1, 3, 7, 14]
 
 # Tốc độ đọc đo thật trên 11max (eleven_flash_v2_5), ký tự/giây ở tốc độ 1.0, đã gồm ngắt câu.
@@ -72,6 +75,11 @@ def voices() -> dict[str, Voice]:
 
 def part_host(part: int) -> str:
     return voice_config()["part_hosts"].get(str(part), "vn_linh")
+
+
+def part_cohost(part: int) -> str:
+    """Giọng Việt thứ hai: giải nghĩa từ vựng, hỏi xen, đọc nghĩa câu nghe hiểu."""
+    return voice_config().get("part_cohosts", {}).get(str(part), "vn_lily")
 
 
 def phrase_voices() -> list[str]:
