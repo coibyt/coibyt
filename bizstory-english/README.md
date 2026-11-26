@@ -100,6 +100,18 @@ config/voices.json    giọng 11max của từng vai
 output/, cache/, data/   MP3, clip, SQLite (KHÔNG lên git)
 ```
 
+## Video dọc cho TikTok / YouTube / Học viện VaraaAi
+
+```bash
+python -m bizstory video 1
+```
+
+Tạo trong `output/day_XX/video/` các video 1080×1920 (một ảnh tĩnh và âm thanh, kiểu podcast):
+`day_XX_phan_1..4.mp4` (mỗi phần dưới 60 phút, vừa giới hạn của TikTok) và `day_XX_tron_bo.mp4` (cả ngày, cho YouTube
+và Học viện). Ảnh đại diện có tên tập và các cụm tiếng Anh. Cuối mỗi video có khoảng 20 giây thẻ "Học viện VaraaAi ·
+varaaai.com/vi/academy" và "Video được chia sẻ bởi Babelisa", kèm lời giới thiệu của người dẫn.
+Ảnh được dựng bằng Playwright (Node), hình lặp bằng stream copy nên video 2 giờ chỉ mất vài phút.
+
 ## Trình phát web
 
 Thiết kế cho điện thoại trước: phát nền khi khoá màn hình, điều khiển trên màn hình khoá (Media Session:

@@ -59,6 +59,12 @@ def cmd_daily(a):
     export_site()
 
 
+def cmd_video(a):
+    from .video import make_videos
+    for p in make_videos(a.day, a.only):
+        print(p)
+
+
 def cmd_calibrate(a):
     from .tts import calibrate
     print("Tốc độ đọc đo được (ký tự/giây):", calibrate() or "chưa đủ dữ liệu")
@@ -140,6 +146,11 @@ def main(argv=None):
     p.add_argument("--date")
     p.add_argument("--max-credits", type=float, default=60000)
     p.set_defaults(fn=cmd_daily)
+
+    p = sub.add_parser("video", help="video dọc 1080x1920 (ảnh + âm thanh) cho TikTok / YouTube / Học viện VaraaAi")
+    p.add_argument("day", type=int)
+    p.add_argument("--only", help="1|2|3|4|parts|full (mặc định: 4 phần + trọn bộ)")
+    p.set_defaults(fn=cmd_video)
 
     sub.add_parser("calibrate", help="đo lại tốc độ đọc từ clip đã thu").set_defaults(fn=cmd_calibrate)
     sub.add_parser("rebuild-db", help="dựng lại SQLite từ content/days").set_defaults(fn=cmd_rebuild)
