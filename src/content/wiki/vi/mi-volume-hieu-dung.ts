@@ -31,7 +31,7 @@ const article: WikiArticle = {
   takeaways: [
     "Nối mi volume là gắn **một fan vài sợi rất mảnh lên đúng một sợi mi thật**. Fan gọi theo số sợi: 2D, 3D đến 6D.",
     "Thêm sợi thì bớt độ dày: sức chịu của sợi mi thật không đổi, nên sợi volume mảnh hơn sợi classic rất nhiều.",
-    "Chọn mấy D theo **sức mi thật**, không chỉ theo ảnh khách đưa. Mi mảnh, ngắn, thưa thì 2D–3D là đủ.",
+    "Chọn mấy D theo **sức mi thật** trước, rồi mới đến ảnh khách đưa. Mi mảnh, ngắn, thưa thì 2D–3D là đủ.",
     "Fan đẹp có chân nhỏ và khép kín, các sợi xoè đều, hai bên cân đối. Keo chỉ chạm phần chân fan.",
     "Mi vẫn rụng theo vòng đời, nên khách dặm sau khoảng **2–3 tuần**.",
   ],

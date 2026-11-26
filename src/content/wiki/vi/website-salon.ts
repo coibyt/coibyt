@@ -183,7 +183,7 @@ const article: WikiArticle = {
       },
       {
         name: "Thêm “Ảnh trình chiếu”, đặt “Nhãn nút” rồi bấm “Lưu”",
-        text: "Tải lên tối đa năm ảnh trình chiếu. Đặt chữ trên nút ở ô “Nhãn nút”, ví dụ Đặt lịch ngay, rồi bấm “Lưu”. Chưa bấm “Lưu” thì phần đầu trang chưa được ghi lại.",
+        text: "Tải lên tối đa năm ảnh trình chiếu. Đặt chữ trên nút ở ô “Nhãn nút”, ví dụ Đặt lịch ngay, rồi bấm “Lưu” để ghi lại phần đầu trang trước khi kéo xuống tiếp.",
         image: { src: img("them-anh-trinh-chieu-va-nhan-nut-dat-lich"), alt: "Các ô tải ảnh trình chiếu với một ảnh salon đã tải lên, bên dưới là ô Nhãn nút ghi Đặt lịch ngay, ô Nút dẫn tới và nút Lưu" },
       },
       {
