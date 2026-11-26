@@ -1,0 +1,409 @@
+{
+ "part": 3,
+ "kind": "finance_psych",
+ "version": 2,
+ "date": "2026-11-27",
+ "title_vi": "Cổ phiếu không biết bạn mua giá bao nhiêu",
+ "title_en": "The Stock Doesn't Know What You Paid",
+ "topic": "chi phí chìm, hiệu ứng bán lời giữ lỗ, vay ký quỹ margin, phân bổ vốn và đa dạng hoá, kế hoạch đầu tư viết trước, quỹ khẩn cấp",
+ "subject": null,
+ "cast": {
+  "Narrator": "en_male",
+  "Huy": "en_male2",
+  "Lan": "en_female3",
+  "Tung": "en_male3",
+  "Broker": "en_male4"
+ },
+ "phrases": [
+  {
+   "id": "p1",
+   "en": "Let's not throw good money after bad.",
+   "vi": "Đừng đổ thêm tiền vào một khoản đã mất nữa.",
+   "note_vi": "Dùng khi muốn dừng việc đổ thêm tiền, thời gian hay công sức vào một việc đang thua chỉ vì đã lỡ đầu tư vào đó. Chữ let's biến nó thành một đề nghị chung, nghe nhẹ nhàng chứ không trách móc.",
+   "forms": [
+    "good money after bad"
+   ],
+   "context_vi": "Câu đầu tiên là câu anh Tùng nói khi Huy định mua thêm cổ phiếu ở giá sàn. Nó dùng khi một dự án, một chi nhánh hay một khoản đầu tư đang thua, và ai đó muốn rót thêm tiền chỉ vì đã lỡ bỏ quá nhiều vào đó.",
+   "examples": [
+    {
+     "en": "The software project is already two years late. Let's not throw good money after bad.",
+     "vi": "Dự án phần mềm đã chậm hai năm rồi. Đừng đổ thêm tiền vào một khoản đã mất nữa."
+    },
+    {
+     "en": "If the new branch is still losing money in June, let's not throw good money after bad. We close it.",
+     "vi": "Nếu đến tháng Sáu chi nhánh mới vẫn lỗ, mình đừng đổ thêm tiền vào nữa. Mình đóng cửa nó."
+    }
+   ],
+   "recall_vi": "Câu anh Tùng nói ở quán bún chả, khi Huy định mua thêm Hoàng Long ở giá sàn."
+  },
+  {
+   "id": "p2",
+   "en": "What's the worst-case scenario?",
+   "vi": "Tình huống xấu nhất là gì?",
+   "note_vi": "Câu hỏi chuẩn khi duyệt dự án, ký hợp đồng hay ra quyết định có rủi ro. Nó không bi quan, mà cho thấy bạn cẩn thận: biết đáy ở đâu rồi mới đi tiếp.",
+   "forms": [
+    "worst case scenario"
+   ],
+   "context_vi": "Câu thứ hai là câu anh Tùng hỏi Huy, và cũng là câu Huy trả lời thiếu. Bạn dùng nó trong cuộc họp, trước khi ký hợp đồng hay duyệt một kế hoạch, để cả nhóm nhìn thẳng vào rủi ro lớn nhất trước khi quyết.",
+   "examples": [
+    {
+     "en": "Before we sign with this supplier, what's the worst-case scenario if they deliver late?",
+     "vi": "Trước khi ký với nhà cung cấp này, tình huống xấu nhất là gì nếu họ giao hàng trễ?"
+    },
+    {
+     "en": "The launch might slip by a month. Okay, so what's the worst-case scenario for our budget?",
+     "vi": "Ngày ra mắt có thể lùi một tháng. Được rồi, vậy tình huống xấu nhất cho ngân sách của mình là gì?"
+    }
+   ],
+   "recall_vi": "Câu anh Tùng hỏi Huy ở quán bún chả, khi Huy còn giấu khoản vay ký quỹ."
+  },
+  {
+   "id": "p3",
+   "en": "Don't put all your eggs in one basket.",
+   "vi": "Đừng bỏ hết trứng vào một giỏ.",
+   "note_vi": "Lời khuyên đừng dồn hết vào một chỗ: một cổ phiếu, một khách hàng, một nhà cung cấp. Hơi thân mật, hợp khi nói chuyện hay khuyên đồng nghiệp; trong báo cáo thì viết là đa dạng hoá.",
+   "forms": [
+    "eggs in one basket"
+   ],
+   "context_vi": "Câu thứ ba là câu anh Tùng nói khi biết Hoàng Long chiếm toàn bộ danh mục của Huy. Ở công ty, nó hợp khi doanh thu phụ thuộc vào một khách hàng lớn, hay cả dây chuyền chỉ trông vào một nhà cung cấp duy nhất.",
+   "examples": [
+    {
+     "en": "Ninety percent of our sales come from one client. Don't put all your eggs in one basket.",
+     "vi": "Chín mươi phần trăm doanh số của mình đến từ một khách hàng. Đừng bỏ hết trứng vào một giỏ."
+    },
+    {
+     "en": "We should find a second supplier this year. Don't put all your eggs in one basket.",
+     "vi": "Năm nay mình nên tìm thêm một nhà cung cấp thứ hai. Đừng bỏ hết trứng vào một giỏ."
+    }
+   ],
+   "recall_vi": "Câu anh Tùng nói khi Huy thừa nhận Hoàng Long là toàn bộ danh mục của mình."
+  },
+  {
+   "id": "p4",
+   "en": "It's time to face the music.",
+   "vi": "Đến lúc phải đối mặt với hậu quả rồi.",
+   "note_vi": "Face the music là chấp nhận chịu trách nhiệm cho việc mình đã làm, dù khó chịu. Hay dùng khi nói về chính mình hoặc cả nhóm; đừng dùng để nói thẳng vào mặt sếp hay khách hàng, nghe như đang trách.",
+   "forms": [
+    "face the music"
+   ],
+   "context_vi": "Câu thứ tư là câu Huy tự nói với mình trước khi thú nhận tất cả với Lan. Bạn dùng nó khi một sai sót đã lộ ra và đến lúc phải nhận trách nhiệm: gọi cho khách, báo với sếp, hay giải trình trước cả phòng.",
+   "examples": [
+    {
+     "en": "The client found the error in our report. It's time to face the music and call them.",
+     "vi": "Khách hàng đã phát hiện lỗi trong báo cáo của mình. Đến lúc phải đối mặt rồi, gọi cho họ đi."
+    },
+    {
+     "en": "We missed the sales target again. It's time to face the music and explain it to the board.",
+     "vi": "Mình lại trượt chỉ tiêu doanh số. Đến lúc phải đối mặt và giải trình với hội đồng quản trị rồi."
+    }
+   ],
+   "recall_vi": "Câu Huy tự nói với mình ở bàn ăn, trước khi kể cho Lan về khoản vay ký quỹ."
+  },
+  {
+   "id": "p5",
+   "en": "I'd like a second opinion.",
+   "vi": "Tôi muốn nghe thêm ý kiến của người thứ hai.",
+   "note_vi": "Gốc từ y khoa, nhưng dùng rất nhiều ở văn phòng trước một quyết định lớn. Nó lịch sự, không làm mất lòng người góp ý đầu tiên, vì bạn chỉ nói mình muốn cẩn thận hơn.",
+   "forms": [
+    "second opinion"
+   ],
+   "context_vi": "Câu thứ năm là câu Lan nói, đúng thói quen của một dược sĩ gặp đơn thuốc khó. Ở công ty, bạn dùng nó trước khi ký một hợp đồng lớn, duyệt một thiết kế hay chọn nhà cung cấp, khi muốn hỏi thêm một người hiểu chuyện.",
+   "examples": [
+    {
+     "en": "The contract looks fine, but it's a big commitment. I'd like a second opinion from our lawyer.",
+     "vi": "Hợp đồng trông ổn, nhưng đây là cam kết lớn. Tôi muốn hỏi thêm ý kiến của luật sư bên mình."
+    },
+    {
+     "en": "Before we choose this design, I'd like a second opinion from the marketing team.",
+     "vi": "Trước khi chọn thiết kế này, tôi muốn nghe thêm ý kiến của nhóm marketing."
+    }
+   ],
+   "recall_vi": "Câu Lan nói khi chưa muốn quyết một mình, rồi gọi cho anh Tùng lúc gần mười một giờ đêm."
+  },
+  {
+   "id": "p6",
+   "en": "Let's stick to the plan.",
+   "vi": "Mình cứ làm đúng theo kế hoạch nhé.",
+   "note_vi": "Stick to là bám chặt, không đổi ý giữa chừng. Dùng khi cả nhóm đã thống nhất mà có người muốn đổi hướng vì cảm xúc hay áp lực phút chót. Chữ let's làm nó thành lời nhắc chung, không phải mệnh lệnh.",
+   "forms": [
+    "stick to the plan"
+   ],
+   "context_vi": "Câu thứ sáu là câu Lan nói khi Huy định huỷ lệnh bán đã viết sẵn. Ở công ty, bạn dùng nó khi kế hoạch đã được thống nhất, nhưng giữa chừng có người hoảng lên hoặc hào hứng quá và muốn đổi hướng ngay.",
+   "examples": [
+    {
+     "en": "I know the client is pushing, but we agreed on this timeline. Let's stick to the plan.",
+     "vi": "Tôi biết khách đang hối, nhưng mình đã thống nhất tiến độ này rồi. Mình cứ làm đúng kế hoạch nhé."
+    },
+    {
+     "en": "The market is noisy this week. Let's stick to the plan and review it at the end of the month.",
+     "vi": "Tuần này thị trường nhiễu lắm. Mình cứ theo kế hoạch, cuối tháng xem lại."
+    }
+   ],
+   "recall_vi": "Câu Lan nói khi Hoàng Long hồi về hai mươi bốn nghìn và Huy định huỷ lệnh bán."
+  },
+  {
+   "id": "p7",
+   "en": "Hindsight is twenty-twenty.",
+   "vi": "Chuyện đã qua thì nhìn lại ai cũng thấy rõ.",
+   "note_vi": "Twenty-twenty là thị lực mười trên mười. Câu này dùng để nói chuyện đã qua thì ai cũng thấy rõ, nên đừng tự trách quá mức. Nói sau một dự án hỏng, nó nghe thông cảm chứ không phải bào chữa.",
+   "forms": [
+    "hindsight is"
+   ],
+   "context_vi": "Câu cuối là câu anh Tùng nói khi Huy ngồi tiếc cái giá bốn mươi tám nghìn. Ở công ty, bạn dùng nó sau một quyết định không như ý, để cả nhóm thôi đổ lỗi và chuyển sang rút kinh nghiệm cho lần sau.",
+   "examples": [
+    {
+     "en": "Yes, we should have hired two more people last year. But hindsight is twenty-twenty.",
+     "vi": "Đúng, lẽ ra năm ngoái mình nên tuyển thêm hai người. Nhưng chuyện đã qua thì nhìn lại ai cũng thấy rõ."
+    },
+    {
+     "en": "Hindsight is twenty-twenty. Let's learn from this launch and plan the next one better.",
+     "vi": "Nhìn lại thì cái gì cũng rõ. Mình rút kinh nghiệm từ lần ra mắt này và lên kế hoạch tốt hơn cho lần sau."
+    }
+   ],
+   "recall_vi": "Câu anh Tùng nói khi Huy lật nhật ký đầu tư và tiếc cái giá bốn mươi tám nghìn hồi tháng Tư."
+  }
+ ],
+ "words": [
+  {"id": "w1", "en": "portfolio", "vi": "danh mục đầu tư", "forms": ["portfolio"], "example_en": "His portfolio used to hold five stocks.", "example_vi": "Danh mục đầu tư của anh từng có năm mã cổ phiếu."},
+  {"id": "w2", "en": "shares", "vi": "cổ phiếu, cổ phần", "forms": ["shares"], "example_en": "He bought five thousand shares at forty-eight thousand dong.", "example_vi": "Anh mua năm nghìn cổ phiếu ở giá bốn mươi tám nghìn đồng."},
+  {"id": "w3", "en": "average down", "vi": "mua thêm khi giá giảm để hạ giá vốn bình quân", "forms": ["average down", "averaged down", "averaging down"], "example_en": "He had already averaged down twice.", "example_vi": "Anh đã mua thêm để hạ giá vốn hai lần rồi."},
+  {"id": "w4", "en": "volatility", "vi": "độ biến động của giá", "forms": ["volatility"], "example_en": "Since September, the volatility had been crazy.", "example_vi": "Từ tháng Chín, giá biến động dữ dội."},
+  {"id": "w5", "en": "sunk cost", "vi": "chi phí chìm, khoản đã chi không lấy lại được", "forms": ["sunk cost"], "example_en": "Your three hundred million is a sunk cost.", "example_vi": "Ba trăm triệu của em là chi phí chìm rồi."},
+  {"id": "w6", "en": "diversify", "vi": "đa dạng hoá, chia tiền ra nhiều nơi", "forms": ["diversify", "diversified"], "example_en": "You need to diversify, Huy.", "example_vi": "Em cần đa dạng hoá, Huy ạ."},
+  {"id": "w7", "en": "broker", "vi": "người hoặc công ty môi giới chứng khoán", "forms": ["broker"], "example_en": "My broker sold all my shares at the bottom.", "example_vi": "Bên môi giới đã bán hết cổ phiếu của tôi ở đáy."},
+  {"id": "w8", "en": "margin call", "vi": "yêu cầu nộp thêm tiền ký quỹ", "forms": ["margin call"], "example_en": "This is a reminder about the margin call on your account.", "example_vi": "Em xin nhắc anh về yêu cầu nộp thêm tiền ký quỹ trên tài khoản của anh."},
+  {"id": "w9", "en": "emergency fund", "vi": "quỹ khẩn cấp, quỹ dự phòng", "forms": ["emergency fund"], "example_en": "The emergency fund comes before any investment.", "example_vi": "Quỹ khẩn cấp phải có trước mọi khoản đầu tư."},
+  {"id": "w10", "en": "stop-loss", "vi": "mức cắt lỗ, lệnh cắt lỗ", "forms": ["stop loss"], "example_en": "His stop-loss sold the last two thousand shares.", "example_vi": "Lệnh cắt lỗ của anh đã bán nốt hai nghìn cổ phiếu cuối cùng."}
+ ],
+ "key_sentences": [
+  {"en": "Whether you sell or hold, that money is not coming back.", "vi": "Dù em bán hay giữ, số tiền đó cũng không quay về nữa."},
+  {"en": "If you had cash today, and no shares at all, would you buy this stock at this price?", "vi": "Nếu hôm nay em đang cầm tiền mặt, chưa có cổ phiếu nào, em có mua mã này ở giá này không?"},
+  {"en": "Then paying the margin call is buying it. Just with Na's money.", "vi": "Vậy thì nộp tiền ký quỹ cũng là mua nó. Chỉ là mua bằng tiền của Na."},
+  {"en": "The loss became real when the price fell. Selling just means you stop pretending.", "vi": "Khoản lỗ đã thành thật từ lúc giá rơi. Bán chỉ là thôi không giả vờ nữa."},
+  {"en": "A good decision isn't one with a good result.", "vi": "Một quyết định tốt không phải là quyết định có kết quả tốt."}
+ ],
+ "opening": [
+  {"speaker": "vn_host", "text": "Hai giờ sáng. Trong căn hộ tối om, thứ duy nhất còn sáng là màn hình điện thoại. Và nó đỏ rực."},
+  {"speaker": "vn_host", "text": "Đỗ Quang Huy, ba mươi tư tuổi, kế toán trưởng của một công ty logistics ở Hà Nội, ngồi co chân trên sofa, chiếc chăn mỏng quàng qua vai. Đợt gió mùa đầu tiên vừa về. Gió lùa qua khe cửa ban công, mang theo hơi lạnh của sông Hồng. Xa xa, một đoàn tàu đêm chạy qua cầu Long Biên, tiếng bánh sắt rền như ai đang kéo lê một thứ gì rất nặng."},
+  {"speaker": "vn_host", "text": "Ngón tay cái của Huy kéo màn hình xuống. Làm mới. Kéo xuống. Làm mới. Hoàng Long Logistics: hai mươi mốt nghìn đồng một cổ phiếu. Ba phiên giảm sàn liên tiếp. Bên mua trắng trơn, không một ai muốn mua."},
+  {"speaker": "vn_host", "text": "Bảy tháng trước, Huy mua nó ở giá bốn mươi tám nghìn.", "pause_ms": 1200},
+  {"speaker": "vn_host", "text": "Danh mục của anh từng có năm mã cổ phiếu. Mã nào có lời, anh đều bán sớm, để chốt lời cho chắc. Giờ trong ứng dụng chỉ còn đúng một dòng. Một dòng màu đỏ, lỗ hơn một nửa."},
+  {"speaker": "vn_host", "text": "Vậy mà ở góc màn hình, Huy đang gõ ghi chú cho sáng mai: chín giờ, mua thêm. Giá càng thấp thì giá vốn càng giảm, về bờ càng nhanh. Anh đã làm đúng như thế hai lần rồi."},
+  {"speaker": "vn_host", "text": "Trên điện thoại còn một tin nhắn từ chiều hôm qua mà Huy chưa dám mở. Anh vuốt nó sang một bên, như xua một con muỗi.", "pause_ms": 1200},
+  {"speaker": "vn_host", "text": "Mình hỏi bạn một câu trước khi kể tiếp. Nếu bạn đang ôm một cổ phiếu mất hơn nửa giá, bạn sẽ bán, giữ, hay mua thêm? Giữ câu trả lời trong đầu nhé. Cuối tập, mình sẽ hỏi lại.", "pause_ms": 1500},
+  {"speaker": "vn_host", "text": "Đây là Phần ba của BizStory English, phần Tài chính và Tâm lý. Tập hôm nay tên là Cổ phiếu không biết bạn mua giá bao nhiêu. Nhân vật và công ty Hoàng Long Logistics đều là hư cấu, không phải mã nào trên sàn. Các nghiên cứu được nhắc tới thì là thật. Và đây là câu chuyện để hiểu tâm lý, không phải lời khuyên đầu tư."}
+ ],
+ "layer1": [
+  {"speaker": "vn_host", "text": "Ở công ty, Huy là người khó tính nhất tầng năm. Hoá đơn lệch năm nghìn đồng, anh bắt làm lại. Khoản chi nào trên mười triệu cũng phải có hai chữ ký. Nhưng với tiền của chính mình, Huy là một người khác. Hai năm trước, anh bắt đầu đầu tư chứng khoán bằng tiền thưởng, mua năm mã khác nhau. Tập hợp các khoản đầu tư của một người, tiếng Anh gọi là"},
+  {"word": "w1"},
+  {"speaker": "vn_host", "text": "Mã nào lời mười, mười lăm phần trăm là Huy bán ngay, gọi là ăn chắc mặc bền. Một mã bán lẻ anh bán khi đang lời mười hai phần trăm, sau đó nó tăng gấp đôi. Còn mã nào giảm, anh giữ. Chưa bán thì chưa lỗ, anh nghĩ."},
+  {"speaker": "vn_host", "text": "Tháng Tư năm nay, trong một nhóm chat đầu tư, có người nói Hoàng Long sắp trúng một hợp đồng thuê kho rất lớn ở Hải Phòng. Huy làm logistics, hiểu kho bãi, hiểu container. Anh thấy mình hiểu công ty này hơn ai hết. Anh mua năm nghìn cổ phiếu ở giá bốn mươi tám nghìn: hai trăm bốn mươi triệu, gần hết tiền thưởng ba năm. Mỗi cổ phiếu là một phần nhỏ của công ty, tiếng Anh gọi là"},
+  {"word": "w2"},
+  {"speaker": "vn_host", "text": "Tháng Tám, giá xuống ba mươi nghìn. Huy không bán. Anh mua thêm hai nghìn cổ phiếu bằng sáu mươi triệu tiền thưởng cuối cùng, để kéo giá vốn xuống. Cách mua thêm khi giá giảm như vậy, tiếng Anh gọi là"},
+  {"word": "w3"},
+  {"speaker": "vn_host", "text": "Từ tháng Chín, Hoàng Long lên xuống thất thường: hôm nay tăng sáu phần trăm, mai giảm bảy. Sáng nào Huy cũng mở ứng dụng trước cả khi đánh răng. Mức dao động mạnh và khó đoán của giá, tiếng Anh gọi là"},
+  {"word": "w4"},
+  {"speaker": "vn_host", "text": "Tháng Mười, giá còn hai mươi sáu nghìn, và Huy mua lần thứ ba: bảy nghìn cổ phiếu, hơn một trăm tám mươi triệu đồng."},
+  {"speaker": "vn_cohost", "text": "Khoan đã chị. Tiền thưởng của anh ấy hết từ tháng Tám rồi mà. Bảy nghìn cổ phiếu đó lấy tiền ở đâu ra?"},
+  {"speaker": "vn_host", "text": "Hỏi đúng lắm. Lan, vợ Huy, cũng không biết, vì Lan không hề biết có lần mua thứ ba. Bạn giữ câu hỏi đó lại nhé."},
+  {"speaker": "vn_host", "text": "Rồi đến tuần này. Một trang tin mạng đưa tin Hoàng Long có thể mất hợp đồng thuê kho lớn nhất, và quý ba lỗ. Ba phiên giảm sàn liền, từ hai mươi sáu xuống hai mươi mốt nghìn. Và thế là có đêm hai giờ sáng ấy."},
+  {"speaker": "vn_host", "text": "Ở phòng bên, Lan và bé Na đang ngủ. Lan ba mươi hai tuổi, dược sĩ ở nhà thuốc một bệnh viện, điềm tĩnh, là người giữ sổ chi tiêu của cả nhà. Na năm tuổi, tháng Chín năm sau vào lớp một. Trong ngăn kéo có một cuốn sổ tiết kiệm sáu mươi triệu, ngoài bìa là nét chữ của Lan: tiền học lớp một của con."},
+  {"speaker": "vn_host", "text": "Hai rưỡi sáng, Huy nhắn cho anh Tùng: trưa mai em mời anh bún chả, em cần anh xác nhận một quyết định. Để ý chữ xác nhận nhé. Huy không xin lời khuyên. Anh chỉ cần ai đó gật đầu."},
+  {"speaker": "vn_host", "text": "Anh Tùng bốn mươi lăm tuổi. Ngày xưa anh là trợ giảng, phụ trách câu lạc bộ đầu tư ở trường đại học của Huy, rồi hai người thành bạn vong niên. Anh từng làm cho một quỹ nước ngoài ở Singapore, giờ quản lý một quỹ đầu tư nhỏ ở Hà Nội. Anh nói ít, khô khan, quen chêm tiếng Anh, và chưa bao giờ nói dối Huy."},
+  {"speaker": "vn_host", "text": "Trưa thứ Năm, một quán bún chả trong ngõ nhỏ phố cổ. Khói than hoa quyện mùi thịt nướng, bay ra con phố lạnh. Huy trình bày như trình báo cáo: giá về hai mươi mốt là đáy rồi, mua thêm thì giá vốn lại giảm. Em đã bỏ vào ba trăm triệu, anh ạ. Bán bây giờ là phí hết. Anh Tùng đặt đũa xuống, nói một câu mà dân tài chính nào cũng từng nghe:"},
+  {"phrase": "p1"},
+  {"speaker": "vn_host", "text": "Nghĩa là: đừng đổ thêm tiền vào một khoản đã mất nữa. Câu này dùng được ở mọi cuộc họp, từ một dự án phần mềm chạy mãi không xong đến một chi nhánh lỗ triền miên. Có chữ let's, nó nghe như một đề nghị cùng nhau, không phải lời trách."},
+  {"speaker": "vn_host", "text": "Ba trăm triệu đó nằm lại ở quá khứ rồi, anh Tùng nói. Em bán hay giữ, nó cũng không quay về. Khoản tiền đã chi ra và không thể lấy lại, dù mình quyết định gì tiếp theo, tiếng Anh gọi là"},
+  {"word": "w5"},
+  {"speaker": "vn_host", "text": "Rồi anh kể một nghiên cứu. Năm một nghìn chín trăm tám mươi lăm, hai nhà tâm lý học Hal Arkes và Catherine Blumer làm thí nghiệm với vé xem kịch cả mùa của nhà hát Đại học Ohio, ở Mỹ. Một số người trả đủ giá. Số khác, được chọn ngẫu nhiên, được giảm giá."},
+  {"speaker": "vn_host", "text": "Kết quả: trong nửa đầu mùa diễn, những người trả đủ tiền đi xem nhiều vở hơn những người được giảm giá. Vở kịch không hay hơn với họ. Chỉ là họ đã trả nhiều tiền hơn, và họ tiếc."},
+  {"speaker": "vn_cohost", "text": "Giống em quá. Phim dở mấy em cũng ngồi đến hết, vì tiếc tiền vé."},
+  {"speaker": "vn_host", "text": "Ai cũng thế. Nhưng ngồi thêm một tiếng thì chỉ mất một tiếng. Còn Huy đang định đổ thêm tiền thật vào khoản đã mất."},
+  {"speaker": "vn_host", "text": "Huy cãi: nhưng em chưa bán thì chưa lỗ mà anh. Anh Tùng cười khô khốc: câu đó có tên đấy. Cũng năm một nghìn chín trăm tám mươi lăm, hai nhà kinh tế học Hersh Shefrin và Meir Statman gọi nó là disposition effect, tạm dịch là hiệu ứng bán lời giữ lỗ: bán quá sớm mã đang lời, ôm quá lâu mã đang lỗ."},
+  {"speaker": "vn_host", "text": "Năm một nghìn chín trăm chín mươi tám, nhà kinh tế học Terrance Odean kiểm chứng trên khoảng mười nghìn tài khoản ở một công ty môi giới phí thấp tại Mỹ. Nhà đầu tư bán mã lời dễ dàng hơn hẳn mã lỗ. Và trong một năm sau đó, những mã lời họ đã bán lại sinh lời tốt hơn những mã lỗ họ giữ, chênh khoảng ba phẩy bốn điểm phần trăm. Họ bán con ngựa đang chạy, giữ con ngựa đang què."},
+  {"speaker": "vn_cohost", "text": "Ba phẩy bốn điểm phần trăm nghe có vẻ nhỏ mà chị?"},
+  {"speaker": "vn_host", "text": "Một lần thì nhỏ. Nhưng lặp lại mỗi năm, với mỗi quyết định, nó như một khoản phí vô hình: phí trả cho cảm giác dễ chịu khi chốt lời, và để khỏi phải nhận là mình sai."},
+  {"speaker": "vn_host", "text": "Anh Tùng hỏi: ở công ty, một dự án vượt ngân sách gấp đôi, em có duyệt thêm tiền chỉ vì đã lỡ chi nhiều không? Không, Huy nói, em sẽ đòi xem kế hoạch. Thế kế hoạch của em với Hoàng Long đâu? Huy im lặng. Anh Tùng hỏi tiếp, câu anh đã hỏi hàng trăm giám đốc trước khi rót vốn:"},
+  {"phrase": "p2"},
+  {"speaker": "vn_host", "text": "Nghĩa là: tình huống xấu nhất là gì? Worst case là trường hợp tệ nhất. Đây là câu rất bình thường khi duyệt dự án hay ký hợp đồng. Nó không bi quan. Nó là câu của người cẩn thận: biết đáy ở đâu rồi mới đi tiếp."},
+  {"speaker": "vn_host", "text": "Huy trả lời nhanh, mắt nhìn bếp than: tệ nhất thì về mười lăm nghìn, em ôm vài năm, em không cần tiền gấp. Huy không nói dối. Anh chỉ không nói hết. Rồi anh Tùng hỏi Hoàng Long chiếm bao nhiêu trong danh mục. Toàn bộ, Huy nói. Anh Tùng thở ra một làn hơi trắng trong gió lạnh:"},
+  {"phrase": "p3"},
+  {"speaker": "vn_host", "text": "Nghĩa là: đừng bỏ hết trứng vào một giỏ. Câu này dùng cả trong đầu tư lẫn kinh doanh: đừng phụ thuộc vào một khách hàng hay một nhà cung cấp. Nó hơi thân mật. Trong báo cáo, người ta dùng một động từ gọn hơn, nghĩa là chia ra nhiều nơi để một chỗ hỏng không kéo sập tất cả:"},
+  {"word": "w6"},
+  {"speaker": "vn_host", "text": "Trước khi về, anh Tùng viết lên tờ giấy ăn một câu hỏi. Nếu hôm nay em đang cầm tiền mặt, chưa có cổ phiếu nào, em có mua Hoàng Long ở giá hai mươi mốt nghìn không? Nếu không, thì giữ nó cũng chẳng khác gì mua lại nó ở giá hôm nay. Cổ phiếu không biết em mua nó giá bao nhiêu đâu, Huy ạ. Chỉ có em biết thôi.", "pause_ms": 1000},
+  {"speaker": "vn_host", "text": "Huy nhét tờ giấy ăn vào túi áo khoác. Chiều đó, anh không mua thêm. Nhưng cũng không bán."},
+  {"speaker": "vn_host", "text": "Sáu giờ tối, cầu Chương Dương tắc cứng. Sương chiều xuống thấp trên mặt sông, đèn phanh đỏ nối thành một dải dài. Huy lái xe, Lan ngồi cạnh, Na ngủ gục ở ghế sau. Điện thoại reo, kết nối thẳng vào loa xe. Giọng một chàng trai trẻ vang lên: anh Huy ơi, em Phong bên công ty chứng khoán. Em nhắc anh khoản nộp bổ sung ký quỹ bốn mươi triệu, hạn hai giờ chiều mai. Nếu không, thứ Hai bên em buộc phải bán cổ phiếu của anh để thu hồi khoản vay một trăm tám mươi triệu ạ.", "pause_ms": 1200},
+  {"speaker": "vn_host", "text": "Phong là nhân viên môi giới chăm sóc tài khoản của Huy. Người hay công ty đặt lệnh mua bán chứng khoán cho nhà đầu tư, tiếng Anh gọi là"},
+  {"word": "w7"},
+  {"speaker": "vn_host", "text": "Vậy là bạn có câu trả lời rồi. Bảy nghìn cổ phiếu tháng Mười, Huy mua bằng tiền vay của công ty chứng khoán, dùng chính số cổ phiếu đó làm tài sản bảo đảm. Đó là vay ký quỹ, hay margin. Khi giá giảm quá một ngưỡng, công ty chứng khoán đòi nộp thêm tiền. Yêu cầu đó, tiếng Anh gọi là"},
+  {"word": "w8"},
+  {"speaker": "vn_cohost", "text": "Vay một trăm tám mươi triệu từ tháng Mười, mà vợ không hề biết?"},
+  {"speaker": "vn_host", "text": "Đúng vậy. Và đó là con số Huy giấu khi được hỏi về tình huống xấu nhất. Có tiền vay, anh không còn quyền chờ. Không nộp tiền, cổ phiếu sẽ bị bán ở bất cứ giá nào, còn nợ thì vẫn phải trả đủ."},
+  {"speaker": "vn_host", "text": "Cuộc gọi kết thúc. Trong xe không ai nói gì. Chiếc xe nhích từng chút trên cầu. Lan chỉ quay ra sau, kéo lại chiếc khăn len cho Na.", "pause_ms": 1200},
+  {"speaker": "vn_host", "text": "Mười giờ đêm, Na đã ngủ. Huy ngồi ở bàn ăn, trước mặt là cuốn sổ tiết kiệm của Na mà anh đã lén lấy từ chiều. Không còn đường lùi nữa. Trong tiếng Anh, có một câu cho đúng khoảnh khắc này:"},
+  {"phrase": "p4"},
+  {"speaker": "vn_host", "text": "Nghĩa là: đến lúc phải đối mặt với hậu quả rồi. Face the music là chấp nhận chịu trách nhiệm cho việc mình đã làm, dù khó chịu đến mấy. Dùng khi nói về chính mình hay cả nhóm. Đừng dùng để nói thẳng vào mặt sếp hay khách hàng, nghe như đang trách họ."},
+  {"speaker": "vn_host", "text": "Huy kể hết. Khoản vay. Và kế hoạch lúc hai giờ sáng: rút sổ của Na, nộp bốn mươi triệu ký quỹ, hai mươi triệu còn lại mua thêm ở giá sàn, Tết có thưởng sẽ bù vào. Lan nghe hết, không ngắt lời. Rồi chị hỏi: tổng cộng nhà mình nợ bao nhiêu? Một trăm tám mươi triệu. Lan gật đầu, đứng dậy, đi vào phòng ngủ.", "pause_ms": 1200},
+  {"speaker": "vn_cohost", "text": "Thôi rồi. Đến đây chắc cãi nhau to chị nhỉ."},
+  {"speaker": "vn_host", "text": "Huy cũng nghĩ thế. Anh chờ tiếng cửa đóng sầm. Nhưng Lan quay ra, tay cầm một cuốn sổ bìa xanh."},
+  {"speaker": "vn_host", "text": "Đó là sổ chi tiêu của gia đình, ghi tay suốt ba năm, mỗi tháng một trang. Cuối mỗi trang có một dòng nhỏ: quỹ khẩn cấp, cộng hai triệu. Trang cuối là một tài khoản đứng tên Lan: một trăm hai mươi triệu, đủ cho cả nhà sống sáu tháng nếu ai đó mất việc hay ốm nặng. Chị dành dụm từ tiền trực đêm và thưởng Tết, không nói với ai. Khoản tiền để sẵn cho chuyện bất ngờ, tiếng Anh gọi là"},
+  {"word": "w9"},
+  {"speaker": "vn_host", "text": "Mắt Huy sáng lên: vậy là đủ rồi em, mình nộp ký quỹ, đợi giá hồi là... Lan gập sổ lại. Không, chị nói. Quỹ này không phải để cứu một cổ phiếu. Nó để cứu nhà mình.", "pause_ms": 900},
+  {"speaker": "vn_host", "text": "Rồi chị lấy ra tờ giấy ăn nhàu nát, chị thấy nó lúc treo áo khoác cho chồng. Chị hỏi lại câu của anh Tùng, theo cách của chị: giả sử sáng mai, một trăm hai mươi triệu này là tiền mặt trong tay anh. Anh có mang nó đi mua Hoàng Long ở giá hai mươi mốt nghìn không?"},
+  {"speaker": "vn_host", "text": "Huy định nói có. Rồi anh nghĩ đến cái hợp đồng kho, đến quý ba thua lỗ, đến ba phiên liền không ai mua. Ngoài kia, gió mùa đập vào cửa kính ban công. Không, cuối cùng anh nói. Anh sẽ không mua.", "pause_ms": 1200},
+  {"speaker": "vn_host", "text": "Vậy thì nộp tiền ký quỹ cũng là mua nó, Lan nói. Chỉ là mua bằng tiền của Na."},
+  {"speaker": "vn_cohost", "text": "Câu đó đau thật. Nhưng mà đúng."},
+  {"speaker": "vn_host", "text": "Đúng ở chỗ: nộp thêm tiền để giữ một khoản đầu tư, về bản chất, là quyết định mua thêm ở giá hôm nay. Cái giá bốn mươi tám nghìn ngày xưa chẳng còn liên quan gì nữa."},
+  {"speaker": "vn_host", "text": "Huy hỏi: vậy em muốn anh bán sạch à? Lan lắc đầu. Ở bệnh viện, gặp đơn thuốc khó, chị không bao giờ tự quyết một mình. Chị nói câu mà bác sĩ hay dược sĩ nào cũng quen miệng:"},
+  {"phrase": "p5"},
+  {"speaker": "vn_host", "text": "Nghĩa là: tôi muốn nghe thêm ý kiến của người thứ hai. Câu này gốc từ y khoa, nhưng dùng rất nhiều ở văn phòng, trước khi ký hợp đồng lớn hay chọn nhà cung cấp. Nó lịch sự, không làm mất lòng người góp ý trước, vì bạn chỉ nói mình muốn cẩn thận hơn."},
+  {"speaker": "vn_host", "text": "Gần mười một giờ đêm, anh Tùng nghe máy, kính trễ xuống mũi. Nghe đến khoản vay, anh im lặng vài giây, rồi nói: cảm ơn em đã nói thật, dù muộn. Giờ trả lời lại câu hồi trưa cho đủ: có khoản vay, tình huống xấu nhất là gì?"},
+  {"speaker": "vn_host", "text": "Lần này Huy tự tính, bằng cái đầu của kế toán trưởng. Giá giảm sàn thêm hai phiên, quanh mười tám nghìn, công ty chứng khoán sẽ bán hết, mà lúc giảm sàn có khi chẳng ai mua. Còn nộp bốn mươi triệu rồi giá vẫn rơi, họ sẽ gọi tiếp. Lúc đó, thứ duy nhất còn lại để nộp là quỹ khẩn cấp của Lan."},
+  {"speaker": "vn_host", "text": "Đêm đó, họ viết kế hoạch vào trang trống của cuốn sổ bìa xanh. Một: sáng mai bán chín nghìn cổ phiếu, trả hết khoản vay, không nộp thêm đồng nào. Hai: nếu giá hồi về hai mươi bốn nghìn, bán thêm ba nghìn. Ba: hai nghìn cổ phiếu cuối cùng đặt mức cắt lỗ ở mười tám nghìn, chạm là bán, không bàn lại. Mức giá đặt sẵn để chặn khoản lỗ, tiếng Anh gọi là"},
+  {"word": "w10"},
+  {"speaker": "vn_host", "text": "Anh Tùng dặn: viết ra ngay bây giờ, khi đầu óc còn tỉnh. Lúc màn hình đổi màu, em sẽ không còn tỉnh nữa đâu. Hai vợ chồng ký tên dưới trang giấy, chữ ký kế toán trưởng của Huy thẳng tắp như trên chứng từ."},
+  {"speaker": "vn_cohost", "text": "Nhưng bán ở hai mươi mốt nghìn là chấp nhận lỗ thật rồi còn gì chị?"},
+  {"speaker": "vn_host", "text": "Anh Tùng trả lời đúng câu đó: khoản lỗ đã thành thật từ lúc giá rơi, bán chỉ là thôi không giả vờ nữa. Và Huy giành lại quyền tự quyết, thay vì để công ty chứng khoán quyết thay vào sáng thứ Hai."},
+  {"speaker": "vn_host", "text": "Chín giờ sáng thứ Sáu, ở bàn làm việc tầng năm, giữa hai chồng chứng từ, ngón tay Huy lơ lửng trên nút đặt lệnh rất lâu. Rồi anh bấm. Chín nghìn cổ phiếu, gần một trăm chín mươi triệu đồng. Mười giờ kém mười lăm, khoản vay được tất toán. Huy nhắn cho Lan: xong rồi em. Lan gửi lại một tấm ảnh: cuốn sổ tiết kiệm của Na, đã nằm yên trong ngăn kéo.", "pause_ms": 1000},
+  {"speaker": "vn_host", "text": "Tuần sau, Hoàng Long thông báo hợp đồng kho chưa mất, chỉ đang đàm phán lại. Giá tăng ba phiên liền, chạm hai mươi bốn nghìn. Nhóm chat lại sôi lên: sắp về bờ rồi, ai bán lúc đáy là dại. Huy mở ứng dụng, xoá lệnh bán đã đặt sẵn. Đang lên mà em, chờ về ba mươi đã. Lan không cãi. Chị mở cuốn sổ bìa xanh ra trang có chữ ký của hai vợ chồng, đặt trước mặt anh, và nói:"},
+  {"phrase": "p6"},
+  {"speaker": "vn_host", "text": "Nghĩa là: mình cứ làm đúng theo kế hoạch nhé. Stick to là bám chặt, không đổi ý giữa chừng. Câu này hợp khi cả nhóm đã thống nhất, mà có người muốn đổi hướng vì cảm xúc hay áp lực phút chót. Chữ let's làm nó thành lời nhắc chung, không phải mệnh lệnh."},
+  {"speaker": "vn_host", "text": "Huy đặt lại lệnh. Ba nghìn cổ phiếu, bảy mươi hai triệu. Anh tiếc, và ghi đúng cảm giác tiếc ấy vào một cuốn nhật ký đầu tư mới tinh. Hai tuần sau, Hoàng Long công bố: hợp đồng kho bị cắt một nửa, công ty vẫn lỗ. Giá thủng mười tám nghìn, lệnh cắt lỗ bán nốt hai nghìn cổ phiếu. Đến giữa tháng Một, Hoàng Long chỉ còn mười lăm nghìn.", "pause_ms": 1000},
+  {"speaker": "vn_host", "text": "Ba trăm triệu của Huy còn lại khoảng một trăm mười triệu. Mất gần hai trăm triệu, tiền thưởng của ba năm. Đau thật. Nhưng nếu hôm ấy anh nộp tiền học của Na, rồi nộp cả quỹ khẩn cấp của Lan, khoản lỗ đã không dừng ở tiền thưởng của anh. Nó đã lan sang tiền học của con và chỗ dựa của cả nhà."},
+  {"speaker": "vn_host", "text": "Một chiều cuối tháng Một, mưa phùn lất phất, anh Tùng ghé nhà, mang theo một cành đào nhỏ chơi Tết. Huy mở nhật ký, chỉ vào con số bốn mươi tám nghìn. Giá mà em đừng nghe nhóm chat. Giá mà em bán ở ba mươi. Giá mà... Anh Tùng rót trà, cười khô khốc:"},
+  {"phrase": "p7"},
+  {"speaker": "vn_host", "text": "Nghĩa là: chuyện đã qua thì nhìn lại ai cũng thấy rõ. Twenty-twenty là thị lực mười trên mười. Câu này giúp mình thôi tự trách, và nhắc rằng chẳng ai thật sự biết trước. Nói với đồng nghiệp sau một dự án hỏng, nó nghe thông cảm chứ không phải bào chữa."},
+  {"speaker": "vn_host", "text": "Rồi anh nói thêm: nếu tháng sau Hoàng Long lên năm mươi nghìn, kế hoạch của em vẫn đúng. Một quyết định tốt không phải là quyết định có kết quả tốt. Nó là quyết định hợp lý với những gì em biết lúc đó, và nếu sai thì em vẫn chịu được."},
+  {"speaker": "vn_host", "text": "Trên trang đầu cuốn nhật ký, Huy chép năm quy tắc. Một: quỹ khẩn cấp sáu tháng chi tiêu có trước mọi khoản đầu tư. Hai: không vay ký quỹ. Ba: không mã nào chiếm quá khoảng mười phần trăm danh mục. Bốn: trước mỗi lần mua, viết ra lý do mua, giá bán nếu mình đúng, mức cắt lỗ nếu mình sai. Năm: ghi mọi quyết định vào nhật ký, kể cả cảm xúc lúc đó."},
+  {"speaker": "vn_cohost", "text": "Mười phần trăm có ít quá không chị? Lỡ trúng một mã thật hay thì sao?"},
+  {"speaker": "vn_host", "text": "Thì lời ít hơn một chút. Nhưng nếu trượt một mã thật tệ, cả nhà vẫn ngủ ngon. Con số mười phần trăm không phải phép màu, mỗi người một khác. Quan trọng là nó được viết ra từ trước."},
+  {"speaker": "vn_host", "text": "Lan thêm quy tắc thứ sáu, bằng nét chữ của chị: anh cho em xem danh mục, em cho anh xem cuốn sổ bìa xanh. Đêm đó, hai giờ sáng, điện thoại của Huy nằm sạc ngoài bếp. Trong căn hộ chỉ còn tiếng một đoàn tàu đêm chạy qua cầu Long Biên. Và Huy đang ngủ.", "pause_ms": 1200},
+  {"speaker": "vn_host", "text": "Còn bạn, câu trả lời ở đầu tập là bán, giữ, hay mua thêm? Thử hỏi lại bằng câu của Lan: nếu hôm nay đang cầm tiền mặt, bạn có mua nó ở giá này không? Giá bạn đã trả là chuyện của quá khứ. Còn kế hoạch thì phải viết ra khi đầu óc còn tỉnh, trước khi màn hình đổi màu."}
+ ],
+ "layer2": {
+  "intro": [
+   {"speaker": "vn_host", "text": "Giờ là phần luyện nhanh. Bảy câu tiếng Anh từ câu chuyện của Huy và Lan. Mỗi câu bạn nghe chậm, có khoảng lặng để nhắc lại, rồi nghe tốc độ thật và hai ví dụ ở những tình huống công việc khác."}
+  ],
+  "outro": [
+   {"speaker": "vn_host", "text": "Xong phần luyện rồi. Tiếp theo, bạn sẽ nghe lại cả câu chuyện của Huy, hoàn toàn bằng tiếng Anh. Để ý nhé, có một chi tiết về anh Tùng mà phần tiếng Việt chưa kể."}
+  ]
+ },
+ "layer3": [
+  {"speaker": "Narrator", "text": "Two in the morning, in an apartment in Long Bien, Hanoi. The first cold wind of winter was coming off the Red River. Somewhere in the dark, a night train was crossing the old bridge."},
+  {"speaker": "Narrator", "text": "Do Quang Huy, thirty-four, chief accountant at a logistics company, sat on the sofa with a thin blanket around his shoulders. He pulled down on his phone screen. Refresh. Again. Refresh."},
+  {"speaker": "Narrator", "text": "Hoang Long Logistics, a company we invented for this story. Twenty-one thousand dong a share. Three days in a row at the floor price. Not a single buyer."},
+  {"speaker": "Huy", "text": "Forty-eight thousand. I paid forty-eight thousand. In April."},
+  {"speaker": "Narrator", "text": "His portfolio used to hold five stocks. Every time one went up ten or fifteen percent, he sold it, to lock in profit. Now there was only one line left on the screen. One red line."},
+  {"speaker": "Narrator", "text": "In his notes, he typed a plan for the morning. Nine o'clock. Buy more. He had already averaged down twice, at thirty thousand and at twenty-six. The lower the price, he told himself, the faster he would get his money back."},
+  {"speaker": "Narrator", "text": "There was also a message he had not opened since the afternoon. He swiped it away.", "pause_ms": 900},
+  {"speaker": "Narrator", "text": "At work, Huy was the most careful man on the fifth floor. Any payment over ten million needed two signatures. With his own money, he was a different person."},
+  {"speaker": "Narrator", "text": "In April, someone in a chat group said Hoang Long was about to win a huge warehouse contract. Huy worked in logistics. He felt he understood this company better than anyone. He bought five thousand shares at forty-eight thousand dong, almost all his bonuses from three years."},
+  {"speaker": "Narrator", "text": "Since September, the volatility had been crazy. Up six percent one day, down seven the next. Then, this week, a news site reported that the company might lose its biggest contract. Three days at the floor."},
+  {"speaker": "Narrator", "text": "At half past two, he texted his old friend Tung. Lunch tomorrow, my treat. I need you to confirm a decision."},
+  {"speaker": "Narrator", "text": "Tung, forty-five, had run the student investment club at Huy's university. After years at a foreign fund in Singapore, he now managed a small fund in Hanoi. He spoke little, and dryly, and he had never lied to Huy."},
+  {"speaker": "Narrator", "text": "Thursday, noon. A tiny bun cha place in the Old Quarter. Charcoal smoke and the smell of grilled pork drifted out into the cold street."},
+  {"speaker": "Huy", "text": "It's at twenty-one now. That's the bottom, Tung. If I buy more, my average price drops again. I've already put three hundred million into this. If I sell now, I waste all of it."},
+  {"speaker": "Tung", "text": "So you want me to say yes."},
+  {"speaker": "Huy", "text": "I want you to confirm it's logical."},
+  {"speaker": "Narrator", "text": "Tung put his chopsticks down."},
+  {"speaker": "Tung", "text": "Let's not throw good money after bad. Your three hundred million is gone, Huy. Whether you sell or hold, that money is not coming back. It's a sunk cost."},
+  {"speaker": "Huy", "text": "That's easy for you to say. It's not your money."},
+  {"speaker": "Tung", "text": "Let me tell you about some theatre tickets. In 1985, two psychologists, Hal Arkes and Catherine Blumer, ran a study with season tickets at the Ohio University theatre."},
+  {"speaker": "Tung", "text": "Some people paid full price. Others, chosen at random, got a discount. In the first half of the season, the people who paid full price went to more plays than the people who got discounts."},
+  {"speaker": "Huy", "text": "Because they'd paid more."},
+  {"speaker": "Tung", "text": "Exactly. The money didn't make the plays any better. It just made it harder to stay home."},
+  {"speaker": "Huy", "text": "But I haven't lost anything yet. A loss isn't real until you sell."},
+  {"speaker": "Tung", "text": "That sentence has a name. Also in 1985, Hersh Shefrin and Meir Statman called it the disposition effect. People sell their winners too early, and they hold on to their losers too long."},
+  {"speaker": "Tung", "text": "Then in 1998, Terrance Odean looked at about ten thousand accounts at a discount broker. Investors sold winning stocks much more readily than losing ones. And the winners they sold went on to beat the losers they kept, by about three point four percentage points over the next year."},
+  {"speaker": "Huy", "text": "So they sold the horses that were running, and kept the ones that were limping."},
+  {"speaker": "Tung", "text": "At your company, if a project went double over budget, would you approve more money just because you'd already spent so much?"},
+  {"speaker": "Huy", "text": "Of course not. I'd ask to see the plan."},
+  {"speaker": "Tung", "text": "So where's your plan for Hoang Long?"},
+  {"speaker": "Narrator", "text": "Huy had no answer."},
+  {"speaker": "Tung", "text": "One more question. What's the worst-case scenario?"},
+  {"speaker": "Huy", "text": "Worst case, it falls to fifteen thousand and I hold it for a few years. I don't need the money soon."},
+  {"speaker": "Narrator", "text": "He said it quickly, looking at the charcoal stove. It was not a lie. It just wasn't the whole truth."},
+  {"speaker": "Tung", "text": "And how much of your portfolio is Hoang Long?"},
+  {"speaker": "Huy", "text": "All of it."},
+  {"speaker": "Tung", "text": "Huy. Don't put all your eggs in one basket. Every accountant knows this. You need to diversify, Huy."},
+  {"speaker": "Narrator", "text": "Before he left, Tung wrote one question on a paper napkin and pushed it across the table."},
+  {"speaker": "Tung", "text": "If you had cash today, and no shares at all, would you buy this stock at this price? If yes, keep it. If no, then holding it is the same as buying it again today."},
+  {"speaker": "Tung", "text": "The stock doesn't know what you paid, Huy. Only you know that.", "pause_ms": 900},
+  {"speaker": "Narrator", "text": "Huy put the napkin in his coat pocket. He didn't buy more that afternoon. But he didn't sell, either."},
+  {"speaker": "Narrator", "text": "Six in the evening. The Chuong Duong bridge was jammed. Fog hung low over the river, and brake lights made a long red line ahead. Huy was driving. His wife Lan, a pharmacist, sat beside him. Their daughter Na, five, was asleep in the back."},
+  {"speaker": "Narrator", "text": "Huy's phone rang. It was connected to the car speakers. Before he could reject the call, a young man's voice filled the car."},
+  {"speaker": "Broker", "text": "Good evening, Mister Huy, this is Phong from the securities company. This is a reminder about the margin call on your account. We need forty million dong by two o'clock tomorrow afternoon."},
+  {"speaker": "Huy", "text": "Phong, I'm driving. Can I call you back?"},
+  {"speaker": "Broker", "text": "Of course. But I have to be clear. If the money doesn't arrive, on Monday we'll have to sell your Hoang Long shares to repay the loan. It's one hundred and eighty million. I'm sorry, those are the rules."},
+  {"speaker": "Narrator", "text": "The call ended. Nobody spoke. Lan turned around and pulled Na's wool scarf up over her chin.", "pause_ms": 1000},
+  {"speaker": "Narrator", "text": "So that was the secret. In October, Huy had borrowed one hundred and eighty million dong from his broker to buy seven thousand more shares at twenty-six thousand. Lan had never known."},
+  {"speaker": "Narrator", "text": "At ten that night, Huy sat at the dining table. In front of him was Na's savings book, sixty million dong for her first year of primary school. He had taken it out of the drawer that afternoon."},
+  {"speaker": "Huy", "text": "It's time to face the music."},
+  {"speaker": "Narrator", "text": "He told Lan everything. The loan. And his plan from two in the morning: take Na's sixty million, pay the forty million, and use the other twenty to buy more at the floor."},
+  {"speaker": "Huy", "text": "I'll get a bonus at Tet. I'll put it all back. I promise."},
+  {"speaker": "Lan", "text": "How much do we owe in total?"},
+  {"speaker": "Huy", "text": "One hundred and eighty million."},
+  {"speaker": "Narrator", "text": "Lan nodded, stood up, and walked into the bedroom. Huy waited for the door to slam. It didn't. She came back holding a blue notebook."},
+  {"speaker": "Narrator", "text": "It was the family budget, three years of it, written by hand. One page per month. And at the bottom of every page, one small line. Emergency fund, plus two million."},
+  {"speaker": "Lan", "text": "There's one hundred and twenty million in an account in my name. Six months of our expenses. I saved it from my night shifts and my Tet bonuses. It's our emergency fund."},
+  {"speaker": "Huy", "text": "Three years? You never told me."},
+  {"speaker": "Lan", "text": "You never asked what happens if one of us gets sick."},
+  {"speaker": "Huy", "text": "Lan, this is perfect. We pay the margin call, we keep the shares, and when the price comes back..."},
+  {"speaker": "Lan", "text": "No. This money isn't for saving a stock. It's for saving us."},
+  {"speaker": "Narrator", "text": "She took a crumpled napkin out of her pocket. She had found it when she hung up his coat."},
+  {"speaker": "Lan", "text": "Tung asked you a question. Now I'm asking it. Imagine this one hundred and twenty million is cash in your hand tomorrow morning. Would you buy Hoang Long at twenty-one thousand?"},
+  {"speaker": "Narrator", "text": "Huy opened his mouth to say yes. Then he thought about the warehouse contract, the loss last quarter, and three days without a single buyer. Outside, the wind was rattling the balcony door."},
+  {"speaker": "Huy", "text": "No. I wouldn't.", "pause_ms": 900},
+  {"speaker": "Lan", "text": "Then paying the margin call is buying it. Just with Na's money."},
+  {"speaker": "Huy", "text": "So you want me to sell everything tomorrow?"},
+  {"speaker": "Lan", "text": "I don't know yet. When I get a difficult prescription at the hospital, I never decide alone. I'd like a second opinion."},
+  {"speaker": "Narrator", "text": "At twenty to eleven, Tung answered the video call, his glasses low on his nose. When he heard about the loan, he was quiet for a few seconds."},
+  {"speaker": "Tung", "text": "Thank you for telling the truth. Late, but thank you. Now let's answer my question properly. With the loan, what's the worst-case scenario?"},
+  {"speaker": "Huy", "text": "If it hits the floor two more times, around eighteen thousand, the broker sells everything. At any price. Maybe with no buyers at all."},
+  {"speaker": "Tung", "text": "And if you pay the forty million, and it keeps falling?"},
+  {"speaker": "Huy", "text": "They call again. And the only money left is Lan's emergency fund."},
+  {"speaker": "Tung", "text": "That's the real worst case. Not holding for a few years. Losing the money your family needs to sleep at night."},
+  {"speaker": "Narrator", "text": "That night, the three of them wrote a plan on an empty page of the blue notebook."},
+  {"speaker": "Lan", "text": "Number one. Tomorrow morning, sell nine thousand shares and pay back the whole loan. Not one more dong goes into that account."},
+  {"speaker": "Tung", "text": "Number two. If the price bounces to twenty-four thousand, sell three thousand more."},
+  {"speaker": "Huy", "text": "Number three. A stop-loss at eighteen thousand for the last two thousand shares. If it hits, we sell. No discussion."},
+  {"speaker": "Tung", "text": "Write it down now, while your head is clear. When the screen turns red or green, it won't be."},
+  {"speaker": "Huy", "text": "But if I sell at twenty-one, the loss becomes real."},
+  {"speaker": "Tung", "text": "The loss became real when the price fell. Selling just means you stop pretending. And you get to decide, instead of your broker on Monday morning."},
+  {"speaker": "Narrator", "text": "Friday morning. At his desk on the fifth floor, Huy's finger stayed over the button for a long time. Then he pressed it. Nine thousand shares, at about twenty-one thousand. Almost one hundred and ninety million dong. By a quarter to ten, the loan was closed."},
+  {"speaker": "Broker", "text": "Mister Huy, your account has no debt now. Honestly, I'm glad."},
+  {"speaker": "Narrator", "text": "Huy texted Lan two words. It's done. She sent back a photo: Na's savings book, back in the drawer.", "pause_ms": 900},
+  {"speaker": "Narrator", "text": "The next week, Hoang Long said the warehouse contract was not lost, only being renegotiated. The price rose three days in a row, to twenty-four thousand. The chat group exploded. Told you so. Anyone who sold at the bottom is a fool."},
+  {"speaker": "Huy", "text": "It's going up, Lan. Why sell now? Let's wait for thirty."},
+  {"speaker": "Narrator", "text": "He was already cancelling the sell order. Lan didn't argue. She opened the blue notebook to the page with both their signatures and put it in front of him."},
+  {"speaker": "Lan", "text": "Let's stick to the plan."},
+  {"speaker": "Narrator", "text": "Huy placed the order again. Three thousand shares, seventy-two million dong. It hurt. That night, he wrote the feeling down in a new notebook, his investment journal."},
+  {"speaker": "Narrator", "text": "Two weeks later, Hoang Long published its results. Half of the warehouse contract had been cut, and the company was still losing money. The price fell through eighteen thousand. His stop-loss sold the last two thousand shares. By the middle of January, Hoang Long was at fifteen thousand.", "pause_ms": 900},
+  {"speaker": "Narrator", "text": "Of his three hundred million, Huy had about one hundred and ten million left. Three years of bonuses, mostly gone. But Na's school money was still in the drawer, and Lan's emergency fund had not been touched."},
+  {"speaker": "Narrator", "text": "One afternoon in late January, in a fine, cold drizzle, Tung came over with a small branch of peach blossom for Tet. Huy opened his journal to the first page."},
+  {"speaker": "Huy", "text": "Forty-eight thousand, in April. If only I hadn't listened to that chat group. If only I'd sold at thirty. If only..."},
+  {"speaker": "Tung", "text": "Hindsight is twenty-twenty, Huy. Everything looks obvious afterwards. And if Hoang Long goes to fifty thousand next month, your plan was still right."},
+  {"speaker": "Huy", "text": "How can it be right if I lost money?"},
+  {"speaker": "Tung", "text": "A good decision isn't one with a good result. It's one that made sense with what you knew, and one you could survive if you were wrong."},
+  {"speaker": "Narrator", "text": "Then Tung said something he had never told Huy before."},
+  {"speaker": "Tung", "text": "In 2008, I did exactly what you did. A bank stock. I borrowed on margin and averaged down three times. My broker sold all my shares at the bottom. That question on your napkin? I wrote it for myself first."},
+  {"speaker": "Narrator", "text": "On the first page of his journal, in his straight accountant's handwriting, Huy copied five rules."},
+  {"speaker": "Huy", "text": "One. The emergency fund comes before any investment. Two. No margin, ever. Three. No single stock above about ten percent of the portfolio."},
+  {"speaker": "Huy", "text": "Four. Before every buy, write down why, the price to sell if I'm right, and the stop-loss if I'm wrong. Five. Every decision goes in the journal, with how I felt."},
+  {"speaker": "Lan", "text": "And rule number six. You show me your portfolio. I show you the blue notebook."},
+  {"speaker": "Huy", "text": "Deal."},
+  {"speaker": "Narrator", "text": "Now a little money goes in every month, spread across an index fund and a few other investments. Nothing exciting. Just diversified."},
+  {"speaker": "Narrator", "text": "That night, at two in the morning, Huy's phone was charging in the kitchen. The only sound in the apartment was a night train crossing the Long Bien bridge. And Huy was asleep.", "pause_ms": 1200}
+ ],
+ "closing": [
+  {"speaker": "vn_host", "text": "Trước khi chào bạn, đây là một quy tắc để dùng ngay ngày mai. Trước khi đổ thêm tiền, thời gian hay công sức vào bất cứ thứ gì đang lỗ, dù là một cổ phiếu hay một dự án ở công ty, hãy hỏi câu của Lan: nếu hôm nay bắt đầu từ con số không, mình có chọn nó không? Nếu không, đừng để cái giá đã trả quyết định thay bạn. Hẹn gặp bạn ở tập sau."}
+ ],
+ "fact_check": {
+  "sources": [
+   "Arkes, H. R. & Blumer, C. (1985). The psychology of sunk cost. Organizational Behavior and Human Decision Processes, 35(1), 124-140. Ohio University Theater season tickets: buyers randomly given full price or discounts; full-price buyers attended more plays in the first half of the season.",
+   "Shefrin, H. & Statman, M. (1985). The disposition to sell winners too early and ride losers too long: Theory and evidence. Journal of Finance, 40(3), 777-790. Named the disposition effect.",
+   "Odean, T. (1998). Are investors reluctant to realize their losses? Journal of Finance, 53(5), 1775-1798. About 10,000 discount brokerage accounts; investors realized gains more readily than losses; winners sold outperformed losers held by about 3.4 percentage points over the following year."
+  ],
+  "dramatized_note": "Nhân vật, công ty Hoàng Long Logistics, công ty chứng khoán và mọi con số của câu chuyện là hư cấu. Chỉ ba nghiên cứu được nêu là thật. Không phải lời khuyên đầu tư."
+ }
+}
