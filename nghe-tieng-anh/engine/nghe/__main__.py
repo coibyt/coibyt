@@ -8,6 +8,8 @@
   python -m nghe import-taps taps.json          learner's "knew / didn't" taps exported by the website
   python -m nghe init-db                        rebuild the SQLite file from content/days/*.json
   python -m nghe index                          rewrite web/public/days/index.json
+  python -m nghe write [DATE]                   write a new day's content with the Claude API
+  python -m nghe daily [DATE]                   nightly job: write → build → QA → cover
 """
 from __future__ import annotations
 
@@ -27,8 +29,25 @@ WEB_DAYS = ROOT / "web" / "public" / "days"
 BUILD = ROOT / "build"
 
 
+def _merge(a: dict, b: dict) -> dict:
+    for k, v in b.items():
+        a[k] = _merge(a.get(k, {}), v) if isinstance(v, dict) else v
+    return a
+
+
+def load_prefs() -> dict:
+    p = ROOT / "content" / "prefs.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+
 def load_cfg() -> dict:
-    return json.loads((ENGINE / "config.json").read_text(encoding="utf-8"))
+    """config.json, with the timing preset for the chosen daily length (content/prefs.json) applied."""
+    cfg = json.loads((ENGINE / "config.json").read_text(encoding="utf-8"))
+    length = load_prefs().get("dailyLength", "2h")
+    preset = cfg.get("length_presets", {}).get(length)
+    if preset:
+        _merge(cfg["timing"], preset)
+    return cfg
 
 
 def open_srs(cfg: dict) -> db.SRS:
@@ -201,6 +220,31 @@ def cmd_qa(a, cfg):
         print(f"  Đã xoá {len(bad)} clip lỗi; chạy lại build để tổng hợp lại, rồi qa lần nữa.")
 
 
+def cmd_write(a, cfg):
+    from . import writer
+    writer.write_day(a.date or writer.next_date(), load_prefs())
+
+
+def cmd_daily(a, cfg):
+    """The nightly job: write tomorrow's content if missing, build audio, check it, cover art, index."""
+    from . import art, writer
+    date = a.date or writer.next_date()
+    if not (content_mod.DAYS_DIR / f"{date}.json").exists():
+        writer.write_day(date, load_prefs())
+    a.date, a.no_fallback, a.threshold, a.fix = date, False, 0.8, True
+    cmd_build(a, cfg)
+    cmd_qa(a, cfg)
+    if json.loads((BUILD / date / "qa.json").read_text(encoding="utf-8")):
+        cmd_build(a, cfg)  # re-synthesise the clips QA rejected (once)
+    try:
+        art.cover_for_day(date, WEB_DAYS / date)
+        if not json.loads((WEB_DAYS / date / "day.json").read_text(encoding="utf-8")).get("cover"):
+            cmd_build(a, cfg)  # quick (all clips cached): puts the cover into day.json
+    except Exception as e:  # noqa: BLE001 - a missing cover must not stop the day
+        print("  Ảnh bìa lỗi:", e)
+    print("Xong ngày", date)
+
+
 def cmd_art(a, cfg):
     from . import art
     art.cover_for_day(a.date, WEB_DAYS / a.date, force=a.force)
@@ -220,6 +264,11 @@ def main(argv=None):
     p.add_argument("file")
     p = sp.add_parser("init-db")
     p.add_argument("--force", action="store_true")
+    p = sp.add_parser("write")
+    p.add_argument("date", nargs="?")
+    p = sp.add_parser("daily")
+    p.add_argument("date", nargs="?")
+    p.add_argument("--tts", default=None)
     p = sp.add_parser("qa")
     p.add_argument("date")
     p.add_argument("--threshold", type=float, default=0.85)
@@ -232,7 +281,8 @@ def main(argv=None):
     if getattr(a, "tts", None) is None and hasattr(a, "tts"):
         a.tts = cfg["tts"]["provider"]
     {"estimate": cmd_estimate, "build": cmd_build, "index": cmd_index, "import-taps": cmd_import_taps,
-     "init-db": cmd_init_db, "art": cmd_art, "qa": cmd_qa}[a.cmd](a, cfg)
+     "init-db": cmd_init_db, "art": cmd_art, "qa": cmd_qa,
+     "write": cmd_write, "daily": cmd_daily}[a.cmd](a, cfg)
 
 
 if __name__ == "__main__":
