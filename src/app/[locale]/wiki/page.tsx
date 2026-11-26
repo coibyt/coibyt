@@ -18,16 +18,15 @@ export async function generateMetadata({ params, searchParams }: { params: Param
   const { q } = await searchParams;
   const lang = contentLocale(locale);
   const s = wikiStrings(lang);
-  const cover = wikiArticles(locale)[0];
-  const image = cover ? [{ url: absoluteUrl(cover.hero.src)!, width: cover.hero.w ?? 1200, height: cover.hero.h ?? 675, alt: cover.hero.alt }] : undefined;
+  const image = [{ url: absoluteUrl("/og/wiki.jpg")!, width: 1200, height: 630, alt: s.hubTitle }];
   return {
     title: { absolute: s.hubMetaTitle },
     description: s.hubMetaDescription,
     alternates: sectionAlternates(locale, () => "/wiki"),
     // A search result list is not a page of its own.
     ...(q ? { robots: { index: false, follow: true } } : {}),
-    openGraph: { title: s.hubMetaTitle, description: s.hubMetaDescription, url: localizedUrl(lang, "/wiki"), siteName: "VaraaAi", type: "website", ...(image ? { images: image } : {}) },
-    twitter: { card: "summary_large_image", title: s.hubMetaTitle, description: s.hubMetaDescription, ...(image ? { images: [image[0].url] } : {}) },
+    openGraph: { title: s.hubMetaTitle, description: s.hubMetaDescription, url: localizedUrl(lang, "/wiki"), siteName: "VaraaAi", type: "website", images: image },
+    twitter: { card: "summary_large_image", title: s.hubMetaTitle, description: s.hubMetaDescription, images: [image[0].url] },
   };
 }
 
@@ -268,16 +267,21 @@ export default async function WikiHubPage({ params, searchParams }: { params: Pa
 
       {/* where the knowledge comes from, and the product behind it */}
       <section className="container grid gap-5 pb-20 pt-16 md:grid-cols-2">
-        <div className="flex flex-col items-start rounded-3xl bg-white p-6 shadow-card ring-1 ring-[#e8d3a6] sm:p-8">
-          <span className={`flex h-12 w-12 items-center justify-center rounded-2xl ${GOLD} text-primary-900`}>
-            <GraduationCap className="h-6 w-6" aria-hidden />
+        <div className="flex flex-col overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-[#e8d3a6]">
+          <span className="relative block aspect-[16/7]">
+            <Image src="/wiki/hub/dung-cu-nail-mi-toc-spa-va-so-tay-hoc-nghe.webp" alt={s.academyImageAlt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </span>
-          <h2 className={`${SERIF} mt-4 text-2xl font-bold text-ink-900`}>VaraaAi Academy</h2>
-          <p className="mt-2 text-[15px] leading-relaxed text-ink-400">{s.lessonCtaBody}</p>
-          <Link href="/academy" className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-primary-600 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-primary-700">
-            {s.courseOf}
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </Link>
+          <div className="flex flex-1 flex-col items-start p-6 sm:p-8">
+            <h2 className={`${SERIF} flex items-center gap-3 text-2xl font-bold text-ink-900`}>
+              <GraduationCap className="h-7 w-7 text-[#b08a3e]" aria-hidden />
+              VaraaAi Academy
+            </h2>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink-400">{s.lessonCtaBody}</p>
+            <Link href="/academy" className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-primary-600 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-primary-700">
+              {s.courseOf}
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </div>
         </div>
         <div className="flex flex-col items-start rounded-3xl bg-gradient-to-br from-[#2a1f3d] via-primary-900 to-[#150f20] p-6 text-white ring-1 ring-[#e8d3a6]/30 sm:p-8">
           <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-[#e8d3a6] ring-1 ring-[#e8d3a6]/40">

@@ -62,6 +62,7 @@ const vi = {
   courseOf: "Khóa học trong Academy",
   inChapter: "Bài viết trong chuyên mục",
   keywords: "Từ khóa",
+  academyImageAlt: "Dụng cụ nghề nail, nối mi, tóc và spa bày quanh một cuốn sổ tay mở trên mặt đá",
   readArticle: "Đọc bài viết chi tiết",
   readArticleBody: "Bài học này có bài viết đầy đủ trên Wiki, kèm hình ảnh và câu hỏi thường gặp.",
 };
@@ -130,6 +131,7 @@ const en: Strings = {
   courseOf: "Courses in the Academy",
   inChapter: "Articles in this chapter",
   keywords: "Keywords",
+  academyImageAlt: "Nail, lash, hair and spa tools laid out around an open notebook on a marble table",
   readArticle: "Read the full article",
   readArticleBody: "This lesson has a full written article in the Wiki, with pictures and answers to common questions.",
 };
@@ -196,6 +198,7 @@ const fi: Strings = {
   courseOf: "Kurssit Academyssa",
   inChapter: "Osion artikkelit",
   keywords: "Avainsanat",
+  academyImageAlt: "Kynsi-, ripsi-, hius- ja spa-alan välineitä avoimen muistikirjan ympärillä marmoripöydällä",
   readArticle: "Lue koko artikkeli",
   readArticleBody: "Tästä oppitunnista on Wikissä kokonainen artikkeli kuvineen ja usein kysyttyine kysymyksineen.",
 };

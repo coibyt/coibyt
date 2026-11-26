@@ -8,6 +8,11 @@ import { ogImage } from "@/lib/og-image";
 import { academyTabOg, isAudience } from "@/lib/academy/og";
 import { AcademyShareLinks } from "@/components/academy/academy-share-links";
 import { SITE, alternatesFor, jsonLd, localizedUrl } from "@/lib/seo";
+import { ArrowRight, BookOpen } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { pick } from "@/lib/academy/types";
+import { categorySlug, contentLocale, liveCategories } from "@/lib/wiki";
+import { wikiStrings } from "@/lib/wiki/strings";
 
 type Params = Promise<{ locale: string }>;
 type Search = Promise<{ tab?: string | string[] }>;
@@ -44,6 +49,9 @@ export default async function AcademyPage({ params }: { params: Params }) {
   const cs = coursePageStrings(locale);
   const courses = courseCards(locale);
   const live = liveLessons();
+  const wikiLang = contentLocale(locale);
+  const ws = wikiStrings(wikiLang);
+  const wikiChapters = liveCategories(locale);
 
   const list = {
     "@context": "https://schema.org",
@@ -58,6 +66,37 @@ export default async function AcademyPage({ params }: { params: Params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(list)} />
       {/* Course catalogue first, like a course marketplace (owner, 2026-11-19); every card opens the course page. */}
       <AcademyCatalogue courses={catalogue(locale)} locale={locale} lessons={live.length} seconds={live.reduce((a, l) => a + (l.video?.seconds ?? 0), 0)} />
+
+      {/* The lessons written out as articles (owner, 2026-11-26). */}
+      {wikiChapters.length > 0 && (
+        <section className="container pb-12">
+          <div className="rounded-3xl bg-gradient-to-br from-[#2a1f3d] via-primary-900 to-[#150f20] p-6 text-white ring-1 ring-[#e8d3a6]/30 sm:p-8">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+              <div className="min-w-0 flex-1 basis-72">
+                <h2 className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight sm:text-2xl">
+                  <BookOpen className="h-6 w-6 shrink-0 text-[#e8d3a6]" />
+                  {ws.hubTitle}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-white/75 sm:text-base">{ws.hubLead}</p>
+              </div>
+              <Link href="/wiki" className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-gradient-to-r from-[#f0d9a0] via-[#e8d3a6] to-[#c9a25a] px-5 py-3 text-sm font-extrabold text-primary-900 transition hover:brightness-105">
+                {ws.nav}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {wikiChapters.map(({ category, articles }) => (
+                <li key={category.id}>
+                  <Link href={`/wiki/${categorySlug(category, locale)}`} className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-semibold ring-1 ring-white/15 transition hover:bg-white/20">
+                    {pick(category.name, wikiLang)}
+                    <span className="text-xs text-[#e8d3a6]">{articles.length}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {/* The learning path with progress, badges and the certificate. */}
       <div id="lo-trinh" className="scroll-mt-20 border-t border-ink-100 bg-white">
