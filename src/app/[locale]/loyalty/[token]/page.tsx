@@ -45,7 +45,7 @@ export default async function LoyaltyCardPage({ params }: { params: Params }) {
     where: { id: found.id },
     include: {
       business: {
-        select: { id: true, name: true, slug: true, logoUrl: true, city: true, phone: true, loyaltyProgram: true },
+        select: { id: true, ownerId: true, name: true, slug: true, logoUrl: true, city: true, phone: true, loyaltyProgram: true },
       },
       scans: { select: { createdAt: true }, orderBy: { createdAt: "desc" }, take: 30 },
       rewards: { select: { createdAt: true }, orderBy: { createdAt: "desc" }, take: 30 },
@@ -55,8 +55,9 @@ export default async function LoyaltyCardPage({ params }: { params: Params }) {
   const code = await ensureReferralCode(card);
 
   const [session, access] = await Promise.all([auth(), getBusinessAccess()]);
+  // Staff of any branch of the card's owner: the branches share their cards.
   const isStaff =
-    !!access && access.business.id === card.businessId && (access.isOwner || access.permissions.bookings);
+    !!access && access.business.ownerId === card.business.ownerId && (access.isOwner || access.permissions.bookings);
   // The customer looking at their own card (not the salon stamping it): once
   // per 10 minutes, for the marketing studio's "scanned the QR" group.
   if (!isStaff) {

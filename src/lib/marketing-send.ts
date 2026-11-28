@@ -4,7 +4,7 @@ import { sendMarketingMail } from "@/lib/marketing-mailer";
 import { awardPoints } from "@/lib/vara-points";
 import { trackingToken, unsubscribeToken } from "@/lib/marketing-email";
 import { campaignEmail, marketingImageUrl, type CampaignLoyaltyCard, type CampaignSalon } from "@/lib/email/marketing-campaign-email";
-import { SAMPLE_LOYALTY_TOKEN, loyaltyQrPng, newLoyaltyToken } from "@/lib/loyalty";
+import { SAMPLE_LOYALTY_TOKEN, findOwnerCard, loyaltyQrPng, newLoyaltyToken } from "@/lib/loyalty";
 import { SITE_URL } from "@/lib/email/ui";
 import { profileChecklist } from "@/lib/profile-completeness";
 import { DAY_MS, emailDailyLimitFor, emailsSentToday } from "@/lib/email-daily-limit";
@@ -115,24 +115,36 @@ export function renderCampaign(
 }
 
 /** The recipient's loyalty card at this salon — made now if they have none,
- * so the email can welcome them to a new card or remind them of their code. */
+ * so the email can welcome them to a new card or remind them of their code.
+ * A card from another of the owner's branches is theirs here too (it follows
+ * the programme of the branch that made it), so no second card is made. */
 async function cardFor(businessId: string, r: { email: string; name: string }, program: LoyaltyProgram) {
   const email = r.email.toLowerCase();
-  const toBlock = (c: { token: string; customerName: string; points: number }, isNew: boolean): CampaignLoyaltyCard => ({
+  const toBlock = (
+    c: { token: string; customerName: string; points: number },
+    isNew: boolean,
+    p: { pointsRequired: number; discountPercent: number }
+  ): CampaignLoyaltyCard => ({
     token: c.token,
     holder: c.customerName,
     isNew,
     points: c.points,
-    pointsRequired: program.pointsRequired,
-    discountPercent: program.discountPercent,
+    pointsRequired: p.pointsRequired,
+    discountPercent: p.discountPercent,
     qrUrl: `${SITE_URL}/api/email-qr/loyalty/${encodeURIComponent(c.token)}.png`,
   });
-  const existing = await prisma.loyaltyCard.findUnique({ where: { businessId_customerEmail: { businessId, customerEmail: email } } });
-  if (existing) return { block: toBlock(existing, false), createdId: null };
+  const existing = await findOwnerCard(businessId, email);
+  if (existing) {
+    const own =
+      existing.businessId === businessId
+        ? program
+        : ((await prisma.loyaltyProgram.findUnique({ where: { businessId: existing.businessId } })) ?? program);
+    return { block: toBlock(existing, false, own), createdId: null };
+  }
   const created = await prisma.loyaltyCard.create({
     data: { businessId, customerName: r.name.trim() || email.split("@")[0], customerEmail: email, token: await newLoyaltyToken() },
   });
-  return { block: toBlock(created, true), createdId: created.id };
+  return { block: toBlock(created, true, program), createdId: created.id };
 }
 
 /** A sample card for the studio's preview and test emails. Its QR is a

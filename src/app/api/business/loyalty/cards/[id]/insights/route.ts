@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { cardEmails, eligibleVisits } from "@/lib/loyalty";
+import { cardEmails, cardVisitBranchIds, eligibleVisits, ownerBranchIds } from "@/lib/loyalty";
 
 /** Everything the salon knows about one loyalty cardholder: their card, how
  * much they've actually used the salon (matched on the card's email), and
@@ -15,10 +15,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
   const { id } = await params;
-  const businessId = access.business.id;
-
+  // A card of any branch of this owner: one owner's branches share their cards.
   const card = await prisma.loyaltyCard.findFirst({
-    where: { id, businessId },
+    where: { id, businessId: { in: await ownerBranchIds(access.business.id) } },
     include: {
       scans: { orderBy: { createdAt: "desc" }, take: 50, select: { createdAt: true } },
       rewards: { orderBy: { createdAt: "desc" }, take: 50, select: { createdAt: true } },
@@ -27,10 +26,14 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   if (!card) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
   const emails = await cardEmails(card);
+  const visitBranches = await cardVisitBranchIds(card, emails);
   const [program, bookings, scannable] = await Promise.all([
-    prisma.loyaltyProgram.findUnique({ where: { businessId }, select: { pointsRequired: true, discountPercent: true } }),
+    prisma.loyaltyProgram.findUnique({
+      where: { businessId: card.businessId },
+      select: { pointsRequired: true, discountPercent: true },
+    }),
     prisma.booking.findMany({
-      where: { businessId, customer: { email: { in: emails } } },
+      where: { businessId: { in: visitBranches }, customer: { email: { in: emails } } },
       orderBy: { startsAt: "desc" },
       take: 200,
       select: {

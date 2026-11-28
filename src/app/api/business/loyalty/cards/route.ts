@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { sendMail } from "@/lib/mailer";
 import { loyaltyCardEmail } from "@/lib/email/loyalty-card-email";
 import { formatMoney } from "@/lib/money";
-import { loyaltyQrPng, newLoyaltyToken } from "@/lib/loyalty";
+import { findOwnerCard, loyaltyQrPng, newLoyaltyToken } from "@/lib/loyalty";
 import { profileLockedError } from "@/lib/profile-completeness";
 
 export async function GET() {
@@ -62,10 +62,8 @@ export async function POST(req: Request) {
   });
   if (!program) return NextResponse.json({ error: "NO_PROGRAM" }, { status: 409 });
 
-  const existing = await prisma.loyaltyCard.findUnique({
-    where: { businessId_customerEmail: { businessId: owned.businessId, customerEmail: email } },
-    select: { id: true },
-  });
+  // A card from any of the owner's branches already works here.
+  const existing = await findOwnerCard(owned.businessId, email);
   if (existing) return NextResponse.json({ error: "ALREADY_ACTIVE" }, { status: 409 });
 
   const token = await newLoyaltyToken();
